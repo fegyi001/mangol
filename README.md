@@ -5,7 +5,7 @@
 [![devDependency Status](https://david-dm.org/fegyi001/mangol/dev-status.svg)](https://david-dm.org/fegyi001/mangol#info=devDependencies)
 
 ## About Mangol
-Mangol is an open source library for combining Angular2 and OpenLayers3 to create modern, responsive interactive web maps (_M_ stands for _maps_, _ang_ for _Angular_ and _ol_ for _OpenLayers_). The project has been created using [angular-cli](https://cli.angular.io/), a command-line tool for Angular2 projects. The project is written in TypeScript and uses SCSS for styling. It has been built with the latest Angular2 (2.2.3) and TypeScript2 (2.0.10). The packaging is done via Webpack module bundler.
+Mangol is an open source library for combining [Angular2](https://angular.io/) and [OpenLayers3](https://openlayers.org/) to create modern, responsive interactive web maps (_M_ stands for _maps_, _ang_ for _Angular_ and _ol_ for _OpenLayers_). The project has been created using [angular-cli](https://cli.angular.io/), a command-line tool for Angular2 projects. The project is written in TypeScript and uses SCSS for styling. It has been built with the latest Angular2 (2.2.3) and TypeScript2 (2.0.10). The packaging is done via [Webpack module bundler](https://webpack.github.io/).
 
 Formerly, Mangol was called `ng2ol3` and was based on SystemJS without angular-cli.
 
@@ -26,11 +26,6 @@ If you would like to use Mangol as an npm library in your Angular2 (TypeScript) 
 First, add Mangol as a dependency to your project: 
 ```batch
 npm install mangol --save 
-```
-
-Then download the library:
-```batch
-npm install
 ```
 
 You have to add to your `app.module.ts` (or whatever you call it in your project, the one that gets bootstrapped in main.ts) 
