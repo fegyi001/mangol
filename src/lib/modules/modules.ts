@@ -3,14 +3,17 @@ import { NgModule, ModuleWithProviders } from '@angular/core';
 // import {} from './core/index';
 
 import { MangolMapModule } from './map/index';
+import { MangolContainerModule } from './container/index';
 
 const MANGOL_MODULES = [
-    MangolMapModule
+    MangolMapModule,
+    MangolContainerModule
 ];
 
 @NgModule({
     imports: [
-        MangolMapModule.forRoot()
+        MangolMapModule.forRoot(),
+        MangolContainerModule.forRoot()
     ],
     exports: MANGOL_MODULES,
 })

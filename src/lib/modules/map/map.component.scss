@@ -1,5 +1,34 @@
 @import "../../../mangol";
-
 .mangol-map {
-    color: rgba($action-color, 0.5);
+  z-index: 0;
+  vertical-align: top;
+  & .custom-buttons {
+    position: absolute;
+    color: white;
+    z-index: 20;
+    $left-margin: 1em;
+    & .md-ripple-background,
+    & .md-ripple-foreground {
+      display: none !important;
+    }
+    & .sidebar {
+      margin-top: 3em;
+      margin-left: $left-margin;
+    }
+    & .zoom-in {
+      margin-top: 1em;
+      margin-left: $left-margin;
+    }
+    & .zoom-out {
+      margin-left: $left-margin;
+      margin-top: 0.5em;
+    }
+    & .sidebar {
+      top: 6em;
+      left: 0.5em;
+    }
+  }
+  & .mangol-map-div {
+    height: 100%;
+  }
 }

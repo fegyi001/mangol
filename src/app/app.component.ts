@@ -7,7 +7,7 @@ import { Component, Inject } from '@angular/core';
     <div class="mangol-demo">
       <div class="ribbon-box">
             <div class="ribbon-wrapper">
-                <a href="https://github.com/fegyi001/ng2ol3" target="_blank" title="GitHub repository">
+                <a href="https://github.com/fegyi001/mangol" target="_blank" title="GitHub repository">
                     <div class="ribbon">
                         <i class="fa fa-github"></i>
                     </div>
