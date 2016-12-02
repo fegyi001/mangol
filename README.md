@@ -7,6 +7,8 @@
 ## About Mangol
 Mangol is an open source library for combining Angular2 and OpenLayers3 to create modern, responsive interactive web maps (_M_ stands for _maps_, _ang_ for _Angular_ and _ol_ for _OpenLayers_). The project has been created using [angular-cli](https://cli.angular.io/), a command-line tool for Angular2 projects. The project is written in TypeScript and uses SCSS for styling. It has been built with the latest Angular2 (2.2.3) and TypeScript2 (2.0.10). The packaging is done via Webpack module bundler.
 
+Formerly, Mangol was called `ng2ol3` and was based on SystemJS without angular-cli.
+
 ## Install
 [Node.js with npm](https://nodejs.org/en/download/) is required. The preferenced version of Node.js is 6.9.1 LTS, the preferenced version of npm is 4.x.x. After `git clone`, navigate to the main directory and run ```npm install``` to download all dependencies.
 
