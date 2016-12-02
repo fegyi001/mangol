@@ -1,0 +1,22 @@
+.ol-control {
+    & button {
+        background-color: $action-color !important;
+        font-weight: normal !important;
+        font-family: $font-stack-system !important;
+        font-size: 1.5em !important;
+        border-radius: $base-border-radius !important;
+
+        &:hover,
+        &:focus {
+            background-color: shade($action-color, 20%) !important;
+        }
+    }
+}
+
+.ol-zoom {
+    display: none !important;
+}
+
+.ol-attribution {
+    display: none !important;
+}

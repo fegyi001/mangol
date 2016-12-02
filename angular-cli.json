@@ -1,6 +1,6 @@
 {
   "project": {
-    "version": "1.0.0-beta.21",
+    "version": "1.0.0-beta.22",
     "name": "mangol"
   },
   "apps": [
@@ -15,12 +15,21 @@
       "main": "main.ts",
       "test": "test.ts",
       "tsconfig": "tsconfig.json",
-      "prefix": "app",
+      "prefix": "mangol",
       "mobile": false,
       "styles": [
-        "styles.sass"
+        "../node_modules/openlayers/dist/ol.css",
+        "../node_modules/font-awesome/css/font-awesome.min.css",
+        "../vendor/mapskin/css/mapskin.min.css",
+        "../vendor/material-icons/material-icons.css",
+        "mangol.scss",
+        "demo.scss"
       ],
-      "scripts": [],
+      "scripts": [
+        "../node_modules/openlayers/dist/ol.js",
+        "../node_modules/proj4/dist/proj4.js",
+        "../node_modules/jspdf/dist/jspdf.min.js"
+      ],
       "environments": {
         "source": "environments/environment.ts",
         "dev": "environments/environment.ts",
@@ -28,8 +37,10 @@
       }
     }
   ],
-  "addons": [],
-  "packages": [],
+  "addons": [
+  ],
+  "packages": [
+  ],
   "e2e": {
     "protractor": {
       "config": "./protractor.conf.js"
@@ -41,11 +52,11 @@
     }
   },
   "defaults": {
-    "styleExt": "sass",
+    "styleExt": "scss",
     "prefixInterfaces": false,
     "inline": {
       "style": false,
-      "template": false
+      "template": true
     },
     "spec": {
       "class": false,

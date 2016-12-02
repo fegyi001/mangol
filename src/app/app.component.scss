@@ -1,0 +1,45 @@
+.mangol-demo {
+  font-style: normal;
+  position: relative;
+  & h1 {
+    font-weight: 400;
+  }
+  & .demo {
+    max-width: 1200px;
+    margin-left: auto;
+    margin-right: auto;
+    padding: 20px;
+  }
+  & .demo-header {
+    padding-bottom: 20px;
+  }
+  & .divider {
+    color: #333333;
+    padding-left: 10px;
+    padding-right: 10px;
+  }
+  & button {
+    text-transform: uppercase;
+    font-weight: normal;
+  }
+  & .demo-content {
+    border: 1px dashed rgba(0, 0, 0, 0.15);
+    padding: 6px;
+  }
+  & .ol-viewport {
+    height: 500px !important;
+  }
+  & .ribbon-box {
+    float: right !important;
+    right: 1px;
+  }
+  & .ribbon i {
+    font-size: 2em;
+  }
+  & nav {
+    line-height: 2.5em;
+  }
+  & nav button {
+    color: white !important;
+  }
+}

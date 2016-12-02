@@ -1,0 +1,815 @@
+/*!
+ *  mapskin - Geospatial Web Font
+ *  URL: http://mapsk.in
+ *  Version: 1.0
+ *  License: SIL OFL 1.1
+ *  Author: Nicolas Bozon
+ */
+
+@font-face {
+    font-family: 'mapskin';
+    src:url('../fonts/mapskin.eot');
+    src:url('../fonts/mapskin.eot') format('embedded-opentype'),
+        url('../fonts/mapskin.ttf') format('truetype'),
+        url('../fonts/mapskin.woff') format('woff'),
+        url('../fonts/mapskin.svg') format('svg');
+    font-weight: normal;
+    font-style: normal;
+}
+
+.ms {
+
+  display: inline-block;
+  font: normal normal normal 14px/1 mapskin;
+  font-size: inherit;
+  text-rendering: auto;
+  text-transform: none;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+}
+
+.ms-2x {
+  font-size: 2em;
+}
+.ms-3x {
+  font-size: 3em;
+}
+.ms-4x {
+  font-size: 4em;
+}
+.ms-5x {
+  font-size: 5em;
+}
+.ms-6x {
+  font-size: 6em;
+}
+.ms-7x {
+  font-size: 7em;
+}
+.ms-8x {
+  font-size: 8em;
+}
+.ms-9x {
+  font-size: 9em;
+}
+.ms-10x {
+  font-size: 10em;
+}
+
+.ms-fw {
+  width: 1.28571429em;
+  text-align: center;
+}
+
+
+.ms-plus:before {
+    content: "\e001";
+}
+.ms-minus:before {
+    content: "\e002";
+}
+.ms-zoom:before {
+    content: "\e003";
+}
+.ms-zoom-in:before {
+    content: "\e004";
+}
+.ms-zoom-out:before {
+    content: "\e005";
+}
+.ms-zoom-previous:before {
+    content: "\e006";
+}
+.ms-zoom-next:before {
+    content: "\e007";
+}
+.ms-zoom-to:before {
+    content: "\e008";
+}
+.ms-zoom-to-point:before {
+    content: "\e009";
+}
+.ms-zoom-to-extent:before {
+    content: "\e00a";
+}
+.ms-zoom-to-max-extent:before {
+    content: "\e00b";
+}
+.ms-zoom-box:before {
+    content: "\e00c";
+}
+.ms-search-zoom:before {
+    content: "\e00d";
+}
+.ms-search-eye:before {
+    content: "\e00e";
+}
+.ms-select-hand:before {
+    content: "\e00f";
+}
+.ms-pinch-hand:before {
+    content: "\e010";
+}
+.ms-grab-hand:before {
+    content: "\e011";
+}
+.ms-pan-hand:before {
+    content: "\e012";
+}
+.ms-pan:before {
+    content: "\e013";
+}
+.ms-max-extent:before {
+    content: "\e014";
+}
+.ms-min-extent:before {
+    content: "\e015";
+}
+.ms-minimize:before {
+    content: "\e016";
+}
+.ms-maximize:before {
+    content: "\e017";
+}
+.ms-select-arrow:before {
+    content: "\e018";
+}
+.ms-select-box:before {
+    content: "\e019";
+}
+.ms-draw:before {
+    content: "\e01a";
+}
+.ms-draw-point:before {
+    content: "\e01b";
+}
+.ms-draw-line:before {
+    content: "\e01c";
+}
+.ms-draw-polygon:before {
+    content: "\e01d";
+}
+.ms-draw-extent:before {
+    content: "\e01e";
+}
+.ms-measure-distance:before {
+    content: "\e01f";
+}
+.ms-measure-area:before {
+    content: "\e020";
+}
+.ms-topographic-profile:before {
+    content: "\e021";
+}
+.ms-identify:before {
+    content: "\e022";
+}
+.ms-identify-box:before {
+    content: "\e023";
+}
+.ms-information:before {
+    content: "\e024";
+}
+.ms-streetview:before {
+    content: "\e025";
+}
+.ms-link:before {
+    content: "\e026";
+}
+.ms-permalink:before {
+    content: "\e027";
+}
+.ms-qr-code:before {
+    content: "\e028";
+}
+.ms-geolocation:before {
+    content: "\e029";
+}
+.ms-track-position:before {
+    content: "\e02a";
+}
+.ms-crosshair:before {
+    content: "\e02b";
+}
+.ms-help:before {
+    content: "\e02c";
+}
+.ms-support:before {
+    content: "\e02d";
+}
+.ms-north-arrow:before {
+    content: "\e02e";
+}
+.ms-graticule:before {
+    content: "\e02f";
+}
+.ms-settings:before {
+    content: "\e030";
+}
+.ms-tool:before {
+    content: "\e031";
+}
+.ms-tools:before {
+    content: "\e032";
+}
+.ms-directory:before {
+    content: "\e033";
+}
+.ms-directory-o:before {
+    content: "\e034";
+}
+.ms-directory-open:before {
+    content: "\e035";
+}
+.ms-directory-open-o:before {
+    content: "\e036";
+}
+.ms-database:before {
+    content: "\e037";
+}
+.ms-database-o:before {
+    content: "\e038";
+}
+.ms-data-cube:before {
+    content: "\e039";
+}
+.ms-data-cube-o:before {
+    content: "\e03a";
+}
+.ms-cloud-o:before {
+    content: "\e03b";
+}
+.ms-cloud:before {
+    content: "\e03c";
+}
+.ms-ogc-web-services:before {
+    content: "\e03d";
+}
+.ms-ogc-wmts:before {
+    content: "\e03e";
+}
+.ms-ogc-wms:before {
+    content: "\e03f";
+}
+.ms-ogc-wfs:before {
+    content: "\e040";
+}
+.ms-ogc-wcs:before {
+    content: "\e041";
+}
+.ms-ogc-csw:before {
+    content: "\e042";
+}
+.ms-catalog:before {
+    content: "\e043";
+}
+.ms-vector:before {
+    content: "\e044";
+}
+.ms-points:before {
+    content: "\e045";
+}
+.ms-line:before {
+    content: "\e046";
+}
+.ms-polygon:before {
+    content: "\e047";
+}
+.ms-raster:before {
+    content: "\e048";
+}
+.ms-tiles:before {
+    content: "\e049";
+}
+.ms-tiles-o:before {
+    content: "\e04a";
+}
+.ms-ogc-gml:before {
+    content: "\e04b";
+}
+.ms-geojson:before {
+    content: "\e04c";
+}
+.ms-osm:before {
+    content: "\e04d";
+}
+.ms-oam:before {
+    content: "\e04e";
+}
+.ms-txt:before {
+    content: "\e04f";
+}
+.ms-txt-o:before {
+    content: "\e050";
+}
+.ms-xyz:before {
+    content: "\e051";
+}
+.ms-xyz-o:before {
+    content: "\e052";
+}
+.ms-csv:before {
+    content: "\e053";
+}
+.ms-csv-o:before {
+    content: "\e054";
+}
+.ms-gcp:before {
+    content: "\e055";
+}
+.ms-gcp-o:before {
+    content: "\e056";
+}
+.ms-img:before {
+    content: "\e057";
+}
+.ms-img-o:before {
+    content: "\e058";
+}
+.ms-pdf:before {
+    content: "\e059";
+}
+.ms-pdf-o:before {
+    content: "\e05a";
+}
+.ms-kml:before {
+    content: "\e05b";
+}
+.ms-shp:before {
+    content: "\e05c";
+}
+.ms-map:before {
+    content: "\e05d";
+}
+.ms-map-o:before {
+    content: "\e05e";
+}
+.ms-map-folded:before {
+    content: "\e05f";
+}
+.ms-map-folded-o:before {
+    content: "\e060";
+}
+.ms-map-rolled-o:before {
+    content: "\e061";
+}
+.ms-mapskin:before {
+    content: "\e062";
+}
+.ms-globe:before {
+    content: "\e063";
+}
+.ms-sphere:before {
+    content: "\e064";
+}
+.ms-table:before {
+    content: "\e065";
+}
+.ms-table-col:before {
+    content: "\e066";
+}
+.ms-table-row:before {
+    content: "\e067";
+}
+.ms-table-cell:before {
+    content: "\e068";
+}
+.ms-line-chart:before {
+    content: "\e069";
+}
+.ms-area-chart:before {
+    content: "\e06a";
+}
+.ms-bar-chart:before {
+    content: "\e06b";
+}
+.ms-pie-chart:before {
+    content: "\e06c";
+}
+.ms-donut-chart:before {
+    content: "\e06d";
+}
+.ms-indicator:before {
+    content: "\e06e";
+}
+.ms-layers:before {
+    content: "\e06f";
+}
+.ms-layers-o:before {
+    content: "\e070";
+}
+.ms-layers-base:before {
+    content: "\e071";
+}
+.ms-layers-overlay:before {
+    content: "\e072";
+}
+.ms-layers-add:before {
+    content: "\e073";
+}
+.ms-layers-order:before {
+    content: "\e074";
+}
+.ms-layers-active:before {
+    content: "\e075";
+}
+.ms-layers-inactive:before {
+    content: "\e076";
+}
+.ms-layer:before {
+    content: "\e077";
+}
+.ms-layer-vector:before {
+    content: "\e078";
+}
+.ms-layer-raster:before {
+    content: "\e079";
+}
+.ms-layer-add:before {
+    content: "\e07a";
+}
+.ms-layer-export:before {
+    content: "\e07b";
+}
+.ms-layer-metadata:before {
+    content: "\e07c";
+}
+.ms-layer-srs:before {
+    content: "\e07d";
+}
+.ms-layer-security:before {
+    content: "\e07e";
+}
+.ms-layer-attribution:before {
+    content: "\e07f";
+}
+.ms-layer-max-scale:before {
+    content: "\e080";
+}
+.ms-layer-min-scale:before {
+    content: "\e081";
+}
+.ms-layer-settings:before {
+    content: "\e082";
+}
+.ms-ogc-sld:before {
+    content: "\e083";
+}
+.ms-style:before {
+    content: "\e084";
+}
+.ms-style-o:before {
+    content: "\e085";
+}
+.ms-label:before {
+    content: "\e086";
+}
+.ms-label-o:before {
+    content: "\e087";
+}
+.ms-labels:before {
+    content: "\e088";
+}
+.ms-classify:before {
+    content: "\e089";
+}
+.ms-discretize:before {
+    content: "\e08a";
+}
+.ms-fill:before {
+    content: "\e08b";
+}
+.ms-hatch-fill:before {
+    content: "\e08c";
+}
+.ms-gradient-fill:before {
+    content: "\e08d";
+}
+.ms-background-fill:before {
+    content: "\e08e";
+}
+.ms-stroke:before {
+    content: "\e08f";
+}
+.ms-dashed-stroke:before {
+    content: "\e090";
+}
+.ms-dotted-stroke:before {
+    content: "\e091";
+}
+.ms-hue:before {
+    content: "\e092";
+}
+.ms-transparency:before {
+    content: "\e093";
+}
+.ms-opacity:before {
+    content: "\e094";
+}
+.ms-contrast:before {
+    content: "\e095";
+}
+.ms-tint:before {
+    content: "\e096";
+}
+.ms-tone:before {
+    content: "\e097";
+}
+.ms-color-wheel:before {
+    content: "\e098";
+}
+.ms-color-hexa:before {
+    content: "\e099";
+}
+.ms-color-picker:before {
+    content: "\e09a";
+}
+.ms-dropper:before {
+    content: "\e09b";
+}
+.ms-brush:before {
+    content: "\e09c";
+}
+.ms-pen:before {
+    content: "\e09d";
+}
+.ms-pencil:before {
+    content: "\e09e";
+}
+.ms-quill:before {
+    content: "\e09f";
+}
+.ms-ogc-wps:before {
+    content: "\e0a0";
+}
+.ms-process:before {
+    content: "\e0a1";
+}
+.ms-processes:before {
+    content: "\e0a2";
+}
+.ms-model:before {
+    content: "\e0a3";
+}
+.ms-transform:before {
+    content: "\e0a4";
+}
+.ms-convert:before {
+    content: "\e0a5";
+}
+.ms-crop:before {
+    content: "\e0a6";
+}
+.ms-resample:before {
+    content: "\e0a7";
+}
+.ms-filter:before {
+    content: "\e0a8";
+}
+.ms-mask:before {
+    content: "\e0a9";
+}
+.ms-merge:before {
+    content: "\e0aa";
+}
+.ms-mosaic:before {
+    content: "\e0ab";
+}
+.ms-set-srs:before {
+    content: "\e0ac";
+}
+.ms-project:before {
+    content: "\e0ad";
+}
+.ms-reproject:before {
+    content: "\e0ae";
+}
+.ms-triangulate:before {
+    content: "\e0af";
+}
+.ms-interpolate:before {
+    content: "\e0b0";
+}
+.ms-contour-lines:before {
+    content: "\e0b1";
+}
+.ms-shaded-relief:before {
+    content: "\e0b2";
+}
+.ms-watershed:before {
+    content: "\e0b3";
+}
+.ms-rasterize:before {
+    content: "\e0b4";
+}
+.ms-vectorize:before {
+    content: "\e0b5";
+}
+.ms-spatial-query:before {
+    content: "\e0b6";
+}
+.ms-union:before {
+    content: "\e0b7";
+}
+.ms-intersection:before {
+    content: "\e0b8";
+}
+.ms-difference:before {
+    content: "\e0b9";
+}
+.ms-boundary:before {
+    content: "\e0ba";
+}
+.ms-buffer:before {
+    content: "\e0bb";
+}
+.ms-centroid:before {
+    content: "\e0bc";
+}
+.ms-satellite:before {
+    content: "\e0bd";
+}
+.ms-nano-satellite:before {
+    content: "\e0be";
+}
+.ms-drone-wing:before {
+    content: "\e0bf";
+}
+.ms-drone-wing-off:before {
+    content: "\e0c0";
+}
+.ms-drone-quad:before {
+    content: "\e0c1";
+}
+.ms-drone-quad-off:before {
+    content: "\e0c2";
+}
+.ms-drone-quad-nano:before {
+    content: "\e0c3";
+}
+.ms-drone-remote:before {
+    content: "\e0c4";
+}
+.ms-sensor:before {
+    content: "\e0c5";
+}
+.ms-gps:before {
+    content: "\e0c6";
+}
+.ms-mobile-phone:before {
+    content: "\e0c7";
+}
+.ms-tablet:before {
+    content: "\e0c8";
+}
+.ms-laptop:before {
+    content: "\e0c9";
+}
+.ms-laptop-off:before {
+    content: "\e0ca";
+}
+.ms-screen:before {
+    content: "\e0cb";
+}
+.ms-screen-off:before {
+    content: "\e0cc";
+}
+.ms-server:before {
+    content: "\e0cd";
+}
+.ms-printer:before {
+    content: "\e0ce";
+}
+.ms-scanner:before {
+    content: "\e0cf";
+}
+.ms-camera:before {
+    content: "\e0d0";
+}
+.ms-video-camera:before {
+    content: "\e0d1";
+}
+.ms-action-camera:before {
+    content: "\e0d2";
+}
+.ms-sd-card:before {
+    content: "\e0d3";
+}
+.ms-usb-stick:before {
+    content: "\e0d4";
+}
+.ms-gdal:before {
+    content: "\e0d5";
+}
+.ms-grass-gis:before {
+    content: "\e0d6";
+}
+.ms-mapserver:before {
+    content: "\e0d7";
+}
+.ms-postgis:before {
+    content: "\e0d8";
+}
+.ms-qgis:before {
+    content: "\e0d9";
+}
+.ms-mapnik:before {
+    content: "\e0da";
+}
+.ms-zoo-project:before {
+    content: "\e0db";
+}
+.ms-geotools:before {
+    content: "\e0dc";
+}
+.ms-udig:before {
+    content: "\e0dd";
+}
+.ms-geoserver:before {
+    content: "\e0de";
+}
+.ms-gvsig:before {
+    content: "\e0df";
+}
+.ms-geoext:before {
+    content: "\e0e0";
+}
+.ms-geomajas:before {
+    content: "\e0e1";
+}
+.ms-geopaparazzi:before {
+    content: "\e0e2";
+}
+.ms-openlayers:before {
+    content: "\e0e3";
+}
+.ms-leaflet:before {
+    content: "\e0e4";
+}
+.ms-geomoose:before {
+    content: "\e0e5";
+}
+.ms-geonode:before {
+    content: "\e0e6";
+}
+.ms-opengeo-suite:before {
+    content: "\e0e7";
+}
+.ms-mapmint:before {
+    content: "\e0e8";
+}
+.ms-pycsw:before {
+    content: "\e0e9";
+}
+.ms-mapbox:before {
+    content: "\e0ea";
+}
+.ms-cartodb:before {
+    content: "\e0eb";
+}
+.ms-cesium:before {
+    content: "\e0ec";
+}
+.ms-foss4g:before {
+    content: "\e0ed";
+}
+.ms-foss4g-o:before {
+    content: "\e0ee";
+}
+.ms-osgeo:before {
+    content: "\e0ef";
+}
+.ms-osgeo-board:before {
+    content: "\e0f0";
+}
+.ms-osgeo-committee:before {
+    content: "\e0f1";
+}
+.ms-osgeo-local-chapter:before {
+    content: "\e0f2";
+}
+.ms-osgeo-charter-member:before {
+    content: "\e0f3";
+}
+.ms-osgeo-live:before {
+    content: "\e0f4";
+}
+.ms-geoforall:before {
+    content: "\e0f5";
+}
+.ms-ogc-certified:before {
+    content: "\e0f6";
+}
+.ms-locationtech:before {
+    content: "\e0f7";
+}
+.ms-gis-day:before {
+    content: "\e0f8";
+}
+.ms-map-year:before {
+    content: "\e0f9";
+}
+.ms-molamola:before {
+    content: "\e0fa";
+}
+
