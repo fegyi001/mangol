@@ -20,6 +20,8 @@ import { Component, Inject } from '@angular/core';
                 <nav>
                     <button md-raised-button color="primary" routerLink="/demo-map" routerLinkActive="active"
                         [routerLinkActiveOptions]="{ exact: true }">map</button>
+                    <button md-raised-button color="primary" routerLink="/demo-sidebar" routerLinkActive="active"
+                        [routerLinkActiveOptions]="{ exact: true }">sidebar</button>
                 </nav>
             </div>
             <div class="demo-content">

@@ -57,7 +57,7 @@ You also have to add some vendor css & js files. If you use Webpack and created 
     "../node_modules/font-awesome/css/font-awesome.min.css",
     "../node_modules/mangol/vendor/mapskin/css/mapskin.min.css",
     "../node_modules/mangol/vendor/material-icons/material-icons.css",
-    "../node_modules/mangol/src/mangol.scss",
+    "../node_modules/mangol/src/assets/mangol.scss",
 ],
 "scripts": [
     "../node_modules/openlayers/dist/ol.js",

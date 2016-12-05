@@ -1,8 +1,9 @@
 import { ModuleWithProviders } from '@angular/core';
 import { Routes, RouterModule } from '@angular/router';
 import {
-    DemoMapComponent
-} from './demos/demo-map';
+    DemoMapComponent,
+    DemoSidebarComponent
+} from './demos/_index';
 
 const appRoutes: Routes = [
     {
@@ -13,6 +14,9 @@ const appRoutes: Routes = [
     }, {
         path: 'demo-map',
         component: DemoMapComponent
+    }, {
+        path: 'demo-sidebar',
+        component: DemoSidebarComponent
     }
 ];
 

@@ -2,18 +2,23 @@ import { NgModule, ModuleWithProviders } from '@angular/core';
 
 // import {} from './core/index';
 
-import { MangolMapModule } from './map/index';
-import { MangolContainerModule } from './container/index';
+import { MangolMapModule } from './map';
+import { MangolContainerModule } from './container';
+import { MangolSidebarModule } from './sidebar';
+import {MangolToolbarModule} from './toolbar';
 
 const MANGOL_MODULES = [
     MangolMapModule,
-    MangolContainerModule
+    MangolContainerModule,
+    MangolSidebarModule,
+    MangolToolbarModule
 ];
 
 @NgModule({
     imports: [
         MangolMapModule.forRoot(),
-        MangolContainerModule.forRoot()
+        MangolContainerModule.forRoot(),
+        MangolSidebarModule.forRoot()
     ],
     exports: MANGOL_MODULES,
 })

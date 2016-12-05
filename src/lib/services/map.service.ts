@@ -1,5 +1,5 @@
 import { Injectable } from '@angular/core';
-import { MangolMap } from '../core/index';
+import { MangolMap } from '../core/_index';
 
 @Injectable()
 export class MangolMapService {

@@ -9,12 +9,14 @@ import { LocationStrategy, HashLocationStrategy } from '@angular/common';
 import {MangolModule} from '../lib/index';
 
 import { MangolDemoComponent } from './app.component';
-import { DemoMapComponent } from './demos/demo-map';
+
+import { DemoMapComponent, DemoSidebarComponent } from './demos/_index';
 
 @NgModule({
   declarations: [
     MangolDemoComponent,
-    DemoMapComponent
+    DemoMapComponent,
+    DemoSidebarComponent
   ],
   imports: [
     BrowserModule,

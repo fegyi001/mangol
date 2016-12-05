@@ -8,7 +8,10 @@
     "lint": "tslint \"src/**/*.ts\"",
     "test": "ng test",
     "pree2e": "webdriver-manager update",
-    "e2e": "protractor"
+    "e2e": "protractor",
+    "tsc": "tsc",
+    "build-css": "node-sass src/assets/scss --output src/assets/css --output-style compressed --source-map true",
+    "watch-scss": "nodemon -e scss -x \"npm run build-css\""
   },
   "private": false,
   "dependencies": {
@@ -39,6 +42,7 @@
     "@types/proj4": "^2.3.2",
     "angular-cli": "^1.0.0-beta.22",
     "codelyzer": "~2.0.0-beta.1",
+    "concurrently": "^3.1.0",
     "jasmine-core": "2.5.2",
     "jasmine-spec-reporter": "2.5.0",
     "karma": "1.2.0",
@@ -46,6 +50,7 @@
     "karma-cli": "^1.0.1",
     "karma-jasmine": "^1.0.2",
     "karma-remap-istanbul": "^0.2.1",
+    "nodemon": "^1.11.0",
     "protractor": "4.0.9",
     "ts-node": "1.2.1",
     "tslint": "^4.0.2",

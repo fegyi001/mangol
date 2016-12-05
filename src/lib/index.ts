@@ -1,5 +1,3 @@
-export * from './core/index';
-export * from './modules/index';
-
-export * from './modules/map/index';
-export * from './modules/container/index';
+export * from './core/_index';
+export * from './modules/_index';
+export * from './services/_index';
