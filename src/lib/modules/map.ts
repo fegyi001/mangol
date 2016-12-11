@@ -6,8 +6,8 @@ import { MangolMapService } from '../services/_index';
 import { MangolMap } from '../core/_index';
 
 @Component({
-    selector: 'mangol-map',
-    template: `
+  selector: 'mangol-map',
+  template: `
       <div>
           <div class="custom-buttons">
               <div class="zoom-in" (click)="zoomIn()">
@@ -29,102 +29,102 @@ import { MangolMap } from '../core/_index';
           <div [attr.id]="target" class="mangol-map-div"></div>
       </div>
   `,
-    providers: [MangolMapService]
+  providers: [MangolMapService]
 })
 export class MangolMapComponent implements AfterViewInit, OnInit {
-    @HostBinding('class') class = 'mangol-map';
+  @HostBinding('class') class = 'mangol-map';
 
-    @Input() options: any;
-    @Output() mapCreated = new EventEmitter();
-    @Output() sidebarToggled = new EventEmitter();
+  @Input() options: any;
+  @Output() mapCreated = new EventEmitter();
+  @Output() sidebarToggled = new EventEmitter();
 
-    map: MangolMap;
-    view: ol.View;
-    target: string;
-    hasSidebar: boolean;
-    zoomDuration: number = 500;
-    sidebarCollapsible: boolean = false;
+  map: MangolMap;
+  view: ol.View;
+  target: string;
+  hasSidebar: boolean;
+  zoomDuration: number = 500;
+  sidebarCollapsible: boolean = false;
 
-    constructor(private mapService: MangolMapService) {
+  constructor(private mapService: MangolMapService) {
 
-    }
+  }
 
-    ngOnInit() {
-        this.hasSidebar = this.options.hasOwnProperty('sidebar');
-        this.sidebarCollapsible = (this.hasSidebar && this.options.sidebar.hasOwnProperty('collapsible'))
-            ? this.options.sidebar.collapsible : false;
-        this.target = this.options.map.target;
-        this.view = new ol.View({
-            projection: this.options.map.hasOwnProperty('view') && this.options.map.view.hasOwnProperty('projection')
-                ? this.options.map.view.projection : 'EPSG:900913',
-            center: this.options.map.hasOwnProperty('view') && this.options.map.view.hasOwnProperty('center')
-                ? this.options.map.view.center : ol.proj.fromLonLat([19.3956393810065, 47.168464955013], 'EPSG:900913'),
-            zoom: this.options.map.hasOwnProperty('view') && this.options.map.view.hasOwnProperty('zoom')
-                ? this.options.map.view.zoom : 7,
-            resolutions: this.options.map.hasOwnProperty('view') && this.options.map.view.hasOwnProperty('resolutions')
-                ? this.options.map.view.resolutions : undefined
-        });
-    }
+  ngOnInit() {
+    this.hasSidebar = this.options.hasOwnProperty('sidebar');
+    this.sidebarCollapsible = (this.hasSidebar && this.options.sidebar.hasOwnProperty('collapsible'))
+      ? this.options.sidebar.collapsible : false;
+    this.target = this.options.map.target;
+    this.view = new ol.View({
+      projection: this.options.map.hasOwnProperty('view') && this.options.map.view.hasOwnProperty('projection')
+        ? this.options.map.view.projection : 'EPSG:900913',
+      center: this.options.map.hasOwnProperty('view') && this.options.map.view.hasOwnProperty('center')
+        ? this.options.map.view.center : ol.proj.fromLonLat([19.3956393810065, 47.168464955013], 'EPSG:900913'),
+      zoom: this.options.map.hasOwnProperty('view') && this.options.map.view.hasOwnProperty('zoom')
+        ? this.options.map.view.zoom : 7,
+      resolutions: this.options.map.hasOwnProperty('view') && this.options.map.view.hasOwnProperty('resolutions')
+        ? this.options.map.view.resolutions : undefined
+    });
+  }
 
-    ngAfterViewInit(): any {
-        this.map = new MangolMap({
-            layers: [],
-            target: this.target,
-            view: this.view
-        });
+  ngAfterViewInit(): any {
+    this.map = new MangolMap({
+      layers: [],
+      target: this.target,
+      view: this.view
+    });
 
-        // register the map in the injectable mapService
-        this.mapService.addMap(this.map);
+    // register the map in the injectable mapService
+    this.mapService.addMap(this.map);
 
-        this.map.addLayersAndLayerGroups(this.options.map.layers);
-        this.mapCreated.emit(this.map);
-        this.map.updateSize();
-    }
+    this.map.addLayersAndLayerGroups(this.options.map.layers);
+    this.mapCreated.emit(this.map);
+    this.map.updateSize();
+  }
 
-    public zoomIn(): void {
-        let zoom = ol.animation.zoom({
-            duration: this.zoomDuration,
-            resolution: this.map.getView().getResolution(),
-            easing: ol.easing.inAndOut
-        });
-        this.map.beforeRender(zoom);
-        this.map.getView().setResolution(this.map.getView().getResolution() * 0.5);
-    }
+  public zoomIn(): void {
+    let zoom = ol.animation.zoom({
+      duration: this.zoomDuration,
+      resolution: this.map.getView().getResolution(),
+      easing: ol.easing.inAndOut
+    });
+    this.map.beforeRender(zoom);
+    this.map.getView().setResolution(this.map.getView().getResolution() * 0.5);
+  }
 
-    public zoomOut(): void {
-        let zoom = ol.animation.zoom({
-            duration: this.zoomDuration,
-            resolution: this.map.getView().getResolution(),
-            easing: ol.easing.inAndOut
-        });
-        this.map.beforeRender(zoom);
-        this.map.getView().setResolution(this.map.getView().getResolution() * 2);
-    }
+  public zoomOut(): void {
+    let zoom = ol.animation.zoom({
+      duration: this.zoomDuration,
+      resolution: this.map.getView().getResolution(),
+      easing: ol.easing.inAndOut
+    });
+    this.map.beforeRender(zoom);
+    this.map.getView().setResolution(this.map.getView().getResolution() * 2);
+  }
 
-    public toggleSidebar(): void {
-        this.sidebarToggled.emit();
-    }
+  public toggleSidebar(): void {
+    this.sidebarToggled.emit();
+  }
 
 }
 
 @NgModule({
-    imports: [
-        CommonModule,
-        MaterialModule.forRoot()
-    ],
-    exports: [
-        MangolMapComponent
-    ],
-    declarations: [
-        MangolMapComponent
-    ]
+  imports: [
+    CommonModule,
+    MaterialModule.forRoot()
+  ],
+  exports: [
+    MangolMapComponent
+  ],
+  declarations: [
+    MangolMapComponent
+  ]
 })
 export class MangolMapModule {
-    static forRoot(): ModuleWithProviders {
-        return {
-            ngModule: MangolMapModule,
-            providers: []
-        };
-    }
+  static forRoot(): ModuleWithProviders {
+    return {
+      ngModule: MangolMapModule,
+      providers: []
+    };
+  }
 }
 

@@ -1,0 +1,78 @@
+.mangol-layertree {
+  color: $base-font-color;
+  $icon-padding: 2px;
+  $hoverColor: darken($base-font-color, 20%);
+  & md-sidenav-layout {
+    z-index: 100;
+    & md-sidenav {
+      background: rgba(white, 0.5);
+      width: 100%;
+    }
+    & .md-sidenav-backdrop {
+      &.md-sidenav-shown {
+        display: none !important;
+      }
+    }
+  }
+  & md-list {
+    margin-top: 0 !important;
+    padding-top: 0 !important;
+  }
+  & .mangol-layergroup {
+    & .element-header {
+      $bg: tint($action-color, 80%);
+      background-color: $bg;
+      padding-top: 5px;
+      padding-bottom: 5px;
+      &.expanded {}
+      & .element-content {
+        padding-left: 10px;
+        & .element-name {
+          font-weight: normal;
+          font-size: 1.2em;
+        }
+        & .element-details {
+          color: $medium-gray;
+        }
+      }
+    }
+  }
+  & .mangol-layer {
+    & .element-header {
+      $bg: tint($action-color, 90%);
+      background-color: $bg;
+      margin-top: 0;
+      padding-top: 5px;
+      & .element-content {
+        padding-left: 10px;
+        & .element-name {
+          font-weight: normal;
+          font-size: 1em;
+          margin-top: 10px;
+          margin-bottom: 10px;
+        }
+      }
+    }
+  }
+  & .mangol-layertree-details {
+    & div {
+      @include row(table);
+      & .md-grid-list {
+        & md-grid-tile {
+          & md-icon {
+            font-size: 1em;
+            line-height: 2em;
+            transition: font 0.1s linear;
+          }
+          &:hover {
+            & md-icon {
+              font-size: 1.5em;
+              line-height: 1.5em;
+              color: $hoverColor;
+            }
+          }
+        }
+      }
+    }
+  }
+}

@@ -10,13 +10,14 @@ import {MangolModule} from '../lib/index';
 
 import { MangolDemoComponent } from './app.component';
 
-import { DemoMapComponent, DemoSidebarComponent } from './demos/_index';
+import { DemoMapComponent, DemoSidebarComponent, DemoLayertreeComponent } from './demos/_index';
 
 @NgModule({
   declarations: [
     MangolDemoComponent,
     DemoMapComponent,
-    DemoSidebarComponent
+    DemoSidebarComponent,
+    DemoLayertreeComponent
   ],
   imports: [
     BrowserModule,
