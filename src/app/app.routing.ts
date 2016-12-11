@@ -3,7 +3,10 @@ import { Routes, RouterModule } from '@angular/router';
 import {
   DemoMapComponent,
   DemoSidebarComponent,
-  DemoLayertreeComponent
+  DemoLayertreeComponent,
+  DemoPrintComponent,
+  DemoFullComponent,
+  DemoMeasureComponent
 } from './demos/_index';
 
 const appRoutes: Routes = [
@@ -21,6 +24,15 @@ const appRoutes: Routes = [
   }, {
     path: 'demo-layertree',
     component: DemoLayertreeComponent
+  }, {
+    path: 'demo-print',
+    component: DemoPrintComponent
+  }, {
+    path: 'demo-measure',
+    component: DemoMeasureComponent
+  }, {
+    path: 'demo-full',
+    component: DemoFullComponent
   }
 ];
 

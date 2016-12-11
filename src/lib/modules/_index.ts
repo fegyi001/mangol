@@ -9,36 +9,42 @@ import { MangolToolbarModule } from './toolbar';
 import { MangolLayerModule } from './layer';
 import { MangolLayergroupModule } from './layergroup';
 import { MangolLayertreeDetailsModule } from './layertree-details';
+import { MangolPrintModule } from './print';
+import { MangolMeasureModule } from './measure';
 
 const MANGOL_MODULES = [
-  MangolMapModule,
-  MangolContainerModule,
-  MangolSidebarModule,
-  MangolToolbarModule,
-  MangolLayerModule,
-  MangolLayergroupModule,
-  MangolLayertreeDetailsModule
+    MangolMapModule,
+    MangolContainerModule,
+    MangolSidebarModule,
+    MangolToolbarModule,
+    MangolLayerModule,
+    MangolLayergroupModule,
+    MangolLayertreeDetailsModule,
+    MangolPrintModule,
+    MangolMeasureModule
 ];
 
 @NgModule({
-  imports: [
-    MangolMapModule.forRoot(),
-    MangolContainerModule.forRoot(),
-    MangolSidebarModule.forRoot(),
-    MangolLayerModule.forRoot(),
-    MangolLayergroupModule.forRoot(),
-    MangolLayertreeDetailsModule.forRoot()
-  ],
-  exports: MANGOL_MODULES,
+    imports: [
+        MangolMapModule.forRoot(),
+        MangolContainerModule.forRoot(),
+        MangolSidebarModule.forRoot(),
+        MangolLayerModule.forRoot(),
+        MangolLayergroupModule.forRoot(),
+        MangolLayertreeDetailsModule.forRoot(),
+        MangolPrintModule.forRoot(),
+        MangolMeasureModule.forRoot()
+    ],
+    exports: MANGOL_MODULES,
 })
 export class MangolRootModule { }
 
 @NgModule({
-  imports: MANGOL_MODULES,
-  exports: MANGOL_MODULES,
+    imports: MANGOL_MODULES,
+    exports: MANGOL_MODULES,
 })
 export class MangolModule {
-  static forRoot(): ModuleWithProviders {
-    return { ngModule: MangolRootModule };
-  }
+    static forRoot(): ModuleWithProviders {
+        return { ngModule: MangolRootModule };
+    }
 }

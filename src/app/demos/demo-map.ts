@@ -1,8 +1,8 @@
 import { Component } from '@angular/core';
 
 @Component({
-    selector: 'mangol-demo-map',
-    template: `
+  selector: 'mangol-demo-map',
+  template: `
       <mangol-container></mangol-container>
     `
 })

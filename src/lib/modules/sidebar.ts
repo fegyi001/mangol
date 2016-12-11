@@ -4,6 +4,8 @@ import { MaterialModule } from '@angular/material';
 
 import { MangolToolbarModule } from './toolbar';
 import { MangolLayertreeModule } from './layertree';
+import { MangolPrintModule } from './print';
+import { MangolMeasureModule } from './measure';
 
 import { MangolMap } from '../core/_index';
 
@@ -28,13 +30,13 @@ import { MangolMap } from '../core/_index';
 	                  *ngIf="hasLayertree && activeElement.type==='layertree'"
 	                  [map]="map">
 	              </mangol-layertree>
-	              <!--<ng2ol3-measure
-	              	  *ngIf="hasMeasure && activeElement.type=='measure'"
+	              <mangol-measure
+	              	  *ngIf="hasMeasure && activeElement.type==='measure'"
 	                  [map]="map">
-	              </ng2ol3-measure>
-	              <ng2ol3-print
-	              	  *ngIf="hasPrint && activeElement.type=='print'"
-	                  [map]="map"></ng2ol3-print>-->
+	              </mangol-measure>
+	              <mangol-print
+	              	  *ngIf="hasPrint && activeElement.type==='print'"
+	                  [map]="map"></mangol-print>
               </div>
           </div>
       </div>
@@ -86,7 +88,9 @@ export class MangolSidebarComponent implements AfterViewInit, OnInit {
     CommonModule,
     MaterialModule.forRoot(),
     MangolToolbarModule.forRoot(),
-    MangolLayertreeModule.forRoot()
+    MangolLayertreeModule.forRoot(),
+    MangolPrintModule.forRoot(),
+    MangolMeasureModule.forRoot()
   ],
   exports: [
     MangolSidebarComponent

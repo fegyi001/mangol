@@ -1,12 +1,12 @@
 import { Component, OnInit } from '@angular/core';
 
 @Component({
-  selector: 'mangol-demo-sidebar',
+  selector: 'mangol-demo-measure',
   template: `
       <mangol-container [config]="config"></mangol-container>
     `
 })
-export class DemoSidebarComponent implements OnInit {
+export class DemoMeasureComponent implements OnInit {
 
   config: any;
 
@@ -14,7 +14,7 @@ export class DemoSidebarComponent implements OnInit {
     this.config = {
       map: {
         renderer: 'canvas',
-        target: 'demo-simple-map',
+        target: 'demo-measure',
         view: {
           projection: 'EPSG:900913',
           center: ol.proj.fromLonLat([19.3956393810065, 47.168464955013], 'EPSG:900913'),
@@ -33,7 +33,12 @@ export class DemoSidebarComponent implements OnInit {
       sidebar: {
         collapsible: true,
         opened: true,
-        toolbar: {}
+        toolbar: {
+          measure: {
+            active: true,
+            disabled: false
+          }
+        }
       }
     };
   }

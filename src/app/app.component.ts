@@ -24,6 +24,12 @@ import { Component, Inject } from '@angular/core';
                         [routerLinkActiveOptions]="{ exact: true }">sidebar</button>
                     <button md-raised-button color="primary" routerLink="/demo-layertree" routerLinkActive="active"
                         [routerLinkActiveOptions]="{ exact: true }">layertree</button>
+                    <button md-raised-button color="primary" routerLink="/demo-print" routerLinkActive="active"
+                        [routerLinkActiveOptions]="{ exact: true }">print</button>
+                    <button md-raised-button color="primary" routerLink="/demo-measure" routerLinkActive="active"
+                        [routerLinkActiveOptions]="{ exact: true }">measure</button>
+                    <button md-raised-button color="primary" routerLink="/demo-full" routerLinkActive="active"
+                        [routerLinkActiveOptions]="{ exact: true }">full functionality</button>
                 </nav>
             </div>
             <div class="demo-content">

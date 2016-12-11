@@ -6,18 +6,28 @@ import { MaterialModule } from '@angular/material';
 import { routing, appRoutingProviders } from './app.routing';
 import { LocationStrategy, HashLocationStrategy } from '@angular/common';
 
-import {MangolModule} from '../lib/index';
+import { MangolModule } from '../lib/index';
 
 import { MangolDemoComponent } from './app.component';
 
-import { DemoMapComponent, DemoSidebarComponent, DemoLayertreeComponent } from './demos/_index';
+import {
+  DemoMapComponent,
+  DemoSidebarComponent,
+  DemoLayertreeComponent,
+  DemoPrintComponent,
+  DemoFullComponent,
+  DemoMeasureComponent
+} from './demos/_index';
 
 @NgModule({
   declarations: [
     MangolDemoComponent,
     DemoMapComponent,
     DemoSidebarComponent,
-    DemoLayertreeComponent
+    DemoLayertreeComponent,
+    DemoPrintComponent,
+    DemoFullComponent,
+    DemoMeasureComponent
   ],
   imports: [
     BrowserModule,

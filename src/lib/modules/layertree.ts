@@ -34,7 +34,6 @@ export class MangolLayertreeComponent implements OnInit {
     MaterialModule.forRoot(),
     MangolLayergroupModule.forRoot(),
     MangolLayerModule.forRoot()
-
   ],
   exports: [
     MangolLayertreeComponent
