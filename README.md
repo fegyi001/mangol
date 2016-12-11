@@ -66,7 +66,7 @@ export class DemoMapComponent {
 }
 ```
 
-You also have to add some vendor css & js files. If you use Webpack and created your project with angular-cli, add the following libraries to you `angular-cli.json`:
+You also have to add some vendor css/scss & js files. If you use Webpack and created your project with angular-cli, add the following libraries to you `angular-cli.json`:
 
 ```json
 "styles": [
@@ -88,7 +88,7 @@ If you use SystemJS add the files above in a regular way to your index.html (wit
 ## Present & Future
 This project is still very new and therefore it contains only a couple of components (widgets), most of them are under heavy development. In the near future I intend to add/extend other widgets. More examples will arrive as soon as the project becomes smarter.
 
-![demo](src/assets/img/screenshots/demo-map_20161206.png)
+![demo](src/assets/img/screenshots/demo-map_20161211.png)
 
 ## Author
 ```Mangol``` was created by [Gergely Padányi-Gulyás](http://gpadanyig.com)
