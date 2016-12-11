@@ -51,6 +51,21 @@ After that, you can use Mangol html tags in your templates such as
 <mangol-container></mangol-container>
 ``` 
 
+This is the simplest implementation of Mangol in a component (this will create a default map with zoom buttons and with one OpenStreetMap layer) :
+```typescript
+import { Component } from '@angular/core';
+
+@Component({
+    selector: 'app-root',
+    template: `
+      <mangol-container></mangol-container>
+    `
+})
+export class DemoMapComponent {
+
+}
+```
+
 You also have to add some vendor css & js files. If you use Webpack and created your project with angular-cli, add the following libraries to you `angular-cli.json`:
 
 ```json
@@ -73,7 +88,7 @@ If you use SystemJS add the files above in a regular way to your index.html (wit
 ## Present & Future
 This project is still very new and therefore it contains only a couple of components (widgets), most of them are under heavy development. In the near future I intend to add/extend other widgets. More examples will arrive as soon as the project becomes smarter.
 
-![demo](src/assets/img/screenshots/demo-map.png)
+![demo](src/assets/img/screenshots/demo-map_20161206.png)
 
 ## Author
 ```Mangol``` was created by [Gergely Padányi-Gulyás](http://gpadanyig.com)

@@ -33,7 +33,35 @@ export class MangolContainerComponent implements OnInit {
   map: ol.Map;
   isOpened: boolean;
 
-  public ngOnInit(): any {
+  constructor() {
+
+  }
+
+  ngOnInit(): any {
+    // generate a default config if there is none 
+    if (typeof this.config === 'undefined') {
+      this.config = {
+        map: {
+          renderer: 'canvas',
+          target: 'demo-simple-map',
+          view: {
+            projection: 'EPSG:900913',
+            center: ol.proj.fromLonLat([19.3956393810065, 47.168464955013], 'EPSG:900913'),
+            zoom: 7
+          },
+          layers: [
+            {
+              type: 'layer',
+              name: 'OpenStreetMap layer',
+              layer: new ol.layer.Tile({
+                source: new ol.source.OSM()
+              })
+            }
+          ]
+        }
+      };
+    }
+
     try {
       this.isOpened = this.config.sidebar.opened;
     } catch (error) {
@@ -41,16 +69,16 @@ export class MangolContainerComponent implements OnInit {
     }
   }
 
-  public mapCreated(map: ol.Map): void {
+  mapCreated(map: ol.Map): void {
     this.map = map;
     this.map.updateSize();
   }
 
-  public sidebarToggled(): void {
+  sidebarToggled(): void {
     this.isOpened = !this.isOpened;
   }
 
-  public updateMap(): void {
+  updateMap(): void {
     this.map.updateSize();
   }
 
