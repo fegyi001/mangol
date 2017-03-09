@@ -2,14 +2,14 @@
   color: $base-font-color;
   $icon-padding: 2px;
   $hoverColor: darken($base-font-color, 20%);
-  & md-sidenav-layout {
+  & md-sidenav-container {
     z-index: 100;
     & md-sidenav {
       background: rgba(white, 0.5);
       width: 100%;
     }
-    & .md-sidenav-backdrop {
-      &.md-sidenav-shown {
+    & .mat-sidenav-backdrop {
+      &.mat-sidenav-shown {
         display: none !important;
       }
     }
@@ -24,7 +24,6 @@
       background-color: $bg;
       padding-top: 5px;
       padding-bottom: 5px;
-      &.expanded {}
       & .element-content {
         padding-left: 10px;
         & .element-name {
@@ -57,7 +56,7 @@
   & .mangol-layertree-details {
     & div {
       @include row(table);
-      & .md-grid-list {
+      & .mat-grid-list {
         & md-grid-tile {
           & md-icon {
             font-size: 1em;

@@ -9,6 +9,7 @@ import { MangolMeasureModule } from './measure';
 
 import { MangolMap } from '../core/_index';
 
+import * as ol from 'openlayers';
 @Component({
   selector: 'mangol-sidebar',
   template: `

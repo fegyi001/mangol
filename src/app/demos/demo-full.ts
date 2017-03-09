@@ -1,7 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 
-declare var ol: any;
-
+import * as ol from 'openlayers';
 @Component({
   selector: 'mangol-demo-full',
   template: `
@@ -59,7 +58,8 @@ export class DemoFullComponent implements OnInit {
                       FORMAT: 'image/png',
                       TILED: true
                     },
-                    serverType: 'geoserver'
+                    serverType: 'geoserver',
+                    projection: 'EPSG:900913'
                   })
                 })
               }, {
@@ -76,7 +76,8 @@ export class DemoFullComponent implements OnInit {
                       FORMAT: 'image/png',
                       TILED: true
                     },
-                    serverType: 'geoserver'
+                    serverType: 'geoserver',
+                    projection: 'EPSG:900913'
                   })
                 })
               },
@@ -94,7 +95,8 @@ export class DemoFullComponent implements OnInit {
                       FORMAT: 'image/png',
                       TILED: true
                     },
-                    serverType: 'geoserver'
+                    serverType: 'geoserver',
+                    projection: 'EPSG:900913'
                   })
                 })
               }

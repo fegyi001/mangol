@@ -1,5 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 
+import * as ol from 'openlayers';
 @Component({
   selector: 'mangol-demo-print',
   template: `

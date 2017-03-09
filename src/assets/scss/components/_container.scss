@@ -1,12 +1,12 @@
 .mangol-container {
   @include outer-container(100%);
   height: 100%;
-  & md-sidenav-layout {
+  & md-sidenav-container {
     & md-sidenav {
       width: 40%;
     }
-    & .md-sidenav-backdrop {
-      &.md-sidenav-shown {
+    & .mat-sidenav-backdrop {
+      &.mat-sidenav-shown {
         display: none !important;
       }
     }

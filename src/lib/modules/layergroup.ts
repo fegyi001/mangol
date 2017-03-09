@@ -12,7 +12,7 @@ import { MangolLayer, MangolLayergroup } from '../core/_index';
   selector: 'mangol-layergroup',
   template: `
       <div>
-	        <md-sidenav-layout (mouseover)="showDetails()" (mouseout)="hideDetails()">
+	        <md-sidenav-container (mouseover)="showDetails()" (mouseout)="hideDetails()">
 	            <md-sidenav #start align="start" opened="{{detailsVisible}}" mode="over">
 	                <mangol-layertree-details type="layergroup" [element]="layerGroup"
                   [class.detailsVisible]="detailsVisible" [detailsHeight]="detailsHeight"
@@ -24,7 +24,7 @@ import { MangolLayer, MangolLayergroup } from '../core/_index';
 	                    <div class="element-details">{{nestedLayerGroups.length}} layer group(s), {{nestedLayers.length}} layer(s)</div>
 	                </div>
 			    </div>
-	        </md-sidenav-layout>
+	        </md-sidenav-container>
             <div class="children" *ngIf="expanded">
                 <mangol-layer *ngFor="let l of nestedLayers" [layer]="l"></mangol-layer>
             </div>

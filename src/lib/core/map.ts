@@ -1,5 +1,7 @@
 import { MangolLayer, MangolLayergroup } from '../index';
 
+import * as ol from 'openlayers';
+
 export class MangolMap extends ol.Map {
 
     options: any;

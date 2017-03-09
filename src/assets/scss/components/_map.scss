@@ -6,8 +6,8 @@
     color: white;
     z-index: 20;
     $left-margin: 1em;
-    & .md-ripple-background,
-    & .md-ripple-foreground {
+    & .mat-ripple-background,
+    & .mat-ripple-foreground {
       display: none !important;
     }
     & .sidebar {

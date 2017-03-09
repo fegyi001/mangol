@@ -7,31 +7,29 @@
   text-align: center;
   & .toolbar-div {
     min-height: 2em;
-    & md-list {
-      & md-list-item {
-        & .md-list-item {
-          padding: 0 !important;
-          & button {
-            &[md-mini-fab] {
-              box-shadow: none;
-              background-color: white;
-              margin-left: auto;
-              margin-right: auto;
-              &.active {
-                & md-icon {
-                  font-size: 1.8em;
-                  color: $action-color;
-                }
-              }
-              &:not([disabled]):hover {
-                box-shadow: 0px 3px 1px -2px rgba(0, 0, 0, 0.2), 0px 2px 2px 0px rgba(0, 0, 0, 0.14), 0px 1px 5px 0px rgba(0, 0, 0, 0.12);
-                transform: translate3d(0, 0, 0);
-                transition: background 400ms cubic-bezier(0.25, 0.8, 0.25, 1), box-shadow 280ms cubic-bezier(0.4, 0, 0.2, 1);
-              }
+    & .mat-list {
+      & .mat-list-item {
+        padding: 0 !important;
+        & button {
+          &[md-mini-fab] {
+            box-shadow: none;
+            background-color: white;
+            margin-left: auto;
+            margin-right: auto;
+            &.active {
               & md-icon {
-                color: $dark-gray;
-                font-size: 1.3em;
+                font-size: 1.8em;
+                color: $action-color;
               }
+            }
+            &:not([disabled]):hover {
+              box-shadow: 0px 3px 1px -2px rgba(0, 0, 0, 0.2), 0px 2px 2px 0px rgba(0, 0, 0, 0.14), 0px 1px 5px 0px rgba(0, 0, 0, 0.12);
+              transform: translate3d(0, 0, 0);
+              transition: background 400ms cubic-bezier(0.25, 0.8, 0.25, 1), box-shadow 280ms cubic-bezier(0.4, 0, 0.2, 1);
+            }
+            & md-icon {
+              color: $dark-gray;
+              font-size: 1.3em;
             }
           }
         }

@@ -11,7 +11,7 @@ import { MangolLayer } from '../core/_index';
   selector: 'mangol-layer',
   template: `
       <div>
-        	<md-sidenav-layout (mouseover)="showDetails()" (mouseout)="hideDetails()">
+        	<md-sidenav-container (mouseover)="showDetails()" (mouseout)="hideDetails()">
 	            <md-sidenav #end align="end" opened="{{detailsVisible}}" mode="over">
 	                <mangol-layertree-details type="layer" [element]="layer"
                     [class.detailsVisible]="detailsVisible" [detailsHeight]="detailsHeight"
@@ -22,7 +22,7 @@ import { MangolLayer } from '../core/_index';
 	                    <div class="element-name">{{layer.name}}</div>
 	                </div>
 			    </div>
-	        </md-sidenav-layout>
+	        </md-sidenav-container>
 	    </div>
     `
 })

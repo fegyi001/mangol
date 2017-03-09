@@ -5,6 +5,8 @@ import { MaterialModule } from '@angular/material';
 import { MangolMapService } from '../services/_index';
 import { MangolMap } from '../core/_index';
 
+import * as ol from 'openlayers';
+
 @Component({
   selector: 'mangol-map',
   template: `

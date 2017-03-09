@@ -5,10 +5,12 @@ import { MaterialModule } from '@angular/material';
 import { MangolMapModule } from './map';
 import { MangolSidebarModule } from './sidebar';
 
+import * as ol from 'openlayers';
+
 @Component({
   selector: 'mangol-container',
   template: `
-        <md-sidenav-layout>
+        <md-sidenav-container>
             <md-sidenav #start *ngIf="config.sidebar && map" align="start" 
                   (open)="updateMap()" (close)="isOpened=false" opened="{{isOpened}}" mode="push">
                 <mangol-sidebar 
@@ -22,7 +24,7 @@ import { MangolSidebarModule } from './sidebar';
                 (mapCreated)="mapCreated($event)"
                 (sidebarToggled)="sidebarToggled($event)">
             </mangol-map>
-        </md-sidenav-layout>
+        </md-sidenav-container>
   `
 })
 export class MangolContainerComponent implements OnInit {
