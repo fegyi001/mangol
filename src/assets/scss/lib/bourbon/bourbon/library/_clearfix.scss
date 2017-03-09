@@ -2,14 +2,14 @@
 
 /// Provides an easy way to include a clearfix for containing floats.
 ///
-/// @link http://goo.gl/yP5hiZ
+/// @link https://goo.gl/yP5hiZ
 ///
 /// @example scss
 ///   .element {
 ///     @include clearfix;
 ///   }
 ///
-/// @example css
+///   // CSS Output
 ///   .element::after {
 ///     clear: both;
 ///     content: "";

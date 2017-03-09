@@ -44,8 +44,8 @@ export class MangolMapComponent implements AfterViewInit, OnInit {
   view: ol.View;
   target: string;
   hasSidebar: boolean;
-  zoomDuration: number = 500;
-  sidebarCollapsible: boolean = false;
+  zoomDuration = 500;
+  sidebarCollapsible = false;
 
   constructor(private mapService: MangolMapService) {
 
@@ -84,23 +84,13 @@ export class MangolMapComponent implements AfterViewInit, OnInit {
   }
 
   public zoomIn(): void {
-    let zoom = ol.animation.zoom({
-      duration: this.zoomDuration,
-      resolution: this.map.getView().getResolution(),
-      easing: ol.easing.inAndOut
-    });
-    this.map.beforeRender(zoom);
-    this.map.getView().setResolution(this.map.getView().getResolution() * 0.5);
+    const view = this.map.getView();
+    view.animate({ zoom: view.getZoom() + 1, duration: this.zoomDuration });
   }
 
   public zoomOut(): void {
-    let zoom = ol.animation.zoom({
-      duration: this.zoomDuration,
-      resolution: this.map.getView().getResolution(),
-      easing: ol.easing.inAndOut
-    });
-    this.map.beforeRender(zoom);
-    this.map.getView().setResolution(this.map.getView().getResolution() * 2);
+    const view = this.map.getView();
+    view.animate({ zoom: view.getZoom() - 1, duration: this.zoomDuration });
   }
 
   public toggleSidebar(): void {

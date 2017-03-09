@@ -3,14 +3,14 @@
 /// Hides the text in an element, commonly used to show an image instead. Some
 /// elements will need block-level styles applied.
 ///
-/// @link http://goo.gl/EvLRIu
+/// @link https://goo.gl/EvLRIu
 ///
 /// @example scss
 ///   .element {
 ///     @include hide-text;
 ///   }
 ///
-/// @example css
+///   // CSS Output
 ///   .element {
 ///     overflow: hidden;
 ///     text-indent: 101%;

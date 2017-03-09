@@ -1,4 +1,4 @@
-// Bourbon 5.0.0-beta.6
+// Bourbon 5.0.0-beta.7
 // http://bourbon.io
 // Copyright 2011 thoughtbot, inc.
 // MIT License
@@ -13,16 +13,18 @@
 @import "bourbon/validators/contains-falsy";
 @import "bourbon/validators/is-color";
 @import "bourbon/validators/is-length";
-@import "bourbon/validators/is-light";
 @import "bourbon/validators/is-number";
 @import "bourbon/validators/is-size";
 
 @import "bourbon/utilities/assign-inputs";
-@import "bourbon/utilities/collapse-directionals";
-@import "bourbon/utilities/directional-values";
+@import "bourbon/utilities/compact-shorthand";
+@import "bourbon/utilities/directional-property";
 @import "bourbon/utilities/font-source-declaration";
+@import "bourbon/utilities/gamma";
+@import "bourbon/utilities/lightness";
+@import "bourbon/utilities/contrast-ratio";
 @import "bourbon/utilities/retrieve-bourbon-setting";
-@import "bourbon/utilities/unpack";
+@import "bourbon/utilities/unpack-shorthand";
 
 @import "bourbon/library/border-color";
 @import "bourbon/library/border-radius";
@@ -38,6 +40,7 @@
 @import "bourbon/library/hide-visually";
 @import "bourbon/library/margin";
 @import "bourbon/library/modular-scale";
+@import "bourbon/library/overflow-wrap";
 @import "bourbon/library/padding";
 @import "bourbon/library/position";
 @import "bourbon/library/prefixer";
@@ -49,4 +52,3 @@
 @import "bourbon/library/tint";
 @import "bourbon/library/triangle";
 @import "bourbon/library/value-prefixer";
-@import "bourbon/library/word-wrap";

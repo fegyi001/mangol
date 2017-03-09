@@ -1,7 +1,7 @@
 @charset "UTF-8";
 
-/// Provides a shorthand syntax to add `border-radius` to both the top-left and
-/// top-right of an element.
+/// Provides a concise, one-line method for setting `border-radius` on both the
+/// top-left and top-right of a box.
 ///
 /// @argument {number (with unit)} $radii
 ///
@@ -10,7 +10,7 @@
 ///     @include border-top-radius(4px);
 ///   }
 ///
-/// @example css
+///   // CSS Output
 ///   .element {
 ///     border-top-left-radius: 4px;
 ///     border-top-right-radius: 4px;
@@ -21,8 +21,8 @@
   border-top-right-radius: $radii;
 }
 
-/// Provides a shorthand syntax to add `border-radius` to both the top-right and
-/// bottom-right of an element.
+/// Provides a concise, one-line method for setting `border-radius` on both the
+/// top-right and bottom-right of a box.
 ///
 /// @argument {number (with unit)} $radii
 ///
@@ -31,7 +31,7 @@
 ///     @include border-right-radius(3px);
 ///   }
 ///
-/// @example css
+///   // CSS Output
 ///   .element {
 ///     border-bottom-right-radius: 3px;
 ///     border-top-right-radius: 3px;
@@ -42,8 +42,8 @@
   border-top-right-radius: $radii;
 }
 
-/// Provides a shorthand syntax to add `border-radius` to both the bottom-left
-/// and bottom-right of an element.
+/// Provides a concise, one-line method for setting `border-radius` on both the
+/// bottom-left and bottom-right of a box.
 ///
 /// @argument {number (with unit)} $radii
 ///
@@ -52,7 +52,7 @@
 ///     @include border-bottom-radius(2px);
 ///   }
 ///
-/// @example css
+///   // CSS Output
 ///   .element {
 ///     border-bottom-left-radius: 2px;
 ///     border-bottom-right-radius: 2px;
@@ -63,8 +63,8 @@
   border-bottom-right-radius: $radii;
 }
 
-/// Provides a shorthand syntax to add `border-radius` to both the top-left
-/// and bottom-left of an element.
+/// Provides a concise, one-line method for setting `border-radius` on both the
+/// top-left and bottom-left of a box.
 ///
 /// @argument {number (with unit)} $radii
 ///
@@ -73,7 +73,7 @@
 ///     @include border-left-radius(1px);
 ///   }
 ///
-/// @example css
+///   // CSS Output
 ///   .element {
 ///     border-bottom-left-radius: 1px;
 ///     border-top-left-radius: 1px;
