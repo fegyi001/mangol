@@ -1,5 +1,5 @@
 # Mangol
-> Maps created with Angular2+ & OpenLayers3
+> Maps created with Angular2+ & OpenLayers3+
 
 [![Join the chat at https://gitter.im/mangol_official/Lobby](https://badges.gitter.im/mangol_official/Lobby.svg)](https://gitter.im/mangol_official/Lobby?utm_source=badge&utm_medium=badge&utm_campaign=pr-badge&utm_content=badge)
 
@@ -33,7 +33,7 @@ npm install mangol --save
 You have to add to your `app.module.ts` (or whatever you call it in your project, the one that gets bootstrapped in main.ts) 
 
 ```typescript
-import {MangolModule} from 'mangol/index';
+import {MangolModule} from 'mangol';
 ```
 
 And in @NgModule add MangolModule to the imports:
