@@ -56,25 +56,21 @@ This is the simplest implementation of Mangol in a component (this will create a
 import { Component } from '@angular/core';
 
 @Component({
-    selector: 'app-root',
+    selector: 'app',
     template: `
       <mangol></mangol>
     `
 })
-export class DemoMapComponent {
+export class AppComponent {
 
 }
 ```
 
-You also have to add some vendor css/scss & js files. If you use Webpack (recommended) and created your project with angular-cli, add the following libraries to you `angular-cli.json`:
+You also have to add Mangol's scss and some vendor js files. If you use Webpack (recommended) and created your project with angular-cli, add the following libraries to your `angular-cli.json`:
 
 ```json
 "styles": [
-    "../node_modules/openlayers/dist/ol.css",
-    "../node_modules/font-awesome/css/font-awesome.min.css",
-    "../node_modules/mangol/vendor/mapskin/css/mapskin.min.css",
-    "../node_modules/mangol/vendor/material-icons/material-icons.css",
-    "../node_modules/mangol/src/assets/scss/mangol.scss",
+    "../node_modules/mangol/src/assets/scss/mangol.scss"
 ],
 "scripts": [
     "../node_modules/openlayers/dist/ol.js",
