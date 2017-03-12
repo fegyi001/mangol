@@ -4,7 +4,7 @@ import * as ol from 'openlayers';
 @Component({
   selector: 'mangol-demo-measure',
   template: `
-      <mangol-container [config]="config"></mangol-container>
+      <mangol [config]="config"></mangol>
     `
 })
 export class DemoMeasureComponent implements OnInit {

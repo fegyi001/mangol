@@ -4,7 +4,7 @@ import * as ol from 'openlayers';
 @Component({
   selector: 'mangol-demo-map',
   template: `
-      <mangol-container></mangol-container>
+      <mangol></mangol>
     `
 })
 export class DemoMapComponent {

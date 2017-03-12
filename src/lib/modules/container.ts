@@ -8,7 +8,7 @@ import { MangolSidebarModule } from './sidebar';
 import * as ol from 'openlayers';
 
 @Component({
-  selector: 'mangol-container',
+  selector: 'mangol',
   template: `
         <md-sidenav-container>
             <md-sidenav #start *ngIf="config.sidebar && map" align="start" 
@@ -29,7 +29,7 @@ import * as ol from 'openlayers';
 })
 export class MangolContainerComponent implements OnInit {
 
-  @HostBinding('class') class = 'mangol-container';
+  @HostBinding('class') class = 'mangol';
 
   @Input() config: any;
   map: ol.Map;

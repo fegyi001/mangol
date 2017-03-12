@@ -6,7 +6,7 @@ import * as ol from 'openlayers';
 @Component({
   selector: 'mangol-demo-osmgwc',
   template: `
-      <mangol-container [config]='config'></mangol-container>
+      <mangol [config]='config'></mangol>
     `
 })
 export class DemoOsmgwcComponent implements OnInit {
