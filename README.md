@@ -66,6 +66,65 @@ export class AppComponent {
 }
 ```
 
+You can further configure your Mangol component for example by adding a sidebar and a layertree like this (for more examples, see the app/demos folder):
+```typescript
+import { Component, OnInit } from '@angular/core';
+
+import * as ol from 'openlayers';
+
+@Component({
+  selector: 'app',
+  template: `
+      <mangol [config]="config"></mangol>
+    `
+})
+export class AppComponent implements OnInit {
+
+  config: any;
+
+  public ngOnInit(): any {
+    this.config = {
+      map: {
+        renderer: 'canvas',
+        target: 'mangol-map',
+        view: {
+          projection: 'EPSG:900913',
+          center: ol.proj.fromLonLat([19.39563, 47.16846], 'EPSG:900913'),
+          zoom: 7
+        },
+        layers: [
+          {
+            type: 'layergroup',
+            name: 'Base layers',
+            expanded: false,
+            visible: true,
+            children: [
+              {
+                type: 'layer',
+                name: 'OpenStreetMap layer',
+                visible: true,
+                opacity: 1,
+                layer: new ol.layer.Tile({
+                  source: new ol.source.OSM()
+                })
+              }
+            ]
+          }
+        ]
+      },
+      sidebar: {
+        collapsible: true,
+        opened: true,
+        toolbar: {
+          layertree: {}
+        }
+      }
+    };
+  };
+}
+
+```
+
 You also have to add Mangol's scss and some vendor js files. If you use Webpack (recommended) and created your project with angular-cli, add the following libraries to your `angular-cli.json`:
 
 ```json
