@@ -28,6 +28,8 @@ import { Component, Inject } from '@angular/core';
                         [routerLinkActiveOptions]="{ exact: true }">print</button>
                     <button md-raised-button color="primary" routerLink="/demo-measure" routerLinkActive="active"
                         [routerLinkActiveOptions]="{ exact: true }">measure</button>
+                    <button md-raised-button color="primary" routerLink="/demo-osmgwc" routerLinkActive="active"
+                        [routerLinkActiveOptions]="{ exact: true }">osmgwc</button>
                     <button md-raised-button color="primary" routerLink="/demo-full" routerLinkActive="active"
                         [routerLinkActiveOptions]="{ exact: true }">full functionality</button>
                 </nav>

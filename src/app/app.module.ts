@@ -16,7 +16,8 @@ import {
   DemoLayertreeComponent,
   DemoPrintComponent,
   DemoFullComponent,
-  DemoMeasureComponent
+  DemoMeasureComponent,
+  DemoOsmgwcComponent
 } from './demos/_index';
 
 @NgModule({
@@ -27,7 +28,8 @@ import {
     DemoLayertreeComponent,
     DemoPrintComponent,
     DemoFullComponent,
-    DemoMeasureComponent
+    DemoMeasureComponent,
+    DemoOsmgwcComponent
   ],
   imports: [
     BrowserModule,

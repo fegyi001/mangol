@@ -15,7 +15,7 @@ Formerly, Mangol was called `ng2ol3` and was based on SystemJS and without angul
 [Node.js with npm](https://nodejs.org/en/download/) is required. The preferenced version of Node.js is 6.10.0, the preferenced version of npm is 4.x.x. After `git clone`, navigate to the main directory and run ```npm install``` to download all dependencies.
 
 ## Live example
-An online example can be opened [here](http://188.166.116.137/mangol/dist).
+An online example can be opened [here](http://188.166.116.137/mangol).
 
 ## Use as source
 

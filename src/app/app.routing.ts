@@ -6,7 +6,8 @@ import {
   DemoLayertreeComponent,
   DemoPrintComponent,
   DemoFullComponent,
-  DemoMeasureComponent
+  DemoMeasureComponent,
+  DemoOsmgwcComponent
 } from './demos/_index';
 
 const appRoutes: Routes = [
@@ -30,6 +31,9 @@ const appRoutes: Routes = [
   }, {
     path: 'demo-measure',
     component: DemoMeasureComponent
+  }, {
+    path: 'demo-osmgwc',
+    component: DemoOsmgwcComponent
   }, {
     path: 'demo-full',
     component: DemoFullComponent
