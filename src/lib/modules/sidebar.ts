@@ -1,6 +1,7 @@
 import { Component, Input, OnInit, HostBinding, NgModule, ModuleWithProviders, AfterViewInit } from '@angular/core';
 import { CommonModule } from '@angular/common';
 import { MaterialModule } from '@angular/material';
+import 'hammerjs';
 
 import { MangolToolbarModule } from './toolbar';
 import { MangolLayertreeModule } from './layertree';

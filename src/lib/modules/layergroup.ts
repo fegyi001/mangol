@@ -1,6 +1,7 @@
 import { Component, OnInit, Input, HostBinding, NgModule, ModuleWithProviders } from '@angular/core';
 import { CommonModule, NgClass } from '@angular/common';
 import { MaterialModule } from '@angular/material';
+import 'hammerjs';
 
 import { MangolLayertreeDetailsModule } from './layertree-details';
 import { MangolLayerModule } from './layer';

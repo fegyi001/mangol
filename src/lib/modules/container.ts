@@ -1,6 +1,7 @@
 import { Component, Input, OnInit, HostBinding, NgModule, ModuleWithProviders } from '@angular/core';
 import { CommonModule } from '@angular/common';
 import { MaterialModule } from '@angular/material';
+import 'hammerjs';
 
 import { MangolMapModule } from './map';
 import { MangolSidebarModule } from './sidebar';
@@ -11,15 +12,15 @@ import * as ol from 'openlayers';
   selector: 'mangol',
   template: `
         <md-sidenav-container>
-            <md-sidenav #start *ngIf="config.sidebar && map" align="start" 
+            <md-sidenav #start *ngIf="config.sidebar && map" align="start"
                   (open)="updateMap()" (close)="isOpened=false" opened="{{isOpened}}" mode="push">
-                <mangol-sidebar 
-                    [options]="config.sidebar" 
+                <mangol-sidebar
+                    [options]="config.sidebar"
                     [map]="map">
                 </mangol-sidebar>
             </md-sidenav>
-            <mangol-map 
-                *ngIf="config.map" 
+            <mangol-map
+                *ngIf="config.map"
                 [options]="config"
                 (mapCreated)="mapCreated($event)"
                 (sidebarToggled)="sidebarToggled($event)">
@@ -40,7 +41,7 @@ export class MangolContainerComponent implements OnInit {
   }
 
   ngOnInit(): any {
-    // generate a default config if there is none 
+    // generate a default config if there is none
     if (typeof this.config === 'undefined') {
       this.config = {
         map: {

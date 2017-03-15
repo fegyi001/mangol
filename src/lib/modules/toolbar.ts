@@ -1,6 +1,7 @@
 import { Component, Input, Output, OnInit, EventEmitter, HostBinding, NgModule, ModuleWithProviders } from '@angular/core';
 import { CommonModule } from '@angular/common';
 import { MaterialModule } from '@angular/material';
+import 'hammerjs';
 
 @Component({
   selector: 'mangol-toolbar',

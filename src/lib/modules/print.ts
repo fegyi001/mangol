@@ -1,6 +1,7 @@
 import { Component, OnInit, Input, HostBinding, NgModule, ModuleWithProviders } from '@angular/core';
 import { CommonModule } from '@angular/common';
 import { MaterialModule } from '@angular/material';
+import 'hammerjs';
 
 import { MangolMap } from '../core/_index';
 
