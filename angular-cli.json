@@ -17,6 +17,10 @@
     "testTsconfig": "tsconfig.spec.json",
     "prefix": "mangol",
     "styles": [
+      "../node_modules/openlayers/dist/ol.css",
+      "../node_modules/font-awesome/css/font-awesome.min.css",
+      "../vendor/mapskin/css/mapskin.min.css",
+      "../vendor/material-icons/material-icons.css",
       "./assets/scss/mangol.scss",
       "demo.scss"
     ],
