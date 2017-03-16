@@ -129,6 +129,8 @@ You also have to add Mangol's scss and some vendor js files. If you use Webpack 
 
 ```json
 "styles": [
+    "../node_modules/openlayers/dist/ol.css",
+    "../node_modules/font-awesome/css/font-awesome.min.css",
     "../node_modules/mangol/src/assets/scss/mangol.scss"
 ],
 "scripts": [
