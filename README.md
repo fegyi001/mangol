@@ -46,6 +46,22 @@ imports: [
 ]
 ```
 
+You also have to add Mangol's scss and some vendor js files. If you use Webpack (recommended) and created your project with angular-cli, add the following libraries to your `angular-cli.json`:
+
+```json
+"styles": [
+    "../node_modules/openlayers/dist/ol.css",
+    "../node_modules/font-awesome/css/font-awesome.min.css",
+    "../node_modules/mangol/src/assets/scss/mangol.scss"
+],
+"scripts": [
+    "../node_modules/openlayers/dist/ol.js",
+    "../node_modules/proj4/dist/proj4.js",
+    "../node_modules/jspdf/dist/jspdf.min.js"
+]
+```
+If you use SystemJS add the files above in a regular way to your index.html (with link and script tags).
+
 After that, you can use Mangol html tags in your templates such as
 ```html
 <mangol></mangol>
@@ -124,22 +140,6 @@ export class AppComponent implements OnInit {
 }
 
 ```
-
-You also have to add Mangol's scss and some vendor js files. If you use Webpack (recommended) and created your project with angular-cli, add the following libraries to your `angular-cli.json`:
-
-```json
-"styles": [
-    "../node_modules/openlayers/dist/ol.css",
-    "../node_modules/font-awesome/css/font-awesome.min.css",
-    "../node_modules/mangol/src/assets/scss/mangol.scss"
-],
-"scripts": [
-    "../node_modules/openlayers/dist/ol.js",
-    "../node_modules/proj4/dist/proj4.js",
-    "../node_modules/jspdf/dist/jspdf.min.js"
-]
-```
-If you use SystemJS add the files above in a regular way to your index.html (with link and script tags).
 
 In order to reach more functionality, you can access the MangolMapService instance, which stores the map(s) and some helper functions. All you have to do is add an output named 'mapReady' to your mangol component like this:
 
