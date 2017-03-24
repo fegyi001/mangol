@@ -1,3 +1,4 @@
+import { MangolMapService } from './../services/map.service';
 import { Component, OnInit, Input, Output, EventEmitter, HostBinding, AfterViewInit, NgModule, ModuleWithProviders } from '@angular/core';
 import { CommonModule } from '@angular/common';
 import { MaterialModule } from '@angular/material';
@@ -106,7 +107,8 @@ export class MangolMapComponent implements AfterViewInit, OnInit {
     MaterialModule.forRoot()
   ],
   exports: [
-    MangolMapComponent
+    MangolMapComponent,
+    MangolMapService
   ],
   declarations: [
     MangolMapComponent
