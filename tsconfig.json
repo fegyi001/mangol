@@ -1,26 +1,26 @@
 {
   "compilerOptions": {
     "baseUrl": "",
+    "mapRoot": "./",
     "sourceMap": true,
     "declaration": false,
     "moduleResolution": "node",
     "emitDecoratorMetadata": true,
     "experimentalDecorators": true,
     "lib": [
-      "es2016"
+      "es2016",
+      "dom"
     ],
-    "outDir": "../out-tsc/spec",
-    "module": "commonjs",
-    "target": "es6",
-    "types": [
-      "jasmine",
-      "node"
+    "outDir": "../out-tsc/app",
+    "target": "es5",
+    "module": "es2015",
+    "types": [],
+    "typeRoots": [
+      "../node_modules/@types"
     ]
   },
-  "files": [
-    "test.ts"
-  ],
-  "include": [
+  "exclude": [
+    "test.ts",
     "**/*.spec.ts"
   ]
 }
