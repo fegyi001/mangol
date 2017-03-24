@@ -1,3 +1,4 @@
+import { MangolMapService } from './../services/map.service';
 import { NgModule, ModuleWithProviders } from '@angular/core';
 
 // import {} from './core/index';
@@ -21,7 +22,8 @@ const MANGOL_MODULES = [
     MangolLayergroupModule,
     MangolLayertreeDetailsModule,
     MangolPrintModule,
-    MangolMeasureModule
+    MangolMeasureModule,
+    MangolMapService
 ];
 
 @NgModule({

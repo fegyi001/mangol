@@ -107,8 +107,7 @@ export class MangolMapComponent implements AfterViewInit, OnInit {
     MaterialModule.forRoot()
   ],
   exports: [
-    MangolMapComponent,
-    MangolMapService
+    MangolMapComponent
   ],
   declarations: [
     MangolMapComponent
