@@ -140,6 +140,24 @@ You also have to add Mangol's scss and some vendor js files. If you use Webpack 
 ]
 ```
 
+If you wish to reach more functionality, you can access the MangolMapService instance, which stores the map(s) and some helper functions. All you have to do is add an output named 'mapReady' to your mangol component like this:
+
+```typescript
+import { Component } from '@angular/core';
+
+@Component({
+  selector: 'app-root',
+  template: `<mangol (mapReady)="onMapReady($event)"></mangol>`
+})
+export class AppComponent {
+  title = 'app works!';
+
+  onMapReady($event) {
+    console.log($event);
+  }
+}
+```
+
 If you use SystemJS add the files above in a regular way to your index.html (with link and script tags).
 
 ## Present & Future
