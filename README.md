@@ -67,6 +67,8 @@ After that, you can use Mangol html tags in your templates such as
 <mangol></mangol>
 ``` 
 
+## Basic example
+
 This is the simplest implementation of Mangol in a component (this will create a default map with zoom buttons and with one OpenStreetMap layer) :
 ```typescript
 import { Component } from '@angular/core';
@@ -82,7 +84,9 @@ export class AppComponent {
 }
 ```
 
-You can further configure your Mangol component for example by adding a sidebar and a layertree like this (for more examples, see the app/demos folder):
+## Configuring the component
+
+You can further configure your Mangol component for example by adding a sidebar and a layertree like this (for more examples, see the src/app/demos folder):
 ```typescript
 import { Component, OnInit } from '@angular/core';
 
@@ -138,10 +142,11 @@ export class AppComponent implements OnInit {
     };
   };
 }
-
 ```
 
-In order to reach more functionality, you can access the MangolMapService instance, which stores the map(s) and some helper functions. All you have to do is add an output named 'mapReady' to your mangol component like this:
+## More hooks
+
+In order to reach more functionality, you can access the MangolMapService instance, which stores the map(s) and some helper functions. All you have to do is use the 'mapReady' output on your 'mangol' component. With that you can extend your app quite easily:
 
 ```typescript
 import { Component } from '@angular/core';
