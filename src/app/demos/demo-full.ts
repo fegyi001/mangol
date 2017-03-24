@@ -1,15 +1,22 @@
+import { MangolMapService } from './../../lib/services/map.service';
 import { Component, OnInit } from '@angular/core';
 
 import * as ol from 'openlayers';
 @Component({
   selector: 'mangol-demo-full',
   template: `
-      <mangol [config]="config"></mangol>
+      <mangol [config]="config" (mapReady)="onMapReady($event)"></mangol>
     `
 })
 export class DemoFullComponent implements OnInit {
 
   config: any;
+
+  mapService: MangolMapService;
+
+  onMapReady($event: { mapService: MangolMapService }) {
+    this.mapService = $event.mapService;
+  }
 
   public ngOnInit(): any {
     this.config = {

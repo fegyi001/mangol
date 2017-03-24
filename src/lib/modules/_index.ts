@@ -22,8 +22,7 @@ const MANGOL_MODULES = [
     MangolLayergroupModule,
     MangolLayertreeDetailsModule,
     MangolPrintModule,
-    MangolMeasureModule,
-    MangolMapService
+    MangolMeasureModule
 ];
 
 @NgModule({

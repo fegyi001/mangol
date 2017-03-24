@@ -4,7 +4,6 @@ import { CommonModule } from '@angular/common';
 import { MaterialModule } from '@angular/material';
 import 'hammerjs';
 
-import { MangolMapService } from '../services/_index';
 import { MangolMap } from '../core/_index';
 
 import * as ol from 'openlayers';
@@ -32,13 +31,13 @@ import * as ol from 'openlayers';
           </div>
           <div [attr.id]="target" class="mangol-map-div"></div>
       </div>
-  `,
-  providers: [MangolMapService]
+  `
 })
 export class MangolMapComponent implements AfterViewInit, OnInit {
   @HostBinding('class') class = 'mangol-map';
 
   @Input() options: any;
+  @Input() mapService: MangolMapService;
   @Output() mapCreated = new EventEmitter();
   @Output() sidebarToggled = new EventEmitter();
 
@@ -49,7 +48,7 @@ export class MangolMapComponent implements AfterViewInit, OnInit {
   zoomDuration = 500;
   sidebarCollapsible = false;
 
-  constructor(private mapService: MangolMapService) {
+  constructor() {
 
   }
 

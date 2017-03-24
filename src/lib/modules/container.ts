@@ -1,8 +1,9 @@
-import { Component, Input, OnInit, HostBinding, NgModule, ModuleWithProviders } from '@angular/core';
+import { Component, Input, Output, OnInit, HostBinding, NgModule, ModuleWithProviders, EventEmitter } from '@angular/core';
 import { CommonModule } from '@angular/common';
 import { MaterialModule } from '@angular/material';
 import 'hammerjs';
 
+import { MangolMapService } from './../services/map.service';
 import { MangolMapModule } from './map';
 import { MangolSidebarModule } from './sidebar';
 
@@ -22,22 +23,26 @@ import * as ol from 'openlayers';
             <mangol-map
                 *ngIf="config.map"
                 [options]="config"
+                [mapService]="service"
                 (mapCreated)="mapCreated($event)"
                 (sidebarToggled)="sidebarToggled($event)">
             </mangol-map>
         </md-sidenav-container>
-  `
+  `,
+  providers: [MangolMapService]
 })
 export class MangolContainerComponent implements OnInit {
 
   @HostBinding('class') class = 'mangol';
 
   @Input() config: any;
+  @Output() mapReady = new EventEmitter();
   map: ol.Map;
   isOpened: boolean;
+  service: MangolMapService;
 
-  constructor() {
-
+  constructor(private mapService: MangolMapService) {
+    this.service = this.mapService;
   }
 
   ngOnInit(): any {
@@ -75,6 +80,7 @@ export class MangolContainerComponent implements OnInit {
   mapCreated(map: ol.Map): void {
     this.map = map;
     this.map.updateSize();
+    this.mapReady.emit({mapService: this.service });
   }
 
   sidebarToggled(): void {
