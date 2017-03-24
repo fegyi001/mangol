@@ -139,8 +139,9 @@ You also have to add Mangol's scss and some vendor js files. If you use Webpack 
     "../node_modules/jspdf/dist/jspdf.min.js"
 ]
 ```
+If you use SystemJS add the files above in a regular way to your index.html (with link and script tags).
 
-If you wish to reach more functionality, you can access the MangolMapService instance, which stores the map(s) and some helper functions. All you have to do is add an output named 'mapReady' to your mangol component like this:
+In order to reach more functionality, you can access the MangolMapService instance, which stores the map(s) and some helper functions. All you have to do is add an output named 'mapReady' to your mangol component like this:
 
 ```typescript
 import { Component } from '@angular/core';
@@ -152,13 +153,11 @@ import { Component } from '@angular/core';
 export class AppComponent {
   title = 'app works!';
 
-  onMapReady($event) {
+  onMapReady($event: any) {
     console.log($event);
   }
 }
 ```
-
-If you use SystemJS add the files above in a regular way to your index.html (with link and script tags).
 
 ## Present & Future
 This project is still very new and therefore it contains only a couple of components (widgets), most of them are under heavy development. In the near future I intend to add/extend other widgets. More examples will arrive as soon as the project becomes smarter.
