@@ -12,6 +12,7 @@ import * as ol from 'openlayers';
 @Component({
   selector: 'mangol',
   template: `
+      <div class="mangol-content">
         <md-sidenav-container>
             <md-sidenav #start *ngIf="config.sidebar && map" align="start"
                   (open)="updateMap()" (close)="isOpened=false" opened="{{isOpened}}" mode="push">
@@ -28,6 +29,7 @@ import * as ol from 'openlayers';
                 (sidebarToggled)="sidebarToggled($event)">
             </mangol-map>
         </md-sidenav-container>
+      </div>
   `,
   providers: [MangolMapService]
 })

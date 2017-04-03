@@ -1,6 +1,9 @@
 .mangol {
   @include outer-container(100%);
-  height: 100%;
+  height: $mangol-height !important;
+  & .ol-viewport {
+    height: $mangol-height !important;
+  }
   & md-sidenav-container {
     & md-sidenav {
       width: 40%;

@@ -14,17 +14,17 @@ import * as ol from 'openlayers';
       <div>
           <div class="custom-buttons">
               <div class="zoom-in" (click)="zoomIn()">
-                  <button md-mini-fab>
+                  <button md-mini-fab color="primary">
                       <md-icon class="md-12">add</md-icon>
                   </button>
               </div>
               <div class="zoom-out" (click)="zoomOut()">
-                  <button md-mini-fab>
+                  <button md-mini-fab color="primary">
                       <md-icon class="md-24">remove</md-icon>
                   </button>
               </div>
               <div class="sidebar" *ngIf="hasSidebar && sidebarCollapsible" (click)="toggleSidebar()">
-                  <button md-mini-fab>
+                  <button md-mini-fab color="primary">
                       <md-icon class="md-24">reorder</md-icon>
                   </button>
               </div>

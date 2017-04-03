@@ -17,9 +17,6 @@
     "testTsconfig": "tsconfig.spec.json",
     "prefix": "mangol",
     "styles": [
-      "../node_modules/openlayers/dist/ol.css",
-      "../node_modules/font-awesome/css/font-awesome.min.css",
-      "./assets/scss/mangol.scss",
       "demo.scss"
     ],
     "scripts": [

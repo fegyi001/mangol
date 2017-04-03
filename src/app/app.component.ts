@@ -2,7 +2,6 @@ import { Component, Inject } from '@angular/core';
 
 @Component({
   selector: 'mangol-demo',
-  styleUrls: ['./app.component.scss'],
   template: `
     <div class="mangol-demo">
       <div class="ribbon-box">

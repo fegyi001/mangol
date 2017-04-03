@@ -7,7 +7,7 @@
 [![devDependency Status](https://david-dm.org/fegyi001/mangol/dev-status.svg)](https://david-dm.org/fegyi001/mangol#info=devDependencies)
 
 ## About Mangol
-Mangol is an open source library for combining [Angular2+](https://angular.io/) and [OpenLayers3+](https://openlayers.org/) to create modern, responsive interactive web maps (_M_ stands for _maps_, _ang_ for _Angular_ and _ol_ for _OpenLayers_). The project has been created using [angular-cli](https://cli.angular.io/), a command-line tool for Angular2 projects. The project is written in TypeScript and uses SCSS for styling. It has been built with Angular2 (2.4.10) and OpenLayers4 (4.0.1). The packaging is done via [Webpack module bundler](https://webpack.github.io/).
+Mangol is an open source library for combining [Angular2+](https://angular.io/) and [OpenLayers3+](https://openlayers.org/) to create modern, responsive interactive web maps (_M_ stands for _maps_, _ang_ for _Angular_ and _ol_ for _OpenLayers_). The project has been created using [angular-cli](https://cli.angular.io/), a command-line tool for Angular projects. The project is written in TypeScript and uses SCSS for styling. It has been built with Angular v4.0.0 and OpenLayers v4.0.1. The packaging is done via [Webpack module bundler](https://webpack.github.io/).
 
 Formerly, Mangol was called `ng2ol3` and was based on SystemJS and without angular-cli.
 
@@ -46,21 +46,21 @@ imports: [
 ]
 ```
 
-You also have to add Mangol's scss and some vendor js files. If you use Webpack (recommended) and created your project with angular-cli, add the following libraries to your `angular-cli.json`:
+You also have to add some vendor js files. If you use Webpack (recommended) and created your project with angular-cli, add the following libraries to your `angular-cli.json`:
 
 ```json
-"styles": [
-    "../node_modules/openlayers/dist/ol.css",
-    "../node_modules/font-awesome/css/font-awesome.min.css",
-    "../node_modules/mangol/src/assets/scss/mangol.scss"
-],
 "scripts": [
     "../node_modules/openlayers/dist/ol.js",
     "../node_modules/proj4/dist/proj4.js",
     "../node_modules/jspdf/dist/jspdf.min.js"
 ]
 ```
-If you use SystemJS add the files above in a regular way to your index.html (with link and script tags).
+If you use SystemJS add the files above in a regular way to your index.html (with script tags).
+
+At the beginning of your main SCSS file, you should import mangol.scss like this:
+```scss
+@import "~mangol/src/assets/scss/mangol";
+```
 
 After that, you can use Mangol html tags in your templates such as
 ```html
@@ -142,6 +142,26 @@ export class AppComponent implements OnInit {
     };
   };
 }
+```
+
+## Styling
+Mangol uses Material components and therefore it supports some SCSS customization. For example if you wish to alter the default colors, you can easily do that by overwriting the primary, accent and warn Material palettes <b>before</b> importing mangol.scss. Do it like this:
+```scss
+@import '~@angular/material/theming';
+@include mat-core();
+$mangol-primary: mat-palette($mat-teal);
+$mangol-accent: mat-palette($mat-lime);
+$mangol-warn: mat-palette($mat-deep-orange);
+$mangol-theme: mat-light-theme($mangol-primary, $mangol-accent, $mangol-warn);
+
+@import "~mangol/src/assets/scss/mangol";
+```
+
+If you wish to set the component height, also do it before importing mangol.scss:
+```scss
+$mangol-height: 400px;
+
+@import "~mangol/src/assets/scss/mangol";
 ```
 
 ## More hooks

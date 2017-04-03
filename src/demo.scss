@@ -1,3 +1,11 @@
+@import '~@angular/material/theming';
+@include mat-core();
+$mangol-primary: mat-palette($mat-blue);
+$mangol-accent: mat-palette($mat-deep-orange);
+$mangol-warn: mat-palette($mat-red);
+$mangol-theme: mat-light-theme($mangol-primary, $mangol-accent, $mangol-warn);
+$mangol-height: 400px;
+@import "./assets/scss/mangol";
 html,
 body {
   width: 100%;
@@ -7,7 +15,43 @@ body {
   & .demo-loading {
     font-style: italic;
   }
-  & .ol-viewport {
-    height: 500px !important;
+  & .mangol-demo {
+    font-style: normal;
+    position: relative;
+    & h1 {
+      font-weight: 400;
+    }
+    & .demo {
+      max-width: 1200px;
+      margin-left: auto;
+      margin-right: auto;
+      padding: 20px;
+    }
+    & .demo-header {
+      padding-bottom: 20px;
+    }
+    & .divider {
+      color: #333333;
+      padding-left: 10px;
+      padding-right: 10px;
+    }
+    & button {
+      text-transform: uppercase;
+      font-weight: normal;
+    }
+    & .demo-content {
+      border: 1px dashed rgba(0, 0, 0, 0.15);
+      padding: 6px;
+    }
+    & .ribbon-box {
+      float: right !important;
+      right: 1px;
+    }
+    & .ribbon i {
+      font-size: 2em;
+    }
+    & nav {
+      line-height: 2.5em;
+    }
   }
 }

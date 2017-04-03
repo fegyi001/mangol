@@ -12,7 +12,7 @@ import { MangolLayer, MangolLayergroup } from '../core/_index';
       <div [style.height]='detailsHeight'>
         	<md-grid-list cols="{{items.length}}" rowHeight="{{detailsHeight}}" gutterSize="0px">
             	<md-grid-tile *ngFor="let item of items" [colspan]="item.cols" [rowspan]="item.rows"
-                  [style.background]="_calcRGBAColor(item.color)" [style.color]="'#484848'" class="pointer" (click)="onClick(item)">
+                  [style.background]="_calcRGBAColor(item.color)" [style.color]="'#484848'" class="mangol-pointer" (click)="onClick(item)">
                 <md-icon class="md-24" fontSet="{{item.toggled ? item.fontSetToggled : item.fontSet}}"
                     fontIcon="{{item.toggled ? item.fontIconToggled : item.fontIcon}}"></md-icon>
   			    	</md-grid-tile>

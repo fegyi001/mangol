@@ -2,7 +2,6 @@
     z-index: 200;
     vertical-align: top;
     background-color: $base-background-color;
-    box-shadow: 4px 0 5px -4px #888;
     height: 100%;
     & .sidebar-outer {
         @include outer-container;

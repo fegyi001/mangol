@@ -1,9 +1,23 @@
-@import "../../../vendor/mapskin/css/mapskin.min.css";
-@import "../../../vendor/material-icons/material-icons.css";
+@import "~openlayers/dist/ol.css";
+@import "~font-awesome/css/font-awesome.min.css";
+@import url("https://mapskincdn.appspot.com/1.0/mapskin.min.css");
+@import url("https://fonts.googleapis.com/icon?family=Material+Icons");
+@import '~@angular/material/theming';
+@include mat-core();
+@if not variable-exists(mangol-theme) {
+  $mangol-theme: mat-light-theme(mat-palette($mat-blue), mat-palette($mat-deep-orange), mat-palette($mat-red)) !global;
+}
+
+@include angular-material-theme($mangol-theme);
+@if not variable-exists(mangol-height) {
+  $mangol-height: 100% !global; //   & .mangol,
+}
+
 @import "lib/bourbon/bourbon";
 @import "lib/neat/neat";
 @import "base/base";
 @import "lib/refills/ribbon";
+@import "overrides/material";
 @import "overrides/openlayers";
 @import "components/container";
 @import "components/map";
@@ -12,6 +26,6 @@
 @import "components/layertree";
 @import "components/print";
 @import "components/measure";
-.pointer {
+.mangol-pointer {
   cursor: pointer;
 }
