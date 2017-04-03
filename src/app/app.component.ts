@@ -42,6 +42,6 @@ import { Component, Inject } from '@angular/core';
 })
 export class MangolDemoComponent {
   // this is how you use a window
-  constructor( @Inject(Window) window) {
-  }
+//   constructor( @Inject(Window) window) {
+//   }
 }
