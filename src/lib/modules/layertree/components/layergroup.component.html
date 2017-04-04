@@ -1,0 +1,17 @@
+<div>
+  <md-sidenav-container (mouseover)="showDetails()" (mouseout)="hideDetails()">
+    <md-sidenav #start align="start" opened="{{detailsVisible}}" mode="over">
+      <mangol-layertree-details type="layergroup" [element]="layerGroup" [class.detailsVisible]="detailsVisible" [detailsHeight]="detailsHeight"
+        (elementClicked)="onDetailsElementClicked($event)"></mangol-layertree-details>
+    </md-sidenav>
+    <div class="element-header" [class.expanded]="expanded">
+      <div class="element-content">
+        <div class="element-name">{{layerGroup.name | uppercase}}</div>
+        <div class="element-details">{{nestedLayerGroups.length}} layer group(s), {{nestedLayers.length}} layer(s)</div>
+      </div>
+    </div>
+  </md-sidenav-container>
+  <div class="children" *ngIf="expanded">
+    <mangol-layer *ngFor="let l of nestedLayers" [layer]="l"></mangol-layer>
+  </div>
+</div>

@@ -1,0 +1,19 @@
+<div class="sidebar-outer">
+  <mangol-toolbar *ngIf="hasToolbar" [options]="options.toolbar" (elementActivated)="onElementActivated($event)">
+  </mangol-toolbar>
+  <div class="sidebar-main">
+    <div class="sidebar-title">
+      <md-toolbar>
+        <!--<div class="closediv">X</div>-->
+        <span>{{activeElement.title}}</span>
+      </md-toolbar>
+    </div>
+    <div class="sidebar-content">
+      <mangol-layertree *ngIf="hasLayertree && activeElement.type==='layertree'" [map]="map">
+      </mangol-layertree>
+      <mangol-measure *ngIf="hasMeasure && activeElement.type==='measure'" [map]="map">
+      </mangol-measure>
+      <mangol-print *ngIf="hasPrint && activeElement.type==='print'" [map]="map"></mangol-print>
+    </div>
+  </div>
+</div>

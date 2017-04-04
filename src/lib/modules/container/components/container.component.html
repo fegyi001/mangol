@@ -1,0 +1,11 @@
+<div class="mangol-content">
+  <md-sidenav-container>
+    <md-sidenav #start *ngIf="config.sidebar && map" align="start" (open)="updateMap()" (close)="isOpened=false" opened="{{isOpened}}"
+      mode="push">
+      <mangol-sidebar [options]="config.sidebar" [map]="map">
+      </mangol-sidebar>
+    </md-sidenav>
+    <mangol-map *ngIf="config.map" [options]="config" [mapService]="service" (mapCreated)="mapCreated($event)" (sidebarToggled)="sidebarToggled($event)">
+    </mangol-map>
+  </md-sidenav-container>
+</div>

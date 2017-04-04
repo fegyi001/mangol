@@ -1,36 +1,10 @@
-import { Component, OnInit, Input, HostBinding, NgModule, ModuleWithProviders } from '@angular/core';
-import { CommonModule, NgClass } from '@angular/common';
-import { MaterialModule } from '@angular/material';
-import 'hammerjs';
+import { Component, OnInit, Input, HostBinding } from '@angular/core';
 
-import { MangolLayertreeDetailsModule } from './layertree-details';
-import { MangolLayerModule } from './layer';
-
-import { MangolLayer, MangolLayergroup } from '../core/_index';
-
+import { MangolLayer, MangolLayergroup } from './../../../core/_index';
 
 @Component({
   selector: 'mangol-layergroup',
-  template: `
-      <div>
-	        <md-sidenav-container (mouseover)="showDetails()" (mouseout)="hideDetails()">
-	            <md-sidenav #start align="start" opened="{{detailsVisible}}" mode="over">
-	                <mangol-layertree-details type="layergroup" [element]="layerGroup"
-                  [class.detailsVisible]="detailsVisible" [detailsHeight]="detailsHeight"
-                  (elementClicked)="onDetailsElementClicked($event)"></mangol-layertree-details>
-	            </md-sidenav>
-		    	<div class="element-header" [class.expanded]="expanded">
-	                <div class="element-content">
-	                    <div class="element-name">{{layerGroup.name | uppercase}}</div>
-	                    <div class="element-details">{{nestedLayerGroups.length}} layer group(s), {{nestedLayers.length}} layer(s)</div>
-	                </div>
-			    </div>
-	        </md-sidenav-container>
-            <div class="children" *ngIf="expanded">
-                <mangol-layer *ngFor="let l of nestedLayers" [layer]="l"></mangol-layer>
-            </div>
-	    </div>
-    `
+  templateUrl: './layergroup.component.html'
 })
 export class MangolLayergroupComponent implements OnInit {
   @HostBinding('class') class = 'mangol-layergroup';
@@ -101,27 +75,3 @@ export class MangolLayergroupComponent implements OnInit {
   }
 
 }
-
-@NgModule({
-  imports: [
-    CommonModule,
-    MaterialModule.forRoot(),
-    MangolLayertreeDetailsModule.forRoot(),
-    MangolLayerModule.forRoot()
-  ],
-  exports: [
-    MangolLayergroupComponent
-  ],
-  declarations: [
-    MangolLayergroupComponent
-  ]
-})
-export class MangolLayergroupModule {
-  static forRoot(): ModuleWithProviders {
-    return {
-      ngModule: MangolLayergroupModule,
-      providers: []
-    };
-  }
-}
-

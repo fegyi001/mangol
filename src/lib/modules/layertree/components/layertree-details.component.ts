@@ -1,24 +1,10 @@
-import { Component, OnInit, Input, Output, EventEmitter, HostBinding, NgModule, ModuleWithProviders } from '@angular/core';
-import { CommonModule } from '@angular/common';
-import { MaterialModule } from '@angular/material';
-import 'hammerjs';
+import { Component, OnInit, Input, Output, EventEmitter, HostBinding } from '@angular/core';
 
-import { MangolLayer, MangolLayergroup } from '../core/_index';
-
+import { MangolLayer, MangolLayergroup } from './../../../core/_index';
 
 @Component({
   selector: 'mangol-layertree-details',
-  template: `
-      <div [style.height]='detailsHeight'>
-        	<md-grid-list cols="{{items.length}}" rowHeight="{{detailsHeight}}" gutterSize="0px">
-            	<md-grid-tile *ngFor="let item of items" [colspan]="item.cols" [rowspan]="item.rows"
-                  [style.background]="_calcRGBAColor(item.color)" [style.color]="'#484848'" class="mangol-pointer" (click)="onClick(item)">
-                <md-icon class="md-24" fontSet="{{item.toggled ? item.fontSetToggled : item.fontSet}}"
-                    fontIcon="{{item.toggled ? item.fontIconToggled : item.fontIcon}}"></md-icon>
-  			    	</md-grid-tile>
-            </md-grid-list>
-        </div>
-    `
+  templateUrl: './layertree-details.component.html'
 })
 export class MangolLayertreeDetailsComponent implements OnInit {
   @HostBinding('class') class = 'mangol-layertree-details';
@@ -125,25 +111,3 @@ export class MangolLayertreeDetailsComponent implements OnInit {
   }
 
 }
-
-@NgModule({
-  imports: [
-    CommonModule,
-    MaterialModule.forRoot()
-  ],
-  exports: [
-    MangolLayertreeDetailsComponent
-  ],
-  declarations: [
-    MangolLayertreeDetailsComponent
-  ]
-})
-export class MangolLayertreeDetailsModule {
-  static forRoot(): ModuleWithProviders {
-    return {
-      ngModule: MangolLayertreeDetailsModule,
-      providers: []
-    };
-  }
-}
-

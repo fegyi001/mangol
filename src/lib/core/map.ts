@@ -1,4 +1,4 @@
-import { MangolLayer, MangolLayergroup } from '../index';
+import { MangolLayer, MangolLayergroup } from './../_index';
 
 import * as ol from 'openlayers';
 

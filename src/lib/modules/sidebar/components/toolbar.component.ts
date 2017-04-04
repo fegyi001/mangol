@@ -1,21 +1,8 @@
-import { Component, Input, Output, OnInit, EventEmitter, HostBinding, NgModule, ModuleWithProviders } from '@angular/core';
-import { CommonModule } from '@angular/common';
-import { MaterialModule } from '@angular/material';
-import 'hammerjs';
+import { Component, Input, Output, OnInit, EventEmitter, HostBinding } from '@angular/core';
 
 @Component({
   selector: 'mangol-toolbar',
-  template: `
-        <div class="toolbar-div">
-			<md-list>
-            	<md-list-item *ngFor="let element of elements">
-                    <button md-mini-fab [class.active]="element.active" [disabled]="element.disabled" (click)="activateElement(element)">
-                    	<md-icon fontSet="{{element.fontSet}}" fontIcon="{{element.fontIcon}}"></md-icon>
-                    </button>
-                </md-list-item>
-            </md-list>
-        </div>
-    `
+  templateUrl: './toolbar.component.html'
 })
 export class MangolToolbarComponent implements OnInit {
 
@@ -24,7 +11,7 @@ export class MangolToolbarComponent implements OnInit {
   @Input() options: any;
   @Output() elementActivated = new EventEmitter();
 
-  myColor: string = 'primary';
+  myColor = 'primary';
   elements: any[];
 
   constructor() {
@@ -85,25 +72,4 @@ export class MangolToolbarComponent implements OnInit {
     }
   }
 
-}
-
-@NgModule({
-  imports: [
-    CommonModule,
-    MaterialModule.forRoot()
-  ],
-  exports: [
-    MangolToolbarComponent
-  ],
-  declarations: [
-    MangolToolbarComponent
-  ]
-})
-export class MangolToolbarModule {
-  static forRoot(): ModuleWithProviders {
-    return {
-      ngModule: MangolToolbarModule,
-      providers: []
-    };
-  }
 }

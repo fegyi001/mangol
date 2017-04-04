@@ -1,20 +1,12 @@
-import { Component, OnInit, Input, HostBinding, NgModule, ModuleWithProviders } from '@angular/core';
-import { CommonModule } from '@angular/common';
-import { MaterialModule } from '@angular/material';
-import 'hammerjs';
+import { Component, OnInit, Input, HostBinding } from '@angular/core';
 
-import { MangolMap } from '../core/_index';
+import { MangolMap } from './../../../core/_index';
 
 declare var jsPDF: any;
 
 @Component({
   selector: 'mangol-print',
-  template: `
-      <div>
-          <button md-raised-button (click)='print()'>print to file</button>
-          <div class="dev">PDF in A4 format with 72 dpi resolution. Detailed printing options will come soon.</div>
-      </div>
-    `
+  templateUrl: './print.component.html'
 })
 export class MangolPrintComponent implements OnInit {
   @HostBinding('class') class = 'mangol-print';
@@ -70,25 +62,3 @@ export class MangolPrintComponent implements OnInit {
   }
 
 }
-
-@NgModule({
-  imports: [
-    CommonModule,
-    MaterialModule.forRoot()
-  ],
-  exports: [
-    MangolPrintComponent
-  ],
-  declarations: [
-    MangolPrintComponent
-  ]
-})
-export class MangolPrintModule {
-  static forRoot(): ModuleWithProviders {
-    return {
-      ngModule: MangolPrintModule,
-      providers: []
-    };
-  }
-}
-

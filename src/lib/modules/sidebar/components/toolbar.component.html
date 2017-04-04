@@ -1,0 +1,9 @@
+<div class="toolbar-div">
+  <md-list>
+    <md-list-item *ngFor="let element of elements">
+      <button md-mini-fab [class.active]="element.active" [disabled]="element.disabled" (click)="activateElement(element)">
+        <md-icon fontSet="{{element.fontSet}}" fontIcon="{{element.fontIcon}}"></md-icon>
+      </button>
+    </md-list-item>
+  </md-list>
+</div>
