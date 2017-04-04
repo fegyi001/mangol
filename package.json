@@ -46,6 +46,7 @@
     "hammerjs": "^2.0.8",
     "jspdf": "1.3.3",
     "openlayers": "4.0.1",
+    "mapskin": "1.0.0",
     "proj4": "2.4.3",
     "rxjs": "5.2.0",
     "ts-helpers": "1.1.2",
@@ -54,7 +55,7 @@
   "devDependencies": {
     "@angular/cli": "1.0.0",
     "@angular/compiler-cli": "^4.0.0",
-    "@types/jasmine": "2.5.46",
+    "@types/jasmine": "2.5.47",
     "@types/node": "7.0.12",
     "codelyzer": "2.1.1",
     "jasmine-core": "~2.5.2",

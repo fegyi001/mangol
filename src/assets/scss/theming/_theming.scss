@@ -1,0 +1,14 @@
+@import '~@angular/material/theming';
+@include mat-core();
+@if not variable-exists(mangol-theme) {
+  $mangol-theme: mat-light-theme(mat-palette($mat-blue), mat-palette($mat-deep-orange), mat-palette($mat-red)) !global;
+}
+
+@include angular-material-theme($mangol-theme);
+@if not variable-exists(mangol-height) {
+  $mangol-height: 100% !global;
+}
+
+$base-border-radius: 2px;
+$font-stack-system: 'Roboto';
+$action-color: mat-color(map-get($mangol-theme, primary), 1);

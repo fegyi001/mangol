@@ -16,6 +16,7 @@ export class DemoFullComponent implements OnInit {
 
   onMapReady($event: { mapService: MangolMapService }) {
     this.mapService = $event.mapService;
+    console.log(this.mapService);
   }
 
   public ngOnInit(): any {
