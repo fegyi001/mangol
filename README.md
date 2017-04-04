@@ -154,14 +154,14 @@ $mangol-accent: mat-palette($mat-lime);
 $mangol-warn: mat-palette($mat-deep-orange);
 $mangol-theme: mat-light-theme($mangol-primary, $mangol-accent, $mangol-warn);
 
-@import "~mangol/src/assets/scss/mangol";
+@import "~mangol/mangol";
 ```
 
 If you wish to set the component height, also do it before importing mangol.scss:
 ```scss
 $mangol-height: 400px;
 
-@import "~mangol/src/assets/scss/mangol";
+@import "~mangol/mangol";
 ```
 
 ## More hooks

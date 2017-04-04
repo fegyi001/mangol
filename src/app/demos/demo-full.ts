@@ -2,6 +2,7 @@ import { MangolMapService } from './../../lib/services/map.service';
 import { Component, OnInit } from '@angular/core';
 
 import * as ol from 'openlayers';
+
 @Component({
   selector: 'mangol-demo-full',
   template: `

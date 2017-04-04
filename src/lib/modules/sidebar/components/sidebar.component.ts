@@ -3,6 +3,7 @@ import { Component, Input, OnInit, HostBinding, AfterViewInit } from '@angular/c
 import { MangolMap } from './../../../core/_index';
 
 import * as ol from 'openlayers';
+
 @Component({
   selector: 'mangol-sidebar',
   templateUrl: './sidebar.component.html'
