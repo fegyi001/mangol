@@ -8,7 +8,3 @@
 @if not variable-exists(mangol-height) {
   $mangol-height: 100% !global;
 }
-
-$base-border-radius: 2px;
-$font-stack-system: 'Roboto';
-$action-color: mat-color(map-get($mangol-theme, primary), 1);
