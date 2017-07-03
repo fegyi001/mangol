@@ -52,12 +52,12 @@ export class MangolPrintComponent implements OnInit {
         pdf.addImage(data, 'JPEG', 0, 0, dim[0], dim[1]);
         pdf.save('map.pdf');
         map.setSize(size);
-        map.getView().fit(extent, size);
+        map.getView().fit(extent);
         map.renderSync();
       }, 100);
     });
     map.setSize([width, height]);
-    map.getView().fit(extent, (map.getSize()));
+    map.getView().fit(extent);
     map.renderSync();
   }
 

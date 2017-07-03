@@ -8,7 +8,7 @@ import { MangolMapComponent } from './components/map.component';
 @NgModule({
   imports: [
     CommonModule,
-    MaterialModule.forRoot()
+    MaterialModule
   ],
   exports: [
     MangolMapComponent

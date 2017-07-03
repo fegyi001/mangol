@@ -8,7 +8,7 @@ import { MangolMeasureComponent } from './components/measure.component';
 @NgModule({
   imports: [
     CommonModule,
-    MaterialModule.forRoot()
+    MaterialModule
   ],
   exports: [
     MangolMeasureComponent

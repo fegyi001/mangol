@@ -11,7 +11,7 @@ import { MangolLayerComponent } from './components/layer.component';
 @NgModule({
   imports: [
     CommonModule,
-    MaterialModule.forRoot()
+    MaterialModule
   ],
   exports: [
     MangolLayertreeComponent

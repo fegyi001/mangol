@@ -36,7 +36,7 @@ import {
     BrowserModule,
     FormsModule,
     HttpModule,
-    MaterialModule.forRoot(),
+    MaterialModule,
     MangolModule.forRoot(),
     routing
   ],

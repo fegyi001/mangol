@@ -8,7 +8,7 @@ import { MangolPrintComponent } from './components/print.component';
 @NgModule({
   imports: [
     CommonModule,
-    MaterialModule.forRoot()
+    MaterialModule
   ],
   exports: [
     MangolPrintComponent

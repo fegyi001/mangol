@@ -16,7 +16,7 @@ import * as ol from 'openlayers';
   ],
   imports: [
     CommonModule,
-    MaterialModule.forRoot(),
+    MaterialModule,
     MangolMapModule,
     MangolSidebarModule
   ],

@@ -13,7 +13,7 @@ import { MangolToolbarComponent } from './components/toolbar.component';
 @NgModule({
   imports: [
     CommonModule,
-    MaterialModule.forRoot(),
+    MaterialModule,
     MangolLayertreeModule.forRoot(),
     MangolPrintModule.forRoot(),
     MangolMeasureModule.forRoot()
