@@ -18,7 +18,7 @@
             margin-right: auto;
             &.active {
               & md-icon {
-                font-size: 1.8em;
+                // font-size: 1.8em;
                 color: $action-color;
               }
             }
@@ -29,7 +29,7 @@
             }
             & md-icon {
               color: $dark-gray;
-              font-size: 1.3em;
+              font-size: 1.2em;
             }
           }
         }

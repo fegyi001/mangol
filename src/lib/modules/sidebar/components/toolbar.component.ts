@@ -20,7 +20,7 @@ export class MangolToolbarComponent implements OnInit {
 
   public ngOnInit(): any {
     if (this.options.hasOwnProperty('layertree')) {
-      let obj: any = this.options.layertree;
+      const obj: any = this.options.layertree;
       this.elements.push({
         type: 'layertree',
         title: obj.hasOwnProperty('title') ? obj.title : 'Layer manager',
@@ -31,7 +31,7 @@ export class MangolToolbarComponent implements OnInit {
       });
     }
     if (this.options.hasOwnProperty('measure')) {
-      let obj: any = this.options.measure;
+      const obj: any = this.options.measure;
       this.elements.push({
         type: 'measure',
         title: obj.hasOwnProperty('title') ? obj.title : 'Measure',
@@ -42,7 +42,7 @@ export class MangolToolbarComponent implements OnInit {
       });
     }
     if (this.options.hasOwnProperty('print')) {
-      let obj: any = this.options.print;
+      const obj: any = this.options.print;
       this.elements.push({
         type: 'print',
         title: obj.hasOwnProperty('title') ? obj.title : 'Print',
