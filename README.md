@@ -23,7 +23,7 @@ If you wish to see the built-in demos or modify the source files, simply run ```
 
 ## Use as npm library
 
-If you would like to use Mangol as an npm library in your Angular2 (TypeScript) project, you can also do that since [Mangol is on npm](https://www.npmjs.com/package/mangol) as well.
+If you would like to use Mangol as an npm library in your Angular2+ (TypeScript) project, you can also do that since [Mangol is on npm](https://www.npmjs.com/package/mangol) as well.
 
 First, add Mangol as a dependency to your project: 
 ```batch
@@ -190,4 +190,4 @@ This project is still very new and therefore it contains only a couple of compon
 ![demo](src/assets/img/screenshots/demo-map_20170403.png)
 
 ## Author
-```Mangol``` was created by [Gergely Padányi-Gulyás](http://gpadanyig.com)
+```Mangol``` was created and being maintained by [Gergely Padányi-Gulyás](http://gpadanyig.com)
