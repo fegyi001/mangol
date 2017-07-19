@@ -23,11 +23,4 @@ import { MangolLayerComponent } from './components/layer.component';
     MangolLayerComponent
   ]
 })
-export class MangolLayertreeModule {
-  static forRoot(): ModuleWithProviders {
-    return {
-      ngModule: MangolLayertreeModule,
-      providers: []
-    };
-  }
-}
+export class MangolLayertreeModule { }

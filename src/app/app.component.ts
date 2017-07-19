@@ -1,8 +1,8 @@
 import { Component, Inject } from '@angular/core';
 
 @Component({
-  selector: 'mangol-demo',
-  template: `
+    selector: 'mangol-demo',
+    template: `
     <div class="mangol-demo">
       <div class="ribbon-box">
             <div class="ribbon-wrapper">
@@ -40,8 +40,4 @@ import { Component, Inject } from '@angular/core';
     </div>
       `
 })
-export class MangolDemoComponent {
-  // this is how you use a window
-//   constructor( @Inject(Window) window) {
-//   }
-}
+export class MangolDemoComponent { }

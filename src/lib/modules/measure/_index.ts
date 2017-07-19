@@ -17,12 +17,5 @@ import { MangolMeasureComponent } from './components/measure.component';
     MangolMeasureComponent
   ]
 })
-export class MangolMeasureModule {
-  static forRoot(): ModuleWithProviders {
-    return {
-      ngModule: MangolMeasureModule,
-      providers: []
-    };
-  }
-}
+export class MangolMeasureModule { }
 

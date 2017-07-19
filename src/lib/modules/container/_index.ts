@@ -24,12 +24,5 @@ import * as ol from 'openlayers';
     MangolContainerComponent
   ]
 })
-export class MangolContainerModule {
-  static forRoot(): ModuleWithProviders {
-    return {
-      ngModule: MangolContainerModule,
-      providers: []
-    };
-  }
-}
+export class MangolContainerModule { }
 

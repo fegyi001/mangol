@@ -37,12 +37,11 @@ import {
     FormsModule,
     HttpModule,
     MaterialModule,
-    MangolModule.forRoot(),
+    MangolModule,
     routing
   ],
   providers: [
     appRoutingProviders,
-    { provide: Window, useValue: window },
     { provide: LocationStrategy, useClass: HashLocationStrategy }
   ],
   bootstrap: [MangolDemoComponent]

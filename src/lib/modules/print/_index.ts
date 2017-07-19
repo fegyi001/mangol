@@ -17,12 +17,5 @@ import { MangolPrintComponent } from './components/print.component';
     MangolPrintComponent
   ]
 })
-export class MangolPrintModule {
-  static forRoot(): ModuleWithProviders {
-    return {
-      ngModule: MangolPrintModule,
-      providers: []
-    };
-  }
-}
+export class MangolPrintModule { }
 

@@ -19,24 +19,7 @@ const MANGOL_MODULES = [
 ];
 
 @NgModule({
-    imports: [
-        MangolMapModule.forRoot(),
-        MangolContainerModule.forRoot(),
-        MangolSidebarModule.forRoot(),
-        MangolLayertreeModule.forRoot(),
-        MangolPrintModule.forRoot(),
-        MangolMeasureModule.forRoot()
-    ],
-    exports: MANGOL_MODULES,
-})
-export class MangolRootModule { }
-
-@NgModule({
     imports: MANGOL_MODULES,
     exports: MANGOL_MODULES,
 })
-export class MangolModule {
-    static forRoot(): ModuleWithProviders {
-        return { ngModule: MangolRootModule };
-    }
-}
+export class MangolModule { }

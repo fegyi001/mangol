@@ -17,11 +17,4 @@ import { MangolMapComponent } from './components/map.component';
     MangolMapComponent
   ]
 })
-export class MangolMapModule {
-  static forRoot(): ModuleWithProviders {
-    return {
-      ngModule: MangolMapModule,
-      providers: []
-    };
-  }
-}
+export class MangolMapModule { }

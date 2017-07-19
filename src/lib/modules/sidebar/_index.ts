@@ -14,9 +14,9 @@ import { MangolToolbarComponent } from './components/toolbar.component';
   imports: [
     CommonModule,
     MaterialModule,
-    MangolLayertreeModule.forRoot(),
-    MangolPrintModule.forRoot(),
-    MangolMeasureModule.forRoot()
+    MangolLayertreeModule,
+    MangolPrintModule,
+    MangolMeasureModule
   ],
   exports: [
     MangolSidebarComponent
@@ -26,11 +26,4 @@ import { MangolToolbarComponent } from './components/toolbar.component';
     MangolToolbarComponent
   ]
 })
-export class MangolSidebarModule {
-  static forRoot(): ModuleWithProviders {
-    return {
-      ngModule: MangolSidebarModule,
-      providers: []
-    };
-  }
-}
+export class MangolSidebarModule { }
