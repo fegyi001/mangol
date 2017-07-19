@@ -29,6 +29,15 @@
       }
       & .demo-header {
         padding-bottom: 20px;
+        & .title {
+          margin-bottom: 5px;
+        }
+        & .subtitle {
+          color: rgba(black, 0.5);
+          font-style: italic;
+          font-size: smaller;
+          margin-bottom: 5px;
+        }
       }
       & .divider {
         color: #333333;
