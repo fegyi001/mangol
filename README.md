@@ -59,7 +59,7 @@ If you use SystemJS add the files above in a regular way to your index.html (wit
 
 At the beginning of your main SCSS file, you should import mangol.scss like this:
 ```scss
-@import "~mangol/src/assets/scss/mangol";
+@import "~mangol/mangol";
 ```
 
 After that, you can use Mangol html tags in your templates such as
