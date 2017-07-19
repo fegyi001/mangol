@@ -7,7 +7,7 @@
 [![devDependency Status](https://david-dm.org/fegyi001/mangol/dev-status.svg)](https://david-dm.org/fegyi001/mangol#info=devDependencies)
 
 ## About Mangol
-Mangol is an open source library for combining [Angular2+](https://angular.io/) and [OpenLayers3+](https://openlayers.org/) to create modern, responsive interactive web maps (_M_ stands for _maps_, _ang_ for _Angular_ and _ol_ for _OpenLayers_). The project has been created using [angular-cli](https://cli.angular.io/), a command-line tool for Angular projects (v1.2.1). The project is written in TypeScript and uses SCSS for styling. It has been built with Angular v4.3.0 and OpenLayers v4.2.0 using Material design. The packaging is done via [Webpack module bundler](https://webpack.github.io/).
+Mangol is an open source library for combining [Angular2+](https://angular.io/) and [OpenLayers3+](https://openlayers.org/) to create modern, responsive interactive web maps (_M_ stands for _maps_, _ang_ for _Angular_ and _ol_ for _OpenLayers_). The project has been created using [@angular/cli](https://cli.angular.io/), a command-line tool for Angular projects (v1.2.1). The project is written in TypeScript and uses SCSS for styling. It has been built with Angular v4.3.0 and OpenLayers v4.2.0 using Material design. The packaging is done via [Webpack module bundler](https://webpack.github.io/).
 
 Formerly, Mangol was called `ng2ol3` and was based on SystemJS and without angular-cli.
 
@@ -41,12 +41,12 @@ And in @NgModule add MangolModule to the imports:
 ```typescript
 imports: [
     ...,
-    MangolModule.forRoot(),
+    MangolModule,
     ...
 ]
 ```
 
-You also have to add some vendor js files. If you use Webpack (recommended) and created your project with angular-cli, add the following libraries to your `angular-cli.json`:
+It is highly recommended to add some vendor js files. If you use Webpack and created your project with @angular/cli, add the following libraries to your `angular-cli.json`:
 
 ```json
 "scripts": [
