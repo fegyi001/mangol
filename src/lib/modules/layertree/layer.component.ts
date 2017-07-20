@@ -1,6 +1,6 @@
 import { Component, OnInit, Input, HostBinding } from '@angular/core';
 
-import { MangolLayer } from './../../../core/_index';
+import { MangolLayer } from './../../core/_index';
 
 @Component({
   selector: 'mangol-layer',

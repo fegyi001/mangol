@@ -3,7 +3,7 @@ import { CommonModule } from '@angular/common';
 import { MaterialModule } from '@angular/material';
 import 'hammerjs';
 
-import { MangolMapComponent } from './components/map.component';
+import { MangolMapComponent } from './map.component';
 
 @NgModule({
   imports: [
@@ -18,3 +18,4 @@ import { MangolMapComponent } from './components/map.component';
   ]
 })
 export class MangolMapModule { }
+export * from './map.component';

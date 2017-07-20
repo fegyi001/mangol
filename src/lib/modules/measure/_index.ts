@@ -3,7 +3,7 @@ import { CommonModule } from '@angular/common';
 import { MaterialModule } from '@angular/material';
 import 'hammerjs';
 
-import { MangolMeasureComponent } from './components/measure.component';
+import { MangolMeasureComponent } from './measure.component';
 
 @NgModule({
   imports: [
@@ -18,4 +18,4 @@ import { MangolMeasureComponent } from './components/measure.component';
   ]
 })
 export class MangolMeasureModule { }
-
+export * from './measure.component';

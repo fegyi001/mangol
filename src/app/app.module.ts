@@ -7,7 +7,7 @@ import { routing, appRoutingProviders } from './app.routing';
 import { LocationStrategy, HashLocationStrategy } from '@angular/common';
 import 'hammerjs';
 
-import { MangolModule } from './../../index';
+import {MangolModule} from './../lib/modules/_index';
 
 import { MangolDemoComponent } from './app.component';
 

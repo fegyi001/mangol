@@ -1,6 +1,6 @@
 import { Component, Input, Output, OnInit, HostBinding, EventEmitter } from '@angular/core';
 
-import { MangolMapService } from './../../../services/_index';
+import { MangolMapService } from './../../services/_index';
 
 import * as ol from 'openlayers';
 

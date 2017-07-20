@@ -1,6 +1,6 @@
 import { Component, OnInit, Input, HostBinding } from '@angular/core';
 
-import { MangolMap } from './../../../core/_index';
+import { MangolMap } from './../../core/_index';
 
 declare var jsPDF: any;
 
@@ -31,24 +31,24 @@ export class MangolPrintComponent implements OnInit {
 
   // http://stackoverflow.com/questions/31956403/printing-in-openlayers-3-pdf
   public print(): void {
-    let map = this.map;
+    const map = this.map;
 
-    let format = 'a4';
-    let resolution = 72;
+    const format = 'a4';
+    const resolution = 72;
 
-    let dim = this.dims[format];
-    let width = Math.round(dim[0] * resolution / 25.4);
-    let height = Math.round(dim[1] * resolution / 25.4);
-    let size = map.getSize();
-    let extent = map.getView().calculateExtent(size);
+    const dim = this.dims[format];
+    const width = Math.round(dim[0] * resolution / 25.4);
+    const height = Math.round(dim[1] * resolution / 25.4);
+    const size = map.getSize();
+    const extent = map.getView().calculateExtent(size);
 
     map.once('postcompose', function (event) {
       let interval: any;
       interval = setInterval(function () {
         clearInterval(interval);
-        let canvas = event['context']['canvas'];
-        let data = canvas.toDataURL('image/jpeg');
-        let pdf = new jsPDF('landscape', undefined, format);
+        const canvas = event['context']['canvas'];
+        const data = canvas.toDataURL('image/jpeg');
+        const pdf = new jsPDF('landscape', undefined, format);
         pdf.addImage(data, 'JPEG', 0, 0, dim[0], dim[1]);
         pdf.save('map.pdf');
         map.setSize(size);

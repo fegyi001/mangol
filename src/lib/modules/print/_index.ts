@@ -3,7 +3,7 @@ import { CommonModule } from '@angular/common';
 import { MaterialModule } from '@angular/material';
 import 'hammerjs';
 
-import { MangolPrintComponent } from './components/print.component';
+import { MangolPrintComponent } from './print.component';
 
 @NgModule({
   imports: [
@@ -18,4 +18,5 @@ import { MangolPrintComponent } from './components/print.component';
   ]
 })
 export class MangolPrintModule { }
+export * from './print.component';
 

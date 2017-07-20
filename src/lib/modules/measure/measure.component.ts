@@ -3,7 +3,7 @@ import { CommonModule } from '@angular/common';
 import { MaterialModule } from '@angular/material';
 import 'hammerjs';
 
-import { MangolMap } from './../../../core/_index';
+import { MangolMap } from './../../core/_index';
 
 @Component({
   selector: 'mangol-measure',

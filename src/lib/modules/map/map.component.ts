@@ -3,9 +3,9 @@ import { CommonModule } from '@angular/common';
 import { MaterialModule } from '@angular/material';
 import 'hammerjs';
 
-import { MangolMapService } from './../../../services/_index';
+import { MangolMapService } from './../../services/_index';
 
-import { MangolMap } from './../../../core/_index';
+import { MangolMap } from './../../core/_index';
 
 import * as ol from 'openlayers';
 

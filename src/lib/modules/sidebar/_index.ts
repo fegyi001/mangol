@@ -7,8 +7,8 @@ import { MangolLayertreeModule } from './../layertree/_index';
 import { MangolPrintModule } from './../print/_index';
 import { MangolMeasureModule } from './../measure/_index';
 
-import { MangolSidebarComponent } from './components/sidebar.component';
-import { MangolToolbarComponent } from './components/toolbar.component';
+import { MangolSidebarComponent } from './sidebar.component';
+import { MangolToolbarComponent } from './toolbar.component';
 
 @NgModule({
   imports: [
@@ -27,3 +27,5 @@ import { MangolToolbarComponent } from './components/toolbar.component';
   ]
 })
 export class MangolSidebarModule { }
+export * from './sidebar.component';
+export * from './toolbar.component';

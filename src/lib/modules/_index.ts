@@ -10,12 +10,12 @@ import { MangolMeasureModule } from './measure/_index';
 import { MangolMapService } from './../services/map.service';
 
 const MANGOL_MODULES = [
-    MangolMapModule,
     MangolContainerModule,
-    MangolSidebarModule,
     MangolLayertreeModule,
+    MangolMapModule,
+    MangolMeasureModule,
     MangolPrintModule,
-    MangolMeasureModule
+    MangolSidebarModule
 ];
 
 @NgModule({

@@ -1,6 +1,6 @@
 import { Component, Input, OnInit, HostBinding, AfterViewInit } from '@angular/core';
 
-import { MangolMap } from './../../../core/_index';
+import { MangolMap } from './../../core/_index';
 
 import * as ol from 'openlayers';
 

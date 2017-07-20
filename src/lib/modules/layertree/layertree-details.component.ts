@@ -1,6 +1,6 @@
 import { Component, OnInit, Input, Output, EventEmitter, HostBinding } from '@angular/core';
 
-import { MangolLayer, MangolLayergroup } from './../../../core/_index';
+import { MangolLayer, MangolLayergroup } from './../../core/_index';
 
 @Component({
   selector: 'mangol-layertree-details',

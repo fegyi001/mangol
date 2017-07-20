@@ -1,4 +1,4 @@
-import { MangolLayer, MangolLayergroup } from './../_index';
+import { MangolLayer, MangolLayergroup } from './../core/_index';
 
 import * as ol from 'openlayers';
 
@@ -18,14 +18,14 @@ export class MangolMap extends ol.Map {
 
     public addLayersAndLayerGroups(optionLayers: any[]): any {
         for (let i = 0; i < optionLayers.length; i++) {
-            let element = optionLayers[i];
+            const element = optionLayers[i];
             this.handleLayerOrLayerGroup(element, null);
         }
     }
 
     private handleLayerOrLayerGroup(element: any, layerGroup: MangolLayergroup): any {
         if (element.type === 'layer') {
-            let newLayer = new MangolLayer(element);
+            const newLayer = new MangolLayer(element);
             this.addLayer(element.layer);
             if (layerGroup !== null) {
                 layerGroup.getChildren().push(newLayer);
@@ -33,7 +33,7 @@ export class MangolMap extends ol.Map {
                 this.layers.push(newLayer);
             }
         } else if (element.type === 'layergroup') {
-            let newLayerGroup = new MangolLayergroup(element);
+            const newLayerGroup = new MangolLayergroup(element);
             this.layerGroups.push(newLayerGroup);
             for (let i = 0; i < element.children.length; i++) {
                 this.handleLayerOrLayerGroup(element.children[i], newLayerGroup);

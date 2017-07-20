@@ -6,7 +6,7 @@ import 'hammerjs';
 import { MangolMapModule } from './../map/_index';
 import { MangolSidebarModule } from './../sidebar/_index';
 
-import { MangolContainerComponent } from './components/container.component';
+import { MangolContainerComponent } from './container.component';
 
 import * as ol from 'openlayers';
 
@@ -25,4 +25,5 @@ import * as ol from 'openlayers';
   ]
 })
 export class MangolContainerModule { }
+export * from './container.component';
 

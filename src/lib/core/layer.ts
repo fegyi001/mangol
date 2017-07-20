@@ -9,10 +9,10 @@ export class MangolLayer {
         this.name = options.name;
         this.layer = options.layer;
 
-        let opacity = options.hasOwnProperty('opacity') ? options.opacity : 1.0;
+        const opacity = options.hasOwnProperty('opacity') ? options.opacity : 1.0;
         this.setOpacity(opacity);
 
-        let visible = options.hasOwnProperty('visible') ? options.visible : true;
+        const visible = options.hasOwnProperty('visible') ? options.visible : true;
         this.setVisible(visible);
     }
 
