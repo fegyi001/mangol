@@ -18,4 +18,3 @@ import { MangolMapComponent } from './map.component';
   ]
 })
 export class MangolMapModule { }
-export * from './map.component';

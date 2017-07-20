@@ -18,5 +18,3 @@ import { MangolPrintComponent } from './print.component';
   ]
 })
 export class MangolPrintModule { }
-export * from './print.component';
-

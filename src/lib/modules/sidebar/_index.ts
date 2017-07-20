@@ -27,5 +27,3 @@ import { MangolToolbarComponent } from './toolbar.component';
   ]
 })
 export class MangolSidebarModule { }
-export * from './sidebar.component';
-export * from './toolbar.component';

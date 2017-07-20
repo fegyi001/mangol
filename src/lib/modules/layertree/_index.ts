@@ -24,7 +24,3 @@ import { MangolLayerComponent } from './layer.component';
   ]
 })
 export class MangolLayertreeModule { }
-export * from './layertree.component';
-export * from './layergroup.component';
-export * from './layertree-details.component';
-export * from './layer.component';

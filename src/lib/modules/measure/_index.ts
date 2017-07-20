@@ -18,4 +18,3 @@ import { MangolMeasureComponent } from './measure.component';
   ]
 })
 export class MangolMeasureModule { }
-export * from './measure.component';

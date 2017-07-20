@@ -25,5 +25,3 @@ import * as ol from 'openlayers';
   ]
 })
 export class MangolContainerModule { }
-export * from './container.component';
-
