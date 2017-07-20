@@ -20,11 +20,11 @@ export class DemoOsmgwcComponent implements OnInit {
       'EPSG:23700',
       `+proj=somerc +lat_0=47.14439372222222 +lon_0=19.04857177777778 +k_0=0.99993 +x_0=650000 +y_0=200000 +ellps=GRS67 +units=m +no_defs`);
 
-    let resolutions: number[] = [1120.0, 560.0, 280.0, 140.0, 55.99999999999999, 27.999999999999996,
+    const resolutions: number[] = [1120.0, 560.0, 280.0, 140.0, 55.99999999999999, 27.999999999999996,
       13.999999999999998, 5.6, 2.8, 1.4, 0.5599999999999999, 0.27999999999999997
     ];
-    let maxExtent: ol.Extent = [421306.58134742436, 43986.223614953604, 994746.5813474243, 617426.2236149536];
-    let tileSize: ol.Size = [256, 256];
+    const maxExtent: ol.Extent = [421306.58134742436, 43986.223614953604, 994746.5813474243, 617426.2236149536];
+    const tileSize: ol.Size = [256, 256];
 
     this.config = {
       map: {
