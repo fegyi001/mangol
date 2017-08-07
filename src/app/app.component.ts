@@ -16,7 +16,7 @@ import { Component, Inject } from '@angular/core';
         <div class="demo">
             <div class="demo-header">
                 <h1 class="title">MANGOL components</h1>
-                <div class="subtitle">built with version 0.3.14</div>
+                <div class="subtitle">built with version 0.3.15</div>
                 <nav>
                     <button md-raised-button color="primary" routerLink="/demo-map" routerLinkActive="active"
                         [routerLinkActiveOptions]="{ exact: true }">map</button>
