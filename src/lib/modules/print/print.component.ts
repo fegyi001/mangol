@@ -42,7 +42,7 @@ export class MangolPrintComponent implements OnInit {
     const size = map.getSize();
     const extent = map.getView().calculateExtent(size);
 
-    map.once('postcompose', function (event) {
+    map.once('postcompose', function (event: any) {
       let interval: any;
       interval = setInterval(function () {
         clearInterval(interval);
