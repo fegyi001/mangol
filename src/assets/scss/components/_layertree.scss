@@ -58,6 +58,8 @@
       @include row(table);
       & .mat-grid-list {
         & md-grid-tile {
+          overflow: visible;
+          height: 49px;
           & md-icon {
             font-size: 1em;
             line-height: 2em;
