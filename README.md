@@ -7,12 +7,12 @@
 [![devDependency Status](https://david-dm.org/fegyi001/mangol/dev-status.svg)](https://david-dm.org/fegyi001/mangol#info=devDependencies)
 
 ## About Mangol
-Mangol is an open source library for combining [Angular2+](https://angular.io/) and [OpenLayers3+](https://openlayers.org/) to create modern, responsive interactive web maps (_M_ stands for _maps_, _ang_ for _Angular_ and _ol_ for _OpenLayers_). The project has been created using [@angular/cli](https://cli.angular.io/), a command-line tool for Angular projects (v1.2.6). The project is written in TypeScript and uses SCSS for styling. It has been built with Angular v4.3.2 and OpenLayers v4.2.0 using Material design. The packaging is done via [Webpack module bundler](https://webpack.github.io/).
+Mangol is an open source library for combining [Angular2+](https://angular.io/) and [OpenLayers3+](https://openlayers.org/) to create modern, responsive interactive web maps (_M_ stands for _maps_, _ang_ for _Angular_ and _ol_ for _OpenLayers_). The project has been created using [@angular/cli](https://cli.angular.io/), a command-line tool for Angular projects (v1.3.0). The project is written in TypeScript and uses SCSS for styling. It has been built with Angular v4.3.4 and OpenLayers v4.3.1 using Material design. The packaging is done via [Webpack module bundler](https://webpack.github.io/).
 
 Formerly, Mangol was called `ng2ol3` and was based on SystemJS and without angular-cli.
 
 ## Install
-[Node.js with npm](https://nodejs.org/en/download/) is required. The preferenced version of Node.js is 6.10.0, the preferenced version of npm is 4.x.x. After `git clone`, navigate to the main directory and run ```npm install``` to download all dependencies.
+[Node.js with npm](https://nodejs.org/en/download/) is required. The preferenced version of Node.js is 8.x.x, the preferenced version of npm is 5.x.x. After `git clone`, navigate to the main directory and run ```npm install``` to download all dependencies.
 
 ## Live example
 An online example can be opened [here](http://188.166.116.137/mangol).
