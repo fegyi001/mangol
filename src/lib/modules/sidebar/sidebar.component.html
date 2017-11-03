@@ -3,10 +3,10 @@
   </mangol-toolbar>
   <div class="sidebar-main">
     <div class="sidebar-title">
-      <md-toolbar>
+      <mat-toolbar>
         <!--<div class="closediv">X</div>-->
         <span>{{activeElement.title}}</span>
-      </md-toolbar>
+      </mat-toolbar>
     </div>
     <div class="sidebar-content">
       <mangol-layertree *ngIf="hasLayertree && activeElement.type==='layertree'" [map]="map">

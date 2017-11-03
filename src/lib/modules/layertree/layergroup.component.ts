@@ -1,6 +1,7 @@
-import { Component, OnInit, Input, HostBinding } from '@angular/core';
+import { Component, OnInit, Input, HostBinding, ViewChild } from '@angular/core';
 
 import { MangolLayer, MangolLayergroup } from './../../core/_index';
+import { MatSidenav } from '@angular/material';
 
 @Component({
   selector: 'mangol-layergroup',
@@ -8,6 +9,7 @@ import { MangolLayer, MangolLayergroup } from './../../core/_index';
 })
 export class MangolLayergroupComponent implements OnInit {
   @HostBinding('class') class = 'mangol-layergroup';
+  @ViewChild('start') sidenav: MatSidenav;
 
   @Input() layerGroup: MangolLayergroup;
 
@@ -34,7 +36,7 @@ export class MangolLayergroupComponent implements OnInit {
     this.children = this.layerGroup.getChildren();
     this.childrenVisible = true;
     for (let i = 0; i < this.children.length; i++) {
-      let children = this.children[i];
+      const children = this.children[i];
       if (children instanceof MangolLayer) {
         this.nestedLayers.push(children);
       } else if (children instanceof MangolLayergroup) {
@@ -50,11 +52,11 @@ export class MangolLayergroupComponent implements OnInit {
   }
 
   public showDetails(): void {
-    this.detailsVisible = true;
+    this.sidenav.open();
   }
 
   public hideDetails(): void {
-    this.detailsVisible = false;
+    this.sidenav.close();
   }
 
   public onDetailsElementClicked(obj: any) {

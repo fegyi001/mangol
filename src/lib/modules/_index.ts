@@ -1,4 +1,4 @@
-import { NgModule, ModuleWithProviders } from '@angular/core';
+import { NgModule } from '@angular/core';
 
 import { MangolMapModule } from './map/_index';
 import { MangolContainerModule } from './container/_index';
@@ -10,16 +10,16 @@ import { MangolMeasureModule } from './measure/_index';
 import { MangolMapService } from './../services/map.service';
 
 const MANGOL_MODULES = [
-    MangolContainerModule,
-    MangolLayertreeModule,
-    MangolMapModule,
-    MangolMeasureModule,
-    MangolPrintModule,
-    MangolSidebarModule
+  MangolContainerModule,
+  MangolLayertreeModule,
+  MangolMapModule,
+  MangolMeasureModule,
+  MangolPrintModule,
+  MangolSidebarModule
 ];
 
 @NgModule({
-    imports: MANGOL_MODULES,
-    exports: MANGOL_MODULES,
+  imports: MANGOL_MODULES,
+  exports: MANGOL_MODULES,
 })
 export class MangolModule { }

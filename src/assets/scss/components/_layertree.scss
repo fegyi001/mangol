@@ -2,19 +2,25 @@
   color: $base-font-color;
   $icon-padding: 2px;
   $hoverColor: darken($base-font-color, 20%);
-  & md-sidenav-container {
-    z-index: 100;
-    & md-sidenav {
-      background: rgba(white, 0.5);
-      width: 100%;
-    }
-    & .mat-sidenav-backdrop {
-      &.mat-sidenav-shown {
-        display: none !important;
+  & .container-div {
+    width: 100%;
+    height: 100%;
+    cursor: pointer;
+    & .mat-sidenav-container {
+      z-index: 100;
+      & .mat-sidenav {
+        background: rgba(white, 0.5);
+        width: 100%;
+        box-shadow: none;
+      }
+      & .mat-sidenav-backdrop {
+        &.mat-sidenav-shown {
+          display: none !important;
+        }
       }
     }
   }
-  & md-list {
+  & .mat-list {
     margin-top: 0 !important;
     padding-top: 0 !important;
   }
@@ -57,16 +63,16 @@
     & div {
       @include row(table);
       & .mat-grid-list {
-        & md-grid-tile {
+        & .mat-grid-tile {
           overflow: visible;
           height: 49px;
-          & md-icon {
+          & .mat-icon {
             font-size: 1em;
             line-height: 2em;
             transition: font 0.1s linear;
           }
           &:hover {
-            & md-icon {
+            & .mat-icon {
               font-size: 1.5em;
               line-height: 1.5em;
               color: $hoverColor;

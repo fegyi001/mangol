@@ -1,6 +1,7 @@
-import { Component, OnInit, Input, HostBinding } from '@angular/core';
+import { Component, OnInit, Input, HostBinding, ViewChild } from '@angular/core';
 
 import { MangolLayer } from './../../core/_index';
+import { MatSidenav } from '@angular/material';
 
 @Component({
   selector: 'mangol-layer',
@@ -8,6 +9,7 @@ import { MangolLayer } from './../../core/_index';
 })
 export class MangolLayerComponent implements OnInit {
   @HostBinding('class') class = 'mangol-layer';
+  @ViewChild('end') sidenav: MatSidenav;
 
   @Input() layer: MangolLayer;
 
@@ -24,17 +26,17 @@ export class MangolLayerComponent implements OnInit {
     this.fontIcon = this.layer.getVisible() ? 'ms-tiles' : 'ms-tiles-o';
   }
 
-  public toggleVisibility(): any {
-    this.layer.setVisible(!this.layer.getVisible());
-    this.fontIcon = this.layer.getVisible() ? 'ms-tiles' : 'ms-tiles-o';
-  }
-
   public showDetails(): void {
-    this.detailsVisible = true;
+    this.sidenav.open();
   }
 
   public hideDetails(): void {
-    this.detailsVisible = false;
+    this.sidenav.close();
+  }
+
+  public toggleVisibility(): any {
+    this.layer.setVisible(!this.layer.getVisible());
+    this.fontIcon = this.layer.getVisible() ? 'ms-tiles' : 'ms-tiles-o';
   }
 
   public onDetailsElementClicked(obj: any) {

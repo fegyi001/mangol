@@ -8,3 +8,7 @@
 @if not variable-exists(mangol-height) {
   $mangol-height: 100% !global;
 }
+
+@if not variable-exists(mangol-sidebar-width) {
+  $mangol-sidebar-width: 350px !global;
+}

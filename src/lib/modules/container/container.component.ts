@@ -15,6 +15,7 @@ export class MangolContainerComponent implements OnInit {
 
   @Input() config: any;
   @Output() mapReady = new EventEmitter();
+  containerReady = false;
   map: ol.Map;
   isOpened: boolean;
   service: MangolMapService;
@@ -47,7 +48,6 @@ export class MangolContainerComponent implements OnInit {
         }
       };
     }
-
     try {
       this.isOpened = this.config.sidebar.opened;
     } catch (error) {

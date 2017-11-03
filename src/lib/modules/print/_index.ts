@@ -1,14 +1,14 @@
-import { NgModule, ModuleWithProviders } from '@angular/core';
+import { NgModule } from '@angular/core';
 import { CommonModule } from '@angular/common';
-import { MaterialModule } from '@angular/material';
 import 'hammerjs';
 
 import { MangolPrintComponent } from './print.component';
+import { MangolMaterialModule } from '../_shared/mangol-material.module';
 
 @NgModule({
   imports: [
     CommonModule,
-    MaterialModule
+    MangolMaterialModule
   ],
   exports: [
     MangolPrintComponent

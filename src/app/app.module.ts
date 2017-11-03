@@ -1,15 +1,16 @@
 import { BrowserModule } from '@angular/platform-browser';
 import { NgModule } from '@angular/core';
+import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { FormsModule } from '@angular/forms';
 import { HttpModule } from '@angular/http';
-import { MaterialModule } from '@angular/material';
 import { routing, appRoutingProviders } from './app.routing';
 import { LocationStrategy, HashLocationStrategy } from '@angular/common';
 import 'hammerjs';
 
-import {MangolModule} from './../lib/modules/_index';
+import { MangolModule } from './../lib/modules/_index';
 
 import { MangolDemoComponent } from './app.component';
+import { MangolMaterialModule } from '../lib/modules/_shared/mangol-material.module';
 
 import {
   DemoMapComponent,
@@ -34,9 +35,10 @@ import {
   ],
   imports: [
     BrowserModule,
+    BrowserAnimationsModule,
     FormsModule,
     HttpModule,
-    MaterialModule,
+    MangolMaterialModule,
     MangolModule,
     routing
   ],

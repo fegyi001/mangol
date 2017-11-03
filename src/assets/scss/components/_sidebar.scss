@@ -23,7 +23,7 @@
             padding-left: 5px;
             padding-right: 5px;
             & .sidebar-title {
-                & md-toolbar {
+                & .mat-toolbar {
                     background-color: $light-background-color;
                     border: 1px solid shade($light-background-color, 5%);
                     margin-bottom: 3px;

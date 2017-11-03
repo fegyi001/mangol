@@ -1,7 +1,8 @@
-import { Component, OnInit, Input, Output, EventEmitter, HostBinding, AfterViewInit } from '@angular/core';
+import {
+  Component, OnInit, Input, Output, EventEmitter,
+  HostBinding, AfterViewInit
+} from '@angular/core';
 import { CommonModule } from '@angular/common';
-import { MaterialModule } from '@angular/material';
-import 'hammerjs';
 
 import { MangolMapService } from './../../services/_index';
 
@@ -24,12 +25,12 @@ export class MangolMapComponent implements AfterViewInit, OnInit {
   map: MangolMap;
   view: ol.View;
   target: string;
+  renderer: string;
   hasSidebar: boolean;
   zoomDuration = 500;
   sidebarCollapsible = false;
 
   constructor() {
-
   }
 
   ngOnInit() {
@@ -37,6 +38,7 @@ export class MangolMapComponent implements AfterViewInit, OnInit {
     this.sidebarCollapsible = (this.hasSidebar && this.options.sidebar.hasOwnProperty('collapsible'))
       ? this.options.sidebar.collapsible : false;
     this.target = this.options.map.target;
+    this.renderer = this.options.map.renderer || 'canvas';
     this.view = new ol.View({
       projection: this.options.map.hasOwnProperty('view') && this.options.map.view.hasOwnProperty('projection')
         ? this.options.map.view.projection : 'EPSG:900913',
@@ -50,18 +52,18 @@ export class MangolMapComponent implements AfterViewInit, OnInit {
   }
 
   ngAfterViewInit(): any {
-    this.map = new MangolMap({
-      layers: [],
-      target: this.target,
-      view: this.view
-    });
-
-    // register the map in the injectable mapService
-    this.mapService.addMap(this.map);
-
-    this.map.addLayersAndLayerGroups(this.options.map.layers);
-    this.mapCreated.emit(this.map);
-    this.map.updateSize();
+    setTimeout(() => {
+      this.map = new MangolMap({
+        renderer: this.renderer,
+        layers: [],
+        target: this.target,
+        view: this.view
+      });
+      // register the map in the injectable mapService
+      this.map.addLayersAndLayerGroups(this.options.map.layers);
+      this.mapService.addMap(this.map);
+      this.mapCreated.emit(this.map);
+    }, 0);
   }
 
   public zoomIn(): void {

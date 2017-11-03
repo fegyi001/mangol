@@ -1,13 +1,13 @@
-<div>
-  <md-sidenav-container (mouseover)="showDetails()" (mouseout)="hideDetails()">
-    <md-sidenav #end align="end" opened="{{detailsVisible}}" mode="over">
+<div class="container-div" (mouseover)="showDetails()" (mouseout)="hideDetails()">
+  <mat-sidenav-container>
+    <mat-sidenav #end align="end" mode="over">
       <mangol-layertree-details type="layer" [element]="layer" [class.detailsVisible]="detailsVisible" [detailsHeight]="detailsHeight"
         (elementClicked)="onDetailsElementClicked($event)"></mangol-layertree-details>
-    </md-sidenav>
+    </mat-sidenav>
     <div class="element-header">
       <div class="element-content">
         <div class="element-name">{{layer.name}}</div>
       </div>
     </div>
-  </md-sidenav-container>
+  </mat-sidenav-container>
 </div>

@@ -1,15 +1,21 @@
 .mangol {
   @include outer-container(100%);
   height: $mangol-height !important;
+  .mangol-content {
+    height: $mangol-height;
+  }
   & .ol-viewport {
     height: $mangol-height !important;
   }
-  & md-sidenav-container {
-    & md-sidenav {
-      width: 40%;
+  .mat-sidenav-container {
+    width: 100%;
+    height: 100%;
+    mat-sidenav {
+      width: $mangol-sidebar-width;
+      box-shadow: 0 8px 10px -5px rgba(0, 0, 0, .2), 0 16px 24px 2px rgba(0, 0, 0, .14), 0 6px 30px 5px rgba(0, 0, 0, .12);
     }
-    & .mat-sidenav-backdrop {
-      &.mat-sidenav-shown {
+    .mat-drawer-backdrop {
+      &.mat-drawer-shown {
         display: none !important;
       }
     }
