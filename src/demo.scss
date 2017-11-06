@@ -1,11 +1,11 @@
   // @import '~@angular/material/theming';
   // @include mat-core();
-  // $mangol-primary: mat-palette($mat-teal);
+  // $mangol-primary: mat-palette($mat-blue);
   // $mangol-accent: mat-palette($mat-deep-orange);
   // $mangol-warn: mat-palette($mat-red);
   // $mangol-theme: mat-light-theme($mangol-primary, $mangol-accent, $mangol-warn);
-  $mangol-height: 450px;
-  $mangol-sidebar-width: 450px;
+  // $mangol-height: 450px;
+  // $mangol-sidebar-width: 450px;
   @import "./../mangol";
   html,
   body {
@@ -38,6 +38,11 @@
           font-style: italic;
           font-size: smaller;
           margin-bottom: 5px;
+        }
+        button {
+          &.active {
+            background-color: mat-color($mangol-accent);
+          }
         }
       }
       & .divider {

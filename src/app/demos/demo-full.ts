@@ -2,6 +2,7 @@ import { MangolMapService } from './../../lib/services/map.service';
 import { Component, OnInit } from '@angular/core';
 
 import * as ol from 'openlayers';
+import { MangolConfig } from '../../lib/interfaces/mangol-config.interface';
 
 @Component({
   selector: 'mangol-demo-full',
@@ -11,9 +12,13 @@ import * as ol from 'openlayers';
 })
 export class DemoFullComponent implements OnInit {
 
-  config: any;
+  config: MangolConfig;
 
   mapService: MangolMapService;
+
+  constructor() {
+    this.config = {} as MangolConfig;
+  }
 
   onMapReady($event: { mapService: MangolMapService }) {
     this.mapService = $event.mapService;
