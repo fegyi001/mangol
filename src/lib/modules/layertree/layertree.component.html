@@ -1,4 +1,32 @@
-<div>
-  <mangol-layergroup *ngFor="let lg of layerGroups" [layerGroup]="lg"></mangol-layergroup>
-  <mangol-layer *ngFor="let l of layers" [layer]="l"></mangol-layer>
-</div>
+<mat-list dense>
+  <h3 matSubheader *ngIf="layerGroups.length > 0">LAYER GROUPS</h3>
+  <mat-accordion>
+    <mat-expansion-panel *ngFor="let layerGroup of layerGroups">
+      <mat-expansion-panel-header>
+        <mat-panel-title>
+          {{layerGroup.name}}
+        </mat-panel-title>
+        <mat-panel-description>
+          {{layerGroup.details}}
+        </mat-panel-description>
+      </mat-expansion-panel-header>
+      <mat-list dense>
+        <mat-list-item *ngFor="let layer of layerGroup.nestedLayers" (click)="layer.toggleLayerVisibility()">
+          <mat-icon matListIcon>{{layer.getLayerVisibilityIcon()}}</mat-icon>
+          <p matLine class="layer-name"> {{layer.name}} </p>
+          <p matLine class="layer-description">
+            <span>{{layer.description}}</span>
+          </p>
+        </mat-list-item>
+      </mat-list>
+    </mat-expansion-panel>
+  </mat-accordion>
+  <h3 matSubheader *ngIf="layers.length > 0">LAYERS</h3>
+  <mat-list-item *ngFor="let layer of layers" (click)="layer.toggleLayerVisibility()">
+    <mat-icon matListIcon>{{layer.getLayerVisibilityIcon()}}</mat-icon>
+    <p matLine class="layer-name"> {{layer.name}} </p>
+    <p matLine class="layer-description">
+      <span>{{layer.description}}</span>
+    </p>
+  </mat-list-item>
+</mat-list>

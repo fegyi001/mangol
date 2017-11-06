@@ -23,23 +23,25 @@ export class DemoLayertreeComponent implements OnInit {
           zoom: 7
         },
         layers: [
-          {
-            type: 'layergroup',
-            name: 'Base layers',
-            expanded: false,
-            visible: true,
-            children: [
+          // {
+          //   type: 'layergroup',
+          //   name: 'Base layers',
+          //   expanded: false,
+          //   visible: true,
+          //   children: [
               {
                 type: 'layer',
                 name: 'OpenStreetMap layer',
+                description: 'A sample description',
                 visible: true,
                 opacity: 1,
                 layer: new ol.layer.Tile({
                   source: new ol.source.OSM()
                 })
-              }
-            ]
-          }, {
+              },
+          //   ]
+          // },
+          {
             type: 'layergroup',
             name: 'Hungary',
             expanded: false,

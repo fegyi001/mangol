@@ -5,6 +5,10 @@
 }
 
 @include angular-material-theme($mangol-theme);
+$mangol-primary: map-get($mangol-theme, primary);
+$mangol-accent: map-get($mangol-theme, accent);
+$mangol-warn: map-get($mangol-theme, warn);
+
 @if not variable-exists(mangol-height) {
   $mangol-height: 100% !global;
 }

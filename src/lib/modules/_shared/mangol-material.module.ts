@@ -6,7 +6,9 @@ import {
   MatTooltipModule,
   MatSidenavModule,
   MatGridListModule,
-  MatListModule
+  MatListModule,
+  MatExpansionModule,
+  MatCardModule
 } from '@angular/material';
 
 @NgModule({
@@ -14,17 +16,23 @@ import {
     MatButtonModule,
     MatToolbarModule,
     MatIconModule,
+    MatTooltipModule,
     MatSidenavModule,
     MatGridListModule,
-    MatListModule
+    MatListModule,
+    MatExpansionModule,
+    MatCardModule
   ],
   exports: [
     MatButtonModule,
     MatToolbarModule,
     MatIconModule,
+    MatTooltipModule,
     MatSidenavModule,
     MatGridListModule,
-    MatListModule
+    MatListModule,
+    MatExpansionModule,
+    MatCardModule
   ]
 })
 export class MangolMaterialModule { }

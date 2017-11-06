@@ -1,85 +1,29 @@
 .mangol-layertree {
   color: $base-font-color;
-  $icon-padding: 2px;
-  $hoverColor: darken($base-font-color, 20%);
-  & .container-div {
-    width: 100%;
-    height: 100%;
+  .mat-list {
+    .mat-subheader {
+      color: mat-color($mangol-primary);
+    }
+  }
+  .mat-expansion-panel {
+    box-shadow: none !important; // border-bottom: 1px solid red;
+    .mat-expansion-panel-header {
+      .mat-content {
+        display: initial;
+      }
+    }
+  }
+  .mat-list-item {
     cursor: pointer;
-    & .mat-sidenav-container {
-      z-index: 100;
-      & .mat-sidenav {
-        background: rgba(white, 0.5);
-        width: 100%;
-        box-shadow: none;
-      }
-      & .mat-sidenav-backdrop {
-        &.mat-sidenav-shown {
-          display: none !important;
-        }
-      }
+    &:hover {
+      background-color: #f5f5f5;
     }
   }
-  & .mat-list {
-    margin-top: 0 !important;
-    padding-top: 0 !important;
+  .layer-name {
+    font-size: 13px !important;
   }
-  & .mangol-layergroup {
-    & .element-header {
-      $bg: tint($action-color, 80%);
-      background-color: $bg;
-      padding-top: 5px;
-      padding-bottom: 5px;
-      & .element-content {
-        padding-left: 10px;
-        & .element-name {
-          font-weight: normal;
-          font-size: 1.2em;
-        }
-        & .element-details {
-          color: $medium-gray;
-        }
-      }
-    }
-  }
-  & .mangol-layer {
-    & .element-header {
-      $bg: tint($action-color, 90%);
-      background-color: $bg;
-      margin-top: 0;
-      padding-top: 5px;
-      & .element-content {
-        padding-left: 10px;
-        & .element-name {
-          font-weight: normal;
-          font-size: 1em;
-          margin-top: 10px;
-          margin-bottom: 10px;
-        }
-      }
-    }
-  }
-  & .mangol-layertree-details {
-    & div {
-      @include row(table);
-      & .mat-grid-list {
-        & .mat-grid-tile {
-          overflow: visible;
-          height: 49px;
-          & .mat-icon {
-            font-size: 1em;
-            line-height: 2em;
-            transition: font 0.1s linear;
-          }
-          &:hover {
-            & .mat-icon {
-              font-size: 1.5em;
-              line-height: 1.5em;
-              color: $hoverColor;
-            }
-          }
-        }
-      }
-    }
+  .layer-description {
+    color: rgba(0, 0, 0, 0.54);
+    font-size: 13px !important;
   }
 }
