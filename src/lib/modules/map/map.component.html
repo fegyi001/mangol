@@ -9,10 +9,10 @@
       <mat-icon class="mat-24">remove</mat-icon>
     </button>
   </div>
-  <div class="sidebar" *ngIf="hasSidebar && sidebarCollapsible" (click)="toggleSidebar()">
+  <div class="sidebar" *ngIf="config.sidebar && config.sidebar.collapsible" (click)="toggleSidebar()">
     <button mat-mini-fab color="primary">
       <mat-icon class="mat-24">reorder</mat-icon>
     </button>
   </div>
 </div>
-<div [attr.id]="target" class="mangol-map-div"></div>
+<div [attr.id]="config.map.target" class="mangol-map-div"></div>

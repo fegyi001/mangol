@@ -3,6 +3,8 @@ import { Component, Input, Output, OnInit, HostBinding, EventEmitter } from '@an
 import { MangolMapService } from './../../services/_index';
 
 import * as ol from 'openlayers';
+import { MangolConfig } from '../../interfaces/mangol-config.interface';
+import { MangolReady } from '../../interfaces/mangol-ready.interface';
 
 @Component({
   selector: 'mangol',
@@ -13,8 +15,8 @@ export class MangolContainerComponent implements OnInit {
 
   @HostBinding('class') class = 'mangol';
 
-  @Input() config: any;
-  @Output() mapReady = new EventEmitter();
+  @Input() config: MangolConfig;
+  @Output() mapReady = new EventEmitter<MangolReady>();
   containerReady = false;
   map: ol.Map;
   isOpened: boolean;
@@ -46,7 +48,7 @@ export class MangolContainerComponent implements OnInit {
             }
           ]
         }
-      };
+      } as MangolConfig;
     }
     try {
       this.isOpened = this.config.sidebar.opened;
@@ -58,7 +60,11 @@ export class MangolContainerComponent implements OnInit {
   mapCreated(map: ol.Map): void {
     this.map = map;
     this.map.updateSize();
-    this.mapReady.emit({ mapService: this.service });
+    const ready = {
+      mapService: this.service,
+      config: this.config
+    } as MangolReady;
+    this.mapReady.emit(ready);
   }
 
   sidebarToggled(): void {

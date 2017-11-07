@@ -1,6 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 
 import * as ol from 'openlayers';
+import { MangolConfig } from '../../lib/interfaces/mangol-config.interface';
 
 @Component({
   selector: 'mangol-demo-sidebar',
@@ -10,7 +11,7 @@ import * as ol from 'openlayers';
 })
 export class DemoSidebarComponent implements OnInit {
 
-  config: any;
+  config = {} as MangolConfig;
 
   public ngOnInit(): any {
     this.config = {

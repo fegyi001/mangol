@@ -1,4 +1,5 @@
 import { Component, Input, Output, OnInit, EventEmitter, HostBinding } from '@angular/core';
+import { MangolConfigToolbar, MangolConfigToolbarItem } from '../../interfaces/mangol-config-toolbar.interface';
 
 @Component({
   selector: 'mangol-toolbar',
@@ -8,7 +9,7 @@ export class MangolToolbarComponent implements OnInit {
 
   @HostBinding('class') class = 'mangol-toolbar';
 
-  @Input() options: any;
+  @Input() options: MangolConfigToolbar;
   @Output() elementActivated = new EventEmitter();
 
   myColor = 'primary';
@@ -20,7 +21,7 @@ export class MangolToolbarComponent implements OnInit {
 
   public ngOnInit(): any {
     if (this.options.hasOwnProperty('layertree')) {
-      const obj: any = this.options.layertree;
+      const obj: MangolConfigToolbarItem = this.options.layertree;
       this.elements.push({
         type: 'layertree',
         title: obj.hasOwnProperty('title') ? obj.title : 'Layer manager',
@@ -31,7 +32,7 @@ export class MangolToolbarComponent implements OnInit {
       });
     }
     if (this.options.hasOwnProperty('measure')) {
-      const obj: any = this.options.measure;
+      const obj: MangolConfigToolbarItem = this.options.measure;
       this.elements.push({
         type: 'measure',
         title: obj.hasOwnProperty('title') ? obj.title : 'Measure',
@@ -42,7 +43,7 @@ export class MangolToolbarComponent implements OnInit {
       });
     }
     if (this.options.hasOwnProperty('print')) {
-      const obj: any = this.options.print;
+      const obj: MangolConfigToolbarItem = this.options.print;
       this.elements.push({
         type: 'print',
         title: obj.hasOwnProperty('title') ? obj.title : 'Print',

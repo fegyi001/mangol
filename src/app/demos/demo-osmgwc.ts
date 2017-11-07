@@ -2,6 +2,7 @@ import { Component, OnInit } from '@angular/core';
 
 declare var proj4: any;
 import * as ol from 'openlayers';
+import { MangolConfig } from '../../lib/interfaces/mangol-config.interface';
 
 @Component({
   selector: 'mangol-demo-osmgwc',
@@ -11,7 +12,7 @@ import * as ol from 'openlayers';
 })
 export class DemoOsmgwcComponent implements OnInit {
 
-  config: any;
+  config = {} as MangolConfig;
 
   public ngOnInit(): any {
 

@@ -5,7 +5,7 @@
       <mangol-sidebar [options]="config.sidebar" [map]="map">
       </mangol-sidebar>
     </mat-sidenav>
-    <mangol-map *ngIf="config.map" [options]="config" [mapService]="service" (mapCreated)="mapCreated($event)" (sidebarToggled)="sidebarToggled($event)">
+    <mangol-map *ngIf="config.map" [config]="config" [mapService]="service" (mapCreated)="mapCreated($event)" (sidebarToggled)="sidebarToggled($event)">
     </mangol-map>
   </mat-sidenav-container>
 </div>

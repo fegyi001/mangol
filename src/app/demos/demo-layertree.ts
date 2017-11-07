@@ -1,6 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 
 import * as ol from 'openlayers';
+import { MangolConfig } from '../../lib/interfaces/mangol-config.interface';
 
 @Component({
   selector: 'mangol-demo-layertree',
@@ -10,7 +11,7 @@ import * as ol from 'openlayers';
 })
 export class DemoLayertreeComponent implements OnInit {
 
-  config: any;
+  config = {} as MangolConfig;
 
   public ngOnInit(): any {
     this.config = {
@@ -29,16 +30,16 @@ export class DemoLayertreeComponent implements OnInit {
           //   expanded: false,
           //   visible: true,
           //   children: [
-              {
-                type: 'layer',
-                name: 'OpenStreetMap layer',
-                description: 'A sample description',
-                visible: true,
-                opacity: 1,
-                layer: new ol.layer.Tile({
-                  source: new ol.source.OSM()
-                })
-              },
+          {
+            type: 'layer',
+            name: 'OpenStreetMap layer',
+            description: 'A sample description',
+            visible: true,
+            opacity: 1,
+            layer: new ol.layer.Tile({
+              source: new ol.source.OSM()
+            })
+          },
           //   ]
           // },
           {

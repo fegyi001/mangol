@@ -3,6 +3,7 @@ import { Component, OnInit } from '@angular/core';
 
 import * as ol from 'openlayers';
 import { MangolConfig } from '../../lib/interfaces/mangol-config.interface';
+import { MangolReady } from '../../lib/interfaces/mangol-ready.interface';
 
 @Component({
   selector: 'mangol-demo-full',
@@ -12,17 +13,13 @@ import { MangolConfig } from '../../lib/interfaces/mangol-config.interface';
 })
 export class DemoFullComponent implements OnInit {
 
-  config: MangolConfig;
+  config = {} as MangolConfig;
 
   mapService: MangolMapService;
 
-  constructor() {
-    this.config = {} as MangolConfig;
-  }
-
-  onMapReady($event: { mapService: MangolMapService }) {
+  onMapReady($event: MangolReady) {
     this.mapService = $event.mapService;
-    console.log(this.mapService);
+    console.log($event);
   }
 
   public ngOnInit(): any {
@@ -33,7 +30,8 @@ export class DemoFullComponent implements OnInit {
         view: {
           projection: 'EPSG:900913',
           center: ol.proj.fromLonLat([19.3956393810065, 47.168464955013], 'EPSG:900913'),
-          zoom: 7
+          zoom: 7,
+          zoomDuration: 500
         },
         layers: [
           {
@@ -45,6 +43,7 @@ export class DemoFullComponent implements OnInit {
               {
                 type: 'layer',
                 name: 'OpenStreetMap layer',
+                description: 'Awesome free streetmap',
                 visible: true,
                 opacity: 1,
                 layer: new ol.layer.Tile({
@@ -54,13 +53,14 @@ export class DemoFullComponent implements OnInit {
             ]
           }, {
             type: 'layergroup',
-            name: 'Hungary',
+            name: 'Overlays',
             expanded: false,
             visible: true,
             children: [
               {
                 type: 'layer',
                 name: 'Main roads',
+                description: 'Hungary',
                 visible: false,
                 opacity: 1.0,
                 layer: new ol.layer.Tile({
@@ -79,6 +79,7 @@ export class DemoFullComponent implements OnInit {
               }, {
                 type: 'layer',
                 name: 'Highways',
+                description: 'Hungary',
                 visible: false,
                 opacity: 1.0,
                 layer: new ol.layer.Tile({
@@ -98,6 +99,7 @@ export class DemoFullComponent implements OnInit {
               {
                 type: 'layer',
                 name: 'Country border',
+                description: 'Hungary',
                 visible: false,
                 opacity: 1.0,
                 layer: new ol.layer.Tile({
@@ -123,7 +125,11 @@ export class DemoFullComponent implements OnInit {
         opened: true,
         toolbar: {
           layertree: {
-            active: true
+            active: true,
+            disabled: false,
+            fontSet: 'ms',
+            fontIcon: 'ms-layers',
+            title: 'Customized layertree'
           },
           measure: {},
           print: {}

@@ -3,6 +3,7 @@ import { Component, Input, OnInit, HostBinding, AfterViewInit } from '@angular/c
 import { MangolMap } from './../../core/_index';
 
 import * as ol from 'openlayers';
+import { MangolConfigSidebar } from '../../interfaces/mangol-config-sidebar.interface';
 
 @Component({
   selector: 'mangol-sidebar',
@@ -11,7 +12,7 @@ import * as ol from 'openlayers';
 export class MangolSidebarComponent implements AfterViewInit, OnInit {
   @HostBinding('class') class = 'mangol-sidebar';
 
-  @Input() options: any;
+  @Input() options: MangolConfigSidebar;
   @Input() map: MangolMap;
 
   sidebarClosed: boolean;

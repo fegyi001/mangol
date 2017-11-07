@@ -17,14 +17,14 @@ export class MangolMap extends ol.Map {
     this.layerGroups = [];
   }
 
-  public addLayersAndLayerGroups(optionLayers: any[]): any {
+  public addLayersAndLayerGroups(optionLayers: any[]): void {
     for (let i = 0; i < optionLayers.length; i++) {
       const element = optionLayers[i];
       this.handleLayerOrLayerGroup(element, null);
     }
   }
 
-  private handleLayerOrLayerGroup(element: any, layerGroup: MangolLayergroup): any {
+  private handleLayerOrLayerGroup(element: any, layerGroup: MangolLayergroup): void {
     if (element.type === 'layer') {
       const newLayer = new MangolLayer(element);
       this.addLayer(element.layer);
@@ -37,6 +37,7 @@ export class MangolMap extends ol.Map {
       const newLayerGroup = new MangolLayergroup(element);
       this.layerGroups.push(newLayerGroup);
       for (let i = 0; i < element.children.length; i++) {
+        // find subgroup children and subgroups recursively
         this.handleLayerOrLayerGroup(element.children[i], newLayerGroup);
       }
     }

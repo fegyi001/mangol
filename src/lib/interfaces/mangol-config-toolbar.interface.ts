@@ -1,11 +1,13 @@
+export interface MangolConfigToolbarItem {
+  title?: string,
+  fontSet?: string,
+  fontIcon?: string,
+  active?: boolean,
+  disabled?: boolean
+}
+
 export interface MangolConfigToolbar {
-  layertree: {
-    active?: boolean
-  },
-  measure: {
-    active?: boolean
-  },
-  print: {
-    active?: boolean
-  }
+  layertree?: MangolConfigToolbarItem,
+  measure?: MangolConfigToolbarItem,
+  print?: MangolConfigToolbarItem
 }
