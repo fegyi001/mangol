@@ -99,6 +99,7 @@ You can further configure your Mangol component for example by adding a sidebar 
 
 ```typescript
 import { Component, OnInit } from '@angular/core';
+import { MangolConfig } from 'mangol/src/lib/interfaces/mangol-config.interface';
 
 import * as ol from 'openlayers';
 
@@ -110,7 +111,8 @@ import * as ol from 'openlayers';
 })
 export class AppComponent implements OnInit {
 
-  config: any;
+  // Notice the MangolConfig type, this  is a helper interface to easily fill out the required and optional parameters for your Mangol configuration.
+  config = {} as MangolConfig;
 
   public ngOnInit(): any {
     this.config = {
@@ -181,10 +183,11 @@ $mangol-sidebar-width: 350px;
 
 ## More hooks
 
-In order to reach more functionality, you can access the MangolMapService instance, which stores the map(s) and some helper functions. All you have to do is use the 'mapReady' output on your 'mangol' component. With that you can extend your app quite easily:
+In order to reach more functionality, you can access the MangolReady object, which returns your MangolConfig and the MangolMapService instance. This latter stores the map(s) and some helper functions. All you have to do is use the 'mapReady' output on your 'mangol' component. With that you can extend your app quite easily:
 
 ```typescript
 import { Component } from '@angular/core';
+import { MangolReady } from 'mangol/src/lib/interfaces/mangol-ready.interface';
 
 @Component({
   selector: 'app-root',
@@ -193,7 +196,7 @@ import { Component } from '@angular/core';
 export class AppComponent {
   title = 'app works!';
 
-  onMapReady($event: any) {
+  onMapReady($event: MangolReady) {
     console.log($event);
   }
 }
@@ -201,9 +204,9 @@ export class AppComponent {
 
 ## Present & Future
 
-This project is still very new and therefore it contains only a couple of components (widgets), most of them are under heavy development. In the near future I intend to add/extend other widgets. More examples will arrive as soon as the project becomes smarter.
+This project is still under heavy development. In the near future I intend to add/extend other widgets. More examples will arrive as soon as the project becomes smarter. Any notice, remarks or pull requests are appreciated.
 
-![demo](src/assets/img/screenshots/screenshot-0.5.2.png)
+![demo](src/assets/img/screenshots/screenshot-0.5.3.png)
 
 ## Author
 

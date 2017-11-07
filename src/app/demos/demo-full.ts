@@ -17,12 +17,7 @@ export class DemoFullComponent implements OnInit {
 
   mapService: MangolMapService;
 
-  onMapReady($event: MangolReady) {
-    this.mapService = $event.mapService;
-    console.log($event);
-  }
-
-  public ngOnInit(): any {
+  public ngOnInit() {
     this.config = {
       map: {
         renderer: 'canvas',
@@ -136,5 +131,11 @@ export class DemoFullComponent implements OnInit {
         }
       }
     };
-  };
+  }
+
+
+  onMapReady($event: MangolReady) {
+    this.mapService = $event.mapService;
+    console.log($event);
+  }
 }
