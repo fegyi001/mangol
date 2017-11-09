@@ -9,13 +9,13 @@
 
 ## About Mangol
 
-Mangol is an open source library for combining [Angular2+](https://angular.io/) and [OpenLayers3+](https://openlayers.org/) to create modern, responsive interactive web maps (_M_ stands for _maps_, _ang_ for _Angular_ and _ol_ for _OpenLayers_). The project has been created using [@angular/cli](https://cli.angular.io/), a command-line tool for Angular projects (1.5.0). The project is written in TypeScript 2.4.2 and uses SCSS for styling. It has been built with Angular 5.0.0 and OpenLayers 4.4.2 using Angular Material design 2.0.0-beta.12. The packaging is done via [Webpack module bundler](https://webpack.github.io/).
+Mangol is an open source library for combining [Angular2+](https://angular.io/) and [OpenLayers3+](https://openlayers.org/) to create modern, responsive interactive web maps (_M_ stands for _maps_, _ang_ for _Angular_ and _ol_ for _OpenLayers_). The project has been created using [@angular/cli](https://cli.angular.io/), a command-line tool for Angular projects (1.5.0). The project is written in TypeScript 2.4.2 and uses SCSS for styling. It has been built with Angular 5.0.1 and OpenLayers 4.4.2 using Angular Material design 5.0.0-rc0. The packaging is done via [Webpack module bundler](https://webpack.github.io/).
 
 Formerly, Mangol was called `ng2ol3` and was based on SystemJS and without angular-cli.
 
 ## Install
 
-[Node.js with npm](https://nodejs.org/en/download/) is required. The preferenced version of Node.js is 8.x.x, the preferenced version of npm is 5.x.x. After `git clone`, navigate to the main directory and run ```npm install``` to download all dependencies.
+[Node.js with npm](https://nodejs.org/en/download/) is required. The preferenced version of Node.js is 8.x.x, the preferenced version of npm is 5.x.x. After `git clone`, navigate to the main directory and run ```npm install``` to download all dependencies. If you prefer Yarn, you can also run ```yarn install``` instead.
 
 ## Live example
 
@@ -124,25 +124,15 @@ export class AppComponent implements OnInit {
           center: ol.proj.fromLonLat([19.39563, 47.16846], 'EPSG:900913'),
           zoom: 7
         },
-        layers: [
-          {
-            type: 'layergroup',
-            name: 'Base layers',
-            expanded: false,
-            visible: true,
-            children: [
-              {
-                type: 'layer',
-                name: 'OpenStreetMap layer',
-                visible: true,
-                opacity: 1,
-                layer: new ol.layer.Tile({
-                  source: new ol.source.OSM()
-                })
-              }
-            ]
-          }
-        ]
+        layertree: {
+          layers: [{
+            name: 'OpenStreetMap layer',
+            layer: new ol.layer.Tile({
+              source: new ol.source.OSM()
+            })
+          }],
+          groups: []
+        }
       },
       sidebar: {
         collapsible: true,
