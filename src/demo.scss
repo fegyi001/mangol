@@ -4,7 +4,7 @@
   // $mangol-accent: mat-palette($mat-deep-orange);
   // $mangol-warn: mat-palette($mat-red);
   // $mangol-theme: mat-light-theme($mangol-primary, $mangol-accent, $mangol-warn);
-  $mangol-height: 450px;
+  $mangol-height: 70vh;
   // $mangol-sidebar-width: 450px;
   @import "./../mangol";
   html,
@@ -23,7 +23,7 @@
         font-weight: 400;
       }
       & .demo {
-        max-width: 1200px;
+        max-width: 80vw;
         margin-left: auto;
         margin-right: auto;
         padding: 20px;
