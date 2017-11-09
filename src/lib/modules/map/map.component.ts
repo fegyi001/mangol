@@ -60,7 +60,7 @@ export class MangolMapComponent implements AfterViewInit, OnInit {
         view: this.view
       });
       // consume layer and layergroup parameters
-      this.map.addLayersAndLayerGroups(this.config.map.layers);
+      this.map.addLayersAndLayerGroups(this.config.map.layertree, null);
       // register the map in the injectable mapService
       this.mapService.addMap(this.map);
       this.mapCreated.emit(this.map);

@@ -2,53 +2,66 @@
 import * as ol from 'openlayers';
 import { MangolLayer } from './layer';
 import { MangolLayergroup } from './layergroup';
+import { MangolConfigLayertreeItem, MangolConfigLayerGroup, MangolConfigLayer } from '../interfaces/mangol-config-layers.inteface';
 
 export class MangolMap extends ol.Map {
 
-  options: any;
-
-  layers: MangolLayer[];
-  layerGroups: MangolLayergroup[];
+  private _layers: MangolLayer[];
+  private _layerGroups: MangolLayergroup[];
 
   constructor(options: any) {
     super(options);
-    this.options = options;
-    this.layers = [];
-    this.layerGroups = [];
+    this._layers = [];
+    this._layerGroups = [];
   }
 
-  public addLayersAndLayerGroups(optionLayers: any[]): void {
-    for (let i = 0; i < optionLayers.length; i++) {
-      const element = optionLayers[i];
-      this.handleLayerOrLayerGroup(element, null);
+  public addLayersAndLayerGroups(layertree: MangolConfigLayertreeItem, parent: MangolLayergroup): void {
+    // console.log(layertree);
+    if (layertree.hasOwnProperty('layers')) {
+      layertree.layers.forEach((layer: MangolConfigLayer) => {
+        this._handleLayer(layer, parent);
+      });
+    }
+    if (layertree.hasOwnProperty('groups')) {
+      layertree.groups.forEach((group: MangolConfigLayerGroup) => {
+        this._handleLayerGroup(group, parent);
+      });
     }
   }
 
-  private handleLayerOrLayerGroup(element: any, layerGroup: MangolLayergroup): void {
-    if (element.type === 'layer') {
-      const newLayer = new MangolLayer(element);
-      this.addLayer(element.layer);
-      if (layerGroup !== null) {
-        layerGroup.getChildren().push(newLayer);
-      } else {
-        this.layers.push(newLayer);
-      }
-    } else if (element.type === 'layergroup') {
-      const newLayerGroup = new MangolLayergroup(element);
-      this.layerGroups.push(newLayerGroup);
-      for (let i = 0; i < element.children.length; i++) {
-        // find subgroup children and subgroups recursively
-        this.handleLayerOrLayerGroup(element.children[i], newLayerGroup);
-      }
+  private _handleLayer(layer: MangolConfigLayer, parent: MangolLayergroup) {
+    const newLayer = new MangolLayer(layer);
+    // if the parent is null then it is the root element
+    if (parent === null) {
+      this._layers.push(newLayer);
+    } else {
+      parent.nestedLayers.push(newLayer);
     }
+    // add layer to the map (ol.Map function)
+    this.addLayer(newLayer.getLayer());
+  }
+
+  private _handleLayerGroup(group: MangolConfigLayerGroup, parent: MangolLayergroup) {
+    const newLayerGroup = new MangolLayergroup(group);
+    // if the parent is null then it is the root element
+    if (parent === null) {
+      this._layerGroups.push(newLayerGroup);
+    } else {
+      parent.nestedLayerGroups.push(newLayerGroup);
+    }
+    // recursively load subgroups and sublayers
+    if (group.hasOwnProperty('children')) {
+      this.addLayersAndLayerGroups(group.children, newLayerGroup);
+    }
+    newLayerGroup.getDetails();
   }
 
   public getMangolLayers(): MangolLayer[] {
-    return this.layers;
+    return this._layers;
   }
 
   public getMangolLayerGroups(): MangolLayergroup[] {
-    return this.layerGroups;
+    return this._layerGroups;
   }
 
 }

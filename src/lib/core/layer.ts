@@ -1,3 +1,4 @@
+import { MangolConfigLayer } from '../interfaces/mangol-config-layers.inteface';
 export class MangolLayer {
 
   name: string;
@@ -6,7 +7,7 @@ export class MangolLayer {
   visible: boolean;
   description: string;
 
-  constructor(options: any) {
+  constructor(options: MangolConfigLayer) {
     this.name = options.name;
     this.layer = options.layer;
     const opacity = options.hasOwnProperty('opacity') ? options.opacity : 1.0;

@@ -23,15 +23,14 @@ export class DemoPrintComponent implements OnInit {
           center: ol.proj.fromLonLat([19.3956393810065, 47.168464955013], 'EPSG:900913'),
           zoom: 7
         },
-        layers: [
-          {
-            type: 'layer',
+        layertree: {
+          layers: [{
             name: 'OpenStreetMap layer',
             layer: new ol.layer.Tile({
               source: new ol.source.OSM()
             })
-          }
-        ]
+          }]
+        }
       },
       sidebar: {
         collapsible: true,

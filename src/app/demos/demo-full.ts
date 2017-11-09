@@ -28,15 +28,12 @@ export class DemoFullComponent implements OnInit {
           zoom: 7,
           zoomDuration: 500
         },
-        layers: [
-          {
-            type: 'layergroup',
+        layertree: {
+          groups: [{
             name: 'Base layers',
-            expanded: false,
-            visible: true,
-            children: [
-              {
-                type: 'layer',
+            description: 'Customizable layergroup description',
+            children: {
+              layers: [{
                 name: 'OpenStreetMap layer',
                 description: 'Awesome free streetmap',
                 visible: true,
@@ -44,16 +41,13 @@ export class DemoFullComponent implements OnInit {
                 layer: new ol.layer.Tile({
                   source: new ol.source.OSM()
                 })
-              }
-            ]
+              }],
+              groups: []
+            }
           }, {
-            type: 'layergroup',
             name: 'Overlays',
-            expanded: false,
-            visible: true,
-            children: [
-              {
-                type: 'layer',
+            children: {
+              layers: [{
                 name: 'Main roads',
                 description: 'Hungary',
                 visible: false,
@@ -72,7 +66,6 @@ export class DemoFullComponent implements OnInit {
                   })
                 })
               }, {
-                type: 'layer',
                 name: 'Highways',
                 description: 'Hungary',
                 visible: false,
@@ -92,7 +85,6 @@ export class DemoFullComponent implements OnInit {
                 })
               },
               {
-                type: 'layer',
                 name: 'Country border',
                 description: 'Hungary',
                 visible: false,
@@ -110,10 +102,11 @@ export class DemoFullComponent implements OnInit {
                     projection: 'EPSG:900913'
                   })
                 })
-              }
-            ]
-          }
-        ]
+              }],
+              groups: []
+            }
+          }]
+        },
       },
       sidebar: {
         collapsible: true,

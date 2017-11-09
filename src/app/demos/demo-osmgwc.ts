@@ -37,9 +37,8 @@ export class DemoOsmgwcComponent implements OnInit {
           zoom: 0,
           resolutions: resolutions
         },
-        layers: [
-          {
-            type: 'layer',
+        layertree: {
+          layers: [{
             name: 'OpenStreetMap layer',
             layer: new ol.layer.Tile({
               source: new ol.source.XYZ({
@@ -52,8 +51,8 @@ export class DemoOsmgwcComponent implements OnInit {
                 })
               })
             })
-          }
-        ]
+          }]
+        }
       }
     }
 
