@@ -1,6 +1,8 @@
 import { Component, OnInit, Input, HostBinding } from '@angular/core';
 
-import { MangolLayer, MangolLayergroup, MangolMap } from './../../core/_index';
+import { MangolLayer } from '../../core/layer';
+import { MangolMap } from '../../core/map';
+import { MangolLayergroup } from '../../core/layergroup';
 
 @Component({
   selector: 'mangol-layertree',
@@ -23,5 +25,10 @@ export class MangolLayertreeComponent implements OnInit {
     layer.detailType = type;
     layer.showDetails = true;
   };
+
+  hideDetails(layer: MangolLayer) {
+    layer.detailType = null;
+    layer.showDetails = false;
+  }
 
 }

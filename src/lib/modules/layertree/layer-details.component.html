@@ -1,2 +1,13 @@
-<div *ngIf="detailType==='opacity'">Opacity settings will come here</div>
-<div *ngIf="detailType==='legend'">Legend settings will come here</div>
+<div>
+  <div *ngIf="detailType==='opacity'" class="details">
+    <div class="details-title">Opacity
+     <mat-icon matTooltip="Close details" matTooltipPosition="above" (click)="closeDetails()">close</mat-icon>
+    </div>
+    <mat-slider color="primary" thumbLabel [min]="sliderMin" [max]="sliderMax" [step]="sliderStep" [value]="layer.opacity * 100"
+      (change)="onSliderChange($event)"></mat-slider>
+  </div>
+  <div *ngIf="detailType==='legend'" class="details">
+    <div class="details-title">Legend</div>
+    Legend will come soon...
+  </div>
+</div>
