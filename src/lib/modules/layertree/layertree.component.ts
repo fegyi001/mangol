@@ -19,4 +19,9 @@ export class MangolLayertreeComponent implements OnInit {
     this.layers = this.map.getMangolLayers();
   }
 
+  setMenuActive(type: string, layer: MangolLayer) {
+    layer.detailType = type;
+    layer.showDetails = true;
+  };
+
 }

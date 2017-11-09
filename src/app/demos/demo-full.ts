@@ -117,7 +117,7 @@ export class DemoFullComponent implements OnInit {
             disabled: false,
             fontSet: 'ms',
             fontIcon: 'ms-layers',
-            title: 'Customized layertree',
+            title: 'My Awesome Layers',
             isAccordionMulti: true
           },
           measure: {},

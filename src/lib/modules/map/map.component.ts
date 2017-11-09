@@ -25,6 +25,7 @@ export class MangolMapComponent implements AfterViewInit, OnInit {
   view: ol.View;
   renderer: string;
   zoomDuration: number;
+  sidebarOpened: boolean;
   defaultConfig = {
     map: {
       target: null,
@@ -40,6 +41,7 @@ export class MangolMapComponent implements AfterViewInit, OnInit {
   } as MangolConfig;
 
   ngOnInit() {
+    this.sidebarOpened = this.config.sidebar && this.config.sidebar.opened || true;
     this.renderer = this.config.map.renderer || this.defaultConfig.map.renderer;
     this.zoomDuration = this.config.map.view.zoomDuration || this.defaultConfig.map.view.zoomDuration;
     this.view = new ol.View({
@@ -76,6 +78,7 @@ export class MangolMapComponent implements AfterViewInit, OnInit {
   }
 
   toggleSidebar(): void {
+    this.sidebarOpened = !this.sidebarOpened;
     this.sidebarToggled.emit();
   }
 

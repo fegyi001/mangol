@@ -1,17 +1,17 @@
 <div class="custom-buttons">
   <div class="zoom-in" (click)="zoomIn()">
-    <button mat-mini-fab color="primary">
+    <button mat-mini-fab color="primary" matTooltip="Zoom in" matTooltipPosition="right">
       <mat-icon class="mat-12">add</mat-icon>
     </button>
   </div>
-  <div class="zoom-out" (click)="zoomOut()">
+  <div class="zoom-out" (click)="zoomOut()" matTooltip="Zoom out" matTooltipPosition="right">
     <button mat-mini-fab color="primary">
       <mat-icon class="mat-24">remove</mat-icon>
     </button>
   </div>
   <div class="sidebar" *ngIf="config.sidebar && config.sidebar.collapsible" (click)="toggleSidebar()">
-    <button mat-mini-fab color="primary">
-      <mat-icon class="mat-24">reorder</mat-icon>
+    <button mat-mini-fab color="primary" [matTooltip]="sidebarOpened ? 'Hide sidebar' : 'Show sidebar'" matTooltipPosition="right">
+      <mat-icon class="mat-24">{{sidebarOpened ? 'chevron_left' : 'chevron_right'}}</mat-icon>
     </button>
   </div>
 </div>

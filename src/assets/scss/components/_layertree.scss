@@ -6,7 +6,7 @@
     }
   }
   .mat-expansion-panel {
-    box-shadow: none !important; // border-bottom: 1px solid red;
+    // box-shadow: none !important; // border-bottom: 1px solid red;
     .mat-expansion-panel-header {
       .mat-content {
         display: initial;
@@ -14,9 +14,12 @@
     }
   }
   .mat-list-item {
-    cursor: pointer;
+    // cursor: pointer;s
     &:hover {
       background-color: #f5f5f5;
+    }
+    .mat-icon {
+      cursor: pointer;
     }
   }
   .layer-name {

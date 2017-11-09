@@ -6,9 +6,12 @@ export class MangolLayer {
   opacity: number;
   visible: boolean;
   description: string;
+  showDetails: boolean;
+  detailType: string;
 
   constructor(options: MangolConfigLayer) {
     this.name = options.name;
+    this.showDetails = false;
     this.layer = options.layer;
     const opacity = options.hasOwnProperty('opacity') ? options.opacity : 1.0;
     this.setOpacity(opacity);
