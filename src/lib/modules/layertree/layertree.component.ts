@@ -10,6 +10,7 @@ export class MangolLayertreeComponent implements OnInit {
   @HostBinding('class') class = 'mangol-layertree';
 
   @Input() map: MangolMap;
+  @Input() isAccordionMulti: boolean;
   layerGroups: MangolLayergroup[];
   layers: MangolLayer[];
 

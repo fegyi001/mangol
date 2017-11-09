@@ -1,6 +1,6 @@
 <mat-list dense>
   <h3 matSubheader *ngIf="layerGroups.length > 0">LAYER GROUPS</h3>
-  <mat-accordion>
+  <mat-accordion [multi]="isAccordionMulti">
     <mat-expansion-panel *ngFor="let layerGroup of layerGroups">
       <mat-expansion-panel-header>
         <mat-panel-title>

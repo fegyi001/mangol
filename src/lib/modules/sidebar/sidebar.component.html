@@ -9,7 +9,7 @@
       </mat-toolbar>
     </div>
     <div class="sidebar-content">
-      <mangol-layertree *ngIf="hasLayertree && activeElement.type==='layertree'" [map]="map">
+      <mangol-layertree *ngIf="hasLayertree && activeElement.type==='layertree'" [map]="map" [isAccordionMulti]="options.toolbar.layertree.isAccordionMulti">
       </mangol-layertree>
       <mangol-measure *ngIf="hasMeasure && activeElement.type==='measure'" [map]="map">
       </mangol-measure>

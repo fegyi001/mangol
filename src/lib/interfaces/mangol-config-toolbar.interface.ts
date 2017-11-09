@@ -6,8 +6,20 @@ export interface MangolConfigToolbarItem {
   disabled?: boolean
 }
 
+export interface MangolConfigLayertreeItem extends MangolConfigToolbarItem {
+  isAccordionMulti?: boolean
+}
+
+export interface MangolConfigMeasureItem extends MangolConfigToolbarItem {
+
+}
+
+export interface MangolConfigPrintItem extends MangolConfigToolbarItem {
+
+}
+
 export interface MangolConfigToolbar {
-  layertree?: MangolConfigToolbarItem,
-  measure?: MangolConfigToolbarItem,
-  print?: MangolConfigToolbarItem
+  layertree?: MangolConfigLayertreeItem,
+  measure?: MangolConfigMeasureItem,
+  print?: MangolConfigPrintItem
 }
