@@ -39,7 +39,14 @@
           font-size: smaller;
           margin-bottom: 5px;
         }
+        .mat-chip {
+          cursor: pointer;
+          &.active {
+            background-color: mat-color($mangol-accent);
+          }
+        }
         button {
+          margin-right: 7px;
           &.active {
             background-color: mat-color($mangol-accent);
           }

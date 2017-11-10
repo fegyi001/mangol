@@ -1,47 +1,45 @@
-import { Component, Inject } from '@angular/core';
+import { Component, Inject, OnInit } from '@angular/core';
+
+export interface MangolDemoItem {
+  link: string,
+  title: string
+}
 
 @Component({
   selector: 'mangol-demo',
-  template: `
-    <div class="mangol-demo">
-      <div class="ribbon-box">
-            <div class="ribbon-wrapper">
-                <a href="https://github.com/fegyi001/mangol" target="_blank" matTooltip="Fork me on GitHub" matTooltipPosition="left">
-                    <div class="ribbon">
-                        <i class="fa fa-github"></i>
-                    </div>
-                </a>
-            </div>
-        </div>
-        <div class="demo">
-            <div class="demo-header">
-                <h1 class="title">MANGOL 0.6.3 components</h1>
-                <div class="subtitle">built with: Angular 5.0.0 | OpenLayers 4.4.2
-                | Angular CLI 1.5.0 | Angular Material 5.0.0-rc0 | TypeScript 2.4.2</div>
-                <nav>
-                    <button mat-raised-button color="primary" routerLink="/demo-map" routerLinkActive="active"
-                        [routerLinkActiveOptions]="{ exact: true }">map</button>
-                        <button mat-raised-button color="primary" routerLink="/demo-map-controllers" routerLinkActive="active"
-                        [routerLinkActiveOptions]="{ exact: true }">map controllers</button>
-                    <button mat-raised-button color="primary" routerLink="/demo-sidebar" routerLinkActive="active"
-                        [routerLinkActiveOptions]="{ exact: true }">sidebar</button>
-                    <button mat-raised-button color="primary" routerLink="/demo-layertree" routerLinkActive="active"
-                        [routerLinkActiveOptions]="{ exact: true }">layertree</button>
-                    <button mat-raised-button color="primary" routerLink="/demo-print" routerLinkActive="active"
-                        [routerLinkActiveOptions]="{ exact: true }">print</button>
-                    <button mat-raised-button color="primary" routerLink="/demo-measure" routerLinkActive="active"
-                        [routerLinkActiveOptions]="{ exact: true }">measure</button>
-                    <button mat-raised-button color="primary" routerLink="/demo-osmgwc" routerLinkActive="active"
-                        [routerLinkActiveOptions]="{ exact: true }">osmgwc</button>
-                    <button mat-raised-button color="primary" routerLink="/demo-full" routerLinkActive="active"
-                        [routerLinkActiveOptions]="{ exact: true }">full functionality</button>
-                </nav>
-            </div>
-            <div class="demo-content">
-                <router-outlet></router-outlet>
-            </div>
-        </div>
-    </div>
-      `
+  templateUrl: './app.component.html'
 })
-export class MangolDemoComponent { }
+
+export class MangolDemoComponent implements OnInit {
+
+  items: MangolDemoItem[];
+
+  ngOnInit() {
+    this.items = [{
+      link: '/demo-map',
+      title: 'map'
+    }, {
+      link: '/demo-map-controllers',
+      title: 'map controllers'
+    }, {
+      link: '/demo-sidebar',
+      title: 'sidebar'
+    }, {
+      link: '/demo-layertree',
+      title: 'layertree'
+    }, {
+      link: '/demo-print',
+      title: 'print'
+    }, {
+      link: '/demo-measure',
+      title: 'measure'
+    }, {
+      link: '/demo-osmgwc',
+      title: 'osmgwc'
+    }, {
+      link: '/demo-full',
+      title: 'full functionality'
+    }];
+  }
+
+}

@@ -29,12 +29,35 @@
   & .mangol-map-div {
     height: 100%;
   }
-  .mangol-mouse-position {
+  .mangol-map-controllers {
     position: absolute;
-    z-index: 1;
-    // min-width: 200px;
-    // max-width: 300px;
-    right: 0;
+    z-index: 2;
     padding: 1em;
+    right: 0;
+    bottom: 0;
+    display: flex;
+    .mangol-mouse-position {
+      position: relative;
+      margin-left: 1em;
+    }
+    .mangol-scale-line {
+      position: relative;
+      .ol-scale-line {
+        position: relative;
+        background-color: rgba(0, 0, 0, 0);
+        bottom: initial;
+        left: initial;
+        padding: initial;
+        .ol-scale-line-inner {
+          font-size: 13px;
+          border: 1px solid white;
+          border-top: none;
+          border-left: none;
+          border-right: none;
+          color: white;
+          margin: initial;
+        }
+      }
+    }
   }
 }

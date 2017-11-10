@@ -34,7 +34,10 @@ export class DemoMapControllersComponent implements OnInit {
           }]
         },
         controllers: {
-          mousePosition: {}
+          mousePosition: {},
+          scaleLine: {
+            units: 'metric'
+          }
         }
       }
     };

@@ -5,6 +5,7 @@ import 'hammerjs';
 import { MangolMapComponent } from './map.component';
 import { MangolMaterialModule } from '../_shared/mangol-material.module';
 import { MangolMousePositionComponent } from './mouse-position.component';
+import { MangolScaleLineComponent } from './scale-line.component';
 
 @NgModule({
   imports: [
@@ -13,11 +14,13 @@ import { MangolMousePositionComponent } from './mouse-position.component';
   ],
   exports: [
     MangolMapComponent,
-    MangolMousePositionComponent
+    MangolMousePositionComponent,
+    MangolScaleLineComponent
   ],
   declarations: [
     MangolMapComponent,
-    MangolMousePositionComponent
+    MangolMousePositionComponent,
+    MangolScaleLineComponent
   ]
 })
 export class MangolMapModule { }

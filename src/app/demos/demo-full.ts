@@ -29,7 +29,10 @@ export class DemoFullComponent implements OnInit {
           zoomDuration: 500
         },
         controllers: {
-          mousePosition: {}
+          mousePosition: {},
+          scaleLine: {
+            units: 'metric'
+          }
         },
         layertree: {
           groups: [{
