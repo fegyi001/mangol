@@ -29,4 +29,12 @@
   & .mangol-map-div {
     height: 100%;
   }
+  .mangol-mouse-position {
+    position: absolute;
+    z-index: 1;
+    // min-width: 200px;
+    // max-width: 300px;
+    right: 0;
+    padding: 1em;
+  }
 }

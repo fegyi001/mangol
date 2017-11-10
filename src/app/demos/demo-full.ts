@@ -28,6 +28,9 @@ export class DemoFullComponent implements OnInit {
           zoom: 7,
           zoomDuration: 500
         },
+        controllers: {
+          mousePosition: {}
+        },
         layertree: {
           groups: [{
             name: 'Base layers',
@@ -111,6 +114,7 @@ export class DemoFullComponent implements OnInit {
       sidebar: {
         collapsible: true,
         opened: true,
+        mode: 'side',
         toolbar: {
           layertree: {
             active: true,

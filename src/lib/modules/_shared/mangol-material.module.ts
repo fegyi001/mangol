@@ -11,7 +11,8 @@ import {
   MatCardModule,
   MatSliderModule,
   MatMenuModule,
-  MatSlideToggleModule
+  MatSlideToggleModule,
+  MatChipsModule
 } from '@angular/material';
 
 @NgModule({
@@ -27,7 +28,8 @@ import {
     MatCardModule,
     MatSliderModule,
     MatMenuModule,
-    MatSlideToggleModule
+    MatSlideToggleModule,
+    MatChipsModule
   ],
   exports: [
     MatButtonModule,
@@ -41,7 +43,8 @@ import {
     MatCardModule,
     MatSliderModule,
     MatMenuModule,
-    MatSlideToggleModule
+    MatSlideToggleModule,
+    MatChipsModule
   ]
 })
 export class MangolMaterialModule { }

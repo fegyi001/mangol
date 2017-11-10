@@ -12,7 +12,6 @@ import { MangolReady } from '../../interfaces/mangol-ready.interface';
   providers: [MangolMapService]
 })
 export class MangolContainerComponent implements OnInit {
-
   @HostBinding('class') class = 'mangol';
 
   @Input() config: MangolConfig;
@@ -21,12 +20,14 @@ export class MangolContainerComponent implements OnInit {
   map: ol.Map;
   isOpened: boolean;
   service: MangolMapService;
+  sidebarMode: string;
 
   constructor(private mapService: MangolMapService) {
     this.service = this.mapService;
   }
 
   ngOnInit(): any {
+    this.sidebarMode = this.config && this.config.hasOwnProperty('sidebar') && this.config.sidebar.hasOwnProperty('mode') ? this.config.sidebar.mode : 'side';
     // generate a default config if there is none
     if (typeof this.config === 'undefined') {
       this.config = {
@@ -71,7 +72,9 @@ export class MangolContainerComponent implements OnInit {
   }
 
   updateMap(): void {
-    this.map.updateSize();
+    setTimeout(() => {
+      this.map.updateSize();
+    }, 0);
   }
 
 }

@@ -15,4 +15,5 @@
     </button>
   </div>
 </div>
+<mangol-mouse-position *ngIf="map && config.map.controllers && config.map.controllers.mousePosition" [map]="map" [opts]="config.map.controllers.mousePosition"></mangol-mouse-position>
 <div [attr.id]="config.map.target" class="mangol-map-div"></div>

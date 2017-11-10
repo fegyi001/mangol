@@ -8,6 +8,7 @@ import { MangolMap } from './../../core/_index';
 import { MangolConfig } from '../../interfaces/mangol-config.interface';
 
 import * as ol from 'openlayers';
+import { MangolConfigMapControllerMousePosition } from '../../interfaces/mangol-config-map-controllers.interface';
 
 @Component({
   selector: 'mangol-map',
@@ -55,6 +56,7 @@ export class MangolMapComponent implements AfterViewInit, OnInit {
 
   ngAfterViewInit() {
     setTimeout(() => {
+      // create the MangolMap instance (extends ol.Map)
       this.map = new MangolMap({
         renderer: this.renderer,
         layers: [],
@@ -62,7 +64,9 @@ export class MangolMapComponent implements AfterViewInit, OnInit {
         view: this.view
       });
       // consume layer and layergroup parameters
-      this.map.addLayersAndLayerGroups(this.config.map.layertree, null);
+      if (this.config.map.hasOwnProperty('layertree')) {
+        this.map.addLayersAndLayerGroups(this.config.map.layertree, null);
+      }
       // register the map in the injectable mapService
       this.mapService.addMap(this.map);
       this.mapCreated.emit(this.map);

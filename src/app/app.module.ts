@@ -14,6 +14,7 @@ import { MangolMaterialModule } from '../lib/modules/_shared/mangol-material.mod
 
 import {
   DemoMapComponent,
+  DemoMapControllersComponent,
   DemoSidebarComponent,
   DemoLayertreeComponent,
   DemoPrintComponent,
@@ -26,12 +27,14 @@ import {
   declarations: [
     MangolDemoComponent,
     DemoMapComponent,
+    DemoMapControllersComponent,
     DemoSidebarComponent,
     DemoLayertreeComponent,
     DemoPrintComponent,
     DemoFullComponent,
     DemoMeasureComponent,
-    DemoOsmgwcComponent
+    DemoOsmgwcComponent,
+    DemoMapControllersComponent
   ],
   imports: [
     BrowserModule,

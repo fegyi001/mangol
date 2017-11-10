@@ -21,6 +21,8 @@ import { Component, Inject } from '@angular/core';
                 <nav>
                     <button mat-raised-button color="primary" routerLink="/demo-map" routerLinkActive="active"
                         [routerLinkActiveOptions]="{ exact: true }">map</button>
+                        <button mat-raised-button color="primary" routerLink="/demo-map-controllers" routerLinkActive="active"
+                        [routerLinkActiveOptions]="{ exact: true }">map controllers</button>
                     <button mat-raised-button color="primary" routerLink="/demo-sidebar" routerLinkActive="active"
                         [routerLinkActiveOptions]="{ exact: true }">sidebar</button>
                     <button mat-raised-button color="primary" routerLink="/demo-layertree" routerLinkActive="active"

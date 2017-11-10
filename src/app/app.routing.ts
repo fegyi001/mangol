@@ -1,5 +1,6 @@
 import { ModuleWithProviders } from '@angular/core';
 import { Routes, RouterModule } from '@angular/router';
+import { DemoMapControllersComponent } from './demos/demo-map-controllers';
 import {
   DemoMapComponent,
   DemoSidebarComponent,
@@ -19,6 +20,9 @@ const appRoutes: Routes = [
   }, {
     path: 'demo-map',
     component: DemoMapComponent
+  }, {
+    path: 'demo-map-controllers',
+    component: DemoMapControllersComponent
   }, {
     path: 'demo-sidebar',
     component: DemoSidebarComponent
