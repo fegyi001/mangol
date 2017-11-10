@@ -15,7 +15,7 @@ import { Component, Inject } from '@angular/core';
         </div>
         <div class="demo">
             <div class="demo-header">
-                <h1 class="title">MANGOL 0.6.2 components</h1>
+                <h1 class="title">MANGOL 0.6.3 components</h1>
                 <div class="subtitle">built with: Angular 5.0.0 | OpenLayers 4.4.2
                 | Angular CLI 1.5.0 | Angular Material 5.0.0-rc0 | TypeScript 2.4.2</div>
                 <nav>
