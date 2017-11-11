@@ -6,8 +6,17 @@ export interface MangolConfigToolbarItem {
   disabled?: boolean
 }
 
+export interface MangolConfigToolbarLayertreeDetails {
+  opacity?: {
+    sliderStep?: number,
+    showLabels?: boolean
+  },
+  legend?: any
+}
+
 export interface MangolConfigLayertreeItem extends MangolConfigToolbarItem {
-  isAccordionMulti?: boolean
+  isAccordionMulti?: boolean,
+  details?: MangolConfigToolbarLayertreeDetails
 }
 
 export interface MangolConfigMeasureItem extends MangolConfigToolbarItem {

@@ -9,10 +9,10 @@ export interface MangolConfigLayer {
 export interface MangolConfigLayerGroup {
   name: string,
   description?: string,
-  children: MangolConfigLayertreeItem
+  children: MangolConfigLayertree
 }
 
-export interface MangolConfigLayertreeItem {
+export interface MangolConfigLayertree {
   layers?: MangolConfigLayer[],
-  groups?: MangolConfigLayerGroup[]
+  groups?: MangolConfigLayerGroup[],
 }

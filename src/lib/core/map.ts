@@ -2,7 +2,7 @@
 import * as ol from 'openlayers';
 import { MangolLayer } from './layer';
 import { MangolLayergroup } from './layergroup';
-import { MangolConfigLayertreeItem, MangolConfigLayerGroup, MangolConfigLayer } from '../interfaces/mangol-config-layers.inteface';
+import { MangolConfigLayertree, MangolConfigLayerGroup, MangolConfigLayer } from '../interfaces/mangol-config-layers.inteface';
 
 export class MangolMap extends ol.Map {
 
@@ -15,7 +15,7 @@ export class MangolMap extends ol.Map {
     this._layerGroups = [];
   }
 
-  public addLayersAndLayerGroups(layertree: MangolConfigLayertreeItem, parent: MangolLayergroup): void {
+  public addLayersAndLayerGroups(layertree: MangolConfigLayertree, parent: MangolLayergroup): void {
     // console.log(layertree);
     if (layertree.hasOwnProperty('layers')) {
       layertree.layers.forEach((layer: MangolConfigLayer) => {

@@ -3,6 +3,7 @@ import { Component, OnInit, Input, HostBinding } from '@angular/core';
 import { MangolLayer } from '../../core/layer';
 import { MangolMap } from '../../core/map';
 import { MangolLayergroup } from '../../core/layergroup';
+import { MangolConfigLayertreeItem } from '../../interfaces/mangol-config-toolbar.interface';
 
 @Component({
   selector: 'mangol-layertree',
@@ -11,6 +12,7 @@ import { MangolLayergroup } from '../../core/layergroup';
 export class MangolLayertreeComponent implements OnInit {
   @HostBinding('class') class = 'mangol-layertree';
 
+  @Input() opts: MangolConfigLayertreeItem;
   @Input() map: MangolMap;
   @Input() isAccordionMulti: boolean;
   layerGroups: MangolLayergroup[];

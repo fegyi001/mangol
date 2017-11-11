@@ -30,7 +30,7 @@
         <span>Legend</span>
       </button>
     </mat-menu>
-    <mangol-layer-details [layer]="layer" [detailType]="layer.detailType" *ngIf="layer.showDetails && layer.detailType !== null" (detailsClosed)="hideDetails(layer)"></mangol-layer-details>
+    <mangol-layer-details [opts]="opts.details" [layer]="layer" [detailType]="layer.detailType" *ngIf="layer.showDetails && layer.detailType !== null" (detailsClosed)="hideDetails(layer)"></mangol-layer-details>
   </mat-list>
     </mat-expansion-panel>
   </mat-accordion>
@@ -55,6 +55,6 @@
         <span>Legend</span>
       </button>
     </mat-menu>
-    <mangol-layer-details [layer]="layer" [detailType]="layer.detailType" *ngIf="layer.showDetails && layer.detailType !== null" (detailsClosed)="hideDetails(layer)"></mangol-layer-details>
+    <mangol-layer-details [opts]="opts.details" [layer]="layer" [detailType]="layer.detailType" *ngIf="layer.showDetails && layer.detailType !== null" (detailsClosed)="hideDetails(layer)"></mangol-layer-details>
   </mat-list>
 </mat-list>

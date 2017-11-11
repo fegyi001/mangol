@@ -3,7 +3,7 @@
     <div class="details-title">Opacity
      <mat-icon matTooltip="Close details" matTooltipPosition="above" (click)="closeDetails()">close</mat-icon>
     </div>
-    <mat-slider color="primary" thumbLabel [min]="sliderMin" [max]="sliderMax" [step]="sliderStep" [value]="layer.opacity * 100"
+    <mat-slider #slider color="primary" [thumbLabel]="sliderShowLabels" [min]="sliderMin" [max]="sliderMax" [step]="sliderStep" [value]="sliderValue"
       (change)="onSliderChange($event)"></mat-slider>
   </div>
   <div *ngIf="detailType==='legend'" class="details">

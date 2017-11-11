@@ -125,7 +125,13 @@ export class DemoFullComponent implements OnInit {
             fontSet: 'ms',
             fontIcon: 'ms-layers',
             title: 'My Awesome Layers',
-            isAccordionMulti: true
+            isAccordionMulti: true,
+            details: {
+              opacity: {
+                sliderStep: 5,
+                showLabels: true
+              }
+            }
           },
           measure: {},
           print: {}
@@ -134,9 +140,9 @@ export class DemoFullComponent implements OnInit {
     };
   }
 
-
   onMapReady($event: MangolReady) {
     this.mapService = $event.mapService;
+    console.info('Mangol is ready. Here is your MangolReady event:')
     console.log($event);
   }
 }
