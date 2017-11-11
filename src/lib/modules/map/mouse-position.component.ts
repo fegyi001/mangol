@@ -22,21 +22,27 @@ export class MangolMousePositionComponent implements OnInit, OnDestroy {
 
   ngOnInit() {
     this.precision = this.opts.hasOwnProperty('precision') ? this.opts.precision : 2;
+    this.coordinates = this._formatCoordinates(this.map.getView().getCenter());
     this.pointerMoveListener = this.map.on('pointermove', (evt: any) => {
       if (evt.dragging) {
         return;
       } else {
-        let coord1: any = evt.coordinate[0];
-        coord1 = parseFloat(coord1).toFixed(this.precision);
-        let coord2: any = evt.coordinate[1];
-        coord2 = parseFloat(coord2).toFixed(this.precision);
-        this.coordinates = [coord1, coord2];
+        this.coordinates = this._formatCoordinates(evt.coordinate);
       }
     });
   }
 
   ngOnDestroy() {
     this.map.un('pointermove', this.pointerMoveListener);
+  }
+
+  private _formatCoordinates(coords: any[]): number[] {
+    const formattedCoords: number[] = [];
+    coords.forEach((coord: any) => {
+      coord = parseFloat(coord).toFixed(this.precision);
+      formattedCoords.push(coord);
+    });
+    return formattedCoords;
   }
 
 }
