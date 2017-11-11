@@ -161,12 +161,12 @@ $mangol-theme: mat-light-theme($mangol-primary, $mangol-accent, $mangol-warn);
 @import "~mangol/mangol";
 ```
 
-If you wish to set the component height or the sidebar width, also do it before importing mangol.scss:
-
+If you wish to set the component height, sidebar width or the quicksearch panel width, also do it before importing mangol.scss:
 
 ```scss
 $mangol-height: 400px;
-$mangol-sidebar-width: 350px;
+$mangol-sidebar-width: 450px;
+$mangol-quicksearch-width: 250px;
 
 @import "~mangol/mangol";
 ```
