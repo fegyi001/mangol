@@ -16,3 +16,7 @@ $mangol-warn: map-get($mangol-theme, warn);
 @if not variable-exists(mangol-sidebar-width) {
   $mangol-sidebar-width: 450px !global;
 }
+
+@if not variable-exists(mangol-quicksearch-width) {
+  $mangol-quicksearch-width: 250px !global;
+}

@@ -6,21 +6,27 @@ import { MangolMapComponent } from './map.component';
 import { MangolMaterialModule } from '../_shared/mangol-material.module';
 import { MangolMousePositionComponent } from './mouse-position.component';
 import { MangolScaleLineComponent } from './scale-line.component';
+import { MangolQuickSearchComponent } from './quick-search.component';
+import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 
 @NgModule({
   imports: [
     CommonModule,
-    MangolMaterialModule
+    MangolMaterialModule,
+    FormsModule,
+    ReactiveFormsModule
   ],
   exports: [
     MangolMapComponent,
     MangolMousePositionComponent,
-    MangolScaleLineComponent
+    MangolScaleLineComponent,
+    MangolQuickSearchComponent
   ],
   declarations: [
     MangolMapComponent,
     MangolMousePositionComponent,
-    MangolScaleLineComponent
+    MangolScaleLineComponent,
+    MangolQuickSearchComponent
   ]
 })
 export class MangolMapModule { }

@@ -5,8 +5,19 @@ export interface MangolConfigMapControllerMousePosition {
 export interface MangolConfigMapControllerScaleLine {
   units?: string
 }
+export interface MangolConfigMapControllerQuickSearchItem {
+  text: string,
+  details?: string,
+  coordinates?: [number, number],
+  extent?: [number, number, number, number]
+}
+export interface MangolConfigMapControllerQuickSearch {
+  placeholder?: string,
+  items: MangolConfigMapControllerQuickSearchItem[]
+}
 
 export interface MangolConfigMapControllers {
   mousePosition?: MangolConfigMapControllerMousePosition,
-  scaleLine?: MangolConfigMapControllerScaleLine
+  scaleLine?: MangolConfigMapControllerScaleLine,
+  quickSearch?: MangolConfigMapControllerQuickSearch
 }

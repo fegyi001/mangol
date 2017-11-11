@@ -15,10 +15,10 @@
     </button>
   </div>
 </div>
-<div class="mangol-map-controllers" *ngIf="map && config.map.controllers">
-  <div class="scaleline-mouseposition">
-    <mangol-scale-line *ngIf="config.map.controllers.scaleLine" [map]="map" [opts]="config.map.controllers.scaleLine"></mangol-scale-line>
-    <mangol-mouse-position *ngIf="config.map.controllers.mousePosition" [map]="map" [opts]="config.map.controllers.mousePosition"></mangol-mouse-position>
-  </div>
+<div class="mangol-map-controllers" *ngIf="map && config && config.map && config.map.controllers">
+  <mangol-scale-line *ngIf="config.map.controllers.scaleLine" [map]="map" [opts]="config.map.controllers.scaleLine"></mangol-scale-line>
+  <mangol-mouse-position *ngIf="config.map.controllers.mousePosition" [map]="map" [opts]="config.map.controllers.mousePosition"></mangol-mouse-position>
 </div>
+<mangol-quick-search *ngIf="map && config && config.map && config.map.controllers && config.map.controllers.quickSearch" [opts]="config.map.controllers.quickSearch" [map]="map"></mangol-quick-search>
+
 <div [attr.id]="config.map.target" class="mangol-map-div"></div>

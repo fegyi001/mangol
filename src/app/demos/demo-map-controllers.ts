@@ -37,6 +37,21 @@ export class DemoMapControllersComponent implements OnInit {
           mousePosition: {},
           scaleLine: {
             units: 'metric'
+          },
+          quickSearch: {
+            items: [ {
+              text: 'Budapest',
+              details: 'Capital of Hungary',
+              extent: [2108491, 6010126, 2134556, 6039783]
+            }, {
+              text: 'London',
+              details: 'Capital of England & UK',
+              coordinates: [-13664, 6711101]
+            }, {
+              text: 'Paris',
+              details: 'Capital of France',
+              extent: [250839, 6235856, 272853, 6263067]
+            }]
           }
         }
       }

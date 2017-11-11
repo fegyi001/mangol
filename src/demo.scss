@@ -1,11 +1,6 @@
-  // @import '~@angular/material/theming';
-  // @include mat-core();
-  // $mangol-primary: mat-palette($mat-blue);
-  // $mangol-accent: mat-palette($mat-deep-orange);
-  // $mangol-warn: mat-palette($mat-red);
-  // $mangol-theme: mat-light-theme($mangol-primary, $mangol-accent, $mangol-warn);
   $mangol-height: 70vh;
-  // $mangol-sidebar-width: 450px;
+  $mangol-quicksearch-width: 250px;
+  $mangol-sidebar-width: 450px;
   @import "./../mangol";
   html,
   body {

@@ -32,11 +32,10 @@
   .mangol-map-controllers {
     position: absolute;
     padding: 1em;
-      z-index: 2;
-    .scaleline-mouseposition {
-      right: 0;
-      bottom: 0;
-      display: flex;
+    z-index: 2;
+    right: 0;
+    bottom: 0;
+    display: flex;
     .mangol-mouse-position {
       position: relative;
       margin-left: 1em;
@@ -60,10 +59,29 @@
         }
       }
     }
-    }
-    .mangol-quick-search {
+  }
+  .mangol-quick-search {
+    position: absolute;
+    padding: 1em;
+    top: 0;
+    right: 0;
+    z-index: 3;
+    .quicksearch-outer {
       position: relative;
+      background: white;
+      border-radius: 24px;
+      padding-left: 20px;
+      padding-right: 20px;
+      .quicksearch-form {
+        width: $mangol-quicksearch-width;
+        .mat-form-field {
+          width: 100%;
+        }
 
+      }
+      input {
+        box-shadow: none;
+      }
     }
   }
 }

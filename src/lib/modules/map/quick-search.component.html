@@ -1,3 +1,16 @@
-<mat-chip-list>
-  <mat-chip color="primary">QuickSearch</mat-chip>
-</mat-chip-list>
+<div class="quicksearch-outer">
+  <form class="quicksearch-form">
+    <mat-form-field>
+      <input type="search" [placeholder]="placeholder" aria-label="Number" matInput [formControl]="formControl" [matAutocomplete]="auto">
+      <mat-autocomplete #auto="matAutocomplete" (optionSelected)="onOptionSeleted($event)">
+        <mat-option *ngFor="let option of filteredOptionsObservable | async" [value]="option.text">
+          <span>{{ option.text }}</span>
+          <span *ngIf="option.details">
+            <span>|</span>
+            <small class="details">{{option.details}}</small>
+          </span>
+        </mat-option>
+      </mat-autocomplete>
+    </mat-form-field>
+  </form>
+</div>
