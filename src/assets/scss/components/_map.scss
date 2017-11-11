@@ -31,11 +31,12 @@
   }
   .mangol-map-controllers {
     position: absolute;
-    z-index: 2;
     padding: 1em;
-    right: 0;
-    bottom: 0;
-    display: flex;
+      z-index: 2;
+    .scaleline-mouseposition {
+      right: 0;
+      bottom: 0;
+      display: flex;
     .mangol-mouse-position {
       position: relative;
       margin-left: 1em;
@@ -58,6 +59,11 @@
           margin: initial;
         }
       }
+    }
+    }
+    .mangol-quick-search {
+      position: relative;
+
     }
   }
 }

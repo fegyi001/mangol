@@ -128,7 +128,7 @@ export class DemoFullComponent implements OnInit {
             isAccordionMulti: true,
             details: {
               opacity: {
-                sliderStep: 5,
+                sliderStep: 1,
                 showLabels: true
               }
             }
