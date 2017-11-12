@@ -38,12 +38,17 @@ export class MangolMapComponent implements AfterViewInit, OnInit {
         resolutions: undefined,
         zoomDuration: 500
       }
+    },
+    sidebar: {
+      opened: true
     }
   } as MangolConfig;
 
   ngOnInit() {
-    this.sidebarOpened = this.config.sidebar && this.config.sidebar.opened || true;
-    this.renderer = this.config.map.renderer || this.defaultConfig.map.renderer;
+    this.sidebarOpened = this.config && this.config.hasOwnProperty('sidebar')
+      && this.config.sidebar.hasOwnProperty('opened') ? this.config.sidebar.opened : this.defaultConfig.sidebar.opened;
+    this.renderer = this.config && this.config.hasOwnProperty('map')
+      && this.config.map.hasOwnProperty('renderer') ? this.config.map.renderer : this.defaultConfig.map.renderer;
     this.zoomDuration = this.config.map.view.zoomDuration || this.defaultConfig.map.view.zoomDuration;
     this.view = new ol.View({
       projection: this.config.map.view.projection,

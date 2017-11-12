@@ -158,7 +158,7 @@ export class DemoFullComponent implements OnInit {
 
   onMapReady($event: MangolReady) {
     this.mapService = $event.mapService;
-    console.info('Mangol is ready. Here is your MangolReady event:')
+    console.log('Mangol is ready. Here is your MangolReady event:')
     console.log($event);
   }
 }
