@@ -95,7 +95,7 @@ export class AppComponent {
 
 ## Configuring the component
 
-You can further configure your Mangol component for example by adding a sidebar and a layertree like this (for more examples, see the src/app/demos folder):
+You can further configure your Mangol component for example by adding a sidebar and a layertree like this (for more examples, see the src/app/demos folder, for all possible configuration settings examine the /src/app/demos/demo-full.ts file):
 
 ```typescript
 import { Component, OnInit } from '@angular/core';
@@ -200,4 +200,4 @@ This project is still under heavy development. In the near future I intend to ad
 
 ## Author
 
-```Mangol``` was created and being maintained by [Gergely Padányi-Gulyás](http://gpadanyig.com)
+```Mangol``` was created and being maintained by [Gergely Padányi-Gulyás](mailto:fegyi001@gmail.com)
