@@ -16,6 +16,7 @@ Formerly, Mangol was called `ng2ol3` and was based on SystemJS and without angul
 ## Install
 
 [Node.js with npm](https://nodejs.org/en/download/) is required. The preferenced version of Node.js is 8.x.x, the preferenced version of npm is 5.x.x. After `git clone`, navigate to the main directory and run ```npm install``` to download all dependencies. If you prefer Yarn, you can also run ```yarn install``` instead.
+You also need angular-cli to build or run the project. To install it (globally) on your machine, run ```npm install -g @angular/cli``` in your terminal.
 
 ## Live example
 
