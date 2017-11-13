@@ -1,4 +1,5 @@
 import { Component, OnInit, Input, HostBinding } from '@angular/core';
+import {FormControl, FormBuilder, FormGroup, Validators} from '@angular/forms';
 
 import { MangolMap } from './../../core/_index';
 
@@ -14,8 +15,17 @@ export class MangolPrintComponent implements OnInit {
   @Input() map: MangolMap;
   dims: any;
 
-  constructor() {
+  form: FormGroup;
 
+  constructor(private fb: FormBuilder) {
+    // this.form = fb.group({
+    //   name: fb.group({
+    //     first: ['Nancy', Validators.minLength(2)],
+    //     last: 'Drew',
+
+    //   }),
+    //   email: '',
+    // });
   }
 
   public ngOnInit(): any {
@@ -54,7 +64,7 @@ export class MangolPrintComponent implements OnInit {
         map.setSize(size);
         map.getView().fit(extent);
         map.renderSync();
-      }, 100);
+      }, 2000);
     });
     map.setSize([width, height]);
     map.getView().fit(extent);
