@@ -201,3 +201,9 @@ This project is still under heavy development. In the near future I intend to ad
 ## Author
 
 ```Mangol``` was created and being maintained by [Gergely Padányi-Gulyás](mailto:fegyi001@gmail.com)
+
+## Donations
+
+Any donations are highly appreciated.
+
+<a href='https://pledgie.com/campaigns/35128'><img alt='Click here to lend your support to: Mangol and make a donation at pledgie.com !' src='https://pledgie.com/campaigns/35128.png?skin_name=chrome' border='0' ></a>
