@@ -15,7 +15,8 @@ import {
   MatChipsModule,
   MatFormFieldModule,
   MatAutocompleteModule,
-  MatInputModule
+  MatInputModule,
+  MatDialogModule
 } from '@angular/material';
 
 const materialModules: any[] = [
@@ -34,7 +35,8 @@ const materialModules: any[] = [
   MatChipsModule,
   MatFormFieldModule,
   MatAutocompleteModule,
-  MatInputModule
+  MatInputModule,
+  MatDialogModule
 ];
 
 @NgModule({

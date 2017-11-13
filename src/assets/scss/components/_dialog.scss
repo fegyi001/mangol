@@ -1,0 +1,11 @@
+.mangol-dialog {
+  .mangol {
+    height: 100% !important;
+    .mangol-content {
+      height: 100% !important;
+    }
+    & .ol-viewport {
+      height: 100% !important;
+    }
+  }
+}

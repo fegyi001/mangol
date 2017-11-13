@@ -27,7 +27,8 @@ export class MangolContainerComponent implements OnInit {
   }
 
   ngOnInit(): any {
-    this.sidebarMode = this.config && this.config.hasOwnProperty('sidebar') && this.config.sidebar.hasOwnProperty('mode') ? this.config.sidebar.mode : 'side';
+    this.sidebarMode = this.config && this.config.hasOwnProperty('sidebar')
+      && this.config.sidebar.hasOwnProperty('mode') ? this.config.sidebar.mode : 'side';
     // generate a default config if there is none
     if (typeof this.config === 'undefined') {
       this.config = {

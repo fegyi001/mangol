@@ -9,6 +9,11 @@
       <mat-icon class="mat-24">remove</mat-icon>
     </button>
   </div>
+  <div *ngIf="map && config && config.map && config.map.controllers && config.map.controllers.fullScreen" class="full-screen" (click)="fullScreen()" matTooltip="Full screen" matTooltipPosition="right">
+    <button mat-mini-fab color="primary">
+      <mat-icon class="mat-24">fullscreen</mat-icon>
+    </button>
+  </div>
   <div class="sidebar" *ngIf="config.sidebar && config.sidebar.collapsible" (click)="toggleSidebar()">
     <button mat-mini-fab color="primary" [matTooltip]="sidebarOpened ? 'Hide sidebar' : 'Show sidebar'" matTooltipPosition="right">
       <mat-icon class="mat-24">{{sidebarOpened ? 'chevron_left' : 'chevron_right'}}</mat-icon>

@@ -26,7 +26,7 @@ import { FormsModule, ReactiveFormsModule } from '@angular/forms';
     MangolMapComponent,
     MangolMousePositionComponent,
     MangolScaleLineComponent,
-    MangolQuickSearchComponent
+    MangolQuickSearchComponent,
   ]
 })
 export class MangolMapModule { }

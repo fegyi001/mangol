@@ -9,10 +9,12 @@ import { MangolContainerComponent } from './container.component';
 
 import * as ol from 'openlayers';
 import { MangolMaterialModule } from '../_shared/mangol-material.module';
+import { MangolDialogComponent } from './mangol-dialog.component';
 
 @NgModule({
   declarations: [
-    MangolContainerComponent
+    MangolContainerComponent,
+    MangolDialogComponent
   ],
   imports: [
     CommonModule,
@@ -21,7 +23,12 @@ import { MangolMaterialModule } from '../_shared/mangol-material.module';
     MangolSidebarModule
   ],
   exports: [
-    MangolContainerComponent
+    MangolContainerComponent,
+    MangolDialogComponent
+  ],
+  entryComponents: [
+    MangolDialogComponent
   ]
 })
 export class MangolContainerModule { }
+

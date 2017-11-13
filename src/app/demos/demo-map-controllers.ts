@@ -52,7 +52,8 @@ export class DemoMapControllersComponent implements OnInit {
               details: 'Capital of France',
               extent: [250839, 6235856, 272853, 6263067]
             }]
-          }
+          },
+          fullScreen: {}
         }
       }
     };

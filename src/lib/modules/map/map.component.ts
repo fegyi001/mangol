@@ -3,12 +3,15 @@ import {
   HostBinding, AfterViewInit
 } from '@angular/core';
 import { CommonModule } from '@angular/common';
+import { MatDialog, MatDialogRef, MAT_DIALOG_DATA } from '@angular/material';
+
 import { MangolMapService } from './../../services/_index';
 import { MangolMap } from './../../core/_index';
 import { MangolConfig } from '../../interfaces/mangol-config.interface';
+import { MangolConfigMapControllerMousePosition } from '../../interfaces/mangol-config-map-controllers.interface';
 
 import * as ol from 'openlayers';
-import { MangolConfigMapControllerMousePosition } from '../../interfaces/mangol-config-map-controllers.interface';
+import { MangolDialogComponent } from '../container/mangol-dialog.component';
 
 @Component({
   selector: 'mangol-map',
@@ -43,6 +46,10 @@ export class MangolMapComponent implements AfterViewInit, OnInit {
       opened: true
     }
   } as MangolConfig;
+
+  constructor(public dialog: MatDialog) {
+
+  }
 
   ngOnInit() {
     this.sidebarOpened = this.config && this.config.hasOwnProperty('sidebar')
@@ -84,6 +91,22 @@ export class MangolMapComponent implements AfterViewInit, OnInit {
 
   zoomOut(): void {
     this.view.animate({ zoom: this.view.getZoom() - 1, duration: this.zoomDuration });
+  }
+
+  fullScreen(): void {
+    // some parameters are needet to override: the map target and the fullScreen controller
+    const confOverride = {
+      map: {
+        ...this.config.map, target: this.config.map.target + '-dialog',
+        controllers: { ...this.config.map.controllers, fullScreen: undefined }
+      }
+    } as MangolConfig;
+    const dialogConfig = { ...this.config, ...confOverride };
+    const dialogRef = this.dialog.open(MangolDialogComponent, {
+      width: '95%',
+      height: '95%',
+      data: { config: dialogConfig }
+    });
   }
 
   toggleSidebar(): void {
