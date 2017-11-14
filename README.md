@@ -1,6 +1,8 @@
 # Mangol
 
-> Maps created with Angular2+ & OpenLayers3+
+> Maps created with Angular & OpenLayers using Material design
+
+<img src="./src/assets/img/logo/mangol_logo.png" width="200">
 
 [![Join the chat at https://gitter.im/mangol_official/Lobby](https://badges.gitter.im/mangol_official/Lobby.svg)](https://gitter.im/mangol_official/Lobby?utm_source=badge&utm_medium=badge&utm_campaign=pr-badge&utm_content=badge)
 
@@ -9,7 +11,7 @@
 
 ## About Mangol
 
-Mangol is an open source library for combining [Angular2+](https://angular.io/) and [OpenLayers3+](https://openlayers.org/) to create modern, responsive interactive web maps (_M_ stands for _maps_, _ang_ for _Angular_ and _ol_ for _OpenLayers_). The project has been created using [@angular/cli](https://cli.angular.io/), a command-line tool for Angular projects (1.5.0). The project is written in TypeScript 2.4.2 and uses SCSS for styling. It has been built with Angular 5.0.1 and OpenLayers 4.4.2 using Angular Material design 5.0.0-rc0. The packaging is done via [Webpack module bundler](https://webpack.github.io/).
+Mangol is an open source library for combining [Angular](https://angular.io/), [Angular Material components](https://material.angular.io/) and [OpenLayers](https://openlayers.org/) to create a modern, responsive interactive GUI for web maps (_M_ stands for _Material_, _ang_ for _Angular_ and _ol_ for _OpenLayers_). The project has been created using [@angular/cli](https://cli.angular.io/), a command-line tool for Angular projects (1.5.0). The project is written in TypeScript 2.4.2 and uses SCSS for styling. It has been built with Angular 5.0.1 and OpenLayers 4.4.2, Angular Material 5.0.0-rc0. The packaging is done via [Webpack module bundler](https://webpack.github.io/).
 
 Formerly, Mangol was called `ng2ol3` and was based on SystemJS and without angular-cli.
 
@@ -201,7 +203,7 @@ This project is still under heavy development. In the near future I intend to ad
 
 ## Author
 
-```Mangol``` was created and being maintained by [Gergely Padányi-Gulyás](mailto:fegyi001@gmail.com)
+```Mangol``` was created by [Gergely Padányi-Gulyás](mailto:fegyi001@gmail.com)
 
 ## Donations
 

@@ -7,7 +7,7 @@
     "root": "src",
     "outDir": "dist",
     "assets": [
-      "favicon.ico"
+      "favicon_mangol.ico"
     ],
     "index": "index.html",
     "main": "main.ts",
