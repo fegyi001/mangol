@@ -24,20 +24,36 @@
         padding: 20px;
       }
       & .demo-header {
-        padding-bottom: 20px;
+        padding-bottom: 1vh;
+        text-align: center;
         & .title {
-          margin-bottom: 5px;
+          margin-bottom: 1vh;
+          img {
+            width: 8%;
+            vertical-align: middle;
+            filter: drop-shadow(0px 0px 3px rgba(0, 0, 0, 0.5));
+          }
+          span {
+            font-size: 3vw;
+            vertical-align: middle;
+            font-weight: 400;
+          }
         }
         & .subtitle {
           color: rgba(black, 0.5);
           font-style: italic;
           font-size: smaller;
-          margin-bottom: 5px;
+          margin-bottom: 1vh;
         }
-        .mat-chip {
-          cursor: pointer;
-          &.active {
-            background-color: mat-color($mangol-accent);
+        .mat-chip-list {
+          .mat-chip-list-wrapper {
+            display: initial;
+            .mat-chip {
+              cursor: pointer;
+              &.active {
+                background-color: mat-color($mangol-accent);
+              }
+            }
           }
         }
         button {

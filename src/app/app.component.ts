@@ -13,8 +13,10 @@ export interface MangolDemoItem {
 export class MangolDemoComponent implements OnInit {
 
   items: MangolDemoItem[];
+  logo: string;
 
   ngOnInit() {
+    this.logo = 'assets/img/logo/mangol_logo.png';
     this.items = [{
       link: '/demo-map',
       title: 'map'
