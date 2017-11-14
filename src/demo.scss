@@ -1,4 +1,4 @@
-  $mangol-height: 70vh;
+  $mangol-height: 55vh;
   $mangol-quicksearch-width: 250px;
   $mangol-sidebar-width: 450px;
   @import "./../mangol";
@@ -40,9 +40,7 @@
           }
         }
         & .subtitle {
-          color: rgba(black, 0.5);
-          font-style: italic;
-          font-size: smaller;
+          color: rgba(black, 0.7);
           margin-bottom: 1vh;
         }
         .mat-chip-list {
@@ -50,8 +48,14 @@
             display: initial;
             .mat-chip {
               cursor: pointer;
+              color: white;
+              background-color: #82c5f5;
+              &:hover {
+                background-color: tint(mat-color($mangol-primary), 25%);
+              }
               &.active {
-                background-color: mat-color($mangol-accent);
+                background-color: mat-color($mangol-primary);
+                color: white;
               }
             }
           }

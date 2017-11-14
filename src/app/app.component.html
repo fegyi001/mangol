@@ -14,10 +14,21 @@
         <img [src]="logo">
         <span> MANGOL </span>
       </h1>
-      <div class="subtitle">version: 0.6.8 (Angular 5.0.0 | OpenLayers 4.4.2 | Angular CLI 1.5.0 | Angular Material 5.0.0-rc0 | TypeScript 2.4.2)</div>
+      <div class="subtitle">Maps created with Angular & OpenLayers using Material design</div>
+      <p align="center">
+        <a href="https://badge.fury.io/js/mangol">
+          <img src="https://badge.fury.io/js/mangol.svg" alt="npm version">
+        </a>
+        <a href="https://npmjs.org/mangol">
+          <img src="https://img.shields.io/npm/dm/mangol.svg" alt="npm downloads">
+        </a>
+        <span style="margin-top: 10px;display: inline-block;width: 100px;">
+          <iframe frameborder="0" scrolling="0" style="height: 20px;width: 100px;" title="github stars count" src="https://ghbtns.com/github-btn.html?user=fegyi001&repo=mangol&type=star&count=true"></iframe>
+        </span>
+      </p>
       <nav>
         <mat-chip-list>
-          <mat-chip color="primary" selected="true" *ngFor="let item of items" [routerLink]="item.link" routerLinkActive="active" [routerLinkActiveOptions]="{ exact: true }">{{item.title}}</mat-chip>
+          <mat-chip color="primary" *ngFor="let item of items" [routerLink]="item.link" routerLinkActive="active" [routerLinkActiveOptions]="{ exact: true }">{{item.title}}</mat-chip>
         </mat-chip-list>
       </nav>
     </div>
