@@ -1,3 +1,4 @@
+import { MangolConfigToolbarItem } from './mangol-config-toolbar.interface';
 export interface MangolConfigToolbarItem {
   title?: string,
   fontSet?: string,
@@ -27,8 +28,13 @@ export interface MangolConfigPrintItem extends MangolConfigToolbarItem {
 
 }
 
+export interface MangolConfigFeatureInfoItem extends MangolConfigToolbarItem {
+
+}
+
 export interface MangolConfigToolbar {
   layertree?: MangolConfigLayertreeItem,
   measure?: MangolConfigMeasureItem,
-  print?: MangolConfigPrintItem
+  print?: MangolConfigPrintItem,
+  featureinfo?: MangolConfigFeatureInfoItem
 }

@@ -8,25 +8,25 @@
     height: 100%;
     margin: 0;
     background-color: #fafafa;
-    & .demo-loading {
+    .demo-loading {
       font-style: italic;
     }
-    & .mangol-demo {
+    .mangol-demo {
       font-style: normal;
       position: relative;
-      & h1 {
+      h1 {
         font-weight: 400;
       }
-      & .demo {
+      .demo {
         max-width: 80vw;
         margin-left: auto;
         margin-right: auto;
         padding: 20px;
       }
-      & .demo-header {
+      .demo-header {
         padding-bottom: 1vh;
         text-align: center;
-        & .title {
+        .title {
           margin-bottom: 1vh;
           img {
             width: 8%;
@@ -40,7 +40,7 @@
             font-weight: 400;
           }
         }
-        & .subtitle {
+        .subtitle {
           color: rgba(black, 0.7);
           margin-bottom: 1vh;
           font-size: calc(10px + 0.5vw);
@@ -69,27 +69,27 @@
           }
         }
       }
-      & .divider {
+      .divider {
         color: #333333;
         padding-left: 10px;
         padding-right: 10px;
       }
-      & button {
+      button {
         text-transform: uppercase;
         font-weight: normal;
       }
-      & .demo-content {
+      .demo-content {
         border: 1px dashed rgba(0, 0, 0, 0.15);
         padding: 6px;
       }
-      & .ribbon-box {
+      .ribbon-box {
         float: right !important;
         right: 1px;
       }
-      & .ribbon i {
+      .ribbon i {
         font-size: 2em;
       }
-      & nav {
+      nav {
         line-height: 2.5em;
       }
     }

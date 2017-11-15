@@ -11,6 +11,7 @@ import { MangolModule } from './../lib/modules/_index';
 
 import { MangolDemoComponent } from './app.component';
 import { MangolMaterialModule } from '../lib/modules/_shared/mangol-material.module';
+import { DemoFeatureInfoComponent } from './demos/demo-featureinfo';
 
 import {
   DemoMapComponent,
@@ -34,7 +35,8 @@ import {
     DemoFullComponent,
     DemoMeasureComponent,
     DemoOsmgwcComponent,
-    DemoMapControllersComponent
+    DemoMapControllersComponent,
+    DemoFeatureInfoComponent
   ],
   imports: [
     BrowserModule,

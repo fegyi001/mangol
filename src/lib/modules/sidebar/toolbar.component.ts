@@ -31,6 +31,17 @@ export class MangolToolbarComponent implements OnInit {
         disabled: obj.hasOwnProperty('disabled') ? obj.disabled : false
       });
     }
+    if (this.options.hasOwnProperty('featureinfo')) {
+      const obj: MangolConfigToolbarItem = this.options.featureinfo;
+      this.elements.push({
+        type: 'featureinfo',
+        title: obj.hasOwnProperty('title') ? obj.title : 'Feature info',
+        fontSet: obj.hasOwnProperty('fontSet') ? obj.fontSet : 'ms',
+        fontIcon: obj.hasOwnProperty('fontIcon') ? obj.fontIcon : 'ms-information',
+        active: obj.hasOwnProperty('active') ? obj.active : true,
+        disabled: obj.hasOwnProperty('disabled') ? obj.disabled : false
+      });
+    }
     if (this.options.hasOwnProperty('measure')) {
       const obj: MangolConfigToolbarItem = this.options.measure;
       this.elements.push({

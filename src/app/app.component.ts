@@ -30,6 +30,9 @@ export class MangolDemoComponent implements OnInit {
       link: '/demo-layertree',
       title: 'layertree'
     }, {
+      link: '/demo-featureinfo',
+      title: 'feature info'
+    }, {
       link: '/demo-print',
       title: 'print'
     }, {

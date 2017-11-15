@@ -1,6 +1,7 @@
 import { ModuleWithProviders } from '@angular/core';
 import { Routes, RouterModule } from '@angular/router';
 import { DemoMapControllersComponent } from './demos/demo-map-controllers';
+import { DemoFeatureInfoComponent } from './demos/demo-featureinfo';
 import {
   DemoMapComponent,
   DemoSidebarComponent,
@@ -29,6 +30,9 @@ const appRoutes: Routes = [
   }, {
     path: 'demo-layertree',
     component: DemoLayertreeComponent
+  }, {
+    path: 'demo-featureinfo',
+    component: DemoFeatureInfoComponent
   }, {
     path: 'demo-print',
     component: DemoPrintComponent

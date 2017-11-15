@@ -21,6 +21,7 @@ export class MangolSidebarComponent implements AfterViewInit, OnInit {
   hasLayertree: boolean;
   hasMeasure: boolean;
   hasPrint: boolean;
+  hasFeatureInfo: boolean;
 
   activeElement: any;
 
@@ -36,6 +37,7 @@ export class MangolSidebarComponent implements AfterViewInit, OnInit {
 
   ngAfterViewInit(): any {
     this.hasLayertree = this.hasToolbar && this.options.toolbar.hasOwnProperty('layertree');
+    this.hasFeatureInfo = this.hasToolbar && this.options.toolbar.hasOwnProperty('featureinfo');
     this.hasMeasure = this.hasToolbar && this.options.toolbar.hasOwnProperty('measure');
     this.hasPrint = this.hasToolbar && this.options.toolbar.hasOwnProperty('print');
   }

@@ -8,17 +8,16 @@ export class MangolLayer {
   description: string;
   showDetails: boolean;
   detailType: string;
+  queryable: boolean;
 
   constructor(options: MangolConfigLayer) {
     this.name = options.name;
     this.showDetails = false;
     this.layer = options.layer;
-    const opacity = options.hasOwnProperty('opacity') ? options.opacity : 1.0;
-    this.setOpacity(opacity);
-    const visible = options.hasOwnProperty('visible') ? options.visible : true;
-    this.setVisible(visible);
-    const description = options.hasOwnProperty('description') ? options.description : null;
-    this.setDescription(description);
+    this.setOpacity(options.hasOwnProperty('opacity') ? options.opacity : 1.0);
+    this.setVisible(options.hasOwnProperty('visible') ? options.visible : true);
+    this.setDescription(options.hasOwnProperty('description') ? options.description : null);
+    this.setQueryable(options.hasOwnProperty('queryable') ? options.queryable : false);
   }
 
   public getLayerVisibilityIcon() {
@@ -61,6 +60,14 @@ export class MangolLayer {
 
   public setDescription(description: string) {
     this.description = description;
+  }
+
+  public isQueryable(): boolean {
+    return this.queryable;
+  }
+
+  public setQueryable(queryable: boolean) {
+    this.queryable = queryable;
   }
 
 }

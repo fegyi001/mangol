@@ -8,11 +8,13 @@ export class MangolMap extends ol.Map {
 
   private _layers: MangolLayer[];
   private _layerGroups: MangolLayergroup[];
+  private _allLayers: MangolLayer[];
 
   constructor(options: any) {
     super(options);
     this._layers = [];
     this._layerGroups = [];
+    this._allLayers = [];
   }
 
   public addLayersAndLayerGroups(layertree: MangolConfigLayertree, parent: MangolLayergroup): void {
@@ -38,6 +40,7 @@ export class MangolMap extends ol.Map {
       parent.nestedLayers.push(newLayer);
     }
     // add layer to the map (ol.Map function)
+    this._allLayers.push(newLayer);
     this.addLayer(newLayer.getLayer());
   }
 
@@ -62,6 +65,10 @@ export class MangolMap extends ol.Map {
 
   public getMangolLayerGroups(): MangolLayergroup[] {
     return this._layerGroups;
+  }
+
+  public getMangolAllLayers(): MangolLayer[] {
+    return this._allLayers;
   }
 
 }

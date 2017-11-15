@@ -6,6 +6,7 @@ import { MangolSidebarModule } from './sidebar/_index';
 import { MangolLayertreeModule } from './layertree/_index';
 import { MangolPrintModule } from './print/_index';
 import { MangolMeasureModule } from './measure/_index';
+import { MangolFeatureInfoModule } from './featureinfo/_index';
 
 import { MangolMapService } from './../services/map.service';
 
@@ -15,7 +16,8 @@ const MANGOL_MODULES = [
   MangolMapModule,
   MangolMeasureModule,
   MangolPrintModule,
-  MangolSidebarModule
+  MangolSidebarModule,
+  MangolFeatureInfoModule
 ];
 
 @NgModule({

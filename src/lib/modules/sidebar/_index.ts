@@ -9,6 +9,7 @@ import { MangolMeasureModule } from './../measure/_index';
 import { MangolSidebarComponent } from './sidebar.component';
 import { MangolToolbarComponent } from './toolbar.component';
 import { MangolMaterialModule } from '../_shared/mangol-material.module';
+import { MangolFeatureInfoModule } from '../featureinfo/_index';
 
 @NgModule({
   imports: [
@@ -16,7 +17,8 @@ import { MangolMaterialModule } from '../_shared/mangol-material.module';
     MangolMaterialModule,
     MangolLayertreeModule,
     MangolPrintModule,
-    MangolMeasureModule
+    MangolMeasureModule,
+    MangolFeatureInfoModule
   ],
   exports: [
     MangolSidebarComponent

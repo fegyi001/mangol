@@ -75,6 +75,7 @@ export class DemoFullComponent implements OnInit {
                 description: 'Hungary',
                 visible: false,
                 opacity: 1.0,
+                queryable: true,
                 layer: new ol.layer.Tile({
                   source: new ol.source.TileWMS({
                     url: 'http://188.166.116.137:8081/geoserver/wms',
@@ -91,8 +92,9 @@ export class DemoFullComponent implements OnInit {
               }, {
                 name: 'Highways',
                 description: 'Hungary',
-                visible: false,
+                visible: true,
                 opacity: 1.0,
+                queryable: true,
                 layer: new ol.layer.Tile({
                   source: new ol.source.TileWMS({
                     url: 'http://188.166.116.137:8081/geoserver/wms',
@@ -110,8 +112,9 @@ export class DemoFullComponent implements OnInit {
               {
                 name: 'Country border',
                 description: 'Hungary',
-                visible: false,
+                visible: true,
                 opacity: 1.0,
+                queryable: true,
                 layer: new ol.layer.Tile({
                   source: new ol.source.TileWMS({
                     url: 'http://188.166.116.137:8081/geoserver/wms',
@@ -150,6 +153,7 @@ export class DemoFullComponent implements OnInit {
               }
             }
           },
+          featureinfo: {},
           measure: {},
           print: {}
         }

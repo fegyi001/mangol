@@ -3,17 +3,17 @@
     vertical-align: top;
     background-color: $base-background-color;
     height: 100%;
-    & .sidebar-outer {
+    .sidebar-outer {
         @include outer-container;
         @include fill-parent;
         @include row(table);
         padding: 0;
         height: 100%;
-        & .close-button {
+        .close-button {
             float: right;
             width: 1em;
         }
-        & .sidebar-main {
+        .sidebar-main {
             @include span-columns(10);
             max-height: 200px;
             vertical-align: top;
@@ -22,15 +22,15 @@
             background-color: white;
             padding-left: 5px;
             padding-right: 5px;
-            & .sidebar-title {
-                & .mat-toolbar {
+            .sidebar-title {
+                .mat-toolbar {
                     background-color: $light-background-color;
                     border: 1px solid shade($light-background-color, 5%);
                     margin-bottom: 3px;
                 }
             }
-            & .sidebar-content {
-                & button {
+            .sidebar-content {
+                button {
                     background-color: white;
                     text-transform: uppercase;
                     color: $dark-gray;
@@ -41,7 +41,7 @@
                         color: $action-color;
                     }
                 }
-                & .dev {
+                .dev {
                     color: $medium-gray;
                     padding-top: 5px;
                 }

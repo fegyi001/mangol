@@ -3,7 +3,8 @@ export interface MangolConfigLayer {
   layer: any,
   visible?: boolean,
   opacity?: number
-  description?: string
+  description?: string,
+  queryable?: boolean
 }
 
 export interface MangolConfigLayerGroup {

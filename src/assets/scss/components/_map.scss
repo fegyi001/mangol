@@ -1,36 +1,36 @@
 .mangol-map {
   z-index: 0;
   vertical-align: top;
-  & .custom-buttons {
+  .custom-buttons {
     position: absolute;
     z-index: 20;
     $left-margin: 1em;
-    & .mat-ripple-background,
-    & .mat-ripple-foreground {
+    .mat-ripple-background,
+    .mat-ripple-foreground {
       display: none !important;
     }
-    & .sidebar {
+    .sidebar {
       margin-top: 3em;
       margin-left: $left-margin;
     }
-    & .zoom-in {
+    .zoom-in {
       margin-top: 1em;
       margin-left: $left-margin;
     }
-    & .zoom-out {
+    .zoom-out {
       margin-left: $left-margin;
       margin-top: 0.5em;
     }
-    & .full-screen {
+    .full-screen {
       margin-left: $left-margin;
       margin-top: 0.5em;
     }
-    & .sidebar {
+    .sidebar {
       top: 6em;
       left: 0.5em;
     }
   }
-  & .mangol-map-div {
+  .mangol-map-div {
     height: 100%;
   }
   .mangol-map-controllers {
