@@ -31,7 +31,6 @@ export class MangolFeatureInfoTableComponent implements OnInit, DoCheck, OnDestr
   }
 
   ngOnInit() {
-    console.log(this.layer);
   }
 
   ngDoCheck() {
