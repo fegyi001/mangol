@@ -19,7 +19,7 @@ export class MangolDialogComponent implements AfterViewInit {
   }
 
   ngAfterViewInit() {
-    console.log(this.config);
+
   }
 
 }

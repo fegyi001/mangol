@@ -95,6 +95,13 @@ export class DemoFullComponent implements OnInit {
                 visible: true,
                 opacity: 1.0,
                 queryable: true,
+                attrColumns: [{
+                  name: 'osm_id',
+                  label: 'OpenStreetMap ID'
+                }, {
+                  name: 'name',
+                  label: 'Name'
+                }],
                 layer: new ol.layer.Tile({
                   source: new ol.source.TileWMS({
                     url: 'http://188.166.116.137:8081/geoserver/wms',
@@ -153,7 +160,11 @@ export class DemoFullComponent implements OnInit {
               }
             }
           },
-          featureinfo: {},
+          featureinfo: {
+            maxFeatures: 5,
+            cursorStyle: 'crosshair',
+            placeholder: 'Select query layer'
+          },
           measure: {},
           print: {}
         }

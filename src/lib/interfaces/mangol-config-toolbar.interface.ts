@@ -29,7 +29,9 @@ export interface MangolConfigPrintItem extends MangolConfigToolbarItem {
 }
 
 export interface MangolConfigFeatureInfoItem extends MangolConfigToolbarItem {
-
+  maxFeatures?: number,
+  cursorStyle?: string,
+  placeholder?: string
 }
 
 export interface MangolConfigToolbar {

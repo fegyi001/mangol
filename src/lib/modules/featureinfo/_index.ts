@@ -6,17 +6,20 @@ import 'hammerjs';
 import * as ol from 'openlayers';
 import { MangolMaterialModule } from '../_shared/mangol-material.module';
 import { FeatureIntoService } from './feature-info.service';
+import { MangolFeatureInfoTableComponent } from './feature-info-table.component';
 
 @NgModule({
   declarations: [
-    MangolFeatureInfoComponent
+    MangolFeatureInfoComponent,
+    MangolFeatureInfoTableComponent
   ],
   imports: [
     CommonModule,
     MangolMaterialModule,
   ],
   exports: [
-    MangolFeatureInfoComponent
+    MangolFeatureInfoComponent,
+    MangolFeatureInfoTableComponent
   ],
   providers: [
     FeatureIntoService

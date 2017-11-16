@@ -1,17 +1,12 @@
 <div class="feature-info-container">
   <mat-form-field *ngIf="layers.length > 0">
-    <mat-select placeholder="Select query layer" (selectionChange)="onSelectionChange($event)">
+    <mat-select [placeholder]="placeholder" (selectionChange)="onSelectionChange($event)">
       <mat-option *ngFor="let layer of layers" [value]="layer">
         {{ layer.getName() }}
       </mat-option>
     </mat-select>
   </mat-form-field>
   <div *ngIf="layers.length === 0">There are no queryable layers visible at the moment.</div>
-
   <div *ngIf="selected !== null && features.length === 0">Click on the map to select a feature!</div>
-
-  <div *ngIf="selected !== null && features.length > 0">
-    Found {{features.length}} features. Table coming soon!
-    <!-- <div *ngFor="let feature of features">{{feature | json}}</div> -->
-  </div>
+  <mangol-feature-info-table *ngIf="selected !== null && features.length > 0" [features]="features" [layer]="selected"></mangol-feature-info-table>
 </div>
