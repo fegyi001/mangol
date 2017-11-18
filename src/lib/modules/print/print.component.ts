@@ -1,5 +1,5 @@
 import { Component, OnInit, Input, HostBinding } from '@angular/core';
-import {FormControl, FormBuilder, FormGroup, Validators} from '@angular/forms';
+import { MatSelectChange } from '@angular/material';
 
 import { MangolMap } from './../../core/_index';
 
@@ -14,45 +14,37 @@ export class MangolPrintComponent implements OnInit {
 
   @Input() map: MangolMap;
   dims: any;
+  resolutions: number[];
+  selectedDim: string = null;
+  selectedResolution: number = null;
 
-  form: FormGroup;
+  constructor() {
 
-  constructor(private fb: FormBuilder) {
-    // this.form = fb.group({
-    //   name: fb.group({
-    //     first: ['Nancy', Validators.minLength(2)],
-    //     last: 'Drew',
-
-    //   }),
-    //   email: '',
-    // });
   }
 
   public ngOnInit(): any {
+    this.resolutions = [72, 100, 150, 300];
     this.dims = {
-      a0: [1189, 841],
-      a1: [841, 594],
-      a2: [594, 420],
-      a3: [420, 297],
-      a4: [297, 210],
-      a5: [210, 148]
+      A5: [210, 148],
+      A4: [297, 210],
+      A3: [420, 297],
+      A2: [594, 420],
+      A1: [841, 594],
+      A0: [1189, 841]
     };
   }
 
   // http://stackoverflow.com/questions/31956403/printing-in-openlayers-3-pdf
   public print(): void {
     const map = this.map;
-
-    const format = 'a4';
-    const resolution = 72;
-
+    const format = this.selectedDim;
+    const resolution = this.selectedResolution;
     const dim = this.dims[format];
     const width = Math.round(dim[0] * resolution / 25.4);
     const height = Math.round(dim[1] * resolution / 25.4);
     const size = map.getSize();
     const extent = map.getView().calculateExtent(size);
-
-    map.once('postcompose', function (event: any) {
+    map.once('postcompose', (event: any) => {
       let interval: any;
       interval = setInterval(function () {
         clearInterval(interval);
@@ -64,11 +56,20 @@ export class MangolPrintComponent implements OnInit {
         map.setSize(size);
         map.getView().fit(extent);
         map.renderSync();
-      }, 2000);
+      }, 5000);
     });
     map.setSize([width, height]);
     map.getView().fit(extent);
     map.renderSync();
   }
 
+  onSizeChange(evt: MatSelectChange) {
+    this.selectedDim = evt.value;
+  }
+
+  onResolutionChange(evt: MatSelectChange) {
+    this.selectedResolution = evt.value;
+  }
+
 }
+

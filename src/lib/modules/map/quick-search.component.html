@@ -1,11 +1,10 @@
 <div class="quicksearch-outer mat-elevation-z2">
   <form class="quicksearch-form">
     <mat-form-field>
-      <mat-placeholder>
+      <input type="search" aria-label="Number" matInput [formControl]="formControl" [matAutocomplete]="auto" [placeholder]="placeholder">
+      <span matPrefix>
         <mat-icon fontIcon="ms-zoom" fontSet="ms"></mat-icon>
-        <span>{{placeholder}}</span>
-      </mat-placeholder>
-      <input type="search" aria-label="Number" matInput [formControl]="formControl" [matAutocomplete]="auto">
+      </span>
       <mat-autocomplete #auto="matAutocomplete" (optionSelected)="onOptionSeleted($event)">
         <mat-option *ngFor="let option of filteredOptionsObservable | async" [value]="option.text">
           <span>{{ option.text }}</span>

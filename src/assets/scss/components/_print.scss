@@ -3,4 +3,15 @@
   .mat-ripple-foreground {
     display: none !important;
   }
+  .form-container {
+    display: flex;
+    flex-direction: column;
+    padding: $sidebar-padding;
+    button {
+      margin-top: 10px;
+    }
+  }
+  .form-container>* {
+    width: 100%;
+  }
 }

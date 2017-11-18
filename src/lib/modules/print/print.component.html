@@ -7,7 +7,28 @@
   <button>Submit</button>
 </form> -->
 
-<div>
+<!-- <div>
   <button mat-raised-button (click)='print()'>print to file</button>
   <div class="dev">PDF in A4 format with 72 dpi resolution. Detailed printing options will come soon.</div>
+</div> -->
+
+<div class="form-container">
+  <mat-form-field>
+    <mat-select placeholder="Size" (selectionChange)="onSizeChange($event)">
+      <mat-option [value]="key" *ngFor="let key of dims | keys">
+        {{key}} ({{dims[key][0]}} x {{dims[key][1]}} mm)
+      </mat-option>
+    </mat-select>
+  </mat-form-field>
+
+  <mat-form-field>
+    <mat-select placeholder="Resolution" (selectionChange)="onResolutionChange($event)">
+      <mat-option [value]="r" *ngFor="let r of resolutions">
+        {{r}}
+        <span matSuffix>dpi</span>
+      </mat-option>
+    </mat-select>
+  </mat-form-field>
+
+  <button mat-raised-button color="primary" [disabled]="selectedDim === null || selectedResolution === null" (click)="print()">Print</button>
 </div>

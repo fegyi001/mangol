@@ -1,51 +1,43 @@
 .mangol-sidebar {
-    z-index: 200;
-    vertical-align: top;
-    background-color: $base-background-color;
+  z-index: 200;
+  vertical-align: top;
+  background-color: $base-background-color;
+  height: 100%;
+  .sidebar-outer {
+    @include outer-container;
+    @include fill-parent;
+    @include row(table);
+    padding: 0;
     height: 100%;
-    .sidebar-outer {
-        @include outer-container;
-        @include fill-parent;
-        @include row(table);
-        padding: 0;
-        height: 100%;
-        .close-button {
-            float: right;
-            width: 1em;
-        }
-        .sidebar-main {
-            @include span-columns(10);
-            max-height: 200px;
-            vertical-align: top;
-            padding: 0;
-            font-size: 0.8em;
-            background-color: white;
-            padding-left: 5px;
-            padding-right: 5px;
-            .sidebar-title {
-                .mat-toolbar {
-                    background-color: $light-background-color;
-                    border: 1px solid shade($light-background-color, 5%);
-                    margin-bottom: 3px;
-                }
-            }
-            .sidebar-content {
-                button {
-                    background-color: white;
-                    text-transform: uppercase;
-                    color: $dark-gray;
-                    &:hover {
-                        background-color: tint($light-gray, 50%);
-                    }
-                    &:focus {
-                        color: $action-color;
-                    }
-                }
-                .dev {
-                    color: $medium-gray;
-                    padding-top: 5px;
-                }
-            }
-        }
+    .close-button {
+      float: right;
+      width: 1em;
     }
+    .sidebar-main {
+      @include span-columns(10);
+      max-height: 200px;
+      vertical-align: top;
+      padding: 0;
+      font-size: 0.8em;
+      background-color: white;
+      padding-left: 5px;
+      padding-right: 5px;
+      .sidebar-title {
+        .mat-toolbar {
+          background-color: $light-background-color;
+          border: 1px solid shade($light-background-color, 5%);
+          margin-bottom: 3px;
+        }
+      }
+      .sidebar-content {
+        button {
+          text-transform: uppercase;
+        }
+        .dev {
+          color: $medium-gray;
+          padding-top: 5px;
+        }
+      }
+    }
+  }
 }
