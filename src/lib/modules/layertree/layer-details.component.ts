@@ -25,7 +25,7 @@ export class MangolLayerDetailsComponent implements OnInit {
   public ngOnInit(): any {
     this.sliderMin = 0;
     this.sliderMax = 100;
-    this.sliderValue = parseInt((this.layer.opacity * 100).toString());
+    this.sliderValue = parseInt((this.layer.opacity * 100).toString(), 0);
     this.sliderStep = this.opts && this.opts.hasOwnProperty('opacity')
       && this.opts.opacity.hasOwnProperty('sliderStep') ? this.opts.opacity.sliderStep : 1;
     this.sliderShowLabels = this.opts && this.opts.hasOwnProperty('opacity')
@@ -36,7 +36,7 @@ export class MangolLayerDetailsComponent implements OnInit {
     const newValue = $event.value / 100;
     this.layer.opacity = newValue;
     this.layer.layer.setOpacity(newValue);
-    this.sliderValue = parseInt((this.layer.opacity * 100).toString());
+    this.sliderValue = parseInt((this.layer.opacity * 100).toString(), 0);
   }
 
   public closeDetails() {

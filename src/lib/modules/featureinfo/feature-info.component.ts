@@ -133,7 +133,7 @@ export class MangolFeatureInfoComponent implements OnInit, OnDestroy {
             if (data.hasOwnProperty('features')) {
               // convert the GeoJSON response to ol.Feature array
               this.features = this.geojson.readFeatures(data);
-              this.openSnackBar(`Found ${this.features.length} features.`, 'Close');
+              this.openSnackBar(`${this.features.length} feature(s) found.`, 'Close');
             }
           });
         }

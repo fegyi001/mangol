@@ -1,0 +1,10 @@
+<div class="table-container mat-elevation-z2">
+  <mat-table #table [dataSource]="dataSource">
+    <ng-container *ngFor="let column of columns" [matColumnDef]="column">
+      <mat-header-cell *matHeaderCellDef> {{getColumnLabel(column)}} </mat-header-cell>
+      <mat-cell *matCellDef="let element"> {{element[column]}} </mat-cell>
+    </ng-container>
+    <mat-header-row *matHeaderRowDef="columns"></mat-header-row>
+    <mat-row *matRowDef="let row; columns: columns; "></mat-row>
+  </mat-table>
+</div>

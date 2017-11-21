@@ -6,6 +6,8 @@ import 'rxjs/add/observable/of';
 import { MangolFeatureInfoTableElement } from './feature-info-table-element.interface';
 
 import * as ol from 'openlayers';
+import { MatDialog } from '@angular/material';
+import { MangolFeatureInfoTableDialogComponent } from './feature-info-table-dialog.component';
 
 @Component({
   selector: 'mangol-feature-info-table',
@@ -24,7 +26,10 @@ export class MangolFeatureInfoTableComponent implements OnInit, DoCheck, OnDestr
 
   iterableDiffer: IterableDiffer<any>;
 
-  constructor(private iterableDiffers: IterableDiffers) {
+  constructor(
+    private iterableDiffers: IterableDiffers,
+    public dialog: MatDialog
+  ) {
     this.iterableDiffer = this.iterableDiffers.find([]).create();
     this.displayedColumns = [];
     this.excludeColumns = ['geometry'];
@@ -74,6 +79,19 @@ export class MangolFeatureInfoTableComponent implements OnInit, DoCheck, OnDestr
         }
       }
       data.push({ ...props } as MangolFeatureInfoTableElement);
+    });
+  }
+
+  openTable() {
+    const dialogRef = this.dialog.open(MangolFeatureInfoTableDialogComponent, {
+      width: '90vw',
+      data: {
+        columns: this.displayedColumns,
+        layer: this.layer,
+        data: data
+      }
+    });
+    dialogRef.afterClosed().subscribe(result => {
     });
   }
 }

@@ -1,8 +1,11 @@
+<button mat-button color="primary" (click)="openTable()" class="full-screen-button">
+  <mat-icon>open_in_new</mat-icon>
+  Open full screen table</button>
 <div class="table-container mat-elevation-z2">
   <mat-table #table [dataSource]="dataSource">
     <ng-container *ngFor="let column of displayedColumns" [matColumnDef]="column ">
       <mat-header-cell *matHeaderCellDef> {{getColumnLabel(column)}} </mat-header-cell>
-      <mat-cell *matCellDef="let element "> {{element[column]}} </mat-cell>
+      <mat-cell *matCellDef="let element"> {{element[column]}} </mat-cell>
     </ng-container>
     <mat-header-row *matHeaderRowDef="displayedColumns"></mat-header-row>
     <mat-row *matRowDef="let row; columns: displayedColumns; "></mat-row>

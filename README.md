@@ -103,7 +103,6 @@ You can further configure your Mangol component for example by adding a sidebar 
 ```typescript
 import { Component, OnInit } from '@angular/core';
 import MangolConfig from 'mangol/src/lib/interfaces/mangol-config.interface';
-
 import * as ol from 'openlayers';
 
 @Component({
@@ -180,7 +179,7 @@ In order to reach more functionality, you can access the MangolReady object, whi
 
 ```typescript
 import { Component } from '@angular/core';
-import { MangolReady } from 'mangol/src/lib/interfaces/mangol-ready.interface';
+import MangolReady from 'mangol/src/lib/interfaces/mangol-ready.interface';
 
 @Component({
   selector: 'app-root',
@@ -189,8 +188,8 @@ import { MangolReady } from 'mangol/src/lib/interfaces/mangol-ready.interface';
 export class AppComponent {
   title = 'app works!';
 
-  onMapReady($event: MangolReady) {
-    console.log($event);
+  onMapReady(evt: MangolReady) {
+    console.log(evt);
   }
 }
 ```
