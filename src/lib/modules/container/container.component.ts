@@ -1,10 +1,10 @@
 import { Component, Input, Output, OnInit, HostBinding, EventEmitter } from '@angular/core';
 
 import { MangolMapService } from './../../services/_index';
+import MangolReady from '../../interfaces/mangol-ready.interface';
+import MangolConfig from '../../interfaces/mangol-config.interface';
 
 import * as ol from 'openlayers';
-import { MangolConfig } from '../../interfaces/mangol-config.interface';
-import { MangolReady } from '../../interfaces/mangol-ready.interface';
 
 @Component({
   selector: 'mangol',

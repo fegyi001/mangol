@@ -1,9 +1,10 @@
-import { MangolMapService } from './../../lib/services/map.service';
 import { Component, OnInit } from '@angular/core';
+import { MangolMapService } from './../../lib/services/map.service';
+import MangolReady from './../../lib/interfaces/mangol-ready.interface';
+import MangolConfig from '../../lib/interfaces/mangol-config.interface';
 
 import * as ol from 'openlayers';
-import { MangolConfig } from '../../lib/interfaces/mangol-config.interface';
-import { MangolReady } from '../../lib/interfaces/mangol-ready.interface';
+
 
 @Component({
   selector: 'mangol-demo-full',

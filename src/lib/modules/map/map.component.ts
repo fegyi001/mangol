@@ -7,7 +7,7 @@ import { MatDialog, MatDialogRef, MAT_DIALOG_DATA } from '@angular/material';
 
 import { MangolMapService } from './../../services/_index';
 import { MangolMap } from './../../core/_index';
-import { MangolConfig } from '../../interfaces/mangol-config.interface';
+import MangolConfig from '../../interfaces/mangol-config.interface';
 import { MangolConfigMapControllerMousePosition } from '../../interfaces/mangol-config-map-controllers.interface';
 
 import * as ol from 'openlayers';

@@ -2,7 +2,7 @@ import { HostBinding, OnInit, Component, Input, AfterViewInit, Inject } from '@a
 
 import * as ol from 'openlayers';
 import { MatDialogRef, MAT_DIALOG_DATA } from '@angular/material';
-import { MangolConfig } from '../../interfaces/mangol-config.interface';
+import MangolConfig from '../../interfaces/mangol-config.interface';
 
 @Component({
   selector: 'mangol-dialog',

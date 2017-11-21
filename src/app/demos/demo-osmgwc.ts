@@ -2,7 +2,7 @@ import { Component, OnInit } from '@angular/core';
 
 declare var proj4: any;
 import * as ol from 'openlayers';
-import { MangolConfig } from '../../lib/interfaces/mangol-config.interface';
+import MangolConfig from '../../lib/interfaces/mangol-config.interface';
 
 @Component({
   selector: 'mangol-demo-osmgwc',
