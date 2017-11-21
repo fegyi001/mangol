@@ -1,3 +1,4 @@
+import { MangolMaterialModule } from './_shared/mangol-material.module';
 import { NgModule } from '@angular/core';
 
 import { MangolMapModule } from './map/_index';
@@ -17,7 +18,8 @@ const MANGOL_MODULES = [
   MangolMeasureModule,
   MangolPrintModule,
   MangolSidebarModule,
-  MangolFeatureInfoModule
+  MangolFeatureInfoModule,
+  MangolMaterialModule
 ];
 
 @NgModule({
