@@ -30,13 +30,13 @@
   "private": false,
   "dependencies": {
     "@angular/animations": "5.0.2",
-    "@angular/cdk": "5.0.0-rc0",
+    "@angular/cdk": "5.0.0-rc.1",
     "@angular/common": "5.0.2",
     "@angular/compiler": "5.0.2",
     "@angular/core": "5.0.2",
     "@angular/forms": "5.0.2",
     "@angular/http": "5.0.2",
-    "@angular/material": "5.0.0-rc0",
+    "@angular/material": "5.0.0-rc.1",
     "@angular/platform-browser": "5.0.2",
     "@angular/platform-browser-dynamic": "5.0.2",
     "@angular/router": "5.0.2",
@@ -56,7 +56,7 @@
     "zone.js": "0.8.18"
   },
   "devDependencies": {
-    "@angular/cli": "1.5.2",
+    "@angular/cli": "1.5.3",
     "@angular/compiler-cli": "5.0.2",
     "@types/jasmine": "2.8.2",
     "@types/node": "8.0.53",
