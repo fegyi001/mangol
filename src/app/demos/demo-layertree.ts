@@ -1,7 +1,8 @@
 import { Component, OnInit } from '@angular/core';
+import MangolConfig from '../../lib/interfaces/mangol-config.interface';
 
 import * as ol from 'openlayers';
-import MangolConfig from '../../lib/interfaces/mangol-config.interface';
+declare var proj4: any;
 
 @Component({
   selector: 'mangol-demo-layertree',
@@ -14,6 +15,12 @@ export class DemoLayertreeComponent implements OnInit {
   config = {} as MangolConfig;
 
   public ngOnInit(): any {
+
+    proj4
+      .defs(
+      'EPSG:23700',
+      `+proj=somerc +lat_0=47.14439372222222 +lon_0=19.04857177777778 +k_0=0.99993 +x_0=650000 +y_0=200000 +ellps=GRS67 +units=m +no_defs`);
+
     this.config = {
       map: {
         renderer: 'canvas',
@@ -45,12 +52,12 @@ export class DemoLayertreeComponent implements OnInit {
                     url: 'http://188.166.116.137:8081/geoserver/wms',
                     params: {
                       LAYERS: 'osmWsp:trunk_primary',
-                      SRS: 'EPSG:900913',
+                      SRS: 'EPSG:23700',
                       FORMAT: 'image/png',
                       TILED: true
                     },
                     serverType: 'geoserver',
-                    projection: 'EPSG:900913'
+                    projection: 'EPSG:23700'
                   })
                 })
               }, {
@@ -62,12 +69,12 @@ export class DemoLayertreeComponent implements OnInit {
                     url: 'http://188.166.116.137:8081/geoserver/wms',
                     params: {
                       LAYERS: 'osmWsp:motorway',
-                      SRS: 'EPSG:900913',
+                      SRS: 'EPSG:23700',
                       FORMAT: 'image/png',
                       TILED: true
                     },
                     serverType: 'geoserver',
-                    projection: 'EPSG:900913'
+                    projection: 'EPSG:23700'
                   })
                 })
               }, {
@@ -79,12 +86,12 @@ export class DemoLayertreeComponent implements OnInit {
                     url: 'http://188.166.116.137:8081/geoserver/wms',
                     params: {
                       LAYERS: 'osmWsp:country',
-                      SRS: 'EPSG:900913',
+                      SRS: 'EPSG:23700',
                       FORMAT: 'image/png',
                       TILED: true
                     },
                     serverType: 'geoserver',
-                    projection: 'EPSG:900913'
+                    projection: 'EPSG:23700'
                   })
                 })
               }]

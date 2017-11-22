@@ -21,13 +21,73 @@ export class MangolFeatureInfoComponent implements OnInit, OnDestroy {
   maxFeatures: number;
   cursorStyle: string;
   placeholder: string;
+  zoomOnRowClick: boolean;
+  highlightFeatures: boolean;
 
   layers: MangolLayer[];
   selected: MangolLayer;
-  hoverLayer: any;
+  hoverLayer: ol.layer.Vector;
   clickEvent: any;
   features: ol.Feature[];
   geojson = new ol.format.GeoJSON();
+
+  // defaultStyle = {
+  //   'Point': new ol.style.Style({
+  //     image: new ol.style.Circle({
+  //       fill: new ol.style.Fill({
+  //         color: 'rgba(255,255,0,0.5)'
+  //       }),
+  //       radius: 5,
+  //       stroke: new ol.style.Stroke({
+  //         color: '#ff0',
+  //         width: 1
+  //       })
+  //     })
+  //   }),
+  //   'LineString': new ol.style.Style({
+  //     stroke: new ol.style.Stroke({
+  //       color: '#f00',
+  //       width: 3
+  //     })
+  //   }),
+  //   'Polygon': new ol.style.Style({
+  //     fill: new ol.style.Fill({
+  //       color: 'rgba(0,255,255,0.5)'
+  //     }),
+  //     stroke: new ol.style.Stroke({
+  //       color: '#0ff',
+  //       width: 1
+  //     })
+  //   }),
+  //   'MultiPoint': new ol.style.Style({
+  //     image: new ol.style.Circle({
+  //       fill: new ol.style.Fill({
+  //         color: 'rgba(255,0,255,0.5)'
+  //       }),
+  //       radius: 5,
+  //       stroke: new ol.style.Stroke({
+  //         color: '#f0f',
+  //         width: 1
+  //       })
+  //     })
+  //   }),
+  //   'MultiLineString': new ol.style.Style({
+  //     stroke: new ol.style.Stroke({
+  //       color: '#0f0',
+  //       width: 3
+  //     })
+  //   }),
+  //   'MultiPolygon': new ol.style.Style({
+  //     fill: new ol.style.Fill({
+  //       color: 'rgba(0,0,255,0.5)'
+  //     }),
+  //     stroke: new ol.style.Stroke({
+  //       color: '#00f',
+  //       width: 1
+  //     })
+  //   })
+  // };
+
 
   constructor(
     private featureInfoService: FeatureIntoService,
@@ -42,7 +102,8 @@ export class MangolFeatureInfoComponent implements OnInit, OnDestroy {
     this.maxFeatures = this.opts && this.opts.hasOwnProperty('maxFeatures') ? this.opts.maxFeatures : 10;
     this.cursorStyle = this.opts && this.opts.hasOwnProperty('cursorStyle') ? this.opts.cursorStyle : 'crosshair';
     this.placeholder = this.opts && this.opts.hasOwnProperty('placeholder') ? this.opts.placeholder : 'Select query layer';
-
+    this.zoomOnRowClick = this.opts && this.opts.hasOwnProperty('zoomOnRowClick') ? this.opts.zoomOnRowClick : true;
+    this.highlightFeatures = this.opts && this.opts.hasOwnProperty('highlightFeatures') ? this.opts.highlightFeatures : true;
     this._addHoverLayer();
     this._getQueryableLayers();
   }
@@ -63,27 +124,40 @@ export class MangolFeatureInfoComponent implements OnInit, OnDestroy {
     });
   }
 
+  onFeatureSelected(evt: ol.Feature) {
+    this.hoverLayer.getSource().clear();
+    if (evt !== null) {
+      const projCode: string = this.selected.getLayer().getSource().getProjection().getCode();
+      const viewProjCode = this.map.getView().getProjection().getCode();
+      const feat = evt.clone();
+      if (projCode !== viewProjCode) {
+        feat.setGeometry(feat.getGeometry().transform(projCode, viewProjCode));
+      }
+      this.hoverLayer.getSource().addFeature(feat);
+      if (this.zoomOnRowClick) {
+        this.map.getView().fit(feat.getGeometry().getExtent(), {
+          duration: 500
+        });
+      }
+    }
+  }
+
   private _addHoverLayer() {
     this.hoverLayer = new ol.layer.Vector({
-      source: new ol.source.Vector({}),
-      style: [new ol.style.Style({
-        image: new ol.style.Circle({
-          radius: 10,
-          fill: new ol.style.Fill({
-            color: [255, 255, 0, 0.5]
-          }),
-          stroke: new ol.style.Stroke({
-            color: [51, 51, 51, 0.8],
-            width: 2
-          })
-        })
-      })]
+      source: new ol.source.Vector()
     });
-    this.map.addLayer(this.hoverLayer);
+    if (this.opts.hasOwnProperty('hoverStyle')) {
+      this.hoverLayer.setStyle(this.opts.hoverStyle);
+    }
+    if (this.highlightFeatures) {
+      this.map.addLayer(this.hoverLayer);
+    }
   }
 
   private _removeHoverLayer() {
-    this.map.removeLayer(this.hoverLayer);
+    if (this.highlightFeatures) {
+      this.map.removeLayer(this.hoverLayer);
+    }
   }
 
   private _getQueryableLayers() {
@@ -133,7 +207,7 @@ export class MangolFeatureInfoComponent implements OnInit, OnDestroy {
             if (data.hasOwnProperty('features')) {
               // convert the GeoJSON response to ol.Feature array
               this.features = this.geojson.readFeatures(data);
-              this.openSnackBar(`${this.features.length} feature(s) found.`, 'Close');
+              this.openSnackBar(`${this.features.length} feature${this.features.length === 1 ? '' : 's'} found.`, 'Close');
             }
           });
         }

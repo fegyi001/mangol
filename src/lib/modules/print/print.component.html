@@ -1,18 +1,13 @@
-<!-- <form [formGroup]="form">
-  <div formGroupName="name">
-    <input formControlName="first" placeholder="First">
-    <input formControlName="last" placeholder="Last">
-  </div>
-  <input formControlName="email" placeholder="Email">
-  <button>Submit</button>
-</form> -->
-
-<!-- <div>
-  <button mat-raised-button (click)='print()'>print to file</button>
-  <div class="dev">PDF in A4 format with 72 dpi resolution. Detailed printing options will come soon.</div>
-</div> -->
-
 <div class="form-container">
+
+  <mat-form-field>
+    <mat-select placeholder="Layout" (selectionChange)="onLayoutChange($event)">
+      <mat-option [value]="layout" *ngFor="let layout of layouts">
+        {{layout.name}}
+      </mat-option>
+    </mat-select>
+  </mat-form-field>
+
   <mat-form-field>
     <mat-select placeholder="Size" (selectionChange)="onSizeChange($event)">
       <mat-option [value]="key" *ngFor="let key of dims | keys">
@@ -30,5 +25,6 @@
     </mat-select>
   </mat-form-field>
 
-  <button mat-raised-button color="primary" [disabled]="selectedDim === null || selectedResolution === null" (click)="print()">Print</button>
+  <button mat-raised-button color="primary" [disabled]="selectedLayout === null || selectedDim === null || selectedResolution === null"
+    (click)="print()">Print</button>
 </div>

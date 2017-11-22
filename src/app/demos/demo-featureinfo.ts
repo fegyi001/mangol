@@ -3,6 +3,8 @@ import { Component, OnInit } from '@angular/core';
 import * as ol from 'openlayers';
 import MangolConfig from '../../lib/interfaces/mangol-config.interface';
 
+declare var proj4: any;
+
 @Component({
   selector: 'mangol-demo-print',
   template: `
@@ -14,6 +16,12 @@ export class DemoFeatureInfoComponent implements OnInit {
   config = {} as MangolConfig;
 
   public ngOnInit(): any {
+
+    proj4
+      .defs(
+      'EPSG:23700',
+      `+proj=somerc +lat_0=47.14439372222222 +lon_0=19.04857177777778 +k_0=0.99993 +x_0=650000 +y_0=200000 +ellps=GRS67 +units=m +no_defs`);
+
     this.config = {
       map: {
         renderer: 'canvas',
@@ -39,12 +47,13 @@ export class DemoFeatureInfoComponent implements OnInit {
                 url: 'http://188.166.116.137:8081/geoserver/wms',
                 params: {
                   LAYERS: 'osmWsp:motorway',
-                  SRS: 'EPSG:900913',
+                  SRS: 'EPSG:23700',
                   FORMAT: 'image/png',
                   TILED: true
                 },
                 serverType: 'geoserver',
-                projection: 'EPSG:900913'
+                projection: 'EPSG:23700',
+                crossOrigin: 'anonyomus'
               })
             })
           }, {
@@ -57,12 +66,13 @@ export class DemoFeatureInfoComponent implements OnInit {
                 url: 'http://188.166.116.137:8081/geoserver/wms',
                 params: {
                   LAYERS: 'osmWsp:country',
-                  SRS: 'EPSG:900913',
+                  SRS: 'EPSG:23700',
                   FORMAT: 'image/png',
                   TILED: true
                 },
                 serverType: 'geoserver',
-                projection: 'EPSG:900913'
+                projection: 'EPSG:23700',
+                crossOrigin: 'anonyomus'
               })
             })
           }]

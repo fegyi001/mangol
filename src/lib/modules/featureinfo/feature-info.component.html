@@ -8,5 +8,5 @@
   </mat-form-field>
   <div *ngIf="layers.length === 0">There are no queryable layers visible at the moment.</div>
   <div *ngIf="selected !== null && features.length === 0">Click on the map to select a feature!</div>
-  <mangol-feature-info-table *ngIf="selected !== null && features.length > 0" [features]="features" [layer]="selected"></mangol-feature-info-table>
+  <mangol-feature-info-table *ngIf="selected !== null && features.length > 0" [features]="features" [layer]="selected" (featureSelected)="onFeatureSelected($event)"></mangol-feature-info-table>
 </div>

@@ -1,5 +1,8 @@
 import { MangolLayer } from './../../core/layer';
-import { Component, OnInit, OnDestroy, Input, IterableDiffer, IterableDiffers, DoCheck, HostBinding } from '@angular/core';
+import {
+  Component, OnInit, OnDestroy, Input, IterableDiffer,
+  IterableDiffers, DoCheck, HostBinding, Output, EventEmitter
+} from '@angular/core';
 import { DataSource } from '@angular/cdk/collections';
 import { Observable } from 'rxjs/Observable';
 import 'rxjs/add/observable/of';
@@ -18,6 +21,7 @@ export class MangolFeatureInfoTableComponent implements OnInit, DoCheck, OnDestr
 
   @Input() features: ol.Feature[];
   @Input() layer: MangolLayer;
+  @Output() featureSelected = new EventEmitter<ol.Feature>();
 
   displayedColumns: string[];
   // Blacklist of columns to omit from the table
@@ -46,7 +50,7 @@ export class MangolFeatureInfoTableComponent implements OnInit, DoCheck, OnDestr
   }
 
   ngOnDestroy() {
-
+    this.featureSelected.emit(null);
   }
 
   getColumnLabel(column: string): string {
@@ -82,7 +86,7 @@ export class MangolFeatureInfoTableComponent implements OnInit, DoCheck, OnDestr
     });
   }
 
-  openTable() {
+  openTableDialog() {
     const dialogRef = this.dialog.open(MangolFeatureInfoTableDialogComponent, {
       width: '90vw',
       data: {
@@ -94,6 +98,11 @@ export class MangolFeatureInfoTableComponent implements OnInit, DoCheck, OnDestr
     dialogRef.afterClosed().subscribe(result => {
     });
   }
+
+  onRowClick(row: any, index: number) {
+    this.featureSelected.emit(this.features[index]);
+  }
+
 }
 
 let data: MangolFeatureInfoTableElement[] = [];

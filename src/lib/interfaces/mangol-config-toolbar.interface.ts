@@ -31,7 +31,10 @@ export interface MangolConfigPrintItem extends MangolConfigToolbarItem {
 export interface MangolConfigFeatureInfoItem extends MangolConfigToolbarItem {
   maxFeatures?: number,
   cursorStyle?: string,
-  placeholder?: string
+  placeholder?: string,
+  zoomOnRowClick?: boolean
+  highlightFeatures?: boolean,
+  hoverStyle?: ol.style.Style[],
 }
 
 export interface MangolConfigToolbar {

@@ -1,7 +1,6 @@
 <div class="mangol-content">
   <mat-sidenav-container>
-    <mat-sidenav #start *ngIf="config.sidebar && sidebarMode && map" align="start" (open)="updateMap()" (close)="isOpened=false" (openedChange)="updateMap()" opened="{{isOpened}}"
-      mode="{{sidebarMode}}">
+    <mat-sidenav #start *ngIf="config.sidebar && sidebarMode && map" align="start" (open)="updateMap()" (close)="isOpened=false" (openedChange)="updateMap()" opened="{{isOpened}}" mode="{{sidebarMode}}" disableClose>
       <mangol-sidebar [options]="config.sidebar" [map]="map">
       </mangol-sidebar>
     </mat-sidenav>
