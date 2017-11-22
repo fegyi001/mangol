@@ -1,3 +1,36 @@
 .mangol-measure {
-
+  .measure-container {
+    padding: 10px;
+    .subtitle {
+      padding-bottom: 10px;
+    }
+    .value-container {
+      padding-top: 10px;
+      .value {
+        color: mat-color($mangol-primary);
+      }
+    }
+    .mat-button-toggle-group {
+      width: 100%;
+      .mat-button-toggle {
+        width: 100%;
+        .mat-button-toggle-label {
+          .mat-button-toggle-label-content {
+            width: 100%;
+            text-align: center;
+          }
+        }
+        .mat-icon {
+          text-align: center;
+          font-size: large;
+        }
+        &.mat-button-toggle-checked {
+          background-color: $light-background-color;
+          .mat-icon {
+            color: mat-color($mangol-primary);
+          }
+        }
+      }
+    }
+  }
 }

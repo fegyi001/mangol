@@ -19,7 +19,8 @@ import {
   MatDialogModule,
   MatSelectModule,
   MatTableModule,
-  MatSnackBarModule
+  MatSnackBarModule,
+  MatButtonToggleModule
 } from '@angular/material';
 
 const materialModules: any[] = [
@@ -42,7 +43,8 @@ const materialModules: any[] = [
   MatDialogModule,
   MatSelectModule,
   MatTableModule,
-  MatSnackBarModule
+  MatSnackBarModule,
+  MatButtonToggleModule
 ];
 
 @NgModule({
