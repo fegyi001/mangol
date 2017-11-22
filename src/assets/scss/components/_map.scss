@@ -1,6 +1,8 @@
 .mangol-map {
-  z-index: 0;
-  vertical-align: top;
+  z-index: 0; // vertical-align: top;
+  // position: relative;
+  width: 100%;
+  display: block; // height: 100%;
   .custom-buttons {
     position: absolute;
     z-index: 20;
@@ -66,6 +68,9 @@
     }
   }
   .mangol-quick-search {
+    width: 50%;
+    min-width: 100px;
+    max-width: $mangol-quicksearch-width;
     position: absolute;
     padding: 1em;
     top: 0;
@@ -78,7 +83,6 @@
       padding-left: 20px;
       padding-right: 20px;
       .quicksearch-form {
-        width: $mangol-quicksearch-width;
         .mat-form-field {
           width: 100%;
         }
