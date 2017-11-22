@@ -71,7 +71,6 @@ export class MangolMeasureComponent implements OnInit, OnDestroy {
 
   onToggleChange(evt: MatButtonToggleChange) {
     this.selected = evt.value;
-    this.layer.getSource().clear();
     this.activateDraw();
   }
 
@@ -101,6 +100,8 @@ export class MangolMeasureComponent implements OnInit, OnDestroy {
 
   deactivateDraw() {
     this._setCursor('');
+    this.value = null;
+    this.layer.getSource().clear();
     try {
       this.map.removeInteraction(this.draw);
     } catch (error) {
@@ -155,7 +156,8 @@ export class MangolMeasureComponent implements OnInit, OnDestroy {
     }), new ol.style.Style({
       stroke: new ol.style.Stroke({
         color: '#484848',
-        width: 2
+        width: 2,
+        lineDash: [5, 5]
       }),
       text: new ol.style.Text({
         textAlign: 'center',
