@@ -21,7 +21,7 @@ import {
   DemoPrintComponent,
   DemoFullComponent,
   DemoMeasureComponent,
-  // DemoOsmgwcComponent
+  DemoOsmgwcComponent
 } from './demos/_index';
 
 @NgModule({
@@ -34,7 +34,7 @@ import {
     DemoPrintComponent,
     DemoFullComponent,
     DemoMeasureComponent,
-    // DemoOsmgwcComponent,
+    DemoOsmgwcComponent,
     DemoMapControllersComponent,
     DemoFeatureInfoComponent
   ],
