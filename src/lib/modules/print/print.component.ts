@@ -56,8 +56,8 @@ export class MangolPrintComponent implements OnInit {
     const format = this.selectedDim;
     const dim = this.dims[format];
     const resolution = this.selectedResolution;
-    const width = Math.round(layout.value === 'landscape' ? dim[0] : dim[1] * resolution / 25.4);
-    const height = Math.round(layout.value === 'landscape' ? dim[1] : dim[0] * resolution / 25.4);
+    const width = Math.round((layout.value === 'landscape' ? dim[0] : dim[1]) * resolution / 25.4);
+    const height = Math.round((layout.value === 'landscape' ? dim[1] : dim[0]) * resolution / 25.4);
     const size = map.getSize();
     const extent = map.getView().calculateExtent(size);
     map.once('postcompose', (event: any) => {
@@ -67,7 +67,8 @@ export class MangolPrintComponent implements OnInit {
         const canvas = event['context']['canvas'];
         const data = canvas.toDataURL('image/jpeg');
         const pdf = new jsPDF(layout.value, undefined, format);
-        pdf.addImage(data, 'JPEG', 0, 0, layout.value === 'landscape' ? dim[0] : dim[1], layout.value === 'landscape' ? dim[1] : dim[0]);
+        pdf.addImage(data, 'JPEG', 0, 0,
+          (layout.value === 'landscape' ? dim[0] : dim[1]), (layout.value === 'landscape' ? dim[1] : dim[0]));
         pdf.save('map.pdf');
         map.setSize(size);
         map.getView().fit(extent);
