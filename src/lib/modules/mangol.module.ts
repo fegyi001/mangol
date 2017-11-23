@@ -11,19 +11,26 @@ import { MangolPrintModule } from './print/_index.module';
 
 import { MangolMapService } from './../services/map.service';
 
-const MANGOL_MODULES = [
-  MangolContainerModule,
-  MangolLayertreeModule,
-  MangolMapModule,
-  MangolMeasureModule,
-  MangolPrintModule,
-  MangolSidebarModule,
-  MangolFeatureInfoModule,
-  MangolMaterialModule
-];
-
 @NgModule({
-  imports: MANGOL_MODULES,
-  exports: MANGOL_MODULES,
+  imports: [
+    MangolContainerModule,
+    MangolLayertreeModule,
+    MangolMapModule,
+    MangolMeasureModule,
+    MangolPrintModule,
+    MangolSidebarModule,
+    MangolFeatureInfoModule,
+    MangolMaterialModule
+  ],
+  exports: [
+    MangolContainerModule,
+    MangolLayertreeModule,
+    MangolMapModule,
+    MangolMeasureModule,
+    MangolPrintModule,
+    MangolSidebarModule,
+    MangolFeatureInfoModule,
+    MangolMaterialModule
+  ],
 })
 export class MangolModule { }
