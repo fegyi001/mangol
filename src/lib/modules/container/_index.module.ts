@@ -2,8 +2,8 @@ import { NgModule } from '@angular/core';
 import { CommonModule } from '@angular/common';
 import 'hammerjs';
 
-import { MangolMapModule } from './../map/_index';
-import { MangolSidebarModule } from './../sidebar/_index';
+import { MangolMapModule } from './../map/_index.module';
+import { MangolSidebarModule } from './../sidebar/_index.module';
 
 import { MangolContainerComponent } from './container.component';
 
