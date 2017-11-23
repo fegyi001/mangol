@@ -18,7 +18,7 @@ Formerly, Mangol was called `ng2ol3` and was based on SystemJS and without angul
 ## Install
 
 [Node.js with npm](https://nodejs.org/en/download/) is required. The preferenced version of Node.js is 8.x.x, the preferenced version of npm is 5.x.x. After `git clone`, navigate to the main directory and run ```npm install``` to download all dependencies. If you prefer Yarn, you can also run ```yarn install``` instead.
-You also need angular-cli to build or run the project. To install it (globally) on your machine, run ```npm install -g @angular/cli``` in your terminal.
+You also need angular-cli to build or run the project. **Unfortunately, at the moment Mangol does not work with the latest version of angular-cli, you must fall back to 1.4.4.** To install (globally) the compatible version on your machine, run ```npm install -g @angular/cli@1.4.4``` in your terminal.
 
 ## Live example
 
@@ -27,6 +27,10 @@ An online example can be opened [here](http://188.166.116.137/mangol).
 ## Use as source
 
 If you wish to see the built-in demos or modify the source files, simply run ```ng serve``` to load the demo page on ```localhost:4200```. With this command you can also watch file changes until you shut it down.
+
+## Implementation example
+
+In the ```example_project``` folder there is a fully working implementation example. Copy it anywhere on your machine, run ```npm install``` and ```ng serve``` from that directory to see a full page Mangol app.
 
 ## Use as npm library
 
