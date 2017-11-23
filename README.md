@@ -34,7 +34,7 @@ In the ```example_project``` folder there is a fully working implementation exam
 
 ## Use as npm library
 
-If you would like to use Mangol as an npm library in your Angular2+ (TypeScript) project, you can also do that since [Mangol is on npm](https://www.npmjs.com/package/mangol) as well.
+If you would like to use Mangol as an npm library in your Angular (TypeScript) project, you can also do that since [Mangol is on npm](https://www.npmjs.com/package/mangol) as well.
 
 First, add Mangol as a dependency to your project:
 
