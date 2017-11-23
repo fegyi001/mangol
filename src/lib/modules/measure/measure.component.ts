@@ -53,9 +53,9 @@ export class MangolMeasureComponent implements OnInit, OnDestroy {
     this.fillColor = this.opts && this.opts.hasOwnProperty('fillColor') ? this.opts.fillColor : [255, 255, 255, 0.5];
     this.strokeColor = this.opts && this.opts.hasOwnProperty('strokeColor') ? this.opts.strokeColor : [72, 72, 72, 1];
     this.textColor = this.opts && this.opts.hasOwnProperty('textColor')
-      ? this.opts.textColor : [this.strokeColor[0], this.strokeColor[1], this.strokeColor[2], 0.7];
+      ? this.opts.textColor : [this.strokeColor[0], this.strokeColor[1], this.strokeColor[2], 1];
     this.textOutlineColor = this.opts && this.opts.hasOwnProperty('textOutlineColor')
-      ? this.opts.textOutlineColor : [this.fillColor[0], this.fillColor[1], this.fillColor[2], 1];
+      ? this.opts.textOutlineColor : [this.fillColor[0], this.fillColor[1], this.fillColor[2], 0.7];
     this.font = this.opts && this.opts.hasOwnProperty('font') ? this.opts.font : 'normal 14px Arial';
 
     this.units = this.map.getView().getProjection().getUnits();
