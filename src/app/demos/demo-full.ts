@@ -186,7 +186,13 @@ export class DemoFullComponent implements OnInit {
               })
             })]
           },
-          measure: {},
+          measure: {
+            fillColor: [255, 255, 0, 0.2],
+            strokeColor: [33, 150, 243, 0.8],
+            textColor: [33, 150, 243, 1],
+            textOutlineColor: [255, 255, 255, 0.8],
+            font: 'normal 14px Arial'
+          },
           print: {}
         }
       }

@@ -33,14 +33,14 @@ export class MangolDemoComponent implements OnInit {
       link: '/demo-featureinfo',
       title: 'feature info'
     }, {
-      link: '/demo-print',
-      title: 'print'
-    }, {
       link: '/demo-measure',
       title: 'measure'
-    // }, {
-    //   link: '/demo-osmgwc',
-    //   title: 'osmgwc'
+    }, {
+      link: '/demo-print',
+      title: 'print'
+      // }, {
+      //   link: '/demo-osmgwc',
+      //   title: 'osmgwc'
     }, {
       link: '/demo-full',
       title: 'full functionality'

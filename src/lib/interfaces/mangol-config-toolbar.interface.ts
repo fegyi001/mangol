@@ -21,7 +21,13 @@ export interface MangolConfigLayertreeItem extends MangolConfigToolbarItem {
 }
 
 export interface MangolConfigMeasureItem extends MangolConfigToolbarItem {
-
+  precision?: number,
+  cursorStyle?: string,
+  fillColor?: [number, number, number, number],
+  strokeColor?: [number, number, number, number],
+  textColor?: [number, number, number, number],
+  textOutlineColor?: [number, number, number, number],
+  font?: string
 }
 
 export interface MangolConfigPrintItem extends MangolConfigToolbarItem {

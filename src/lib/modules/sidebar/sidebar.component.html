@@ -13,7 +13,7 @@
         [isAccordionMulti]="options.toolbar.layertree.isAccordionMulti">
       </mangol-layertree>
       <mangol-feature-info *ngIf="hasFeatureInfo && activeElement.type==='featureinfo'" [map]="map" [opts]="options.toolbar.featureinfo"></mangol-feature-info>
-      <mangol-measure *ngIf="hasMeasure && activeElement.type==='measure'" [map]="map">
+      <mangol-measure *ngIf="hasMeasure && activeElement.type==='measure'" [map]="map" [opts]="options.toolbar.measure">
       </mangol-measure>
       <mangol-print *ngIf="hasPrint && activeElement.type==='print'" [map]="map"></mangol-print>
     </div>

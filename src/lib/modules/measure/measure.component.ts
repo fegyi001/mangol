@@ -6,6 +6,7 @@ import { MangolMap } from './../../core/_index';
 
 declare var $: any;
 import * as ol from 'openlayers';
+import { MangolConfigMeasureItem } from '../../interfaces/mangol-config-toolbar.interface';
 
 export interface MeasureButton {
   title: string,
@@ -23,9 +24,16 @@ export class MangolMeasureComponent implements OnInit, OnDestroy {
   @HostBinding('class') class = 'mangol-measure';
 
   @Input() map: MangolMap;
+  @Input() opts: MangolConfigMeasureItem;
 
   precision: number;
   cursorStyle: string;
+  fillColor: [number, number, number, number];
+  strokeColor: [number, number, number, number];
+  textColor: [number, number, number, number];
+  textOutlineColor: [number, number, number, number];
+  font: string;
+
   buttons: MeasureButton[];
   layer: ol.layer.Vector = null;
   selected: MeasureButton = null;
@@ -35,15 +43,25 @@ export class MangolMeasureComponent implements OnInit, OnDestroy {
 
   constructor() {
     this.buttons = [];
+    this.value = null;
   }
 
   ngOnInit() {
-    this.value = null;
-    this.precision = 2;
-    this.cursorStyle = 'crosshair';
+    console.log(this.opts);
+    // Read user-defined parameters
+    this.precision = this.opts && this.opts.hasOwnProperty('precision') ? this.opts.precision : 2;
+    this.cursorStyle = this.opts && this.opts.hasOwnProperty('cursorStyle') ? this.opts.cursorStyle : 'crosshair';
+    this.fillColor = this.opts && this.opts.hasOwnProperty('fillColor') ? this.opts.fillColor : [255, 255, 255, 0.5];
+    this.strokeColor = this.opts && this.opts.hasOwnProperty('strokeColor') ? this.opts.strokeColor : [72, 72, 72, 1];
+    this.textColor = this.opts && this.opts.hasOwnProperty('textColor')
+      ? this.opts.textColor : [this.strokeColor[0], this.strokeColor[1], this.strokeColor[2], 0.7];
+    this.textOutlineColor = this.opts && this.opts.hasOwnProperty('textOutlineColor')
+      ? this.opts.textOutlineColor : [this.fillColor[0], this.fillColor[1], this.fillColor[2], 1];
+    this.font = this.opts && this.opts.hasOwnProperty('font') ? this.opts.font : 'normal 14px Arial';
+
     this.units = this.map.getView().getProjection().getUnits();
     this.buttons = [{
-      title: 'Measure line',
+      title: 'Measure distance',
       value: 'line',
       geometryType: 'LineString',
       fontSet: 'ms',
@@ -147,15 +165,11 @@ export class MangolMeasureComponent implements OnInit, OnDestroy {
   private _getStyle(feature: ol.Feature): ol.style.Style[] {
     return [new ol.style.Style({
       fill: new ol.style.Fill({
-        color: 'rgba(255, 255, 255, 0.5)'
-      }),
-      stroke: new ol.style.Stroke({
-        color: 'white',
-        width: 3
+        color: this.fillColor
       })
     }), new ol.style.Style({
       stroke: new ol.style.Stroke({
-        color: '#484848',
+        color: this.strokeColor,
         width: 2,
         lineDash: [5, 5]
       }),
@@ -163,15 +177,15 @@ export class MangolMeasureComponent implements OnInit, OnDestroy {
         textAlign: 'center',
         textBaseline: 'middle',
         text: this._getLengthOrArea(feature),
-        font: 'normal 14px Arial',
+        font: this.font,
         fill: new ol.style.Fill({
-          color: '#484848'
+          color: this.textColor
         }),
         offsetX: 0,
         offsetY: 0,
         rotation: 0,
         stroke: new ol.style.Stroke({
-          color: 'white',
+          color: this.textOutlineColor,
           width: 3
         }),
       })
