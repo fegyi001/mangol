@@ -47,7 +47,6 @@ export class MangolMeasureComponent implements OnInit, OnDestroy {
   }
 
   ngOnInit() {
-    console.log(this.opts);
     // Read user-defined parameters
     this.precision = this.opts && this.opts.hasOwnProperty('precision') ? this.opts.precision : 2;
     this.cursorStyle = this.opts && this.opts.hasOwnProperty('cursorStyle') ? this.opts.cursorStyle : 'crosshair';
