@@ -15,23 +15,6 @@ export class DemoMeasureComponent implements OnInit {
 
   public ngOnInit(): any {
     this.config = {
-      map: {
-        renderer: 'canvas',
-        target: 'demo-measure',
-        view: {
-          projection: 'EPSG:900913',
-          center: ol.proj.fromLonLat([19.3956393810065, 47.168464955013], 'EPSG:900913'),
-          zoom: 14
-        },
-        layertree: {
-          layers: [{
-            name: 'OpenStreetMap layer',
-            layer: new ol.layer.Tile({
-              source: new ol.source.OSM()
-            })
-          }]
-        }
-      },
       sidebar: {
         collapsible: true,
         opened: true,
