@@ -62,7 +62,8 @@ It is highly recommended to add some vendor js files. If you use Webpack and cre
 "scripts": [
     "../node_modules/openlayers/dist/ol.js",
     "../node_modules/proj4/dist/proj4.js",
-    "../node_modules/jspdf/dist/jspdf.min.js"
+    "../node_modules/jspdf/dist/jspdf.min.js",
+    "../node_modules/jquery/dist/jquery.min.js"
 ]
 ```
 
