@@ -49,14 +49,13 @@ export class DemoLayertreeComponent implements OnInit {
                 opacity: 1.0,
                 layer: new ol.layer.Tile({
                   source: new ol.source.TileWMS({
-                    url: 'http://188.166.116.137:8081/geoserver/wms',
+                    url: 'http://188.166.116.137:8080/geoserver/wms',
                     params: {
                       LAYERS: 'osmWsp:trunk_primary',
                       SRS: 'EPSG:23700',
                       FORMAT: 'image/png',
                       TILED: true
                     },
-                    serverType: 'geoserver',
                     projection: 'EPSG:23700'
                   })
                 })
@@ -66,14 +65,13 @@ export class DemoLayertreeComponent implements OnInit {
                 opacity: 1.0,
                 layer: new ol.layer.Tile({
                   source: new ol.source.TileWMS({
-                    url: 'http://188.166.116.137:8081/geoserver/wms',
+                    url: 'http://188.166.116.137:8080/geoserver/wms',
                     params: {
                       LAYERS: 'osmWsp:motorway',
                       SRS: 'EPSG:23700',
                       FORMAT: 'image/png',
                       TILED: true
                     },
-                    serverType: 'geoserver',
                     projection: 'EPSG:23700'
                   })
                 })
@@ -83,14 +81,13 @@ export class DemoLayertreeComponent implements OnInit {
                 opacity: 1.0,
                 layer: new ol.layer.Tile({
                   source: new ol.source.TileWMS({
-                    url: 'http://188.166.116.137:8081/geoserver/wms',
+                    url: 'http://188.166.116.137:8080/geoserver/wms',
                     params: {
                       LAYERS: 'osmWsp:country',
                       SRS: 'EPSG:23700',
                       FORMAT: 'image/png',
                       TILED: true
                     },
-                    serverType: 'geoserver',
                     projection: 'EPSG:23700'
                   })
                 })

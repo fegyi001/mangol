@@ -42,7 +42,7 @@ export class DemoOsmgwcComponent implements OnInit {
             name: 'OpenStreetMap layer',
             layer: new ol.layer.Tile({
               source: new ol.source.XYZ({
-                url: 'http://188.166.116.137:8081/geoserver/gwc/service/tms/1.0.0/osm_hungary@EPSG:23700@png/{z}/{x}/{-y}.png',
+                url: 'http://188.166.116.137:8080/geoserver/gwc/service/tms/1.0.0/osm_hungary@EPSG:23700@png/{z}/{x}/{-y}.png',
                 projection: 'EPSG:23700',
                 tileGrid: new ol.tilegrid.TileGrid({
                   extent: maxExtent,
