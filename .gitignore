@@ -1,10 +1,6 @@
-# See http://help.github.com/ignore-files/ for more about ignoring files.
-
-# compiled output
-/dist
-/tmp
-
-# dependencies
+# Dependency directory
+yarn.lock
+package-lock.json
 /node_modules
 /bower_components
 /example_project/node_modules
@@ -28,9 +24,17 @@ testem.log
 /typings
 /.tscache
 
+# compiled output
+/dist
+/tmp
+
 # e2e
 /e2e/*.js
 /e2e/*.map
+src/**/*.js
+src/**/*.map
+scripts/**/*.js
+scripts/**/*.map
 
 # System Files
 .DS_Store
