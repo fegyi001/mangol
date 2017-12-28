@@ -1,28 +1,25 @@
-import { BrowserModule } from '@angular/platform-browser';
-import { NgModule } from '@angular/core';
-import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
-import { FormsModule } from '@angular/forms';
-import { HttpModule } from '@angular/http';
-import { routing, appRoutingProviders } from './app.routing';
-import { LocationStrategy, HashLocationStrategy } from '@angular/common';
 import 'hammerjs';
 
-import { MangolModule } from './../lib/modules/mangol.module';
+import { HashLocationStrategy, LocationStrategy } from '@angular/common';
+import { NgModule } from '@angular/core';
+import { FormsModule } from '@angular/forms';
+import { HttpModule } from '@angular/http';
+import { BrowserModule } from '@angular/platform-browser';
+import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 
 import { MangolDemoComponent } from './app.component';
-import { MangolMaterialModule } from '../lib/modules/_shared/mangol-material.module';
-import { DemoFeatureInfoComponent } from './demos/demo-featureinfo';
-
-import {
-  DemoMapComponent,
-  DemoMapControllersComponent,
-  DemoSidebarComponent,
-  DemoLayertreeComponent,
-  DemoPrintComponent,
-  DemoFullComponent,
-  DemoMeasureComponent,
-  DemoOsmgwcComponent
-} from './demos/_index';
+import { appRoutingProviders, routing } from './app.routing';
+import { DemoFeatureInfoComponent } from './demo/demo-featureinfo';
+import { DemoFullComponent } from './demo/demo-full';
+import { DemoLayertreeComponent } from './demo/demo-layertree';
+import { DemoMapComponent } from './demo/demo-map';
+import { DemoMapControllersComponent } from './demo/demo-map-controllers';
+import { DemoMeasureComponent } from './demo/demo-measure';
+import { DemoOsmgwcComponent } from './demo/demo-osmgwc';
+import { DemoPrintComponent } from './demo/demo-print';
+import { DemoSidebarComponent } from './demo/demo-sidebar';
+import { MangolMaterialModule } from './modules/_shared/material.module';
+import { MangolModule } from './modules/mangol/mangol.module';
 
 @NgModule({
   declarations: [

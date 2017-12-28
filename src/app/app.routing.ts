@@ -1,16 +1,14 @@
 import { ModuleWithProviders } from '@angular/core';
-import { Routes, RouterModule } from '@angular/router';
-import { DemoMapControllersComponent } from './demos/demo-map-controllers';
-import { DemoFeatureInfoComponent } from './demos/demo-featureinfo';
-import {
-  DemoMapComponent,
-  DemoSidebarComponent,
-  DemoLayertreeComponent,
-  DemoPrintComponent,
-  DemoFullComponent,
-  DemoMeasureComponent,
-  // DemoOsmgwcComponent
-} from './demos/_index';
+import { RouterModule, Routes } from '@angular/router';
+
+import { DemoFeatureInfoComponent } from './demo/demo-featureinfo';
+import { DemoFullComponent } from './demo/demo-full';
+import { DemoLayertreeComponent } from './demo/demo-layertree';
+import { DemoMapComponent } from './demo/demo-map';
+import { DemoMapControllersComponent } from './demo/demo-map-controllers';
+import { DemoMeasureComponent } from './demo/demo-measure';
+import { DemoPrintComponent } from './demo/demo-print';
+import { DemoSidebarComponent } from './demo/demo-sidebar';
 
 const appRoutes: Routes = [
   {
