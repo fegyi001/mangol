@@ -1,8 +1,8 @@
 import { Component, Inject, OnInit } from '@angular/core';
 
 export interface MangolDemoItem {
-  link: string,
-  title: string
+  link: string;
+  title: string;
 }
 
 @Component({
@@ -38,9 +38,6 @@ export class MangolDemoComponent implements OnInit {
     }, {
       link: '/demo-print',
       title: 'print'
-      // }, {
-      //   link: '/demo-osmgwc',
-      //   title: 'osmgwc'
     }, {
       link: '/demo-full',
       title: 'full functionality'

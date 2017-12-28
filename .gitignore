@@ -1,40 +1,42 @@
-# Dependency directory
-yarn.lock
-package-lock.json
+# See http://help.github.com/ignore-files/ for more about ignoring files.
+
+# compiled output
+/dist
+/dist_demo
+/tmp
+/out-tsc
+
+# dependencies
 /node_modules
-/bower_components
-/example_project/node_modules
 
 # IDEs and editors
 /.idea
-/.vscode
 .project
 .classpath
 .c9/
 *.launch
 .settings/
+*.sublime-workspace
+
+# IDE - VSCode
+.vscode/*
+!.vscode/settings.json
+!.vscode/tasks.json
+!.vscode/launch.json
+!.vscode/extensions.json
 
 # misc
 /.sass-cache
 /connect.lock
-/coverage/*
+/coverage
 /libpeerconnection.log
-npm-debug.log*
+npm-debug.log
 testem.log
 /typings
-/.tscache
-
-# compiled output
-/dist
-/tmp
 
 # e2e
 /e2e/*.js
 /e2e/*.map
-src/**/*.js
-src/**/*.map
-scripts/**/*.js
-scripts/**/*.map
 
 # System Files
 .DS_Store
