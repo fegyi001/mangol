@@ -1,10 +1,11 @@
-import { BrowserModule } from '@angular/platform-browser';
 import { NgModule } from '@angular/core';
+import { BrowserModule } from '@angular/platform-browser';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 
-import { MangolModule } from 'mangol/src/lib/modules/mangol.module';
-
 import { AppComponent } from './app.component';
+
+import {MangolModule} from 'mangol';
+
 
 @NgModule({
   declarations: [

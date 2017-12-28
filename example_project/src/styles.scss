@@ -1,8 +1,8 @@
-$mangol-height: 100%;
-@import "~mangol/mangol";
-html,
-body {
-  height: 100%;
+@import "~mangol/src/assets/scss/mangol";
+
+html, body {
   width: 100%;
+  height: 100%;
+  padding: 0;
   margin: 0;
 }

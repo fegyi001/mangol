@@ -1,6 +1,6 @@
 import { AppPage } from './app.po';
 
-describe('mangol-demo App', () => {
+describe('my-component-library App', () => {
   let page: AppPage;
 
   beforeEach(() => {
