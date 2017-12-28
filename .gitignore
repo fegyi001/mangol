@@ -9,6 +9,12 @@
 # dependencies
 /node_modules
 /example_project/node_modules
+yarn.lock
+yarn-error.log
+package-lock.json
+/example_project/yarn.lock
+/example-project/yarn-error.lock
+/example-project/package-lock.json
 
 # IDEs and editors
 /.idea
