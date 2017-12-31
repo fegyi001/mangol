@@ -36,10 +36,10 @@ In the ```example_project``` folder there is a fully working implementation exam
 
 If you would like to use Mangol as an npm library in your Angular (TypeScript) project, you can also do that since [Mangol is on npm](https://www.npmjs.com/package/mangol) as well.
 
-First, add Mangol and Angular material as dependencies to your project:
+First, add Mangol and Angular animations as dependencies to your project:
 
 ```batch
-npm install --save mangol @angular/material @angular/cdk @angular/animations
+npm install --save mangol @angular/animations
 ```
 
 You have to add to your `app.module.ts` (or whatever you call it in your project, the one that gets bootstrapped in main.ts)
