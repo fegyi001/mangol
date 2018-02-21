@@ -1,9 +1,15 @@
-import { Component, EventEmitter, HostBinding, Input, OnInit, Output, ViewChild } from '@angular/core';
-import { MatSlider, MatSliderChange } from '@angular/material';
+import {
+  Component,
+  EventEmitter,
+  HostBinding,
+  Input,
+  OnInit,
+  Output
+} from '@angular/core';
+import { MatSliderChange } from '@angular/material';
 
 import { MangolConfigToolbarLayertreeDetails } from '../../interfaces/config-toolbar.interface';
 import { MangolLayer } from './../../classes/layer.class';
-
 
 @Component({
   selector: 'mangol-layer-details',
@@ -11,7 +17,6 @@ import { MangolLayer } from './../../classes/layer.class';
 })
 export class MangolLayerDetailsComponent implements OnInit {
   @HostBinding('class') class = 'mangol-layer-details';
-  @ViewChild('slider') slider: MatSlider;
 
   @Input() opts: MangolConfigToolbarLayertreeDetails;
   @Input() layer: MangolLayer;
@@ -28,10 +33,18 @@ export class MangolLayerDetailsComponent implements OnInit {
     this.sliderMin = 0;
     this.sliderMax = 100;
     this.sliderValue = parseInt((this.layer.opacity * 100).toString(), 0);
-    this.sliderStep = this.opts && this.opts.hasOwnProperty('opacity')
-      && this.opts.opacity.hasOwnProperty('sliderStep') ? this.opts.opacity.sliderStep : 1;
-    this.sliderShowLabels = this.opts && this.opts.hasOwnProperty('opacity')
-      && this.opts.opacity.hasOwnProperty('showLabels') ? this.opts.opacity.showLabels : true;
+    this.sliderStep =
+      this.opts &&
+      this.opts.hasOwnProperty('opacity') &&
+      this.opts.opacity.hasOwnProperty('sliderStep')
+        ? this.opts.opacity.sliderStep
+        : 1;
+    this.sliderShowLabels =
+      this.opts &&
+      this.opts.hasOwnProperty('opacity') &&
+      this.opts.opacity.hasOwnProperty('showLabels')
+        ? this.opts.opacity.showLabels
+        : true;
   }
 
   public onSliderChange($event: MatSliderChange) {
