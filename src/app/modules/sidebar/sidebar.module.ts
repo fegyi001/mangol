@@ -20,12 +20,7 @@ import { MangolToolbarComponent } from './toolbar.component';
     MangolMeasureModule,
     MangolFeatureInfoModule
   ],
-  exports: [
-    MangolSidebarComponent
-  ],
-  declarations: [
-    MangolSidebarComponent,
-    MangolToolbarComponent
-  ]
+  exports: [MangolSidebarComponent],
+  declarations: [MangolSidebarComponent, MangolToolbarComponent]
 })
-export class MangolSidebarModule { }
+export class MangolSidebarModule {}

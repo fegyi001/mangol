@@ -17,8 +17,8 @@ Formerly, Mangol was called `ng2ol3` and was based on SystemJS and without angul
 
 ## Install
 
-[Node.js with npm](https://nodejs.org/en/download/) is required. The preferenced version of Node.js is 8.x.x, the preferenced version of npm is 5.x.x. After `git clone`, navigate to the main directory and run ```npm install``` to download all dependencies. If you prefer Yarn, you can also run ```yarn install``` instead.
-You also need angular-cli to build or run the project. To install (globally) the compatible version on your machine, run ```npm install -g @angular/cli``` in your terminal.
+[Node.js with npm](https://nodejs.org/en/download/) is required. The preferenced version of Node.js is 8.x.x, the preferenced version of npm is 5.x.x. After `git clone`, navigate to the main directory and run `npm install` to download all dependencies. If you prefer Yarn, you can also run `yarn install` instead.
+You also need angular-cli to build or run the project. To install (globally) the compatible version on your machine, run `npm install -g @angular/cli` in your terminal.
 
 ## Live example
 
@@ -26,11 +26,11 @@ An online example can be opened [here](http://188.166.116.137/mangol).
 
 ## Use as source
 
-If you wish to see the built-in demos or modify the source files, simply run ```ng serve``` to load the demo page on ```localhost:4200```. With this command you can also watch file changes until you shut it down.
+If you wish to see the built-in demos or modify the source files, simply run `ng serve` to load the demo page on `localhost:4200`. With this command you can also watch file changes until you shut it down.
 
 ## Implementation example
 
-In the ```example_project``` folder there is a fully working implementation example. Copy it anywhere on your machine, run ```npm install``` (or ```yarn install```) and ```ng serve``` from that directory to see a full page Mangol app.
+In the `example_project` folder there is a fully working implementation example. Copy it anywhere on your machine, run `npm install` (or `yarn install`) and `ng serve` from that directory to see a full page Mangol app.
 
 ## Use as npm library
 
@@ -76,7 +76,7 @@ If you use SystemJS add the files above in a regular way to your index.html (wit
 At the beginning of your main SCSS file, you should import mangol.scss like this:
 
 ```scss
-@import "~mangol/src/assets/scss/mangol";
+@import '~mangol/src/assets/scss/mangol';
 ```
 
 After that, you can use Mangol html tags in your templates such as
@@ -93,14 +93,12 @@ This is the simplest implementation of Mangol in a component (this will create a
 import { Component } from '@angular/core';
 
 @Component({
-    selector: 'app',
-    template: `
+  selector: 'app',
+  template: `
       <mangol></mangol>
     `
 })
-export class AppComponent {
-
-}
+export class AppComponent {}
 ```
 
 ## Configuring the component
@@ -119,7 +117,6 @@ import * as ol from 'openlayers';
     `
 })
 export class AppComponent implements OnInit {
-
   // Notice the MangolConfig type, this  is a helper interface to easily fill out the required and optional parameters for your Mangol configuration.
   config = {} as MangolConfig;
 
@@ -134,12 +131,14 @@ export class AppComponent implements OnInit {
           zoom: 7
         },
         layertree: {
-          layers: [{
-            name: 'OpenStreetMap layer',
-            layer: new ol.layer.Tile({
-              source: new ol.source.OSM()
-            })
-          }],
+          layers: [
+            {
+              name: 'OpenStreetMap layer',
+              layer: new ol.layer.Tile({
+                source: new ol.source.OSM()
+              })
+            }
+          ],
           groups: []
         }
       },
@@ -151,7 +150,7 @@ export class AppComponent implements OnInit {
         }
       }
     };
-  };
+  }
 }
 ```
 
@@ -167,7 +166,7 @@ $mangol-accent: mat-palette($mat-lime);
 $mangol-warn: mat-palette($mat-deep-orange);
 $mangol-theme: mat-light-theme($mangol-primary, $mangol-accent, $mangol-warn);
 
-@import "~mangol/src/assets/scss/mangol";
+@import '~mangol/src/assets/scss/mangol';
 ```
 
 If you wish to set the component height, sidebar width or the quicksearch panel width, also do it before importing mangol.scss:
@@ -177,7 +176,7 @@ $mangol-height: 400px;
 $mangol-sidebar-width: 450px;
 $mangol-quicksearch-width: 250px;
 
-@import "~mangol/src/assets/scss/mangol";
+@import '~mangol/src/assets/scss/mangol';
 ```
 
 ## More hooks
@@ -209,7 +208,7 @@ This project is still under heavy development. In the near future I intend to ad
 
 ## Author
 
-```Mangol``` was created by [Gergely Padányi-Gulyás](mailto:fegyi001@gmail.com)
+`Mangol` was created by [Gergely Padányi-Gulyás](mailto:fegyi001@gmail.com)
 
 ## Donations
 

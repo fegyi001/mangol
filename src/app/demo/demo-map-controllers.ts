@@ -3,7 +3,6 @@ import * as ol from 'openlayers';
 
 import { MangolConfig } from './../interfaces/config.interface';
 
-
 @Component({
   selector: 'mangol-demo-map-controllers',
   template: `
@@ -21,16 +20,21 @@ export class DemoMapControllersComponent implements OnInit {
         target: 'demo-map-controllers',
         view: {
           projection: this.projection,
-          center: ol.proj.fromLonLat([19.3956393810065, 47.168464955013], this.projection),
+          center: ol.proj.fromLonLat(
+            [19.3956393810065, 47.168464955013],
+            this.projection
+          ),
           zoom: 7
         },
         layertree: {
-          layers: [{
-            name: 'OpenStreetMap layer',
-            layer: new ol.layer.Tile({
-              source: new ol.source.OSM()
-            })
-          }]
+          layers: [
+            {
+              name: 'OpenStreetMap layer',
+              layer: new ol.layer.Tile({
+                source: new ol.source.OSM()
+              })
+            }
+          ]
         },
         controllers: {
           mousePosition: {},
@@ -38,19 +42,23 @@ export class DemoMapControllersComponent implements OnInit {
             units: 'metric'
           },
           quickSearch: {
-            items: [{
-              text: 'Budapest',
-              details: 'Capital of Hungary',
-              extent: [2108491, 6010126, 2134556, 6039783]
-            }, {
-              text: 'London',
-              details: 'Capital of England & UK',
-              coordinates: [-13664, 6711101]
-            }, {
-              text: 'Paris',
-              details: 'Capital of France',
-              extent: [250839, 6235856, 272853, 6263067]
-            }]
+            items: [
+              {
+                text: 'Budapest',
+                details: 'Capital of Hungary',
+                extent: [2108491, 6010126, 2134556, 6039783]
+              },
+              {
+                text: 'London',
+                details: 'Capital of England & UK',
+                coordinates: [-13664, 6711101]
+              },
+              {
+                text: 'Paris',
+                details: 'Capital of France',
+                extent: [250839, 6235856, 272853, 6263067]
+              }
+            ]
           },
           fullScreen: {}
         }

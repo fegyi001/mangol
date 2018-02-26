@@ -8,6 +8,4 @@ import * as ol from 'openlayers';
       <mangol></mangol>
     `
 })
-export class DemoMapComponent {
-
-}
+export class DemoMapComponent {}

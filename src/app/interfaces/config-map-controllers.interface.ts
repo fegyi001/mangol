@@ -16,9 +16,7 @@ export interface MangolConfigMapControllerQuickSearch {
   items: MangolConfigMapControllerQuickSearchItem[];
 }
 
-export interface MangolConfigMapControllerFullScreen {
-
-}
+export interface MangolConfigMapControllerFullScreen {}
 
 export interface MangolConfigMapControllers {
   mousePosition?: MangolConfigMapControllerMousePosition;

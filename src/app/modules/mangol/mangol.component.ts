@@ -1,13 +1,18 @@
-import { Component, EventEmitter, HostBinding, Input, OnInit, Output } from '@angular/core';
+import {
+  Component,
+  EventEmitter,
+  HostBinding,
+  Input,
+  OnInit,
+  Output
+} from '@angular/core';
 import * as ol from 'openlayers';
-
 
 import { MangolMap } from '../../classes/map.class';
 import { MangolConfigMap } from '../../interfaces/config-map.interface';
 import { MangolConfig } from '../../interfaces/config.interface';
 import { MangolReady } from '../../interfaces/ready.interface';
 import { MangolMapService } from './../../services/map.service';
-
 
 @Component({
   selector: 'mangol',
@@ -33,16 +38,21 @@ export class MangolComponent implements OnInit {
       target: 'demo-simple-map',
       view: {
         projection: 'EPSG:900913',
-        center: ol.proj.fromLonLat([19.3956393810065, 47.168464955013], 'EPSG:900913'),
+        center: ol.proj.fromLonLat(
+          [19.3956393810065, 47.168464955013],
+          'EPSG:900913'
+        ),
         zoom: 7
       },
       layertree: {
-        layers: [{
-          name: 'OpenStreetMap layer',
-          layer: new ol.layer.Tile({
-            source: new ol.source.OSM()
-          })
-        }]
+        layers: [
+          {
+            name: 'OpenStreetMap layer',
+            layer: new ol.layer.Tile({
+              source: new ol.source.OSM()
+            })
+          }
+        ]
       }
     };
   }
@@ -56,8 +66,12 @@ export class MangolComponent implements OnInit {
     } else if (this.config && !this.config.hasOwnProperty('map')) {
       this.config.map = this.defaultMap;
     }
-    this.sidebarMode = this.config && this.config.hasOwnProperty('sidebar')
-      && this.config.sidebar.hasOwnProperty('mode') ? this.config.sidebar.mode : 'side';
+    this.sidebarMode =
+      this.config &&
+      this.config.hasOwnProperty('sidebar') &&
+      this.config.sidebar.hasOwnProperty('mode')
+        ? this.config.sidebar.mode
+        : 'side';
     try {
       this.isOpened = this.config.sidebar.opened;
     } catch (error) {
@@ -84,5 +98,4 @@ export class MangolComponent implements OnInit {
       this.map.updateSize();
     }, 0);
   }
-
 }

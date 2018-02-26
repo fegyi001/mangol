@@ -7,15 +7,8 @@ import { MangolMaterialModule } from '../_shared/material.module';
 import { MangolMeasureComponent } from './measure.component';
 
 @NgModule({
-  imports: [
-    CommonModule,
-    MangolMaterialModule
-  ],
-  exports: [
-    MangolMeasureComponent
-  ],
-  declarations: [
-    MangolMeasureComponent
-  ]
+  imports: [CommonModule, MangolMaterialModule],
+  exports: [MangolMeasureComponent],
+  declarations: [MangolMeasureComponent]
 })
-export class MangolMeasureModule { }
+export class MangolMeasureModule {}

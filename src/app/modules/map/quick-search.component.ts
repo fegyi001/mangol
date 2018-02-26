@@ -9,9 +9,8 @@ import { Observable } from 'rxjs/Observable';
 import { MangolMap } from '../../classes/map.class';
 import {
   MangolConfigMapControllerQuickSearch,
-  MangolConfigMapControllerQuickSearchItem,
+  MangolConfigMapControllerQuickSearchItem
 } from '../../interfaces/config-map-controllers.interface';
-
 
 @Component({
   selector: 'mangol-quick-search',
@@ -24,7 +23,9 @@ export class MangolQuickSearchComponent implements OnInit {
   @Input() opts: MangolConfigMapControllerQuickSearch;
 
   items: MangolConfigMapControllerQuickSearchItem[];
-  filteredOptionsObservable: Observable<MangolConfigMapControllerQuickSearchItem[]>;
+  filteredOptionsObservable: Observable<
+    MangolConfigMapControllerQuickSearchItem[]
+  >;
   filteredOptions: MangolConfigMapControllerQuickSearchItem[];
   placeholder: string;
   formControl: FormControl;
@@ -34,7 +35,9 @@ export class MangolQuickSearchComponent implements OnInit {
   }
 
   ngOnInit() {
-    this.placeholder = this.opts.hasOwnProperty('placeholder') ? this.opts.placeholder : 'Quicksearch';
+    this.placeholder = this.opts.hasOwnProperty('placeholder')
+      ? this.opts.placeholder
+      : 'Quicksearch';
     this.items = this.opts.hasOwnProperty('items') ? this.opts.items : [];
     this.filteredOptionsObservable = this.formControl.valueChanges
       .startWith('')
@@ -43,8 +46,10 @@ export class MangolQuickSearchComponent implements OnInit {
   }
 
   private _filter(val: string): MangolConfigMapControllerQuickSearchItem[] {
-    this.filteredOptions = this.items.filter((option: MangolConfigMapControllerQuickSearchItem) =>
-      option.text.toLowerCase().indexOf(val.toLowerCase()) === 0);
+    this.filteredOptions = this.items.filter(
+      (option: MangolConfigMapControllerQuickSearchItem) =>
+        option.text.toLowerCase().indexOf(val.toLowerCase()) === 0
+    );
     return this.filteredOptions;
   }
 
@@ -63,7 +68,9 @@ export class MangolQuickSearchComponent implements OnInit {
     }
   }
 
-  private _zoomToCoordinates(selected: MangolConfigMapControllerQuickSearchItem) {
+  private _zoomToCoordinates(
+    selected: MangolConfigMapControllerQuickSearchItem
+  ) {
     this.map.getView().animate({
       center: selected.coordinates
     });
@@ -74,5 +81,4 @@ export class MangolQuickSearchComponent implements OnInit {
       duration: 500
     });
   }
-
 }

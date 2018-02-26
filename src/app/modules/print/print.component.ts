@@ -26,18 +26,19 @@ export class MangolPrintComponent implements OnInit {
   selectedDim: string = null;
   selectedResolution: number = null;
 
-  constructor() {
-
-  }
+  constructor() {}
 
   public ngOnInit(): any {
-    this.layouts = [{
-      name: 'Landscape',
-      value: 'landscape'
-    }, {
-      name: 'Portrait',
-      value: 'portrait'
-    }];
+    this.layouts = [
+      {
+        name: 'Landscape',
+        value: 'landscape'
+      },
+      {
+        name: 'Portrait',
+        value: 'portrait'
+      }
+    ];
     this.resolutions = [72, 100, 150, 300];
     this.dims = {
       A5: [210, 148],
@@ -56,19 +57,29 @@ export class MangolPrintComponent implements OnInit {
     const format = this.selectedDim;
     const dim = this.dims[format];
     const resolution = this.selectedResolution;
-    const width = Math.round((layout.value === 'landscape' ? dim[0] : dim[1]) * resolution / 25.4);
-    const height = Math.round((layout.value === 'landscape' ? dim[1] : dim[0]) * resolution / 25.4);
+    const width = Math.round(
+      (layout.value === 'landscape' ? dim[0] : dim[1]) * resolution / 25.4
+    );
+    const height = Math.round(
+      (layout.value === 'landscape' ? dim[1] : dim[0]) * resolution / 25.4
+    );
     const size = map.getSize();
     const extent = map.getView().calculateExtent(size);
     map.once('postcompose', (event: any) => {
       let interval: any;
-      interval = setInterval(function () {
+      interval = setInterval(function() {
         clearInterval(interval);
         const canvas = event['context']['canvas'];
         const data = canvas.toDataURL('image/jpeg');
         const pdf = new jsPDF(layout.value, undefined, format);
-        pdf.addImage(data, 'JPEG', 0, 0,
-          (layout.value === 'landscape' ? dim[0] : dim[1]), (layout.value === 'landscape' ? dim[1] : dim[0]));
+        pdf.addImage(
+          data,
+          'JPEG',
+          0,
+          0,
+          layout.value === 'landscape' ? dim[0] : dim[1],
+          layout.value === 'landscape' ? dim[1] : dim[0]
+        );
         pdf.save('map.pdf');
         map.setSize(size);
         map.getView().fit(extent);
@@ -91,6 +102,4 @@ export class MangolPrintComponent implements OnInit {
   onResolutionChange(evt: MatSelectChange) {
     this.selectedResolution = evt.value;
   }
-
 }
-

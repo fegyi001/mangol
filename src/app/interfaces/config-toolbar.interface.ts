@@ -32,9 +32,7 @@ export interface MangolConfigMeasureItem extends MangolConfigToolbarItem {
   font?: string;
 }
 
-export interface MangolConfigPrintItem extends MangolConfigToolbarItem {
-
-}
+export interface MangolConfigPrintItem extends MangolConfigToolbarItem {}
 
 export interface MangolConfigFeatureInfoItem extends MangolConfigToolbarItem {
   maxFeatures?: number;

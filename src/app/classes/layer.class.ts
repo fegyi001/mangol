@@ -1,6 +1,8 @@
-import { MangolConfigLayer, MangolConfigLayerColumn } from '../interfaces/config-layers.inteface';
+import {
+  MangolConfigLayer,
+  MangolConfigLayerColumn
+} from '../interfaces/config-layers.inteface';
 export class MangolLayer {
-
   name: string;
   layer: any;
   opacity: number;
@@ -17,9 +19,15 @@ export class MangolLayer {
     this.layer = options.layer;
     this.setOpacity(options.hasOwnProperty('opacity') ? options.opacity : 1.0);
     this.setVisible(options.hasOwnProperty('visible') ? options.visible : true);
-    this.setDescription(options.hasOwnProperty('description') ? options.description : null);
-    this.setQueryable(options.hasOwnProperty('queryable') ? options.queryable : false);
-    this.setAttrColumns(options.hasOwnProperty('attrColumns') ? options.attrColumns : []);
+    this.setDescription(
+      options.hasOwnProperty('description') ? options.description : null
+    );
+    this.setQueryable(
+      options.hasOwnProperty('queryable') ? options.queryable : false
+    );
+    this.setAttrColumns(
+      options.hasOwnProperty('attrColumns') ? options.attrColumns : []
+    );
   }
 
   public getLayerVisibilityIcon() {
@@ -79,5 +87,4 @@ export class MangolLayer {
   public setAttrColumns(cols: MangolConfigLayerColumn[]) {
     this.attrColumns = cols;
   }
-
 }

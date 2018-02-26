@@ -1,11 +1,23 @@
 <div class="mangol-content">
-  <mat-sidenav-container>
-    <mat-sidenav #start *ngIf="config.sidebar && sidebarMode && map" align="start" (open)="updateMap()" (close)="isOpened=false"
-      (openedChange)="updateMap()" opened="{{isOpened}}" mode="{{sidebarMode}}" disableClose>
-      <mangol-sidebar [options]="config.sidebar" [map]="map">
-      </mangol-sidebar>
-    </mat-sidenav>
-    <mangol-map *ngIf="config.map" [config]="config" [mapService]="service" (mapCreated)="mapCreated($event)" (sidebarToggled)="sidebarToggled($event)">
-    </mangol-map>
-  </mat-sidenav-container>
+    <mat-sidenav-container>
+        <mat-sidenav #start
+            *ngIf="config.sidebar && sidebarMode && map"
+            align="start"
+            (open)="updateMap()"
+            (close)="isOpened=false"
+            (openedChange)="updateMap()"
+            opened="{{isOpened}}"
+            mode="{{sidebarMode}}"
+            disableClose>
+            <mangol-sidebar [options]="config.sidebar"
+                [map]="map">
+            </mangol-sidebar>
+        </mat-sidenav>
+        <mangol-map *ngIf="config.map"
+            [config]="config"
+            [mapService]="service"
+            (mapCreated)="mapCreated($event)"
+            (sidebarToggled)="sidebarToggled($event)">
+        </mangol-map>
+    </mat-sidenav-container>
 </div>

@@ -11,7 +11,7 @@ import {
   IterableDiffers,
   OnDestroy,
   OnInit,
-  Output,
+  Output
 } from '@angular/core';
 import { MatDialog } from '@angular/material';
 import { Observable } from 'rxjs/Observable';
@@ -26,7 +26,8 @@ import * as ol from 'openlayers';
   selector: 'mangol-feature-info-table',
   templateUrl: './feature-info-table.component.html'
 })
-export class MangolFeatureInfoTableComponent implements OnInit, DoCheck, OnDestroy {
+export class MangolFeatureInfoTableComponent
+  implements OnInit, DoCheck, OnDestroy {
   @HostBinding('class') class = 'mat-feature-info-table';
 
   @Input() features: ol.Feature[];
@@ -49,8 +50,7 @@ export class MangolFeatureInfoTableComponent implements OnInit, DoCheck, OnDestr
     this.excludeColumns = ['geometry'];
   }
 
-  ngOnInit() {
-  }
+  ngOnInit() {}
 
   ngDoCheck() {
     const changes = this.iterableDiffer.diff(this.features);
@@ -105,25 +105,20 @@ export class MangolFeatureInfoTableComponent implements OnInit, DoCheck, OnDestr
         data: data
       }
     });
-    dialogRef.afterClosed().subscribe(result => {
-    });
+    dialogRef.afterClosed().subscribe(result => {});
   }
 
   onRowClick(row: any, index: number) {
     this.featureSelected.emit(this.features[index]);
   }
-
 }
 
 let data: MangolFeatureInfoTableElement[] = [];
 
 export class MangolFeatureInfoTableDataSource extends DataSource<any> {
-
   connect(): Observable<MangolFeatureInfoTableElement[]> {
     return Observable.of(data);
   }
 
-  disconnect() { }
-
+  disconnect() {}
 }
-

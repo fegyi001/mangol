@@ -10,7 +10,6 @@ import * as ol from 'openlayers';
     `
 })
 export class DemoSidebarComponent implements OnInit {
-
   config = {} as MangolConfig;
 
   public ngOnInit(): any {
@@ -22,5 +21,4 @@ export class DemoSidebarComponent implements OnInit {
       }
     };
   }
-
 }

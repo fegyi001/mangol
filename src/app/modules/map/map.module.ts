@@ -27,7 +27,7 @@ import { MangolScaleLineComponent } from './scale-line.component';
     MangolMapComponent,
     MangolMousePositionComponent,
     MangolScaleLineComponent,
-    MangolQuickSearchComponent,
+    MangolQuickSearchComponent
   ]
 })
-export class MangolMapModule { }
+export class MangolMapModule {}

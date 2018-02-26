@@ -16,21 +16,9 @@ import { FeatureIntoService } from './feature-info.service';
     MangolFeatureInfoTableComponent,
     MangolFeatureInfoTableDialogComponent
   ],
-  imports: [
-    CommonModule,
-    MangolMaterialModule,
-    HttpModule
-  ],
-  exports: [
-    MangolFeatureInfoComponent,
-    MangolFeatureInfoTableComponent
-  ],
-  providers: [
-    FeatureIntoService
-  ],
-  entryComponents: [
-    MangolFeatureInfoTableDialogComponent
-  ]
+  imports: [CommonModule, MangolMaterialModule, HttpModule],
+  exports: [MangolFeatureInfoComponent, MangolFeatureInfoTableComponent],
+  providers: [FeatureIntoService],
+  entryComponents: [MangolFeatureInfoTableDialogComponent]
 })
-export class MangolFeatureInfoModule { }
-
+export class MangolFeatureInfoModule {}

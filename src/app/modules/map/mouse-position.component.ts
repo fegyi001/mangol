@@ -1,4 +1,10 @@
-import { Component, HostBinding, Input, OnDestroy, OnInit } from '@angular/core';
+import {
+  Component,
+  HostBinding,
+  Input,
+  OnDestroy,
+  OnInit
+} from '@angular/core';
 
 import { MangolMap } from '../../classes/map.class';
 import { MangolConfigMapControllerMousePosition } from '../../interfaces/config-map-controllers.interface';
@@ -22,7 +28,9 @@ export class MangolMousePositionComponent implements OnInit, OnDestroy {
   }
 
   ngOnInit() {
-    this.precision = this.opts.hasOwnProperty('precision') ? this.opts.precision : 2;
+    this.precision = this.opts.hasOwnProperty('precision')
+      ? this.opts.precision
+      : 2;
     this.coordinates = this._formatCoordinates(this.map.getView().getCenter());
     this.pointerMoveListener = this.map.on('pointermove', (evt: any) => {
       if (evt.dragging) {
@@ -45,5 +53,4 @@ export class MangolMousePositionComponent implements OnInit, OnDestroy {
     });
     return formattedCoords;
   }
-
 }

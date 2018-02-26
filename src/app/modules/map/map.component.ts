@@ -1,4 +1,12 @@
-import { AfterViewInit, Component, EventEmitter, HostBinding, Input, OnInit, Output } from '@angular/core';
+import {
+  AfterViewInit,
+  Component,
+  EventEmitter,
+  HostBinding,
+  Input,
+  OnInit,
+  Output
+} from '@angular/core';
 import { MatDialog } from '@angular/material';
 
 import { MangolMap } from '../../classes/map.class';
@@ -42,22 +50,32 @@ export class MangolMapComponent implements AfterViewInit, OnInit {
     }
   } as MangolConfig;
 
-  constructor(public dialog: MatDialog) {
-
-  }
+  constructor(public dialog: MatDialog) {}
 
   ngOnInit() {
-    this.sidebarOpened = this.config && this.config.hasOwnProperty('sidebar')
-      && this.config.sidebar.hasOwnProperty('opened') ? this.config.sidebar.opened : this.defaultConfig.sidebar.opened;
-    this.renderer = this.config && this.config.hasOwnProperty('map')
-      && this.config.map.hasOwnProperty('renderer') ? this.config.map.renderer : this.defaultConfig.map.renderer;
-    this.zoomDuration = this.config.map.view.zoomDuration || this.defaultConfig.map.view.zoomDuration;
+    this.sidebarOpened =
+      this.config &&
+      this.config.hasOwnProperty('sidebar') &&
+      this.config.sidebar.hasOwnProperty('opened')
+        ? this.config.sidebar.opened
+        : this.defaultConfig.sidebar.opened;
+    this.renderer =
+      this.config &&
+      this.config.hasOwnProperty('map') &&
+      this.config.map.hasOwnProperty('renderer')
+        ? this.config.map.renderer
+        : this.defaultConfig.map.renderer;
+    this.zoomDuration =
+      this.config.map.view.zoomDuration ||
+      this.defaultConfig.map.view.zoomDuration;
     this.view = new ol.View({
       projection: this.config.map.view.projection,
       center: this.config.map.view.center,
       zoom: this.config.map.view.zoom,
-      resolutions: (this.config.map.view && this.config.map.view.resolutions)
-        ? this.config.map.view.resolutions : this.defaultConfig.map.view.resolutions
+      resolutions:
+        this.config.map.view && this.config.map.view.resolutions
+          ? this.config.map.view.resolutions
+          : this.defaultConfig.map.view.resolutions
     });
   }
 
@@ -81,18 +99,25 @@ export class MangolMapComponent implements AfterViewInit, OnInit {
   }
 
   zoomIn(): void {
-    this.view.animate({ zoom: this.view.getZoom() + 1, duration: this.zoomDuration });
+    this.view.animate({
+      zoom: this.view.getZoom() + 1,
+      duration: this.zoomDuration
+    });
   }
 
   zoomOut(): void {
-    this.view.animate({ zoom: this.view.getZoom() - 1, duration: this.zoomDuration });
+    this.view.animate({
+      zoom: this.view.getZoom() - 1,
+      duration: this.zoomDuration
+    });
   }
 
   fullScreen(): void {
     // some parameters are needet to override: the map target and the fullScreen controller
     const confOverride = {
       map: {
-        ...this.config.map, target: this.config.map.target + '-dialog',
+        ...this.config.map,
+        target: this.config.map.target + '-dialog',
         controllers: { ...this.config.map.controllers, fullScreen: undefined }
       }
     } as MangolConfig;
@@ -108,5 +133,4 @@ export class MangolMapComponent implements AfterViewInit, OnInit {
     this.sidebarOpened = !this.sidebarOpened;
     this.sidebarToggled.emit();
   }
-
 }

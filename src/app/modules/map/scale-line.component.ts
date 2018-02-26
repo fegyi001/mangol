@@ -1,4 +1,10 @@
-import { AfterViewInit, Component, HostBinding, Input, OnInit } from '@angular/core';
+import {
+  AfterViewInit,
+  Component,
+  HostBinding,
+  Input,
+  OnInit
+} from '@angular/core';
 
 import { MangolMap } from '../../classes/map.class';
 import { MangolConfigMapControllerScaleLine } from './../../interfaces/config-map-controllers.interface';
@@ -17,8 +23,7 @@ export class MangolScaleLineComponent implements OnInit, AfterViewInit {
 
   target: string;
 
-  constructor() {
-  }
+  constructor() {}
 
   ngOnInit() {
     this.target = this.map.getTarget() + '-scale-line';
@@ -33,5 +38,4 @@ export class MangolScaleLineComponent implements OnInit, AfterViewInit {
       this.map.addControl(scaleLineControl);
     }, 0);
   }
-
 }

@@ -50,4 +50,4 @@ import { MangolModule } from './modules/mangol/mangol.module';
   ],
   bootstrap: [MangolDemoComponent]
 })
-export class MangolDemoModule { }
+export class MangolDemoModule {}

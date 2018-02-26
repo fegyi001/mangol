@@ -4,7 +4,6 @@ import { MangolConfig } from './../interfaces/config.interface';
 
 import * as ol from 'openlayers';
 
-
 @Component({
   selector: 'mangol-demo-measure',
   template: `
@@ -12,7 +11,6 @@ import * as ol from 'openlayers';
     `
 })
 export class DemoMeasureComponent implements OnInit {
-
   config = {} as MangolConfig;
 
   public ngOnInit(): any {
@@ -29,5 +27,4 @@ export class DemoMeasureComponent implements OnInit {
       }
     };
   }
-
 }

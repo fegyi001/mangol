@@ -1,7 +1,9 @@
 import { MangolLayer } from './layer.class';
-import { MangolConfigLayerGroup, MangolConfigLayer } from '../interfaces/config-layers.inteface';
+import {
+  MangolConfigLayerGroup,
+  MangolConfigLayer
+} from '../interfaces/config-layers.inteface';
 export class MangolLayergroup {
-
   options: MangolConfigLayerGroup;
   name: string;
   details: string;
@@ -26,7 +28,9 @@ export class MangolLayergroup {
         details.push(`${layerLength} layer${layerLength === 1 ? '' : 's'}`);
       }
       if (layerGroupLength > 0) {
-        details.push(`${layerGroupLength} layer group${layerGroupLength === 1 ? '' : 's'}`);
+        details.push(
+          `${layerGroupLength} layer group${layerGroupLength === 1 ? '' : 's'}`
+        );
       }
       this.details = details.join(', ');
     }
@@ -35,5 +39,4 @@ export class MangolLayergroup {
   public getName(): string {
     return this.name;
   }
-
 }

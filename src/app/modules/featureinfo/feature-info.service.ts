@@ -8,19 +8,17 @@ import { Observable } from 'rxjs/Observable';
 
 @Injectable()
 export class FeatureIntoService {
-
-  constructor(private http: Http) {
-
-  }
+  constructor(private http: Http) {}
 
   getFeatureInfo(url: string) {
     const headers = new Headers({
       'Content-Type': 'application/json'
     });
-    return this.http.get(url, {
-      headers: headers
-    }).map(
-      (response: Response) => {
+    return this.http
+      .get(url, {
+        headers: headers
+      })
+      .map((response: Response) => {
         const resp = response.json();
         return resp;
       })
@@ -29,5 +27,4 @@ export class FeatureIntoService {
         return Observable.throw(error);
       });
   }
-
 }

@@ -51,4 +51,4 @@ const materialModules: any[] = [
   imports: materialModules,
   exports: materialModules
 })
-export class MangolMaterialModule { }
+export class MangolMaterialModule {}
