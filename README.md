@@ -36,10 +36,10 @@ In the `example_project` folder there is a fully working implementation example.
 
 If you would like to use Mangol as an npm library in your Angular (TypeScript) project, you can also do that since [Mangol is on npm](https://www.npmjs.com/package/mangol) as well.
 
-First, add Mangol and Angular animations as dependencies to your project:
+First, add Mangol as a dependency to your project:
 
 ```batch
-npm install --save mangol @angular/animations
+npm install --save mangol
 ```
 
 You have to add to your `app.module.ts` (or whatever you call it in your project, the one that gets bootstrapped in main.ts)
@@ -107,7 +107,7 @@ You can further configure your Mangol component for example by adding a sidebar 
 
 ```typescript
 import { Component, OnInit } from '@angular/core';
-import MangolConfig from 'mangol/src/lib/interfaces/mangol-config.interface';
+import { MangolConfig } from 'mangol/src/app/interfaces/config.interface';
 import * as ol from 'openlayers';
 
 @Component({
@@ -185,7 +185,7 @@ In order to reach more functionality, you can access the MangolReady object, whi
 
 ```typescript
 import { Component } from '@angular/core';
-import MangolReady from 'mangol/src/lib/interfaces/mangol-ready.interface';
+import { MangolReady } from 'mangol/src/app/interfaces/ready.interface';
 
 @Component({
   selector: 'app-root',
