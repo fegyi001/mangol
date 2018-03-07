@@ -1,4 +1,10 @@
-import { Component, HostBinding, Input, OnDestroy, OnInit } from '@angular/core';
+import {
+  Component,
+  HostBinding,
+  Input,
+  OnDestroy,
+  OnInit
+} from '@angular/core';
 import { MatButtonToggleChange } from '@angular/material';
 import * as ol from 'openlayers';
 
@@ -189,7 +195,9 @@ export class MangolMeasureComponent implements OnInit, OnDestroy {
         break;
       case 'Circle':
         try {
-          value = parseFloat(geom.getRadius().toString()).toFixed(this.precision).toString();
+          value = parseFloat(geom.getRadius().toString())
+            .toFixed(this.precision)
+            .toString();
         } catch (error) {}
         break;
       default:
