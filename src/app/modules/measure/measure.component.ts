@@ -1,15 +1,9 @@
-import {
-  Component,
-  HostBinding,
-  Input,
-  OnDestroy,
-  OnInit
-} from '@angular/core';
+import { Component, HostBinding, Input, OnDestroy, OnInit } from '@angular/core';
 import { MatButtonToggleChange } from '@angular/material';
+import * as ol from 'openlayers';
 
 import { MangolMap } from '../../classes/map.class';
 import { MangolConfigMeasureItem } from '../../interfaces/config-toolbar.interface';
-import * as ol from 'openlayers';
 
 declare var $: any;
 export interface MeasureButton {
@@ -99,6 +93,13 @@ export class MangolMeasureComponent implements OnInit, OnDestroy {
         geometryType: 'Polygon',
         fontSet: 'ms',
         fontIcon: 'ms-measure-area'
+      },
+      {
+        title: 'Meesure radius',
+        value: 'radius',
+        geometryType: 'Circle',
+        fontSet: 'ms',
+        fontIcon: 'ms-geolocation'
       }
     ];
     this.layer = new ol.layer.Vector({
@@ -154,7 +155,7 @@ export class MangolMeasureComponent implements OnInit, OnDestroy {
   }
 
   getDimension() {
-    return this.selected.geometryType === 'LineString'
+    return this.selected.geometryType !== 'Polygon'
       ? `${this.units}`
       : `${this.units}&sup2;`;
   }
@@ -184,6 +185,11 @@ export class MangolMeasureComponent implements OnInit, OnDestroy {
           value = parseFloat(geom.getArea().toString())
             .toFixed(this.precision)
             .toString();
+        } catch (error) {}
+        break;
+      case 'Circle':
+        try {
+          value = parseFloat(geom.getRadius().toString()).toFixed(this.precision).toString();
         } catch (error) {}
         break;
       default:
