@@ -6,13 +6,7 @@
     "type": "git",
     "url": "https://github.com/fegyi001/mangol.git"
   },
-  "keywords": [
-    "mangol",
-    "angular",
-    "angular2",
-    "openlayers",
-    "ol"
-  ],
+  "keywords": ["mangol", "angular", "angular2", "openlayers", "ol"],
   "author": "Gergely Padányi-Gulyás",
   "bugs": {
     "url": "https://github.com/fegyi001/mangol/issues"
@@ -25,21 +19,22 @@
     "test": "ng test",
     "lint": "ng lint",
     "e2e": "ng e2e",
-    "packagr": "ng-packagr -p ng-package.json && rm -rf dist/example_project && cp -r src/assets dist/src && rm -rf dist/src/assets/img"
+    "packagr":
+      "ng-packagr -p ng-package.json && rm -rf dist/example_project && cp -r src/assets dist/src && rm -rf dist/src/assets/img"
   },
   "private": false,
   "dependencies": {
-    "@angular/animations": "5.2.7",
+    "@angular/animations": "5.2.8",
     "@angular/cdk": "5.2.4",
-    "@angular/common": "5.2.7",
-    "@angular/compiler": "5.2.7",
-    "@angular/core": "5.2.7",
-    "@angular/forms": "5.2.7",
-    "@angular/http": "5.2.7",
+    "@angular/common": "5.2.8",
+    "@angular/compiler": "5.2.8",
+    "@angular/core": "5.2.8",
+    "@angular/forms": "5.2.8",
+    "@angular/http": "5.2.8",
     "@angular/material": "5.2.4",
-    "@angular/platform-browser": "5.2.7",
-    "@angular/platform-browser-dynamic": "5.2.7",
-    "@angular/router": "5.2.7",
+    "@angular/platform-browser": "5.2.8",
+    "@angular/platform-browser-dynamic": "5.2.8",
+    "@angular/router": "5.2.8",
     "@types/jspdf": "1.1.31",
     "@types/openlayers": "4.6.2",
     "@types/proj4": "2.3.4",
@@ -55,9 +50,9 @@
     "zone.js": "0.8.20"
   },
   "devDependencies": {
-    "@angular/cli": "1.7.2",
-    "@angular/compiler-cli": "5.2.7",
-    "@angular/language-service": "5.2.7",
+    "@angular/cli": "1.7.3",
+    "@angular/compiler-cli": "5.2.8",
+    "@angular/language-service": "5.2.8",
     "@types/jasmine": "2.8.6",
     "@types/node": "9.4.6",
     "codelyzer": "4.2.1",
