@@ -5,7 +5,7 @@ yarn.lock
 /dist_demo
 /tmp
 /out-tsc
-.ng_pkg_build
+/.ng_pkg_build
 
 # dependencies
 /node_modules
