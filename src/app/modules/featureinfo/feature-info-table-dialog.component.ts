@@ -15,23 +15,20 @@ import { MangolFeatureInfoTableElement } from './feature-info-table-element.inte
   encapsulation: ViewEncapsulation.None
 })
 export class MangolFeatureInfoTableDialogComponent implements OnInit {
-
   dataSource = new MangolFeatureInfoTableDialogDataSource();
   columns: any[];
   layer: MangolLayer;
 
   constructor(
     public dialogRef: MatDialogRef<MangolFeatureInfoTableDialogComponent>,
-
-    @Inject(MAT_DIALOG_DATA) public myData: any) {
+    @Inject(MAT_DIALOG_DATA) public myData: any
+  ) {
     this.columns = myData.columns;
     this.layer = myData.layer;
     data = myData.data;
   }
 
-  ngOnInit() {
-
-  }
+  ngOnInit() {}
 
   getColumnLabel(column: string): string {
     let label = column;
@@ -44,17 +41,14 @@ export class MangolFeatureInfoTableDialogComponent implements OnInit {
     }
     return label;
   }
-
 }
 
 let data: MangolFeatureInfoTableElement[] = [];
 
 export class MangolFeatureInfoTableDialogDataSource extends DataSource<any> {
-
   connect(): Observable<MangolFeatureInfoTableElement[]> {
     return Observable.of(data);
   }
 
-  disconnect() { }
-
+  disconnect() {}
 }

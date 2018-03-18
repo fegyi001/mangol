@@ -1,4 +1,8 @@
-import { MangolConfigLayer, MangolConfigLayerGroup, MangolConfigLayertree } from '../interfaces/config-layers.inteface';
+import {
+  MangolConfigLayer,
+  MangolConfigLayerGroup,
+  MangolConfigLayertree
+} from '../interfaces/config-layers.inteface';
 import { MangolLayer } from './layer.class';
 import { MangolLayergroup } from './layergroup.class';
 
@@ -6,7 +10,6 @@ import * as ol from 'openlayers';
 // import Map from 'ol/map';
 
 export class MangolMap extends ol.Map {
-
   private _layers: MangolLayer[];
   private _layerGroups: MangolLayergroup[];
   private _allLayers: MangolLayer[];
@@ -18,7 +21,10 @@ export class MangolMap extends ol.Map {
     this._allLayers = [];
   }
 
-  public addLayersAndLayerGroups(layertree: MangolConfigLayertree, parent: MangolLayergroup): void {
+  public addLayersAndLayerGroups(
+    layertree: MangolConfigLayertree,
+    parent: MangolLayergroup
+  ): void {
     // console.log(layertree);
     if (layertree.hasOwnProperty('layers')) {
       layertree.layers.forEach((layer: MangolConfigLayer) => {
@@ -45,7 +51,10 @@ export class MangolMap extends ol.Map {
     this.addLayer(newLayer.getLayer());
   }
 
-  private _handleLayerGroup(group: MangolConfigLayerGroup, parent: MangolLayergroup) {
+  private _handleLayerGroup(
+    group: MangolConfigLayerGroup,
+    parent: MangolLayergroup
+  ) {
     const newLayerGroup = new MangolLayergroup(group);
     // if the parent is null then it is the root element
     if (parent === null) {
@@ -71,5 +80,4 @@ export class MangolMap extends ol.Map {
   public getMangolAllLayers(): MangolLayer[] {
     return this._allLayers;
   }
-
 }

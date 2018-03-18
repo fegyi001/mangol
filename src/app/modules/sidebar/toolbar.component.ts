@@ -1,13 +1,22 @@
-import { Component, EventEmitter, HostBinding, Input, OnInit, Output } from '@angular/core';
+import {
+  Component,
+  EventEmitter,
+  HostBinding,
+  Input,
+  OnInit,
+  Output
+} from '@angular/core';
 
-import { MangolConfigToolbar, MangolConfigToolbarItem } from '../../interfaces/config-toolbar.interface';
+import {
+  MangolConfigToolbar,
+  MangolConfigToolbarItem
+} from '../../interfaces/config-toolbar.interface';
 
 @Component({
   selector: 'mangol-toolbar',
   templateUrl: './toolbar.component.html'
 })
 export class MangolToolbarComponent implements OnInit {
-
   @HostBinding('class') class = 'mangol-toolbar';
 
   @Input() options: MangolConfigToolbar;
@@ -38,7 +47,9 @@ export class MangolToolbarComponent implements OnInit {
         type: 'featureinfo',
         title: obj.hasOwnProperty('title') ? obj.title : 'Feature info',
         fontSet: obj.hasOwnProperty('fontSet') ? obj.fontSet : 'ms',
-        fontIcon: obj.hasOwnProperty('fontIcon') ? obj.fontIcon : 'ms-information',
+        fontIcon: obj.hasOwnProperty('fontIcon')
+          ? obj.fontIcon
+          : 'ms-information',
         active: obj.hasOwnProperty('active') ? obj.active : true,
         disabled: obj.hasOwnProperty('disabled') ? obj.disabled : false
       });
@@ -49,7 +60,9 @@ export class MangolToolbarComponent implements OnInit {
         type: 'measure',
         title: obj.hasOwnProperty('title') ? obj.title : 'Measure',
         fontSet: obj.hasOwnProperty('fontSet') ? obj.fontSet : 'ms',
-        fontIcon: obj.hasOwnProperty('fontIcon') ? obj.fontIcon : 'ms-measure-distance',
+        fontIcon: obj.hasOwnProperty('fontIcon')
+          ? obj.fontIcon
+          : 'ms-measure-distance',
         active: obj.hasOwnProperty('active') ? obj.active : true,
         disabled: obj.hasOwnProperty('disabled') ? obj.disabled : false
       });
@@ -67,7 +80,10 @@ export class MangolToolbarComponent implements OnInit {
     }
     // set active the first active element
     for (let i = 0; i < this.elements.length; i++) {
-      if (this.elements[i].active === true && this.elements[i].disabled === false) {
+      if (
+        this.elements[i].active === true &&
+        this.elements[i].disabled === false
+      ) {
         this.activateElement(this.elements[i]);
         break;
       }
@@ -84,5 +100,4 @@ export class MangolToolbarComponent implements OnInit {
       }
     }
   }
-
 }

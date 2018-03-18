@@ -5,12 +5,7 @@
     "baseUrl": "./",
     "module": "es2015",
     "skipLibCheck": true,
-    "types": [
-      "openlayers"
-    ]
+    "types": ["openlayers"]
   },
-  "exclude": [
-    "test.ts",
-    "**/*.spec.ts"
-  ]
+  "exclude": ["test.ts", "**/*.spec.ts"]
 }

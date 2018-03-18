@@ -1,9 +1,15 @@
-import { Component, HostBinding, Input, OnDestroy, OnInit } from '@angular/core';
+import {
+  Component,
+  HostBinding,
+  Input,
+  OnDestroy,
+  OnInit
+} from '@angular/core';
 import { MatButtonToggleChange } from '@angular/material';
+import * as ol from 'openlayers';
 
 import { MangolMap } from '../../classes/map.class';
 import { MangolConfigMeasureItem } from '../../interfaces/config-toolbar.interface';
-import * as ol from 'openlayers';
 
 declare var $: any;
 export interface MeasureButton {
@@ -46,30 +52,62 @@ export class MangolMeasureComponent implements OnInit, OnDestroy {
 
   ngOnInit() {
     // Read user-defined parameters
-    this.precision = this.opts && this.opts.hasOwnProperty('precision') ? this.opts.precision : 2;
-    this.cursorStyle = this.opts && this.opts.hasOwnProperty('cursorStyle') ? this.opts.cursorStyle : 'crosshair';
-    this.fillColor = this.opts && this.opts.hasOwnProperty('fillColor') ? this.opts.fillColor : [255, 255, 255, 0.5];
-    this.strokeColor = this.opts && this.opts.hasOwnProperty('strokeColor') ? this.opts.strokeColor : [72, 72, 72, 1];
-    this.textColor = this.opts && this.opts.hasOwnProperty('textColor')
-      ? this.opts.textColor : [this.strokeColor[0], this.strokeColor[1], this.strokeColor[2], 1];
-    this.textOutlineColor = this.opts && this.opts.hasOwnProperty('textOutlineColor')
-      ? this.opts.textOutlineColor : [this.fillColor[0], this.fillColor[1], this.fillColor[2], 0.7];
-    this.font = this.opts && this.opts.hasOwnProperty('font') ? this.opts.font : 'normal 14px Arial';
+    this.precision =
+      this.opts && this.opts.hasOwnProperty('precision')
+        ? this.opts.precision
+        : 2;
+    this.cursorStyle =
+      this.opts && this.opts.hasOwnProperty('cursorStyle')
+        ? this.opts.cursorStyle
+        : 'crosshair';
+    this.fillColor =
+      this.opts && this.opts.hasOwnProperty('fillColor')
+        ? this.opts.fillColor
+        : [255, 255, 255, 0.5];
+    this.strokeColor =
+      this.opts && this.opts.hasOwnProperty('strokeColor')
+        ? this.opts.strokeColor
+        : [72, 72, 72, 1];
+    this.textColor =
+      this.opts && this.opts.hasOwnProperty('textColor')
+        ? this.opts.textColor
+        : [this.strokeColor[0], this.strokeColor[1], this.strokeColor[2], 1];
+    this.textOutlineColor =
+      this.opts && this.opts.hasOwnProperty('textOutlineColor')
+        ? this.opts.textOutlineColor
+        : [this.fillColor[0], this.fillColor[1], this.fillColor[2], 0.7];
+    this.font =
+      this.opts && this.opts.hasOwnProperty('font')
+        ? this.opts.font
+        : 'normal 14px Arial';
 
-    this.units = this.map.getView().getProjection().getUnits();
-    this.buttons = [{
-      title: 'Measure distance',
-      value: 'line',
-      geometryType: 'LineString',
-      fontSet: 'ms',
-      fontIcon: 'ms-measure-distance'
-    }, {
-      title: 'Measure area',
-      value: 'area',
-      geometryType: 'Polygon',
-      fontSet: 'ms',
-      fontIcon: 'ms-measure-area'
-    }];
+    this.units = this.map
+      .getView()
+      .getProjection()
+      .getUnits();
+    this.buttons = [
+      {
+        title: 'Measure distance',
+        value: 'line',
+        geometryType: 'LineString',
+        fontSet: 'ms',
+        fontIcon: 'ms-measure-distance'
+      },
+      {
+        title: 'Measure area',
+        value: 'area',
+        geometryType: 'Polygon',
+        fontSet: 'ms',
+        fontIcon: 'ms-measure-area'
+      },
+      {
+        title: 'Meesure radius',
+        value: 'radius',
+        geometryType: 'Circle',
+        fontSet: 'ms',
+        fontIcon: 'ms-geolocation'
+      }
+    ];
     this.layer = new ol.layer.Vector({
       source: new ol.source.Vector(),
       style: (feature: ol.Feature) => {
@@ -119,12 +157,13 @@ export class MangolMeasureComponent implements OnInit, OnDestroy {
     this.layer.getSource().clear();
     try {
       this.map.removeInteraction(this.draw);
-    } catch (error) {
-    }
+    } catch (error) {}
   }
 
   getDimension() {
-    return this.selected.geometryType === 'LineString' ? `${this.units}` : `${this.units}&sup2;`;
+    return this.selected.geometryType !== 'Polygon'
+      ? `${this.units}`
+      : `${this.units}&sup2;`;
   }
 
   private _setCursor(cursorType: string) {
@@ -142,13 +181,24 @@ export class MangolMeasureComponent implements OnInit, OnDestroy {
     switch (this.selected.geometryType) {
       case 'LineString':
         try {
-          value = parseFloat(geom.getLength().toString()).toFixed(this.precision).toString();
-        } catch (error) { }
+          value = parseFloat(geom.getLength().toString())
+            .toFixed(this.precision)
+            .toString();
+        } catch (error) {}
         break;
       case 'Polygon':
         try {
-          value = parseFloat(geom.getArea().toString()).toFixed(this.precision).toString();
-        } catch (error) { }
+          value = parseFloat(geom.getArea().toString())
+            .toFixed(this.precision)
+            .toString();
+        } catch (error) {}
+        break;
+      case 'Circle':
+        try {
+          value = parseFloat(geom.getRadius().toString())
+            .toFixed(this.precision)
+            .toString();
+        } catch (error) {}
         break;
       default:
         break;
@@ -160,33 +210,35 @@ export class MangolMeasureComponent implements OnInit, OnDestroy {
   }
 
   private _getStyle(feature: ol.Feature): ol.style.Style[] {
-    return [new ol.style.Style({
-      fill: new ol.style.Fill({
-        color: this.fillColor
-      })
-    }), new ol.style.Style({
-      stroke: new ol.style.Stroke({
-        color: this.strokeColor,
-        width: 2,
-        lineDash: [5, 5]
-      }),
-      text: new ol.style.Text({
-        textAlign: 'center',
-        textBaseline: 'middle',
-        text: this._getLengthOrArea(feature),
-        font: this.font,
+    return [
+      new ol.style.Style({
         fill: new ol.style.Fill({
-          color: this.textColor
-        }),
-        offsetX: 0,
-        offsetY: 0,
-        rotation: 0,
+          color: this.fillColor
+        })
+      }),
+      new ol.style.Style({
         stroke: new ol.style.Stroke({
-          color: this.textOutlineColor,
-          width: 3
+          color: this.strokeColor,
+          width: 2,
+          lineDash: [5, 5]
         }),
+        text: new ol.style.Text({
+          textAlign: 'center',
+          textBaseline: 'middle',
+          text: this._getLengthOrArea(feature),
+          font: this.font,
+          fill: new ol.style.Fill({
+            color: this.textColor
+          }),
+          offsetX: 0,
+          offsetY: 0,
+          rotation: 0,
+          stroke: new ol.style.Stroke({
+            color: this.textOutlineColor,
+            width: 3
+          })
+        })
       })
-    })];
+    ];
   }
-
 }

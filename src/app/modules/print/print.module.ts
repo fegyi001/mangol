@@ -15,12 +15,7 @@ import { MangolPrintComponent } from './print.component';
     FormsModule,
     ReactiveFormsModule
   ],
-  exports: [
-    MangolPrintComponent
-  ],
-  declarations: [
-    MangolPrintComponent,
-    KeysPipe
-  ]
+  exports: [MangolPrintComponent],
+  declarations: [MangolPrintComponent, KeysPipe]
 })
-export class MangolPrintModule { }
+export class MangolPrintModule {}

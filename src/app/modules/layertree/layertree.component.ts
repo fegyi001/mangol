@@ -26,11 +26,10 @@ export class MangolLayertreeComponent implements OnInit {
   setMenuActive(type: string, layer: MangolLayer) {
     layer.detailType = type;
     layer.showDetails = true;
-  };
+  }
 
   hideDetails(layer: MangolLayer) {
     layer.detailType = null;
     layer.showDetails = false;
   }
-
 }

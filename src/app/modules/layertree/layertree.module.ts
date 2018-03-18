@@ -8,17 +8,8 @@ import { MangolLayerDetailsComponent } from './layer-details.component';
 import { MangolLayertreeComponent } from './layertree.component';
 
 @NgModule({
-  imports: [
-    CommonModule,
-    MangolMaterialModule
-  ],
-  exports: [
-    MangolLayertreeComponent,
-    MangolLayerDetailsComponent
-  ],
-  declarations: [
-    MangolLayertreeComponent,
-    MangolLayerDetailsComponent
-  ]
+  imports: [CommonModule, MangolMaterialModule],
+  exports: [MangolLayertreeComponent, MangolLayerDetailsComponent],
+  declarations: [MangolLayertreeComponent, MangolLayerDetailsComponent]
 })
-export class MangolLayertreeModule { }
+export class MangolLayertreeModule {}

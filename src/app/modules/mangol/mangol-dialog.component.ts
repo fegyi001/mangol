@@ -11,13 +11,12 @@ export class MangolDialogComponent implements AfterViewInit {
 
   config: MangolConfig;
 
-  constructor(public dialogRef: MatDialogRef<MangolDialogComponent>,
-    @Inject(MAT_DIALOG_DATA) public data: any) {
+  constructor(
+    public dialogRef: MatDialogRef<MangolDialogComponent>,
+    @Inject(MAT_DIALOG_DATA) public data: any
+  ) {
     this.config = this.data.config;
   }
 
-  ngAfterViewInit() {
-
-  }
-
+  ngAfterViewInit() {}
 }

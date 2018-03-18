@@ -1,13 +1,22 @@
-<button mat-button color="primary" (click)="openTableDialog()" class="full-screen-button">
+<button mat-button
+    color="primary"
+    (click)="openTableDialog()"
+    class="full-screen-button">
   <mat-icon>open_in_new</mat-icon>
   Open full screen table</button>
 <div class="table-container mat-elevation-z2">
-  <mat-table #table [dataSource]="dataSource">
-    <ng-container *ngFor="let column of displayedColumns" [matColumnDef]="column ">
-      <mat-header-cell *matHeaderCellDef> {{getColumnLabel(column)}} </mat-header-cell>
-      <mat-cell *matCellDef="let element"> {{element[column]}} </mat-cell>
-    </ng-container>
-    <mat-header-row *matHeaderRowDef="displayedColumns"></mat-header-row>
-    <mat-row *matRowDef="let row; columns: displayedColumns; let i=index;" [ngStyle]="{'cursor': 'pointer'}" (click)="onRowClick(row, i)" [matTooltip]="'Tap to show feature on map'" matTooltipPosition="after"></mat-row>
-  </mat-table>
+    <mat-table #table
+        [dataSource]="dataSource">
+        <ng-container *ngFor="let column of displayedColumns"
+            [matColumnDef]="column ">
+            <mat-header-cell *matHeaderCellDef> {{getColumnLabel(column)}} </mat-header-cell>
+            <mat-cell *matCellDef="let element"> {{element[column]}} </mat-cell>
+        </ng-container>
+        <mat-header-row *matHeaderRowDef="displayedColumns"></mat-header-row>
+        <mat-row *matRowDef="let row; columns: displayedColumns; let i=index;"
+            [ngStyle]="{'cursor': 'pointer'}"
+            (click)="onRowClick(row, i)"
+            [matTooltip]="'Tap to show feature on map'"
+            matTooltipPosition="after"></mat-row>
+    </mat-table>
 </div>

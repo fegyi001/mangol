@@ -36,5 +36,4 @@ export class MangolMapService {
   addMap(map: MangolMap): void {
     this.maps.push(map);
   }
-
 }

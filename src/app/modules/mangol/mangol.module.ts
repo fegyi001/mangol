@@ -16,17 +16,8 @@ import { MangolComponent } from './mangol.component';
     MangolMapModule,
     MangolSidebarModule
   ],
-  declarations: [
-    MangolComponent,
-    MangolDialogComponent
-  ],
-  exports: [
-    MangolComponent,
-    MangolDialogComponent
-  ],
-  entryComponents: [
-    MangolDialogComponent
-  ]
-
+  declarations: [MangolComponent, MangolDialogComponent],
+  exports: [MangolComponent, MangolDialogComponent],
+  entryComponents: [MangolDialogComponent]
 })
-export class MangolModule { }
+export class MangolModule {}
