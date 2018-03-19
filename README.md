@@ -214,6 +214,4 @@ This project is still under heavy development. In the near future I intend to ad
 
 Any donations are highly appreciated.
 
-[![paypal](https://www.paypalobjects.com/en_US/i/btn/btn_donateCC_LG.gif)](fegyi001@gmail.com)
-
-[![Donate](https://img.shields.io/badge/Donate-PayPal-green.svg)](fegyi001@gmail.com)
+[![](https://www.paypalobjects.com/en_US/i/btn/btn_donateCC_LG.gif)](https://www.paypal.com/cgi-bin/webscr?cmd=_s-xclick&hosted_button_id=B2UD7P4XL963G)
