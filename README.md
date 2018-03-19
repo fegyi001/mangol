@@ -214,4 +214,6 @@ This project is still under heavy development. In the near future I intend to ad
 
 Any donations are highly appreciated.
 
-<a href='https://pledgie.com/campaigns/35128'><img alt='Click here to lend your support to: Mangol and make a donation at pledgie.com !' src='https://pledgie.com/campaigns/35128.png?skin_name=chrome' border='0' ></a>
+[![paypal](https://www.paypalobjects.com/en_US/i/btn/btn_donateCC_LG.gif)](fegyi001@gmail.com)
+
+[![Donate](https://img.shields.io/badge/Donate-PayPal-green.svg)](fegyi001@gmail.com)
