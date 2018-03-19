@@ -6,13 +6,7 @@
     "type": "git",
     "url": "https://github.com/fegyi001/mangol.git"
   },
-  "keywords": [
-    "mangol",
-    "angular",
-    "angular2",
-    "openlayers",
-    "ol"
-  ],
+  "keywords": ["mangol", "angular", "angular2", "openlayers", "ol"],
   "author": "Gergely Padányi-Gulyás",
   "bugs": {
     "url": "https://github.com/fegyi001/mangol/issues"
@@ -25,7 +19,8 @@
     "test": "ng test",
     "lint": "ng lint",
     "e2e": "ng e2e",
-    "packagr": "ng-packagr -p ng-package.json && rm -rf dist/example_project && cp -r src/assets dist/src && rm -rf dist/src/assets/img"
+    "packagr":
+      "ng-packagr -p ng-package.json && rm -rf dist/example_project && cp -r src/assets dist/src && rm -rf dist/src/assets/img"
   },
   "private": false,
   "dependencies": {
@@ -47,8 +42,8 @@
     "hammerjs": "2.0.8",
     "jquery": "3.3.1",
     "jspdf": "1.3.5",
-    "ol": "4.6.4",
-    "openlayers": "4.6.4",
+    "ol": "4.6.5",
+    "openlayers": "4.6.5",
     "proj4": "2.4.4",
     "rxjs": "5.5.6",
     "ts-helpers": "1.1.2",
