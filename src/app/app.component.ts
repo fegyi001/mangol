@@ -6,7 +6,7 @@ import {
   OnDestroy,
   OnInit
 } from '@angular/core';
-import { RouterOutlet } from '@angular/router';
+import { Router, RouterOutlet } from '@angular/router';
 import { Subscription } from 'rxjs/Subscription';
 
 import { routeStateTrigger } from './app.animations';
@@ -31,8 +31,13 @@ export class MangolDemoComponent implements OnInit, DoCheck, OnDestroy {
   logo: string;
   sidebarOpened: boolean;
   sidebarOpenedSubscription: Subscription;
+  activeRouteData: string;
 
-  constructor(private cdr: ChangeDetectorRef, private appService: AppService) {
+  constructor(
+    private cdr: ChangeDetectorRef,
+    private appService: AppService,
+    private router: Router
+  ) {
     this.sidebarOpenedSubscription = this.appService.sidebarOpenedSubject.subscribe(
       opened => {
         if (opened !== null) {
@@ -96,10 +101,21 @@ export class MangolDemoComponent implements OnInit, DoCheck, OnDestroy {
   }
 
   getAnimationData(outlet: RouterOutlet) {
+    let activeRouteData: string = null;
     const routeData = outlet.activatedRouteData['animation'];
     if (!routeData) {
-      return 'homePage';
+      activeRouteData = '/homePage';
+    } else {
+      activeRouteData = '/' + routeData['page'];
     }
-    return routeData['page'];
+    this.activeRouteData = activeRouteData;
+    return this.activeRouteData;
+  }
+
+  navigate(item: MangolDemoItem) {
+    if (window.innerWidth <= 500) {
+      this.appService.sidebarOpenedSubject.next(false);
+    }
+    this.router.navigate([item.link]);
   }
 }

@@ -33,9 +33,8 @@
         [opened]="sidebarOpened">
         <h1>Modules</h1>
         <mat-card *ngFor="let item of items"
-            [routerLink]="item.link"
-            routerLinkActive="active"
-            [routerLinkActiveOptions]="{ exact: true }">{{item.title}} </mat-card>
+            [ngClass]="{'active': activeRouteData === item.link}"
+            (click)="navigate(item)">{{item.title}} </mat-card>
     </mat-drawer>
     <div class="demo-sidenav-content"
         [@routeState]="getAnimationData(rOutlet)">

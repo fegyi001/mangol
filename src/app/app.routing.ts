@@ -21,47 +21,47 @@ const appRoutes: Routes = [
   {
     path: 'demo-home',
     component: DemoHomeComponent,
-    data: { animation: { page: 'homePage' } }
+    data: { animation: { page: 'demo-home' } }
   },
   {
     path: 'demo-map',
     component: DemoMapComponent,
-    data: { animation: { page: 'mapPage' } }
+    data: { animation: { page: 'demo-map' } }
   },
   {
     path: 'demo-map-controllers',
     component: DemoMapControllersComponent,
-    data: { animation: { page: 'controllersPage' } }
+    data: { animation: { page: 'demo-map-controllers' } }
   },
   {
     path: 'demo-sidebar',
     component: DemoSidebarComponent,
-    data: { animation: { page: 'sidebarPage' } }
+    data: { animation: { page: 'demo-sidebar' } }
   },
   {
     path: 'demo-layertree',
     component: DemoLayertreeComponent,
-    data: { animation: { page: 'layertreePage' } }
+    data: { animation: { page: 'demo-layertree' } }
   },
   {
     path: 'demo-featureinfo',
     component: DemoFeatureInfoComponent,
-    data: { animation: { page: 'featureinfoPage' } }
+    data: { animation: { page: 'demo-featureinfo' } }
   },
   {
     path: 'demo-print',
     component: DemoPrintComponent,
-    data: { animation: { page: 'printPage' } }
+    data: { animation: { page: 'demo-print' } }
   },
   {
     path: 'demo-measure',
     component: DemoMeasureComponent,
-    data: { animation: { page: 'measurePage' } }
+    data: { animation: { page: 'demo-measure' } }
   },
   {
     path: 'demo-full',
     component: DemoFullComponent,
-    data: { animation: { page: 'fullPage' } }
+    data: { animation: { page: 'demo-full' } }
   }
 ];
 
