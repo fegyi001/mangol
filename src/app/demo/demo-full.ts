@@ -1,7 +1,9 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, OnDestroy, OnInit } from '@angular/core';
 import * as ol from 'openlayers';
+import { Subscription } from 'rxjs/Subscription';
 
 import { MangolMapService } from '../services/map.service';
+import { AppService } from './../app.service';
 import { MangolConfig } from './../interfaces/config.interface';
 import { MangolReady } from './../interfaces/ready.interface';
 
@@ -14,7 +16,9 @@ declare var proj4: any;
       <mangol-pretty-print [code]="snippet"></mangol-pretty-print>
     `
 })
-export class DemoFullComponent implements OnInit {
+export class DemoFullComponent implements OnInit, OnDestroy {
+  sidebarOpenedSubscription: Subscription;
+
   config = {} as MangolConfig;
   snippet = `
   import { Component, OnInit } from '@angular/core';
@@ -238,6 +242,8 @@ export class DemoFullComponent implements OnInit {
 
   mapService: MangolMapService;
 
+  constructor(private appService: AppService) {}
+
   public ngOnInit() {
     proj4.defs(
       'EPSG:23700',
@@ -432,9 +438,25 @@ export class DemoFullComponent implements OnInit {
     };
   }
 
+  ngOnDestroy() {
+    if (this.sidebarOpenedSubscription) {
+      this.sidebarOpenedSubscription.unsubscribe();
+    }
+  }
+
   onMapReady(evt: MangolReady) {
     this.mapService = evt.mapService;
     console.log('Mangol is ready. Here is your MangolReady event:');
     console.log(evt);
+    this.sidebarOpenedSubscription = this.appService.sidebarOpenedSubject.subscribe(
+      opened => {
+        if (opened !== null) {
+          const map = evt.mapService.getMaps()[0];
+          setTimeout(() => {
+            map.updateSize();
+          }, 500);
+        }
+      }
+    );
   }
 }

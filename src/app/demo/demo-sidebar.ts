@@ -1,9 +1,9 @@
 import { Component, OnDestroy, OnInit } from '@angular/core';
 import { Subscription } from 'rxjs/Subscription';
 
-import { MangolReady } from '../../../dist/src/app/interfaces/ready.interface';
 import { AppService } from './../app.service';
 import { MangolConfig } from './../interfaces/config.interface';
+import { MangolReady } from './../interfaces/ready.interface';
 
 @Component({
   selector: 'mangol-demo-sidebar',
