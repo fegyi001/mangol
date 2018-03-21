@@ -1,14 +1,16 @@
-import { routeStateTrigger } from './app.animations';
 import {
-  Component,
-  OnInit,
-  AfterViewInit,
   ChangeDetectionStrategy,
   ChangeDetectorRef,
-  DoCheck
+  Component,
+  DoCheck,
+  OnDestroy,
+  OnInit
 } from '@angular/core';
-
 import { RouterOutlet } from '@angular/router';
+import { Subscription } from 'rxjs/Subscription';
+
+import { routeStateTrigger } from './app.animations';
+import { AppService } from './app.service';
 
 export interface MangolDemoItem {
   link: string;
@@ -24,13 +26,21 @@ declare var window: any;
   animations: [routeStateTrigger],
   changeDetection: ChangeDetectionStrategy.OnPush
 })
-export class MangolDemoComponent implements OnInit, AfterViewInit, DoCheck {
+export class MangolDemoComponent implements OnInit, DoCheck, OnDestroy {
   items: MangolDemoItem[];
   logo: string;
-  sidebarOpened = false;
+  sidebarOpened: boolean;
+  sidebarOpenedSubscription: Subscription;
 
-  constructor(private cdr: ChangeDetectorRef) {
-    this.sidebarOpened = window.innerWidth > 500;
+  constructor(private cdr: ChangeDetectorRef, private appService: AppService) {
+    this.sidebarOpenedSubscription = this.appService.sidebarOpenedSubject.subscribe(
+      opened => {
+        if (opened !== null) {
+          this.sidebarOpened = opened;
+        }
+      }
+    );
+    this.appService.sidebarOpenedSubject.next(window.innerWidth > 500);
   }
 
   ngOnInit() {
@@ -71,16 +81,18 @@ export class MangolDemoComponent implements OnInit, AfterViewInit, DoCheck {
     ];
   }
 
-  ngAfterViewInit() {
-    // console.log(window.innerWidth);
-  }
-
   ngDoCheck() {
     this.cdr.detectChanges();
   }
 
+  ngOnDestroy() {
+    if (this.sidebarOpenedSubscription) {
+      this.sidebarOpenedSubscription.unsubscribe();
+    }
+  }
+
   toggleSidebar() {
-    this.sidebarOpened = !this.sidebarOpened;
+    this.appService.sidebarOpenedSubject.next(!this.sidebarOpened);
   }
 
   getAnimationData(outlet: RouterOutlet) {

@@ -1,16 +1,20 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, OnDestroy, OnInit } from '@angular/core';
 import * as ol from 'openlayers';
+import { Subscription } from 'rxjs/Subscription';
 
+import { MangolReady } from '../../../dist/src/app/interfaces/ready.interface';
+import { AppService } from './../app.service';
 import { MangolConfig } from './../interfaces/config.interface';
 
 @Component({
   selector: 'mangol-demo-map-controllers',
   template: `
-      <mangol [config]="config"></mangol>
+      <mangol [config]="config" (mapReady)="onMapReady($event)"></mangol>
       <mangol-pretty-print [code]="snippet"></mangol-pretty-print>
     `
 })
-export class DemoMapControllersComponent implements OnInit {
+export class DemoMapControllersComponent implements OnInit, OnDestroy {
+  sidebarOpenedSubscription: Subscription;
   config = {} as MangolConfig;
   projection = 'EPSG:900913';
   snippet = `
@@ -18,6 +22,8 @@ export class DemoMapControllersComponent implements OnInit {
   import * as ol from 'openlayers';
 
   import { MangolConfig } from 'mangol';
+import { Subscription } from 'rxjs/Subscription';
+import { MangolReady } from 'mangol/src/app/interfaces/ready.interface';
 
   @Component({
     selector: 'mangol-demo-map-controllers',
@@ -82,6 +88,8 @@ export class DemoMapControllersComponent implements OnInit {
   }
 `;
 
+  constructor(private appService: AppService) {}
+
   public ngOnInit(): any {
     this.config = {
       map: {
@@ -133,5 +141,24 @@ export class DemoMapControllersComponent implements OnInit {
         }
       }
     };
+  }
+
+  ngOnDestroy() {
+    if (this.sidebarOpenedSubscription) {
+      this.sidebarOpenedSubscription.unsubscribe();
+    }
+  }
+
+  onMapReady(evt: MangolReady) {
+    this.sidebarOpenedSubscription = this.appService.sidebarOpenedSubject.subscribe(
+      opened => {
+        if (opened !== null) {
+          const map = evt.mapService.getMaps()[0];
+          setTimeout(() => {
+            map.updateSize();
+          }, 500);
+        }
+      }
+    );
   }
 }

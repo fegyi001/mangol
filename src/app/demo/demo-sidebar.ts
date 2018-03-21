@@ -1,15 +1,20 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, OnDestroy, OnInit } from '@angular/core';
+import { Subscription } from 'rxjs/Subscription';
 
+import { MangolReady } from '../../../dist/src/app/interfaces/ready.interface';
+import { AppService } from './../app.service';
 import { MangolConfig } from './../interfaces/config.interface';
 
 @Component({
   selector: 'mangol-demo-sidebar',
   template: `
-    <mangol [config] = "config"></mangol>
+    <mangol [config]="config" (mapReady)="onMapReady($event)"></mangol>
     <mangol-pretty-print [code]="snippet"></mangol-pretty-print>
   `
 })
-export class DemoSidebarComponent implements OnInit {
+export class DemoSidebarComponent implements OnInit, OnDestroy {
+  sidebarOpenedSubscription: Subscription;
+
   snippet = `
   import { Component, OnInit } from '@angular/core';
 
@@ -38,6 +43,27 @@ export class DemoSidebarComponent implements OnInit {
   `;
 
   config = {} as MangolConfig;
+
+  constructor(private appService: AppService) {}
+
+  ngOnDestroy() {
+    if (this.sidebarOpenedSubscription) {
+      this.sidebarOpenedSubscription.unsubscribe();
+    }
+  }
+
+  onMapReady(evt: MangolReady) {
+    this.sidebarOpenedSubscription = this.appService.sidebarOpenedSubject.subscribe(
+      opened => {
+        if (opened !== null) {
+          const map = evt.mapService.getMaps()[0];
+          setTimeout(() => {
+            map.updateSize();
+          }, 500);
+        }
+      }
+    );
+  }
 
   public ngOnInit(): any {
     this.config = {
