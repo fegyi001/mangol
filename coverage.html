@@ -46,7 +46,7 @@
                                     </a>
                                 </li>
                                 <li class="link">
-                                  <a href="./index.html"  class="active" ><span class="fa fa-file-text-o"></span>README</a>
+                                  <a href="./index.html" ><span class="fa fa-file-text-o"></span>README</a>
                                 </li>
                                 <li class="link">
                                         <a href="./license.html"
@@ -382,7 +382,7 @@
             
             
                     <li class="chapter">
-                        <a data-type="chapter-link" href="./coverage.html" ><span class="fa fa-fw fa-tasks"></span>Documentation coverage</a>
+                        <a data-type="chapter-link" href="./coverage.html"  class="active" ><span class="fa fa-fw fa-tasks"></span>Documentation coverage</a>
                     </li>
             
                     <li class="divider"></li>
@@ -427,7 +427,7 @@
                                            </a>
                                        </li>
                                        <li class="link">
-                                         <a href="./index.html"  class="active" ><span class="fa fa-file-text-o"></span>README</a>
+                                         <a href="./index.html" ><span class="fa fa-file-text-o"></span>README</a>
                                        </li>
                                        <li class="link">
                                                <a href="./license.html"
@@ -763,7 +763,7 @@
                    
                    
                            <li class="chapter">
-                               <a data-type="chapter-link" href="./coverage.html" ><span class="fa fa-fw fa-tasks"></span>Documentation coverage</a>
+                               <a data-type="chapter-link" href="./coverage.html"  class="active" ><span class="fa fa-fw fa-tasks"></span>Documentation coverage</a>
                            </li>
                    
                            <li class="divider"></li>
@@ -777,143 +777,9 @@
                    
                    </nav>
                </div>
-               <div class="content getting-started">
+               <div class="content coverage">
                    <div class="content-data">
 
-<h1 id="mangol">Mangol</h1>
-<blockquote>
-<p>Maps created with Angular &amp; OpenLayers using Material design</p>
-</blockquote>
-<p><img src="./src/assets/img/logo/mangol_logo.png" width="200"></p>
-<p><a href="https://gitter.im/mangol_official/Lobby?utm_source=badge&amp;utm_medium=badge&amp;utm_campaign=pr-badge&amp;utm_content=badge"><img src="https://badges.gitter.im/mangol_official/Lobby.svg" alt="Join the chat at https://gitter.im/mangol_official/Lobby" class="img-responsive"></a></p>
-<p><a href="https://david-dm.org/fegyi001/mangol"><img src="https://david-dm.org/fegyi001/mangol.svg" alt="Dependency Status" class="img-responsive"></a>
-<a href="https://david-dm.org/fegyi001/mangol#info=devDependencies"><img src="https://david-dm.org/fegyi001/mangol/dev-status.svg" alt="devDependency Status" class="img-responsive"></a></p>
-<h2 id="about-mangol">About Mangol</h2>
-<p>Mangol is an open source library for combining <a href="https://angular.io/">Angular</a>, <a href="https://material.angular.io/">Angular Material</a> and <a href="https://openlayers.org/">OpenLayers</a> to create a modern, responsive interactive GUI for web maps (_M_ stands for <em>Material</em>, <em>ang</em> for <em>Angular</em> and _ol_ for <em>OpenLayers</em>). The project has been created using <a href="https://cli.angular.io/">@angular/cli</a>, a command-line tool for Angular projects. The project is written in TypeScript and uses SCSS for styling. The packaging is done via <a href="https://webpack.github.io/">Webpack module bundler</a>.</p>
-<p>Formerly, Mangol was called <code>ng2ol3</code> and was based on SystemJS and without angular-cli.</p>
-<h2 id="install">Install</h2>
-<p><a href="https://nodejs.org/en/download/">Node.js with npm</a> is required. The preferenced version of Node.js is 8.x.x, the preferenced version of npm is 5.x.x. After <code>git clone</code>, navigate to the main directory and run <code>npm install</code> to download all dependencies. If you prefer Yarn, you can also run <code>yarn install</code> instead.
-You also need angular-cli to build or run the project. To install (globally) the compatible version on your machine, run <code>npm install -g @angular/cli</code> in your terminal.</p>
-<h2 id="live-example">Live example</h2>
-<p>An online example can be opened <a href="http://188.166.116.137/mangol">here</a>.</p>
-<h2 id="use-as-source">Use as source</h2>
-<p>If you wish to see the built-in demos or modify the source files, simply run <code>ng serve</code> to load the demo page on <code>localhost:4200</code>. With this command you can also watch file changes until you shut it down.</p>
-<h2 id="implementation-example">Implementation example</h2>
-<p>In the <code>example_project</code> folder there is a fully working implementation example. Copy it anywhere on your machine, run <code>npm install</code> (or <code>yarn install</code>) and <code>ng serve</code> from that directory to see a full page Mangol app.</p>
-<h2 id="use-as-npm-library">Use as npm library</h2>
-<p>If you would like to use Mangol as an npm library in your Angular (TypeScript) project, you can also do that since <a href="https://www.npmjs.com/package/mangol">Mangol is on npm</a> as well.</p>
-<p>First, add Mangol as a dependency to your project:</p>
-<pre class="line-numbers"><code class="language-batch">npm install --save mangol</code></pre><p>You have to add to your <code>app.module.ts</code> (or whatever you call it in your project, the one that gets bootstrapped in main.ts)</p>
-<pre class="line-numbers"><code class="language-typescript">import { BrowserAnimationsModule } from &#39;&#64;angular/platform-browser/animations&#39;;
-import { MangolModule } from &#39;mangol&#39;;</code></pre><p>And in @NgModule add MangolModule and BrowserAnimationsModule to the imports:</p>
-<pre class="line-numbers"><code class="language-typescript">imports: [
-    ...,
-    BrowserAnimationsModule,
-    MangolModule,
-    ...
-]</code></pre><p>It is highly recommended to add some vendor js files. If you use Webpack and created your project with @angular/cli, add the following libraries to your <code>angular-cli.json</code>:</p>
-<pre class="line-numbers"><code class="language-json">&quot;scripts&quot;: [
-    &quot;../node_modules/openlayers/dist/ol.js&quot;,
-    &quot;../node_modules/proj4/dist/proj4.js&quot;,
-    &quot;../node_modules/jspdf/dist/jspdf.min.js&quot;,
-    &quot;../node_modules/jquery/dist/jquery.min.js&quot;
-]</code></pre><p>If you use SystemJS add the files above in a regular way to your index.html (with script tags).</p>
-<p>At the beginning of your main SCSS file, you should import mangol.scss like this:</p>
-<pre class="line-numbers"><code class="language-scss">&#64;import &#39;~mangol/src/assets/scss/mangol&#39;;</code></pre><p>After that, you can use Mangol html tags in your templates such as</p>
-<pre class="line-numbers"><code class="language-html">&lt;mangol&gt;&lt;/mangol&gt;</code></pre><h2 id="basic-example">Basic example</h2>
-<p>This is the simplest implementation of Mangol in a component (this will create a default map with zoom buttons and with one OpenStreetMap layer) :</p>
-<pre class="line-numbers"><code class="language-typescript">import { Component } from &#39;&#64;angular/core&#39;;
-
-&#64;Component({
-  selector: &#39;app&#39;,
-  template: `
-      &lt;mangol&gt;&lt;/mangol&gt;
-    `
-})
-export class AppComponent {}</code></pre><h2 id="configuring-the-component">Configuring the component</h2>
-<p>You can further configure your Mangol component for example by adding a sidebar and a layertree like this (for more examples, see the src/app/demos folder, for all possible configuration settings examine the /src/app/demos/demo-full.ts file):</p>
-<pre class="line-numbers"><code class="language-typescript">import { Component, OnInit } from &#39;&#64;angular/core&#39;;
-import { MangolConfig } from &#39;mangol&#39;;
-import * as ol from &#39;openlayers&#39;;
-
-&#64;Component({
-  selector: &#39;app&#39;,
-  template: `
-      &lt;mangol [config]=&quot;config&quot;&gt;&lt;/mangol&gt;
-    `
-})
-export class AppComponent implements OnInit {
-  // Notice the MangolConfig type, this  is a helper interface to easily fill out the required and optional parameters for your Mangol configuration.
-  config = {} as MangolConfig;
-
-  public ngOnInit(): any {
-    this.config = {
-      map: {
-        renderer: &#39;canvas&#39;,
-        target: &#39;mangol-map&#39;,
-        view: {
-          projection: &#39;EPSG:900913&#39;,
-          center: ol.proj.fromLonLat([19.39563, 47.16846], &#39;EPSG:900913&#39;),
-          zoom: 7
-        },
-        layertree: {
-          layers: [
-            {
-              name: &#39;OpenStreetMap layer&#39;,
-              layer: new ol.layer.Tile({
-                source: new ol.source.OSM()
-              })
-            }
-          ],
-          groups: []
-        }
-      },
-      sidebar: {
-        collapsible: true,
-        opened: true,
-        toolbar: {
-          layertree: {}
-        }
-      }
-    };
-  }
-}</code></pre><h2 id="styling">Styling</h2>
-<p>Mangol uses Material components and therefore it supports some SCSS customization. For example if you wish to alter the default colors, you can easily do that by overwriting the primary, accent and warn Material palettes <b>before</b> importing mangol.scss. Do it like this:</p>
-<pre class="line-numbers"><code class="language-scss">&#64;import &#39;~&#64;angular/material/theming&#39;;
-&#64;include mat-core();
-$mangol-primary: mat-palette($mat-teal);
-$mangol-accent: mat-palette($mat-lime);
-$mangol-warn: mat-palette($mat-deep-orange);
-$mangol-theme: mat-light-theme($mangol-primary, $mangol-accent, $mangol-warn);
-
-&#64;import &#39;~mangol/src/assets/scss/mangol&#39;;</code></pre><p>If you wish to set the component height, sidebar width or the quicksearch panel width, also do it before importing mangol.scss:</p>
-<pre class="line-numbers"><code class="language-scss">$mangol-height: 400px;
-$mangol-sidebar-width: 450px;
-$mangol-quicksearch-width: 250px;
-
-&#64;import &#39;~mangol/src/assets/scss/mangol&#39;;</code></pre><h2 id="more-hooks">More hooks</h2>
-<p>In order to reach more functionality, you can access the MangolReady object, which returns your MangolConfig and the MangolMapService instance. This latter stores the map(s) and some helper functions. All you have to do is use the &#39;mapReady&#39; output on your &#39;mangol&#39; component. With that you can extend your app quite easily:</p>
-<pre class="line-numbers"><code class="language-typescript">import { Component } from &#39;&#64;angular/core&#39;;
-import { MangolReady } from &#39;mangol&#39;;
-
-&#64;Component({
-  selector: &#39;app-root&#39;,
-  template: `&lt;mangol (mapReady)=&quot;onMapReady($event)&quot;&gt;&lt;/mangol&gt;`
-})
-export class AppComponent {
-  title = &#39;app works!&#39;;
-
-  onMapReady(evt: MangolReady) {
-    console.log(evt);
-  }
-}</code></pre><h2 id="present-future">Present &amp; Future</h2>
-<p>This project is still under heavy development. In the near future I intend to add/extend other widgets. More examples will arrive as soon as the project becomes smarter. Any notice, remarks or pull requests are appreciated.</p>
-<p><img src="src/assets/img/screenshots/screenshot-0.6.8.png" alt="demo" class="img-responsive"></p>
-<h2 id="author">Author</h2>
-<p><code>Mangol</code> was created by <a href="mailto:fegyi001@gmail.com">Gergely Padányi-Gulyás</a></p>
-<h2 id="donations">Donations</h2>
-<p>Any donations are highly appreciated.</p>
-<p><a href="https://www.paypal.com/cgi-bin/webscr?cmd=_s-xclick&amp;hosted_button_id=B2UD7P4XL963G"><img src="https://www.paypalobjects.com/en_US/i/btn/btn_donateCC_LG.gif" alt="" class="img-responsive"></a></p>
 
 
 
@@ -927,7 +793,1198 @@ export class AppComponent {
 
 
 
+<ol class="breadcrumb">
+  <li>Documentation coverage</li>
+</ol>
 
+<img src="./images/coverage-badge.svg">
+
+<table class="table table-bordered coverage" id="coverage-table">
+    <thead class="coverage-header">
+        <tr>
+            <th>File</th>
+            <th>Type</th>
+            <th>Identifier</th>
+            <th style="text-align:right" class="statements" data-sort-default>Statements</th>
+        </tr>
+    </thead>
+    <tbody>
+        <tr class="low">
+            <td>
+                <!-- miscellaneous -->
+                    <a href="./components/MangolDemoComponent.html">src/app/app.component.ts</a>
+            </td>
+            <td>
+                component
+            </td>
+            <td>
+                MangolDemoComponent
+            </td>
+            <td align="right" data-sort="0">
+                <span class="coverage-percent">0 %</span>
+                <span class="coverage-count">(0/5)</span>
+            </td>
+        </tr>
+        <tr class="low">
+            <td>
+                <!-- miscellaneous -->
+                    <a href="./interfaces/MangolDemoItem.html">src/app/app.component.ts</a>
+            </td>
+            <td>
+                interface
+            </td>
+            <td>
+                MangolDemoItem
+            </td>
+            <td align="right" data-sort="0">
+                <span class="coverage-percent">0 %</span>
+                <span class="coverage-count">(0/3)</span>
+            </td>
+        </tr>
+        <tr class="low">
+            <td>
+                <!-- miscellaneous -->
+                    <a href="./classes/MangolLayer.html">src/app/classes/layer.class.ts</a>
+            </td>
+            <td>
+                class
+            </td>
+            <td>
+                MangolLayer
+            </td>
+            <td align="right" data-sort="0">
+                <span class="coverage-percent">0 %</span>
+                <span class="coverage-count">(0/25)</span>
+            </td>
+        </tr>
+        <tr class="low">
+            <td>
+                <!-- miscellaneous -->
+                    <a href="./classes/MangolLayergroup.html">src/app/classes/layergroup.class.ts</a>
+            </td>
+            <td>
+                class
+            </td>
+            <td>
+                MangolLayergroup
+            </td>
+            <td align="right" data-sort="0">
+                <span class="coverage-percent">0 %</span>
+                <span class="coverage-count">(0/9)</span>
+            </td>
+        </tr>
+        <tr class="low">
+            <td>
+                <!-- miscellaneous -->
+                    <a href="./classes/MangolMap.html">src/app/classes/map.class.ts</a>
+            </td>
+            <td>
+                class
+            </td>
+            <td>
+                MangolMap
+            </td>
+            <td align="right" data-sort="0">
+                <span class="coverage-percent">0 %</span>
+                <span class="coverage-count">(0/11)</span>
+            </td>
+        </tr>
+        <tr class="low">
+            <td>
+                <!-- miscellaneous -->
+                    <a href="./components/DemoFeatureInfoComponent.html">src/app/demo/demo-featureinfo.ts</a>
+            </td>
+            <td>
+                component
+            </td>
+            <td>
+                DemoFeatureInfoComponent
+            </td>
+            <td align="right" data-sort="0">
+                <span class="coverage-percent">0 %</span>
+                <span class="coverage-count">(0/4)</span>
+            </td>
+        </tr>
+        <tr class="low">
+            <td>
+                <!-- miscellaneous -->
+                    <a href="./miscellaneous/variables.html#proj4">src/app/demo/demo-featureinfo.ts</a>
+            </td>
+            <td>
+                variable
+            </td>
+            <td>
+                proj4
+            </td>
+            <td align="right" data-sort="0">
+                <span class="coverage-percent">0 %</span>
+                <span class="coverage-count">(0/1)</span>
+            </td>
+        </tr>
+        <tr class="low">
+            <td>
+                <!-- miscellaneous -->
+                    <a href="./components/DemoFullComponent.html">src/app/demo/demo-full.ts</a>
+            </td>
+            <td>
+                component
+            </td>
+            <td>
+                DemoFullComponent
+            </td>
+            <td align="right" data-sort="0">
+                <span class="coverage-percent">0 %</span>
+                <span class="coverage-count">(0/6)</span>
+            </td>
+        </tr>
+        <tr class="low">
+            <td>
+                <!-- miscellaneous -->
+                    <a href="./miscellaneous/variables.html#proj4">src/app/demo/demo-full.ts</a>
+            </td>
+            <td>
+                variable
+            </td>
+            <td>
+                proj4
+            </td>
+            <td align="right" data-sort="0">
+                <span class="coverage-percent">0 %</span>
+                <span class="coverage-count">(0/1)</span>
+            </td>
+        </tr>
+        <tr class="low">
+            <td>
+                <!-- miscellaneous -->
+                    <a href="./components/DemoHomeComponent.html">src/app/demo/demo-home.component.ts</a>
+            </td>
+            <td>
+                component
+            </td>
+            <td>
+                DemoHomeComponent
+            </td>
+            <td align="right" data-sort="0">
+                <span class="coverage-percent">0 %</span>
+                <span class="coverage-count">(0/5)</span>
+            </td>
+        </tr>
+        <tr class="low">
+            <td>
+                <!-- miscellaneous -->
+                    <a href="./components/DemoLayertreeComponent.html">src/app/demo/demo-layertree.ts</a>
+            </td>
+            <td>
+                component
+            </td>
+            <td>
+                DemoLayertreeComponent
+            </td>
+            <td align="right" data-sort="0">
+                <span class="coverage-percent">0 %</span>
+                <span class="coverage-count">(0/4)</span>
+            </td>
+        </tr>
+        <tr class="low">
+            <td>
+                <!-- miscellaneous -->
+                    <a href="./miscellaneous/variables.html#proj4">src/app/demo/demo-layertree.ts</a>
+            </td>
+            <td>
+                variable
+            </td>
+            <td>
+                proj4
+            </td>
+            <td align="right" data-sort="0">
+                <span class="coverage-percent">0 %</span>
+                <span class="coverage-count">(0/1)</span>
+            </td>
+        </tr>
+        <tr class="low">
+            <td>
+                <!-- miscellaneous -->
+                    <a href="./components/DemoMapControllersComponent.html">src/app/demo/demo-map-controllers.ts</a>
+            </td>
+            <td>
+                component
+            </td>
+            <td>
+                DemoMapControllersComponent
+            </td>
+            <td align="right" data-sort="0">
+                <span class="coverage-percent">0 %</span>
+                <span class="coverage-count">(0/5)</span>
+            </td>
+        </tr>
+        <tr class="low">
+            <td>
+                <!-- miscellaneous -->
+                    <a href="./components/DemoMapComponent.html">src/app/demo/demo-map.ts</a>
+            </td>
+            <td>
+                component
+            </td>
+            <td>
+                DemoMapComponent
+            </td>
+            <td align="right" data-sort="0">
+                <span class="coverage-percent">0 %</span>
+                <span class="coverage-count">(0/2)</span>
+            </td>
+        </tr>
+        <tr class="low">
+            <td>
+                <!-- miscellaneous -->
+                    <a href="./components/DemoMeasureComponent.html">src/app/demo/demo-measure.ts</a>
+            </td>
+            <td>
+                component
+            </td>
+            <td>
+                DemoMeasureComponent
+            </td>
+            <td align="right" data-sort="0">
+                <span class="coverage-percent">0 %</span>
+                <span class="coverage-count">(0/4)</span>
+            </td>
+        </tr>
+        <tr class="low">
+            <td>
+                <!-- miscellaneous -->
+                    <a href="./components/DemoPrintComponent.html">src/app/demo/demo-print.ts</a>
+            </td>
+            <td>
+                component
+            </td>
+            <td>
+                DemoPrintComponent
+            </td>
+            <td align="right" data-sort="0">
+                <span class="coverage-percent">0 %</span>
+                <span class="coverage-count">(0/4)</span>
+            </td>
+        </tr>
+        <tr class="low">
+            <td>
+                <!-- miscellaneous -->
+                    <a href="./components/DemoSidebarComponent.html">src/app/demo/demo-sidebar.ts</a>
+            </td>
+            <td>
+                component
+            </td>
+            <td>
+                DemoSidebarComponent
+            </td>
+            <td align="right" data-sort="0">
+                <span class="coverage-percent">0 %</span>
+                <span class="coverage-count">(0/4)</span>
+            </td>
+        </tr>
+        <tr class="low">
+            <td>
+                <!-- miscellaneous -->
+                    <a href="./components/PrettyPrintComponent.html">src/app/demo/pretty-print/pretty-print.component.ts</a>
+            </td>
+            <td>
+                component
+            </td>
+            <td>
+                PrettyPrintComponent
+            </td>
+            <td align="right" data-sort="0">
+                <span class="coverage-percent">0 %</span>
+                <span class="coverage-count">(0/5)</span>
+            </td>
+        </tr>
+        <tr class="low">
+            <td>
+                <!-- miscellaneous -->
+                    <a href="./miscellaneous/variables.html#PR">src/app/demo/pretty-print/pretty-print.component.ts</a>
+            </td>
+            <td>
+                variable
+            </td>
+            <td>
+                PR
+            </td>
+            <td align="right" data-sort="0">
+                <span class="coverage-percent">0 %</span>
+                <span class="coverage-count">(0/1)</span>
+            </td>
+        </tr>
+        <tr class="low">
+            <td>
+                <!-- miscellaneous -->
+                    <a href="./interfaces/MangolConfigLayer.html">src/app/interfaces/config-layers.inteface.ts</a>
+            </td>
+            <td>
+                interface
+            </td>
+            <td>
+                MangolConfigLayer
+            </td>
+            <td align="right" data-sort="0">
+                <span class="coverage-percent">0 %</span>
+                <span class="coverage-count">(0/8)</span>
+            </td>
+        </tr>
+        <tr class="low">
+            <td>
+                <!-- miscellaneous -->
+                    <a href="./interfaces/MangolConfigLayerColumn.html">src/app/interfaces/config-layers.inteface.ts</a>
+            </td>
+            <td>
+                interface
+            </td>
+            <td>
+                MangolConfigLayerColumn
+            </td>
+            <td align="right" data-sort="0">
+                <span class="coverage-percent">0 %</span>
+                <span class="coverage-count">(0/3)</span>
+            </td>
+        </tr>
+        <tr class="low">
+            <td>
+                <!-- miscellaneous -->
+                    <a href="./interfaces/MangolConfigLayerGroup.html">src/app/interfaces/config-layers.inteface.ts</a>
+            </td>
+            <td>
+                interface
+            </td>
+            <td>
+                MangolConfigLayerGroup
+            </td>
+            <td align="right" data-sort="0">
+                <span class="coverage-percent">0 %</span>
+                <span class="coverage-count">(0/4)</span>
+            </td>
+        </tr>
+        <tr class="low">
+            <td>
+                <!-- miscellaneous -->
+                    <a href="./interfaces/MangolConfigLayertree.html">src/app/interfaces/config-layers.inteface.ts</a>
+            </td>
+            <td>
+                interface
+            </td>
+            <td>
+                MangolConfigLayertree
+            </td>
+            <td align="right" data-sort="0">
+                <span class="coverage-percent">0 %</span>
+                <span class="coverage-count">(0/3)</span>
+            </td>
+        </tr>
+        <tr class="low">
+            <td>
+                <!-- miscellaneous -->
+                    <a href="./interfaces/MangolConfigMapControllerFullScreen.html">src/app/interfaces/config-map-controllers.interface.ts</a>
+            </td>
+            <td>
+                interface
+            </td>
+            <td>
+                MangolConfigMapControllerFullScreen
+            </td>
+            <td align="right" data-sort="0">
+                <span class="coverage-percent">0 %</span>
+                <span class="coverage-count">(0/1)</span>
+            </td>
+        </tr>
+        <tr class="low">
+            <td>
+                <!-- miscellaneous -->
+                    <a href="./interfaces/MangolConfigMapControllerMousePosition.html">src/app/interfaces/config-map-controllers.interface.ts</a>
+            </td>
+            <td>
+                interface
+            </td>
+            <td>
+                MangolConfigMapControllerMousePosition
+            </td>
+            <td align="right" data-sort="0">
+                <span class="coverage-percent">0 %</span>
+                <span class="coverage-count">(0/2)</span>
+            </td>
+        </tr>
+        <tr class="low">
+            <td>
+                <!-- miscellaneous -->
+                    <a href="./interfaces/MangolConfigMapControllerQuickSearch.html">src/app/interfaces/config-map-controllers.interface.ts</a>
+            </td>
+            <td>
+                interface
+            </td>
+            <td>
+                MangolConfigMapControllerQuickSearch
+            </td>
+            <td align="right" data-sort="0">
+                <span class="coverage-percent">0 %</span>
+                <span class="coverage-count">(0/3)</span>
+            </td>
+        </tr>
+        <tr class="low">
+            <td>
+                <!-- miscellaneous -->
+                    <a href="./interfaces/MangolConfigMapControllerQuickSearchItem.html">src/app/interfaces/config-map-controllers.interface.ts</a>
+            </td>
+            <td>
+                interface
+            </td>
+            <td>
+                MangolConfigMapControllerQuickSearchItem
+            </td>
+            <td align="right" data-sort="0">
+                <span class="coverage-percent">0 %</span>
+                <span class="coverage-count">(0/5)</span>
+            </td>
+        </tr>
+        <tr class="low">
+            <td>
+                <!-- miscellaneous -->
+                    <a href="./interfaces/MangolConfigMapControllerScaleLine.html">src/app/interfaces/config-map-controllers.interface.ts</a>
+            </td>
+            <td>
+                interface
+            </td>
+            <td>
+                MangolConfigMapControllerScaleLine
+            </td>
+            <td align="right" data-sort="0">
+                <span class="coverage-percent">0 %</span>
+                <span class="coverage-count">(0/2)</span>
+            </td>
+        </tr>
+        <tr class="low">
+            <td>
+                <!-- miscellaneous -->
+                    <a href="./interfaces/MangolConfigMapControllers.html">src/app/interfaces/config-map-controllers.interface.ts</a>
+            </td>
+            <td>
+                interface
+            </td>
+            <td>
+                MangolConfigMapControllers
+            </td>
+            <td align="right" data-sort="0">
+                <span class="coverage-percent">0 %</span>
+                <span class="coverage-count">(0/5)</span>
+            </td>
+        </tr>
+        <tr class="low">
+            <td>
+                <!-- miscellaneous -->
+                    <a href="./interfaces/MangolConfigMap.html">src/app/interfaces/config-map.interface.ts</a>
+            </td>
+            <td>
+                interface
+            </td>
+            <td>
+                MangolConfigMap
+            </td>
+            <td align="right" data-sort="0">
+                <span class="coverage-percent">0 %</span>
+                <span class="coverage-count">(0/6)</span>
+            </td>
+        </tr>
+        <tr class="low">
+            <td>
+                <!-- miscellaneous -->
+                    <a href="./interfaces/MangolConfigMapMousePosition.html">src/app/interfaces/config-map.interface.ts</a>
+            </td>
+            <td>
+                interface
+            </td>
+            <td>
+                MangolConfigMapMousePosition
+            </td>
+            <td align="right" data-sort="0">
+                <span class="coverage-percent">0 %</span>
+                <span class="coverage-count">(0/1)</span>
+            </td>
+        </tr>
+        <tr class="low">
+            <td>
+                <!-- miscellaneous -->
+                    <a href="./interfaces/MangolConfigSidebar.html">src/app/interfaces/config-sidebar.interface.ts</a>
+            </td>
+            <td>
+                interface
+            </td>
+            <td>
+                MangolConfigSidebar
+            </td>
+            <td align="right" data-sort="0">
+                <span class="coverage-percent">0 %</span>
+                <span class="coverage-count">(0/5)</span>
+            </td>
+        </tr>
+        <tr class="low">
+            <td>
+                <!-- miscellaneous -->
+                    <a href="./interfaces/MangolConfigFeatureInfoItem.html">src/app/interfaces/config-toolbar.interface.ts</a>
+            </td>
+            <td>
+                interface
+            </td>
+            <td>
+                MangolConfigFeatureInfoItem
+            </td>
+            <td align="right" data-sort="0">
+                <span class="coverage-percent">0 %</span>
+                <span class="coverage-count">(0/7)</span>
+            </td>
+        </tr>
+        <tr class="low">
+            <td>
+                <!-- miscellaneous -->
+                    <a href="./interfaces/MangolConfigLayertreeItem.html">src/app/interfaces/config-toolbar.interface.ts</a>
+            </td>
+            <td>
+                interface
+            </td>
+            <td>
+                MangolConfigLayertreeItem
+            </td>
+            <td align="right" data-sort="0">
+                <span class="coverage-percent">0 %</span>
+                <span class="coverage-count">(0/3)</span>
+            </td>
+        </tr>
+        <tr class="low">
+            <td>
+                <!-- miscellaneous -->
+                    <a href="./interfaces/MangolConfigMeasureItem.html">src/app/interfaces/config-toolbar.interface.ts</a>
+            </td>
+            <td>
+                interface
+            </td>
+            <td>
+                MangolConfigMeasureItem
+            </td>
+            <td align="right" data-sort="0">
+                <span class="coverage-percent">0 %</span>
+                <span class="coverage-count">(0/8)</span>
+            </td>
+        </tr>
+        <tr class="low">
+            <td>
+                <!-- miscellaneous -->
+                    <a href="./interfaces/MangolConfigPrintItem.html">src/app/interfaces/config-toolbar.interface.ts</a>
+            </td>
+            <td>
+                interface
+            </td>
+            <td>
+                MangolConfigPrintItem
+            </td>
+            <td align="right" data-sort="0">
+                <span class="coverage-percent">0 %</span>
+                <span class="coverage-count">(0/1)</span>
+            </td>
+        </tr>
+        <tr class="low">
+            <td>
+                <!-- miscellaneous -->
+                    <a href="./interfaces/MangolConfigToolbar.html">src/app/interfaces/config-toolbar.interface.ts</a>
+            </td>
+            <td>
+                interface
+            </td>
+            <td>
+                MangolConfigToolbar
+            </td>
+            <td align="right" data-sort="0">
+                <span class="coverage-percent">0 %</span>
+                <span class="coverage-count">(0/5)</span>
+            </td>
+        </tr>
+        <tr class="low">
+            <td>
+                <!-- miscellaneous -->
+                    <a href="./interfaces/MangolConfigToolbarItem.html">src/app/interfaces/config-toolbar.interface.ts</a>
+            </td>
+            <td>
+                interface
+            </td>
+            <td>
+                MangolConfigToolbarItem
+            </td>
+            <td align="right" data-sort="0">
+                <span class="coverage-percent">0 %</span>
+                <span class="coverage-count">(0/6)</span>
+            </td>
+        </tr>
+        <tr class="low">
+            <td>
+                <!-- miscellaneous -->
+                    <a href="./interfaces/MangolConfigToolbarLayertreeDetails.html">src/app/interfaces/config-toolbar.interface.ts</a>
+            </td>
+            <td>
+                interface
+            </td>
+            <td>
+                MangolConfigToolbarLayertreeDetails
+            </td>
+            <td align="right" data-sort="0">
+                <span class="coverage-percent">0 %</span>
+                <span class="coverage-count">(0/3)</span>
+            </td>
+        </tr>
+        <tr class="low">
+            <td>
+                <!-- miscellaneous -->
+                    <a href="./interfaces/MangolConfigView.html">src/app/interfaces/config-view.interface.ts</a>
+            </td>
+            <td>
+                interface
+            </td>
+            <td>
+                MangolConfigView
+            </td>
+            <td align="right" data-sort="0">
+                <span class="coverage-percent">0 %</span>
+                <span class="coverage-count">(0/6)</span>
+            </td>
+        </tr>
+        <tr class="low">
+            <td>
+                <!-- miscellaneous -->
+                    <a href="./interfaces/MangolConfig.html">src/app/interfaces/config.interface.ts</a>
+            </td>
+            <td>
+                interface
+            </td>
+            <td>
+                MangolConfig
+            </td>
+            <td align="right" data-sort="0">
+                <span class="coverage-percent">0 %</span>
+                <span class="coverage-count">(0/3)</span>
+            </td>
+        </tr>
+        <tr class="low">
+            <td>
+                <!-- miscellaneous -->
+                    <a href="./interfaces/MangolReady.html">src/app/interfaces/ready.interface.ts</a>
+            </td>
+            <td>
+                interface
+            </td>
+            <td>
+                MangolReady
+            </td>
+            <td align="right" data-sort="0">
+                <span class="coverage-percent">0 %</span>
+                <span class="coverage-count">(0/3)</span>
+            </td>
+        </tr>
+        <tr class="low">
+            <td>
+                <!-- miscellaneous -->
+                    <a href="./miscellaneous/variables.html#materialModules">src/app/modules/_shared/material.module.ts</a>
+            </td>
+            <td>
+                variable
+            </td>
+            <td>
+                materialModules
+            </td>
+            <td align="right" data-sort="0">
+                <span class="coverage-percent">0 %</span>
+                <span class="coverage-count">(0/1)</span>
+            </td>
+        </tr>
+        <tr class="low">
+            <td>
+                <!-- miscellaneous -->
+                    <a href="./pipes/KeysPipe.html">src/app/modules/_shared/pipes.ts</a>
+            </td>
+            <td>
+                pipe
+            </td>
+            <td>
+                KeysPipe
+            </td>
+            <td align="right" data-sort="0">
+                <span class="coverage-percent">0 %</span>
+                <span class="coverage-count">(0/1)</span>
+            </td>
+        </tr>
+        <tr class="low">
+            <td>
+                <!-- miscellaneous -->
+                    <a href="./components/MangolFeatureInfoTableDialogComponent.html">src/app/modules/featureinfo/feature-info-table-dialog.component.ts</a>
+            </td>
+            <td>
+                component
+            </td>
+            <td>
+                MangolFeatureInfoTableDialogComponent
+            </td>
+            <td align="right" data-sort="0">
+                <span class="coverage-percent">0 %</span>
+                <span class="coverage-count">(0/9)</span>
+            </td>
+        </tr>
+        <tr class="low">
+            <td>
+                <!-- miscellaneous -->
+                    <a href="./classes/MangolFeatureInfoTableDialogDataSource.html">src/app/modules/featureinfo/feature-info-table-dialog.component.ts</a>
+            </td>
+            <td>
+                class
+            </td>
+            <td>
+                MangolFeatureInfoTableDialogDataSource
+            </td>
+            <td align="right" data-sort="0">
+                <span class="coverage-percent">0 %</span>
+                <span class="coverage-count">(0/3)</span>
+            </td>
+        </tr>
+        <tr class="low">
+            <td>
+                <!-- miscellaneous -->
+                    <a href="./miscellaneous/variables.html#data">src/app/modules/featureinfo/feature-info-table-dialog.component.ts</a>
+            </td>
+            <td>
+                variable
+            </td>
+            <td>
+                data
+            </td>
+            <td align="right" data-sort="0">
+                <span class="coverage-percent">0 %</span>
+                <span class="coverage-count">(0/1)</span>
+            </td>
+        </tr>
+        <tr class="low">
+            <td>
+                <!-- miscellaneous -->
+                    <a href="./classes/MangolFeatureInfoTableElement.html">src/app/modules/featureinfo/feature-info-table-element.interface.ts</a>
+            </td>
+            <td>
+                class
+            </td>
+            <td>
+                MangolFeatureInfoTableElement
+            </td>
+            <td align="right" data-sort="0">
+                <span class="coverage-percent">0 %</span>
+                <span class="coverage-count">(0/1)</span>
+            </td>
+        </tr>
+        <tr class="low">
+            <td>
+                <!-- miscellaneous -->
+                    <a href="./components/MangolFeatureInfoTableComponent.html">src/app/modules/featureinfo/feature-info-table.component.ts</a>
+            </td>
+            <td>
+                component
+            </td>
+            <td>
+                MangolFeatureInfoTableComponent
+            </td>
+            <td align="right" data-sort="0">
+                <span class="coverage-percent">0 %</span>
+                <span class="coverage-count">(0/18)</span>
+            </td>
+        </tr>
+        <tr class="low">
+            <td>
+                <!-- miscellaneous -->
+                    <a href="./classes/MangolFeatureInfoTableDataSource.html">src/app/modules/featureinfo/feature-info-table.component.ts</a>
+            </td>
+            <td>
+                class
+            </td>
+            <td>
+                MangolFeatureInfoTableDataSource
+            </td>
+            <td align="right" data-sort="0">
+                <span class="coverage-percent">0 %</span>
+                <span class="coverage-count">(0/3)</span>
+            </td>
+        </tr>
+        <tr class="low">
+            <td>
+                <!-- miscellaneous -->
+                    <a href="./miscellaneous/variables.html#data">src/app/modules/featureinfo/feature-info-table.component.ts</a>
+            </td>
+            <td>
+                variable
+            </td>
+            <td>
+                data
+            </td>
+            <td align="right" data-sort="0">
+                <span class="coverage-percent">0 %</span>
+                <span class="coverage-count">(0/1)</span>
+            </td>
+        </tr>
+        <tr class="low">
+            <td>
+                <!-- miscellaneous -->
+                    <a href="./components/MangolFeatureInfoComponent.html">src/app/modules/featureinfo/feature-info.component.ts</a>
+            </td>
+            <td>
+                component
+            </td>
+            <td>
+                MangolFeatureInfoComponent
+            </td>
+            <td align="right" data-sort="0">
+                <span class="coverage-percent">0 %</span>
+                <span class="coverage-count">(0/29)</span>
+            </td>
+        </tr>
+        <tr class="low">
+            <td>
+                <!-- miscellaneous -->
+                    <a href="./miscellaneous/variables.html#$">src/app/modules/featureinfo/feature-info.component.ts</a>
+            </td>
+            <td>
+                variable
+            </td>
+            <td>
+                $
+            </td>
+            <td align="right" data-sort="0">
+                <span class="coverage-percent">0 %</span>
+                <span class="coverage-count">(0/1)</span>
+            </td>
+        </tr>
+        <tr class="low">
+            <td>
+                <!-- miscellaneous -->
+                    <a href="./injectables/FeatureIntoService.html">src/app/modules/featureinfo/feature-info.service.ts</a>
+            </td>
+            <td>
+                injectable
+            </td>
+            <td>
+                FeatureIntoService
+            </td>
+            <td align="right" data-sort="0">
+                <span class="coverage-percent">0 %</span>
+                <span class="coverage-count">(0/3)</span>
+            </td>
+        </tr>
+        <tr class="low">
+            <td>
+                <!-- miscellaneous -->
+                    <a href="./components/MangolLayerDetailsComponent.html">src/app/modules/layertree/layer-details.component.ts</a>
+            </td>
+            <td>
+                component
+            </td>
+            <td>
+                MangolLayerDetailsComponent
+            </td>
+            <td align="right" data-sort="0">
+                <span class="coverage-percent">0 %</span>
+                <span class="coverage-count">(0/14)</span>
+            </td>
+        </tr>
+        <tr class="low">
+            <td>
+                <!-- miscellaneous -->
+                    <a href="./components/MangolLayertreeComponent.html">src/app/modules/layertree/layertree.component.ts</a>
+            </td>
+            <td>
+                component
+            </td>
+            <td>
+                MangolLayertreeComponent
+            </td>
+            <td align="right" data-sort="0">
+                <span class="coverage-percent">0 %</span>
+                <span class="coverage-count">(0/10)</span>
+            </td>
+        </tr>
+        <tr class="low">
+            <td>
+                <!-- miscellaneous -->
+                    <a href="./components/MangolDialogComponent.html">src/app/modules/mangol/mangol-dialog.component.ts</a>
+            </td>
+            <td>
+                component
+            </td>
+            <td>
+                MangolDialogComponent
+            </td>
+            <td align="right" data-sort="0">
+                <span class="coverage-percent">0 %</span>
+                <span class="coverage-count">(0/7)</span>
+            </td>
+        </tr>
+        <tr class="low">
+            <td>
+                <!-- miscellaneous -->
+                    <a href="./components/MangolComponent.html">src/app/modules/mangol/mangol.component.ts</a>
+            </td>
+            <td>
+                component
+            </td>
+            <td>
+                MangolComponent
+            </td>
+            <td align="right" data-sort="0">
+                <span class="coverage-percent">0 %</span>
+                <span class="coverage-count">(0/15)</span>
+            </td>
+        </tr>
+        <tr class="low">
+            <td>
+                <!-- miscellaneous -->
+                    <a href="./components/MangolMapComponent.html">src/app/modules/map/map.component.ts</a>
+            </td>
+            <td>
+                component
+            </td>
+            <td>
+                MangolMapComponent
+            </td>
+            <td align="right" data-sort="0">
+                <span class="coverage-percent">0 %</span>
+                <span class="coverage-count">(0/20)</span>
+            </td>
+        </tr>
+        <tr class="low">
+            <td>
+                <!-- miscellaneous -->
+                    <a href="./components/MangolMousePositionComponent.html">src/app/modules/map/mouse-position.component.ts</a>
+            </td>
+            <td>
+                component
+            </td>
+            <td>
+                MangolMousePositionComponent
+            </td>
+            <td align="right" data-sort="0">
+                <span class="coverage-percent">0 %</span>
+                <span class="coverage-count">(0/11)</span>
+            </td>
+        </tr>
+        <tr class="low">
+            <td>
+                <!-- miscellaneous -->
+                    <a href="./components/MangolQuickSearchComponent.html">src/app/modules/map/quick-search.component.ts</a>
+            </td>
+            <td>
+                component
+            </td>
+            <td>
+                MangolQuickSearchComponent
+            </td>
+            <td align="right" data-sort="0">
+                <span class="coverage-percent">0 %</span>
+                <span class="coverage-count">(0/15)</span>
+            </td>
+        </tr>
+        <tr class="low">
+            <td>
+                <!-- miscellaneous -->
+                    <a href="./components/MangolScaleLineComponent.html">src/app/modules/map/scale-line.component.ts</a>
+            </td>
+            <td>
+                component
+            </td>
+            <td>
+                MangolScaleLineComponent
+            </td>
+            <td align="right" data-sort="0">
+                <span class="coverage-percent">0 %</span>
+                <span class="coverage-count">(0/8)</span>
+            </td>
+        </tr>
+        <tr class="low">
+            <td>
+                <!-- miscellaneous -->
+                    <a href="./components/MangolMeasureComponent.html">src/app/modules/measure/measure.component.ts</a>
+            </td>
+            <td>
+                component
+            </td>
+            <td>
+                MangolMeasureComponent
+            </td>
+            <td align="right" data-sort="0">
+                <span class="coverage-percent">0 %</span>
+                <span class="coverage-count">(0/27)</span>
+            </td>
+        </tr>
+        <tr class="low">
+            <td>
+                <!-- miscellaneous -->
+                    <a href="./interfaces/MeasureButton.html">src/app/modules/measure/measure.component.ts</a>
+            </td>
+            <td>
+                interface
+            </td>
+            <td>
+                MeasureButton
+            </td>
+            <td align="right" data-sort="0">
+                <span class="coverage-percent">0 %</span>
+                <span class="coverage-count">(0/6)</span>
+            </td>
+        </tr>
+        <tr class="low">
+            <td>
+                <!-- miscellaneous -->
+                    <a href="./miscellaneous/variables.html#$">src/app/modules/measure/measure.component.ts</a>
+            </td>
+            <td>
+                variable
+            </td>
+            <td>
+                $
+            </td>
+            <td align="right" data-sort="0">
+                <span class="coverage-percent">0 %</span>
+                <span class="coverage-count">(0/1)</span>
+            </td>
+        </tr>
+        <tr class="low">
+            <td>
+                <!-- miscellaneous -->
+                    <a href="./components/MangolPrintComponent.html">src/app/modules/print/print.component.ts</a>
+            </td>
+            <td>
+                component
+            </td>
+            <td>
+                MangolPrintComponent
+            </td>
+            <td align="right" data-sort="0">
+                <span class="coverage-percent">0 %</span>
+                <span class="coverage-count">(0/15)</span>
+            </td>
+        </tr>
+        <tr class="low">
+            <td>
+                <!-- miscellaneous -->
+                    <a href="./interfaces/Layout.html">src/app/modules/print/print.component.ts</a>
+            </td>
+            <td>
+                interface
+            </td>
+            <td>
+                Layout
+            </td>
+            <td align="right" data-sort="0">
+                <span class="coverage-percent">0 %</span>
+                <span class="coverage-count">(0/3)</span>
+            </td>
+        </tr>
+        <tr class="low">
+            <td>
+                <!-- miscellaneous -->
+                    <a href="./miscellaneous/variables.html#jsPDF">src/app/modules/print/print.component.ts</a>
+            </td>
+            <td>
+                variable
+            </td>
+            <td>
+                jsPDF
+            </td>
+            <td align="right" data-sort="0">
+                <span class="coverage-percent">0 %</span>
+                <span class="coverage-count">(0/1)</span>
+            </td>
+        </tr>
+        <tr class="low">
+            <td>
+                <!-- miscellaneous -->
+                    <a href="./components/MangolSidebarComponent.html">src/app/modules/sidebar/sidebar.component.ts</a>
+            </td>
+            <td>
+                component
+            </td>
+            <td>
+                MangolSidebarComponent
+            </td>
+            <td align="right" data-sort="0">
+                <span class="coverage-percent">0 %</span>
+                <span class="coverage-count">(0/17)</span>
+            </td>
+        </tr>
+        <tr class="low">
+            <td>
+                <!-- miscellaneous -->
+                    <a href="./components/MangolToolbarComponent.html">src/app/modules/sidebar/toolbar.component.ts</a>
+            </td>
+            <td>
+                component
+            </td>
+            <td>
+                MangolToolbarComponent
+            </td>
+            <td align="right" data-sort="0">
+                <span class="coverage-percent">0 %</span>
+                <span class="coverage-count">(0/9)</span>
+            </td>
+        </tr>
+        <tr class="medium">
+            <td>
+                <!-- miscellaneous -->
+                    <a href="./injectables/MangolMapService.html">src/app/services/map.service.ts</a>
+            </td>
+            <td>
+                injectable
+            </td>
+            <td>
+                MangolMapService
+            </td>
+            <td align="right" data-sort="50">
+                <span class="coverage-percent">50 %</span>
+                <span class="coverage-count">(3/6)</span>
+            </td>
+        </tr>
+        <tr class="low">
+            <td>
+                <!-- miscellaneous -->
+                    <a href="./miscellaneous/variables.html#environment">src/environments/environment.prod.ts</a>
+            </td>
+            <td>
+                variable
+            </td>
+            <td>
+                environment
+            </td>
+            <td align="right" data-sort="0">
+                <span class="coverage-percent">0 %</span>
+                <span class="coverage-count">(0/1)</span>
+            </td>
+        </tr>
+        <tr class="low">
+            <td>
+                <!-- miscellaneous -->
+                    <a href="./miscellaneous/variables.html#environment">src/environments/environment.ts</a>
+            </td>
+            <td>
+                variable
+            </td>
+            <td>
+                environment
+            </td>
+            <td align="right" data-sort="0">
+                <span class="coverage-percent">0 %</span>
+                <span class="coverage-count">(0/1)</span>
+            </td>
+        </tr>
+    </tbody>
+</table>
+
+<script src="js/libs/tablesort.min.js"></script>
+<script src="js/libs/tablesort.number.min.js"></script>
+<script>
+    new Tablesort(document.getElementById('coverage-table'));
+</script>
 
                    </div><div class="search-results">
     <div class="has-results">
