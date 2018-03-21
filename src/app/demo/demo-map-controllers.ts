@@ -22,8 +22,6 @@ export class DemoMapControllersComponent implements OnInit, OnDestroy {
   import * as ol from 'openlayers';
 
   import { MangolConfig } from 'mangol';
-import { Subscription } from 'rxjs/Subscription';
-import { MangolReady } from 'mangol/src/app/interfaces/ready.interface';
 
   @Component({
     selector: 'mangol-demo-map-controllers',
