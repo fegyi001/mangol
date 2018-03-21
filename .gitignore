@@ -1,0 +1,6 @@
+/node_modules
+/.ng_pkg_build
+/doc
+/dist
+/dist_demo
+yarn.lock
