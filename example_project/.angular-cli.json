@@ -3,41 +3,39 @@
   "project": {
     "name": "my-component-library"
   },
-  "apps": [{
-    "root": "src",
-    "outDir": "dist",
-    "assets": [
-      "assets",
-      "favicon.ico"
-    ],
-    "index": "index.html",
-    "main": "main.ts",
-    "polyfills": "polyfills.ts",
-    "test": "test.ts",
-    "tsconfig": "tsconfig.app.json",
-    "testTsconfig": "tsconfig.spec.json",
-    "prefix": "app",
-    "styles": [
-      "styles.scss"
-    ],
-    "scripts": [
-      "../node_modules/openlayers/dist/ol.js",
-      "../node_modules/proj4/dist/proj4.js",
-      "../node_modules/jspdf/dist/jspdf.min.js",
-      "../node_modules/jquery/dist/jquery.min.js"
-    ],
-    "environmentSource": "environments/environment.ts",
-    "environments": {
-      "dev": "environments/environment.ts",
-      "prod": "environments/environment.prod.ts"
+  "apps": [
+    {
+      "root": "src",
+      "outDir": "dist",
+      "assets": ["assets", "favicon.ico"],
+      "index": "index.html",
+      "main": "main.ts",
+      "polyfills": "polyfills.ts",
+      "test": "test.ts",
+      "tsconfig": "tsconfig.app.json",
+      "testTsconfig": "tsconfig.spec.json",
+      "prefix": "app",
+      "styles": ["styles.scss"],
+      "scripts": [
+        "../node_modules/openlayers/dist/ol.js",
+        "../node_modules/proj4/dist/proj4.js",
+        "../node_modules/jspdf/dist/jspdf.min.js",
+        "../node_modules/jquery/dist/jquery.min.js"
+      ],
+      "environmentSource": "environments/environment.ts",
+      "environments": {
+        "dev": "environments/environment.ts",
+        "prod": "environments/environment.prod.ts"
+      }
     }
-  }],
+  ],
   "e2e": {
     "protractor": {
       "config": "./protractor.conf.js"
     }
   },
-  "lint": [{
+  "lint": [
+    {
       "project": "src/tsconfig.app.json",
       "exclude": "**/node_modules/**"
     },

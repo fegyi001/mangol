@@ -1,0 +1,26 @@
+:host {
+  display: block;
+  padding: 50px;
+  margin-left: auto;
+  margin-right: auto;
+  text-align: center;
+}
+
+.logo {
+  width: 30%;
+  min-width: 200px;
+  max-width: 400px;
+}
+
+.description {
+  margin-top: 3vh;
+  margin-left: auto;
+  margin-right: auto;
+  text-align: justify;
+  width: 70%;
+  min-width: 200px;
+  .center {
+    margin-top: 40px;
+    text-align: center;
+  }
+}

@@ -1,0 +1,17 @@
+:host {
+  display: block;
+}
+
+.mat-card {
+  background: rgba(0, 0, 0, 0);
+  box-shadow: none;
+  margin-top: 20px;
+  margin-bottom: 20px;
+}
+
+pre {
+  margin-top: 0;
+  &.prettyprint {
+    border: none !important;
+  }
+}

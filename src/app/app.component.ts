@@ -1,4 +1,4 @@
-import { Component, Inject, OnInit } from '@angular/core';
+import { Component, OnInit } from '@angular/core';
 
 export interface MangolDemoItem {
   link: string;
@@ -7,46 +7,48 @@ export interface MangolDemoItem {
 
 @Component({
   selector: 'mangol-demo',
-  templateUrl: './app.component.html'
+  templateUrl: './app.component.html',
+  styleUrls: ['./app.component.scss']
 })
 export class MangolDemoComponent implements OnInit {
   items: MangolDemoItem[];
   logo: string;
+  sidebarOpened = true;
 
   ngOnInit() {
     this.logo = 'assets/img/logo/mangol_logo.png';
     this.items = [
       {
         link: '/demo-map',
-        title: 'map'
+        title: 'Map'
       },
       {
         link: '/demo-map-controllers',
-        title: 'map controllers'
+        title: 'Map controllers'
       },
       {
         link: '/demo-sidebar',
-        title: 'sidebar'
+        title: 'Sidebar'
       },
       {
         link: '/demo-layertree',
-        title: 'layertree'
+        title: 'Layertree'
       },
       {
         link: '/demo-featureinfo',
-        title: 'feature info'
+        title: 'Feature info'
       },
       {
         link: '/demo-measure',
-        title: 'measure'
+        title: 'Measure'
       },
       {
         link: '/demo-print',
-        title: 'print'
+        title: 'Print'
       },
       {
         link: '/demo-full',
-        title: 'full functionality'
+        title: 'Full functionality'
       }
     ];
   }

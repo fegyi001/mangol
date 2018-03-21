@@ -20,7 +20,8 @@ import {
   MatSelectModule,
   MatTableModule,
   MatSnackBarModule,
-  MatButtonToggleModule
+  MatButtonToggleModule,
+  MatDividerModule
 } from '@angular/material';
 
 const materialModules: any[] = [
@@ -44,7 +45,8 @@ const materialModules: any[] = [
   MatSelectModule,
   MatTableModule,
   MatSnackBarModule,
-  MatButtonToggleModule
+  MatButtonToggleModule,
+  MatDividerModule
 ];
 
 @NgModule({

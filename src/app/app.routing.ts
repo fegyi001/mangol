@@ -3,6 +3,7 @@ import { RouterModule, Routes } from '@angular/router';
 
 import { DemoFeatureInfoComponent } from './demo/demo-featureinfo';
 import { DemoFullComponent } from './demo/demo-full';
+import { DemoHomeComponent } from './demo/demo-home.component';
 import { DemoLayertreeComponent } from './demo/demo-layertree';
 import { DemoMapComponent } from './demo/demo-map';
 import { DemoMapControllersComponent } from './demo/demo-map-controllers';
@@ -13,9 +14,12 @@ import { DemoSidebarComponent } from './demo/demo-sidebar';
 const appRoutes: Routes = [
   {
     path: '',
-    redirectTo: '/demo-map',
-    // component: DemoMapComponent,
+    redirectTo: '/demo-home',
     pathMatch: 'full'
+  },
+  {
+    path: 'demo-home',
+    component: DemoHomeComponent
   },
   {
     path: 'demo-map',
@@ -44,9 +48,6 @@ const appRoutes: Routes = [
   {
     path: 'demo-measure',
     component: DemoMeasureComponent
-    // }, {
-    //   path: 'demo-osmgwc',
-    //   component: DemoOsmgwcComponent
   },
   {
     path: 'demo-full',
