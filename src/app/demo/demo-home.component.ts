@@ -8,7 +8,7 @@ import { Component, OnInit, HostBinding } from '@angular/core';
 export class DemoHomeComponent implements OnInit {
   @HostBinding('class') class = 'demo-home';
 
-  logoSrc = '../../assets/img/logo/mangol_logo.png';
+  logoSrc = 'assets/img/logo/mangol_logo.png';
 
   constructor() {}
 

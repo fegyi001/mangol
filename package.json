@@ -19,6 +19,7 @@
     "test": "ng test",
     "lint": "ng lint",
     "e2e": "ng e2e",
+    "demo-build": "ng build --prod --aot && rm -rf dist_demo/assets/scss",
     "compodoc":
       "./node_modules/.bin/compodoc -p src/tsconfig.app.json -d ./doc --theme material",
     "packagr":
