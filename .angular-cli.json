@@ -8,7 +8,7 @@
       "name": "demo",
       "root": "src",
       "outDir": "dist_demo",
-      "assets": ["assets", "favicon.ico"],
+      "assets": ["assets", "favicon_mangol.ico"],
       "index": "index.html",
       "main": "main.ts",
       "polyfills": "polyfills.ts",

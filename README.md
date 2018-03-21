@@ -204,7 +204,7 @@ export class AppComponent {
 
 This project is still under heavy development. In the near future I intend to add/extend other widgets. More examples will arrive as soon as the project becomes smarter. Any notice, remarks or pull requests are appreciated.
 
-![demo](src/assets/img/screenshots/screenshot-0.6.8.png)
+![demo](src/assets/img/screenshots/screenshot-1.0.9.png)
 
 ## Author
 
