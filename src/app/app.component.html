@@ -7,7 +7,7 @@
             matTooltipPosition="below"><mat-icon>{{sidebarOpened ? 'keyboard_arrow_left' : 'keyboard_arrow_right'}}</mat-icon></button>
         <button mat-icon-button
             class="sidebar-button"
-            routerLink="/demo-home"
+            (click)="navigateHome()"
             matTooltip="Go to Start Page"
             matTooltipPosition="below"><mat-icon>home</mat-icon></button>
         <div class="title">

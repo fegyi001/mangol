@@ -118,4 +118,11 @@ export class MangolDemoComponent implements OnInit, DoCheck, OnDestroy {
     }
     this.router.navigate([item.link]);
   }
+
+  navigateHome() {
+    if (window.innerWidth <= 500) {
+      this.appService.sidebarOpenedSubject.next(false);
+    }
+    this.router.navigate(['/demo-home']);
+  }
 }
