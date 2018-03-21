@@ -10,14 +10,8 @@ $active: #ff3e45;
   display: block;
   .mat-toolbar-row {
     .title {
-      .logo {
-        width: 46px;
-        position: absolute;
-        top: 8px;
-        cursor: pointer;
-      }
+      margin-left: 15px;
       .title-text {
-        margin-left: 63px;
         .main-title {
           line-height: 1.3;
         }
@@ -50,11 +44,11 @@ $active: #ff3e45;
   .mat-drawer {
     width: 300px;
     @media screen and (max-width: 500px) {
-      width: 50%;
-      min-width: 200px;
+      width: 100vw;
     }
   }
   .demo-sidenav {
+    padding-top: 40px;
     padding: 20px;
     box-shadow: 4px 0 5px -4px #888;
 

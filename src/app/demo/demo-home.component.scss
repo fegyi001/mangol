@@ -4,6 +4,9 @@
   margin-left: auto;
   margin-right: auto;
   text-align: center;
+  @media screen and (max-width: 500px) {
+    padding: 10px;
+  }
 }
 
 .logo {
@@ -12,12 +15,27 @@
   max-width: 400px;
 }
 
+.title {
+  margin-bottom: 10px;
+  .title-main {
+    font-size: 30px;
+    font-weight: 600;
+  }
+  .title-sub {
+    // font-weight: 600;
+    font-style: italic;
+  }
+}
+
 .description {
   margin-top: 3vh;
   margin-left: auto;
   margin-right: auto;
   text-align: justify;
   width: 70%;
+  @media screen and (max-width: 500px) {
+    width: 90%;
+  }
   min-width: 200px;
   .center {
     margin-top: 40px;

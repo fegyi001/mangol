@@ -15,43 +15,53 @@ const appRoutes: Routes = [
   {
     path: '',
     redirectTo: '/demo-home',
-    pathMatch: 'full'
+    pathMatch: 'full',
+    data: { animation: { page: 'homePage' } }
   },
   {
     path: 'demo-home',
-    component: DemoHomeComponent
+    component: DemoHomeComponent,
+    data: { animation: { page: 'homePage' } }
   },
   {
     path: 'demo-map',
-    component: DemoMapComponent
+    component: DemoMapComponent,
+    data: { animation: { page: 'mapPage' } }
   },
   {
     path: 'demo-map-controllers',
-    component: DemoMapControllersComponent
+    component: DemoMapControllersComponent,
+    data: { animation: { page: 'controllersPage' } }
   },
   {
     path: 'demo-sidebar',
-    component: DemoSidebarComponent
+    component: DemoSidebarComponent,
+    data: { animation: { page: 'sidebarPage' } }
   },
   {
     path: 'demo-layertree',
-    component: DemoLayertreeComponent
+    component: DemoLayertreeComponent,
+    data: { animation: { page: 'layertreePage' } }
   },
   {
     path: 'demo-featureinfo',
-    component: DemoFeatureInfoComponent
+    component: DemoFeatureInfoComponent,
+    data: { animation: { page: 'featureinfoPage' } }
   },
   {
     path: 'demo-print',
-    component: DemoPrintComponent
+    component: DemoPrintComponent,
+    data: { animation: { page: 'printPage' } }
   },
   {
     path: 'demo-measure',
-    component: DemoMeasureComponent
+    component: DemoMeasureComponent,
+    data: { animation: { page: 'measurePage' } }
   },
   {
     path: 'demo-full',
-    component: DemoFullComponent
+    component: DemoFullComponent,
+    data: { animation: { page: 'fullPage' } }
   }
 ];
 

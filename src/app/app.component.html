@@ -1,15 +1,16 @@
 <mat-toolbar color="primary">
     <mat-toolbar-row>
+        <button mat-icon-button
+            class="sidebar-button"
+            (click)="toggleSidebar()"
+            [matTooltip]="sidebarOpened ? 'Hide Sidebar' : 'Show Sidebar'"
+            matTooltipPosition="below"><mat-icon>{{sidebarOpened ? 'keyboard_arrow_left' : 'keyboard_arrow_right'}}</mat-icon></button>
+        <button mat-icon-button
+            class="sidebar-button"
+            routerLink="/demo-home"
+            matTooltip="Go to Start Page"
+            matTooltipPosition="below"><mat-icon>home</mat-icon></button>
         <div class="title">
-            <img class="logo"
-                [src]="logo"
-                routerLink="/demo-home"
-                matTooltip="Start page"
-                matTooltipPosition="below">
-            <div class="title-text">
-                <div class="main-title">Mangol</div>
-                <div class="sub-title">Maps created with Angular & OpenLayers using Material design</div>
-            </div>
         </div>
         <span class="fill-remaining-space"></span>
         <span>
@@ -36,7 +37,8 @@
             routerLinkActive="active"
             [routerLinkActiveOptions]="{ exact: true }">{{item.title}} </mat-card>
     </mat-drawer>
-    <div class="demo-sidenav-content">
-        <router-outlet></router-outlet>
+    <div class="demo-sidenav-content"
+        [@routeState]="getAnimationData(rOutlet)">
+        <router-outlet #rOutlet="outlet"></router-outlet>
     </div>
 </mat-drawer-container>
