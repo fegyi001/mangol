@@ -9,7 +9,11 @@ import {
 import { Router, RouterOutlet } from '@angular/router';
 import { Subscription } from 'rxjs/Subscription';
 
-import { routeStateTrigger } from './app.animations';
+import {
+  homeButtonStateTrigger,
+  routeStateTrigger,
+  sidebarButtonStateTrigger
+} from './app.animations';
 import { AppService } from './app.service';
 
 export interface MangolDemoItem {
@@ -23,7 +27,11 @@ declare var window: any;
   selector: 'mangol-demo',
   templateUrl: './app.component.html',
   styleUrls: ['./app.component.scss'],
-  animations: [routeStateTrigger],
+  animations: [
+    homeButtonStateTrigger,
+    sidebarButtonStateTrigger,
+    routeStateTrigger
+  ],
   changeDetection: ChangeDetectionStrategy.OnPush
 })
 export class MangolDemoComponent implements OnInit, DoCheck, OnDestroy {
@@ -31,7 +39,7 @@ export class MangolDemoComponent implements OnInit, DoCheck, OnDestroy {
   logo: string;
   sidebarOpened: boolean;
   sidebarOpenedSubscription: Subscription;
-  activeRouteData: string;
+  activeRouteData = '/demo-home';
 
   constructor(
     private cdr: ChangeDetectorRef,
@@ -104,7 +112,7 @@ export class MangolDemoComponent implements OnInit, DoCheck, OnDestroy {
     let activeRouteData: string = null;
     const routeData = outlet.activatedRouteData['animation'];
     if (!routeData) {
-      activeRouteData = '/homePage';
+      activeRouteData = '/demo-home';
     } else {
       activeRouteData = '/' + routeData['page'];
     }

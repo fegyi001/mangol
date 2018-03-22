@@ -4,15 +4,18 @@
   margin-left: auto;
   margin-right: auto;
   text-align: center;
-  @media screen and (max-width: 500px) {
-    padding: 10px;
+  @media screen and (max-width: 800px) {
+    padding-top: 40px;
+    padding-bottom: 40px;
+    padding-left: 20px;
+    padding-right: 20px;
   }
 }
 
 .logo {
   width: 30%;
   min-width: 200px;
-  max-width: 400px;
+  max-width: 300px;
 }
 
 .title {
@@ -22,7 +25,6 @@
     font-weight: 600;
   }
   .title-sub {
-    // font-weight: 600;
     font-style: italic;
   }
 }
@@ -33,8 +35,11 @@
   margin-right: auto;
   text-align: justify;
   width: 70%;
-  @media screen and (max-width: 500px) {
-    width: 90%;
+  @media screen and (max-width: 1000px) {
+    width: 80%;
+  }
+  @media screen and (max-width: 800px) {
+    width: 100%;
   }
   min-width: 200px;
   .center {

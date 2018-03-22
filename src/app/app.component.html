@@ -2,14 +2,17 @@
     <mat-toolbar-row>
         <button mat-icon-button
             class="sidebar-button"
-            (click)="toggleSidebar()"
-            [matTooltip]="sidebarOpened ? 'Hide Sidebar' : 'Show Sidebar'"
-            matTooltipPosition="below"><mat-icon>{{sidebarOpened ? 'keyboard_arrow_left' : 'keyboard_arrow_right'}}</mat-icon></button>
+            [matTooltip]="sidebarOpened ? 'Hide Modules' : 'Show Modules'"
+            matTooltipPosition="below"
+            [@sidebarButtonState]="sidebarOpened ? 'opened' : 'closed'"
+            (click)="toggleSidebar()"><mat-icon>keyboard_arrow_left</mat-icon></button>
         <button mat-icon-button
+            *ngIf="activeRouteData !== '/demo-home'"
             class="sidebar-button"
+            matTooltip="Go back to Start Page"
+            matTooltipPosition="below"
             (click)="navigateHome()"
-            matTooltip="Go to Start Page"
-            matTooltipPosition="below"><mat-icon>home</mat-icon></button>
+            @homeButtonState><mat-icon>home</mat-icon></button>
         <div class="title">
         </div>
         <span class="fill-remaining-space"></span>
