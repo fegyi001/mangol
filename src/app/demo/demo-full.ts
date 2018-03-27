@@ -82,7 +82,8 @@ export class DemoFullComponent implements OnInit, OnDestroy {
                 }
               ]
             },
-            fullScreen: {}
+            fullScreen: {},
+            tileLoad: true
           },
           layertree: {
             groups: [
@@ -162,8 +163,8 @@ export class DemoFullComponent implements OnInit, OnDestroy {
                       visible: true,
                       opacity: 1.0,
                       queryable: true,
-                      layer: new ol.layer.Tile({
-                        source: new ol.source.TileWMS({
+                      layer: new ol.layer.Image({
+                        source: new ol.source.ImageWMS({
                           url: 'http://188.166.116.137:8080/geoserver/wms',
                           params: {
                             LAYERS: 'osmWsp:country',
@@ -288,7 +289,8 @@ export class DemoFullComponent implements OnInit, OnDestroy {
               }
             ]
           },
-          fullScreen: {}
+          fullScreen: {},
+          tileLoad: true
         },
         layertree: {
           groups: [
@@ -368,8 +370,8 @@ export class DemoFullComponent implements OnInit, OnDestroy {
                     visible: true,
                     opacity: 1.0,
                     queryable: true,
-                    layer: new ol.layer.Tile({
-                      source: new ol.source.TileWMS({
+                    layer: new ol.layer.Image({
+                      source: new ol.source.ImageWMS({
                         url: 'http://188.166.116.137:8080/geoserver/wms',
                         params: {
                           LAYERS: 'osmWsp:country',

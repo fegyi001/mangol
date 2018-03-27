@@ -1,7 +1,11 @@
+import * as ol from 'openlayers';
+
 import {
   MangolConfigLayer,
   MangolConfigLayerColumn
 } from '../interfaces/config-layers.inteface';
+import { MangolMapService } from '../services/map.service';
+
 export class MangolLayer {
   name: string;
   layer: any;
@@ -13,7 +17,10 @@ export class MangolLayer {
   queryable: boolean;
   attrColumns: MangolConfigLayerColumn[];
 
-  constructor(options: MangolConfigLayer) {
+  constructor(
+    options: MangolConfigLayer,
+    private mapService: MangolMapService
+  ) {
     this.name = options.name;
     this.showDetails = false;
     this.layer = options.layer;
@@ -28,6 +35,43 @@ export class MangolLayer {
     this.setAttrColumns(
       options.hasOwnProperty('attrColumns') ? options.attrColumns : []
     );
+    this._configureTileLoad();
+  }
+
+  private _configureTileLoad() {
+    const source = this.layer.getSource();
+    if (
+      source instanceof ol.source.TileWMS ||
+      source instanceof ol.source.OSM ||
+      source instanceof ol.source.BingMaps ||
+      source instanceof ol.source.TileArcGISRest ||
+      source instanceof ol.source.TileImage ||
+      source instanceof ol.source.TileJSON
+    ) {
+      source.on('tileloadstart', (evt: any) => {
+        this.mapService.addTile(evt.tile.getImage());
+      });
+      source.on('tileloadend', (evt: any) => {
+        this.mapService.removeTile(evt.tile.getImage());
+      });
+      source.on('tileloaderror', (evt: any) => {
+        this.mapService.removeTile(evt.tile.getImage());
+      });
+    } else if (
+      source instanceof ol.source.ImageWMS ||
+      source instanceof ol.source.ImageMapGuide ||
+      source instanceof ol.source.ImageArcGISRest
+    ) {
+      source.on('imageloadstart', (evt: any) => {
+        this.mapService.addTile(evt.image.getImage());
+      });
+      source.on('imageloadend', (evt: any) => {
+        this.mapService.removeTile(evt.image.getImage());
+      });
+      source.on('imageloaderror', (evt: any) => {
+        this.mapService.removeTile(evt.image.getImage());
+      });
+    }
   }
 
   public getLayerVisibilityIcon() {

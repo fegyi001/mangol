@@ -78,7 +78,8 @@ export class DemoMapControllersComponent implements OnInit, OnDestroy {
                 }
               ]
             },
-            fullScreen: {}
+            fullScreen: {},
+            tileLoad: true
           }
         }
       };
@@ -135,7 +136,8 @@ export class DemoMapControllersComponent implements OnInit, OnDestroy {
               }
             ]
           },
-          fullScreen: {}
+          fullScreen: {},
+          tileLoad: true
         }
       }
     };
