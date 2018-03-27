@@ -6,13 +6,7 @@
     "type": "git",
     "url": "https://github.com/fegyi001/mangol.git"
   },
-  "keywords": [
-    "mangol",
-    "angular",
-    "angular2",
-    "openlayers",
-    "ol"
-  ],
+  "keywords": ["mangol", "angular", "angular2", "openlayers", "ol"],
   "author": "Gergely Padányi-Gulyás",
   "bugs": {
     "url": "https://github.com/fegyi001/mangol/issues"
@@ -26,8 +20,10 @@
     "lint": "ng lint",
     "e2e": "ng e2e",
     "build-demo": "ng build --prod --aot && rm -rf dist_demo/assets/scss",
-    "compodoc": "./node_modules/.bin/compodoc -p src/tsconfig.app.json -d ./doc --theme material",
-    "packagr": "ng-packagr -p ng-package.json && rm -rf dist/example_project && cp -r src/assets dist/src && rm -rf dist/src/assets/img"
+    "compodoc":
+      "./node_modules/.bin/compodoc -p src/tsconfig.app.json -d ./doc --theme material",
+    "packagr":
+      "ng-packagr -p ng-package.json && rm -rf dist/example_project && cp -r src/assets dist/src && rm -rf dist/src/assets/img"
   },
   "private": false,
   "dependencies": {
@@ -64,7 +60,7 @@
     "@angular/compiler-cli": "5.2.9",
     "@angular/language-service": "5.2.9",
     "@types/jasmine": "2.8.6",
-    "@types/node": "9.4.7",
+    "@types/node": "9.6.0",
     "code-prettify": "0.1.0",
     "codelyzer": "4.2.1",
     "jasmine-core": "3.1.0",
@@ -75,7 +71,7 @@
     "karma-coverage-istanbul-reporter": "1.4.2",
     "karma-jasmine": "1.1.1",
     "karma-jasmine-html-reporter": "1.0.0",
-    "ng-packagr": "2.2.0",
+    "ng-packagr": "2.4.1",
     "protractor": "5.3.0",
     "ts-node": "5.0.1",
     "tslint": "5.9.1",

@@ -46,6 +46,9 @@ $active: #ff3e45;
     @media screen and (max-width: 500px) {
       width: 100vw;
     }
+    .mat-card {
+      margin-bottom: 15px;
+    }
   }
   .demo-sidenav {
     padding-top: 40px;
