@@ -28,7 +28,7 @@ export class DemoPrintComponent implements OnInit, OnDestroy {
   export class DemoPrintComponent implements OnInit {
     config = {} as MangolConfig;
 
-    public ngOnInit(): any {
+    ngOnInit() {
       this.config = {
         sidebar: {
           collapsible: true,
@@ -45,7 +45,7 @@ export class DemoPrintComponent implements OnInit, OnDestroy {
 
   constructor(private appService: AppService) {}
 
-  public ngOnInit(): any {
+  ngOnInit() {
     this.config = {
       sidebar: {
         collapsible: true,

@@ -29,7 +29,7 @@ export class MangolToolbarComponent implements OnInit {
     this.elements = [];
   }
 
-  public ngOnInit(): any {
+  ngOnInit() {
     if (this.options.hasOwnProperty('layertree')) {
       const obj: MangolConfigToolbarItem = this.options.layertree;
       this.elements.push({
@@ -90,7 +90,7 @@ export class MangolToolbarComponent implements OnInit {
     }
   }
 
-  public activateElement(element: any): any {
+  activateElement(element: any): any {
     for (let i = 0; i < this.elements.length; i++) {
       if (this.elements[i] === element) {
         this.elements[i].active = true;

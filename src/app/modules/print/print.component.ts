@@ -28,7 +28,7 @@ export class MangolPrintComponent implements OnInit {
 
   constructor() {}
 
-  public ngOnInit(): any {
+  ngOnInit() {
     this.layouts = [
       {
         name: 'Landscape',
@@ -51,7 +51,7 @@ export class MangolPrintComponent implements OnInit {
   }
 
   // http://stackoverflow.com/questions/31956403/printing-in-openlayers-3-pdf
-  public print(): void {
+  print(): void {
     const map = this.map;
     const layout = this.selectedLayout;
     const format = this.selectedDim;

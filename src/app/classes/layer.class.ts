@@ -74,61 +74,61 @@ export class MangolLayer {
     }
   }
 
-  public getLayerVisibilityIcon() {
+  getLayerVisibilityIcon() {
     return this.getVisible() ? 'visibility' : 'visibility_off';
   }
 
-  public toggleLayerVisibility() {
+  toggleLayerVisibility() {
     this.setVisible(!this.getVisible());
   }
 
-  public getName(): string {
+  getName(): string {
     return this.name;
   }
 
-  public getLayer(): any {
+  getLayer(): any {
     return this.layer;
   }
 
-  public getOpacity(): number {
+  getOpacity(): number {
     return this.opacity;
   }
 
-  public setOpacity(value: number): void {
+  setOpacity(value: number): void {
     this.opacity = value;
     this.layer.setOpacity(value);
   }
 
-  public getVisible(): boolean {
+  getVisible(): boolean {
     return this.visible;
   }
 
-  public setVisible(value: boolean): void {
+  setVisible(value: boolean): void {
     this.visible = value;
     this.layer.setVisible(value);
   }
 
-  public getDescription(): string {
+  getDescription(): string {
     return this.description;
   }
 
-  public setDescription(description: string) {
+  setDescription(description: string) {
     this.description = description;
   }
 
-  public isQueryable(): boolean {
+  isQueryable(): boolean {
     return this.queryable;
   }
 
-  public setQueryable(queryable: boolean) {
+  setQueryable(queryable: boolean) {
     this.queryable = queryable;
   }
 
-  public getAttrColumns(): MangolConfigLayerColumn[] {
+  getAttrColumns(): MangolConfigLayerColumn[] {
     return this.attrColumns;
   }
 
-  public setAttrColumns(cols: MangolConfigLayerColumn[]) {
+  setAttrColumns(cols: MangolConfigLayerColumn[]) {
     this.attrColumns = cols;
   }
 }

@@ -58,11 +58,11 @@ export class MangolSidebarComponent implements AfterViewInit, OnInit, DoCheck {
     this.cdr.detectChanges();
   }
 
-  public toggleSidebar(): any {
+  toggleSidebar(): any {
     this.sidebarClosed = !this.sidebarClosed;
   }
 
-  public onElementActivated(element: any): any {
+  onElementActivated(element: any): any {
     this.activeElement = element;
   }
 }

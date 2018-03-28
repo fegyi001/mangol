@@ -31,7 +31,7 @@ export class DemoMapControllersComponent implements OnInit, OnDestroy {
     config = {} as MangolConfig;
     projection = 'EPSG:900913';
 
-    public ngOnInit(): any {
+    ngOnInit() {
       this.config = {
         map: {
           renderer: 'canvas',
@@ -89,7 +89,7 @@ export class DemoMapControllersComponent implements OnInit, OnDestroy {
 
   constructor(private appService: AppService) {}
 
-  public ngOnInit(): any {
+  ngOnInit() {
     this.config = {
       map: {
         renderer: 'canvas',

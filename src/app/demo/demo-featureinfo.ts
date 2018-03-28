@@ -33,7 +33,7 @@ export class DemoFeatureInfoComponent implements OnInit, OnDestroy {
   export class DemoFeatureInfoComponent implements OnInit {
     config = {} as MangolConfig;
 
-    public ngOnInit(): any {
+    ngOnInit() {
       proj4.defs(
         'EPSG:23700',
         '+proj=somerc +lat_0=47.14439372222222 +lon_0=19.04857177777778 +k_0=0.99993'
@@ -114,7 +114,7 @@ export class DemoFeatureInfoComponent implements OnInit, OnDestroy {
 
   constructor(private appService: AppService) {}
 
-  public ngOnInit(): any {
+  ngOnInit() {
     proj4.defs(
       'EPSG:23700',
       `+proj=somerc +lat_0=47.14439372222222 +lon_0=19.04857177777778 +k_0=0.99993 +x_0=650000 +y_0=200000 +ellps=GRS67 +units=m +no_defs`

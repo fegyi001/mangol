@@ -28,7 +28,7 @@ export class DemoSidebarComponent implements OnInit, OnDestroy {
 
     config = {} as MangolConfig;
 
-    public ngOnInit(): any {
+    ngOnInit() {
       this.config = {
         // Minimal configuration
         sidebar: {
@@ -65,7 +65,7 @@ export class DemoSidebarComponent implements OnInit, OnDestroy {
     );
   }
 
-  public ngOnInit(): any {
+  ngOnInit() {
     this.config = {
       // Minimal configuration
       sidebar: {

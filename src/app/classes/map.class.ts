@@ -22,7 +22,7 @@ export class MangolMap extends ol.Map {
     this._allLayers = [];
   }
 
-  public addLayersAndLayerGroups(
+  addLayersAndLayerGroups(
     layertree: MangolConfigLayertree,
     parent: MangolLayergroup
   ): void {
@@ -70,15 +70,15 @@ export class MangolMap extends ol.Map {
     newLayerGroup.getDetails();
   }
 
-  public getMangolLayers(): MangolLayer[] {
+  getMangolLayers(): MangolLayer[] {
     return this._layers;
   }
 
-  public getMangolLayerGroups(): MangolLayergroup[] {
+  getMangolLayerGroups(): MangolLayergroup[] {
     return this._layerGroups;
   }
 
-  public getMangolAllLayers(): MangolLayer[] {
+  getMangolAllLayers(): MangolLayer[] {
     return this._allLayers;
   }
 }
