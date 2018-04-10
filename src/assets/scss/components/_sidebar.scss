@@ -4,8 +4,8 @@
   background-color: $base-background-color;
   height: 100%;
   .sidebar-outer {
-    @include outer-container;
-    @include fill-parent;
+    // @include outer-container;
+    // @include fill-parent;
     @include row(table);
     padding: 0;
     height: 100%;
@@ -14,7 +14,6 @@
       width: 1em;
     }
     .sidebar-main {
-      @include span-columns(10);
       max-height: 200px;
       vertical-align: top;
       padding: 0;

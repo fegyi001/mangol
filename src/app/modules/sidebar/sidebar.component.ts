@@ -8,6 +8,7 @@ import {
   Input,
   OnInit
 } from '@angular/core';
+import { MatTabChangeEvent } from '@angular/material';
 
 import { MangolMap } from '../../classes/map.class';
 import { MangolConfigSidebar } from '../../interfaces/config-sidebar.interface';
@@ -15,6 +16,7 @@ import { MangolConfigSidebar } from '../../interfaces/config-sidebar.interface';
 @Component({
   selector: 'mangol-sidebar',
   templateUrl: './sidebar.component.html',
+  styleUrls: ['./sidebar.component.scss'],
   changeDetection: ChangeDetectionStrategy.OnPush
 })
 export class MangolSidebarComponent implements AfterViewInit, OnInit, DoCheck {
@@ -32,6 +34,7 @@ export class MangolSidebarComponent implements AfterViewInit, OnInit, DoCheck {
   hasFeatureInfo: boolean;
 
   activeElement: any;
+  selectedIndex = 0;
 
   constructor(private cdr: ChangeDetectorRef) {
     this.activeElement = { type: 'any', title: 'Empty sidebar' };
@@ -62,7 +65,7 @@ export class MangolSidebarComponent implements AfterViewInit, OnInit, DoCheck {
     this.sidebarClosed = !this.sidebarClosed;
   }
 
-  onElementActivated(element: any): any {
-    this.activeElement = element;
+  onSelectedTabChange(evt: MatTabChangeEvent) {
+    this.selectedIndex = evt.index;
   }
 }
