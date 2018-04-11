@@ -68,10 +68,6 @@ export class MangolDemoComponent implements OnInit, DoCheck, OnDestroy {
         title: 'Map controllers'
       },
       {
-        link: '/demo-sidebar',
-        title: 'Sidebar'
-      },
-      {
         link: '/demo-layertree',
         title: 'Layertree'
       },

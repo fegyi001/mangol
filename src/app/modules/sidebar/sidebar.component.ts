@@ -1,5 +1,4 @@
 import {
-  AfterViewInit,
   ChangeDetectionStrategy,
   ChangeDetectorRef,
   Component,
@@ -12,6 +11,7 @@ import { MatTabChangeEvent } from '@angular/material';
 
 import { MangolMap } from '../../classes/map.class';
 import { MangolConfigSidebar } from '../../interfaces/config-sidebar.interface';
+import { MangolConfigToolbarItem } from '../../interfaces/config-toolbar.interface';
 
 @Component({
   selector: 'mangol-sidebar',
@@ -19,46 +19,90 @@ import { MangolConfigSidebar } from '../../interfaces/config-sidebar.interface';
   styleUrls: ['./sidebar.component.scss'],
   changeDetection: ChangeDetectionStrategy.OnPush
 })
-export class MangolSidebarComponent implements AfterViewInit, OnInit, DoCheck {
+export class MangolSidebarComponent implements OnInit, DoCheck {
   @HostBinding('class') class = 'mangol-sidebar';
 
   @Input() options: MangolConfigSidebar;
   @Input() map: MangolMap;
 
   sidebarClosed: boolean;
-
-  hasToolbar: boolean;
-  hasLayertree: boolean;
-  hasMeasure: boolean;
-  hasPrint: boolean;
-  hasFeatureInfo: boolean;
-
-  activeElement: any;
   selectedIndex = 0;
+  items: MangolConfigToolbarItem[] = [];
 
-  constructor(private cdr: ChangeDetectorRef) {
-    this.activeElement = { type: 'any', title: 'Empty sidebar' };
-  }
+  constructor(private cdr: ChangeDetectorRef) {}
 
   ngOnInit() {
     this.sidebarClosed = false;
-    this.hasToolbar = this.options.hasOwnProperty('toolbar');
+    if (this.options.hasOwnProperty('toolbar')) {
+      for (const key in this.options.toolbar) {
+        if (this.options.toolbar.hasOwnProperty(key)) {
+          const item: MangolConfigToolbarItem = {
+            ...this.options.toolbar[key],
+            type: key
+          };
+          this.items.push(item);
+        }
+      }
+    }
     this.map.updateSize();
-  }
-
-  ngAfterViewInit() {
-    this.hasLayertree =
-      this.hasToolbar && this.options.toolbar.hasOwnProperty('layertree');
-    this.hasFeatureInfo =
-      this.hasToolbar && this.options.toolbar.hasOwnProperty('featureinfo');
-    this.hasMeasure =
-      this.hasToolbar && this.options.toolbar.hasOwnProperty('measure');
-    this.hasPrint =
-      this.hasToolbar && this.options.toolbar.hasOwnProperty('print');
   }
 
   ngDoCheck() {
     this.cdr.detectChanges();
+  }
+
+  getTitle(item: MangolConfigToolbarItem): string {
+    if (item.hasOwnProperty('title')) {
+      return item.title;
+    }
+    switch (item.type) {
+      case 'layertree':
+        return 'Layertree';
+      case 'featureinfo':
+        return 'Feature information';
+      case 'measure':
+        return 'Measure';
+      case 'print':
+        return 'Print to file';
+      default:
+        return null;
+    }
+  }
+
+  getFontSet(item: MangolConfigToolbarItem): string {
+    if (item.hasOwnProperty('fontSet')) {
+      return item.fontSet;
+    }
+    switch (item.type) {
+      case 'layertree':
+        return 'ms';
+      case 'featureinfo':
+        return 'ms';
+      case 'measure':
+        return 'ms';
+      case 'print':
+        return 'ms';
+      default:
+        return 'ms';
+    }
+  }
+
+  getFontIcon(item: MangolConfigToolbarItem): string {
+    if (item.hasOwnProperty('fontIcon')) {
+      return item.fontIcon;
+    }
+    switch (item.type) {
+      case 'layertree':
+        return 'ms-layers';
+      case 'featureinfo':
+        return 'ms-information';
+      case 'measure':
+        return 'ms-measure-distance';
+      case 'print':
+        return 'ms-printer';
+      default:
+        return null;
+    }
   }
 
   toggleSidebar(): any {

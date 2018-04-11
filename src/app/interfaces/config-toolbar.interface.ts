@@ -7,6 +7,7 @@ export interface MangolConfigToolbarItem {
   fontIcon?: string;
   active?: boolean;
   disabled?: boolean;
+  type?: string;
 }
 
 export interface MangolConfigToolbarLayertreeDetails {

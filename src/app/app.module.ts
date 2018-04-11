@@ -18,7 +18,6 @@ import { DemoMapComponent } from './demo/demo-map';
 import { DemoMapControllersComponent } from './demo/demo-map-controllers';
 import { DemoMeasureComponent } from './demo/demo-measure';
 import { DemoPrintComponent } from './demo/demo-print';
-import { DemoSidebarComponent } from './demo/demo-sidebar';
 import { PrettyPrintComponent } from './demo/pretty-print/pretty-print.component';
 import { MangolMaterialModule } from './modules/_shared/material.module';
 import { MangolModule } from './modules/mangol/mangol.module';
@@ -28,7 +27,6 @@ import { MangolModule } from './modules/mangol/mangol.module';
     MangolDemoComponent,
     DemoMapComponent,
     DemoMapControllersComponent,
-    DemoSidebarComponent,
     DemoLayertreeComponent,
     DemoPrintComponent,
     DemoFullComponent,

@@ -9,7 +9,6 @@ import { DemoMapComponent } from './demo/demo-map';
 import { DemoMapControllersComponent } from './demo/demo-map-controllers';
 import { DemoMeasureComponent } from './demo/demo-measure';
 import { DemoPrintComponent } from './demo/demo-print';
-import { DemoSidebarComponent } from './demo/demo-sidebar';
 
 const appRoutes: Routes = [
   {
@@ -32,11 +31,6 @@ const appRoutes: Routes = [
     path: 'demo-map-controllers',
     component: DemoMapControllersComponent,
     data: { animation: { page: 'demo-map-controllers' } }
-  },
-  {
-    path: 'demo-sidebar',
-    component: DemoSidebarComponent,
-    data: { animation: { page: 'demo-sidebar' } }
   },
   {
     path: 'demo-layertree',
