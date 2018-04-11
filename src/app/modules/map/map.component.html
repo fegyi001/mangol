@@ -42,7 +42,7 @@
     </button>
     </div>
 </div>
-<mangol-tile-load *ngIf="map && config && config.map && config.map.controllers && config.map.controllers.tileLoad && (loadingTiles$ | async).length > 0"></mangol-tile-load>
+<mangol-tile-load *ngIf="map && config && config.map && config.map.controllers && config.map.controllers.tileLoad && (map.loadingTiles$ | async) !== null" [tiles]="map.loadingTiles$ | async"></mangol-tile-load>
 <div class="mangol-map-controllers"
     *ngIf="map && config && config.map && config.map.controllers">
     <mangol-scale-line *ngIf="config.map.controllers.scaleLine"

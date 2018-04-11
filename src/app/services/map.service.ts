@@ -6,8 +6,7 @@ import { MangolMap } from '../classes/map.class';
 @Injectable()
 export class MangolMapService {
   maps: MangolMap[];
-  loadingTiles = new BehaviorSubject([]);
-
+  
   constructor() {
     this.maps = [];
   }
@@ -37,6 +36,7 @@ export class MangolMapService {
    * Adds a new map to the maps array
    */
   addMap(map: MangolMap): void {
+    map.loadingTiles$ = new BehaviorSubject([]);
     this.maps.push(map);
   }
 
@@ -44,19 +44,19 @@ export class MangolMapService {
    * When a tile/image starts loading, add the meta information to the loadingTiles BehaviorSubject
    * @param tile
    */
-  addTile(tile: string): void {
-    const loads = [...this.loadingTiles.getValue()];
+  addTile(map: MangolMap, tile: string): void {
+    const loads = [...map.loadingTiles$.getValue()];
     loads.push(tile);
-    this.loadingTiles.next(loads);
+    map.loadingTiles$.next(loads);
   }
 
   /**
    * After a tile/image load end, the meta information of it should be deleted from the loadingTiles BehaviorSubject
    * @param tile
    */
-  removeTile(tile: string): void {
-    const loads = [...this.loadingTiles.getValue()];
+  removeTile(map: MangolMap, tile: string): void {
+    const loads = [...map.loadingTiles$.getValue()];
     loads.splice(loads.indexOf(tile), 1);
-    this.loadingTiles.next(loads);
+    map.loadingTiles$.next(loads);
   }
 }

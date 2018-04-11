@@ -5,8 +5,10 @@ import {
   MangolConfigLayerColumn
 } from '../interfaces/config-layers.inteface';
 import { MangolMapService } from '../services/map.service';
+import { MangolMap } from './map.class';
 
 export class MangolLayer {
+  map: MangolMap;
   name: string;
   layer: any;
   opacity: number;
@@ -18,9 +20,11 @@ export class MangolLayer {
   attrColumns: MangolConfigLayerColumn[];
 
   constructor(
+    map: MangolMap,
     options: MangolConfigLayer,
     private mapService: MangolMapService
   ) {
+    this.map = map;
     this.name = options.name;
     this.showDetails = false;
     this.layer = options.layer;
@@ -49,13 +53,13 @@ export class MangolLayer {
       source instanceof ol.source.TileJSON
     ) {
       source.on('tileloadstart', (evt: any) => {
-        this.mapService.addTile(evt.tile.getImage());
+        this.mapService.addTile(this.map, evt.tile.getImage());
       });
       source.on('tileloadend', (evt: any) => {
-        this.mapService.removeTile(evt.tile.getImage());
+        this.mapService.removeTile(this.map, evt.tile.getImage());
       });
       source.on('tileloaderror', (evt: any) => {
-        this.mapService.removeTile(evt.tile.getImage());
+        this.mapService.removeTile(this.map, evt.tile.getImage());
       });
     } else if (
       source instanceof ol.source.ImageWMS ||
@@ -63,13 +67,13 @@ export class MangolLayer {
       source instanceof ol.source.ImageArcGISRest
     ) {
       source.on('imageloadstart', (evt: any) => {
-        this.mapService.addTile(evt.image.getImage());
+        this.mapService.addTile(this.map, evt.image.getImage());
       });
       source.on('imageloadend', (evt: any) => {
-        this.mapService.removeTile(evt.image.getImage());
+        this.mapService.removeTile(this.map, evt.image.getImage());
       });
       source.on('imageloaderror', (evt: any) => {
-        this.mapService.removeTile(evt.image.getImage());
+        this.mapService.removeTile(this.map, evt.image.getImage());
       });
     }
   }
