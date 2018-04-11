@@ -18,7 +18,7 @@ export class MangolLayertreeComponent implements OnInit {
   layerGroups: MangolLayergroup[];
   layers: MangolLayer[];
 
-  public ngOnInit(): any {
+  ngOnInit() {
     this.layerGroups = this.map.getMangolLayerGroups();
     this.layers = this.map.getMangolLayers();
   }

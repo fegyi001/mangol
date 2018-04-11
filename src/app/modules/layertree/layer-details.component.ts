@@ -29,7 +29,7 @@ export class MangolLayerDetailsComponent implements OnInit {
   sliderShowLabels: boolean;
   sliderValue: number;
 
-  public ngOnInit(): any {
+  ngOnInit() {
     this.sliderMin = 0;
     this.sliderMax = 100;
     this.sliderValue = parseInt((this.layer.opacity * 100).toString(), 0);
@@ -47,14 +47,14 @@ export class MangolLayerDetailsComponent implements OnInit {
         : true;
   }
 
-  public onSliderChange($event: MatSliderChange) {
+  onSliderChange($event: MatSliderChange) {
     const newValue = $event.value / 100;
     this.layer.opacity = newValue;
     this.layer.layer.setOpacity(newValue);
     this.sliderValue = parseInt((this.layer.opacity * 100).toString(), 0);
   }
 
-  public closeDetails() {
+  closeDetails() {
     this.detailsClosed.emit(null);
   }
 }

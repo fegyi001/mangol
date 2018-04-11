@@ -11,7 +11,7 @@
 
 ## About Mangol
 
-Mangol is an open source library for combining [Angular](https://angular.io/), [Angular Material components](https://material.angular.io/) and [OpenLayers](https://openlayers.org/) to create a modern, responsive interactive GUI for web maps (_M_ stands for _Material_, _ang_ for _Angular_ and _ol_ for _OpenLayers_). The project has been created using [@angular/cli](https://cli.angular.io/), a command-line tool for Angular projects. The project is written in TypeScript and uses SCSS for styling. The packaging is done via [Webpack module bundler](https://webpack.github.io/).
+Mangol is an open source library for combining [Angular](https://angular.io/), [Angular Material](https://material.angular.io/) and [OpenLayers](https://openlayers.org/) to create a modern, responsive interactive GUI for web maps (_M_ stands for _Material_, _ang_ for _Angular_ and _ol_ for _OpenLayers_). The project has been created using [@angular/cli](https://cli.angular.io/), a command-line tool for Angular projects. The project is written in TypeScript and uses SCSS for styling. The packaging is done via [Webpack module bundler](https://webpack.github.io/).
 
 Formerly, Mangol was called `ng2ol3` and was based on SystemJS and without angular-cli.
 
@@ -107,7 +107,7 @@ You can further configure your Mangol component for example by adding a sidebar 
 
 ```typescript
 import { Component, OnInit } from '@angular/core';
-import { MangolConfig } from 'mangol/src/app/interfaces/config.interface';
+import { MangolConfig } from 'mangol';
 import * as ol from 'openlayers';
 
 @Component({
@@ -185,7 +185,7 @@ In order to reach more functionality, you can access the MangolReady object, whi
 
 ```typescript
 import { Component } from '@angular/core';
-import { MangolReady } from 'mangol/src/app/interfaces/ready.interface';
+import { MangolReady } from 'mangol';
 
 @Component({
   selector: 'app-root',
@@ -204,7 +204,7 @@ export class AppComponent {
 
 This project is still under heavy development. In the near future I intend to add/extend other widgets. More examples will arrive as soon as the project becomes smarter. Any notice, remarks or pull requests are appreciated.
 
-![demo](src/assets/img/screenshots/screenshot-0.6.8.png)
+![demo](src/assets/img/screenshots/screenshot-1.0.9.png)
 
 ## Author
 
@@ -214,4 +214,4 @@ This project is still under heavy development. In the near future I intend to ad
 
 Any donations are highly appreciated.
 
-<a href='https://pledgie.com/campaigns/35128'><img alt='Click here to lend your support to: Mangol and make a donation at pledgie.com !' src='https://pledgie.com/campaigns/35128.png?skin_name=chrome' border='0' ></a>
+[![](https://www.paypalobjects.com/en_US/i/btn/btn_donateCC_LG.gif)](https://www.paypal.com/cgi-bin/webscr?cmd=_s-xclick&hosted_button_id=B2UD7P4XL963G)

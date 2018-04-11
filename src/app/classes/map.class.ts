@@ -1,3 +1,4 @@
+import { MangolMapService } from '../services/map.service';
 import {
   MangolConfigLayer,
   MangolConfigLayerGroup,
@@ -14,14 +15,14 @@ export class MangolMap extends ol.Map {
   private _layerGroups: MangolLayergroup[];
   private _allLayers: MangolLayer[];
 
-  constructor(options: any) {
+  constructor(options: any, private mapService: MangolMapService) {
     super(options);
     this._layers = [];
     this._layerGroups = [];
     this._allLayers = [];
   }
 
-  public addLayersAndLayerGroups(
+  addLayersAndLayerGroups(
     layertree: MangolConfigLayertree,
     parent: MangolLayergroup
   ): void {
@@ -39,7 +40,7 @@ export class MangolMap extends ol.Map {
   }
 
   private _handleLayer(layer: MangolConfigLayer, parent: MangolLayergroup) {
-    const newLayer = new MangolLayer(layer);
+    const newLayer = new MangolLayer(layer, this.mapService);
     // if the parent is null then it is the root element
     if (parent === null) {
       this._layers.push(newLayer);
@@ -69,15 +70,15 @@ export class MangolMap extends ol.Map {
     newLayerGroup.getDetails();
   }
 
-  public getMangolLayers(): MangolLayer[] {
+  getMangolLayers(): MangolLayer[] {
     return this._layers;
   }
 
-  public getMangolLayerGroups(): MangolLayergroup[] {
+  getMangolLayerGroups(): MangolLayergroup[] {
     return this._layerGroups;
   }
 
-  public getMangolAllLayers(): MangolLayer[] {
+  getMangolAllLayers(): MangolLayer[] {
     return this._allLayers;
   }
 }

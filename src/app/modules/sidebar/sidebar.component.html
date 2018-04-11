@@ -1,29 +1,51 @@
 <div class="sidebar-outer">
-    <mangol-toolbar *ngIf="hasToolbar"
-        [options]="options.toolbar"
-        (elementActivated)="onElementActivated($event)">
-    </mangol-toolbar>
-    <div class="sidebar-main">
-        <div class="sidebar-title">
-            <mat-toolbar>
-                <span>{{activeElement.title}}</span>
-            </mat-toolbar>
-        </div>
-        <div class="sidebar-content">
-            <mangol-layertree *ngIf="hasLayertree && activeElement.type==='layertree'"
-                [opts]="options.toolbar.layertree"
-                [map]="map"
-                [isAccordionMulti]="options.toolbar.layertree.isAccordionMulti">
-            </mangol-layertree>
-            <mangol-feature-info *ngIf="hasFeatureInfo && activeElement.type==='featureinfo'"
-                [map]="map"
-                [opts]="options.toolbar.featureinfo"></mangol-feature-info>
-            <mangol-measure *ngIf="hasMeasure && activeElement.type==='measure'"
-                [map]="map"
-                [opts]="options.toolbar.measure">
-            </mangol-measure>
-            <mangol-print *ngIf="hasPrint && activeElement.type==='print'"
-                [map]="map"></mangol-print>
-        </div>
-    </div>
+    <mat-tab-group disableRipple="true"
+        (selectedTabChange)="onSelectedTabChange($event)">
+        <mat-tab *ngIf="hasLayertree">
+            <ng-template mat-tab-label>
+                <mat-icon fontSet="ms"
+                    fontIcon="ms-layers"
+                    [color]="selectedIndex === 0 ? 'primary' : ''"></mat-icon>
+            </ng-template>
+            <div class="sidebar-content">
+                <mangol-layertree [opts]="options.toolbar.layertree"
+                    [map]="map"
+                    [isAccordionMulti]="options.toolbar.layertree.isAccordionMulti">
+                </mangol-layertree>
+            </div>
+        </mat-tab>
+        <mat-tab *ngIf="hasFeatureInfo">
+            <ng-template mat-tab-label>
+                <mat-icon fontSet="ms"
+                    fontIcon="ms-information"
+                    [color]="selectedIndex === 1 ? 'primary' : ''"></mat-icon>
+            </ng-template>
+            <div class="sidebar-content">
+                <mangol-feature-info [map]="map"
+                    [opts]="options.toolbar.featureinfo"></mangol-feature-info>
+            </div>
+        </mat-tab>
+        <mat-tab *ngIf="hasMeasure">
+            <ng-template mat-tab-label>
+                <mat-icon fontSet="ms"
+                    fontIcon="ms-measure-distance"
+                    [color]="selectedIndex === 2 ? 'primary' : ''"></mat-icon>
+            </ng-template>
+            <div class="sidebar-content">
+                <mangol-measure [map]="map"
+                    [opts]="options.toolbar.measure">
+                </mangol-measure>
+            </div>
+        </mat-tab>
+        <mat-tab *ngIf="hasPrint">
+            <ng-template mat-tab-label>
+                <mat-icon fontSet="ms"
+                    fontIcon="ms-printer"
+                    [color]="selectedIndex === 3 ? 'primary' : ''"></mat-icon>
+            </ng-template>
+            <div class="sidebar-content">
+                <mangol-print [map]="map"></mangol-print>
+            </div>
+        </mat-tab>
+    </mat-tab-group>
 </div>

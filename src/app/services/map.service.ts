@@ -1,9 +1,12 @@
 import { Injectable } from '@angular/core';
+import { BehaviorSubject } from 'rxjs/BehaviorSubject';
+
 import { MangolMap } from '../classes/map.class';
 
 @Injectable()
 export class MangolMapService {
   maps: MangolMap[];
+  loadingTiles = new BehaviorSubject([]);
 
   constructor() {
     this.maps = [];
@@ -35,5 +38,25 @@ export class MangolMapService {
    */
   addMap(map: MangolMap): void {
     this.maps.push(map);
+  }
+
+  /**
+   * When a tile/image starts loading, add the meta information to the loadingTiles BehaviorSubject
+   * @param tile
+   */
+  addTile(tile: string): void {
+    const loads = [...this.loadingTiles.getValue()];
+    loads.push(tile);
+    this.loadingTiles.next(loads);
+  }
+
+  /**
+   * After a tile/image load end, the meta information of it should be deleted from the loadingTiles BehaviorSubject
+   * @param tile
+   */
+  removeTile(tile: string): void {
+    const loads = [...this.loadingTiles.getValue()];
+    loads.splice(loads.indexOf(tile), 1);
+    this.loadingTiles.next(loads);
   }
 }

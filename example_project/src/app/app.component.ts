@@ -58,7 +58,8 @@ export class AppComponent implements OnInit {
               }
             ]
           },
-          fullScreen: {}
+          fullScreen: {},
+          tileLoad: true
         },
         layertree: {
           groups: [

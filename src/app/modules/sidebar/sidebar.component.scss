@@ -1,0 +1,34 @@
+@import '../../../assets/scss/mangol';
+
+:host {
+  display: block;
+}
+
+.sidebar-outer {
+  /deep/.mat-tab-label,
+  /deep/.mat-tab-label-active {
+    min-width: 80px !important;
+    padding: 3px !important;
+    margin: 3px !important;
+  }
+}
+
+.mat-tab-group {
+  height: 100%;
+  /deep/.mat-tab-body-wrapper {
+    height: 100%;
+  }
+}
+
+.sidebar-content {
+  padding-top: 10px;
+  padding-bottom: 10px;
+  padding-left: 5px;
+  padding-right: 5px;
+  height: 100%;
+}
+
+.mat-icon {
+  @include mat-icon-size(16px);
+  vertical-align: middle;
+}

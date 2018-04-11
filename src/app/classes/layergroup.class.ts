@@ -17,7 +17,7 @@ export class MangolLayergroup {
     this.nestedLayerGroups = [];
   }
 
-  public getDetails(): void {
+  getDetails(): void {
     if (this.options.hasOwnProperty('description')) {
       this.details = this.options.description;
     } else {
@@ -36,7 +36,7 @@ export class MangolLayergroup {
     }
   }
 
-  public getName(): string {
+  getName(): string {
     return this.name;
   }
 }

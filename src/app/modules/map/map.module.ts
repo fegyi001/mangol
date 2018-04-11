@@ -9,6 +9,7 @@ import { MangolMapComponent } from './map.component';
 import { MangolMousePositionComponent } from './mouse-position.component';
 import { MangolQuickSearchComponent } from './quick-search.component';
 import { MangolScaleLineComponent } from './scale-line.component';
+import { TileLoadComponent } from './tile-load.component';
 
 @NgModule({
   imports: [
@@ -27,7 +28,8 @@ import { MangolScaleLineComponent } from './scale-line.component';
     MangolMapComponent,
     MangolMousePositionComponent,
     MangolScaleLineComponent,
-    MangolQuickSearchComponent
+    MangolQuickSearchComponent,
+    TileLoadComponent
   ]
 })
 export class MangolMapModule {}

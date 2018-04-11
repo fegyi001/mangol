@@ -3,6 +3,7 @@ import { RouterModule, Routes } from '@angular/router';
 
 import { DemoFeatureInfoComponent } from './demo/demo-featureinfo';
 import { DemoFullComponent } from './demo/demo-full';
+import { DemoHomeComponent } from './demo/demo-home.component';
 import { DemoLayertreeComponent } from './demo/demo-layertree';
 import { DemoMapComponent } from './demo/demo-map';
 import { DemoMapControllersComponent } from './demo/demo-map-controllers';
@@ -13,44 +14,54 @@ import { DemoSidebarComponent } from './demo/demo-sidebar';
 const appRoutes: Routes = [
   {
     path: '',
-    redirectTo: '/demo-map',
-    // component: DemoMapComponent,
-    pathMatch: 'full'
+    redirectTo: '/demo-home',
+    pathMatch: 'full',
+    data: { animation: { page: 'homePage' } }
+  },
+  {
+    path: 'demo-home',
+    component: DemoHomeComponent,
+    data: { animation: { page: 'demo-home' } }
   },
   {
     path: 'demo-map',
-    component: DemoMapComponent
+    component: DemoMapComponent,
+    data: { animation: { page: 'demo-map' } }
   },
   {
     path: 'demo-map-controllers',
-    component: DemoMapControllersComponent
+    component: DemoMapControllersComponent,
+    data: { animation: { page: 'demo-map-controllers' } }
   },
   {
     path: 'demo-sidebar',
-    component: DemoSidebarComponent
+    component: DemoSidebarComponent,
+    data: { animation: { page: 'demo-sidebar' } }
   },
   {
     path: 'demo-layertree',
-    component: DemoLayertreeComponent
+    component: DemoLayertreeComponent,
+    data: { animation: { page: 'demo-layertree' } }
   },
   {
     path: 'demo-featureinfo',
-    component: DemoFeatureInfoComponent
+    component: DemoFeatureInfoComponent,
+    data: { animation: { page: 'demo-featureinfo' } }
   },
   {
     path: 'demo-print',
-    component: DemoPrintComponent
+    component: DemoPrintComponent,
+    data: { animation: { page: 'demo-print' } }
   },
   {
     path: 'demo-measure',
-    component: DemoMeasureComponent
-    // }, {
-    //   path: 'demo-osmgwc',
-    //   component: DemoOsmgwcComponent
+    component: DemoMeasureComponent,
+    data: { animation: { page: 'demo-measure' } }
   },
   {
     path: 'demo-full',
-    component: DemoFullComponent
+    component: DemoFullComponent,
+    data: { animation: { page: 'demo-full' } }
   }
 ];
 

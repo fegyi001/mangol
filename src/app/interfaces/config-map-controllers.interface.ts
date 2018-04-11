@@ -23,4 +23,5 @@ export interface MangolConfigMapControllers {
   scaleLine?: MangolConfigMapControllerScaleLine;
   quickSearch?: MangolConfigMapControllerQuickSearch;
   fullScreen?: MangolConfigMapControllerFullScreen;
+  tileLoad?: boolean
 }

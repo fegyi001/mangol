@@ -1,3 +1,4 @@
+import { Observable } from 'rxjs/Observable';
 import {
   AfterViewInit,
   Component,
@@ -28,6 +29,8 @@ export class MangolMapComponent implements AfterViewInit, OnInit {
   @Output() mapCreated = new EventEmitter<MangolMap>();
   @Output() sidebarToggled = new EventEmitter();
 
+  loadingTiles$: Observable<string[]>;
+
   map: MangolMap;
   view: ol.View;
   renderer: string;
@@ -53,6 +56,7 @@ export class MangolMapComponent implements AfterViewInit, OnInit {
   constructor(public dialog: MatDialog) {}
 
   ngOnInit() {
+    this.loadingTiles$ = this.mapService.loadingTiles;
     this.sidebarOpened =
       this.config &&
       this.config.hasOwnProperty('sidebar') &&
@@ -82,12 +86,15 @@ export class MangolMapComponent implements AfterViewInit, OnInit {
   ngAfterViewInit() {
     setTimeout(() => {
       // create the MangolMap instance (extends ol.Map)
-      this.map = new MangolMap({
-        renderer: this.renderer,
-        layers: [],
-        target: this.config.map.target,
-        view: this.view
-      });
+      this.map = new MangolMap(
+        {
+          renderer: this.renderer,
+          layers: [],
+          target: this.config.map.target,
+          view: this.view
+        },
+        this.mapService
+      );
       // consume layer and layergroup parameters
       if (this.config.map.hasOwnProperty('layertree')) {
         this.map.addLayersAndLayerGroups(this.config.map.layertree, null);
