@@ -8,7 +8,7 @@ import { MangolMaterialModule } from '../_shared/material.module';
 import { MangolFeatureInfoTableDialogComponent } from './feature-info-table-dialog.component';
 import { MangolFeatureInfoTableComponent } from './feature-info-table.component';
 import { MangolFeatureInfoComponent } from './feature-info.component';
-import { FeatureIntoService } from './feature-info.service';
+import { MangolFeatureIntoService } from './feature-info.service';
 
 @NgModule({
   declarations: [
@@ -18,7 +18,7 @@ import { FeatureIntoService } from './feature-info.service';
   ],
   imports: [CommonModule, MangolMaterialModule, HttpModule],
   exports: [MangolFeatureInfoComponent, MangolFeatureInfoTableComponent],
-  providers: [FeatureIntoService],
+  providers: [MangolFeatureIntoService],
   entryComponents: [MangolFeatureInfoTableDialogComponent]
 })
 export class MangolFeatureInfoModule {}

@@ -1,13 +1,15 @@
 import 'rxjs/add/observable/throw';
-import 'rxjs/add/operator/catch';
-import 'rxjs/add/operator/map';
 
 import { Injectable } from '@angular/core';
 import { Headers, Http, Response } from '@angular/http';
 import { Observable } from 'rxjs/Observable';
+import { catchError, map } from 'rxjs/operators';
+import { BehaviorSubject } from 'rxjs/BehaviorSubject';
 
 @Injectable()
-export class FeatureIntoService {
+export class MangolFeatureIntoService {
+  activateState$: BehaviorSubject<boolean> = new BehaviorSubject(false);
+
   constructor(private http: Http) {}
 
   getFeatureInfo(url: string) {
@@ -18,13 +20,15 @@ export class FeatureIntoService {
       .get(url, {
         headers: headers
       })
-      .map((response: Response) => {
-        const resp = response.json();
-        return resp;
-      })
-      .catch((error: Response) => {
-        console.log(error);
-        return Observable.throw(error);
-      });
+      .pipe(
+        map((response: Response) => {
+          const resp = response.json();
+          return resp;
+        }),
+        catchError((error: Response) => {
+          console.log(error);
+          return Observable.throw(error);
+        })
+      );
   }
 }

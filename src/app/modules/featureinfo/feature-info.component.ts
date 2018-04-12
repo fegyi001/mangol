@@ -1,3 +1,4 @@
+import { Subscription } from 'rxjs/Subscription';
 import {
   Component,
   HostBinding,
@@ -9,7 +10,7 @@ import { MatSelectChange, MatSnackBar } from '@angular/material';
 
 import { MangolLayer } from './../../classes/layer.class';
 import { MangolConfigFeatureInfoItem } from './../../interfaces/config-toolbar.interface';
-import { FeatureIntoService } from './feature-info.service';
+import { MangolFeatureIntoService } from './feature-info.service';
 import { MangolMap } from '../../classes/map.class';
 
 declare var $: any;
@@ -31,18 +32,32 @@ export class MangolFeatureInfoComponent implements OnInit, OnDestroy {
   highlightFeatures: boolean;
 
   layers: MangolLayer[];
-  selected: MangolLayer;
+  selected: MangolLayer = null;
   hoverLayer: ol.layer.Vector;
   clickEvent: any;
   features: ol.Feature[];
   geojson = new ol.format.GeoJSON();
+
+  activateStateSubscription: Subscription;
+
   constructor(
-    private featureInfoService: FeatureIntoService,
+    private featureInfoService: MangolFeatureIntoService,
     public snackBar: MatSnackBar
   ) {
     this.layers = [];
     this.selected = null;
     this.features = [];
+    this.activateStateSubscription = this.featureInfoService.activateState$.subscribe(
+      state => {
+        if (state !== null) {
+          if (state && this.selected !== null) {
+            this._activateClick(this.selected.layer);
+          } else {
+            this._deactivateClick();
+          }
+        }
+      }
+    );
   }
 
   ngOnInit() {
@@ -71,13 +86,16 @@ export class MangolFeatureInfoComponent implements OnInit, OnDestroy {
   }
 
   ngOnDestroy() {
+    if (this.activateStateSubscription) {
+      this.activateStateSubscription.unsubscribe();
+    }
     this._removeHoverLayer();
     this._deactivateClick();
   }
 
   onSelectionChange(evt: MatSelectChange) {
     this.selected = evt.value;
-    this._activateClick(this.selected.layer);
+    this.featureInfoService.activateState$.next(true);
   }
 
   openSnackBar(message: string, action: string) {
@@ -171,6 +189,8 @@ export class MangolFeatureInfoComponent implements OnInit, OnDestroy {
   }
 
   private _activateClick(layer: any) {
+    // this.featureInfoService.activateState$.next(false);
+    // this.featureInfoService.activateState$.next(true);
     this._deactivateClick();
     this._setCursor(this.cursorStyle);
     this.clickEvent = (evt: any) => {

@@ -1,3 +1,5 @@
+import { MangolMeasureService } from './../measure/measure.service';
+import { MangolFeatureIntoService } from './../featureinfo/feature-info.service';
 import {
   ChangeDetectionStrategy,
   ChangeDetectorRef,
@@ -29,7 +31,11 @@ export class MangolSidebarComponent implements OnInit, DoCheck {
   selectedIndex = 0;
   items: MangolConfigToolbarItem[] = [];
 
-  constructor(private cdr: ChangeDetectorRef) {}
+  constructor(
+    private cdr: ChangeDetectorRef,
+    private featureInfoService: MangolFeatureIntoService,
+    private measureService: MangolMeasureService
+  ) {}
 
   ngOnInit() {
     this.sidebarClosed = false;
@@ -110,6 +116,26 @@ export class MangolSidebarComponent implements OnInit, DoCheck {
   }
 
   onSelectedTabChange(evt: MatTabChangeEvent) {
+    switch (this.items[this.selectedIndex].type) {
+      case 'featureinfo':
+        this.featureInfoService.activateState$.next(false);
+        break;
+      case 'measure':
+        this.measureService.activateState$.next(false);
+        break;
+      default:
+        break;
+    }
     this.selectedIndex = evt.index;
+    switch (this.items[this.selectedIndex].type) {
+      case 'featureinfo':
+        this.featureInfoService.activateState$.next(true);
+        break;
+      case 'measure':
+        this.measureService.activateState$.next(true);
+        break;
+      default:
+        break;
+    }
   }
 }

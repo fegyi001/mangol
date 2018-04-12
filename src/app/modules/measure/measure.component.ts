@@ -1,3 +1,4 @@
+import { Subscription } from 'rxjs/Subscription';
 import {
   Component,
   HostBinding,
@@ -10,6 +11,7 @@ import * as ol from 'openlayers';
 
 import { MangolMap } from '../../classes/map.class';
 import { MangolConfigMeasureItem } from '../../interfaces/config-toolbar.interface';
+import { MangolMeasureService } from './measure.service';
 
 declare var $: any;
 export interface MeasureButton {
@@ -45,9 +47,22 @@ export class MangolMeasureComponent implements OnInit, OnDestroy {
   value: number;
   units: string;
 
-  constructor() {
+  activateStateSubscription: Subscription;
+
+  constructor(private measureService: MangolMeasureService) {
     this.buttons = [];
     this.value = null;
+    this.activateStateSubscription = this.measureService.activateState$.subscribe(
+      state => {
+        if (state !== null) {
+          if (state && this.selected !== null) {
+            this.activateDraw();
+          } else {
+            this.deactivateDraw();
+          }
+        }
+      }
+    );
   }
 
   ngOnInit() {
@@ -114,21 +129,23 @@ export class MangolMeasureComponent implements OnInit, OnDestroy {
         return this._getStyle(feature);
       }
     });
-    this.map.addLayer(this.layer);
   }
 
   ngOnDestroy() {
     this.deactivateDraw();
-    this.map.removeLayer(this.layer);
+    if (this.activateStateSubscription) {
+      this.activateStateSubscription.unsubscribe();
+    }
   }
 
   onToggleChange(evt: MatButtonToggleChange) {
     this.selected = evt.value;
-    this.activateDraw();
+    this.measureService.activateState$.next(true);
   }
 
   activateDraw() {
     this.deactivateDraw();
+    this.map.addLayer(this.layer);
     this._setCursor(this.cursorStyle);
     this.draw = new ol.interaction.Draw({
       source: this.layer.getSource(),
@@ -154,9 +171,10 @@ export class MangolMeasureComponent implements OnInit, OnDestroy {
   deactivateDraw() {
     this._setCursor('');
     this.value = null;
-    this.layer.getSource().clear();
     try {
       this.map.removeInteraction(this.draw);
+      this.layer.getSource().clear();
+      this.map.removeLayer(this.layer);
     } catch (error) {}
   }
 
