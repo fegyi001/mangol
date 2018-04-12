@@ -29,6 +29,8 @@ export class MangolMapComponent implements AfterViewInit, OnInit {
   @Output() mapCreated = new EventEmitter<MangolMap>();
   @Output() sidebarToggled = new EventEmitter();
 
+  loadingTiles$: Observable<string[]>;
+
   map: MangolMap;
   view: ol.View;
   renderer: string;
@@ -54,6 +56,7 @@ export class MangolMapComponent implements AfterViewInit, OnInit {
   constructor(public dialog: MatDialog) {}
 
   ngOnInit() {
+    this.loadingTiles$ = this.mapService.loadingTiles$;
     this.sidebarOpened =
       this.config &&
       this.config.hasOwnProperty('sidebar') &&
@@ -131,9 +134,7 @@ export class MangolMapComponent implements AfterViewInit, OnInit {
       height: '95%',
       data: { config: dialogConfig }
     });
-    dialogRef.afterClosed().subscribe(result => {
-      
-    });
+    dialogRef.afterClosed().subscribe(result => {});
   }
 
   toggleSidebar(): void {

@@ -1,10 +1,12 @@
 {
   "$schema": "./node_modules/ng-packagr/ng-package.schema.json",
+  "whitelistedNonPeerDependencies": ["."],
   "lib": {
     "entryFile": "public_api.ts",
     "cssUrl": "none",
     "externals": {
       "@angular/material": "ng.material",
+      "@angular/animations": "ng.animations",
       "openlayers": "ol",
       "proj4": "proj4",
       "jspdf": "jsPDF"

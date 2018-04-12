@@ -1,21 +1,20 @@
-import { MangolMapService } from '../services/map.service';
+import * as ol from 'openlayers';
+
 import {
   MangolConfigLayer,
   MangolConfigLayerGroup,
   MangolConfigLayertree
 } from '../interfaces/config-layers.inteface';
+import { MangolMapService } from '../services/map.service';
 import { MangolLayer } from './layer.class';
 import { MangolLayergroup } from './layergroup.class';
-import { BehaviorSubject } from 'rxjs/BehaviorSubject';
 
-import * as ol from 'openlayers';
 // import Map from 'ol/map';
 
 export class MangolMap extends ol.Map {
   private _layers: MangolLayer[];
   private _layerGroups: MangolLayergroup[];
   private _allLayers: MangolLayer[];
-  public loadingTiles$ = new BehaviorSubject([]);
 
   constructor(options: any, private mapService: MangolMapService) {
     super(options);
@@ -41,7 +40,7 @@ export class MangolMap extends ol.Map {
   }
 
   private _handleLayer(layer: MangolConfigLayer, parent: MangolLayergroup) {
-    const newLayer = new MangolLayer(this, layer, this.mapService);
+    const newLayer = new MangolLayer(layer, this.mapService);
     // if the parent is null then it is the root element
     if (parent === null) {
       this._layers.push(newLayer);
