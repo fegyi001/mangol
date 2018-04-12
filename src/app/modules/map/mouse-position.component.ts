@@ -11,7 +11,8 @@ import { MangolConfigMapControllerMousePosition } from '../../interfaces/config-
 
 @Component({
   selector: 'mangol-mouse-position',
-  templateUrl: './mouse-position.component.html'
+  templateUrl: './mouse-position.component.html',
+  styleUrls: ['./mouse-position.component.scss']
 })
 export class MangolMousePositionComponent implements OnInit, OnDestroy {
   @HostBinding('class') class = 'mangol-mouse-position';
