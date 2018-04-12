@@ -1,12 +1,11 @@
 import { Injectable } from '@angular/core';
-import { BehaviorSubject } from 'rxjs/BehaviorSubject';
 
 import { MangolMap } from '../classes/map.class';
 
 @Injectable()
 export class MangolMapService {
   maps: MangolMap[];
-  
+
   constructor() {
     this.maps = [];
   }
@@ -36,7 +35,6 @@ export class MangolMapService {
    * Adds a new map to the maps array
    */
   addMap(map: MangolMap): void {
-    map.loadingTiles$ = new BehaviorSubject([]);
     this.maps.push(map);
   }
 

@@ -15,7 +15,7 @@ export class MangolMap extends ol.Map {
   private _layers: MangolLayer[];
   private _layerGroups: MangolLayergroup[];
   private _allLayers: MangolLayer[];
-  public loadingTiles$: BehaviorSubject<string[]>;
+  public loadingTiles$ = new BehaviorSubject([]);
 
   constructor(options: any, private mapService: MangolMapService) {
     super(options);
@@ -28,7 +28,6 @@ export class MangolMap extends ol.Map {
     layertree: MangolConfigLayertree,
     parent: MangolLayergroup
   ): void {
-    // console.log(layertree);
     if (layertree.hasOwnProperty('layers')) {
       layertree.layers.forEach((layer: MangolConfigLayer) => {
         this._handleLayer(layer, parent);
