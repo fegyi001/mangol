@@ -50,6 +50,7 @@ export class MangolFeatureInfoComponent implements OnInit, OnDestroy {
     this.activateStateSubscription = this.featureInfoService.activateState$.subscribe(
       state => {
         if (state !== null) {
+          this._getQueryableLayers();
           if (state && this.selected !== null) {
             this._activateClick(this.selected.layer);
           } else {
@@ -82,7 +83,6 @@ export class MangolFeatureInfoComponent implements OnInit, OnDestroy {
         ? this.opts.highlightFeatures
         : true;
     this._addHoverLayer();
-    this._getQueryableLayers();
   }
 
   ngOnDestroy() {
@@ -148,11 +148,14 @@ export class MangolFeatureInfoComponent implements OnInit, OnDestroy {
   }
 
   private _getQueryableLayers() {
-    this.map.getMangolAllLayers().forEach((layer: MangolLayer) => {
-      if (layer.isQueryable() && layer.getVisible()) {
-        this.layers.push(layer);
-      }
-    });
+    if (this.map) {
+      this.layers = [];
+      this.map.getMangolAllLayers().forEach((layer: MangolLayer) => {
+        if (layer.isQueryable() && layer.getVisible()) {
+          this.layers.push(layer);
+        }
+      });
+    }
   }
 
   private _setCursor(cursorType: string) {
@@ -189,13 +192,11 @@ export class MangolFeatureInfoComponent implements OnInit, OnDestroy {
   }
 
   private _activateClick(layer: any) {
-    // this.featureInfoService.activateState$.next(false);
-    // this.featureInfoService.activateState$.next(true);
     this._deactivateClick();
     this._setCursor(this.cursorStyle);
     this.clickEvent = (evt: any) => {
       this.features = [];
-      if (layer instanceof ol.layer.Tile) {
+      if (layer instanceof ol.layer.Tile || layer instanceof ol.layer.Image) {
         const url = this._getFeatureInfoUrl(
           layer.getSource(),
           evt.coordinate,

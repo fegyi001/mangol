@@ -12,7 +12,8 @@
             </ng-template>
             <div class="sidebar-content">
                 <mat-toolbar>{{getTitle(item)}}</mat-toolbar>
-                <div class="sidebar-inner">
+                <div class="sidebar-inner"
+                    *ngIf="map">
                     <mangol-layertree *ngIf="item.type === 'layertree'"
                         [opts]="options.toolbar.layertree"
                         [map]="map"
