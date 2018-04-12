@@ -1,12 +1,18 @@
 {
   "name": "mangol",
-  "version": "1.0.14",
+  "version": "1.0.15",
   "license": "MIT",
   "repository": {
     "type": "git",
     "url": "https://github.com/fegyi001/mangol.git"
   },
-  "keywords": ["mangol", "angular", "angular2", "openlayers", "ol"],
+  "keywords": [
+    "mangol",
+    "angular",
+    "angular2",
+    "openlayers",
+    "ol"
+  ],
   "author": "Gergely Padányi-Gulyás",
   "bugs": {
     "url": "https://github.com/fegyi001/mangol/issues"
@@ -20,10 +26,8 @@
     "lint": "ng lint",
     "e2e": "ng e2e",
     "build-demo": "ng build --prod --aot && rm -rf dist_demo/assets/scss",
-    "compodoc":
-      "./node_modules/.bin/compodoc -p src/tsconfig.app.json -d ./doc --theme material",
-    "packagr":
-      "ng-packagr -p ng-package.json && rm -rf dist/example_project && cp -r src/assets dist/src && rm -rf dist/src/assets/img"
+    "compodoc": "./node_modules/.bin/compodoc -p src/tsconfig.app.json -d ./doc --theme material",
+    "packagr": "ng-packagr -p ng-package.json && rm -rf dist/example_project && cp -r src/assets dist/src && rm -rf dist/src/assets/img"
   },
   "private": false,
   "dependencies": {
@@ -57,7 +61,6 @@
     "@angular/cli": "1.7.3",
     "@angular/compiler-cli": "5.2.9",
     "@angular/language-service": "5.2.9",
-
     "@compodoc/compodoc": "1.0.9",
     "@types/jasmine": "2.8.6",
     "@types/node": "9.6.0",
