@@ -206,23 +206,33 @@ This project is still under heavy development. In the near future I intend to ad
 
 Map with controllers:
 
-![demo](src/assets/img/screenshots/screenshot-1.0.15_map.png)
+<kbd>
+  <img src="src/assets/img/screenshots/screenshot-1.0.15_map.png">
+</kbd>
 
 Layertree:
 
-![demo](src/assets/img/screenshots/screenshot-1.0.15_layertree.png)
+<kbd>
+  <img src="src/assets/img/screenshots/screenshot-1.0.15_layertree.png">
+</kbd>
 
 Feature info:
 
-![demo](src/assets/img/screenshots/screenshot-1.0.15_featureinfo.png)
+<kbd>
+  <img src="src/assets/img/screenshots/screenshot-1.0.15_featureinfo.png">
+</kbd>
 
 Measure:
 
-![demo](src/assets/img/screenshots/screenshot-1.0.15_measure.png)
+<kbd>
+  <img src="src/assets/img/screenshots/screenshot-1.0.15_measure.png">
+</kbd>
 
 Print to file:
 
-![demo](src/assets/img/screenshots/screenshot-1.0.15_print.png)
+<kbd>
+  <img src="src/assets/img/screenshots/screenshot-1.0.15_print.png">
+</kbd>
 
 ## Author
 
