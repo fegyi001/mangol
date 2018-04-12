@@ -204,7 +204,25 @@ export class AppComponent {
 
 This project is still under heavy development. In the near future I intend to add/extend other widgets. More examples will arrive as soon as the project becomes smarter. Any notice, remarks or pull requests are appreciated.
 
-![demo](src/assets/img/screenshots/screenshot-1.0.15.png)
+Map with controllers:
+
+![demo](src/assets/img/screenshots/screenshot-1.0.15_map.png)
+
+Layertree:
+
+![demo](src/assets/img/screenshots/screenshot-1.0.15_layertree.png)
+
+Feature info:
+
+![demo](src/assets/img/screenshots/screenshot-1.0.15_featureinfo.png)
+
+Measure:
+
+![demo](src/assets/img/screenshots/screenshot-1.0.15_measure.png)
+
+Print to file:
+
+![demo](src/assets/img/screenshots/screenshot-1.0.15_print.png)
 
 ## Author
 
