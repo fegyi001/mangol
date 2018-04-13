@@ -57,6 +57,7 @@
         padding: initial;
         .ol-scale-line-inner {
           font-family: 'Roboto Mono', monospace;
+          font-weight: 300;
           font-size: 13px;
           border: 1px solid white;
           border-top: none;
@@ -81,6 +82,8 @@
       position: relative;
       background: white;
       border-radius: 24px;
+      padding-top: 5px;
+      padding-bottom: 5px;
       padding-left: 20px;
       padding-right: 20px;
       .quicksearch-form {
