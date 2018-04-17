@@ -6,13 +6,7 @@
     "type": "git",
     "url": "https://github.com/fegyi001/mangol.git"
   },
-  "keywords": [
-    "mangol",
-    "angular",
-    "angular2",
-    "openlayers",
-    "ol"
-  ],
+  "keywords": ["mangol", "angular", "angular2", "openlayers", "ol"],
   "author": "Gergely Padányi-Gulyás",
   "bugs": {
     "url": "https://github.com/fegyi001/mangol/issues"
@@ -26,22 +20,24 @@
     "lint": "ng lint",
     "e2e": "ng e2e",
     "build-demo": "ng build --prod --aot && rm -rf dist_demo/assets/scss",
-    "compodoc": "./node_modules/.bin/compodoc -p src/tsconfig.app.json -d ./doc --theme material",
-    "packagr": "ng-packagr -p ng-package.json && rm -rf dist/example_project && cp -r src/assets dist/src && rm -rf dist/src/assets/img"
+    "compodoc":
+      "./node_modules/.bin/compodoc -p src/tsconfig.app.json -d ./doc --theme material",
+    "packagr":
+      "ng-packagr -p ng-package.json && rm -rf dist/example_project && cp -r src/assets dist/src && rm -rf dist/src/assets/img"
   },
   "private": false,
   "dependencies": {
-    "@angular/animations": "5.2.9",
+    "@angular/animations": "5.2.10",
     "@angular/cdk": "5.2.4",
-    "@angular/common": "5.2.9",
-    "@angular/compiler": "5.2.9",
-    "@angular/core": "5.2.9",
-    "@angular/forms": "5.2.9",
-    "@angular/http": "5.2.9",
+    "@angular/common": "5.2.10",
+    "@angular/compiler": "5.2.10",
+    "@angular/core": "5.2.10",
+    "@angular/forms": "5.2.10",
+    "@angular/http": "5.2.10",
     "@angular/material": "5.2.4",
-    "@angular/platform-browser": "5.2.9",
-    "@angular/platform-browser-dynamic": "5.2.9",
-    "@angular/router": "5.2.9",
+    "@angular/platform-browser": "5.2.10",
+    "@angular/platform-browser-dynamic": "5.2.10",
+    "@angular/router": "5.2.10",
     "@types/jspdf": "1.1.31",
     "@types/openlayers": "4.6.8",
     "@types/proj4": "2.3.4",
@@ -59,11 +55,11 @@
   },
   "devDependencies": {
     "@angular/cli": "1.7.4",
-    "@angular/compiler-cli": "5.2.9",
-    "@angular/language-service": "5.2.9",
+    "@angular/compiler-cli": "5.2.10",
+    "@angular/language-service": "5.2.10",
     "@compodoc/compodoc": "1.1.2",
     "@types/jasmine": "2.8.6",
-    "@types/node": "9.6.4",
+    "@types/node": "9.6.5",
     "code-prettify": "0.1.0",
     "codelyzer": "4.2.1",
     "jasmine-core": "3.1.0",
