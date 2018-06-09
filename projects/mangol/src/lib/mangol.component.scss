@@ -1,6 +1,18 @@
+@import "assets/scss/mangol";
 :host {
-    display: block;
+    font-family: $mangol-font-family;
+}
+
+.mat-drawer-container {
     width: 100%;
     height: 100%;
-    background-color: rgba(yellow, 0.2);
+    .mat-drawer {
+        padding: 20px;
+    }
+    .sidenav-content {
+        display: flex;
+        height: 100%;
+        align-items: center;
+        justify-content: center;
+    }
 }

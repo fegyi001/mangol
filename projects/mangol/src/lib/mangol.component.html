@@ -1,1 +1,22 @@
-<div>{{config | json}}</div>
+<mat-drawer-container autosize>
+    <mat-drawer #drawer
+        mode="side">
+        <p>Here be dragons</p>
+        <p *ngIf="showFiller">Lorem ipsum dolor sit amet consectetur adipisicing elit. </p>
+        <button (click)="showFiller = !showFiller"
+            mat-raised-button>
+      Toggle extra text
+    </button>
+    </mat-drawer>
+
+    <div class="sidenav-content">
+
+        <button mat-button
+            type="button"
+            mat-raised-button
+            (click)="drawer.toggle()">
+      Toggle sidenav
+    </button>
+    </div>
+
+</mat-drawer-container>

@@ -1,4 +1,4 @@
-import { Component, OnInit, Input } from '@angular/core';
+import { Component, Input, OnInit } from '@angular/core';
 
 @Component({
   selector: 'mangol',
@@ -7,7 +7,7 @@ import { Component, OnInit, Input } from '@angular/core';
 })
 export class MangolComponent implements OnInit {
   @Input() config: any;
-
+  showFiller = false;
   constructor() {}
 
   ngOnInit() {}
