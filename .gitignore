@@ -1,23 +1,13 @@
 # See http://help.github.com/ignore-files/ for more about ignoring files.
-yarn.lock
+
 # compiled output
 /dist
-/dist_demo
 /tmp
 /out-tsc
-/.ng_pkg_build
-/doc
-dist.tgz
 
 # dependencies
 /node_modules
-/example_project/node_modules
-yarn.lock
-yarn-error.log
-package-lock.json
-/example_project/yarn.lock
-/example-project/yarn-error.lock
-/example-project/package-lock.json
+/projects/mangol/node_modules
 
 # IDEs and editors
 /.idea
@@ -41,12 +31,10 @@ package-lock.json
 /coverage
 /libpeerconnection.log
 npm-debug.log
+yarn-error.log
+yarn.lock
 testem.log
 /typings
-
-# e2e
-/e2e/*.js
-/e2e/*.map
 
 # System Files
 .DS_Store
