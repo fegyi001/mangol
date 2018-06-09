@@ -1,15 +1,13 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, OnInit, Input } from '@angular/core';
 
 @Component({
   selector: 'mangol',
-  template: `
-    <p>
-      mangol works!
-    </p>
-  `,
-  styles: []
+  templateUrl: './mangol.component.html',
+  styleUrls: ['./mangol.component.scss']
 })
 export class MangolComponent implements OnInit {
+  @Input() config: any;
+
   constructor() {}
 
   ngOnInit() {}
