@@ -1,6 +1,8 @@
+import { Observable } from 'rxjs/Observable';
 import { Component, Input, OnInit } from '@angular/core';
 import { Store } from '@ngxs/store';
 import * as ol from 'openlayers';
+import { ToggleSidebar } from './store/sidebar.actions';
 
 @Component({
   selector: 'mangol',
@@ -9,15 +11,25 @@ import * as ol from 'openlayers';
 })
 export class MangolComponent implements OnInit {
   @Input() config: any;
-  sidebarOpened = false;
+  sidebarOpened$: Observable<boolean>;
   sidebarMode: string;
 
-  constructor(private store: Store) {}
+  constructor(private store: Store) {
+    this.sidebarOpened$ = this.store.select(state => state.sidebar.opened);
+  }
 
   ngOnInit() {
-    this.sidebarOpened = true;
     this.sidebarMode = 'side';
-
+    if (
+      this.config.hasOwnProperty('sidebar') &&
+      this.config.sidebar.hasOwnProperty('opened')
+    ) {
+      this.store.selectOnce(state => state.sidebar.opened).subscribe(opened => {
+        if (opened !== this.config.sidebar.opened) {
+          this.store.dispatch(new ToggleSidebar());
+        }
+      });
+    }
     console.log(this.config);
   }
 

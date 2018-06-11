@@ -3,7 +3,7 @@ import { Store } from '@ngxs/store';
 import * as ol from 'openlayers';
 import { Observable } from 'rxjs/Observable';
 
-import { AddMap } from './../../store/map/map.actions';
+import { AddMap } from './../../store/map.actions';
 
 @Component({
   selector: 'mangol-map',

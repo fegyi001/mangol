@@ -14,7 +14,8 @@ import { MangolComponent } from './mangol.component';
 import { ControllersModule } from './modules/controllers/controllers.module';
 import { MapModule } from './modules/map/map.module';
 import { TabsModule } from './modules/tabs/tabs.module';
-import { MapState } from './store/map/map.actions';
+import { MapState } from './store/map.actions';
+import { SidebarState } from './store/sidebar.actions';
 
 @NgModule({
   imports: [
@@ -26,7 +27,7 @@ import { MapState } from './store/map/map.actions';
     BrowserAnimationsModule,
     MapModule,
     ControllersModule,
-    NgxsModule.forRoot([MapState]),
+    NgxsModule.forRoot([MapState, SidebarState]),
     NgxsLoggerPluginModule.forRoot(),
     NgxsReduxDevtoolsPluginModule.forRoot()
   ],
