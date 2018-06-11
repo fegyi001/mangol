@@ -15,5 +15,7 @@ export class MangolComponent implements OnInit {
   ngOnInit() {
     this.sidebarOpened = true;
     this.sidebarMode = 'side';
+
+    console.log(this.config);
   }
 }
