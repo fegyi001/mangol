@@ -8,10 +8,12 @@
 $mangol-primary: map-get($mangol-theme, primary);
 $mangol-accent: map-get($mangol-theme, accent);
 $mangol-warn: map-get($mangol-theme, warn);
+// Sidebar width
 @if not variable-exists(mangol-sidebar-width) {
     $mangol-sidebar-width: 450px !global;
 }
 
+// Font family
 @if not variable-exists(mangol-font-family) {
     $mangol-font-family: Roboto !global;
 }

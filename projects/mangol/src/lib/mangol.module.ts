@@ -4,10 +4,12 @@ import { CommonModule } from '@angular/common';
 import { NgModule } from '@angular/core';
 import { MatButtonModule } from '@angular/material/button';
 import { MatSidenavModule } from '@angular/material/sidenav';
+import { MatToolbarModule } from '@angular/material/toolbar';
 import { BrowserModule } from '@angular/platform-browser';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 
 import { MangolComponent } from './mangol.component';
+import { MapModule } from './map/map.module';
 
 @NgModule({
   imports: [
@@ -15,7 +17,9 @@ import { MangolComponent } from './mangol.component';
     CommonModule,
     MatButtonModule,
     MatSidenavModule,
-    BrowserAnimationsModule
+    MatToolbarModule,
+    BrowserAnimationsModule,
+    MapModule
   ],
   declarations: [MangolComponent],
   exports: [MangolComponent]

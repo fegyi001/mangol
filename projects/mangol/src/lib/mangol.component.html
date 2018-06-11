@@ -1,22 +1,17 @@
-<mat-drawer-container autosize>
-    <mat-drawer #drawer
-        mode="side">
-        <p>Here be dragons</p>
-        <p *ngIf="showFiller">Lorem ipsum dolor sit amet consectetur adipisicing elit. </p>
-        <button (click)="showFiller = !showFiller"
-            mat-raised-button>
-      Toggle extra text
-    </button>
+<mat-drawer-container>
+    <mat-drawer #mangolDrawer
+        [opened]="sidebarOpened"
+        [mode]="sidebarMode">
+        <mat-toolbar color="primary">Mangol is awesome</mat-toolbar>
     </mat-drawer>
-
     <div class="sidenav-content">
-
         <button mat-button
             type="button"
             mat-raised-button
-            (click)="drawer.toggle()">
+            (click)="mangolDrawer.toggle()"
+            style="position: absolute; z-index: 100;">
       Toggle sidenav
     </button>
+        <mangol-map></mangol-map>
     </div>
-
 </mat-drawer-container>
