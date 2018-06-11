@@ -1,9 +1,11 @@
 <mat-drawer-container>
     <mat-drawer #mangolDrawer
         [opened]="sidebarOpened"
-        [mode]="sidebarMode">
+        [mode]="sidebarMode"
+        (openedChange)="onOpenedChange($event)">
         <mat-toolbar color="primary">Mangol is awesome</mat-toolbar>
     </mat-drawer>
+    <mangol-controllers></mangol-controllers>
     <div class="sidenav-content">
         <button mat-button
             type="button"

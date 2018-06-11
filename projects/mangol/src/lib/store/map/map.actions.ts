@@ -8,12 +8,14 @@ export class AddMap {
 
 export interface MapStateModel {
   map: ol.Map;
+  version: number;
 }
 
 @State<MapStateModel>({
   name: 'map',
   defaults: {
-    map: null
+    map: null,
+    version: 0
   }
 })
 export class MapState {
@@ -22,7 +24,8 @@ export class MapState {
     const state = ctx.getState();
     ctx.setState({
       ...state,
-      map: action.map
+      map: action.map,
+      version: state.version + 1
     });
   }
 }

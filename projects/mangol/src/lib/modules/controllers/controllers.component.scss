@@ -1,0 +1,13 @@
+@import "../../assets/scss/mangol";
+:host {
+    margin-left: 20px;
+    margin-top: 20px;
+    position: absolute;
+    z-index: 10;
+    display: block;
+}
+
+.mat-mini-fab {
+    margin-bottom: 10px;
+    display: block;
+}

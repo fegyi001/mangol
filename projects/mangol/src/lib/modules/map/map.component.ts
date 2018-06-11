@@ -1,9 +1,9 @@
-import { MapState, AddMap } from './../../store/map/map.actions';
 import { AfterViewInit, Component, OnInit } from '@angular/core';
-import { Store, Select } from '@ngxs/store';
+import { Select, Store } from '@ngxs/store';
 import * as ol from 'openlayers';
 import { Observable } from 'rxjs/Observable';
-import { tap } from 'rxjs/operators';
+
+import { AddMap, MapState } from './../../store/map/map.actions';
 
 @Component({
   selector: 'mangol-map',
@@ -13,7 +13,8 @@ import { tap } from 'rxjs/operators';
 export class MapComponent implements OnInit, AfterViewInit {
   target: string;
 
-  @Select(MapState) map$: Observable<ol.Map>;
+  @Select(state => state.map.map)
+  map$: Observable<ol.Map>;
 
   constructor(private store: Store) {}
 

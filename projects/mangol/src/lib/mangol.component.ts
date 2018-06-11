@@ -1,4 +1,6 @@
 import { Component, Input, OnInit } from '@angular/core';
+import { Store } from '@ngxs/store';
+import * as ol from 'openlayers';
 
 @Component({
   selector: 'mangol',
@@ -10,12 +12,20 @@ export class MangolComponent implements OnInit {
   sidebarOpened = false;
   sidebarMode: string;
 
-  constructor() {}
+  constructor(private store: Store) {}
 
   ngOnInit() {
     this.sidebarOpened = true;
     this.sidebarMode = 'side';
 
     console.log(this.config);
+  }
+
+  onOpenedChange(evt: boolean) {
+    if (this.sidebarMode === 'side') {
+      this.store.selectOnce(state => state.map.map).subscribe((m: ol.Map) => {
+        m.updateSize();
+      });
+    }
   }
 }
