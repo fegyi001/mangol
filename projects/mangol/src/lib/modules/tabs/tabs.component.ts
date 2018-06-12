@@ -43,6 +43,9 @@ export class TabsComponent implements OnInit, OnDestroy {
       state => state.layertree.hasLayertree
     );
     this.layertreeTitle$ = this.store.select(state => state.layertree.title);
+    this.layertreeDisabled$ = this.store.select(
+      state => state.layertree.disabled
+    );
 
     this.configSubscription = this.store
       .select(state => state.config.config)

@@ -7,8 +7,6 @@ import { MatButtonModule } from '@angular/material/button';
 import { MatSidenavModule } from '@angular/material/sidenav';
 import { BrowserModule } from '@angular/platform-browser';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
-import { NgxsReduxDevtoolsPluginModule } from '@ngxs/devtools-plugin';
-import { NgxsLoggerPluginModule } from '@ngxs/logger-plugin';
 import { NgxsModule } from '@ngxs/store';
 
 import { MangolComponent } from './mangol.component';
@@ -29,9 +27,7 @@ import { LayertreeState } from './store/layertree.actions';
     BrowserAnimationsModule,
     MapModule,
     ControllersModule,
-    NgxsModule.forRoot([MapState, SidebarState, ConfigState, LayertreeState]),
-    NgxsLoggerPluginModule.forRoot(),
-    NgxsReduxDevtoolsPluginModule.forRoot()
+    NgxsModule.forRoot([MapState, SidebarState, ConfigState, LayertreeState])
   ],
   declarations: [MangolComponent],
   exports: [MangolComponent]
