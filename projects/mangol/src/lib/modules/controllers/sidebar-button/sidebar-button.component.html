@@ -1,5 +1,6 @@
 <button mat-mini-fab
     color="primary"
     (click)="toggleSidebar()">
-  <mat-icon>{{(sidebarOpened$ | async) ? 'keyboard_arrow_left' : 'keyboard_arrow_right'}}</mat-icon>
+  <!-- <mat-icon>{{(sidebarOpened$ | async) ? 'keyboard_arrow_left' : 'keyboard_arrow_right'}}</mat-icon> -->
+<mat-icon [@sidebarButtonState]="(sidebarOpened$ | async) ? 'opened' : 'closed'">keyboard_arrow_left</mat-icon>
 </button>

@@ -1,7 +1,8 @@
 <mat-drawer-container>
     <mat-drawer #mangolDrawer
+        *ngIf="hasSidebar$ | async"
         [opened]="sidebarOpened$ | async"
-        [mode]="sidebarMode"
+        [mode]="sidebarMode$ | async"
         (openedChange)="onOpenedChange($event)">
         <mangol-tabs></mangol-tabs>
     </mat-drawer>

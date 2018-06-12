@@ -1,37 +1,58 @@
-<mat-toolbar color="primary">
+<mat-toolbar color="primary"
+    *ngIf="(title$ | async) !== null">
     <mat-toolbar-row>
-        <span>Mangol is awesome</span>
+        <span>{{title$ | async}}</span>
         <span class="toolbar-spacer"></span>
     </mat-toolbar-row>
 </mat-toolbar>
 <mat-tab-group [dynamicHeight]="true">
-    <mat-tab>
+    <mat-tab *ngIf="hasLayertree$ | async">
         <ng-template mat-tab-label>
-            <mat-icon>account_circle</mat-icon>
+            {{layertreeTitle$ | async | uppercase}}
         </ng-template>
         <ng-template matTabContent>
             <div class="tab-content">
-                Layertree
+                <mangol-layertree></mangol-layertree>
             </div>
         </ng-template>
     </mat-tab>
     <mat-tab>
         <ng-template mat-tab-label>
-            <mat-icon>account_circle</mat-icon>
+            FEATURE INFO
         </ng-template>
         <ng-template matTabContent>
             <div class="tab-content">
-                Featureinfo
+                <mangol-featureinfo></mangol-featureinfo>
             </div>
         </ng-template>
     </mat-tab>
     <mat-tab>
         <ng-template mat-tab-label>
-            <mat-icon>account_circle</mat-icon>
+            MEASURE
         </ng-template>
         <ng-template matTabContent>
             <div class="tab-content">
-                Etc.
+                <mangol-measure></mangol-measure>
+            </div>
+        </ng-template>
+    </mat-tab>
+    <mat-tab>
+        <ng-template mat-tab-label>
+            PRINT
+        </ng-template>
+        <ng-template matTabContent>
+            <div class="tab-content">
+                <mangol-print></mangol-print>
+            </div>
+        </ng-template>
+    </mat-tab>
+    <mat-tab>
+        <ng-template mat-tab-label>
+            EDIT
+        </ng-template>
+        <ng-template matTabContent>
+            <div class="tab-content">
+                <mangol-edit></mangol-edit>
             </div>
         </ng-template>
     </mat-tab>

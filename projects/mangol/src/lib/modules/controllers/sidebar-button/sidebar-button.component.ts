@@ -2,11 +2,13 @@ import { Component, OnInit } from '@angular/core';
 import { Store } from '@ngxs/store';
 import { ToggleSidebar } from '../../../store/sidebar.actions';
 import { Observable } from 'rxjs/Observable';
+import { sidebarButtonStateTrigger } from '../controllers.animation';
 
 @Component({
   selector: 'mangol-sidebar-button',
   templateUrl: './sidebar-button.component.html',
-  styleUrls: ['./sidebar-button.component.scss']
+  styleUrls: ['./sidebar-button.component.scss'],
+  animations: [sidebarButtonStateTrigger]
 })
 export class SidebarButtonComponent implements OnInit {
   sidebarOpened$: Observable<boolean>;

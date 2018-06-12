@@ -1,5 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import * as ol from 'openlayers';
+import { MangolConfig } from '../../projects/mangol/src/lib/interfaces/config.interface';
 
 declare var proj4: any;
 @Component({
@@ -8,7 +9,7 @@ declare var proj4: any;
   styleUrls: ['./app.component.scss']
 })
 export class AppComponent implements OnInit {
-  mangolConfig: any;
+  mangolConfig: MangolConfig;
 
   ngOnInit() {
     proj4.defs(
@@ -158,6 +159,7 @@ export class AppComponent implements OnInit {
       sidebar: {
         collapsible: true,
         opened: true,
+        title: 'My Mangol 6.x Map',
         mode: 'side',
         toolbar: {
           layertree: {
@@ -165,7 +167,7 @@ export class AppComponent implements OnInit {
             disabled: false,
             fontSet: 'ms',
             fontIcon: 'ms-layers',
-            title: 'My Awesome Layers',
+            title: 'Layertree',
             isAccordionMulti: true,
             details: {
               opacity: {
@@ -202,6 +204,6 @@ export class AppComponent implements OnInit {
           print: {}
         }
       }
-    };
+    } as MangolConfig;
   }
 }

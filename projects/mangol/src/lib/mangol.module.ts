@@ -1,3 +1,4 @@
+import { ConfigState } from './store/config.actions';
 import 'hammerjs';
 
 import { CommonModule } from '@angular/common';
@@ -16,6 +17,7 @@ import { MapModule } from './modules/map/map.module';
 import { TabsModule } from './modules/tabs/tabs.module';
 import { MapState } from './store/map.actions';
 import { SidebarState } from './store/sidebar.actions';
+import { LayertreeState } from './store/layertree.actions';
 
 @NgModule({
   imports: [
@@ -27,7 +29,7 @@ import { SidebarState } from './store/sidebar.actions';
     BrowserAnimationsModule,
     MapModule,
     ControllersModule,
-    NgxsModule.forRoot([MapState, SidebarState]),
+    NgxsModule.forRoot([MapState, SidebarState, ConfigState, LayertreeState]),
     NgxsLoggerPluginModule.forRoot(),
     NgxsReduxDevtoolsPluginModule.forRoot()
   ],
