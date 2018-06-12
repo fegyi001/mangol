@@ -6,7 +6,8 @@
     </mat-toolbar-row>
 </mat-toolbar>
 <mat-tab-group [dynamicHeight]="true">
-    <mat-tab *ngIf="hasLayertree$ | async">
+    <mat-tab *ngIf="hasLayertree$ | async"
+        [disabled]="layertreeDisabled$ | async">
         <ng-template mat-tab-label>
             {{layertreeTitle$ | async | uppercase}}
         </ng-template>

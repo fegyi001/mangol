@@ -6,6 +6,6 @@
         "entryFile": "src/public_api.ts"
     },
     "whitelistedNonPeerDependencies": [
-        "tslib", "@angular/material", "@angular/animations", "@angular/cdk", "@ngxs/devtools-plugin", "@ngxs/logger-plugin", "@ngxs/store", "@types/jspdf", "@types/openlayers", "@types/proj4", "hammerjs", "jspdf", "openlayers", "proj4"
+        "tslib", "@angular/material", "@angular/animations", "@angular/cdk", "@ngxs/store", "@types/jspdf", "@types/openlayers", "@types/proj4", "hammerjs", "jspdf", "openlayers", "proj4"
     ]
 }
