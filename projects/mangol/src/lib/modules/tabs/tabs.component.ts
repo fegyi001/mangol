@@ -1,4 +1,7 @@
-import { SetLayertreeFontSet } from './../../store/layertree.actions';
+import {
+  HasFeatureinfo,
+  SetFeatureinfoTitle
+} from './../../store/featureinfo.actions';
 import { Observable } from 'rxjs/Observable';
 import { Component, OnInit, OnDestroy } from '@angular/core';
 import { Store } from '@ngxs/store';
@@ -7,11 +10,14 @@ import { Subscription } from 'rxjs';
 import {
   HasLayertree,
   SetLayertreeDisabled,
-  SetLayertreeFontIcon,
   SetLayertreeTitle
 } from '../../store/layertree.actions';
 import { MangolConfig } from '../../interfaces/config.interface';
-import { MangolConfigLayertreeItem } from '../../interfaces/config-toolbar.interface';
+import {
+  MangolConfigLayertreeItem,
+  MangolConfigFeatureInfoItem
+} from '../../interfaces/config-toolbar.interface';
+import { SetFeatureinfoDisabled } from '../../store/featureinfo.actions';
 
 @Component({
   selector: 'mangol-tabs',
@@ -20,9 +26,14 @@ import { MangolConfigLayertreeItem } from '../../interfaces/config-toolbar.inter
 })
 export class TabsComponent implements OnInit, OnDestroy {
   title$: Observable<boolean>;
+  /** Layertree */
   hasLayertree$: Observable<boolean>;
   layertreeDisabled$: Observable<boolean>;
   layertreeTitle$: Observable<string>;
+  /** FeatureInfo */
+  hasFeatureinfo$: Observable<boolean>;
+  featureinfoDisabled$: Observable<boolean>;
+  featureinfoTitle$: Observable<string>;
 
   configSubscription: Subscription;
 
@@ -48,14 +59,26 @@ export class TabsComponent implements OnInit, OnDestroy {
           if (layertree.hasOwnProperty('disabled')) {
             this.store.dispatch(new SetLayertreeDisabled(layertree.disabled));
           }
-          if (layertree.hasOwnProperty('fontSet')) {
-            this.store.dispatch(new SetLayertreeFontSet(layertree.fontSet));
-          }
-          if (layertree.hasOwnProperty('fontIcon')) {
-            this.store.dispatch(new SetLayertreeFontIcon(layertree.fontIcon));
-          }
           if (layertree.hasOwnProperty('title')) {
             this.store.dispatch(new SetLayertreeTitle(layertree.title));
+          }
+        }
+        /** Featureinfo */
+        const hasFeatureinfo =
+          config.hasOwnProperty('sidebar') &&
+          config.sidebar.hasOwnProperty('toolbar') &&
+          config.sidebar.toolbar.hasOwnProperty('featureinfo');
+        this.store.dispatch(new HasFeatureinfo(hasFeatureinfo));
+        if (hasFeatureinfo) {
+          const featureinfo: MangolConfigFeatureInfoItem =
+            config.sidebar.toolbar.featureinfo;
+          if (featureinfo.hasOwnProperty('disabled')) {
+            this.store.dispatch(
+              new SetFeatureinfoDisabled(featureinfo.disabled)
+            );
+          }
+          if (featureinfo.hasOwnProperty('title')) {
+            this.store.dispatch(new SetFeatureinfoTitle(featureinfo.title));
           }
         }
       });
