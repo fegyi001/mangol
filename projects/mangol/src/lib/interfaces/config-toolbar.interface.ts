@@ -3,8 +3,6 @@ import { MangolConfigToolbarItem } from './config-toolbar.interface';
 import * as ol from 'openlayers';
 export interface MangolConfigToolbarItem {
   title?: string;
-  fontSet?: string;
-  fontIcon?: string;
   active?: boolean;
   disabled?: boolean;
   type?: string;

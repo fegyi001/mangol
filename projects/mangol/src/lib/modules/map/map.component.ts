@@ -33,8 +33,9 @@ export class MapComponent implements OnInit, AfterViewInit {
         })
       ],
       view: new ol.View({
-        center: ol.proj.fromLonLat([37.41, 8.82]),
-        zoom: 4
+        projection: 'EPSG:900913',
+        center: ol.proj.fromLonLat([19.39563, 47.16846], 'EPSG:900913'),
+        zoom: 8
       })
     });
 

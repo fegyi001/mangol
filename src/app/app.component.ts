@@ -159,15 +159,13 @@ export class AppComponent implements OnInit {
       sidebar: {
         collapsible: true,
         opened: true,
-        title: 'My Mangol 6.x Map',
+        title: 'Mangol 6.x',
         mode: 'side',
         toolbar: {
           layertree: {
             active: true,
             disabled: false,
-            fontSet: 'ms',
-            fontIcon: 'ms-layers',
-            title: 'Layertree',
+            title: 'Layers',
             isAccordionMulti: true,
             details: {
               opacity: {
@@ -177,6 +175,7 @@ export class AppComponent implements OnInit {
             }
           },
           featureinfo: {
+            title: 'Feature info',
             maxFeatures: 10,
             cursorStyle: 'crosshair',
             placeholder: 'Select query layer',
@@ -195,6 +194,8 @@ export class AppComponent implements OnInit {
             ]
           },
           measure: {
+            title: 'Measure on Map',
+            disabled: true,
             fillColor: [255, 255, 0, 0.2],
             strokeColor: [33, 150, 243, 0.8],
             textColor: [33, 150, 243, 1],

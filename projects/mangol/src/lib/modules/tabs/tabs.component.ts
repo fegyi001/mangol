@@ -1,23 +1,29 @@
-import {
-  HasFeatureinfo,
-  SetFeatureinfoTitle
-} from './../../store/featureinfo.actions';
-import { Observable } from 'rxjs/Observable';
-import { Component, OnInit, OnDestroy } from '@angular/core';
+import { Component, OnDestroy, OnInit } from '@angular/core';
 import { Store } from '@ngxs/store';
-import { filter, map, tap } from 'rxjs/operators';
 import { Subscription } from 'rxjs';
+import { Observable } from 'rxjs/Observable';
+
+import {
+  MangolConfigFeatureInfoItem,
+  MangolConfigLayertreeItem,
+  MangolConfigMeasureItem
+} from '../../interfaces/config-toolbar.interface';
+import { MangolConfig } from '../../interfaces/config.interface';
+import { SetFeatureinfoDisabled } from '../../store/featureinfo.actions';
 import {
   HasLayertree,
   SetLayertreeDisabled,
   SetLayertreeTitle
 } from '../../store/layertree.actions';
-import { MangolConfig } from '../../interfaces/config.interface';
+import { HasMeasure } from '../../store/measure.actions';
 import {
-  MangolConfigLayertreeItem,
-  MangolConfigFeatureInfoItem
-} from '../../interfaces/config-toolbar.interface';
-import { SetFeatureinfoDisabled } from '../../store/featureinfo.actions';
+  HasFeatureinfo,
+  SetFeatureinfoTitle
+} from './../../store/featureinfo.actions';
+import {
+  SetMeasureDisabled,
+  SetMeasureTitle
+} from './../../store/measure.actions';
 
 @Component({
   selector: 'mangol-tabs',
@@ -34,11 +40,16 @@ export class TabsComponent implements OnInit, OnDestroy {
   hasFeatureinfo$: Observable<boolean>;
   featureinfoDisabled$: Observable<boolean>;
   featureinfoTitle$: Observable<string>;
+  /** MeasureInfo */
+  hasMeasure$: Observable<boolean>;
+  measureDisabled$: Observable<boolean>;
+  measureTitle$: Observable<string>;
 
   configSubscription: Subscription;
 
   constructor(private store: Store) {
     this.title$ = this.store.select(state => state.sidebar.title);
+    /** Layertree */
     this.hasLayertree$ = this.store.select(
       state => state.layertree.hasLayertree
     );
@@ -46,6 +57,20 @@ export class TabsComponent implements OnInit, OnDestroy {
     this.layertreeDisabled$ = this.store.select(
       state => state.layertree.disabled
     );
+    /** Featureinfo */
+    this.hasFeatureinfo$ = this.store.select(
+      state => state.featureinfo.hasFeatureinfo
+    );
+    this.featureinfoTitle$ = this.store.select(
+      state => state.featureinfo.title
+    );
+    this.featureinfoDisabled$ = this.store.select(
+      state => state.featureinfo.disabled
+    );
+    /** Measure */
+    this.hasMeasure$ = this.store.select(state => state.measure.hasMeasure);
+    this.measureTitle$ = this.store.select(state => state.measure.title);
+    this.measureDisabled$ = this.store.select(state => state.measure.disabled);
 
     this.configSubscription = this.store
       .select(state => state.config.config)
@@ -84,10 +109,27 @@ export class TabsComponent implements OnInit, OnDestroy {
             this.store.dispatch(new SetFeatureinfoTitle(featureinfo.title));
           }
         }
+        /** Measure */
+        const hasMeasure =
+          config.hasOwnProperty('sidebar') &&
+          config.sidebar.hasOwnProperty('toolbar') &&
+          config.sidebar.toolbar.hasOwnProperty('measure');
+        this.store.dispatch(new HasMeasure(hasMeasure));
+        if (hasMeasure) {
+          const measure: MangolConfigMeasureItem =
+            config.sidebar.toolbar.measure;
+          if (measure.hasOwnProperty('disabled')) {
+            this.store.dispatch(new SetMeasureDisabled(measure.disabled));
+          }
+          if (measure.hasOwnProperty('title')) {
+            this.store.dispatch(new SetMeasureTitle(measure.title));
+          }
+        }
       });
   }
 
   ngOnInit() {}
+
   ngOnDestroy() {
     if (this.configSubscription) {
       this.configSubscription.unsubscribe();

@@ -17,9 +17,10 @@
             </div>
         </ng-template>
     </mat-tab>
-    <mat-tab>
+    <mat-tab *ngIf="hasFeatureinfo$ | async"
+        [disabled]="featureinfoDisabled$ | async">
         <ng-template mat-tab-label>
-            FEATURE INFO
+            {{featureinfoTitle$ | async | uppercase}}
         </ng-template>
         <ng-template matTabContent>
             <div class="tab-content">
@@ -27,9 +28,10 @@
             </div>
         </ng-template>
     </mat-tab>
-    <mat-tab>
+    <mat-tab *ngIf="hasMeasure$ | async"
+        [disabled]="measureDisabled$ | async">
         <ng-template mat-tab-label>
-            MEASURE
+            {{measureTitle$ | async | uppercase}}
         </ng-template>
         <ng-template matTabContent>
             <div class="tab-content">

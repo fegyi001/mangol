@@ -22,7 +22,7 @@ export interface FeatureinfoStateModel {
 }
 
 @State<FeatureinfoStateModel>({
-  name: 'Featureinfo',
+  name: 'featureinfo',
   defaults: {
     hasFeatureinfo: false,
     disabled: false,
