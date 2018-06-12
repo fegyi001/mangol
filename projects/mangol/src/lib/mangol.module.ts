@@ -1,19 +1,21 @@
-import { MapState } from './store/map/map.actions';
 import 'hammerjs';
 
 import { CommonModule } from '@angular/common';
 import { NgModule } from '@angular/core';
 import { MatButtonModule } from '@angular/material/button';
 import { MatSidenavModule } from '@angular/material/sidenav';
-import { MatToolbarModule } from '@angular/material/toolbar';
 import { BrowserModule } from '@angular/platform-browser';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
-import { NgxsLoggerPluginModule } from '@ngxs/logger-plugin';
 import { NgxsReduxDevtoolsPluginModule } from '@ngxs/devtools-plugin';
+import { NgxsLoggerPluginModule } from '@ngxs/logger-plugin';
+import { NgxsModule } from '@ngxs/store';
 
 import { MangolComponent } from './mangol.component';
+import { ControllersModule } from './modules/controllers/controllers.module';
 import { MapModule } from './modules/map/map.module';
-import { NgxsModule } from '@ngxs/store';
+import { TabsModule } from './modules/tabs/tabs.module';
+import { MapState } from './store/map.actions';
+import { SidebarState } from './store/sidebar.actions';
 
 @NgModule({
   imports: [
@@ -21,10 +23,11 @@ import { NgxsModule } from '@ngxs/store';
     CommonModule,
     MatButtonModule,
     MatSidenavModule,
-    MatToolbarModule,
+    TabsModule,
     BrowserAnimationsModule,
     MapModule,
-    NgxsModule.forRoot([MapState]),
+    ControllersModule,
+    NgxsModule.forRoot([MapState, SidebarState]),
     NgxsLoggerPluginModule.forRoot(),
     NgxsReduxDevtoolsPluginModule.forRoot()
   ],

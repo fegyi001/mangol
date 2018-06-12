@@ -1,17 +1,12 @@
 <mat-drawer-container>
     <mat-drawer #mangolDrawer
-        [opened]="sidebarOpened"
-        [mode]="sidebarMode">
-        <mat-toolbar color="primary">Mangol is awesome</mat-toolbar>
+        [opened]="sidebarOpened$ | async"
+        [mode]="sidebarMode"
+        (openedChange)="onOpenedChange($event)">
+        <mangol-tabs></mangol-tabs>
     </mat-drawer>
+    <mangol-controllers></mangol-controllers>
     <div class="sidenav-content">
-        <button mat-button
-            type="button"
-            mat-raised-button
-            (click)="mangolDrawer.toggle()"
-            style="position: absolute; z-index: 100;">
-      Toggle sidenav
-    </button>
         <mangol-map></mangol-map>
     </div>
 </mat-drawer-container>

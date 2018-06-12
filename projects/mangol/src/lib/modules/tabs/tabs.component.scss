@@ -1,0 +1,17 @@
+@import "../../assets/scss/mangol";
+:host {
+    display: block;
+    width: 100%;
+}
+
+.tab-content {
+    padding: 20px;
+}
+
+.toolbar-icon {
+    padding: 0 14px;
+}
+
+.toolbar-spacer {
+    flex: 1 1 auto;
+}
