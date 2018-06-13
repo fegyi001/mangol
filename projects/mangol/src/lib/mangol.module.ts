@@ -18,6 +18,7 @@ import { FeatureinfoState } from './store/featureinfo.actions';
 import { LayertreeState } from './store/layertree.actions';
 import { MapState } from './store/map.actions';
 import { MeasureState } from './store/measure.actions';
+import { PrintState } from './store/print.actions';
 import { SidebarState } from './store/sidebar.actions';
 
 @NgModule({
@@ -37,7 +38,8 @@ import { SidebarState } from './store/sidebar.actions';
       ConfigState,
       LayertreeState,
       FeatureinfoState,
-      MeasureState
+      MeasureState,
+      PrintState
     ])
   ],
   declarations: [MangolComponent],

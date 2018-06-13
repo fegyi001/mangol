@@ -1,3 +1,5 @@
+import { MangolConfigPrintItem } from './../../interfaces/config-toolbar.interface';
+import { HasPrint, SetPrintDisabled } from './../../store/print.actions';
 import { Component, OnDestroy, OnInit } from '@angular/core';
 import { Store } from '@ngxs/store';
 import { Subscription } from 'rxjs';
@@ -16,6 +18,7 @@ import {
   SetLayertreeTitle
 } from '../../store/layertree.actions';
 import { HasMeasure } from '../../store/measure.actions';
+import { SetPrintTitle } from '../../store/print.actions';
 import {
   HasFeatureinfo,
   SetFeatureinfoTitle
@@ -44,6 +47,10 @@ export class TabsComponent implements OnInit, OnDestroy {
   hasMeasure$: Observable<boolean>;
   measureDisabled$: Observable<boolean>;
   measureTitle$: Observable<string>;
+  /** Print */
+  hasPrint$: Observable<boolean>;
+  printDisabled$: Observable<boolean>;
+  printTitle$: Observable<string>;
 
   configSubscription: Subscription;
 
@@ -71,6 +78,10 @@ export class TabsComponent implements OnInit, OnDestroy {
     this.hasMeasure$ = this.store.select(state => state.measure.hasMeasure);
     this.measureTitle$ = this.store.select(state => state.measure.title);
     this.measureDisabled$ = this.store.select(state => state.measure.disabled);
+    /** Print */
+    this.hasPrint$ = this.store.select(state => state.print.hasPrint);
+    this.printTitle$ = this.store.select(state => state.print.title);
+    this.printDisabled$ = this.store.select(state => state.print.disabled);
 
     this.configSubscription = this.store
       .select(state => state.config.config)
@@ -123,6 +134,21 @@ export class TabsComponent implements OnInit, OnDestroy {
           }
           if (measure.hasOwnProperty('title')) {
             this.store.dispatch(new SetMeasureTitle(measure.title));
+          }
+        }
+        /** Print */
+        const hasPrint =
+          config.hasOwnProperty('sidebar') &&
+          config.sidebar.hasOwnProperty('toolbar') &&
+          config.sidebar.toolbar.hasOwnProperty('print');
+        this.store.dispatch(new HasPrint(hasPrint));
+        if (hasPrint) {
+          const print: MangolConfigPrintItem = config.sidebar.toolbar.print;
+          if (print.hasOwnProperty('disabled')) {
+            this.store.dispatch(new SetPrintDisabled(print.disabled));
+          }
+          if (print.hasOwnProperty('title')) {
+            this.store.dispatch(new SetPrintTitle(print.title));
           }
         }
       });

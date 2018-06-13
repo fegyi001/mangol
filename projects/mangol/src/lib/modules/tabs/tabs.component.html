@@ -39,9 +39,10 @@
             </div>
         </ng-template>
     </mat-tab>
-    <mat-tab>
+    <mat-tab *ngIf="hasPrint$ | async"
+        [disabled]="printDisabled$ | async">
         <ng-template mat-tab-label>
-            PRINT
+            {{printTitle$ | async | uppercase}}
         </ng-template>
         <ng-template matTabContent>
             <div class="tab-content">
@@ -49,7 +50,7 @@
             </div>
         </ng-template>
     </mat-tab>
-    <mat-tab>
+    <mat-tab *ngIf="false">
         <ng-template mat-tab-label>
             EDIT
         </ng-template>
