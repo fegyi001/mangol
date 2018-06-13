@@ -32,32 +32,34 @@ export class MangolComponent implements OnInit {
   }
 
   ngOnInit() {
-    // register the config in the Store
-    this.store.dispatch(new SetConfig(this.config));
+    if (typeof this.config !== 'undefined' && this.config !== null) {
+      // register the config in the Store
+      this.store.dispatch(new SetConfig(this.config));
 
-    this.store.dispatch(
-      new SetHasSidebar(this.config.hasOwnProperty('sidebar'))
-    );
-    if (this.config.hasOwnProperty('sidebar')) {
-      /**
-       * Basic sidebar options
-       */
-      if (this.config.sidebar.hasOwnProperty('collapsible')) {
-        this.store.dispatch(
-          new SetSidebarCollapsible(this.config.sidebar.collapsible)
-        );
+      this.store.dispatch(
+        new SetHasSidebar(this.config.hasOwnProperty('sidebar'))
+      );
+      if (this.config.hasOwnProperty('sidebar')) {
+        /**
+         * Basic sidebar options
+         */
+        if (this.config.sidebar.hasOwnProperty('collapsible')) {
+          this.store.dispatch(
+            new SetSidebarCollapsible(this.config.sidebar.collapsible)
+          );
+        }
+        if (this.config.sidebar.hasOwnProperty('mode')) {
+          this.store.dispatch(new SetSidebarMode(this.config.sidebar.mode));
+        }
+        if (this.config.sidebar.hasOwnProperty('opened')) {
+          this.store.dispatch(new SetSidebarOpened(this.config.sidebar.opened));
+        }
+        if (this.config.sidebar.hasOwnProperty('title')) {
+          this.store.dispatch(new SetSidebarTitle(this.config.sidebar.title));
+        }
       }
-      if (this.config.sidebar.hasOwnProperty('mode')) {
-        this.store.dispatch(new SetSidebarMode(this.config.sidebar.mode));
-      }
-      if (this.config.sidebar.hasOwnProperty('opened')) {
-        this.store.dispatch(new SetSidebarOpened(this.config.sidebar.opened));
-      }
-      if (this.config.sidebar.hasOwnProperty('title')) {
-        this.store.dispatch(new SetSidebarTitle(this.config.sidebar.title));
-      }
+      // console.log(this.config);
     }
-    // console.log(this.config);
   }
 
   onOpenedChange(evt: boolean) {

@@ -12,8 +12,8 @@ import { AppComponent } from './app.component';
   imports: [
     BrowserModule,
     AppRoutingModule,
-    MangolModule,
-    !environment.production ? NgxsLoggerPluginModule.forRoot() : []
+    MangolModule
+    // !environment.production ? NgxsLoggerPluginModule.forRoot() : []
   ],
   providers: [],
   bootstrap: [AppComponent]
