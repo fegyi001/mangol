@@ -1,5 +1,5 @@
 import { MangolConfigPrintItem } from './../../interfaces/config-toolbar.interface';
-import { HasPrint, SetPrintDisabled } from './../../store/print.actions';
+import { HasPrint, SetPrintDisabled } from './../../store/print.state';
 import { Component, OnDestroy, OnInit } from '@angular/core';
 import { Store } from '@ngxs/store';
 import { Subscription } from 'rxjs';
@@ -11,22 +11,22 @@ import {
   MangolConfigMeasureItem
 } from '../../interfaces/config-toolbar.interface';
 import { MangolConfig } from '../../interfaces/config.interface';
-import { SetFeatureinfoDisabled } from '../../store/featureinfo.actions';
+import { SetFeatureinfoDisabled } from '../../store/featureinfo.state';
 import {
   HasLayertree,
   SetLayertreeDisabled,
   SetLayertreeTitle
-} from '../../store/layertree.actions';
-import { HasMeasure } from '../../store/measure.actions';
-import { SetPrintTitle } from '../../store/print.actions';
+} from '../../store/layertree.state';
+import { HasMeasure } from '../../store/measure.state';
+import { SetPrintTitle } from '../../store/print.state';
 import {
   HasFeatureinfo,
   SetFeatureinfoTitle
-} from './../../store/featureinfo.actions';
+} from './../../store/featureinfo.state';
 import {
   SetMeasureDisabled,
   SetMeasureTitle
-} from './../../store/measure.actions';
+} from './../../store/measure.state';
 
 @Component({
   selector: 'mangol-tabs',

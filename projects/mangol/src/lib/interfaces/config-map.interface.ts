@@ -6,7 +6,7 @@ export interface MangolConfigMapMousePosition {}
 
 export interface MangolConfigMap {
   target: string;
-  view: MangolConfigView;
+  view: ol.View;
   layertree?: MangolConfigLayertree;
   renderer?: string;
   controllers?: MangolConfigMapControllers;

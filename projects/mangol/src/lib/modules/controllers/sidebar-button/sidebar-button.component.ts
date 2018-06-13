@@ -1,6 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { Store } from '@ngxs/store';
-import { ToggleSidebar } from '../../../store/sidebar.actions';
+import { ToggleSidebar } from '../../../store/sidebar.state';
 import { Observable } from 'rxjs/Observable';
 import { sidebarButtonStateTrigger } from '../controllers.animation';
 

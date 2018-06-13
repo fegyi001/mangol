@@ -13,13 +13,13 @@ import { MangolComponent } from './mangol.component';
 import { ControllersModule } from './modules/controllers/controllers.module';
 import { MapModule } from './modules/map/map.module';
 import { TabsModule } from './modules/tabs/tabs.module';
-import { ConfigState } from './store/config.actions';
-import { FeatureinfoState } from './store/featureinfo.actions';
-import { LayertreeState } from './store/layertree.actions';
-import { MapState } from './store/map.actions';
-import { MeasureState } from './store/measure.actions';
-import { PrintState } from './store/print.actions';
-import { SidebarState } from './store/sidebar.actions';
+import { ConfigState } from './store/config.state';
+import { FeatureinfoState } from './store/featureinfo.state';
+import { LayertreeState } from './store/layertree.state';
+import { MapState } from './store/map.state';
+import { MeasureState } from './store/measure.state';
+import { PrintState } from './store/print.state';
+import { SidebarState } from './store/sidebar.state';
 
 @NgModule({
   imports: [

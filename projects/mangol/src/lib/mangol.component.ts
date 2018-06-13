@@ -3,7 +3,7 @@ import { Store } from '@ngxs/store';
 import { Observable } from 'rxjs/Observable';
 
 import { MangolConfig } from './interfaces/config.interface';
-import { SetConfig } from './store/config.actions';
+import { SetConfig } from './store/config.state';
 import {
   SetSidebarCollapsible,
   SetSidebarMode,
@@ -11,7 +11,7 @@ import {
   ToggleSidebar,
   SetSidebarTitle,
   SetHasSidebar
-} from './store/sidebar.actions';
+} from './store/sidebar.state';
 
 @Component({
   selector: 'mangol',
