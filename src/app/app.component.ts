@@ -194,7 +194,7 @@ export class AppComponent implements OnInit {
             ]
           },
           measure: {
-            title: 'Measure on Map',
+            title: 'Measure',
             disabled: false,
             fillColor: [255, 255, 0, 0.2],
             strokeColor: [33, 150, 243, 0.8],
