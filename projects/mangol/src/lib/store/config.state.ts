@@ -14,7 +14,7 @@ export interface ConfigStateModel {
 @State<ConfigStateModel>({
   name: 'config',
   defaults: {
-    config: {}
+    config: null
   }
 })
 export class ConfigState {

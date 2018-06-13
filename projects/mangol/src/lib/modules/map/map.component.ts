@@ -1,13 +1,14 @@
-import { MangolConfigMap } from './../../interfaces/config-map.interface';
-import { AfterViewInit, Component, OnInit, OnDestroy } from '@angular/core';
+import { AfterViewInit, Component, OnDestroy, OnInit } from '@angular/core';
 import { Store } from '@ngxs/store';
 import * as ol from 'openlayers';
+import { Subscription } from 'rxjs';
 import { Observable } from 'rxjs/Observable';
 
-import { AddMap } from './../../store/map.state';
 import { MangolConfigLayertree } from '../../interfaces/config-layers.inteface';
-import { Subscription } from 'rxjs';
 import { MangolConfig } from '../../interfaces/config.interface';
+import { MangolConfigMap } from './../../interfaces/config-map.interface';
+import { AddMap } from './../../store/map.state';
+import { MapService } from './map.service';
 
 @Component({
   selector: 'mangol-map',
@@ -20,7 +21,12 @@ export class MapComponent implements OnInit, AfterViewInit, OnDestroy {
   map$: Observable<ol.Map>;
   configSubscription: Subscription;
 
-  constructor(private store: Store) {
+  /**
+   *
+   * @param store Ngxs store
+   * @param mapService
+   */
+  constructor(private store: Store, private mapService: MapService) {
     this.map$ = this.store.select(state => state.map.map);
   }
 
@@ -29,7 +35,7 @@ export class MapComponent implements OnInit, AfterViewInit, OnDestroy {
   }
 
   ngAfterViewInit() {
-    const map = new ol.Map({
+    const startMap = new ol.Map({
       target: this.target,
       renderer: 'canvas',
       layers: [
@@ -47,28 +53,28 @@ export class MapComponent implements OnInit, AfterViewInit, OnDestroy {
     this.configSubscription = this.store
       .select(state => state.config.config)
       .subscribe((config: MangolConfig) => {
-        if (config.hasOwnProperty('map')) {
+        if (config !== null && config.hasOwnProperty('map')) {
           const configMap: MangolConfigMap = config.map;
           if (configMap.hasOwnProperty('target')) {
-            map.setTarget(configMap.target);
+            startMap.setTarget(configMap.target);
           }
           if (configMap.hasOwnProperty('view')) {
-            map.setView(configMap.view);
+            startMap.setView(configMap.view);
           }
           if (configMap.hasOwnProperty('layertree')) {
+            const layertree: MangolConfigLayertree = config.map.layertree;
             // remove all previously loaded layers
-            map
+            startMap
               .getLayers()
               .getArray()
               .forEach(l => {
-                map.removeLayer(l);
+                startMap.removeLayer(l);
               });
-            const layertree: MangolConfigLayertree = config.map.layertree;
-            console.log(layertree);
+            this.mapService.processLayersAndLayerGroups(layertree, startMap);
           }
-          this.store.dispatch(new AddMap(map));
+          this.store.dispatch(new AddMap(startMap));
         } else {
-          this.store.dispatch(new AddMap(map));
+          this.store.dispatch(new AddMap(startMap));
         }
       });
   }
