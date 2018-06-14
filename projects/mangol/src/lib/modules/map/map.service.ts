@@ -25,8 +25,11 @@ export class MapService {
    */
   processLayersAndLayerGroups(layertree: MangolConfigLayertree, map: ol.Map) {
     if (layertree.hasOwnProperty('layers')) {
-      layertree.layers.forEach(l => {
-        console.log(l);
+      this.processLayers(layertree.layers);
+    }
+    if (layertree.hasOwnProperty('groups')) {
+      layertree.groups.forEach(g => {
+        this.processLayerGroup(g);
       });
     }
   }
@@ -35,11 +38,15 @@ export class MapService {
    *
    * @param layers
    */
-  private processLayers(layers: MangolConfigLayer[]) {}
+  private processLayers(layers: MangolConfigLayer[]) {
+    layers.forEach(l => {
+      console.log(l);
+    });
+  }
 
   /**
    *
    * @param group
    */
-  private processLayerGroups(group: MangolConfigLayerGroup) {}
+  private processLayerGroup(group: MangolConfigLayerGroup) {}
 }
