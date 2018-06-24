@@ -35,7 +35,6 @@ export class MangolComponent implements OnInit {
     this.store.dispatch(new SetConfig(this.config));
     if (typeof this.config !== 'undefined' && this.config !== null) {
       // register the config in the Store
-
       this.store.dispatch(
         new SetHasSidebar(this.config.hasOwnProperty('sidebar'))
       );
@@ -62,6 +61,7 @@ export class MangolComponent implements OnInit {
   }
 
   onOpenedChange(evt: boolean) {
+    this.store.dispatch(new SetSidebarOpened(evt));
     this.store.selectOnce(state => state.sidebar.mode).subscribe(mode => {
       if (mode === 'side') {
         this.store.selectOnce(state => state.map.map).subscribe((m: ol.Map) => {
