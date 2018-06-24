@@ -1,6 +1,9 @@
 import { Component, OnInit } from '@angular/core';
 import * as ol from 'openlayers';
+
 import { MangolConfig } from '../../projects/mangol/src/lib/interfaces/config.interface';
+import { MangolLayer } from './../../projects/mangol/src/lib/classes/Layer';
+import { MangolLayerGroup } from './../../projects/mangol/src/lib/classes/LayerGroup';
 
 declare var proj4: any;
 @Component({
@@ -20,14 +23,15 @@ export class AppComponent implements OnInit {
     this.mangolConfig = {
       map: {
         renderer: 'canvas',
-        target: 'demo-full',
+        target: 'my-map',
         view: new ol.View({
           projection: 'EPSG:900913',
           center: ol.proj.fromLonLat(
-            [19.3956393810065, 47.168464955013],
+            // [19.3956393810065, 47.168464955013],
+            [0, 0],
             'EPSG:900913'
           ),
-          zoom: 7
+          zoom: 3
         }),
         controllers: {
           mousePosition: {},
@@ -57,103 +61,41 @@ export class AppComponent implements OnInit {
           fullScreen: {},
           tileLoad: true
         },
-        layertree: {
-          groups: [
-            {
-              name: 'Base layers',
-              description: 'Customizable layergroup description',
-              children: {
-                layers: [
-                  {
-                    name: 'OpenStreetMap layer',
-                    description: 'Awesome free streetmap',
-                    visible: true,
-                    opacity: 1,
-                    layer: new ol.layer.Tile({
-                      source: new ol.source.OSM()
-                    })
-                  }
-                ],
-                groups: []
-              }
-            },
-            {
-              name: 'Overlays',
-              children: {
-                layers: [
-                  {
-                    name: 'Main roads',
-                    description: 'Hungary',
-                    visible: false,
-                    opacity: 1.0,
-                    queryable: true,
-                    layer: new ol.layer.Tile({
-                      source: new ol.source.TileWMS({
-                        url: 'http://188.166.116.137:8080/geoserver/wms',
-                        params: {
-                          LAYERS: 'osmWsp:trunk_primary',
-                          SRS: 'EPSG:23700',
-                          FORMAT: 'image/png',
-                          TILED: true
-                        },
-                        projection: 'EPSG:23700'
-                      })
-                    })
-                  },
-                  {
-                    name: 'Highways',
-                    description: 'Hungary',
-                    visible: true,
-                    opacity: 1.0,
-                    queryable: true,
-                    attrColumns: [
-                      {
-                        name: 'osm_id',
-                        label: 'OpenStreetMap ID'
-                      },
-                      {
-                        name: 'name',
-                        label: 'Name'
-                      }
-                    ],
-                    layer: new ol.layer.Tile({
-                      source: new ol.source.TileWMS({
-                        url: 'http://188.166.116.137:8080/geoserver/wms',
-                        params: {
-                          LAYERS: 'osmWsp:motorway',
-                          SRS: 'EPSG:23700',
-                          FORMAT: 'image/png',
-                          TILED: true
-                        },
-                        projection: 'EPSG:23700'
-                      })
-                    })
-                  },
-                  {
-                    name: 'Country border',
-                    description: 'Hungary',
-                    visible: true,
-                    opacity: 1.0,
-                    queryable: true,
-                    layer: new ol.layer.Image({
-                      source: new ol.source.ImageWMS({
-                        url: 'http://188.166.116.137:8080/geoserver/wms',
-                        params: {
-                          LAYERS: 'osmWsp:country',
-                          SRS: 'EPSG:23700',
-                          FORMAT: 'image/png',
-                          TILED: true
-                        },
-                        projection: 'EPSG:23700'
-                      })
-                    })
-                  }
-                ],
-                groups: []
-              }
-            }
-          ]
-        }
+        layers: [
+          new MangolLayer({
+            name: 'OpenStreetMap Layer',
+            details: 'Here are the OSM layer details',
+            layer: new ol.layer.Tile({
+              source: new ol.source.OSM()
+            })
+          }),
+          new MangolLayerGroup({
+            name: 'First layergroup',
+            children: [
+              new MangolLayer({
+                name: 'Some layer',
+                layer: new ol.layer.Tile({
+                  source: new ol.source.TileJSON({
+                    url:
+                      'https://api.tiles.mapbox.com/v3/mapbox.20110804-hoa-foodinsecurity-3month.json?secure',
+                    crossOrigin: 'anonymous'
+                  })
+                })
+              }),
+              new MangolLayer({
+                name: 'Some other layer',
+                layer: new ol.layer.Tile({
+                  source: new ol.source.TileJSON({
+                    url:
+                      'https://api.tiles.mapbox.com/v3/mapbox.world-borders-light.json?secure',
+                    crossOrigin: 'anonymous'
+                  })
+                })
+              })
+            ]
+          })
+        ],
+        layertree: {}
       },
       sidebar: {
         collapsible: true,

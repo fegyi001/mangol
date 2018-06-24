@@ -1,10 +1,15 @@
-import { AfterViewInit, Component, OnDestroy, OnInit } from '@angular/core';
+import {
+  AfterViewInit,
+  Component,
+  OnDestroy,
+  OnInit,
+  Input
+} from '@angular/core';
 import { Store } from '@ngxs/store';
 import * as ol from 'openlayers';
 import { Subscription } from 'rxjs';
-import { Observable } from 'rxjs/Observable';
 
-import { MangolConfigLayertree } from '../../interfaces/config-layers.inteface';
+import { MangolLayer } from '../../classes/Layer';
 import { MangolConfig } from '../../interfaces/config.interface';
 import { MangolConfigMap } from './../../interfaces/config-map.interface';
 import { AddMap } from './../../store/map.state';
@@ -16,66 +21,84 @@ import { MapService } from './map.service';
   styleUrls: ['./map.component.scss']
 })
 export class MapComponent implements OnInit, AfterViewInit, OnDestroy {
+  @Input() config: MangolConfig;
   target: string;
 
-  map$: Observable<ol.Map>;
   configSubscription: Subscription;
+  defaultMap: {
+    target: string;
+    renderer: string;
+    layers: MangolLayer[];
+    view: ol.View;
+  } = {
+    target: 'my-map',
+    renderer: 'canvas',
+    layers: [
+      new MangolLayer({
+        name: 'OpenStreetMap Layer',
+        layer: new ol.layer.Tile({
+          source: new ol.source.OSM()
+        })
+      })
+    ],
+    view: new ol.View({
+      center: ol.proj.fromLonLat([37.4057, 8.81566]),
+      zoom: 4
+    })
+  };
 
   /**
    *
    * @param store Ngxs store
    * @param mapService
    */
-  constructor(private store: Store, private mapService: MapService) {
-    this.map$ = this.store.select(state => state.map.map);
-  }
+  constructor(private store: Store, private mapService: MapService) {}
 
   ngOnInit() {
-    this.target = 'my-map';
+    this.target =
+      typeof this.config !== 'undefined' &&
+      this.config !== null &&
+      this.config.hasOwnProperty('map') &&
+      this.config.map.hasOwnProperty('target')
+        ? this.config.map.target
+        : this.defaultMap.target;
   }
 
   ngAfterViewInit() {
-    const startMap = new ol.Map({
-      target: this.target,
-      renderer: 'canvas',
-      layers: [
-        new ol.layer.Tile({
-          source: new ol.source.OSM()
-        })
-      ],
-      view: new ol.View({
-        projection: 'EPSG:900913',
-        center: ol.proj.fromLonLat([19.39563, 47.16846], 'EPSG:900913'),
-        zoom: 8
-      })
-    });
-
     this.configSubscription = this.store
       .select(state => state.config.config)
       .subscribe((config: MangolConfig) => {
-        if (config !== null && config.hasOwnProperty('map')) {
+        let view: ol.View = null;
+        let layers: ol.layer.Layer[] = null;
+        if (
+          typeof config !== 'undefined' &&
+          config !== null &&
+          config.hasOwnProperty('map')
+        ) {
           const configMap: MangolConfigMap = config.map;
-          if (configMap.hasOwnProperty('target')) {
-            startMap.setTarget(configMap.target);
-          }
           if (configMap.hasOwnProperty('view')) {
-            startMap.setView(configMap.view);
+            view = configMap.view;
           }
-          if (configMap.hasOwnProperty('layertree')) {
-            const layertree: MangolConfigLayertree = config.map.layertree;
-            // remove all previously loaded layers
-            startMap
-              .getLayers()
-              .getArray()
-              .forEach(l => {
-                startMap.removeLayer(l);
-              });
-            this.mapService.processLayersAndLayerGroups(layertree, startMap);
-          }
-          this.store.dispatch(new AddMap(startMap));
+          layers = configMap.hasOwnProperty('layers')
+            ? this.mapService.processLayersAndLayerGroups(configMap.layers)
+            : this.mapService.processLayersAndLayerGroups(
+                this.defaultMap.layers
+              );
         } else {
-          this.store.dispatch(new AddMap(startMap));
+          layers = this.mapService.processLayersAndLayerGroups(
+            this.defaultMap.layers
+          );
         }
+        this.store.dispatch(
+          new AddMap(
+            new ol.Map({
+              target: this.target,
+              renderer: this.defaultMap.renderer,
+              view: view !== null ? view : this.defaultMap.view,
+              layers: layers
+            })
+          )
+        );
       });
   }
 

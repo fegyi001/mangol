@@ -1,12 +1,8 @@
-import {
-  MangolConfigLayertree,
-  MangolConfigLayer,
-  MangolConfigLayerGroup
-} from './../../interfaces/config-layers.inteface';
+import { Injectable } from '@angular/core';
 import * as ol from 'openlayers';
 
-import { Injectable } from '@angular/core';
-import { Store } from '@ngxs/store';
+import { MangolLayer } from '../../classes/Layer';
+import { MangolLayerGroup } from './../../classes/LayerGroup';
 
 @Injectable({
   providedIn: 'root'
@@ -16,37 +12,47 @@ export class MapService {
    * Constructor
    * @param store
    */
-  constructor(private store: Store) {}
+  constructor() {}
 
   /**
-   *
-   * @param layertree MangolConfigLayertree object
-   * @param map ol.Map
+   * Iterates over the layers and layergroups to get the OL layer objects which can be added to the map
+   * @param layers an array of MangolLayer or MangolLayerGroup objects
    */
-  processLayersAndLayerGroups(layertree: MangolConfigLayertree, map: ol.Map) {
-    if (layertree.hasOwnProperty('layers')) {
-      this.processLayers(layertree.layers);
-    }
-    if (layertree.hasOwnProperty('groups')) {
-      layertree.groups.forEach(g => {
-        this.processLayerGroup(g);
-      });
-    }
+  processLayersAndLayerGroups(
+    layers: (MangolLayer | MangolLayerGroup)[]
+  ): ol.layer.Layer[] {
+    const myLayers: ol.layer.Layer[] = [];
+    layers.forEach(l => {
+      if (l instanceof MangolLayer) {
+        this.processLayer(l, myLayers);
+      } else if (l instanceof MangolLayerGroup) {
+        this.processLayerGroup(l, myLayers);
+      }
+    });
+    return myLayers;
   }
 
   /**
-   *
-   * @param layers
+   * Processes MangolLayers
+   * @param layer the MangolLayer object to process
+   * @param layers the array of OL layers
    */
-  private processLayers(layers: MangolConfigLayer[]) {
-    layers.forEach(l => {
-      console.log(l);
+  private processLayer(layer: MangolLayer, layers: ol.layer.Layer[]) {
+    layers.push(layer.layer);
+  }
+
+  /**
+   * Processes MangolLayerGroups
+   * @param group the MangolLayerGroup object to process
+   * @param layers the array of OL layers
+   */
+  private processLayerGroup(group: MangolLayerGroup, layers: ol.layer.Layer[]) {
+    group.children.forEach((c: MangolLayer | MangolLayerGroup) => {
+      if (c instanceof MangolLayer) {
+        this.processLayer(c, layers);
+      } else if (c instanceof MangolLayerGroup) {
+        this.processLayerGroup(c, layers);
+      }
     });
   }
-
-  /**
-   *
-   * @param group
-   */
-  private processLayerGroup(group: MangolConfigLayerGroup) {}
 }
