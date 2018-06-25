@@ -11,53 +11,43 @@
         <ng-template mat-tab-label>
             {{layertreeTitle$ | async | uppercase}}
         </ng-template>
-        <ng-template matTabContent>
-            <div class="tab-content">
-                <mangol-layertree></mangol-layertree>
-            </div>
-        </ng-template>
+        <div class="tab-content">
+            <mangol-layertree></mangol-layertree>
+        </div>
     </mat-tab>
     <mat-tab *ngIf="hasFeatureinfo$ | async"
         [disabled]="featureinfoDisabled$ | async">
         <ng-template mat-tab-label>
             {{featureinfoTitle$ | async | uppercase}}
         </ng-template>
-        <ng-template matTabContent>
-            <div class="tab-content">
-                <mangol-featureinfo></mangol-featureinfo>
-            </div>
-        </ng-template>
+        <div class="tab-content">
+            <mangol-featureinfo></mangol-featureinfo>
+        </div>
     </mat-tab>
     <mat-tab *ngIf="hasMeasure$ | async"
         [disabled]="measureDisabled$ | async">
         <ng-template mat-tab-label>
             {{measureTitle$ | async | uppercase}}
         </ng-template>
-        <ng-template matTabContent>
-            <div class="tab-content">
-                <mangol-measure></mangol-measure>
-            </div>
-        </ng-template>
+        <div class="tab-content">
+            <mangol-measure></mangol-measure>
+        </div>
     </mat-tab>
     <mat-tab *ngIf="hasPrint$ | async"
         [disabled]="printDisabled$ | async">
         <ng-template mat-tab-label>
             {{printTitle$ | async | uppercase}}
         </ng-template>
-        <ng-template matTabContent>
-            <div class="tab-content">
-                <mangol-print></mangol-print>
-            </div>
-        </ng-template>
+        <div class="tab-content">
+            <mangol-print></mangol-print>
+        </div>
     </mat-tab>
     <mat-tab *ngIf="false">
         <ng-template mat-tab-label>
             EDIT
         </ng-template>
-        <ng-template matTabContent>
-            <div class="tab-content">
-                <mangol-edit></mangol-edit>
-            </div>
-        </ng-template>
+        <div class="tab-content">
+            <mangol-edit></mangol-edit>
+        </div>
     </mat-tab>
 </mat-tab-group>

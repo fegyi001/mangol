@@ -1,9 +1,6 @@
-import { MangolConfigPrintItem } from './../../interfaces/config-toolbar.interface';
-import { HasPrint, SetPrintDisabled } from './../../store/print.state';
 import { Component, OnDestroy, OnInit } from '@angular/core';
 import { Store } from '@ngxs/store';
-import { Subscription } from 'rxjs';
-import { Observable } from 'rxjs/Observable';
+import { Observable, Subscription } from 'rxjs';
 
 import {
   MangolConfigFeatureInfoItem,
@@ -19,6 +16,7 @@ import {
 } from '../../store/layertree.state';
 import { HasMeasure } from '../../store/measure.state';
 import { SetPrintTitle } from '../../store/print.state';
+import { MangolConfigPrintItem } from './../../interfaces/config-toolbar.interface';
 import {
   HasFeatureinfo,
   SetFeatureinfoTitle
@@ -27,6 +25,7 @@ import {
   SetMeasureDisabled,
   SetMeasureTitle
 } from './../../store/measure.state';
+import { HasPrint, SetPrintDisabled } from './../../store/print.state';
 
 @Component({
   selector: 'mangol-tabs',

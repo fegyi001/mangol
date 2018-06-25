@@ -70,7 +70,7 @@ export class AppComponent implements OnInit {
             })
           }),
           new MangolLayerGroup({
-            name: 'First layergroup',
+            name: 'First Layer Group',
             children: [
               new MangolLayer({
                 name: 'Some layer',
@@ -79,18 +79,25 @@ export class AppComponent implements OnInit {
                     url:
                       'https://api.tiles.mapbox.com/v3/mapbox.20110804-hoa-foodinsecurity-3month.json?secure',
                     crossOrigin: 'anonymous'
-                  })
+                  }),
+                  visible: false
                 })
               }),
-              new MangolLayer({
-                name: 'Some other layer',
-                layer: new ol.layer.Tile({
-                  source: new ol.source.TileJSON({
-                    url:
-                      'https://api.tiles.mapbox.com/v3/mapbox.world-borders-light.json?secure',
-                    crossOrigin: 'anonymous'
+              new MangolLayerGroup({
+                name: 'Second Layer Group',
+                children: [
+                  new MangolLayer({
+                    name: 'Some other layer',
+                    layer: new ol.layer.Tile({
+                      source: new ol.source.TileJSON({
+                        url:
+                          'https://api.tiles.mapbox.com/v3/mapbox.world-borders-light.json?secure',
+                        crossOrigin: 'anonymous'
+                      }),
+                      visible: false
+                    })
                   })
-                })
+                ]
               })
             ]
           })

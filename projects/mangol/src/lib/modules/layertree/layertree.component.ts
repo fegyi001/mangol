@@ -1,135 +1,199 @@
-import { NestedTreeControl } from '@angular/cdk/tree';
-import { Component, Injectable, OnInit } from '@angular/core';
-import { MatTreeNestedDataSource } from '@angular/material/tree';
-import { BehaviorSubject, of as observableOf } from 'rxjs';
+import { SelectionModel } from '@angular/cdk/collections';
+import { FlatTreeControl } from '@angular/cdk/tree';
+import { Component, OnInit } from '@angular/core';
+import {
+  MatTreeFlatDataSource,
+  MatTreeFlattener
+} from '@angular/material/tree';
+import { Store } from '@ngxs/store';
+import { Observable, of as ofObservable } from 'rxjs';
+
+import { MangolLayer } from '../../classes/Layer';
+import { MangolLayerGroup } from '../../classes/LayerGroup';
+import { MangolConfig } from './../../interfaces/config.interface';
 
 /**
- * Json node data with nested structure. Each node has a filename and a value or a list of children
+ * Node for to-do item
  */
-export class FileNode {
-  children: FileNode[];
-  filename: string;
-  type: any;
+export class LayertreeItemNode {
+  children: LayertreeItemNode[];
+  item: string;
+  checked?: boolean;
 }
 
-/**
- * The Json tree data in string. The data could be parsed into Json object
- */
-const TREE_DATA = `
-  {
-    "Documents": {
-      "angular": {
-        "src": {
-          "core": "ts",
-          "compiler": "ts"
-        }
-      },
-      "material2": {
-        "src": {
-          "button": "ts",
-          "checkbox": "ts",
-          "input": "ts"
-        }
-      }
-    },
-    "Downloads": {
-        "Tutorial": "html",
-        "November": "pdf",
-        "October": "pdf"
-    },
-    "Pictures": {
-        "Sun": "png",
-        "Woods": "jpg",
-        "Photo Booth Library": {
-          "Contents": "dir",
-          "Pictures": "dir"
-        }
-    },
-    "Applications": {
-        "Chrome": "app",
-        "Calendar": "app",
-        "Webstorm": "app"
-    }
-  }`;
-/**
- * File database, it can build a tree structured Json object from string.
- * Each node in Json object represents a file or a directory. For a file, it has filename and type.
- * For a directory, it has filename and children (a list of files or directories).
- * The input will be a json object string, and the output is a list of `FileNode` with nested
- * structure.
- */
-@Injectable()
-export class FileDatabase {
-  dataChange: BehaviorSubject<FileNode[]> = new BehaviorSubject<FileNode[]>([]);
-
-  get data(): FileNode[] {
-    return this.dataChange.value;
-  }
-
-  constructor() {
-    this.initialize();
-  }
-
-  initialize() {
-    // Parse the string to json object.
-    const dataObject = JSON.parse(TREE_DATA);
-
-    // Build the tree nodes from Json object. The result is a list of `FileNode` with nested
-    //     file node as children.
-    const data = this.buildFileTree(dataObject, 0);
-
-    // Notify the change.
-    this.dataChange.next(data);
-  }
-
-  /**
-   * Build the file structure tree. The `value` is the Json object, or a sub-tree of a Json object.
-   * The return value is the list of `FileNode`.
-   */
-  buildFileTree(value: any, level: number): FileNode[] {
-    let data: any[] = [];
-    for (let k in value) {
-      let v = value[k];
-      let node = new FileNode();
-      node.filename = `${k}`;
-      if (v === null || v === undefined) {
-        // no action
-      } else if (typeof v === 'object') {
-        node.children = this.buildFileTree(v, level + 1);
-      } else {
-        node.type = v;
-      }
-      data.push(node);
-    }
-    return data;
-  }
+/** Flat to-do item node with expandable and level information */
+export class LayertreeItemFlatNode {
+  item: string;
+  level: number;
+  expandable: boolean;
+  checked?: boolean;
 }
 
 @Component({
   selector: 'mangol-layertree',
   templateUrl: './layertree.component.html',
-  styleUrls: ['./layertree.component.scss'],
-  providers: [FileDatabase]
+  styleUrls: ['./layertree.component.scss']
 })
 export class LayertreeComponent implements OnInit {
-  nestedTreeControl: NestedTreeControl<FileNode>;
+  flatNodeMap: Map<LayertreeItemFlatNode, LayertreeItemNode> = new Map<
+    LayertreeItemFlatNode,
+    LayertreeItemNode
+  >();
+  nestedNodeMap: Map<LayertreeItemNode, LayertreeItemFlatNode> = new Map<
+    LayertreeItemNode,
+    LayertreeItemFlatNode
+  >();
+  selectedParent: LayertreeItemFlatNode | null = null;
+  treeControl: FlatTreeControl<LayertreeItemFlatNode>;
+  treeFlattener: MatTreeFlattener<LayertreeItemNode, LayertreeItemFlatNode>;
+  dataSource: MatTreeFlatDataSource<LayertreeItemNode, LayertreeItemFlatNode>;
+  checklistSelection = new SelectionModel<LayertreeItemFlatNode>(true);
 
-  nestedDataSource: MatTreeNestedDataSource<FileNode>;
+  constructor(private store: Store) {
+    this.treeFlattener = new MatTreeFlattener(
+      this.transformer,
+      this.getLevel,
+      this.isExpandable,
+      this.getChildren
+    );
+    this.treeControl = new FlatTreeControl<LayertreeItemFlatNode>(
+      this.getLevel,
+      this.isExpandable
+    );
+    this.dataSource = new MatTreeFlatDataSource(
+      this.treeControl,
+      this.treeFlattener
+    );
 
-  constructor(database: FileDatabase) {
-    this.nestedTreeControl = new NestedTreeControl<FileNode>(this._getChildren);
-    this.nestedDataSource = new MatTreeNestedDataSource();
-
-    database.dataChange.subscribe(data => (this.nestedDataSource.data = data));
+    this.store
+      .select(state => state.config.config)
+      .subscribe((config: MangolConfig) => {
+        if (
+          typeof config !== 'undefined' &&
+          config !== null &&
+          config.hasOwnProperty('map') &&
+          config.map.hasOwnProperty('layers')
+        ) {
+          const layers: (MangolLayer | MangolLayerGroup)[] = config.map.layers;
+          const data: LayertreeItemNode[] = this.processLayersAndLayerGroups(
+            layers
+          );
+          this.dataSource.data = data;
+        }
+      });
   }
 
-  ngOnInit() {}
+  private processLayersAndLayerGroups(
+    items: (MangolLayer | MangolLayerGroup)[]
+  ): LayertreeItemNode[] {
+    const data: LayertreeItemNode[] = [];
+    items.forEach((i: MangolLayer | MangolLayerGroup) => {
+      if (i instanceof MangolLayer) {
+        this.processLayer(i, data);
+      } else if (i instanceof MangolLayerGroup) {
+        this.processLayerGroup(i, data);
+      }
+    });
+    return data;
+  }
 
-  private _getChildren = (node: FileNode) => {
-    return observableOf(node.children);
+  private processLayer(layer: MangolLayer, data: LayertreeItemNode[]) {
+    const item = {
+      item: layer.name,
+      checked: layer.layer.getVisible()
+    } as LayertreeItemNode;
+    data.push(item);
+  }
+
+  private processLayerGroup(
+    group: MangolLayerGroup,
+    data: LayertreeItemNode[]
+  ) {
+    const item = { item: group.name } as LayertreeItemNode;
+    item.children = [];
+    if (
+      group.hasOwnProperty('children') &&
+      Array.isArray(group.children) &&
+      group.children.length > 0
+    ) {
+      group.children.forEach((c: MangolLayer | MangolLayerGroup) => {
+        if (c instanceof MangolLayer) {
+          this.processLayer(c, item.children);
+        } else if (c instanceof MangolLayerGroup) {
+          this.processLayerGroup(c, item.children);
+        }
+      });
+    }
+    data.push(item);
+  }
+
+  ngOnInit(): void {}
+
+  getLevel = (node: LayertreeItemFlatNode) => {
+    return node.level;
   };
 
-  hasNestedChild = (_: number, nodeData: FileNode) => {
-    return !nodeData.type;
+  isExpandable = (node: LayertreeItemFlatNode) => {
+    return node.expandable;
   };
+
+  getChildren = (node: LayertreeItemNode): Observable<LayertreeItemNode[]> => {
+    return ofObservable(node.children);
+  };
+
+  hasChild = (_: number, _nodeData: LayertreeItemFlatNode) => {
+    return _nodeData.expandable;
+  };
+
+  hasNoContent = (_: number, _nodeData: LayertreeItemFlatNode) => {
+    return _nodeData.item === '';
+  };
+
+  /**
+   * Transformer to convert nested node to flat node. Record the nodes in maps for later use.
+   */
+  transformer = (node: LayertreeItemNode, level: number) => {
+    const flatNode =
+      this.nestedNodeMap.has(node) &&
+      this.nestedNodeMap.get(node)!.item === node.item
+        ? this.nestedNodeMap.get(node)!
+        : new LayertreeItemFlatNode();
+    flatNode.item = node.item;
+    flatNode.level = level;
+    flatNode.expandable = !!node.children;
+    if (!!node.checked) {
+      flatNode.checked = node.checked;
+    }
+
+    this.flatNodeMap.set(flatNode, node);
+    this.nestedNodeMap.set(node, flatNode);
+    console.log(flatNode);
+    return flatNode;
+  };
+
+  /** Whether all the descendants of the node are selected */
+  descendantsAllSelected(node: LayertreeItemFlatNode): boolean {
+    const descendants = this.treeControl.getDescendants(node);
+    return descendants.every(child =>
+      this.checklistSelection.isSelected(child)
+    );
+  }
+
+  /** Whether part of the descendants are selected */
+  descendantsPartiallySelected(node: LayertreeItemFlatNode): boolean {
+    const descendants = this.treeControl.getDescendants(node);
+    const result = descendants.some(child =>
+      this.checklistSelection.isSelected(child)
+    );
+    return result && !this.descendantsAllSelected(node);
+  }
+
+  /** Toggle the to-do item selection. Select/deselect all the descendants node */
+  todoItemSelectionToggle(node: LayertreeItemFlatNode): void {
+    this.checklistSelection.toggle(node);
+    const descendants = this.treeControl.getDescendants(node);
+    this.checklistSelection.isSelected(node)
+      ? this.checklistSelection.select(...descendants)
+      : this.checklistSelection.deselect(...descendants);
+  }
 }

@@ -43,17 +43,7 @@ export interface MangolLayerOptions extends OlxLayerLayerOptions {
   details?: string;
 }
 
-export interface OlxLayerGroupOptions {
-  opacity?: number;
-  visible?: boolean;
-  extent?: ol.Extent;
-  zIndex?: number;
-  minResolution?: number;
-  maxResolution?: number;
-  layers?: ol.layer.Base[] | ol.Collection<ol.layer.Base>;
-}
-
-export interface MangolLayerGroupOptions extends OlxLayerGroupOptions {
+export interface MangolLayerGroupOptions {
   name: string;
   details?: string;
   children: (MangolLayer | MangolLayerGroup)[];
