@@ -80,7 +80,7 @@ export class AppComponent implements OnInit {
                       'https://api.tiles.mapbox.com/v3/mapbox.20110804-hoa-foodinsecurity-3month.json?secure',
                     crossOrigin: 'anonymous'
                   }),
-                  visible: false
+                  visible: true
                 })
               }),
               new MangolLayerGroup({
@@ -94,7 +94,7 @@ export class AppComponent implements OnInit {
                           'https://api.tiles.mapbox.com/v3/mapbox.world-borders-light.json?secure',
                         crossOrigin: 'anonymous'
                       }),
-                      visible: false
+                      visible: true
                     })
                   })
                 ]
