@@ -19,10 +19,14 @@
     width: 100%;
     box-shadow: none !important;
     .mat-expansion-panel-header {
+        &.mat-expanded {
+            color: mat-color($mangol-primary);
+            font-size: larger;
+        }
         &:not(.mat-expanded) {
             padding-left: 10px !important;
         }
-        transition: padding-left 0.2s;
+        transition: all 0.2s;
     }
 }
 
@@ -30,6 +34,12 @@
     cursor: pointer;
     .mat-checkbox {
         margin-left: 10px;
+    }
+    .expanded {
+        color: mat-color($mangol-primary);
+        font-size: larger;
+        transition: all 0.2s;
+        padding-left: 3px;
     }
 }
 

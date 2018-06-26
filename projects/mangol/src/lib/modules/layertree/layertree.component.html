@@ -4,12 +4,6 @@
     <mat-tree-node *matTreeNodeDef="let node"
         matTreeNodeToggle
         matTreeNodePadding>
-        <!-- <button mat-icon-button
-            disabled></button> -->
-        <!-- <mat-checkbox class="checklist-leaf-node"
-            color="primary"
-            [checked]="node.checked"
-            (change)="toggleCheckbox(node)">{{node.name}}</mat-checkbox> -->
         <mat-checkbox class="checklist-leaf-node"
             color="primary"
             [checked]="node.checked"
@@ -38,7 +32,7 @@
                     [checked]="isLayerGroupChecked(node)"
                     [indeterminate]="isLayerGroupIndeterminate(node)"
                     (change)="toggleLayergroup(node)">{{node.name}}</mat-checkbox> -->
-                {{node.name | uppercase}}
+                <span [ngClass]="{'expanded': nestedTreeControl.isExpanded(node)}">{{node.name | uppercase}}</span>
             </div>
             <ul [class.example-tree-invisible]="!nestedTreeControl.isExpanded(node)">
                 <ng-container matTreeNodeOutlet></ng-container>
