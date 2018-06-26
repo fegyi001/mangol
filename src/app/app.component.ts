@@ -96,6 +96,17 @@ export class AppComponent implements OnInit {
                       }),
                       visible: true
                     })
+                  }),
+                  new MangolLayer({
+                    name: 'Food Insecurity Layer',
+                    layer: new ol.layer.Tile({
+                      source: new ol.source.TileJSON({
+                        url:
+                          'https://api.tiles.mapbox.com/v3/mapbox.20110804-hoa-foodinsecurity-3month.json?secure',
+                        crossOrigin: 'anonymous'
+                      }),
+                      visible: true
+                    })
                   })
                 ]
               })

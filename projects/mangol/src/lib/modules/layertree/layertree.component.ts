@@ -69,7 +69,7 @@ export class LayertreeComponent implements OnInit {
     node.layer.setVisible(node.checked);
   }
 
-  layergroupChecked(node: LayertreeItemNode): boolean {
+  isLayerGroupChecked(node: LayertreeItemNode): boolean {
     let value: boolean = null;
     if (
       node.hasOwnProperty('children') &&
@@ -101,7 +101,7 @@ export class LayertreeComponent implements OnInit {
     return value;
   }
 
-  layergroupPartiallySelected(node: LayertreeItemNode): boolean {
+  isLayerGroupIndeterminate(node: LayertreeItemNode): boolean {
     let value: boolean = null;
     if (
       node.hasOwnProperty('children') &&

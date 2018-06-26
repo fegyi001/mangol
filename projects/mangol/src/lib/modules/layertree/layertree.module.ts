@@ -5,8 +5,10 @@ import { MatCheckboxModule } from '@angular/material/checkbox';
 import { MatIconModule } from '@angular/material/icon';
 import { MatTreeModule } from '@angular/material/tree';
 import { MatFormFieldModule } from '@angular/material/form-field';
+import { MatExpansionModule } from '@angular/material/expansion';
 
 import { LayertreeComponent } from './layertree.component';
+import { LayertreeDetailsComponent } from './layertree-details/layertree-details.component';
 
 @NgModule({
   imports: [
@@ -15,9 +17,10 @@ import { LayertreeComponent } from './layertree.component';
     MatIconModule,
     MatButtonModule,
     MatCheckboxModule,
-    MatFormFieldModule
+    MatFormFieldModule,
+    MatExpansionModule
   ],
-  declarations: [LayertreeComponent],
+  declarations: [LayertreeComponent, LayertreeDetailsComponent],
   exports: [LayertreeComponent]
 })
 export class LayertreeModule {}

@@ -1,3 +1,4 @@
+@import "../../assets/scss/mangol";
 :host {
     display: block;
 }
@@ -11,4 +12,27 @@
     margin-top: 0;
     margin-bottom: 0;
     list-style-type: none;
+}
+
+.mat-expansion-panel {
+    margin-right: 10px;
+    width: 100%;
+    box-shadow: none !important;
+    .mat-expansion-panel-header {
+        &:not(.mat-expanded) {
+            padding-left: 10px !important;
+        }
+        transition: padding-left 0.2s;
+    }
+}
+
+.mat-tree-node {
+    cursor: pointer;
+    .mat-checkbox {
+        margin-left: 10px;
+    }
+}
+
+.layergroup-icon {
+    @include mat-icon-size(24px);
 }
