@@ -70,10 +70,10 @@ export class AppComponent implements OnInit {
             })
           }),
           new MangolLayerGroup({
-            name: 'First Layer Group',
+            name: 'Overlays',
             children: [
               new MangolLayer({
-                name: 'Some layer',
+                name: 'Food Insecurity Layer',
                 layer: new ol.layer.Tile({
                   source: new ol.source.TileJSON({
                     url:
@@ -83,22 +83,22 @@ export class AppComponent implements OnInit {
                   visible: true
                 })
               }),
-              new MangolLayer({
-                name: 'Some other layer',
-                layer: new ol.layer.Tile({
-                  source: new ol.source.TileJSON({
-                    url:
-                      'https://api.tiles.mapbox.com/v3/mapbox.world-borders-light.json?secure',
-                    crossOrigin: 'anonymous'
-                  }),
-                  visible: true
-                })
+              new MangolLayerGroup({
+                name: 'Second Layer Group',
+                children: [
+                  new MangolLayer({
+                    name: 'Countries',
+                    layer: new ol.layer.Tile({
+                      source: new ol.source.TileJSON({
+                        url:
+                          'https://api.tiles.mapbox.com/v3/mapbox.world-borders-light.json?secure',
+                        crossOrigin: 'anonymous'
+                      }),
+                      visible: true
+                    })
+                  })
+                ]
               })
-              // new MangolLayerGroup({
-              //   name: 'Second Layer Group',
-              //   children: [
-              //   ]
-              // })
             ]
           })
         ],
