@@ -83,22 +83,22 @@ export class AppComponent implements OnInit {
                   visible: true
                 })
               }),
-              new MangolLayerGroup({
-                name: 'Second Layer Group',
-                children: [
-                  new MangolLayer({
-                    name: 'Some other layer',
-                    layer: new ol.layer.Tile({
-                      source: new ol.source.TileJSON({
-                        url:
-                          'https://api.tiles.mapbox.com/v3/mapbox.world-borders-light.json?secure',
-                        crossOrigin: 'anonymous'
-                      }),
-                      visible: true
-                    })
-                  })
-                ]
+              new MangolLayer({
+                name: 'Some other layer',
+                layer: new ol.layer.Tile({
+                  source: new ol.source.TileJSON({
+                    url:
+                      'https://api.tiles.mapbox.com/v3/mapbox.world-borders-light.json?secure',
+                    crossOrigin: 'anonymous'
+                  }),
+                  visible: true
+                })
               })
+              // new MangolLayerGroup({
+              //   name: 'Second Layer Group',
+              //   children: [
+              //   ]
+              // })
             ]
           })
         ],

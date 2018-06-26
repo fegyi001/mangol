@@ -47,12 +47,12 @@
           <mat-icon class="mat-icon-rtl-mirror">
             {{nestedTreeControl.isExpanded(node) ? 'expand_more' : 'chevron_right'}}
           </mat-icon>
-        </button>{{node.name | uppercase}}
-                <!-- <mat-checkbox class="checklist-leaf-node"
+        </button>
+                <mat-checkbox class="checklist-leaf-node"
                     color="primary"
-                    [checked]="checklistSelection.isSelected(node)"
-                    [indeterminate]="descendantsPartiallySelected(node)
-                    (change)="checklistSelection.toggle(node);">{{node.name}}</mat-checkbox> -->
+                    [checked]="layergroupChecked(node)"
+                    [indeterminate]="layergroupPartiallySelected(node)"
+                    (change)="toggleLayergroup(node)">{{node.name}}</mat-checkbox>
             </div>
             <ul [class.example-tree-invisible]="!nestedTreeControl.isExpanded(node)">
                 <ng-container matTreeNodeOutlet></ng-container>
