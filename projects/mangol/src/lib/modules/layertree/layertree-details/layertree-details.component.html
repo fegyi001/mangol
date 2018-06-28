@@ -1,3 +1,20 @@
-<p>
-  layertree-details works!
-</p>
+<p class="details"
+    *ngIf="hasDetails">{{layer.details}}</p>
+<mat-accordion>
+    <mat-expansion-panel hideToggle>
+        <mat-expansion-panel-header>
+            <mat-panel-title>
+                Opacity
+            </mat-panel-title>
+        </mat-expansion-panel-header>
+        here will be the opacity setter
+    </mat-expansion-panel>
+    <mat-expansion-panel hideToggle>
+        <mat-expansion-panel-header>
+            <mat-panel-title>
+                Legend
+            </mat-panel-title>
+        </mat-expansion-panel-header>
+        here will be the legend
+    </mat-expansion-panel>
+</mat-accordion>

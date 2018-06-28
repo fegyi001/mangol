@@ -20,6 +20,7 @@ export class LayertreeComponent implements OnInit {
   nestedTreeControl: NestedTreeControl<LayertreeItemNode>;
   nestedDataSource: MatTreeNestedDataSource<LayertreeItemNode>;
   checklistSelection = new SelectionModel<LayertreeItemNode>(true);
+  toggleDetailsText = 'Toggle details';
 
   constructor(
     private store: Store,
@@ -66,75 +67,7 @@ export class LayertreeComponent implements OnInit {
 
   toggleCheckbox(node: LayertreeItemNode) {
     node.checked = !node.checked;
-    node.layer.setVisible(node.checked);
-  }
-
-  isLayerGroupChecked(node: LayertreeItemNode): boolean {
-    let value: boolean = null;
-    if (
-      node.hasOwnProperty('children') &&
-      Array.isArray(node.children) &&
-      node.children.length > 0
-    ) {
-      node.children.forEach(c => {
-        value = this.checkChildrenSelected(c, value);
-      });
-    }
-    return value;
-  }
-
-  private checkChildrenSelected(
-    node: LayertreeItemNode,
-    value: boolean
-  ): boolean {
-    if (
-      node.hasOwnProperty('children') &&
-      Array.isArray(node.children) &&
-      node.children.length > 0
-    ) {
-      node.children.forEach(c => {
-        value = this.checkChildrenSelected(c, value);
-      });
-    } else {
-      value = node.checked;
-    }
-    return value;
-  }
-
-  isLayerGroupIndeterminate(node: LayertreeItemNode): boolean {
-    let value: boolean = null;
-    if (
-      node.hasOwnProperty('children') &&
-      Array.isArray(node.children) &&
-      node.children.length > 0
-    ) {
-      node.children.forEach(c => {
-        value = this.checkChildrenPartiallySelected(c, value);
-      });
-    }
-    return value;
-  }
-
-  private checkChildrenPartiallySelected(
-    node: LayertreeItemNode,
-    value: boolean
-  ): boolean {
-    if (
-      node.hasOwnProperty('children') &&
-      Array.isArray(node.children) &&
-      node.children.length > 0
-    ) {
-      node.children.forEach(c => {
-        value = this.checkChildrenPartiallySelected(c, value);
-      });
-    } else {
-      if (value === null) {
-        value = node.checked;
-      } else {
-        value = value !== node.checked;
-      }
-    }
-    return value;
+    node.layer.layer.setVisible(node.checked);
   }
 
   toggleLayergroup(node: LayertreeItemNode) {

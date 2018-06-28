@@ -66,28 +66,31 @@ export class AppComponent implements OnInit {
             name: 'OpenStreetMap Layer',
             details: 'Here are the OSM layer details',
             layer: new ol.layer.Tile({
-              source: new ol.source.OSM()
+              source: new ol.source.OSM(),
+              visible: true
             })
           }),
           new MangolLayerGroup({
             name: 'Overlays',
             children: [
-              new MangolLayer({
-                name: 'Food Insecurity Layer',
-                layer: new ol.layer.Tile({
-                  source: new ol.source.TileJSON({
-                    url:
-                      'https://api.tiles.mapbox.com/v3/mapbox.20110804-hoa-foodinsecurity-3month.json?secure',
-                    crossOrigin: 'anonymous'
-                  }),
-                  visible: true
-                })
-              }),
+              // new MangolLayer({
+              //   name: 'Food Insecurity Layer',
+              //   layer: new ol.layer.Tile({
+              //     source: new ol.source.TileJSON({
+              //       url:
+              //         'https://api.tiles.mapbox.com/v3/mapbox.20110804-hoa-foodinsecurity-3month.json?secure',
+              //       crossOrigin: 'anonymous'
+              //     }),
+              //     visible: true
+              //   })
+              // }),
               new MangolLayerGroup({
                 name: 'Second Layer Group',
                 children: [
                   new MangolLayer({
                     name: 'Countries',
+                    details:
+                      'Lorem ipsum dolor sit amet consectetur adipisicing elit. Consectetur neque unde autem corporis similique provident maxime, harum suscipit sit est nesciunt accusantium enim! Aliquid in quis sapiente doloremque quia laboriosam.',
                     layer: new ol.layer.Tile({
                       source: new ol.source.TileJSON({
                         url:
@@ -98,7 +101,7 @@ export class AppComponent implements OnInit {
                     })
                   }),
                   new MangolLayer({
-                    name: 'Food Insecurity Layer',
+                    name: 'Food Insecurity Layer2',
                     layer: new ol.layer.Tile({
                       source: new ol.source.TileJSON({
                         url:

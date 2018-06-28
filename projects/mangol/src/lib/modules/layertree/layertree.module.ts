@@ -1,12 +1,11 @@
 import { CommonModule } from '@angular/common';
 import { NgModule } from '@angular/core';
 import { MatButtonModule } from '@angular/material/button';
-import { MatCheckboxModule } from '@angular/material/checkbox';
+import { MatDividerModule } from '@angular/material/divider';
 import { MatExpansionModule } from '@angular/material/expansion';
-import { MatFormFieldModule } from '@angular/material/form-field';
 import { MatIconModule } from '@angular/material/icon';
-import { MatSlideToggleModule } from '@angular/material/slide-toggle';
 import { MatTreeModule } from '@angular/material/tree';
+import { MatTooltipModule } from '@angular/material/tooltip';
 
 import { LayertreeDetailsComponent } from './layertree-details/layertree-details.component';
 import { LayertreeComponent } from './layertree.component';
@@ -17,10 +16,9 @@ import { LayertreeComponent } from './layertree.component';
     MatTreeModule,
     MatIconModule,
     MatButtonModule,
-    MatCheckboxModule,
-    MatFormFieldModule,
     MatExpansionModule,
-    MatSlideToggleModule
+    MatDividerModule,
+    MatTooltipModule
   ],
   declarations: [LayertreeComponent, LayertreeDetailsComponent],
   exports: [LayertreeComponent]

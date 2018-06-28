@@ -4,14 +4,16 @@
     <mat-tree-node *matTreeNodeDef="let node"
         matTreeNodeToggle
         matTreeNodePadding>
-        <mat-checkbox class="checklist-leaf-node"
-            color="primary"
-            [checked]="node.checked"
-            (change)="toggleCheckbox(node)"></mat-checkbox>
+        <button mat-icon-button
+            (click)="toggleCheckbox(node)">
+          <mat-icon [color]="node.checked ? 'primary' : 'default'">{{node.checked ? 'visibility' : 'visibility_off'}}</mat-icon>
+        </button>
         <mat-expansion-panel>
-            <mat-expansion-panel-header>{{node.name}}
+            <mat-expansion-panel-header [matTooltip]="toggleDetailsText"
+                matTooltipPosition="above">
+                {{node.name}}
             </mat-expansion-panel-header>
-            <mangol-layertree-details></mangol-layertree-details>
+            <mangol-layertree-details [layer]="node.layer"></mangol-layertree-details>
         </mat-expansion-panel>
     </mat-tree-node>
 
@@ -19,19 +21,12 @@
         <li>
             <div class="mat-tree-node"
                 matTreeNodeToggle>
-                <!-- <button mat-icon-button
-                    disabled></button> -->
                 <button mat-icon-button>
                   <mat-icon class="layergroup-icon"
                       [color]="nestedTreeControl.isExpanded(node) ? 'primary' : 'default'"
                       fontSet="ms"
                       [fontIcon]="nestedTreeControl.isExpanded(node) ? 'ms-directory-open-o' : 'ms-directory-o'"></mat-icon>
                 </button>
-                <!-- <mat-checkbox class="checklist-leaf-node"
-                    color="primary"
-                    [checked]="isLayerGroupChecked(node)"
-                    [indeterminate]="isLayerGroupIndeterminate(node)"
-                    (change)="toggleLayergroup(node)">{{node.name}}</mat-checkbox> -->
                 <span [ngClass]="{'expanded': nestedTreeControl.isExpanded(node)}">{{node.name | uppercase}}</span>
             </div>
             <ul [class.example-tree-invisible]="!nestedTreeControl.isExpanded(node)">
@@ -39,4 +34,5 @@
             </ul>
         </li>
     </mat-nested-tree-node>
+
 </mat-tree>

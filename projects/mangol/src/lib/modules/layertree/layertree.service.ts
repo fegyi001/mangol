@@ -28,7 +28,7 @@ export class LayertreeService {
     const item = {
       name: layer.name,
       checked: layer.layer.getVisible(),
-      layer: layer.layer
+      layer: layer
     } as LayertreeItemNode;
     data.push(item);
   }
