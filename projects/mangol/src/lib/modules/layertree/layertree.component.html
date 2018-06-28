@@ -1,6 +1,7 @@
-<mat-tree [dataSource]="nestedDataSource"
+<!-- <mat-tree [dataSource]="nestedDataSource"
     [treeControl]="nestedTreeControl"
     class="example-tree">
+
     <mat-tree-node *matTreeNodeDef="let node"
         matTreeNodeToggle
         matTreeNodePadding>
@@ -35,4 +36,7 @@
         </li>
     </mat-nested-tree-node>
 
-</mat-tree>
+</mat-tree> -->
+
+<mangol-layertree-item [items]="nestedDataSource.data"
+    [level]="0"></mangol-layertree-item>

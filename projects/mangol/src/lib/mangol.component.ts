@@ -1,16 +1,15 @@
-import { Component, Input, OnInit } from '@angular/core';
+import { Component, HostBinding, Input, OnInit } from '@angular/core';
 import { Store } from '@ngxs/store';
 import { Observable } from 'rxjs';
 
 import { MangolConfig } from './interfaces/config.interface';
 import { SetConfig } from './store/config.state';
 import {
+  SetHasSidebar,
   SetSidebarCollapsible,
   SetSidebarMode,
   SetSidebarOpened,
-  ToggleSidebar,
-  SetSidebarTitle,
-  SetHasSidebar
+  SetSidebarTitle
 } from './store/sidebar.state';
 
 @Component({
@@ -19,6 +18,7 @@ import {
   styleUrls: ['./mangol.component.scss']
 })
 export class MangolComponent implements OnInit {
+  @HostBinding('class') class = 'mangol';
   @Input() config: MangolConfig;
 
   hasSidebar$: Observable<boolean>;

@@ -73,17 +73,17 @@ export class AppComponent implements OnInit {
           new MangolLayerGroup({
             name: 'Overlays',
             children: [
-              // new MangolLayer({
-              //   name: 'Food Insecurity Layer',
-              //   layer: new ol.layer.Tile({
-              //     source: new ol.source.TileJSON({
-              //       url:
-              //         'https://api.tiles.mapbox.com/v3/mapbox.20110804-hoa-foodinsecurity-3month.json?secure',
-              //       crossOrigin: 'anonymous'
-              //     }),
-              //     visible: true
-              //   })
-              // }),
+              new MangolLayer({
+                name: 'Food Insecurity Layer',
+                layer: new ol.layer.Tile({
+                  source: new ol.source.TileJSON({
+                    url:
+                      'https://api.tiles.mapbox.com/v3/mapbox.20110804-hoa-foodinsecurity-3month.json?secure',
+                    crossOrigin: 'anonymous'
+                  }),
+                  visible: false
+                })
+              }),
               new MangolLayerGroup({
                 name: 'Second Layer Group',
                 children: [
@@ -108,7 +108,7 @@ export class AppComponent implements OnInit {
                           'https://api.tiles.mapbox.com/v3/mapbox.20110804-hoa-foodinsecurity-3month.json?secure',
                         crossOrigin: 'anonymous'
                       }),
-                      visible: true
+                      visible: false
                     })
                   })
                 ]

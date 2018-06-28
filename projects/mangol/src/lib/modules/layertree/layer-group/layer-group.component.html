@@ -1,0 +1,11 @@
+<mat-list>
+    <h3 mat-subheader>Groups</h3>
+    <mat-list-item (click)="toggleGroup()">
+        <mat-icon mat-list-icon>{{group.checked ? 'folder_open' : 'folder'}}</mat-icon>
+        <div>{{group.name}}</div>
+    </mat-list-item>
+</mat-list>
+<mangol-layertree-item [items]="group.children"
+    [level]="level + 1"
+    *ngIf="group.checked">
+</mangol-layertree-item>

@@ -1,0 +1,13 @@
+<div [ngStyle]="getStyle()">
+    <mangol-layer-group *ngFor="let g of groups"
+        [group]="g"
+        [level]="level"></mangol-layer-group>
+    <mat-list>
+        <h3 mat-subheader>Layers</h3>
+        <mat-list-item *ngFor="let l of layers"
+            (click)="toggleLayerVisibility(l)">
+            <mat-icon mat-list-icon>{{l.checked ? 'visibility' : 'visibility_off'}}</mat-icon>
+            <mangol-layer [layer]="l.layer"></mangol-layer>
+        </mat-list-item>
+    </mat-list>
+</div>

@@ -1,6 +1,13 @@
-<p class="details"
-    *ngIf="hasDetails">{{layer.details}}</p>
 <mat-accordion>
+    <mat-expansion-panel hideToggle
+        [disabled]="!hasDetails">
+        <mat-expansion-panel-header>
+            <mat-panel-title>
+                Details
+            </mat-panel-title>
+        </mat-expansion-panel-header>
+        {{layer.details}}
+    </mat-expansion-panel>
     <mat-expansion-panel hideToggle>
         <mat-expansion-panel-header>
             <mat-panel-title>

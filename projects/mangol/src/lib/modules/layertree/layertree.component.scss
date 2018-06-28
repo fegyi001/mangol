@@ -15,37 +15,8 @@
 }
 
 .mat-expansion-panel {
-    margin-right: 10px;
-    width: 100%;
     box-shadow: none !important;
-    .mat-expansion-panel-header {
-        &.mat-expanded {
-            color: mat-color($mangol-primary);
-            font-size: larger;
-            border-left: 1px solid red;
-        }
-        &:not(.mat-expanded) {
-            padding-left: 10px !important;
-        }
-        transition: all 0.2s;
-    }
-    .mat-expansion-panel-content {
-        display: block;
-        &.mat-expanded {
-            color: green;
-            border-left: 1px solid red;
-        }
-        &:not(.mat-expanded) {
-            padding-left: 10px !important;
-        }
-    }
-    .mat-expansion-panel-body {
-        border-left: 4px solid orange;
-    }
-}
-
-.mat-expansion-panel-body {
-    border-left: 1px solid green !important;
+    width: 100%;
 }
 
 .mat-tree-node {
