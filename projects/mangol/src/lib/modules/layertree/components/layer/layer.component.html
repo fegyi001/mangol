@@ -1,1 +1,25 @@
-<div>{{layer.name}}</div>
+<mat-toolbar color="default">
+    <mat-toolbar-row>
+        <span>{{layer.name}}</span>
+        <span class="spacer"></span>
+        <button mat-icon-button
+            [matMenuTriggerFor]="menu">
+            <mat-icon>more_vert</mat-icon>
+          </button>
+        <mat-menu #menu="matMenu">
+            <button mat-menu-item>
+              <mat-icon fontSet="ms" fontIcon="ms-transparency"></mat-icon>
+              <span>Transparency</span>
+            </button>
+            <button mat-menu-item>
+              <mat-icon fontSet="ms" fontIcon="ms-label-o"></mat-icon>
+              <span>Layer description</span>
+            </button>
+            <button mat-menu-item
+                disabled>
+                <mat-icon fontSet="ms" fontIcon="ms-style-o"></mat-icon>
+              <span>Legend</span>
+            </button>
+        </mat-menu>
+    </mat-toolbar-row>
+</mat-toolbar>

@@ -2,7 +2,7 @@ import { Injectable } from '@angular/core';
 
 import { MangolLayer } from '../../classes/Layer';
 import { MangolLayerGroup } from '../../classes/LayerGroup';
-import { LayertreeItemNode } from './Layertree.class';
+import { LayertreeItemNode } from './classes/layertree-item-node.class';
 
 @Injectable({
   providedIn: 'root'

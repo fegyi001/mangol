@@ -8,7 +8,7 @@ import { of as observableOf } from 'rxjs';
 import { MangolLayer } from '../../classes/Layer';
 import { MangolLayerGroup } from '../../classes/LayerGroup';
 import { MangolConfig } from './../../interfaces/config.interface';
-import { LayertreeItemNode } from './Layertree.class';
+import { LayertreeItemNode } from './classes/layertree-item-node.class';
 import { LayertreeService } from './layertree.service';
 
 @Component({

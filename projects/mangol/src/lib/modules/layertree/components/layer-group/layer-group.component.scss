@@ -2,6 +2,12 @@
     display: block;
 }
 
-.mat-list-item {
-    cursor: pointer;
+.mat-toolbar {
+    background-color: rgba(0, 0, 0, 0);
+    .mat-toolbar-row {
+        white-space: initial;
+        font-weight: initial;
+        font-size: initial;
+        line-height: initial;
+    }
 }

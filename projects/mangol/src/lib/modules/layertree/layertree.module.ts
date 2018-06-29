@@ -5,6 +5,8 @@ import { MatButtonModule } from '@angular/material/button';
 import { MatExpansionModule } from '@angular/material/expansion';
 import { MatIconModule } from '@angular/material/icon';
 import { MatListModule } from '@angular/material/list';
+import { MatMenuModule } from '@angular/material/menu';
+import { MatToolbarModule } from '@angular/material/toolbar';
 import { MatTooltipModule } from '@angular/material/tooltip';
 import { MatTreeModule } from '@angular/material/tree';
 
@@ -23,7 +25,9 @@ import { LayertreeComponent } from './layertree.component';
     MatExpansionModule,
     MatTooltipModule,
     MatListModule,
-    MatBadgeModule
+    MatBadgeModule,
+    MatToolbarModule,
+    MatMenuModule
   ],
   declarations: [
     LayertreeComponent,

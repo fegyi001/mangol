@@ -4,9 +4,9 @@
         [level]="level"></mangol-layer-group>
     <mat-list>
         <h3 mat-subheader>{{dictLayers}}</h3>
-        <mat-list-item *ngFor="let l of layers"
-            (click)="toggleLayerVisibility(l)">
-            <button mat-icon-button>
+        <mat-list-item *ngFor="let l of layers">
+            <button mat-icon-button
+                (click)="toggleLayerVisibility(l)">
               <mat-icon mat-list-icon
                   [@layertreeVisibilityIconState]="l.checked ? 'checked' : 'unchecked'">{{l.checked ? 'visibility' : 'visibility_off'}}</mat-icon>
             </button>

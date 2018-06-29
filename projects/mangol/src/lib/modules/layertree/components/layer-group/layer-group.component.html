@@ -1,16 +1,21 @@
 <mat-list>
     <h3 mat-subheader>{{dictGroups}}</h3>
-    <mat-list-item (click)="toggleGroup()">
-        <button mat-icon-button>
+    <mat-list-item>
+        <button mat-icon-button
+            (click)="toggleGroup()">
         <mat-icon mat-list-icon
             fontSet="ms"
             [fontIcon]="group.checked ? 'ms-directory-open-o' : 'ms-directory-o'"></mat-icon>
       </button>
-        <div *ngIf="showBadges && !group.checked && group.children && group.children.length > 0; else checked"
-            [matBadge]="group.children.length"
-            matBadgeOverlap="false"
-            matBadgeColor="primary">{{group.name}}</div>
-        <ng-template #checked>{{group.name}}</ng-template>
+        <mat-toolbar color="default">
+            <mat-toolbar-row>
+                <div *ngIf="showBadges && !group.checked && group.children && group.children.length > 0; else checked"
+                    [matBadge]="group.children.length"
+                    matBadgeOverlap="false"
+                    matBadgeColor="primary">{{group.name}}</div>
+                <ng-template #checked>{{group.name}}</ng-template>
+            </mat-toolbar-row>
+        </mat-toolbar>
     </mat-list-item>
 </mat-list>
 

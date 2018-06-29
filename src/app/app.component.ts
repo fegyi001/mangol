@@ -63,7 +63,8 @@ export class AppComponent implements OnInit {
         },
         layers: [
           new MangolLayer({
-            name: 'OpenStreetMap Layer',
+            name:
+              'Lorem ipsum dolor sit amet consectetur adipisicing elit. Consectetur neque unde autem corporis similique provident maxime.',
             details: 'Here are the OSM layer details',
             layer: new ol.layer.Tile({
               source: new ol.source.OSM(),
