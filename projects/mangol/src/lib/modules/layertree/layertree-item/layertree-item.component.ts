@@ -1,12 +1,13 @@
-import { MangolLayerGroup } from './../../../classes/LayerGroup';
+import { Component, Input, OnInit } from '@angular/core';
+
+import { layertreeVisibilityIconStateTrigger } from '../layertree.animations';
 import { LayertreeItemNode } from './../Layertree.class';
-import { Component, OnInit, Input } from '@angular/core';
-import { MangolLayer } from '../../../classes/Layer';
 
 @Component({
   selector: 'mangol-layertree-item',
   templateUrl: './layertree-item.component.html',
-  styleUrls: ['./layertree-item.component.scss']
+  styleUrls: ['./layertree-item.component.scss'],
+  animations: [layertreeVisibilityIconStateTrigger]
 })
 export class LayertreeItemComponent implements OnInit {
   @Input() items: LayertreeItemNode[];
