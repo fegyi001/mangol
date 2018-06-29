@@ -1,6 +1,6 @@
 import { Component, Input, OnInit } from '@angular/core';
 
-import { MangolLayer } from './../../../classes/Layer';
+import { MangolLayer } from './../../../../classes/Layer';
 
 @Component({
   selector: 'mangol-layertree-details',

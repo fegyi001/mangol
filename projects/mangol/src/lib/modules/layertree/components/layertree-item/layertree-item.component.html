@@ -3,7 +3,7 @@
         [group]="g"
         [level]="level"></mangol-layer-group>
     <mat-list>
-        <h3 mat-subheader>Layers</h3>
+        <h3 mat-subheader>{{dictLayers}}</h3>
         <mat-list-item *ngFor="let l of layers"
             (click)="toggleLayerVisibility(l)">
             <button mat-icon-button>

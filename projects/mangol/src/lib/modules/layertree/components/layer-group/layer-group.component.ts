@@ -1,19 +1,20 @@
-import { LayertreeItemNode } from './../Layertree.class';
-import { Component, OnInit, Input } from '@angular/core';
-import {
-  layertreeVisibilityIconStateTrigger,
-  slideStateTrigger
-} from '../layertree.animations';
+import { Component, Input, OnInit } from '@angular/core';
+
+import { LayertreeItemNode } from '../../classes/layertree-item-node.class';
+import { slideStateTrigger } from '../../layertree.animations';
 
 @Component({
   selector: 'mangol-layer-group',
   templateUrl: './layer-group.component.html',
   styleUrls: ['./layer-group.component.scss'],
-  animations: [layertreeVisibilityIconStateTrigger, slideStateTrigger]
+  animations: [slideStateTrigger]
 })
 export class LayerGroupComponent implements OnInit {
   @Input() group: LayertreeItemNode;
   @Input() level: number;
+
+  showBadges = true;
+  dictGroups = 'Groups';
 
   constructor() {}
 

@@ -1,7 +1,7 @@
 import { Component, Input, OnInit } from '@angular/core';
 
-import { layertreeVisibilityIconStateTrigger } from '../layertree.animations';
-import { LayertreeItemNode } from './../Layertree.class';
+import { LayertreeItemNode } from '../../classes/layertree-item-node.class';
+import { layertreeVisibilityIconStateTrigger } from '../../layertree.animations';
 
 @Component({
   selector: 'mangol-layertree-item',
@@ -12,6 +12,8 @@ import { LayertreeItemNode } from './../Layertree.class';
 export class LayertreeItemComponent implements OnInit {
   @Input() items: LayertreeItemNode[];
   @Input() level: number;
+
+  dictLayers = 'Layers';
 
   groups: LayertreeItemNode[] = [];
   layers: LayertreeItemNode[] = [];

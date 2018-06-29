@@ -1,4 +1,4 @@
-import { MangolLayer } from './../../../classes/Layer';
+import { MangolLayer } from './../../../../classes/Layer';
 import { Component, OnInit, Input } from '@angular/core';
 
 @Component({

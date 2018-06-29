@@ -1,18 +1,18 @@
 import { CommonModule } from '@angular/common';
 import { NgModule } from '@angular/core';
+import { MatBadgeModule } from '@angular/material/badge';
 import { MatButtonModule } from '@angular/material/button';
-import { MatDividerModule } from '@angular/material/divider';
 import { MatExpansionModule } from '@angular/material/expansion';
 import { MatIconModule } from '@angular/material/icon';
 import { MatListModule } from '@angular/material/list';
 import { MatTooltipModule } from '@angular/material/tooltip';
 import { MatTreeModule } from '@angular/material/tree';
 
-import { LayertreeDetailsComponent } from './layertree-details/layertree-details.component';
+import { LayerGroupComponent } from './components/layer-group/layer-group.component';
+import { LayerComponent } from './components/layer/layer.component';
+import { LayertreeDetailsComponent } from './components/layertree-details/layertree-details.component';
+import { LayertreeItemComponent } from './components/layertree-item/layertree-item.component';
 import { LayertreeComponent } from './layertree.component';
-import { LayerGroupComponent } from './layer-group/layer-group.component';
-import { LayertreeItemComponent } from './layertree-item/layertree-item.component';
-import { LayerComponent } from './layer/layer.component';
 
 @NgModule({
   imports: [
@@ -21,11 +21,17 @@ import { LayerComponent } from './layer/layer.component';
     MatIconModule,
     MatButtonModule,
     MatExpansionModule,
-    MatDividerModule,
     MatTooltipModule,
-    MatListModule
+    MatListModule,
+    MatBadgeModule
   ],
-  declarations: [LayertreeComponent, LayertreeDetailsComponent, LayerGroupComponent, LayertreeItemComponent, LayerComponent],
+  declarations: [
+    LayertreeComponent,
+    LayertreeDetailsComponent,
+    LayerGroupComponent,
+    LayertreeItemComponent,
+    LayerComponent
+  ],
   exports: [LayertreeComponent]
 })
 export class LayertreeModule {}
