@@ -15,6 +15,7 @@ export class LayerGroupComponent implements OnInit {
 
   showBadges = true;
   dictGroups = 'Groups';
+  displayLimit = 50;
 
   constructor() {}
 

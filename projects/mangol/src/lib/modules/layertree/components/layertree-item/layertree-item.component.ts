@@ -1,13 +1,11 @@
 import { Component, Input, OnInit } from '@angular/core';
 
 import { LayertreeItemNode } from '../../classes/layertree-item-node.class';
-import { layertreeVisibilityIconStateTrigger } from '../../layertree.animations';
 
 @Component({
   selector: 'mangol-layertree-item',
   templateUrl: './layertree-item.component.html',
-  styleUrls: ['./layertree-item.component.scss'],
-  animations: [layertreeVisibilityIconStateTrigger]
+  styleUrls: ['./layertree-item.component.scss']
 })
 export class LayertreeItemComponent implements OnInit {
   @Input() items: LayertreeItemNode[];
@@ -15,17 +13,17 @@ export class LayertreeItemComponent implements OnInit {
 
   dictLayers = 'Layers';
 
-  groups: LayertreeItemNode[] = [];
-  layers: LayertreeItemNode[] = [];
+  groupNodes: LayertreeItemNode[] = [];
+  layerNodes: LayertreeItemNode[] = [];
 
   constructor() {}
 
   ngOnInit() {
     this.items.forEach(i => {
       if (i.hasOwnProperty('children')) {
-        this.groups.push(i);
+        this.groupNodes.push(i);
       } else if (i.hasOwnProperty('layer')) {
-        this.layers.push(i);
+        this.layerNodes.push(i);
       }
     });
   }
@@ -34,10 +32,5 @@ export class LayertreeItemComponent implements OnInit {
     return {
       'margin-left': (this.level === 0 ? 0 : 30) + 'px'
     };
-  }
-
-  toggleLayerVisibility(item: LayertreeItemNode) {
-    item.layer.layer.setVisible(!item.layer.layer.getVisible());
-    item.checked = !item.checked;
   }
 }

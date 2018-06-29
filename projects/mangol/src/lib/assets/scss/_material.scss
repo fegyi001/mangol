@@ -30,4 +30,13 @@ color $transition-time;
             }
         }
     }
+    .mat-list-item-content {
+        padding-right: 0 !important;
+    }
+}
+
+.mangol-dialog {
+    .mat-dialog-container {
+        padding: 0;
+    }
 }

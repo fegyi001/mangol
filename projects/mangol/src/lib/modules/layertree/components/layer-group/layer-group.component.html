@@ -12,8 +12,14 @@
                 <div *ngIf="showBadges && !group.checked && group.children && group.children.length > 0; else checked"
                     [matBadge]="group.children.length"
                     matBadgeOverlap="false"
-                    matBadgeColor="primary">{{group.name}}</div>
-                <ng-template #checked>{{group.name}}</ng-template>
+                    matBadgeColor="primary"
+                    [matTooltip]="group.name"
+                    matTooltipPosition="above"
+                    [matTooltipDisabled]="group.name.length < displayLimit">{{group.name | shorten:displayLimit}}</div>
+                <ng-template #checked>
+                    <span [matTooltip]="group.name"
+                        matTooltipPosition="above"
+                        [matTooltipDisabled]="group.name.length < displayLimit">{{group.name | shorten:displayLimit}}</span></ng-template>
             </mat-toolbar-row>
         </mat-toolbar>
     </mat-list-item>

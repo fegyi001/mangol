@@ -12,15 +12,12 @@
 .mat-toolbar {
     background-color: rgba(0, 0, 0, 0);
     .mat-toolbar-row {
+        padding-right: 0;
         white-space: initial;
         font-weight: initial;
         font-size: initial;
         line-height: initial;
     }
-}
-
-.spacer {
-    flex: 1 1 auto;
 }
 
 .mat-icon {

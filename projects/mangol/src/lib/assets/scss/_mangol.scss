@@ -4,3 +4,6 @@
 @import "mixins";
 @import "material";
 @import "ol";
+.spacer {
+    flex: 1 1 auto;
+}

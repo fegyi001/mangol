@@ -3,6 +3,7 @@
         *ngIf="hasSidebar$ | async"
         [opened]="sidebarOpened$ | async"
         [mode]="sidebarMode$ | async"
+        [disableClose]="(sidebarMode$ | async) === 'side' ? true : false"
         (openedChange)="onOpenedChange($event)">
         <mangol-tabs></mangol-tabs>
     </mat-drawer>

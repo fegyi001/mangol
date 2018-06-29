@@ -1,16 +1,10 @@
 <div [ngStyle]="getStyle()">
-    <mangol-layer-group *ngFor="let g of groups"
-        [group]="g"
+    <mangol-layer-group *ngFor="let groupNode of groupNodes"
+        [group]="groupNode"
         [level]="level"></mangol-layer-group>
     <mat-list>
         <h3 mat-subheader>{{dictLayers}}</h3>
-        <mat-list-item *ngFor="let l of layers">
-            <button mat-icon-button
-                (click)="toggleLayerVisibility(l)">
-              <mat-icon mat-list-icon
-                  [@layertreeVisibilityIconState]="l.checked ? 'checked' : 'unchecked'">{{l.checked ? 'visibility' : 'visibility_off'}}</mat-icon>
-            </button>
-            <mangol-layer [layer]="l.layer"></mangol-layer>
-        </mat-list-item>
+        <mangol-layer *ngFor="let layerNode of layerNodes"
+            [node]="layerNode"></mangol-layer>
     </mat-list>
 </div>

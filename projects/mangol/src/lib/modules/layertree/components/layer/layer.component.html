@@ -1,25 +1,28 @@
-<mat-toolbar color="default">
-    <mat-toolbar-row>
-        <span>{{layer.name}}</span>
-        <span class="spacer"></span>
-        <button mat-icon-button
-            [matMenuTriggerFor]="menu">
-            <mat-icon>more_vert</mat-icon>
-          </button>
-        <mat-menu #menu="matMenu">
-            <button mat-menu-item>
-              <mat-icon fontSet="ms" fontIcon="ms-transparency"></mat-icon>
-              <span>Transparency</span>
-            </button>
-            <button mat-menu-item>
-              <mat-icon fontSet="ms" fontIcon="ms-label-o"></mat-icon>
-              <span>Layer description</span>
-            </button>
-            <button mat-menu-item
-                disabled>
-                <mat-icon fontSet="ms" fontIcon="ms-style-o"></mat-icon>
-              <span>Legend</span>
-            </button>
-        </mat-menu>
-    </mat-toolbar-row>
-</mat-toolbar>
+<mat-list-item>
+    <button mat-icon-button
+        (click)="toggleLayerVisibility()">
+        <mat-icon mat-list-icon
+            [@layertreeVisibilityIconState]="node.checked ? 'checked' : 'unchecked'">{{node.checked ? 'visibility' : 'visibility_off'}}</mat-icon>
+    </button>
+    <mat-toolbar color="default">
+        <mat-toolbar-row>
+            <span [matTooltip]="layer.name"
+                matTooltipPosition="above"
+                [matTooltipDisabled]="layer.name.length < displayLimit">{{layer.name | shorten:displayLimit}}</span>
+            <span class="spacer"></span>
+            <button mat-icon-button
+                [matMenuTriggerFor]="menu">
+                <mat-icon>more_vert</mat-icon>
+              </button>
+            <mat-menu #menu="matMenu">
+                <button mat-menu-item
+                    *ngFor="let item of detailItems"
+                    [disabled]="item.disabled"
+                    (click)="onMenuItemClicked(item)">
+                  <mat-icon [fontSet]="item.fontSet" [fontIcon]="item.fontIcon"></mat-icon>
+                  <span>{{item.text}}</span>
+                </button>
+            </mat-menu>
+        </mat-toolbar-row>
+    </mat-toolbar>
+</mat-list-item>

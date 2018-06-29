@@ -1,0 +1,10 @@
+<mat-toolbar color="default">
+    <mat-toolbar-row>
+        <span>{{item?.text}}</span>
+        <span class="spacer"></span>
+    </mat-toolbar-row>
+</mat-toolbar>
+<div class="details-content">
+    <mangol-transparency *ngIf="item?.type === 'transparency'"></mangol-transparency>
+    <mangol-legend *ngIf="item?.type === 'legend'"></mangol-legend>
+</div>
