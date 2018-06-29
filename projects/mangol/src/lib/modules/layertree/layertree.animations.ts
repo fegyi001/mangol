@@ -21,7 +21,7 @@ export const layertreeVisibilityIconStateTrigger: AnimationTriggerMetadata = tri
     state(
       'checked',
       style({
-        transform: 'rotate(360deg)'
+        transform: 'rotate(180deg)'
       })
     ),
     transition('unchecked => checked', [animate(duration + 'ms ease-out')]),

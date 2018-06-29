@@ -2,8 +2,8 @@
     <h3 mat-subheader>Groups</h3>
     <mat-list-item (click)="toggleGroup()">
         <button mat-icon-button>
+          <!-- [@layertreeVisibilityIconState]="group.checked ? 'checked' : 'unchecked'" -->
         <mat-icon mat-list-icon
-            [@layertreeVisibilityIconState]="group.checked ? 'checked' : 'unchecked'"
             fontSet="ms"
             [fontIcon]="group.checked ? 'ms-directory-open-o' : 'ms-directory-o'"></mat-icon>
       </button>
