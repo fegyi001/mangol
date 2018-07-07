@@ -1,11 +1,15 @@
 import { CommonModule } from '@angular/common';
 import { NgModule } from '@angular/core';
+import { NgxsModule } from '@ngxs/store';
 
 import { MapComponent } from './map.component';
-import { MapService } from './map.service';
+import { MapState } from '../../store/map.state';
 
 @NgModule({
-  imports: [CommonModule],
+  imports: [
+    CommonModule
+    // NgxsModule.forRoot([MapState])
+  ],
   declarations: [MapComponent],
   exports: [MapComponent]
 })
