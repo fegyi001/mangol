@@ -63,6 +63,8 @@ export class LayerComponent implements OnInit {
       width: '250px',
       autoFocus: false,
       panelClass: 'mangol-dialog',
+      hasBackdrop: true,
+      backdropClass: 'mangol-details-backdrop',
       data: { item: this.selectedDetail }
     });
 

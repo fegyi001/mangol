@@ -11,8 +11,6 @@ import { MangolComponent } from './mangol.component';
 import { ControllersModule } from './modules/controllers/controllers.module';
 import { MapModule } from './modules/map/map.module';
 import { TabsModule } from './modules/tabs/tabs.module';
-import { NgxsModule } from '@ngxs/store';
-import { mangolStates } from './mangol.state';
 
 @NgModule({
   imports: [
@@ -23,9 +21,7 @@ import { mangolStates } from './mangol.state';
     TabsModule,
     BrowserAnimationsModule,
     MapModule,
-    ControllersModule,
-    NgxsModule.forRoot(mangolStates)
-    // NgxsLoggerPluginModule.forRoot()
+    ControllersModule
   ],
   declarations: [MangolComponent],
   exports: [MangolComponent]
