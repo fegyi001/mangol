@@ -63,10 +63,11 @@ export class LayerComponent implements OnInit {
 
     const dialogRef = this.dialog.open(LayerDetailsComponent, {
       width: '50%',
+      maxHeight: '60%',
       autoFocus: false,
       panelClass: 'mangol-dialog',
       hasBackdrop: true,
-      backdropClass: 'mangol-details-backdrop',
+      // backdropClass: 'mangol-details-backdrop',
       data: { item: this.selectedDetail, layer: this.layer }
     });
 

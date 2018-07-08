@@ -1,13 +1,20 @@
+@import '../../../../assets/scss/mangol';
 :host {
     display: block;
+    width: 100%;
 }
 
 .mat-toolbar {
     background-color: rgba(0, 0, 0, 0);
     .mat-toolbar-row {
+        padding-right: 0;
         white-space: initial;
         font-weight: initial;
         font-size: initial;
         line-height: initial;
     }
+}
+
+.mat-icon {
+    @include mat-icon-size(24px);
 }

@@ -6,9 +6,11 @@
     </button>
     <mat-toolbar color="default">
         <mat-toolbar-row>
-            <span [matTooltip]="layer.name"
+            <span class="mangol-pointer"
+                [matTooltip]="layer.name"
                 matTooltipPosition="above"
-                [matTooltipDisabled]="layer.name.length < displayLimit">{{layer.name | shorten:displayLimit}}</span>
+                [matTooltipDisabled]="layer.name.length < displayLimit"
+                (click)="toggleLayerVisibility()">{{layer.name | shorten:displayLimit}}</span>
             <span class="spacer"></span>
             <button mat-icon-button
                 [matMenuTriggerFor]="menu">
