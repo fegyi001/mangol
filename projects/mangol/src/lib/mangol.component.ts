@@ -9,7 +9,8 @@ import {
   SetSidebarCollapsible,
   SetSidebarMode,
   SetSidebarOpened,
-  SetSidebarTitle
+  SetSidebarTitle,
+  ToggleSidebar
 } from './store/sidebar.state';
 
 @Component({
@@ -61,15 +62,15 @@ export class MangolComponent implements OnInit {
   }
 
   onOpenedChange(evt: boolean) {
-    this.store.dispatch(new SetSidebarOpened(evt));
-    this.store.selectOnce(state => state.sidebar.mode).subscribe(mode => {
-      if (mode === 'side') {
-        this.store.selectOnce(state => state.map.map).subscribe((m: ol.Map) => {
-          if (m !== null) {
-            m.updateSize();
-          }
-        });
+    this.store.selectOnce(state => state.sidebar.opened).subscribe(opened => {
+      if (opened !== evt) {
+        this.store.dispatch(new ToggleSidebar());
       }
+      this.store.selectOnce(state => state.map.map).subscribe((m: ol.Map) => {
+        if (m !== null) {
+          m.updateSize();
+        }
+      });
     });
   }
 }

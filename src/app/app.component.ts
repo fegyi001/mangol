@@ -4,6 +4,7 @@ import * as ol from 'openlayers';
 import { MangolConfig } from '../../projects/mangol/src/lib/interfaces/config.interface';
 import { MangolLayer } from './../../projects/mangol/src/lib/classes/Layer';
 import { MangolLayerGroup } from './../../projects/mangol/src/lib/classes/LayerGroup';
+import { MangolService } from '../../projects/mangol/src/lib/mangol.service';
 
 declare var proj4: any;
 @Component({
@@ -13,6 +14,8 @@ declare var proj4: any;
 })
 export class AppComponent implements OnInit {
   mangolConfig: MangolConfig;
+
+  constructor(private mangolService: MangolService) {}
 
   ngOnInit() {
     proj4.defs(
@@ -168,5 +171,9 @@ export class AppComponent implements OnInit {
         }
       }
     } as MangolConfig;
+
+    setTimeout(() => {
+      // this.mangolService.sidebarSetSidebarTitle('hahaha');
+    }, 2000);
   }
 }
