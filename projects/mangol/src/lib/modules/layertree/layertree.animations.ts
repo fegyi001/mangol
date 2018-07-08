@@ -7,7 +7,7 @@ import {
   trigger
 } from '@angular/animations';
 
-const duration = 300;
+const duration = 350;
 
 export const layertreeVisibilityIconStateTrigger: AnimationTriggerMetadata = trigger(
   'layertreeVisibilityIconState',
