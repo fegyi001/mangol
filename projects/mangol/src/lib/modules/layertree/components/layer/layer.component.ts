@@ -44,13 +44,13 @@ export class LayerComponent implements OnInit {
         disabled: false
       });
     }
-    this.detailItems.push({
-      type: 'legend',
-      text: 'Legend',
-      fontSet: 'ms',
-      fontIcon: 'ms-style-o',
-      disabled: true
-    });
+    // this.detailItems.push({
+    //   type: 'legend',
+    //   text: 'Legend',
+    //   fontSet: 'ms',
+    //   fontIcon: 'ms-style-o',
+    //   disabled: true
+    // });
   }
 
   toggleLayerVisibility() {

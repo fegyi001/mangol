@@ -34,10 +34,10 @@ export class TransparencyComponent implements OnInit, OnDestroy {
           !!config.sidebar.toolbar.layertree.details.opacity
         ) {
           const params = config.sidebar.toolbar.layertree.details.opacity;
-          if (params.hasOwnProperty('sliderStep')) {
+          if (!!params.sliderStep) {
             this.sliderStep = params.sliderStep;
           }
-          if (params.hasOwnProperty('showLabels')) {
+          if (!!params.showLabels) {
             this.showLabels = params.showLabels;
           }
         }

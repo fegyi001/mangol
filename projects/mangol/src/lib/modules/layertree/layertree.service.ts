@@ -40,7 +40,7 @@ export class LayertreeService {
     const item = { name: group.name } as LayertreeItemNode;
     item.children = [];
     if (
-      group.hasOwnProperty('children') &&
+      !!group.children &&
       Array.isArray(group.children) &&
       group.children.length > 0
     ) {

@@ -58,8 +58,8 @@ export class MapComponent implements OnInit, AfterViewInit, OnDestroy {
     this.target =
       typeof this.config !== 'undefined' &&
       this.config !== null &&
-      this.config.hasOwnProperty('map') &&
-      this.config.map.hasOwnProperty('target')
+      !!this.config.map &&
+      !!this.config.map.target
         ? this.config.map.target
         : this.defaultMap.target;
   }
@@ -70,16 +70,12 @@ export class MapComponent implements OnInit, AfterViewInit, OnDestroy {
       .subscribe((config: MangolConfig) => {
         let view: ol.View = null;
         let layers: ol.layer.Layer[] = null;
-        if (
-          typeof config !== 'undefined' &&
-          config !== null &&
-          config.hasOwnProperty('map')
-        ) {
+        if (typeof config !== 'undefined' && config !== null && !!config.map) {
           const configMap: MangolConfigMap = config.map;
-          if (configMap.hasOwnProperty('view')) {
+          if (!!configMap.view) {
             view = configMap.view;
           }
-          layers = configMap.hasOwnProperty('layers')
+          layers = !!configMap.layers
             ? this.mapService.processLayersAndLayerGroups(configMap.layers)
             : this.mapService.processLayersAndLayerGroups(
                 this.defaultMap.layers

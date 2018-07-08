@@ -36,25 +36,23 @@ export class MangolComponent implements OnInit {
     this.store.dispatch(new SetConfig(this.config));
     if (typeof this.config !== 'undefined' && this.config !== null) {
       // register the config in the Store
-      this.store.dispatch(
-        new SetHasSidebar(this.config.hasOwnProperty('sidebar'))
-      );
-      if (this.config.hasOwnProperty('sidebar')) {
+      this.store.dispatch(new SetHasSidebar(!!this.config.sidebar));
+      if (!!this.config.sidebar) {
         /**
          * Basic sidebar options
          */
-        if (this.config.sidebar.hasOwnProperty('collapsible')) {
+        if (!!this.config.sidebar.collapsible) {
           this.store.dispatch(
             new SetSidebarCollapsible(this.config.sidebar.collapsible)
           );
         }
-        if (this.config.sidebar.hasOwnProperty('mode')) {
+        if (!!this.config.sidebar.mode) {
           this.store.dispatch(new SetSidebarMode(this.config.sidebar.mode));
         }
-        if (this.config.sidebar.hasOwnProperty('opened')) {
+        if (!!this.config.sidebar.opened) {
           this.store.dispatch(new SetSidebarOpened(this.config.sidebar.opened));
         }
-        if (this.config.sidebar.hasOwnProperty('title')) {
+        if (!!this.config.sidebar.title) {
           this.store.dispatch(new SetSidebarTitle(this.config.sidebar.title));
         }
       }

@@ -20,9 +20,9 @@ export class LayertreeItemComponent implements OnInit {
 
   ngOnInit() {
     this.items.forEach(i => {
-      if (i.hasOwnProperty('children')) {
+      if (!!i.children) {
         this.groupNodes.push(i);
-      } else if (i.hasOwnProperty('layer')) {
+      } else if (!!i.layer) {
         this.layerNodes.push(i);
       }
     });

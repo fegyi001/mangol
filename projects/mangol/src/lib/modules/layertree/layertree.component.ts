@@ -37,8 +37,8 @@ export class LayertreeComponent implements OnInit {
         if (
           typeof config !== 'undefined' &&
           config !== null &&
-          config.hasOwnProperty('map') &&
-          config.map.hasOwnProperty('layers')
+          !!config.map &&
+          !!config.map.layers
         ) {
           const layers: (
             | MangolLayer
@@ -59,7 +59,7 @@ export class LayertreeComponent implements OnInit {
 
   hasNestedChild = (_: number, node: LayertreeItemNode) => {
     return (
-      node.hasOwnProperty('children') &&
+      !!node.children &&
       Array.isArray(node.children) &&
       node.children.length > 0
     );
