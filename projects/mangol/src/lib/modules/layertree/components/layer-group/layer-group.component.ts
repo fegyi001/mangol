@@ -24,7 +24,6 @@ export class LayerGroupComponent implements OnInit {
   constructor() {}
 
   ngOnInit() {
-    // if (this.hasChildrenGroup()) {
     this.detailItems.push({
       type: 'expand_all',
       text: 'Expand all',
@@ -39,7 +38,6 @@ export class LayerGroupComponent implements OnInit {
       fontIcon: 'ms-minimize',
       disabled: false
     });
-    // }
     this.detailItems.push({
       type: 'toggle_on',
       text: 'Toggle children on',
@@ -56,20 +54,17 @@ export class LayerGroupComponent implements OnInit {
     });
   }
 
+  /**
+   * Toggles the layer group's expanded state
+   */
   toggleGroup() {
     this.group.checked = !this.group.checked;
   }
 
-  private hasChildrenGroup() {
-    for (let i = 0; i < this.group.children.length; i++) {
-      // console.log(this.group.children[i]);
-      if (!!this.group.children[i].children) {
-        return true;
-      }
-    }
-    return false;
-  }
-
+  /**
+   * Action based on the menu item clicked
+   * @param evt
+   */
   onMenuItemClicked(evt: LayerGroupDetailItem) {
     switch (evt.type) {
       case 'expand_all':
@@ -89,6 +84,11 @@ export class LayerGroupComponent implements OnInit {
     }
   }
 
+  /**
+   * Recursively expands or collapses all children of a layer group
+   * @param group
+   * @param toChecked
+   */
   private expandAll(group: LayertreeItemNode, toChecked: boolean) {
     if (!!group.children) {
       group.checked = toChecked;
@@ -98,6 +98,11 @@ export class LayerGroupComponent implements OnInit {
     }
   }
 
+  /**
+   * Recursively sets the layers' visibility of a layer group
+   * @param group
+   * @param visible
+   */
   private visibleAll(group: LayertreeItemNode, visible: boolean) {
     if (!!group.children) {
       group.children.forEach(c => {
