@@ -35,13 +35,15 @@ export class LayerComponent implements OnInit {
       fontIcon: 'ms-transparency',
       disabled: false
     });
-    this.detailItems.push({
-      type: 'description',
-      text: 'Layer description',
-      fontSet: 'ms',
-      fontIcon: 'ms-label-o',
-      disabled: false
-    });
+    if (!!this.layer.details) {
+      this.detailItems.push({
+        type: 'description',
+        text: 'Layer description',
+        fontSet: 'ms',
+        fontIcon: 'ms-label-o',
+        disabled: false
+      });
+    }
     this.detailItems.push({
       type: 'legend',
       text: 'Legend',
@@ -60,16 +62,14 @@ export class LayerComponent implements OnInit {
     this.selectedDetail = evt;
 
     const dialogRef = this.dialog.open(LayerDetailsComponent, {
-      width: '250px',
+      width: '50%',
       autoFocus: false,
       panelClass: 'mangol-dialog',
       hasBackdrop: true,
       backdropClass: 'mangol-details-backdrop',
-      data: { item: this.selectedDetail }
+      data: { item: this.selectedDetail, layer: this.layer }
     });
 
-    dialogRef.afterClosed().subscribe(result => {
-      console.log('The dialog was closed');
-    });
+    dialogRef.afterClosed().subscribe(result => {});
   }
 }

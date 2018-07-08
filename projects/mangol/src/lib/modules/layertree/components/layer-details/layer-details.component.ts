@@ -2,6 +2,7 @@ import { Component, Inject, OnInit } from '@angular/core';
 import { MAT_DIALOG_DATA, MatDialogRef } from '@angular/material';
 
 import { LayerDetailItem } from '../../interfaces/layer-detail-item.interface';
+import { MangolLayer } from '../../../../classes/Layer';
 
 @Component({
   selector: 'mangol-layer-details',
@@ -10,12 +11,14 @@ import { LayerDetailItem } from '../../interfaces/layer-detail-item.interface';
 })
 export class LayerDetailsComponent implements OnInit {
   item: LayerDetailItem;
+  layer: MangolLayer;
 
   constructor(
     dialogRef: MatDialogRef<LayerDetailsComponent>,
     @Inject(MAT_DIALOG_DATA) public data: any
   ) {
     this.item = data.item;
+    this.layer = data.layer;
   }
 
   ngOnInit() {}

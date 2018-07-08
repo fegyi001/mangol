@@ -1,3 +1,6 @@
-<p>
-  transparency works!
-</p>
+<mat-slider color="primary"
+    [value]="value"
+    [min]="min"
+    [max]="max"
+    [thumbLabel]="showLabels"
+    (change)="onChange($event)"></mat-slider>

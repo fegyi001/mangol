@@ -8,6 +8,7 @@ import { MatExpansionModule } from '@angular/material/expansion';
 import { MatIconModule } from '@angular/material/icon';
 import { MatListModule } from '@angular/material/list';
 import { MatMenuModule } from '@angular/material/menu';
+import { MatSliderModule } from '@angular/material/slider';
 import { MatToolbarModule } from '@angular/material/toolbar';
 import { MatTooltipModule } from '@angular/material/tooltip';
 import { MatTreeModule } from '@angular/material/tree';
@@ -20,6 +21,7 @@ import { LayerGroupComponent } from './components/layer-group/layer-group.compon
 import { LayerComponent } from './components/layer/layer.component';
 import { LayertreeItemComponent } from './components/layertree-item/layertree-item.component';
 import { LayertreeComponent } from './layertree.component';
+import { DescriptionComponent } from './components/layer-details/description/description.component';
 
 @NgModule({
   imports: [
@@ -31,6 +33,7 @@ import { LayertreeComponent } from './layertree.component';
     MatTooltipModule,
     MatListModule,
     MatBadgeModule,
+    MatSliderModule,
     MatToolbarModule,
     MatMenuModule,
     MatDividerModule,
@@ -44,7 +47,8 @@ import { LayertreeComponent } from './layertree.component';
     LayerComponent,
     LayerDetailsComponent,
     TransparencyComponent,
-    LegendComponent
+    LegendComponent,
+    DescriptionComponent
   ],
   entryComponents: [LayerDetailsComponent],
   exports: [LayertreeComponent]

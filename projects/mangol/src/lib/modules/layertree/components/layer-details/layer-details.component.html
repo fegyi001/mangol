@@ -1,10 +1,13 @@
 <mat-toolbar color="default">
     <mat-toolbar-row>
-        <span>{{item?.text}}</span>
+        <span>{{layer?.name}}</span>
         <span class="spacer"></span>
     </mat-toolbar-row>
 </mat-toolbar>
 <div class="details-content">
-    <mangol-transparency *ngIf="item?.type === 'transparency'"></mangol-transparency>
+    <mangol-transparency *ngIf="item?.type === 'transparency'"
+        [layer]="layer"></mangol-transparency>
     <mangol-legend *ngIf="item?.type === 'legend'"></mangol-legend>
+    <mangol-description *ngIf="item?.type === 'description'"
+        [description]="layer.details"></mangol-description>
 </div>
