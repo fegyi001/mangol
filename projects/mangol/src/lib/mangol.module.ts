@@ -8,7 +8,6 @@ import { BrowserModule } from '@angular/platform-browser';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { NgxsLoggerPluginModule } from '@ngxs/logger-plugin';
 import { NgxsModule } from '@ngxs/store';
-import { environment } from 'src/environments/environment';
 
 import { MangolComponent } from './mangol.component';
 import { mangolStates } from './mangol.state';
@@ -30,7 +29,7 @@ import { TabsModule } from './modules/tabs/tabs.module';
     NgxsLoggerPluginModule.forRoot({
       logger: console,
       collapsed: true,
-      disabled: environment.production
+      disabled: false
     })
   ],
   declarations: [MangolComponent],
