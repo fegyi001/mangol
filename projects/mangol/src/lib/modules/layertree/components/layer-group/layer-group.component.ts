@@ -89,11 +89,13 @@ export class LayerGroupComponent implements OnInit {
    * @param group
    * @param toChecked
    */
-  private expandAll(group: LayertreeItemNode, toChecked: boolean) {
+  private expandAll(group: LayertreeItemNode, checked: boolean) {
     if (!!group.children) {
-      group.checked = toChecked;
+      if (group.checked !== checked) {
+        group.checked = checked;
+      }
       group.children.forEach(c => {
-        this.expandAll(c, toChecked);
+        this.expandAll(c, checked);
       });
     }
   }
@@ -107,8 +109,10 @@ export class LayerGroupComponent implements OnInit {
     if (!!group.children) {
       group.children.forEach(c => {
         if (!!c.layer) {
-          c.checked = visible;
-          c.layer.layer.setVisible(visible);
+          if (c.checked !== visible) {
+            c.checked = visible;
+            c.layer.layer.setVisible(visible);
+          }
         } else if (!!c.children) {
           this.visibleAll(c, visible);
         }
