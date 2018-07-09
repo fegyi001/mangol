@@ -40,14 +40,14 @@ export class LayerGroupComponent implements OnInit {
     });
     this.detailItems.push({
       type: 'toggle_on',
-      text: 'Toggle children on',
+      text: 'Turn layers on',
       fontSet: null,
       fontIcon: 'layers',
       disabled: false
     });
     this.detailItems.push({
       type: 'toggle_off',
-      text: 'Toggle children off',
+      text: 'Turn layers off',
       fontSet: null,
       fontIcon: 'layers_clear',
       disabled: false
