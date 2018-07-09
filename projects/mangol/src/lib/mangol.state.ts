@@ -3,6 +3,7 @@ import {
   FeatureinfoState,
   FeatureinfoStateModel
 } from './store/featureinfo.state';
+import { LayersState, LayersStateModel } from './store/layers.state';
 import { LayertreeState, LayertreeStateModel } from './store/layertree.state';
 import { MapState, MapStateModel } from './store/map.state';
 import { MeasureState, MeasureStateModel } from './store/measure.state';
@@ -17,6 +18,7 @@ export interface MangolState {
   measure: MeasureStateModel;
   print: PrintStateModel;
   sidebar: SidebarStateModel;
+  layers: LayersStateModel;
 }
 
 export const mangolStates = [
@@ -26,5 +28,6 @@ export const mangolStates = [
   MapState,
   MeasureState,
   PrintState,
-  SidebarState
+  SidebarState,
+  LayersState
 ];

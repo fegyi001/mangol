@@ -1,27 +1,28 @@
-// import { Action, State, StateContext } from '@ngxs/store';
+import { Action, State, StateContext } from '@ngxs/store';
+import { MangolLayer } from '../classes/Layer';
 
-// export class AddLayerGroup {
-//   static readonly type = '[LAYERS] Add Layer Group';
-//   constructor(public group: MangolConfigLayerGroup) {}
-// }
+export class AddLayers {
+  static readonly type = '[LAYERS] Add Layers';
+  constructor(public layers: MangolLayer[]) {}
+}
 
-// export interface ConfigStateModel {
-//   config: MangolConfig;
-// }
+export interface LayersStateModel {
+  layers: MangolLayer[];
+}
 
-// @State<ConfigStateModel>({
-//   name: 'config',
-//   defaults: {
-//     config: null
-//   }
-// })
-// export class ConfigState {
-//   @Action(SetConfig)
-//   setConfig(ctx: StateContext<ConfigStateModel>, action: SetConfig) {
-//     const state = ctx.getState();
-//     ctx.setState({
-//       ...state,
-//       config: action.config
-//     });
-//   }
-// }
+@State<LayersStateModel>({
+  name: 'layers',
+  defaults: {
+    layers: []
+  }
+})
+export class LayersState {
+  @Action(AddLayers)
+  addLayers(ctx: StateContext<LayersStateModel>, action: AddLayers) {
+    const state = ctx.getState();
+    ctx.setState({
+      ...state,
+      layers: action.layers
+    });
+  }
+}
