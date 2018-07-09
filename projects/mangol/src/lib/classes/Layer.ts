@@ -1,10 +1,11 @@
-import * as ol from 'openlayers';
+import BaseLayer from 'ol/layer/Base';
+import Layer from 'ol/layer/Layer';
 
 import { MangolLayerOptions } from './../interfaces/config-layers.inteface';
 
-export class MangolLayer extends ol.layer.Base {
+export class MangolLayer extends BaseLayer {
   public name: string;
-  public layer: ol.layer.Layer;
+  public layer: Layer;
   public details: string;
 
   constructor(options: MangolLayerOptions) {

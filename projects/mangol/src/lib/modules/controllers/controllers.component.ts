@@ -1,6 +1,5 @@
-import { Store } from '@ngxs/store';
 import { Component, OnInit } from '@angular/core';
-import * as ol from 'openlayers';
+import { Store } from '@ngxs/store';
 import { Observable } from 'rxjs';
 
 @Component({

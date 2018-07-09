@@ -31,26 +31,19 @@ export class LayerComponent implements OnInit {
     this.detailItems.push({
       type: 'transparency',
       text: 'Transparency',
-      fontSet: 'ms',
-      fontIcon: 'ms-transparency',
+      fontSet: null,
+      fontIcon: 'opacity',
       disabled: false
     });
     if (!!this.layer.details) {
       this.detailItems.push({
         type: 'description',
         text: 'Layer description',
-        fontSet: 'ms',
-        fontIcon: 'ms-label-o',
+        fontSet: null,
+        fontIcon: 'subject',
         disabled: false
       });
     }
-    // this.detailItems.push({
-    //   type: 'legend',
-    //   text: 'Legend',
-    //   fontSet: 'ms',
-    //   fontIcon: 'ms-style-o',
-    //   disabled: true
-    // });
   }
 
   toggleLayerVisibility() {

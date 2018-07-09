@@ -1,6 +1,5 @@
-import { MangolConfigToolbarItem } from './config-toolbar.interface';
+import Style from 'ol/style/Style';
 
-import * as ol from 'openlayers';
 export interface MangolConfigToolbarItem {
   title?: string;
   active?: boolean;
@@ -39,7 +38,7 @@ export interface MangolConfigFeatureInfoItem extends MangolConfigToolbarItem {
   placeholder?: string;
   zoomOnRowClick?: boolean;
   highlightFeatures?: boolean;
-  hoverStyle?: ol.style.Style[];
+  hoverStyle?: Style[];
 }
 
 export interface MangolConfigToolbar {

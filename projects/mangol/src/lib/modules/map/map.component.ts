@@ -1,12 +1,17 @@
 import {
   AfterViewInit,
   Component,
+  Input,
   OnDestroy,
-  OnInit,
-  Input
+  OnInit
 } from '@angular/core';
 import { Store } from '@ngxs/store';
-import * as ol from 'openlayers';
+import Layer from 'ol/layer/Layer';
+import TileLayer from 'ol/layer/Tile';
+import Map from 'ol/Map';
+import { fromLonLat } from 'ol/proj.js';
+import OSM from 'ol/source/OSM';
+import View from 'ol/View';
 import { Subscription } from 'rxjs';
 
 import { MangolLayer } from '../../classes/Layer';
@@ -29,20 +34,20 @@ export class MapComponent implements OnInit, AfterViewInit, OnDestroy {
     target: string;
     renderer: string;
     layers: MangolLayer[];
-    view: ol.View;
+    view: View;
   } = {
     target: 'my-map',
     renderer: 'canvas',
     layers: [
       new MangolLayer({
         name: 'OpenStreetMap Layer',
-        layer: new ol.layer.Tile({
-          source: new ol.source.OSM()
+        layer: new TileLayer({
+          source: new OSM()
         })
       })
     ],
-    view: new ol.View({
-      center: ol.proj.fromLonLat([37.4057, 8.81566]),
+    view: new View({
+      center: fromLonLat([37.4057, 8.81566]),
       zoom: 4
     })
   };
@@ -68,8 +73,8 @@ export class MapComponent implements OnInit, AfterViewInit, OnDestroy {
     this.configSubscription = this.store
       .select(state => state.config.config)
       .subscribe((config: MangolConfig) => {
-        let view: ol.View = null;
-        let layers: ol.layer.Layer[] = null;
+        let view: View = null;
+        let layers: Layer[] = null;
         if (typeof config !== 'undefined' && config !== null && !!config.map) {
           const configMap: MangolConfigMap = config.map;
           if (!!configMap.view) {
@@ -87,7 +92,7 @@ export class MapComponent implements OnInit, AfterViewInit, OnDestroy {
         }
         this.store.dispatch(
           new AddMap(
-            new ol.Map({
+            new Map({
               target: this.target,
               renderer: this.defaultMap.renderer,
               view: view !== null ? view : this.defaultMap.view,

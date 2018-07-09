@@ -27,29 +27,29 @@ export class LayerGroupComponent implements OnInit {
     this.detailItems.push({
       type: 'expand_all',
       text: 'Expand all',
-      fontSet: 'ms',
-      fontIcon: 'ms-maximize',
+      fontSet: null,
+      fontIcon: 'unfold_more',
       disabled: false
     });
     this.detailItems.push({
       type: 'collapse_all',
       text: 'Collapse all',
-      fontSet: 'ms',
-      fontIcon: 'ms-minimize',
+      fontSet: null,
+      fontIcon: 'unfold_less',
       disabled: false
     });
     this.detailItems.push({
       type: 'toggle_on',
       text: 'Toggle children on',
-      fontSet: 'ms',
-      fontIcon: 'ms-layers',
+      fontSet: null,
+      fontIcon: 'layers',
       disabled: false
     });
     this.detailItems.push({
       type: 'toggle_off',
       text: 'Toggle children off',
-      fontSet: 'ms',
-      fontIcon: 'ms-layers-o',
+      fontSet: null,
+      fontIcon: 'layers_clear',
       disabled: false
     });
   }

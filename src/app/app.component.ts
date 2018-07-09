@@ -1,12 +1,20 @@
 import { Component, OnInit } from '@angular/core';
-import * as ol from 'openlayers';
+import TileLayer from 'ol/layer/Tile';
+import { fromLonLat } from 'ol/proj.js';
+import { register } from 'ol/proj/proj4.js';
+import OSM from 'ol/source/OSM';
+import TileJSON from 'ol/source/TileJSON';
+import Fill from 'ol/style/Fill';
+import Stroke from 'ol/style/Stroke';
+import Style from 'ol/style/Style';
+import View from 'ol/View';
+import proj4 from 'proj4';
 
 import { MangolConfig } from '../../projects/mangol/src/lib/interfaces/config.interface';
+import { MangolService } from '../../projects/mangol/src/lib/mangol.service';
 import { MangolLayer } from './../../projects/mangol/src/lib/classes/Layer';
 import { MangolLayerGroup } from './../../projects/mangol/src/lib/classes/LayerGroup';
-import { MangolService } from '../../projects/mangol/src/lib/mangol.service';
 
-declare var proj4: any;
 @Component({
   selector: 'app-root',
   templateUrl: './app.component.html',
@@ -23,13 +31,14 @@ export class AppComponent implements OnInit {
       '+proj=somerc +lat_0=47.14439372222222 +lon_0=19.04857177777778 +k_0=0.99993 ' +
         '+x_0=650000 +y_0=200000 +ellps=GRS67 +units=m +no_defs'
     );
+    register(proj4);
     this.mangolConfig = {
       map: {
         renderer: 'canvas',
         target: 'my-map',
-        view: new ol.View({
+        view: new View({
           projection: 'EPSG:900913',
-          center: ol.proj.fromLonLat(
+          center: fromLonLat(
             // [19.3956393810065, 47.168464955013],
             [0, 0],
             'EPSG:900913'
@@ -69,8 +78,8 @@ export class AppComponent implements OnInit {
             name: 'OpenStreetMap Layer',
             details:
               'Here are the OSM layer details: Lorem ipsum dolor sit amet consectetur, adipisicing elit. Natus necessitatibus ipsa beatae qui voluptate perspiciatis ullam aperiam, autem adipisci rerum molestias libero dolor quia possimus tenetur ipsam saepe expedita itaque corrupti atque nulla dolores fugiat facere! Ullam sapiente molestiae tempora deserunt. Dolore reprehenderit quos earum facilis sint hic, repellendus corrupti. Molestias atque sed, fugiat iure consequuntur facere voluptates? Dolore ipsum mollitia, dolores, fugit molestiae similique reprehenderit nihil ratione nulla adipisci repellendus rem molestias est blanditiis. Quia mollitia magni saepe rerum culpa accusamus impedit ipsum dolorem perspiciatis in temporibus recusandae commodi rem consectetur iusto, aspernatur eligendi illo, vero ratione, sit esse!',
-            layer: new ol.layer.Tile({
-              source: new ol.source.OSM(),
+            layer: new TileLayer({
+              source: new OSM(),
               visible: true
             })
           }),
@@ -79,8 +88,8 @@ export class AppComponent implements OnInit {
             children: [
               new MangolLayer({
                 name: 'Food Insecurity Layer',
-                layer: new ol.layer.Tile({
-                  source: new ol.source.TileJSON({
+                layer: new TileLayer({
+                  source: new TileJSON({
                     url:
                       'https://api.tiles.mapbox.com/v3/mapbox.20110804-hoa-foodinsecurity-3month.json?secure',
                     crossOrigin: 'anonymous'
@@ -95,8 +104,8 @@ export class AppComponent implements OnInit {
                     name: 'Countries',
                     details:
                       'Lorem ipsum dolor sit amet consectetur adipisicing elit. Consectetur neque unde autem corporis similique provident maxime, harum suscipit sit est nesciunt accusantium enim! Aliquid in quis sapiente doloremque quia laboriosam.',
-                    layer: new ol.layer.Tile({
-                      source: new ol.source.TileJSON({
+                    layer: new TileLayer({
+                      source: new TileJSON({
                         url:
                           'https://api.tiles.mapbox.com/v3/mapbox.world-borders-light.json?secure',
                         crossOrigin: 'anonymous'
@@ -106,8 +115,8 @@ export class AppComponent implements OnInit {
                   }),
                   new MangolLayer({
                     name: 'Food Insecurity Layer2',
-                    layer: new ol.layer.Tile({
-                      source: new ol.source.TileJSON({
+                    layer: new TileLayer({
+                      source: new TileJSON({
                         url:
                           'https://api.tiles.mapbox.com/v3/mapbox.20110804-hoa-foodinsecurity-3month.json?secure',
                         crossOrigin: 'anonymous'
@@ -148,11 +157,11 @@ export class AppComponent implements OnInit {
             zoomOnRowClick: true,
             highlightFeatures: true,
             hoverStyle: [
-              new ol.style.Style({
-                fill: new ol.style.Fill({
+              new Style({
+                fill: new Fill({
                   color: [255, 255, 0, 0.5]
                 }),
-                stroke: new ol.style.Stroke({
+                stroke: new Stroke({
                   color: [255, 255, 0, 1],
                   width: 5
                 })

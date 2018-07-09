@@ -1,13 +1,13 @@
-import * as ol from 'openlayers';
-import { State, Action, StateContext } from '@ngxs/store';
+import { Action, State, StateContext } from '@ngxs/store';
+import Map from 'ol/Map';
 
 export class AddMap {
   static readonly type = '[Map] Add Map';
-  constructor(public map: ol.Map) {}
+  constructor(public map: Map) {}
 }
 
 export interface MapStateModel {
-  map: ol.Map;
+  map: Map;
   version: number;
 }
 

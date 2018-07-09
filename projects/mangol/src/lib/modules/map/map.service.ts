@@ -1,5 +1,5 @@
 import { Injectable } from '@angular/core';
-import * as ol from 'openlayers';
+import Layer from 'ol/layer/Layer';
 
 import { MangolLayer } from '../../classes/Layer';
 import { MangolLayerGroup } from './../../classes/LayerGroup';
@@ -20,8 +20,8 @@ export class MapService {
    */
   processLayersAndLayerGroups(
     layers: (MangolLayer | MangolLayerGroup)[]
-  ): ol.layer.Layer[] {
-    const myLayers: ol.layer.Layer[] = [];
+  ): Layer[] {
+    const myLayers: Layer[] = [];
     layers.forEach(l => {
       if (l instanceof MangolLayer) {
         this.processLayer(l, myLayers);
@@ -37,7 +37,7 @@ export class MapService {
    * @param layer the MangolLayer object to process
    * @param layers the array of OL layers
    */
-  private processLayer(layer: MangolLayer, layers: ol.layer.Layer[]) {
+  private processLayer(layer: MangolLayer, layers: Layer[]) {
     layers.push(layer.layer);
   }
 
@@ -46,7 +46,7 @@ export class MapService {
    * @param group the MangolLayerGroup object to process
    * @param layers the array of OL layers
    */
-  private processLayerGroup(group: MangolLayerGroup, layers: ol.layer.Layer[]) {
+  private processLayerGroup(group: MangolLayerGroup, layers: Layer[]) {
     group.children.forEach((c: MangolLayer | MangolLayerGroup) => {
       if (c instanceof MangolLayer) {
         this.processLayer(c, layers);

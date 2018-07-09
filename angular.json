@@ -49,7 +49,6 @@
                             "src/styles.scss"
                         ],
                         "scripts": [
-                            "node_modules/openlayers/dist/ol.js",
                             "node_modules/proj4/dist/proj4.js",
                             "node_modules/jspdf/dist/jspdf.min.js"
                         ]

@@ -1,6 +1,5 @@
-import * as ol from 'openlayers';
-
-export class MangolMap extends ol.Map {
+import Map from 'ol/Map';
+export class MangolMap extends Map {
   constructor(options: any) {
     super(options);
   }

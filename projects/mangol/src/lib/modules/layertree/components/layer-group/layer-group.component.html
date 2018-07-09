@@ -34,7 +34,7 @@
                         *ngFor="let item of detailItems"
                         [disabled]="item.disabled"
                         (click)="onMenuItemClicked(item)">
-                          <mat-icon [fontSet]="item.fontSet" [fontIcon]="item.fontIcon"></mat-icon>
+                          <mat-icon [fontSet]="item.fontSet !== null ? item.fontSet : null" [fontIcon]="item.fontSet !== null ? item.fontIcon : null">{{item.fontSet === null ? item.fontIcon : null}}</mat-icon>
                           <span>{{item.text}}</span>
                         </button>
                 </mat-menu>

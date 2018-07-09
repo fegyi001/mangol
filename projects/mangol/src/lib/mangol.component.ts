@@ -1,5 +1,6 @@
 import { Component, HostBinding, Input, OnInit } from '@angular/core';
 import { Store } from '@ngxs/store';
+import Map from 'ol/Map';
 import { Observable } from 'rxjs';
 
 import { MangolConfig } from './interfaces/config.interface';
@@ -64,7 +65,7 @@ export class MangolComponent implements OnInit {
       if (opened !== evt) {
         this.store.dispatch(new ToggleSidebar());
       }
-      this.store.selectOnce(state => state.map.map).subscribe((m: ol.Map) => {
+      this.store.selectOnce(state => state.map.map).subscribe((m: Map) => {
         if (m !== null) {
           m.updateSize();
         }

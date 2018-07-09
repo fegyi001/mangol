@@ -1,5 +1,6 @@
-import { Store } from '@ngxs/store';
 import { Component, OnInit } from '@angular/core';
+import { Store } from '@ngxs/store';
+import Map from 'ol/Map';
 
 @Component({
   selector: 'mangol-zoom-buttons',
@@ -13,7 +14,7 @@ export class ZoomButtonsComponent implements OnInit {
   ngOnInit() {}
 
   zoomIn() {
-    this.store.selectOnce(state => state.map.map).subscribe((m: ol.Map) => {
+    this.store.selectOnce(state => state.map.map).subscribe((m: Map) => {
       m.getView().animate({
         zoom: m.getView().getZoom() + 1,
         duration: this.animationDuration
@@ -22,7 +23,7 @@ export class ZoomButtonsComponent implements OnInit {
   }
 
   zoomOut() {
-    this.store.selectOnce(state => state.map.map).subscribe((m: ol.Map) => {
+    this.store.selectOnce(state => state.map.map).subscribe((m: Map) => {
       m.getView().animate({
         zoom: m.getView().getZoom() - 1,
         duration: this.animationDuration

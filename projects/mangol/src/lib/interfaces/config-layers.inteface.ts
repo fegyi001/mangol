@@ -1,6 +1,9 @@
-import { MangolLayerGroup } from './../classes/LayerGroup';
-import * as ol from 'openlayers';
+import Layer from 'ol/layer/Layer';
+import Source from 'ol/source/Source';
+
 import { MangolLayer } from '../classes/Layer';
+import { MangolLayerGroup } from './../classes/LayerGroup';
+
 export interface MangolConfigLayerColumn {
   name: string;
   label?: string;
@@ -29,9 +32,9 @@ export interface MangolConfigLayertree {
 
 export interface OlxLayerLayerOptions {
   opacity?: number;
-  source?: ol.source.Source;
+  source?: Source;
   visible?: boolean;
-  extent?: ol.Extent;
+  extent?: [number, number, number, number];
   zIndex?: number;
   minResolution?: number;
   maxResolution?: number;
@@ -39,7 +42,7 @@ export interface OlxLayerLayerOptions {
 
 export interface MangolLayerOptions extends OlxLayerLayerOptions {
   name: string;
-  layer: ol.layer.Layer;
+  layer: Layer;
   details?: string;
 }
 
