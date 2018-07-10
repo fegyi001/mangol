@@ -1,10 +1,11 @@
 import { Action, State, StateContext } from '@ngxs/store';
+import produce from 'immer';
 
 import { MangolConfig } from './../interfaces/config.interface';
 
 export class SetConfig {
   static readonly type = '[Config] Set Config';
-  constructor(public config: MangolConfig) {}
+  constructor(public payload: MangolConfig) {}
 }
 
 export interface ConfigStateModel {
@@ -20,10 +21,10 @@ export interface ConfigStateModel {
 export class ConfigState {
   @Action(SetConfig)
   setConfig(ctx: StateContext<ConfigStateModel>, action: SetConfig) {
-    const state = ctx.getState();
-    ctx.setState({
-      ...state,
-      config: action.config
-    });
+    ctx.setState(
+      produce(ctx.getState(), draft => {
+        draft.config = action.payload;
+      })
+    );
   }
 }

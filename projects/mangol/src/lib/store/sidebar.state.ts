@@ -1,4 +1,6 @@
-import { State, Action, StateContext } from '@ngxs/store';
+import { Action, State, StateContext } from '@ngxs/store';
+import produce from 'immer';
+
 export class ToggleSidebar {
   static readonly type = '[Sidebar] Toggle Sidebar';
   constructor() {}
@@ -6,27 +8,27 @@ export class ToggleSidebar {
 
 export class SetHasSidebar {
   static readonly type = '[Sidebar] Set Has Sidebar';
-  constructor(public hasSidebar: boolean) {}
+  constructor(public payload: boolean) {}
 }
 
 export class SetSidebarMode {
   static readonly type = '[Sidebar] Set Sidebar Mode';
-  constructor(public mode: string) {}
+  constructor(public payload: string) {}
 }
 
 export class SetSidebarCollapsible {
   static readonly type = '[Sidebar] Set Sidebar Collapsible';
-  constructor(public collapsible: boolean) {}
+  constructor(public payload: boolean) {}
 }
 
 export class SetSidebarOpened {
   static readonly type = '[Sidebar] Set Sidebar Opened';
-  constructor(public opened: boolean) {}
+  constructor(public payload: boolean) {}
 }
 
 export class SetSidebarTitle {
   static readonly type = '[Sidebar] Set Sidebar Title';
-  constructor(public title: string) {}
+  constructor(public payload: string) {}
 }
 
 export interface SidebarStateModel {
@@ -50,59 +52,59 @@ export interface SidebarStateModel {
 export class SidebarState {
   @Action(ToggleSidebar)
   toggleSidebar(ctx: StateContext<SidebarStateModel>, action: ToggleSidebar) {
-    const state = ctx.getState();
-    ctx.setState({
-      ...state,
-      opened: !state.opened
-    });
+    ctx.setState(
+      produce(ctx.getState(), draft => {
+        draft.opened = !draft.opened;
+      })
+    );
   }
   @Action(SetHasSidebar)
   setHasSidebar(ctx: StateContext<SidebarStateModel>, action: SetHasSidebar) {
-    const state = ctx.getState();
-    ctx.setState({
-      ...state,
-      hasSidebar: action.hasSidebar
-    });
+    ctx.setState(
+      produce(ctx.getState(), draft => {
+        draft.hasSidebar = action.payload;
+      })
+    );
   }
   @Action(SetSidebarMode)
   setSidebarMode(ctx: StateContext<SidebarStateModel>, action: SetSidebarMode) {
-    const state = ctx.getState();
-    ctx.setState({
-      ...state,
-      mode: action.mode
-    });
+    ctx.setState(
+      produce(ctx.getState(), draft => {
+        draft.mode = action.payload;
+      })
+    );
   }
   @Action(SetSidebarCollapsible)
   setSidebarCollapsible(
     ctx: StateContext<SidebarStateModel>,
     action: SetSidebarCollapsible
   ) {
-    const state = ctx.getState();
-    ctx.setState({
-      ...state,
-      collapsible: action.collapsible
-    });
+    ctx.setState(
+      produce(ctx.getState(), draft => {
+        draft.collapsible = action.payload;
+      })
+    );
   }
   @Action(SetSidebarOpened)
   setSidebarOpened(
     ctx: StateContext<SidebarStateModel>,
     action: SetSidebarOpened
   ) {
-    const state = ctx.getState();
-    ctx.setState({
-      ...state,
-      opened: action.opened
-    });
+    ctx.setState(
+      produce(ctx.getState(), draft => {
+        draft.opened = action.payload;
+      })
+    );
   }
   @Action(SetSidebarTitle)
   setSidebarTitle(
     ctx: StateContext<SidebarStateModel>,
     action: SetSidebarTitle
   ) {
-    const state = ctx.getState();
-    ctx.setState({
-      ...state,
-      title: action.title
-    });
+    ctx.setState(
+      produce(ctx.getState(), draft => {
+        draft.title = action.payload;
+      })
+    );
   }
 }

@@ -1,9 +1,11 @@
 import { Action, State, StateContext } from '@ngxs/store';
+import produce from 'immer';
+
 import { MangolLayer } from '../classes/Layer';
 
 export class AddLayers {
   static readonly type = '[LAYERS] Add Layers';
-  constructor(public layers: MangolLayer[]) {}
+  constructor(public payload: MangolLayer[]) {}
 }
 
 export interface LayersStateModel {
@@ -19,10 +21,10 @@ export interface LayersStateModel {
 export class LayersState {
   @Action(AddLayers)
   addLayers(ctx: StateContext<LayersStateModel>, action: AddLayers) {
-    const state = ctx.getState();
-    ctx.setState({
-      ...state,
-      layers: action.layers
-    });
+    ctx.setState(
+      produce(ctx.getState(), draft => {
+        draft.layers = action.payload;
+      })
+    );
   }
 }

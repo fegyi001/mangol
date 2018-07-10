@@ -1,18 +1,19 @@
 import { Action, State, StateContext } from '@ngxs/store';
+import produce from 'immer';
 
 export class HasFeatureinfo {
   static readonly type = '[Featureinfo] Has Featureinfo';
-  constructor(public hasFeatureinfo: boolean) {}
+  constructor(public payload: boolean) {}
 }
 
 export class SetFeatureinfoDisabled {
   static readonly type = '[Featureinfo] Set Featureinfo Disabled';
-  constructor(public disabled: boolean) {}
+  constructor(public payload: boolean) {}
 }
 
 export class SetFeatureinfoTitle {
   static readonly type = '[Featureinfo] Set Featureinfo Title';
-  constructor(public title: string) {}
+  constructor(public payload: string) {}
 }
 
 export interface FeatureinfoStateModel {
@@ -35,32 +36,32 @@ export class FeatureinfoState {
     ctx: StateContext<FeatureinfoStateModel>,
     action: HasFeatureinfo
   ) {
-    const state = ctx.getState();
-    ctx.setState({
-      ...state,
-      hasFeatureinfo: action.hasFeatureinfo
-    });
+    ctx.setState(
+      produce(ctx.getState(), draft => {
+        draft.hasFeatureinfo = action.payload;
+      })
+    );
   }
   @Action(SetFeatureinfoDisabled)
   setFeatureinfoDisabled(
     ctx: StateContext<FeatureinfoStateModel>,
     action: SetFeatureinfoDisabled
   ) {
-    const state = ctx.getState();
-    ctx.setState({
-      ...state,
-      disabled: action.disabled
-    });
+    ctx.setState(
+      produce(ctx.getState(), draft => {
+        draft.disabled = action.payload;
+      })
+    );
   }
   @Action(SetFeatureinfoTitle)
   setFeatureinfoTitle(
     ctx: StateContext<FeatureinfoStateModel>,
     action: SetFeatureinfoTitle
   ) {
-    const state = ctx.getState();
-    ctx.setState({
-      ...state,
-      title: action.title
-    });
+    ctx.setState(
+      produce(ctx.getState(), draft => {
+        draft.title = action.payload;
+      })
+    );
   }
 }

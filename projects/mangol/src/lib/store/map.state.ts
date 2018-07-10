@@ -1,4 +1,5 @@
 import { Action, State, StateContext } from '@ngxs/store';
+import produce from 'immer';
 import Map from 'ol/Map';
 
 export class AddMap {
@@ -21,11 +22,11 @@ export interface MapStateModel {
 export class MapState {
   @Action(AddMap)
   addMap(ctx: StateContext<MapStateModel>, action: AddMap) {
-    const state = ctx.getState();
-    ctx.setState({
-      ...state,
-      map: action.map,
-      version: state.version + 1
-    });
+    ctx.setState(
+      produce(ctx.getState(), draft => {
+        draft.map = action.map;
+        draft.version = draft.version + 1;
+      })
+    );
   }
 }

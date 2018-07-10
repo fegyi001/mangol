@@ -1,18 +1,19 @@
 import { Action, State, StateContext } from '@ngxs/store';
+import produce from 'immer';
 
 export class HasPrint {
   static readonly type = '[Print] Has Print';
-  constructor(public hasPrint: boolean) {}
+  constructor(public payload: boolean) {}
 }
 
 export class SetPrintDisabled {
   static readonly type = '[Print] Set Print Disabled';
-  constructor(public disabled: boolean) {}
+  constructor(public payload: boolean) {}
 }
 
 export class SetPrintTitle {
   static readonly type = '[Print] Set Print Title';
-  constructor(public title: string) {}
+  constructor(public payload: string) {}
 }
 
 export interface PrintStateModel {
@@ -32,29 +33,29 @@ export interface PrintStateModel {
 export class PrintState {
   @Action(HasPrint)
   hasPrint(ctx: StateContext<PrintStateModel>, action: HasPrint) {
-    const state = ctx.getState();
-    ctx.setState({
-      ...state,
-      hasPrint: action.hasPrint
-    });
+    ctx.setState(
+      produce(ctx.getState(), draft => {
+        draft.hasPrint = action.payload;
+      })
+    );
   }
   @Action(SetPrintDisabled)
   setPrintDisabled(
     ctx: StateContext<PrintStateModel>,
     action: SetPrintDisabled
   ) {
-    const state = ctx.getState();
-    ctx.setState({
-      ...state,
-      disabled: action.disabled
-    });
+    ctx.setState(
+      produce(ctx.getState(), draft => {
+        draft.disabled = action.payload;
+      })
+    );
   }
   @Action(SetPrintTitle)
   setPrintTitle(ctx: StateContext<PrintStateModel>, action: SetPrintTitle) {
-    const state = ctx.getState();
-    ctx.setState({
-      ...state,
-      title: action.title
-    });
+    ctx.setState(
+      produce(ctx.getState(), draft => {
+        draft.title = action.payload;
+      })
+    );
   }
 }

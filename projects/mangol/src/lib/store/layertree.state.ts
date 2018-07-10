@@ -1,18 +1,19 @@
 import { Action, State, StateContext } from '@ngxs/store';
+import produce from 'immer';
 
 export class HasLayertree {
   static readonly type = '[Layertree] Has Layertree';
-  constructor(public hasLayertree: boolean) {}
+  constructor(public payload: boolean) {}
 }
 
 export class SetLayertreeDisabled {
   static readonly type = '[Layertree] Set Layertree Disabled';
-  constructor(public disabled: boolean) {}
+  constructor(public payload: boolean) {}
 }
 
 export class SetLayertreeTitle {
   static readonly type = '[Layertree] Set Layertree Title';
-  constructor(public title: string) {}
+  constructor(public payload: string) {}
 }
 
 export interface LayertreeStateModel {
@@ -32,32 +33,32 @@ export interface LayertreeStateModel {
 export class LayertreeState {
   @Action(HasLayertree)
   hasLayertree(ctx: StateContext<LayertreeStateModel>, action: HasLayertree) {
-    const state = ctx.getState();
-    ctx.setState({
-      ...state,
-      hasLayertree: action.hasLayertree
-    });
+    ctx.setState(
+      produce(ctx.getState(), draft => {
+        draft.hasLayertree = action.payload;
+      })
+    );
   }
   @Action(SetLayertreeDisabled)
   setLayertreeDisabled(
     ctx: StateContext<LayertreeStateModel>,
     action: SetLayertreeDisabled
   ) {
-    const state = ctx.getState();
-    ctx.setState({
-      ...state,
-      disabled: action.disabled
-    });
+    ctx.setState(
+      produce(ctx.getState(), draft => {
+        draft.disabled = action.payload;
+      })
+    );
   }
   @Action(SetLayertreeTitle)
   setLayertreeTitle(
     ctx: StateContext<LayertreeStateModel>,
     action: SetLayertreeTitle
   ) {
-    const state = ctx.getState();
-    ctx.setState({
-      ...state,
-      title: action.title
-    });
+    ctx.setState(
+      produce(ctx.getState(), draft => {
+        draft.title = action.payload;
+      })
+    );
   }
 }
