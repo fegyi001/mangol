@@ -57,6 +57,8 @@ export class MangolComponent implements OnInit {
           this.store.dispatch(new SetSidebarTitle(this.config.sidebar.title));
         }
       }
+    } else {
+      this.store.dispatch(new SetHasSidebar(false));
     }
   }
 
