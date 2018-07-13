@@ -1,8 +1,8 @@
-import { DemoLayertreeComponent } from './pages/demo-layertree/demo-layertree.component';
 import { NgModule } from '@angular/core';
 import { RouterModule, Routes } from '@angular/router';
 
 import { DemoHomeComponent } from './pages/demo-home/demo-home.component';
+import { DemoLayertreeComponent } from './pages/demo-layertree/demo-layertree.component';
 import { DemoMapComponent } from './pages/demo-map/demo-map.component';
 
 const routes: Routes = [

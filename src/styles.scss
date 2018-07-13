@@ -1,6 +1,7 @@
 /* You can add global styles to this file, and also import other style files */
 
 $mangol-sidebar-width: 100px;
+$mangol-height: 400px;
 @import "../projects/mangol/src/lib/assets/scss/mangol";
 html,
 body {
@@ -9,4 +10,14 @@ body {
     height: 100%;
     width: 100%;
     font-family: Roboto;
+}
+
+.map-container {
+    height: 70%;
+    min-height: 500px;
+    padding: 20px;
+    .mat-card {
+        padding: 0;
+        height: 100%;
+    }
 }
