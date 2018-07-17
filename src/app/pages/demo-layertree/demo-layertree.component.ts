@@ -1,4 +1,4 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, OnInit, OnDestroy } from '@angular/core';
 import TileLayer from 'ol/layer/Tile';
 import { fromLonLat } from 'ol/proj.js';
 import OSM from 'ol/source/OSM';
@@ -9,13 +9,20 @@ import { MangolLayer } from '../../../../projects/mangol/src/lib/classes/Layer';
 import { MangolLayerGroup } from './../../../../projects/mangol/src/lib/classes/LayerGroup';
 import { MangolConfig } from './../../../../projects/mangol/src/lib/interfaces/config.interface';
 
+import { Subscription } from 'rxjs';
+import { filter } from 'rxjs/operators';
+
+import { AppService } from '../../app.service';
+import { MangolService } from './../../../../projects/mangol/src/lib/mangol.service';
+
 @Component({
   selector: 'app-demo-layertree',
   templateUrl: './demo-layertree.component.html',
   styleUrls: ['./demo-layertree.component.scss']
 })
-export class DemoLayertreeComponent implements OnInit {
+export class DemoLayertreeComponent implements OnInit, OnDestroy {
   mangolConfig: MangolConfig;
+  sidebarOpenedSubscription: Subscription;
 
   code = `
   import { Component, OnInit } from '@angular/core';
@@ -127,7 +134,25 @@ export class DemoLayertreeComponent implements OnInit {
   }
   `;
 
-  constructor() {}
+  constructor(
+    private appService: AppService,
+    private mangolService: MangolService
+  ) {
+    this.sidebarOpenedSubscription = this.appService.sidebarOpenedSubject.subscribe(
+      opened => {
+        if (opened !== null) {
+          this.mangolService
+            .getMap$()
+            .pipe(filter(map => map !== null))
+            .subscribe(map => {
+              setTimeout(() => {
+                map.updateSize();
+              }, 500);
+            });
+        }
+      }
+    );
+  }
 
   ngOnInit() {
     this.mangolConfig = {
@@ -215,5 +240,11 @@ export class DemoLayertreeComponent implements OnInit {
         }
       }
     } as MangolConfig;
+  }
+
+  ngOnDestroy() {
+    if (this.sidebarOpenedSubscription) {
+      this.sidebarOpenedSubscription.unsubscribe();
+    }
   }
 }
