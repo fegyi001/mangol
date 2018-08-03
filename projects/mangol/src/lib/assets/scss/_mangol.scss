@@ -11,3 +11,10 @@
 .mangol-pointer {
     cursor: pointer;
 }
+
+.only-small-screen {
+    display: none;
+    @media screen and (max-width: 500px) {
+        display: initial;
+    }
+}

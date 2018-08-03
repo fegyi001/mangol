@@ -3,6 +3,11 @@
     <mat-toolbar-row>
         <span>{{title$ | async}}</span>
         <span class="toolbar-spacer"></span>
+        <button mat-icon-button
+            class="only-small-screen"
+            (click)="toggleSidebar()">
+          <mat-icon>keyboard_arrow_left</mat-icon>
+        </button>
     </mat-toolbar-row>
 </mat-toolbar>
 <mat-tab-group [dynamicHeight]="true">

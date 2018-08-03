@@ -16,6 +16,7 @@ import {
 } from '../../store/layertree.state';
 import { HasMeasure } from '../../store/measure.state';
 import { SetPrintTitle } from '../../store/print.state';
+import { ToggleSidebar } from '../../store/sidebar.state';
 import { MangolConfigPrintItem } from './../../interfaces/config-toolbar.interface';
 import {
   HasFeatureinfo,
@@ -163,5 +164,9 @@ export class TabsComponent implements OnInit, OnDestroy {
     if (this.configSubscription) {
       this.configSubscription.unsubscribe();
     }
+  }
+
+  toggleSidebar() {
+    this.store.dispatch(new ToggleSidebar());
   }
 }

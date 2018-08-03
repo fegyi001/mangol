@@ -70,7 +70,7 @@ export class AppComponent implements OnInit, DoCheck, OnDestroy {
       {
         link: '/demo-layertree',
         title: 'Layertree'
-      }
+      },
       // {
       //   link: '/demo-featureinfo',
       //   title: 'Feature info'
@@ -83,10 +83,10 @@ export class AppComponent implements OnInit, DoCheck, OnDestroy {
       //   link: '/demo-print',
       //   title: 'Print'
       // },
-      // {
-      //   link: '/demo-full',
-      //   title: 'Full functionality'
-      // }
+      {
+        link: '/demo-full',
+        title: 'Full functionality'
+      }
     ];
   }
 

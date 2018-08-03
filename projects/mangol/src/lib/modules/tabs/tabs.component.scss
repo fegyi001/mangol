@@ -19,3 +19,9 @@
 .mat-icon {
     @include mat-icon-size(18px);
 }
+
+.mat-toolbar {
+    .mat-icon {
+        @include mat-icon-size(24px);
+    }
+}

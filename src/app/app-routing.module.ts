@@ -1,6 +1,7 @@
 import { NgModule } from '@angular/core';
 import { RouterModule, Routes } from '@angular/router';
 
+import { DemoFullComponent } from './pages/demo-full/demo-full.component';
 import { DemoHomeComponent } from './pages/demo-home/demo-home.component';
 import { DemoLayertreeComponent } from './pages/demo-layertree/demo-layertree.component';
 import { DemoMapComponent } from './pages/demo-map/demo-map.component';
@@ -31,7 +32,7 @@ const routes: Routes = [
     path: 'demo-layertree',
     component: DemoLayertreeComponent,
     data: { animation: { page: 'demo-layertree' } }
-  }
+  },
   // {
   //   path: 'demo-featureinfo',
   //   component: DemoFeatureInfoComponent,
@@ -47,11 +48,11 @@ const routes: Routes = [
   //   component: DemoMeasureComponent,
   //   data: { animation: { page: 'demo-measure' } }
   // },
-  // {
-  //   path: 'demo-full',
-  //   component: DemoFullComponent,
-  //   data: { animation: { page: 'demo-full' } }
-  // }
+  {
+    path: 'demo-full',
+    component: DemoFullComponent,
+    data: { animation: { page: 'demo-full' } }
+  }
 ];
 
 @NgModule({
