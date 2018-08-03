@@ -87,9 +87,10 @@ export class TabsComponent implements OnInit, OnDestroy {
       .subscribe((config: MangolConfig) => {
         /** Layertree */
         const hasLayertree =
-          config.hasOwnProperty('sidebar') &&
-          config.sidebar.hasOwnProperty('toolbar') &&
-          config.sidebar.toolbar.hasOwnProperty('layertree');
+          typeof config !== 'undefined' &&
+          !!config.sidebar &&
+          !!config.sidebar.toolbar &&
+          !!config.sidebar.toolbar.layertree;
         this.store.dispatch(new HasLayertree(hasLayertree));
         if (hasLayertree) {
           const layertree: MangolConfigLayertreeItem =
@@ -103,9 +104,10 @@ export class TabsComponent implements OnInit, OnDestroy {
         }
         /** Featureinfo */
         const hasFeatureinfo =
-          config.hasOwnProperty('sidebar') &&
-          config.sidebar.hasOwnProperty('toolbar') &&
-          config.sidebar.toolbar.hasOwnProperty('featureinfo');
+          typeof config !== 'undefined' &&
+          !!config.sidebar &&
+          !!config.sidebar.toolbar &&
+          !!config.sidebar.toolbar.featureinfo;
         this.store.dispatch(new HasFeatureinfo(hasFeatureinfo));
         if (hasFeatureinfo) {
           const featureinfo: MangolConfigFeatureInfoItem =
@@ -121,9 +123,10 @@ export class TabsComponent implements OnInit, OnDestroy {
         }
         /** Measure */
         const hasMeasure =
-          config.hasOwnProperty('sidebar') &&
-          config.sidebar.hasOwnProperty('toolbar') &&
-          config.sidebar.toolbar.hasOwnProperty('measure');
+          typeof config !== 'undefined' &&
+          !!config.sidebar &&
+          !!config.sidebar.toolbar &&
+          !!config.sidebar.toolbar.measure;
         this.store.dispatch(new HasMeasure(hasMeasure));
         if (hasMeasure) {
           const measure: MangolConfigMeasureItem =
@@ -137,9 +140,10 @@ export class TabsComponent implements OnInit, OnDestroy {
         }
         /** Print */
         const hasPrint =
-          config.hasOwnProperty('sidebar') &&
-          config.sidebar.hasOwnProperty('toolbar') &&
-          config.sidebar.toolbar.hasOwnProperty('print');
+          typeof config !== 'undefined' &&
+          !!config.sidebar &&
+          !!config.sidebar.toolbar &&
+          !!config.sidebar.toolbar.print;
         this.store.dispatch(new HasPrint(hasPrint));
         if (hasPrint) {
           const print: MangolConfigPrintItem = config.sidebar.toolbar.print;
