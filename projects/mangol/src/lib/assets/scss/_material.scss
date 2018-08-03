@@ -33,6 +33,11 @@ color $transition-time;
     .mat-list-item-content {
         padding-right: 0 !important;
     }
+    mangol-tabs {
+        .mat-tab-label {
+            min-width: 100px;
+        }
+    }
 }
 
 .mangol-dialog {

@@ -9,7 +9,9 @@
     <mat-tab *ngIf="hasLayertree$ | async"
         [disabled]="layertreeDisabled$ | async">
         <ng-template mat-tab-label>
-            {{layertreeTitle$ | async | uppercase}}
+            <!-- {{layertreeTitle$ | async | uppercase}} -->
+            <mat-icon fontSet="ms"
+                fontIcon="ms-layers-overlay"></mat-icon>
         </ng-template>
         <div class="tab-content">
             <mangol-layertree></mangol-layertree>
@@ -18,7 +20,9 @@
     <mat-tab *ngIf="hasFeatureinfo$ | async"
         [disabled]="featureinfoDisabled$ | async">
         <ng-template mat-tab-label>
-            {{featureinfoTitle$ | async | uppercase}}
+            <!-- {{featureinfoTitle$ | async | uppercase}} -->
+            <mat-icon fontSet="ms"
+                fontIcon="ms-information"></mat-icon>
         </ng-template>
         <div class="tab-content">
             <mangol-featureinfo></mangol-featureinfo>
@@ -27,7 +31,9 @@
     <mat-tab *ngIf="hasMeasure$ | async"
         [disabled]="measureDisabled$ | async">
         <ng-template mat-tab-label>
-            {{measureTitle$ | async | uppercase}}
+            <!-- {{measureTitle$ | async | uppercase}} -->
+            <mat-icon fontSet="ms"
+                fontIcon="ms-measure-distance"></mat-icon>
         </ng-template>
         <div class="tab-content">
             <mangol-measure></mangol-measure>
@@ -36,7 +42,9 @@
     <mat-tab *ngIf="hasPrint$ | async"
         [disabled]="printDisabled$ | async">
         <ng-template mat-tab-label>
-            {{printTitle$ | async | uppercase}}
+            <!-- {{printTitle$ | async | uppercase}} -->
+            <mat-icon fontSet="ms"
+                fontIcon="ms-printer"></mat-icon>
         </ng-template>
         <div class="tab-content">
             <mangol-print></mangol-print>

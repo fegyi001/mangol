@@ -4,6 +4,7 @@ import { MatButtonModule } from '@angular/material/button';
 import { MatIconModule } from '@angular/material/icon';
 import { MatTabsModule } from '@angular/material/tabs';
 import { MatToolbarModule } from '@angular/material/toolbar';
+import { MatTooltipModule } from '@angular/material/tooltip';
 
 import { EditModule } from '../edit/edit.module';
 import { LayertreeModule } from '../layertree/layertree.module';
@@ -19,6 +20,7 @@ import { TabsComponent } from './tabs.component';
     MatIconModule,
     MatToolbarModule,
     MatButtonModule,
+    MatTooltipModule,
     PrintModule,
     LayertreeModule,
     MeasureModule,

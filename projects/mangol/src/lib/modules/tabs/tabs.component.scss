@@ -15,3 +15,7 @@
 .toolbar-spacer {
     flex: 1 1 auto;
 }
+
+.mat-icon {
+    @include mat-icon-size(18px);
+}
