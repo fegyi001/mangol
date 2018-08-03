@@ -41,21 +41,27 @@ export class DemoLayertreeComponent implements OnInit {
             name: 'Overlays',
             children: [
               new MangolLayer({
-                name: 'Food Insecurity Layer',
+                name: 'Roads',
                 layer: new TileLayer({
-                  source: new TileJSON({
+                  source: new TileWMS({
                     url:
-                      'https://api.tiles.mapbox.com/v3/mapbox.20110804-hoa-foodinsecurity-3month.json?secure',
-                    crossOrigin: 'anonymous'
+                      'http://188.166.116.137:8080/geoserver/gwc/service/wms',
+                    crossOrigin: 'anonymous',
+                    params: {
+                      LAYERS: ['naturalearth:roads'],
+                      format: 'image/png',
+                      SRS: 'EPSG:900913'
+                    }
                   }),
+                  opacity: 0.5,
                   visible: false
                 })
               }),
               new MangolLayerGroup({
-                name: 'Second Layer Group',
+                name: 'Coutries & Cities',
                 children: [
                   new MangolLayer({
-                    name: 'Countries',
+                    name: 'Country borders',
                     details:
                       'Lorem ipsum dolor sit amet consectetur adipisicing elit.',
                     layer: new TileLayer({
@@ -68,12 +74,17 @@ export class DemoLayertreeComponent implements OnInit {
                     })
                   }),
                   new MangolLayer({
-                    name: 'Food Insecurity Layer2',
+                    name: 'Populated places',
                     layer: new TileLayer({
-                      source: new TileJSON({
+                      source: new TileWMS({
                         url:
-                          'https://api.tiles.mapbox.com/v3/mapbox.20110804-hoa-foodinsecurity-3month.json?secure',
-                        crossOrigin: 'anonymous'
+                          'http://188.166.116.137:8080/geoserver/gwc/service/wms',
+                        crossOrigin: 'anonymous',
+                        params: {
+                          LAYERS: ['naturalearth:populated_places'],
+                          format: 'image/png',
+                          SRS: 'EPSG:900913'
+                        }
                       }),
                       visible: false
                     })
