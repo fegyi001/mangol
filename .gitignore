@@ -10,6 +10,7 @@
 # dependencies
 /node_modules
 /projects/mangol/node_modules
+/projects/mangol/doc
 
 # IDEs and editors
 /.idea
