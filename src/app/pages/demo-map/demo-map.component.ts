@@ -4,6 +4,7 @@ import { filter } from 'rxjs/operators';
 
 import { AppService } from '../../app.service';
 import { MangolService } from './../../../../projects/mangol/src/lib/mangol.service';
+import { code } from './code';
 
 @Component({
   selector: 'app-demo-map',
@@ -12,17 +13,7 @@ import { MangolService } from './../../../../projects/mangol/src/lib/mangol.serv
 })
 export class DemoMapComponent implements OnInit, OnDestroy {
   sidebarOpenedSubscription: Subscription;
-  code = `
-  import { Component } from '@angular/core';
-
-  @Component({
-    selector: 'mangol-demo-map',
-    template: '<mangol></mangol>'
-  })
-  export class DemoMapComponent {
-
-  }
-  `;
+  code = code;
 
   constructor(
     private appService: AppService,

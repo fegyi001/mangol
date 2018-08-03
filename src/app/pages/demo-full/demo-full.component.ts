@@ -1,19 +1,18 @@
-import { Component, OnInit, OnDestroy } from '@angular/core';
+import { Component, OnDestroy, OnInit } from '@angular/core';
 import TileLayer from 'ol/layer/Tile';
 import { fromLonLat } from 'ol/proj.js';
 import OSM from 'ol/source/OSM';
 import TileJSON from 'ol/source/TileJSON';
 import View from 'ol/View';
-
-import { MangolLayer } from '../../../../projects/mangol/src/lib/classes/Layer';
-import { MangolLayerGroup } from './../../../../projects/mangol/src/lib/classes/LayerGroup';
-import { MangolConfig } from './../../../../projects/mangol/src/lib/interfaces/config.interface';
-
 import { Subscription } from 'rxjs';
 import { filter } from 'rxjs/operators';
 
+import { MangolLayer } from '../../../../projects/mangol/src/lib/classes/Layer';
 import { AppService } from '../../app.service';
+import { MangolLayerGroup } from './../../../../projects/mangol/src/lib/classes/LayerGroup';
+import { MangolConfig } from './../../../../projects/mangol/src/lib/interfaces/config.interface';
 import { MangolService } from './../../../../projects/mangol/src/lib/mangol.service';
+import { code } from './code';
 
 @Component({
   selector: 'app-demo-full',
@@ -24,7 +23,7 @@ export class DemoFullComponent implements OnInit, OnDestroy {
   mangolConfig: MangolConfig;
   sidebarOpenedSubscription: Subscription;
 
-  code = `aaa`;
+  code = code;
 
   constructor(
     private appService: AppService,

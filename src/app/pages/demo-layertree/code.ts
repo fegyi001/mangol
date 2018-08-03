@@ -1,49 +1,22 @@
-import { Component, OnDestroy, OnInit } from '@angular/core';
+export const code = `
+import { Component, OnInit } from '@angular/core';
 import TileLayer from 'ol/layer/Tile';
 import { fromLonLat } from 'ol/proj.js';
 import OSM from 'ol/source/OSM';
 import TileJSON from 'ol/source/TileJSON';
 import View from 'ol/View';
-import { Subscription } from 'rxjs';
-import { filter } from 'rxjs/operators';
 
-import { MangolLayer } from '../../../../projects/mangol/src/lib/classes/Layer';
-import { AppService } from '../../app.service';
-import { MangolLayerGroup } from './../../../../projects/mangol/src/lib/classes/LayerGroup';
-import { MangolConfig } from './../../../../projects/mangol/src/lib/interfaces/config.interface';
-import { MangolService } from './../../../../projects/mangol/src/lib/mangol.service';
-import { code } from './code';
+import { MangolLayer, MangolLayerGroup, MangolConfig } from 'mangol';
 
 @Component({
   selector: 'app-demo-layertree',
-  templateUrl: './demo-layertree.component.html',
-  styleUrls: ['./demo-layertree.component.scss']
+  template: '<mangol [config]="mangolConfig"></mangol>',
+  styles: []
 })
-export class DemoLayertreeComponent implements OnInit, OnDestroy {
+export class DemoLayertreeComponent implements OnInit {
   mangolConfig: MangolConfig;
-  sidebarOpenedSubscription: Subscription;
 
-  code = code;
-
-  constructor(
-    private appService: AppService,
-    private mangolService: MangolService
-  ) {
-    this.sidebarOpenedSubscription = this.appService.sidebarOpenedSubject.subscribe(
-      opened => {
-        if (opened !== null) {
-          this.mangolService
-            .getMap$()
-            .pipe(filter(map => map !== null))
-            .subscribe(map => {
-              setTimeout(() => {
-                map.updateSize();
-              }, 500);
-            });
-        }
-      }
-    );
-  }
+  constructor() {}
 
   ngOnInit() {
     this.mangolConfig = {
@@ -132,10 +105,5 @@ export class DemoLayertreeComponent implements OnInit, OnDestroy {
       }
     } as MangolConfig;
   }
-
-  ngOnDestroy() {
-    if (this.sidebarOpenedSubscription) {
-      this.sidebarOpenedSubscription.unsubscribe();
-    }
-  }
 }
+`;
