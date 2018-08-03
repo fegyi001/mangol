@@ -33,9 +33,14 @@ color $transition-time;
     .mat-list-item-content {
         padding-right: 0 !important;
     }
-    mangol-tabs {
+    .mangol-tabs {
         .mat-tab-label {
             min-width: 100px;
+            padding: 0;
+            .mat-tab-label-content {
+                width: 100%;
+                height: 100%;
+            }
         }
     }
 }

@@ -14,9 +14,11 @@
     <mat-tab *ngIf="hasLayertree$ | async"
         [disabled]="layertreeDisabled$ | async">
         <ng-template mat-tab-label>
-            <!-- {{layertreeTitle$ | async | uppercase}} -->
-            <mat-icon fontSet="ms"
-                fontIcon="ms-layers-overlay"></mat-icon>
+            <div class="tab-label-icon-container"
+                [matTooltip]="layertreeTitle$ | async">
+                <mat-icon fontSet="ms"
+                    fontIcon="ms-layers-overlay"></mat-icon>
+            </div>
         </ng-template>
         <div class="tab-content">
             <mangol-layertree></mangol-layertree>
@@ -25,9 +27,11 @@
     <mat-tab *ngIf="hasFeatureinfo$ | async"
         [disabled]="featureinfoDisabled$ | async">
         <ng-template mat-tab-label>
-            <!-- {{featureinfoTitle$ | async | uppercase}} -->
-            <mat-icon fontSet="ms"
-                fontIcon="ms-information"></mat-icon>
+            <div class="tab-label-icon-container"
+                [matTooltip]="featureinfoTitle$ | async">
+                <mat-icon fontSet="ms"
+                    fontIcon="ms-information"></mat-icon>
+            </div>
         </ng-template>
         <div class="tab-content">
             <mangol-featureinfo></mangol-featureinfo>
@@ -36,9 +40,11 @@
     <mat-tab *ngIf="hasMeasure$ | async"
         [disabled]="measureDisabled$ | async">
         <ng-template mat-tab-label>
-            <!-- {{measureTitle$ | async | uppercase}} -->
-            <mat-icon fontSet="ms"
-                fontIcon="ms-measure-distance"></mat-icon>
+            <div class="tab-label-icon-container"
+                [matTooltip]="measureTitle$ | async">
+                <mat-icon fontSet="ms"
+                    fontIcon="ms-measure-distance"></mat-icon>
+            </div>
         </ng-template>
         <div class="tab-content">
             <mangol-measure></mangol-measure>
@@ -47,9 +53,11 @@
     <mat-tab *ngIf="hasPrint$ | async"
         [disabled]="printDisabled$ | async">
         <ng-template mat-tab-label>
-            <!-- {{printTitle$ | async | uppercase}} -->
-            <mat-icon fontSet="ms"
-                fontIcon="ms-printer"></mat-icon>
+            <div class="tab-label-icon-container"
+                [matTooltip]="printTitle$ | async">
+                <mat-icon fontSet="ms"
+                    fontIcon="ms-printer"></mat-icon>
+            </div>
         </ng-template>
         <div class="tab-content">
             <mangol-print></mangol-print>
@@ -57,7 +65,10 @@
     </mat-tab>
     <mat-tab *ngIf="false">
         <ng-template mat-tab-label>
-            EDIT
+            <div class="tab-label-icon-container"
+                [matTooltip]="'Edit'">
+                EDIT
+            </div>
         </ng-template>
         <div class="tab-content">
             <mangol-edit></mangol-edit>

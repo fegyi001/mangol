@@ -1,4 +1,4 @@
-import { Component, OnDestroy, OnInit } from '@angular/core';
+import { Component, OnDestroy, OnInit, HostBinding } from '@angular/core';
 import { Store } from '@ngxs/store';
 import { Observable, Subscription } from 'rxjs';
 
@@ -34,6 +34,8 @@ import { HasPrint, SetPrintDisabled } from './../../store/print.state';
   styleUrls: ['./tabs.component.scss']
 })
 export class TabsComponent implements OnInit, OnDestroy {
+  @HostBinding('class') class = 'mangol-tabs';
+
   title$: Observable<boolean>;
   /** Layertree */
   hasLayertree$: Observable<boolean>;
