@@ -7,11 +7,13 @@ export class MangolLayer extends BaseLayer {
   public name: string;
   public layer: Layer;
   public details: string;
+  public queryable: boolean;
 
   constructor(options: MangolLayerOptions) {
     super(options);
     this.name = options.name;
     this.layer = options.layer;
     this.details = options.details;
+    this.queryable = options.queryable;
   }
 }

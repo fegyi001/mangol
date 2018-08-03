@@ -126,7 +126,7 @@ export class DemoLayertreeComponent implements OnInit, OnDestroy {
       sidebar: {
         collapsible: true,
         opened: true,
-        title: 'Mangol 6.x',
+        title: 'Layertree example',
         mode: 'side',
         toolbar: {
           layertree: {

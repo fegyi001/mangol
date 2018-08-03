@@ -1,3 +1,4 @@
+import { DemoFeatureinfoComponent } from './pages/demo-featureinfo/demo-featureinfo.component';
 import { NgModule } from '@angular/core';
 import { RouterModule, Routes } from '@angular/router';
 
@@ -33,11 +34,11 @@ const routes: Routes = [
     component: DemoLayertreeComponent,
     data: { animation: { page: 'demo-layertree' } }
   },
-  // {
-  //   path: 'demo-featureinfo',
-  //   component: DemoFeatureInfoComponent,
-  //   data: { animation: { page: 'demo-featureinfo' } }
-  // },
+  {
+    path: 'demo-featureinfo',
+    component: DemoFeatureinfoComponent,
+    data: { animation: { page: 'demo-featureinfo' } }
+  },
   // {
   //   path: 'demo-print',
   //   component: DemoPrintComponent,

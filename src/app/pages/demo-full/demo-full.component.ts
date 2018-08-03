@@ -3,6 +3,7 @@ import TileLayer from 'ol/layer/Tile';
 import { fromLonLat } from 'ol/proj.js';
 import OSM from 'ol/source/OSM';
 import TileJSON from 'ol/source/TileJSON';
+import TileWMS from 'ol/source/TileWMS';
 import View from 'ol/View';
 import { Subscription } from 'rxjs';
 import { filter } from 'rxjs/operators';
@@ -68,21 +69,28 @@ export class DemoFullComponent implements OnInit, OnDestroy {
             name: 'Overlays',
             children: [
               new MangolLayer({
-                name: 'Food Insecurity Layer',
+                name: 'Roads',
+                queryable: true,
                 layer: new TileLayer({
-                  source: new TileJSON({
+                  source: new TileWMS({
                     url:
-                      'https://api.tiles.mapbox.com/v3/mapbox.20110804-hoa-foodinsecurity-3month.json?secure',
-                    crossOrigin: 'anonymous'
+                      'http://188.166.116.137:8080/geoserver/gwc/service/wms',
+                    crossOrigin: 'anonymous',
+                    params: {
+                      LAYERS: ['naturalearth:roads'],
+                      format: 'image/png',
+                      SRS: 'EPSG:900913'
+                    }
                   }),
-                  visible: false
+                  opacity: 0.5,
+                  visible: true
                 })
               }),
               new MangolLayerGroup({
-                name: 'Second Layer Group',
+                name: 'Coutries & Cities',
                 children: [
                   new MangolLayer({
-                    name: 'Countries',
+                    name: 'Country borders',
                     details:
                       'Lorem ipsum dolor sit amet consectetur adipisicing elit.',
                     layer: new TileLayer({
@@ -95,12 +103,17 @@ export class DemoFullComponent implements OnInit, OnDestroy {
                     })
                   }),
                   new MangolLayer({
-                    name: 'Food Insecurity Layer2',
+                    name: 'Populated places',
                     layer: new TileLayer({
-                      source: new TileJSON({
+                      source: new TileWMS({
                         url:
-                          'https://api.tiles.mapbox.com/v3/mapbox.20110804-hoa-foodinsecurity-3month.json?secure',
-                        crossOrigin: 'anonymous'
+                          'http://188.166.116.137:8080/geoserver/gwc/service/wms',
+                        crossOrigin: 'anonymous',
+                        params: {
+                          LAYERS: ['naturalearth:populated_places'],
+                          format: 'image/png',
+                          SRS: 'EPSG:900913'
+                        }
                       }),
                       visible: false
                     })
@@ -114,7 +127,7 @@ export class DemoFullComponent implements OnInit, OnDestroy {
       sidebar: {
         collapsible: true,
         opened: true,
-        title: 'Mangol 6.x',
+        title: 'Full functionality example',
         mode: 'side',
         toolbar: {
           layertree: {

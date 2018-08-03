@@ -18,6 +18,7 @@ import { DemoHomeComponent } from './pages/demo-home/demo-home.component';
 import { DemoLayertreeComponent } from './pages/demo-layertree/demo-layertree.component';
 import { DemoMapComponent } from './pages/demo-map/demo-map.component';
 import { ApiComponent } from './etc/api/api.component';
+import { DemoFeatureinfoComponent } from './pages/demo-featureinfo/demo-featureinfo.component';
 
 @NgModule({
   declarations: [
@@ -27,7 +28,8 @@ import { ApiComponent } from './etc/api/api.component';
     DemoLayertreeComponent,
     PrettyPrintComponent,
     DemoFullComponent,
-    ApiComponent
+    ApiComponent,
+    DemoFeatureinfoComponent
   ],
   imports: [
     BrowserModule,

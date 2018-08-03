@@ -44,6 +44,7 @@ export interface MangolLayerOptions extends OlxLayerLayerOptions {
   name: string;
   layer: Layer;
   details?: string;
+  queryable?: boolean;
 }
 
 export interface MangolLayerGroupOptions {

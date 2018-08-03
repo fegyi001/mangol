@@ -1,3 +1,7 @@
-<p>
-  featureinfo works!
-</p>
+<div *ngIf="(layers$ | async).length === 0; else hasLayers">There are currently no queryable layers configured.</div>
+<ng-template #hasLayers>
+    Queryable layers:
+    <ul>
+        <li *ngFor="let layer of (layers$ | async)">{{layer.name}}</li>
+    </ul>
+</ng-template>
