@@ -6,6 +6,7 @@ import { DemoFullComponent } from './pages/demo-full/demo-full.component';
 import { DemoHomeComponent } from './pages/demo-home/demo-home.component';
 import { DemoLayertreeComponent } from './pages/demo-layertree/demo-layertree.component';
 import { DemoMapComponent } from './pages/demo-map/demo-map.component';
+import { DemoSidebarComponent } from './pages/demo-sidebar/demo-sidebar.component';
 
 const routes: Routes = [
   {
@@ -23,6 +24,11 @@ const routes: Routes = [
     path: 'demo-map',
     component: DemoMapComponent,
     data: { animation: { page: 'demo-map' } }
+  },
+  {
+    path: 'demo-sidebar',
+    component: DemoSidebarComponent,
+    data: { animation: { page: 'demo-sidebar' } }
   },
   // {
   //   path: 'demo-map-controllers',

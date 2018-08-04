@@ -19,6 +19,7 @@ import { DemoLayertreeComponent } from './pages/demo-layertree/demo-layertree.co
 import { DemoMapComponent } from './pages/demo-map/demo-map.component';
 import { ApiComponent } from './etc/api/api.component';
 import { DemoFeatureinfoComponent } from './pages/demo-featureinfo/demo-featureinfo.component';
+import { DemoSidebarComponent } from './pages/demo-sidebar/demo-sidebar.component';
 
 @NgModule({
   declarations: [
@@ -29,7 +30,8 @@ import { DemoFeatureinfoComponent } from './pages/demo-featureinfo/demo-featurei
     PrettyPrintComponent,
     DemoFullComponent,
     ApiComponent,
-    DemoFeatureinfoComponent
+    DemoFeatureinfoComponent,
+    DemoSidebarComponent
   ],
   imports: [
     BrowserModule,

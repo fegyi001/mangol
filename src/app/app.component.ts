@@ -63,6 +63,10 @@ export class AppComponent implements OnInit, DoCheck, OnDestroy {
         link: '/demo-map',
         title: 'Map'
       },
+      {
+        link: '/demo-sidebar',
+        title: 'Sidebar'
+      },
       // {
       //   link: '/demo-map-controllers',
       //   title: 'Map controllers'
