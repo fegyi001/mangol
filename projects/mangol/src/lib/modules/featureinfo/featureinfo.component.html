@@ -1,7 +1,6 @@
 <div *ngIf="(layers$ | async).length === 0; else hasLayers">There are currently no queryable layers configured.</div>
 <ng-template #hasLayers>
-    Queryable layers:
-    <ul>
-        <li *ngFor="let layer of (layers$ | async)">{{layer.name}}</li>
-    </ul>
+    <mangol-featureinfo-select [layers]="layers$ | async"></mangol-featureinfo-select>
+    <mangol-featureinfo-results *ngIf="(selectedLayer$ | async) !== null"
+        [layer]="selectedLayer$ | async"></mangol-featureinfo-results>
 </ng-template>

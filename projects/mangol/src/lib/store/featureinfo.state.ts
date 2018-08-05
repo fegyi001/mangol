@@ -1,6 +1,8 @@
 import { Action, State, StateContext } from '@ngxs/store';
 import produce from 'immer';
-import { MangolLayer } from 'mangol/lib/classes/Layer';
+
+import { MangolLayer } from './../classes/Layer';
+
 
 export class HasFeatureinfo {
   static readonly type = '[Featureinfo] Has Featureinfo';
@@ -22,11 +24,17 @@ export class SetFeatureinfoLayers {
   constructor(public payload: MangolLayer[]) {}
 }
 
+export class SetFeatureinfoSelectedLayer {
+  static readonly type = '[Featureinfo] Set Selected Layer';
+  constructor(public payload: MangolLayer) {}
+}
+
 export interface FeatureinfoStateModel {
   hasFeatureinfo: boolean;
   disabled: boolean;
   title: string;
   layers: MangolLayer[];
+  selectedLayer: MangolLayer;
 }
 
 @State<FeatureinfoStateModel>({
@@ -35,7 +43,8 @@ export interface FeatureinfoStateModel {
     hasFeatureinfo: false,
     disabled: false,
     title: 'Select on Map',
-    layers: []
+    layers: [],
+    selectedLayer: null
   }
 })
 export class FeatureinfoState {
@@ -80,6 +89,17 @@ export class FeatureinfoState {
     ctx.setState(
       produce(ctx.getState(), draft => {
         draft.layers = action.payload;
+      })
+    );
+  }
+  @Action(SetFeatureinfoSelectedLayer)
+  setSelectedLayer(
+    ctx: StateContext<FeatureinfoStateModel>,
+    action: SetFeatureinfoSelectedLayer
+  ) {
+    ctx.setState(
+      produce(ctx.getState(), draft => {
+        draft.selectedLayer = action.payload;
       })
     );
   }

@@ -1,0 +1,13 @@
+<mat-select placeholder="Choose a layer..."
+    [value]="selectedLayer$ | async"
+    (selectionChange)="onSelectionChanged($event)">
+    <mat-option [disabled]="(selectedLayer$ | async) === null">
+        <mat-icon>clear</mat-icon>
+        <span>Clear selection</span>
+    </mat-option>
+    <mat-divider></mat-divider>
+    <mat-option *ngFor="let layer of layers"
+        [value]="layer">
+        {{layer.name}}
+    </mat-option>
+</mat-select>

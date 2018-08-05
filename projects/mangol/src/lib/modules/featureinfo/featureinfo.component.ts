@@ -12,11 +12,16 @@ import { MangolState } from '../../mangol.state';
 })
 export class FeatureinfoComponent implements OnInit, OnDestroy {
   layers$: Observable<MangolLayer[]>;
+  selectedLayer$: Observable<MangolLayer>;
 
   constructor(private store: Store) {
     // Get the queryable layers
     this.layers$ = this.store.select((state: MangolState) =>
       state.layers.layers.filter(layer => layer.queryable)
+    );
+    // Get the selected layer
+    this.selectedLayer$ = this.store.select(
+      (state: MangolState) => state.featureinfo.selectedLayer
     );
   }
 

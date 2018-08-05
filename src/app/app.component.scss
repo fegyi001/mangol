@@ -1,3 +1,4 @@
+@import "../../projects/mangol/src/lib/assets/scss/mangol";
 $primary: #0090ec;
 $secondary: #83c5f5;
 $active: #ff3e45;
@@ -35,6 +36,13 @@ $active: #ff3e45;
             text-align: right;
             width: 100%;
             margin-right: 20px;
+        }
+        a {
+            color: white;
+        }
+        .mat-icon {
+            vertical-align: middle;
+            @include mat-icon-size(24px);
         }
     }
 }
