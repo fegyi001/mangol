@@ -5,7 +5,10 @@ import { Store } from '@ngxs/store';
 import { Observable } from 'rxjs';
 
 import { MangolLayer } from '../../../../classes/Layer';
-import { SetFeatureinfoSelectedLayer } from '../../../../store/featureinfo.state';
+import {
+  SetFeatureinfoSelectedLayer,
+  FeatureinfoDictionary
+} from '../../../../store/featureinfo.state';
 
 @Component({
   selector: 'mangol-featureinfo-select',
@@ -14,6 +17,7 @@ import { SetFeatureinfoSelectedLayer } from '../../../../store/featureinfo.state
 })
 export class FeatureinfoSelectComponent implements OnInit {
   @Input() layers: MangolLayer[];
+  @Input() dictionary: FeatureinfoDictionary;
 
   selectedLayer$: Observable<MangolLayer>;
 

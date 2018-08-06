@@ -1,4 +1,5 @@
 import { ConfigState, ConfigStateModel } from './store/config.state';
+import { CursorState, CursorStateModel } from './store/cursor.state';
 import {
   FeatureinfoState,
   FeatureinfoStateModel
@@ -19,6 +20,7 @@ export interface MangolState {
   print: PrintStateModel;
   sidebar: SidebarStateModel;
   layers: LayersStateModel;
+  cursor: CursorStateModel;
 }
 
 export const mangolStates = [
@@ -29,5 +31,6 @@ export const mangolStates = [
   MeasureState,
   PrintState,
   SidebarState,
-  LayersState
+  LayersState,
+  CursorState
 ];

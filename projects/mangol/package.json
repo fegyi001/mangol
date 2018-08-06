@@ -14,6 +14,7 @@
         "hammerjs": "^2.0.8"
     },
     "dependencies": {
+        "@types/geojson": "^7946.0.4",
         "@types/jspdf": "^1.1.31",
         "@types/ol": "^4.6.2",
         "@types/proj4": "^2.3.4",

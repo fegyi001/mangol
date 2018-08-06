@@ -1,13 +1,16 @@
 import { CommonModule } from '@angular/common';
+import { HttpClientModule } from '@angular/common/http';
 import { NgModule } from '@angular/core';
+import { MatDividerModule } from '@angular/material/divider';
 import { MatFormFieldModule } from '@angular/material/form-field';
 import { MatIconModule } from '@angular/material/icon';
 import { MatSelectModule } from '@angular/material/select';
-import { MatDividerModule } from '@angular/material/divider';
+import { MatSnackBarModule } from '@angular/material/snack-bar';
 
 import { FeatureinfoResultsComponent } from './components/featureinfo-results/featureinfo-results.component';
 import { FeatureinfoSelectComponent } from './components/featureinfo-select/featureinfo-select.component';
 import { FeatureinfoComponent } from './featureinfo.component';
+import { FeatureinfoService } from './featureinfo.service';
 
 @NgModule({
   imports: [
@@ -15,13 +18,16 @@ import { FeatureinfoComponent } from './featureinfo.component';
     MatSelectModule,
     MatIconModule,
     MatFormFieldModule,
-    MatDividerModule
+    MatSnackBarModule,
+    MatDividerModule,
+    HttpClientModule
   ],
   declarations: [
     FeatureinfoComponent,
     FeatureinfoSelectComponent,
     FeatureinfoResultsComponent
   ],
-  exports: [FeatureinfoComponent]
+  exports: [FeatureinfoComponent],
+  providers: [FeatureinfoService]
 })
 export class FeatureinfoModule {}

@@ -1,3 +1,4 @@
+import { SetCursorVisible } from './../../store/cursor.state';
 import {
   AfterViewInit,
   Component,
@@ -20,6 +21,7 @@ import { MangolConfigMap } from './../../interfaces/config-map.interface';
 import { AddLayers } from './../../store/layers.state';
 import { AddMap } from './../../store/map.state';
 import { MapService } from './map.service';
+import { MangolState } from '../../mangol.state';
 
 @Component({
   selector: 'mangol-map',
@@ -172,5 +174,21 @@ export class MapComponent implements OnInit, AfterViewInit, OnDestroy {
         this.processLayerGroup(c, layers);
       }
     });
+  }
+
+  getCursorStyle() {
+    const cursorMode = this.store.selectSnapshot(
+      (state: MangolState) => state.cursor.mode
+    );
+    return {
+      cursor:
+        cursorMode !== null && cursorMode.hasOwnProperty('cursor')
+          ? cursorMode.cursor
+          : 'default'
+    };
+  }
+
+  onEnterOrLeaveMap(entered: boolean) {
+    this.store.dispatch(new SetCursorVisible(entered));
   }
 }

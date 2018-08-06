@@ -1,16 +1,19 @@
 import { Component, OnDestroy, OnInit } from '@angular/core';
+import Feature from 'ol/Feature';
 import TileLayer from 'ol/layer/Tile';
+import VectorLayer from 'ol/layer/Vector';
 import { fromLonLat } from 'ol/proj.js';
 import OSM from 'ol/source/OSM';
-import TileJSON from 'ol/source/TileJSON';
 import TileWMS from 'ol/source/TileWMS';
+import VectorSource from 'ol/source/Vector';
 import View from 'ol/View';
 import { Subscription } from 'rxjs';
+import Polygon from 'ol/geom/Polygon';
+import Point from 'ol/geom/Point';
 import { filter } from 'rxjs/operators';
 
 import { MangolLayer } from '../../../../projects/mangol/src/lib/classes/Layer';
 import { AppService } from '../../app.service';
-import { MangolLayerGroup } from './../../../../projects/mangol/src/lib/classes/LayerGroup';
 import { MangolConfig } from './../../../../projects/mangol/src/lib/interfaces/config.interface';
 import { MangolService } from './../../../../projects/mangol/src/lib/mangol.service';
 import { code } from './code';
@@ -47,6 +50,10 @@ export class DemoFeatureinfoComponent implements OnInit, OnDestroy {
   }
 
   ngOnInit() {
+    const feature = new Feature({
+      geometry: new Point([0, 0])
+    });
+    feature.setProperties({ aaa: 'bbb' });
     this.mangolConfig = {
       map: {
         renderer: 'canvas',
@@ -68,6 +75,7 @@ export class DemoFeatureinfoComponent implements OnInit, OnDestroy {
           new MangolLayer({
             name: 'Roads',
             queryable: true,
+            querySrs: 'EPSG:4326',
             layer: new TileLayer({
               source: new TileWMS({
                 url: 'http://188.166.116.137:8080/geoserver/gwc/service/wms',
@@ -78,7 +86,7 @@ export class DemoFeatureinfoComponent implements OnInit, OnDestroy {
                   SRS: 'EPSG:900913'
                 }
               }),
-              opacity: 0.8,
+              opacity: 0.2,
               visible: true
             })
           }),
@@ -96,7 +104,16 @@ export class DemoFeatureinfoComponent implements OnInit, OnDestroy {
                 }
               }),
               visible: true,
-              opacity: 0.7
+              opacity: 0.3
+            })
+          }),
+          new MangolLayer({
+            name: 'Vector layer',
+            queryable: true,
+            layer: new VectorLayer({
+              source: new VectorSource({
+                features: [feature]
+              })
             })
           })
         ]

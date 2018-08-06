@@ -1,8 +1,8 @@
+import VectorLayer from 'ol/layer/Vector';
 import { Action, State, StateContext } from '@ngxs/store';
 import produce from 'immer';
 
 import { MangolLayer } from './../classes/Layer';
-
 
 export class HasFeatureinfo {
   static readonly type = '[Featureinfo] Has Featureinfo';
@@ -10,17 +10,17 @@ export class HasFeatureinfo {
 }
 
 export class SetFeatureinfoDisabled {
-  static readonly type = '[Featureinfo] Set Featureinfo Disabled';
+  static readonly type = '[Featureinfo] Set Disabled';
   constructor(public payload: boolean) {}
 }
 
 export class SetFeatureinfoTitle {
-  static readonly type = '[Featureinfo] Set Featureinfo Title';
+  static readonly type = '[Featureinfo] Set Title';
   constructor(public payload: string) {}
 }
 
 export class SetFeatureinfoLayers {
-  static readonly type = '[Featureinfo] Set Featureinfo Layers';
+  static readonly type = '[Featureinfo] Set Layers';
   constructor(public payload: MangolLayer[]) {}
 }
 
@@ -29,12 +29,29 @@ export class SetFeatureinfoSelectedLayer {
   constructor(public payload: MangolLayer) {}
 }
 
+export class SetFeatureinfoResultsLayer {
+  static readonly type = '[Featureinfo] Set Results Layer';
+  constructor(public payload: VectorLayer) {}
+}
+
+export interface FeatureinfoDictionary {
+  clearSelection: string;
+  chooseLayer: string;
+  clickOnMap: string;
+  noLayers: string;
+  numberOfFeaturesFound: string;
+  closeSnackbar: string;
+}
+
 export interface FeatureinfoStateModel {
   hasFeatureinfo: boolean;
   disabled: boolean;
   title: string;
   layers: MangolLayer[];
   selectedLayer: MangolLayer;
+  resultsLayer: VectorLayer;
+  snackbarDuration: number;
+  dictionary: FeatureinfoDictionary;
 }
 
 @State<FeatureinfoStateModel>({
@@ -44,7 +61,17 @@ export interface FeatureinfoStateModel {
     disabled: false,
     title: 'Select on Map',
     layers: [],
-    selectedLayer: null
+    selectedLayer: null,
+    resultsLayer: null,
+    snackbarDuration: 3000,
+    dictionary: {
+      clearSelection: 'Clear selection',
+      chooseLayer: 'Choose a layer...',
+      clickOnMap: 'Click on Map',
+      noLayers: 'There are currently no queryable layers configured.',
+      numberOfFeaturesFound: 'Number of features found',
+      closeSnackbar: 'Close'
+    }
   }
 })
 export class FeatureinfoState {
@@ -100,6 +127,17 @@ export class FeatureinfoState {
     ctx.setState(
       produce(ctx.getState(), draft => {
         draft.selectedLayer = action.payload;
+      })
+    );
+  }
+  @Action(SetFeatureinfoResultsLayer)
+  setResultsLayer(
+    ctx: StateContext<FeatureinfoStateModel>,
+    action: SetFeatureinfoResultsLayer
+  ) {
+    ctx.setState(
+      produce(ctx.getState(), draft => {
+        draft.resultsLayer = action.payload;
       })
     );
   }

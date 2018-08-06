@@ -26,6 +26,7 @@
         "@angular/router": "^6.1.1",
         "@ngxs/logger-plugin": "^3.2.0",
         "@ngxs/store": "^3.2.0",
+        "@types/geojson": "^7946.0.4",
         "@types/ol": "^4.6.2",
         "core-js": "^2.5.7",
         "hammerjs": "^2.0.8",

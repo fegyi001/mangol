@@ -1,2 +1,5 @@
 <div [attr.id]="target"
-    class="mangol-map"></div>
+    class="mangol-map"
+    [ngStyle]="getCursorStyle()"
+    (mouseenter)="onEnterOrLeaveMap(true)"
+    (mouseleave)="onEnterOrLeaveMap(false)"></div>
