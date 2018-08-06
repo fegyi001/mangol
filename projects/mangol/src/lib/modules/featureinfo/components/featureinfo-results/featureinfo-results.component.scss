@@ -1,0 +1,14 @@
+:host {
+    display: block;
+}
+
+.mat-accordion {
+    display: block;
+    margin-top: 20px;
+    .mat-expansion-panel {
+        .mat-expansion-panel-header {
+            // padding-left:  !important;
+            // padding-right: 0 !important;
+        }
+    }
+}

@@ -36,7 +36,7 @@ export class FeatureinfoService {
         .getView()
         .getProjection()
         .getCode(),
-      { INFO_FORMAT: 'application/json' }
+      { INFO_FORMAT: 'application/json', FEATURE_COUNT: 10 }
     );
     if (url) {
       // In case of a GWC layer somehow there is I and J instead of X and Y, so we must change that

@@ -57,6 +57,8 @@ export class TabsComponent implements OnInit, OnDestroy {
 
   configSubscription: Subscription;
 
+  items: string[] = [];
+
   constructor(private store: Store) {
     this.title$ = this.store.select(state => state.sidebar.title);
     /** Layertree */
@@ -89,6 +91,8 @@ export class TabsComponent implements OnInit, OnDestroy {
     this.configSubscription = this.store
       .select(state => state.config.config)
       .subscribe((config: MangolConfig) => {
+        this.items = [];
+
         /** Layertree */
         const hasLayertree =
           typeof config !== 'undefined' &&
@@ -97,6 +101,7 @@ export class TabsComponent implements OnInit, OnDestroy {
           !!config.sidebar.toolbar.layertree;
         this.store.dispatch(new HasLayertree(hasLayertree));
         if (hasLayertree) {
+          this.items.push('layertree');
           const layertree: MangolConfigLayertreeItem =
             config.sidebar.toolbar.layertree;
           if (layertree.hasOwnProperty('disabled')) {
@@ -114,6 +119,7 @@ export class TabsComponent implements OnInit, OnDestroy {
           !!config.sidebar.toolbar.featureinfo;
         this.store.dispatch(new HasFeatureinfo(hasFeatureinfo));
         if (hasFeatureinfo) {
+          this.items.push('featureinfo');
           const featureinfo: MangolConfigFeatureInfoItem =
             config.sidebar.toolbar.featureinfo;
           if (featureinfo.hasOwnProperty('disabled')) {
@@ -133,6 +139,7 @@ export class TabsComponent implements OnInit, OnDestroy {
           !!config.sidebar.toolbar.measure;
         this.store.dispatch(new HasMeasure(hasMeasure));
         if (hasMeasure) {
+          this.items.push('measure');
           const measure: MangolConfigMeasureItem =
             config.sidebar.toolbar.measure;
           if (measure.hasOwnProperty('disabled')) {
@@ -150,6 +157,7 @@ export class TabsComponent implements OnInit, OnDestroy {
           !!config.sidebar.toolbar.print;
         this.store.dispatch(new HasPrint(hasPrint));
         if (hasPrint) {
+          this.items.push('print');
           const print: MangolConfigPrintItem = config.sidebar.toolbar.print;
           if (print.hasOwnProperty('disabled')) {
             this.store.dispatch(new SetPrintDisabled(print.disabled));
@@ -157,6 +165,10 @@ export class TabsComponent implements OnInit, OnDestroy {
           if (print.hasOwnProperty('title')) {
             this.store.dispatch(new SetPrintTitle(print.title));
           }
+        }
+
+        if (this.items.length > 0) {
+          this.store.dispatch(new SetSidebarSelectedModule(this.items[0]));
         }
       });
   }

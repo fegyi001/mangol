@@ -1,3 +1,4 @@
+import Feature from 'ol/Feature';
 import VectorLayer from 'ol/layer/Vector';
 import { Action, State, StateContext } from '@ngxs/store';
 import produce from 'immer';
@@ -34,6 +35,11 @@ export class SetFeatureinfoResultsLayer {
   constructor(public payload: VectorLayer) {}
 }
 
+export class SetFeatureinfoResultsItems {
+  static readonly type = '[Featureinfo] Set Results Items';
+  constructor(public payload: Feature[]) {}
+}
+
 export interface FeatureinfoDictionary {
   clearSelection?: string;
   chooseLayer?: string;
@@ -50,6 +56,7 @@ export interface FeatureinfoStateModel {
   layers: MangolLayer[];
   selectedLayer: MangolLayer;
   resultsLayer: VectorLayer;
+  resultsItems: Feature[];
   snackbarDuration: number;
   dictionary: FeatureinfoDictionary;
 }
@@ -63,6 +70,7 @@ export interface FeatureinfoStateModel {
     layers: [],
     selectedLayer: null,
     resultsLayer: null,
+    resultsItems: [],
     snackbarDuration: 3000,
     dictionary: {
       clearSelection: 'Clear selection',
@@ -138,6 +146,17 @@ export class FeatureinfoState {
     ctx.setState(
       produce(ctx.getState(), draft => {
         draft.resultsLayer = action.payload;
+      })
+    );
+  }
+  @Action(SetFeatureinfoResultsItems)
+  setResultsItems(
+    ctx: StateContext<FeatureinfoStateModel>,
+    action: SetFeatureinfoResultsItems
+  ) {
+    ctx.setState(
+      produce(ctx.getState(), draft => {
+        draft.resultsItems = action.payload;
       })
     );
   }

@@ -1,3 +1,7 @@
-<p>
-    You successfully selected this layer: <i>{{(layer$ | async)?.name}}</i>. The selection is coming soon, please be patient...
-</p>
+<mat-accordion>
+    <mat-expansion-panel *ngFor="let feature of (resultsFeatures$ | async); let i=index"
+        [expanded]="(resultsFeatures$ | async).length === 1"
+        class="mat-elevation-z1">
+        <mat-expansion-panel-header>Feature {{i + 1}}</mat-expansion-panel-header>
+    </mat-expansion-panel>
+</mat-accordion>

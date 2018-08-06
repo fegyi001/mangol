@@ -3,7 +3,7 @@ import { MatSnackBar } from '@angular/material';
 import { Store } from '@ngxs/store';
 import VectorLayer from 'ol/layer/Vector';
 import Map from 'ol/Map';
-import { Observable, Subscription } from 'rxjs';
+import { Observable, Subscription, combineLatest } from 'rxjs';
 import { filter, take } from 'rxjs/operators';
 
 import { MangolLayer } from '../../../../classes/Layer';
@@ -13,7 +13,10 @@ import {
   SetCursorMode,
   SetCursorVisible
 } from '../../../../store/cursor.state';
-import { FeatureinfoDictionary } from '../../../../store/featureinfo.state';
+import {
+  FeatureinfoDictionary,
+  SetFeatureinfoResultsItems
+} from '../../../../store/featureinfo.state';
 import { FeatureinfoService } from './../../featureinfo.service';
 import Feature from 'ol/Feature';
 
@@ -27,11 +30,10 @@ export class FeatureinfoResultsComponent implements OnInit, OnDestroy {
 
   layer$: Observable<MangolLayer>;
   resultsLayer$: Observable<VectorLayer>;
+  resultsFeatures$: Observable<Feature[]>;
   tab$: Observable<string>;
 
-  layerSubscription: Subscription;
-  resultsLayerSubscription: Subscription;
-  tabSubscription: Subscription;
+  combinedSubscription: Subscription;
 
   clickFunction: any = null;
 
@@ -46,6 +48,10 @@ export class FeatureinfoResultsComponent implements OnInit, OnDestroy {
       (state: MangolState) => state.featureinfo.resultsLayer
     );
 
+    this.resultsFeatures$ = this.store.select(
+      (state: MangolState) => state.featureinfo.resultsItems
+    );
+
     this.layer$ = this.store.select(
       (state: MangolState) => state.featureinfo.selectedLayer
     );
@@ -54,62 +60,66 @@ export class FeatureinfoResultsComponent implements OnInit, OnDestroy {
       (state: MangolState) => state.sidebar.selectedModule
     );
 
-    this.tabSubscription = this.tab$.subscribe(module => {
-      if (module === 'featureinfo') {
-        this.layerSubscription = this.layer$.subscribe(layer => {
-          this.store
-            .selectOnce((state: MangolState) => state.map.map)
-            .subscribe(m => {
-              this.store.dispatch(
-                new SetCursorMode({
-                  text: this.dictionary.clickOnMap,
-                  cursor: 'crosshair'
-                })
-              );
-              this.store.dispatch(new SetCursorVisible(true));
-              // If there is a clickFunction already, first we have to delete it
-              if (this.clickFunction !== null) {
-                m.un('singleclick', this.clickFunction);
-              }
-              this.clickFunction = evt =>
-                this._createClickFunction(evt, layer, m);
-              m.on('singleclick', this.clickFunction);
-            });
-        });
-      } else {
-        // If there is a clickFunction already, first we have to delete it
-        if (this.clickFunction !== null) {
-          this.store
-            .selectOnce((state: MangolState) => state.map.map)
-            .subscribe(m => {
-              m.un('singleclick', this.clickFunction);
-              this.clickFunction = null;
-            });
+    this.combinedSubscription = combineLatest(this.tab$, this.layer$).subscribe(
+      ([selectedModule, layer]) => {
+        this.store.dispatch(new SetFeatureinfoResultsItems([]));
+        if (selectedModule === 'featureinfo') {
+          if (layer !== null) {
+            this.store
+              .selectOnce((state: MangolState) => state.map.map)
+              .subscribe(m => {
+                this.store.dispatch(
+                  new SetCursorMode({
+                    text: this.dictionary.clickOnMap,
+                    cursor: 'crosshair'
+                  })
+                );
+                this.store.dispatch(new SetCursorVisible(true));
+                if (this.clickFunction !== null) {
+                  m.un('singleclick', this.clickFunction);
+                }
+                this.clickFunction = evt =>
+                  this._createClickFunction(evt, layer, m);
+                m.on('singleclick', this.clickFunction);
+              });
+          } else {
+            this._removeClickFunction();
+          }
+        } else {
+          this._removeClickFunction();
         }
-        this.store.dispatch(new ResetCursorMode());
       }
-    });
+    );
   }
 
   ngOnDestroy() {
-    this.store.dispatch(new ResetCursorMode());
     this.resultsLayer$
       .pipe(
         filter(r => r !== null),
         take(1)
       )
       .subscribe(r => {
+        this.store.dispatch(new SetFeatureinfoResultsItems([]));
         r.getSource().clear();
       });
-    if (this.layerSubscription) {
-      this.layerSubscription.unsubscribe();
+    if (this.combinedSubscription) {
+      this.combinedSubscription.unsubscribe();
     }
-    if (this.resultsLayerSubscription) {
-      this.resultsLayerSubscription.unsubscribe();
+  }
+
+  /**
+   * Removes the click funciton if needed, plus resets the cursor style
+   */
+  private _removeClickFunction() {
+    if (this.clickFunction !== null) {
+      this.store
+        .selectOnce((state: MangolState) => state.map.map)
+        .subscribe(m => {
+          m.un('singleclick', this.clickFunction);
+          this.clickFunction = null;
+        });
     }
-    if (this.tabSubscription) {
-      this.tabSubscription.unsubscribe();
-    }
+    this.store.dispatch(new ResetCursorMode());
   }
 
   /**
@@ -126,6 +136,7 @@ export class FeatureinfoResultsComponent implements OnInit, OnDestroy {
       m.removeLayer(resultsLayer);
     } catch (error) {}
     resultsLayer.getSource().clear();
+    this.store.dispatch(new SetFeatureinfoResultsItems([]));
     m.addLayer(resultsLayer);
 
     const coords = <[number, number]>evt.coordinate;
@@ -144,6 +155,7 @@ export class FeatureinfoResultsComponent implements OnInit, OnDestroy {
           .subscribe(
             features => {
               resultsLayer.getSource().addFeatures(features);
+              this.store.dispatch(new SetFeatureinfoResultsItems(features));
               this._openSnackBar(features.length);
             },
             error => {
