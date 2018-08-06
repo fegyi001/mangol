@@ -1,12 +1,15 @@
+import { filter } from 'rxjs/operators';
 import { SelectionModel } from '@angular/cdk/collections';
 import { NestedTreeControl } from '@angular/cdk/tree';
-import { Component, OnInit } from '@angular/core';
+import { Component, OnDestroy, OnInit } from '@angular/core';
 import { MatTreeNestedDataSource } from '@angular/material/tree';
 import { Store } from '@ngxs/store';
-import { of as observableOf } from 'rxjs';
+import { of as observableOf, Subscription } from 'rxjs';
 
 import { MangolLayer } from '../../classes/Layer';
 import { MangolLayerGroup } from '../../classes/LayerGroup';
+import { MangolState } from '../../mangol.state';
+import { ResetCursorMode } from '../../store/cursor.state';
 import { MangolConfig } from './../../interfaces/config.interface';
 import { LayertreeItemNode } from './classes/layertree-item-node.class';
 import { LayertreeService } from './layertree.service';
@@ -16,10 +19,12 @@ import { LayertreeService } from './layertree.service';
   templateUrl: './layertree.component.html',
   styleUrls: ['./layertree.component.scss']
 })
-export class LayertreeComponent implements OnInit {
+export class LayertreeComponent implements OnInit, OnDestroy {
   nestedTreeControl: NestedTreeControl<LayertreeItemNode>;
   nestedDataSource: MatTreeNestedDataSource<LayertreeItemNode>;
   checklistSelection = new SelectionModel<LayertreeItemNode>(true);
+
+  tabSubscription: Subscription;
 
   constructor(
     private store: Store,
@@ -29,6 +34,12 @@ export class LayertreeComponent implements OnInit {
       this.getChildren
     );
     this.nestedDataSource = new MatTreeNestedDataSource();
+    this.tabSubscription = this.store
+      .select((state: MangolState) => state.sidebar.selectedModule)
+      .pipe(filter(module => module === 'layertree'))
+      .subscribe(module => {
+        this.store.dispatch(new ResetCursorMode());
+      });
 
     this.store
       .select(state => state.config.config)
@@ -51,6 +62,12 @@ export class LayertreeComponent implements OnInit {
   }
 
   ngOnInit() {}
+
+  ngOnDestroy() {
+    if (this.tabSubscription) {
+      this.tabSubscription.unsubscribe();
+    }
+  }
 
   private getChildren = (node: LayertreeItemNode) => {
     return observableOf(node.children);

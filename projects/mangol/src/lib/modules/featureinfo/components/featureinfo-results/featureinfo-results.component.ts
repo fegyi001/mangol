@@ -27,9 +27,11 @@ export class FeatureinfoResultsComponent implements OnInit, OnDestroy {
 
   layer$: Observable<MangolLayer>;
   resultsLayer$: Observable<VectorLayer>;
+  tab$: Observable<string>;
 
   layerSubscription: Subscription;
   resultsLayerSubscription: Subscription;
+  tabSubscription: Subscription;
 
   clickFunction: any = null;
 
@@ -48,24 +50,44 @@ export class FeatureinfoResultsComponent implements OnInit, OnDestroy {
       (state: MangolState) => state.featureinfo.selectedLayer
     );
 
-    this.layerSubscription = this.layer$.subscribe(layer => {
-      this.store
-        .selectOnce((state: MangolState) => state.map.map)
-        .subscribe(m => {
-          this.store.dispatch(
-            new SetCursorMode({
-              text: this.dictionary.clickOnMap,
-              cursor: 'crosshair'
-            })
-          );
-          this.store.dispatch(new SetCursorVisible(true));
-          // If there is a clickFunction already, first we have to delete it
-          if (this.clickFunction !== null) {
-            m.un('singleclick', this.clickFunction);
-          }
-          this.clickFunction = evt => this._createClickFunction(evt, layer, m);
-          m.on('singleclick', this.clickFunction);
+    this.tab$ = this.store.select(
+      (state: MangolState) => state.sidebar.selectedModule
+    );
+
+    this.tabSubscription = this.tab$.subscribe(module => {
+      if (module === 'featureinfo') {
+        this.layerSubscription = this.layer$.subscribe(layer => {
+          this.store
+            .selectOnce((state: MangolState) => state.map.map)
+            .subscribe(m => {
+              this.store.dispatch(
+                new SetCursorMode({
+                  text: this.dictionary.clickOnMap,
+                  cursor: 'crosshair'
+                })
+              );
+              this.store.dispatch(new SetCursorVisible(true));
+              // If there is a clickFunction already, first we have to delete it
+              if (this.clickFunction !== null) {
+                m.un('singleclick', this.clickFunction);
+              }
+              this.clickFunction = evt =>
+                this._createClickFunction(evt, layer, m);
+              m.on('singleclick', this.clickFunction);
+            });
         });
+      } else {
+        // If there is a clickFunction already, first we have to delete it
+        if (this.clickFunction !== null) {
+          this.store
+            .selectOnce((state: MangolState) => state.map.map)
+            .subscribe(m => {
+              m.un('singleclick', this.clickFunction);
+              this.clickFunction = null;
+            });
+        }
+        this.store.dispatch(new ResetCursorMode());
+      }
     });
   }
 
@@ -84,6 +106,9 @@ export class FeatureinfoResultsComponent implements OnInit, OnDestroy {
     }
     if (this.resultsLayerSubscription) {
       this.resultsLayerSubscription.unsubscribe();
+    }
+    if (this.tabSubscription) {
+      this.tabSubscription.unsubscribe();
     }
   }
 
