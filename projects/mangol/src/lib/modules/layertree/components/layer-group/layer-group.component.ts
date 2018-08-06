@@ -1,9 +1,13 @@
-import { Component, Input, OnInit } from '@angular/core';
+import { MangolState } from './../../../../mangol.state';
+import { Observable, Subscription } from 'rxjs';
+import { Component, Input, OnInit, OnDestroy } from '@angular/core';
 
 import { LayertreeItemNode } from '../../classes/layertree-item-node.class';
 import { slideStateTrigger } from '../../layertree.animations';
 import { LayerGroupDetailItem } from './../../interfaces/layergroup-detail-item.interface';
 import { MangolLayerGroup } from '../../../../classes/LayerGroup';
+import { LayertreeDictionary } from '../../../../store/layertree.state';
+import { Store } from '@ngxs/store';
 
 @Component({
   selector: 'mangol-layer-group',
@@ -11,47 +15,64 @@ import { MangolLayerGroup } from '../../../../classes/LayerGroup';
   styleUrls: ['./layer-group.component.scss'],
   animations: [slideStateTrigger]
 })
-export class LayerGroupComponent implements OnInit {
+export class LayerGroupComponent implements OnInit, OnDestroy {
   @Input() group: LayertreeItemNode;
   @Input() level: number;
 
-  detailItems: LayerGroupDetailItem[] = [];
-
-  showBadges = true;
-  dictGroups = 'Groups';
+  dictionary$: Observable<LayertreeDictionary>;
+  showBadges$: Observable<boolean>;
   displayLimit = 50;
 
-  constructor() {}
+  detailItems: LayerGroupDetailItem[] = [];
+  dictionarySubscription: Subscription;
+
+  constructor(private store: Store) {
+    this.dictionary$ = this.store.select(
+      (state: MangolState) => state.layertree.dictionary
+    );
+    this.showBadges$ = this.store.select(
+      (state: MangolState) => state.layertree.showLayergroupBadges
+    );
+  }
 
   ngOnInit() {
-    this.detailItems.push({
-      type: 'expand_all',
-      text: 'Expand all',
-      fontSet: null,
-      fontIcon: 'unfold_more',
-      disabled: false
+    this.dictionarySubscription = this.dictionary$.subscribe(dict => {
+      this.detailItems = [];
+      this.detailItems.push({
+        type: 'expand_all',
+        text: dict.expandAll,
+        fontSet: null,
+        fontIcon: 'unfold_more',
+        disabled: false
+      });
+      this.detailItems.push({
+        type: 'collapse_all',
+        text: dict.collapseAll,
+        fontSet: null,
+        fontIcon: 'unfold_less',
+        disabled: false
+      });
+      this.detailItems.push({
+        type: 'toggle_on',
+        text: dict.turnLayersOn,
+        fontSet: null,
+        fontIcon: 'layers',
+        disabled: false
+      });
+      this.detailItems.push({
+        type: 'toggle_off',
+        text: dict.turnLayersOff,
+        fontSet: null,
+        fontIcon: 'layers_clear',
+        disabled: false
+      });
     });
-    this.detailItems.push({
-      type: 'collapse_all',
-      text: 'Collapse all',
-      fontSet: null,
-      fontIcon: 'unfold_less',
-      disabled: false
-    });
-    this.detailItems.push({
-      type: 'toggle_on',
-      text: 'Turn layers on',
-      fontSet: null,
-      fontIcon: 'layers',
-      disabled: false
-    });
-    this.detailItems.push({
-      type: 'toggle_off',
-      text: 'Turn layers off',
-      fontSet: null,
-      fontIcon: 'layers_clear',
-      disabled: false
-    });
+  }
+
+  ngOnDestroy() {
+    if (this.dictionarySubscription) {
+      this.dictionarySubscription.unsubscribe();
+    }
   }
 
   /**

@@ -1,5 +1,5 @@
 <mat-list>
-    <h3 mat-subheader>{{dictGroups}}</h3>
+    <h3 mat-subheader>{{(dictionary$ | async).groups}}</h3>
     <mat-list-item>
         <button mat-icon-button
             (click)="toggleGroup()">
@@ -9,7 +9,7 @@
       </button>
         <mat-toolbar color="default">
             <mat-toolbar-row>
-                <div *ngIf="showBadges && !group.checked && group.children && group.children.length > 0; else checked"
+                <div *ngIf="(showBadges$ | async) && !group.checked && group.children && group.children.length > 0; else checked"
                     class="mangol-pointer"
                     [matBadge]="group.children.length"
                     matBadgeOverlap="false"

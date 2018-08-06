@@ -1,3 +1,4 @@
+<!-- TOOLBAR -->
 <mat-toolbar color="primary"
     *ngIf="(title$ | async) !== null">
     <mat-toolbar-row>
@@ -10,12 +11,15 @@
         </button>
     </mat-toolbar-row>
 </mat-toolbar>
+<!-- TABS -->
 <mat-tab-group [dynamicHeight]="true">
+    <!-- LAYERTREE -->
     <mat-tab *ngIf="hasLayertree$ | async"
         [disabled]="layertreeDisabled$ | async">
         <ng-template mat-tab-label>
             <div class="tab-label-icon-container"
-                [matTooltip]="layertreeTitle$ | async">
+                [matTooltip]="layertreeTitle$ | async"
+                (click)="selectTab('layertree')">
                 <mat-icon fontSet="ms"
                     fontIcon="ms-layers-overlay"></mat-icon>
             </div>
@@ -24,11 +28,13 @@
             <mangol-layertree></mangol-layertree>
         </div>
     </mat-tab>
+    <!-- FEATUREINFO -->
     <mat-tab *ngIf="hasFeatureinfo$ | async"
         [disabled]="featureinfoDisabled$ | async">
         <ng-template mat-tab-label>
             <div class="tab-label-icon-container"
-                [matTooltip]="featureinfoTitle$ | async">
+                [matTooltip]="featureinfoTitle$ | async"
+                (click)="selectTab('featureinfo')">
                 <mat-icon fontSet="ms"
                     fontIcon="ms-information"></mat-icon>
             </div>
@@ -37,11 +43,13 @@
             <mangol-featureinfo></mangol-featureinfo>
         </div>
     </mat-tab>
+    <!-- MEASURE -->
     <mat-tab *ngIf="hasMeasure$ | async"
         [disabled]="measureDisabled$ | async">
         <ng-template mat-tab-label>
             <div class="tab-label-icon-container"
-                [matTooltip]="measureTitle$ | async">
+                [matTooltip]="measureTitle$ | async"
+                (click)="selectTab('measure')">
                 <mat-icon fontSet="ms"
                     fontIcon="ms-measure-distance"></mat-icon>
             </div>
@@ -50,11 +58,13 @@
             <mangol-measure></mangol-measure>
         </div>
     </mat-tab>
+    <!-- PRINT -->
     <mat-tab *ngIf="hasPrint$ | async"
         [disabled]="printDisabled$ | async">
         <ng-template mat-tab-label>
             <div class="tab-label-icon-container"
-                [matTooltip]="printTitle$ | async">
+                [matTooltip]="printTitle$ | async"
+                (click)="selectTab('print')">
                 <mat-icon fontSet="ms"
                     fontIcon="ms-printer"></mat-icon>
             </div>
@@ -63,10 +73,12 @@
             <mangol-print></mangol-print>
         </div>
     </mat-tab>
+    <!-- EDIT -->
     <mat-tab *ngIf="false">
         <ng-template mat-tab-label>
             <div class="tab-label-icon-container"
-                [matTooltip]="'Edit'">
+                [matTooltip]="'Edit'"
+                (click)="selectTab('edit')">
                 EDIT
             </div>
         </ng-template>

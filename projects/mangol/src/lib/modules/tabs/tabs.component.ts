@@ -1,4 +1,4 @@
-import { Component, OnDestroy, OnInit, HostBinding } from '@angular/core';
+import { Component, HostBinding, OnDestroy, OnInit } from '@angular/core';
 import { Store } from '@ngxs/store';
 import { Observable, Subscription } from 'rxjs';
 
@@ -27,6 +27,7 @@ import {
   SetMeasureTitle
 } from './../../store/measure.state';
 import { HasPrint, SetPrintDisabled } from './../../store/print.state';
+import { SetSidebarSelectedModule } from './../../store/sidebar.state';
 
 @Component({
   selector: 'mangol-tabs',
@@ -170,5 +171,9 @@ export class TabsComponent implements OnInit, OnDestroy {
 
   toggleSidebar() {
     this.store.dispatch(new ToggleSidebar());
+  }
+
+  selectTab(tabName: string) {
+    this.store.dispatch(new SetSidebarSelectedModule(tabName));
   }
 }

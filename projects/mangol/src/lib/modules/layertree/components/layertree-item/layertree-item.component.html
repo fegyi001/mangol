@@ -3,7 +3,7 @@
         [group]="groupNode"
         [level]="level"></mangol-layer-group>
     <mat-list>
-        <h3 mat-subheader>{{dictLayers}}</h3>
+        <h3 mat-subheader>{{(dictionary$ | async).layers}}</h3>
         <mangol-layer *ngFor="let layerNode of layerNodes"
             [node]="layerNode"></mangol-layer>
     </mat-list>

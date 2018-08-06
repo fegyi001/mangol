@@ -7,19 +7,42 @@ export class HasLayertree {
 }
 
 export class SetLayertreeDisabled {
-  static readonly type = '[Layertree] Set Layertree Disabled';
+  static readonly type = '[Layertree] Set Disabled';
   constructor(public payload: boolean) {}
 }
 
 export class SetLayertreeTitle {
-  static readonly type = '[Layertree] Set Layertree Title';
+  static readonly type = '[Layertree] Set Title';
   constructor(public payload: string) {}
+}
+
+export class SetLayertreeDictionary {
+  static readonly type = '[Layertree] Set Dictionary';
+  constructor(public payload: LayertreeDictionary) {}
+}
+
+export class LayertreeShowLayergroupBadges {
+  static readonly type = '[Layertree] Show Layergroup Badges';
+  constructor(public payload: boolean) {}
+}
+
+export interface LayertreeDictionary {
+  groups?: string;
+  layers?: string;
+  expandAll?: string;
+  collapseAll?: string;
+  turnLayersOn?: string;
+  turnLayersOff?: string;
+  showLayerTransparency?: string;
+  showLayerDescription?: string;
 }
 
 export interface LayertreeStateModel {
   hasLayertree: boolean;
   disabled: boolean;
   title: string;
+  showLayergroupBadges: boolean;
+  dictionary: LayertreeDictionary;
 }
 
 @State<LayertreeStateModel>({
@@ -27,7 +50,18 @@ export interface LayertreeStateModel {
   defaults: {
     hasLayertree: false,
     disabled: false,
-    title: 'Layertree'
+    title: 'Layertree',
+    showLayergroupBadges: true,
+    dictionary: {
+      groups: 'Groups',
+      layers: 'Layers',
+      expandAll: 'Expand all',
+      collapseAll: 'Collapse all',
+      turnLayersOn: 'Turn layers on',
+      turnLayersOff: 'Turn layers off',
+      showLayerTransparency: 'Transparency',
+      showLayerDescription: 'Layer description'
+    }
   }
 })
 export class LayertreeState {
@@ -40,7 +74,7 @@ export class LayertreeState {
     );
   }
   @Action(SetLayertreeDisabled)
-  setLayertreeDisabled(
+  setDisabled(
     ctx: StateContext<LayertreeStateModel>,
     action: SetLayertreeDisabled
   ) {
@@ -51,13 +85,21 @@ export class LayertreeState {
     );
   }
   @Action(SetLayertreeTitle)
-  setLayertreeTitle(
-    ctx: StateContext<LayertreeStateModel>,
-    action: SetLayertreeTitle
-  ) {
+  setTitle(ctx: StateContext<LayertreeStateModel>, action: SetLayertreeTitle) {
     ctx.setState(
       produce(ctx.getState(), draft => {
         draft.title = action.payload;
+      })
+    );
+  }
+  @Action(LayertreeShowLayergroupBadges)
+  showLayergroupBadges(
+    ctx: StateContext<LayertreeStateModel>,
+    action: LayertreeShowLayergroupBadges
+  ) {
+    ctx.setState(
+      produce(ctx.getState(), draft => {
+        draft.showLayergroupBadges = action.payload;
       })
     );
   }

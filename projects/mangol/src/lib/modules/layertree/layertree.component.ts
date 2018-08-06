@@ -20,7 +20,6 @@ export class LayertreeComponent implements OnInit {
   nestedTreeControl: NestedTreeControl<LayertreeItemNode>;
   nestedDataSource: MatTreeNestedDataSource<LayertreeItemNode>;
   checklistSelection = new SelectionModel<LayertreeItemNode>(true);
-  toggleDetailsText = 'Toggle details';
 
   constructor(
     private store: Store,

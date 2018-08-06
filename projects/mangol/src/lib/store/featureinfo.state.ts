@@ -35,12 +35,12 @@ export class SetFeatureinfoResultsLayer {
 }
 
 export interface FeatureinfoDictionary {
-  clearSelection: string;
-  chooseLayer: string;
-  clickOnMap: string;
-  noLayers: string;
-  numberOfFeaturesFound: string;
-  closeSnackbar: string;
+  clearSelection?: string;
+  chooseLayer?: string;
+  clickOnMap?: string;
+  noLayers?: string;
+  numberOfFeaturesFound?: string;
+  closeSnackbar?: string;
 }
 
 export interface FeatureinfoStateModel {

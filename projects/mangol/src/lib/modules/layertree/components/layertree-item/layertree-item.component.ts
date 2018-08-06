@@ -1,6 +1,10 @@
 import { Component, Input, OnInit } from '@angular/core';
+import { Store } from '@ngxs/store';
+import { Observable } from 'rxjs';
 
+import { LayertreeDictionary } from '../../../../store/layertree.state';
 import { LayertreeItemNode } from '../../classes/layertree-item-node.class';
+import { MangolState } from './../../../../mangol.state';
 
 @Component({
   selector: 'mangol-layertree-item',
@@ -11,12 +15,16 @@ export class LayertreeItemComponent implements OnInit {
   @Input() items: LayertreeItemNode[];
   @Input() level: number;
 
-  dictLayers = 'Layers';
+  dictionary$: Observable<LayertreeDictionary>;
 
   groupNodes: LayertreeItemNode[] = [];
   layerNodes: LayertreeItemNode[] = [];
 
-  constructor() {}
+  constructor(private store: Store) {
+    this.dictionary$ = this.store.select(
+      (state: MangolState) => state.layertree.dictionary
+    );
+  }
 
   ngOnInit() {
     this.items.forEach(i => {

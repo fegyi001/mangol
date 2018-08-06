@@ -1,4 +1,6 @@
-import { Component, Input, OnInit } from '@angular/core';
+import { Store } from '@ngxs/store';
+import { Observable, Subscription } from 'rxjs';
+import { Component, Input, OnInit, OnDestroy } from '@angular/core';
 import { MatDialog } from '@angular/material';
 
 import { MangolLayer } from '../../../../classes/Layer';
@@ -6,6 +8,8 @@ import { LayertreeItemNode } from './../../classes/layertree-item-node.class';
 import { LayerDetailItem } from './../../interfaces/layer-detail-item.interface';
 import { layertreeVisibilityIconStateTrigger } from './../../layertree.animations';
 import { LayerDetailsComponent } from './../layer-details/layer-details.component';
+import { LayertreeDictionary } from '../../../../store/layertree.state';
+import { MangolState } from '../../../../mangol.state';
 
 @Component({
   selector: 'mangol-layer',
@@ -13,8 +17,10 @@ import { LayerDetailsComponent } from './../layer-details/layer-details.componen
   styleUrls: ['./layer.component.scss'],
   animations: [layertreeVisibilityIconStateTrigger]
 })
-export class LayerComponent implements OnInit {
+export class LayerComponent implements OnInit, OnDestroy {
   @Input() node: LayertreeItemNode;
+
+  dictionary$: Observable<LayertreeDictionary>;
 
   displayLimit = 100;
 
@@ -23,26 +29,41 @@ export class LayerComponent implements OnInit {
   detailItems: LayerDetailItem[] = [];
   selectedDetail: LayerDetailItem = null;
 
-  constructor(public dialog: MatDialog) {}
+  dictionarySubscription: Subscription;
+
+  constructor(public dialog: MatDialog, private store: Store) {
+    this.dictionary$ = this.store.select(
+      (state: MangolState) => state.layertree.dictionary
+    );
+  }
 
   ngOnInit() {
     this.layer = this.node.layer;
 
-    this.detailItems.push({
-      type: 'transparency',
-      text: 'Transparency',
-      fontSet: null,
-      fontIcon: 'opacity',
-      disabled: false
-    });
-    if (!!this.layer.details) {
+    this.dictionarySubscription = this.dictionary$.subscribe(dict => {
+      this.detailItems = [];
       this.detailItems.push({
-        type: 'description',
-        text: 'Layer description',
+        type: 'transparency',
+        text: dict.showLayerTransparency,
         fontSet: null,
-        fontIcon: 'subject',
+        fontIcon: 'opacity',
         disabled: false
       });
+      if (!!this.layer.details) {
+        this.detailItems.push({
+          type: 'description',
+          text: dict.showLayerDescription,
+          fontSet: null,
+          fontIcon: 'subject',
+          disabled: false
+        });
+      }
+    });
+  }
+
+  ngOnDestroy() {
+    if (this.dictionarySubscription) {
+      this.dictionarySubscription.unsubscribe();
     }
   }
 
@@ -60,7 +81,6 @@ export class LayerComponent implements OnInit {
       autoFocus: false,
       panelClass: 'mangol-dialog',
       hasBackdrop: true,
-      // backdropClass: 'mangol-details-backdrop',
       data: { item: this.selectedDetail, layer: this.layer }
     });
 
