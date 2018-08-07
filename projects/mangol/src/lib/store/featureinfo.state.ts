@@ -58,6 +58,7 @@ export interface FeatureinfoDictionary {
   numberOfFeaturesFound?: string;
   closeSnackbar?: string;
   showAllResults?: string;
+  feature?: string;
 }
 
 export interface FeatureinfoStateModel {
@@ -92,7 +93,8 @@ export interface FeatureinfoStateModel {
       noLayers: 'There are currently no queryable layers configured.',
       numberOfFeaturesFound: 'Number of features found',
       closeSnackbar: 'Close',
-      showAllResults: 'Show All results'
+      showAllResults: 'Open results dialog',
+      feature: 'Feature'
     }
   }
 })

@@ -2,10 +2,16 @@
     <mat-expansion-panel *ngFor="let feature of (resultsFeatures$ | async); let i=index"
         [expanded]="(resultsFeatures$ | async).length === 1"
         class="mat-elevation-z1">
-        <mat-expansion-panel-header>{{getExpansionPanelTitle(feature, i)}}</mat-expansion-panel-header>
+        <mat-expansion-panel-header>
+            <mat-panel-title> {{getExpansionPanelTitle(feature)}} </mat-panel-title>
+            <mat-panel-description>{{i+1}}/{{(resultsFeatures$ | async).length}}</mat-panel-description>
+        </mat-expansion-panel-header>
         <mangol-featurenfo-table [feature]="feature"></mangol-featurenfo-table>
     </mat-expansion-panel>
     <button mat-raised-button
         color="primary"
-        *ngIf="(resultsFeatures$ | async).length > 1">{{dictionary.showAllResults}}</button>
+        *ngIf="(resultsFeatures$ | async).length > 1"
+        (click)="openTableDialog()">
+        <mat-icon>open_in_new</mat-icon>
+        {{dictionary.showAllResults}}</button>
 </mat-accordion>

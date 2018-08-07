@@ -1,10 +1,10 @@
-import { SetFeatureinfoDictionary } from './../../../../store/featureinfo.state';
 import { Component, Input, OnDestroy, OnInit } from '@angular/core';
-import { MatSnackBar } from '@angular/material';
+import { MatDialog, MatSnackBar } from '@angular/material';
 import { Store } from '@ngxs/store';
+import Feature from 'ol/Feature';
 import VectorLayer from 'ol/layer/Vector';
 import Map from 'ol/Map';
-import { Observable, Subscription, combineLatest } from 'rxjs';
+import { combineLatest, Observable, Subscription } from 'rxjs';
 import { filter, take } from 'rxjs/operators';
 
 import { MangolLayer } from '../../../../classes/Layer';
@@ -18,8 +18,8 @@ import {
   FeatureinfoDictionary,
   SetFeatureinfoResultsItems
 } from '../../../../store/featureinfo.state';
+import { FeatureinfoTableDialogComponent } from '../featureinfo-table-dialog/featureinfo-table-dialog.component';
 import { FeatureinfoService } from './../../featureinfo.service';
-import Feature from 'ol/Feature';
 
 @Component({
   selector: 'mangol-featureinfo-results',
@@ -41,7 +41,8 @@ export class FeatureinfoResultsComponent implements OnInit, OnDestroy {
   constructor(
     private store: Store,
     private featureinfoService: FeatureinfoService,
-    public snackBar: MatSnackBar
+    public snackBar: MatSnackBar,
+    public dialog: MatDialog
   ) {}
 
   ngOnInit() {
@@ -139,7 +140,6 @@ export class FeatureinfoResultsComponent implements OnInit, OnDestroy {
     resultsLayer.getSource().clear();
     this.store.dispatch(new SetFeatureinfoResultsItems([]));
     m.addLayer(resultsLayer);
-
     const coords = <[number, number]>evt.coordinate;
     switch (layer.layer['type']) {
       case 'TILE':
@@ -204,8 +204,12 @@ export class FeatureinfoResultsComponent implements OnInit, OnDestroy {
     );
   }
 
-  getExpansionPanelTitle(feature: Feature, index: number) {
-    const noPropTitle = `Feature ${index + 1}`;
+  /**
+   * Retrieves the title for the individual feature
+   * @param feature
+   */
+  getExpansionPanelTitle(feature: Feature) {
+    const noPropTitle = this.dictionary.feature;
     const layer = this.store.selectSnapshot(
       (state: MangolState) => state.featureinfo.selectedLayer
     );
@@ -221,5 +225,23 @@ export class FeatureinfoResultsComponent implements OnInit, OnDestroy {
     } else {
       return noPropTitle;
     }
+  }
+
+  /**
+   * Opens a full table dialog
+   */
+  openTableDialog() {
+    combineLatest(this.layer$, this.resultsFeatures$)
+      .pipe(take(1))
+      .subscribe(([layer, resultsFeatures]) => {
+        const dialogRef = this.dialog.open(FeatureinfoTableDialogComponent, {
+          width: '90%',
+          maxHeight: '90%',
+          data: { layer: layer, features: resultsFeatures }
+        });
+        dialogRef.afterClosed().subscribe(result => {
+          console.log('dialog closed');
+        });
+      });
   }
 }
