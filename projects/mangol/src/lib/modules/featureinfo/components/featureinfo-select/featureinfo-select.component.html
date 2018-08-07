@@ -1,6 +1,7 @@
 <mat-select [placeholder]="dictionary.chooseLayer"
     [value]="selectedLayer$ | async"
-    (selectionChange)="onSelectionChanged($event)">
+    (selectionChange)="onSelectionChanged($event)"
+    class="mat-elevation-z1">
     <mat-option [disabled]="(selectedLayer$ | async) === null">
         <mat-icon>clear</mat-icon>
         <span>{{dictionary.clearSelection}}</span>

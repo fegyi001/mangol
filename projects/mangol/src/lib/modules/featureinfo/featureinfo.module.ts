@@ -10,7 +10,10 @@ import { MatSelectModule } from '@angular/material/select';
 import { MatSnackBarModule } from '@angular/material/snack-bar';
 import { MatSortModule } from '@angular/material/sort';
 import { MatTableModule } from '@angular/material/table';
+import { MatToolbarModule } from '@angular/material/toolbar';
+import { MatTooltipModule } from '@angular/material/tooltip';
 
+import { SharedModule } from './../_shared/shared/shared.module';
 import { FeatureinfoResultsComponent } from './components/featureinfo-results/featureinfo-results.component';
 import { FeatureinfoSelectComponent } from './components/featureinfo-select/featureinfo-select.component';
 import { FeatureinfoTableDialogComponent } from './components/featureinfo-table-dialog/featureinfo-table-dialog.component';
@@ -30,7 +33,10 @@ import { FeatureinfoService } from './featureinfo.service';
     MatExpansionModule,
     MatTableModule,
     MatButtonModule,
-    MatSortModule
+    MatSortModule,
+    MatToolbarModule,
+    MatTooltipModule,
+    SharedModule
   ],
   declarations: [
     FeatureinfoComponent,

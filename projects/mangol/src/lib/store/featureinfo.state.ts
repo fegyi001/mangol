@@ -50,6 +50,11 @@ export class SetFeatureinfoDictionary {
   constructor(public payload: FeatureinfoDictionary) {}
 }
 
+export class SetFeatureinfoHoverColor {
+  static readonly type = '[Featureinfo] Set Hover Color';
+  constructor(public payload: [number, number, number]) {}
+}
+
 export interface FeatureinfoDictionary {
   clearSelection?: string;
   chooseLayer?: string;
@@ -57,8 +62,10 @@ export interface FeatureinfoDictionary {
   noLayers?: string;
   numberOfFeaturesFound?: string;
   closeSnackbar?: string;
+  zoomToFeature?: string;
   showAllResults?: string;
   feature?: string;
+  exportToCsv?: string;
 }
 
 export interface FeatureinfoStateModel {
@@ -71,6 +78,7 @@ export interface FeatureinfoStateModel {
   resultsLayer: VectorLayer;
   resultsItems: Feature[];
   snackbarDuration: number;
+  hoverColor: [number, number, number];
   dictionary: FeatureinfoDictionary;
 }
 
@@ -86,6 +94,7 @@ export interface FeatureinfoStateModel {
     resultsLayer: null,
     resultsItems: [],
     snackbarDuration: 3000,
+    hoverColor: [255, 255, 0],
     dictionary: {
       clearSelection: 'Clear selection',
       chooseLayer: 'Choose a layer...',
@@ -93,8 +102,10 @@ export interface FeatureinfoStateModel {
       noLayers: 'There are currently no queryable layers configured.',
       numberOfFeaturesFound: 'Number of features found',
       closeSnackbar: 'Close',
+      zoomToFeature: 'Zoom to Feature',
       showAllResults: 'Open results dialog',
-      feature: 'Feature'
+      feature: 'Feature',
+      exportToCsv: 'Export to CSV'
     }
   }
 })
@@ -195,6 +206,17 @@ export class FeatureinfoState {
     ctx.setState(
       produce(ctx.getState(), draft => {
         draft.dictionary = action.payload;
+      })
+    );
+  }
+  @Action(SetFeatureinfoHoverColor)
+  setHoverColor(
+    ctx: StateContext<FeatureinfoStateModel>,
+    action: SetFeatureinfoHoverColor
+  ) {
+    ctx.setState(
+      produce(ctx.getState(), draft => {
+        draft.hoverColor = action.payload;
       })
     );
   }

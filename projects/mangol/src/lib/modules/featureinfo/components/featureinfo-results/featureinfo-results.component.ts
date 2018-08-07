@@ -155,7 +155,6 @@ export class FeatureinfoResultsComponent implements OnInit, OnDestroy {
           )
           .subscribe(
             features => {
-              resultsLayer.getSource().addFeatures(features);
               this.store.dispatch(new SetFeatureinfoResultsItems(features));
               this._openSnackBar(features.length);
             },
@@ -234,13 +233,50 @@ export class FeatureinfoResultsComponent implements OnInit, OnDestroy {
     combineLatest(this.layer$, this.resultsFeatures$)
       .pipe(take(1))
       .subscribe(([layer, resultsFeatures]) => {
-        const dialogRef = this.dialog.open(FeatureinfoTableDialogComponent, {
+        this.dialog.open(FeatureinfoTableDialogComponent, {
           width: '90%',
           maxHeight: '90%',
-          data: { layer: layer, features: resultsFeatures }
+          panelClass: 'mangol-dialog',
+          autoFocus: false,
+          data: {
+            layer: layer,
+            features: resultsFeatures,
+            dictionary: this.dictionary
+          }
         });
-        dialogRef.afterClosed().subscribe(result => {
-          console.log('dialog closed');
+      });
+  }
+
+  /**
+   * Shows the feature on the map with a hover style
+   * @param feature
+   */
+  showFeatureOnMap(feature: Feature) {
+    this.resultsLayer$.pipe(take(1)).subscribe(layer => {
+      layer.getSource().addFeature(feature);
+    });
+  }
+
+  /**
+   * Hides the hovered feature on the map
+   * @param feature
+   */
+  hideFeatureOnMap(feature: Feature) {
+    this.resultsLayer$.pipe(take(1)).subscribe(layer => {
+      layer.getSource().removeFeature(feature);
+    });
+  }
+
+  /**
+   * Sets the view extent to a feature
+   * @param feature
+   */
+  zoomToFeature(feature: Feature) {
+    this.store
+      .selectOnce((state: MangolState) => state.map.map)
+      .subscribe(m => {
+        m.getView().fit(feature.getGeometry().getExtent(), {
+          duration: 500
         });
       });
   }

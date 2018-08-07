@@ -18,6 +18,7 @@
         "@types/jspdf": "^1.1.31",
         "@types/ol": "^4.6.2",
         "@types/proj4": "^2.3.4",
+        "file-saver": "^1.3.8",
         "immer": "^1.3.1",
         "jspdf": "^1.4.1",
         "ol": "^5.1.3",
@@ -26,6 +27,7 @@
     "devDependencies": {
         "@compodoc/compodoc": "^1.1.3",
         "@ngxs/logger-plugin": "^3.2.0",
-        "@ngxs/store": "^3.2.0"
+        "@ngxs/store": "^3.2.0",
+        "@types/file-saver": "^1.3.0"
     }
 }

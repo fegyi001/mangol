@@ -1,5 +1,6 @@
 import { Component, OnDestroy, OnInit } from '@angular/core';
 import { Store } from '@ngxs/store';
+import Feature from 'ol/Feature';
 import VectorLayer from 'ol/layer/Vector';
 import Map from 'ol/Map';
 import VectorSource from 'ol/source/Vector';
@@ -8,6 +9,7 @@ import { filter, take } from 'rxjs/operators';
 
 import { MangolLayer } from '../../classes/Layer';
 import { MangolState } from '../../mangol.state';
+import { StyleService } from '../_shared/shared/services/style.service';
 import {
   FeatureinfoDictionary,
   SetFeatureinfoResultsLayer
@@ -27,7 +29,7 @@ export class FeatureinfoComponent implements OnInit, OnDestroy {
 
   mapSubscription: Subscription;
 
-  constructor(private store: Store) {
+  constructor(private store: Store, private styleService: StyleService) {
     // Get the queryable layers
     this.layers$ = this.store.select((state: MangolState) =>
       state.layers.layers.filter(layer => layer.queryable)
@@ -49,7 +51,8 @@ export class FeatureinfoComponent implements OnInit, OnDestroy {
     const resultsLayer = new VectorLayer({
       source: new VectorSource({
         features: []
-      })
+      }),
+      style: feat => this.styleService.hoverStyle(<Feature>feat)
     });
 
     // Add the resultsLayer to the map

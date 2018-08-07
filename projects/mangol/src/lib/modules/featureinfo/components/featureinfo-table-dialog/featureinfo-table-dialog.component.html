@@ -1,3 +1,15 @@
+<mat-toolbar color="default">
+    <mat-toolbar-row>
+        <span>{{data.layer.name}}</span>
+        <span class="spacer"></span>
+        <button mat-icon-button
+            (click)="exportCsv()"
+            [matTooltip]="data.dictionary.exportToCsv"
+            matTooltipPosition="below">
+          <mat-icon>save_alt</mat-icon>
+        </button>
+    </mat-toolbar-row>
+</mat-toolbar>
 <table mat-table
     [dataSource]="dataSource"
     matSort>

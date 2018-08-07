@@ -6,8 +6,10 @@ import {
   MatTableDataSource
 } from '@angular/material';
 import Feature from 'ol/Feature';
+import { saveAs } from 'file-saver/FileSaver';
 
 import { MangolLayer } from './../../../../classes/Layer';
+import { FeatureinfoDictionary } from '../../../../store/featureinfo.state';
 
 @Component({
   selector: 'mangol-featureinfo-table-dialog',
@@ -23,7 +25,11 @@ export class FeatureinfoTableDialogComponent implements OnInit {
   constructor(
     public dialogRef: MatDialogRef<FeatureinfoTableDialogComponent>,
     @Inject(MAT_DIALOG_DATA)
-    public data: { layer: MangolLayer; features: Feature[] }
+    public data: {
+      layer: MangolLayer;
+      features: Feature[];
+      dictionary: FeatureinfoDictionary;
+    }
   ) {}
 
   ngOnInit() {
@@ -50,5 +56,29 @@ export class FeatureinfoTableDialogComponent implements OnInit {
     });
     this.dataSource = new MatTableDataSource(source);
     this.dataSource.sort = this.sort;
+  }
+
+  exportCsv() {
+    const data: any[] = this.dataSource.data;
+    let csvContent = '';
+    const separator = ';';
+    this.columns.forEach(column => {
+      csvContent += column + separator;
+    });
+    data.forEach(d => {
+      csvContent += '\n';
+      this.columns.forEach(c => {
+        csvContent += (d.hasOwnProperty(c) ? d[c] : '') + separator;
+      });
+    });
+    const blob = new Blob([csvContent], {
+      type: 'text-csv;charset=utf-8;'
+    });
+    saveAs(
+      blob,
+      `${this.data.layer.name
+        .toLowerCase()
+        .replace(/ /g, '_')}_${new Date().getTime()}.csv`
+    );
   }
 }
