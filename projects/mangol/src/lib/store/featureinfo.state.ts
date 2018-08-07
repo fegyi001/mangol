@@ -20,6 +20,11 @@ export class SetFeatureinfoTitle {
   constructor(public payload: string) {}
 }
 
+export class SetFeatureinfoMaxFeatures {
+  static readonly type = '[Featureinfo] Set Max Features';
+  constructor(public payload: number) {}
+}
+
 export class SetFeatureinfoLayers {
   static readonly type = '[Featureinfo] Set Layers';
   constructor(public payload: MangolLayer[]) {}
@@ -40,6 +45,11 @@ export class SetFeatureinfoResultsItems {
   constructor(public payload: Feature[]) {}
 }
 
+export class SetFeatureinfoDictionary {
+  static readonly type = '[Featureinfo] Set Dictionary';
+  constructor(public payload: FeatureinfoDictionary) {}
+}
+
 export interface FeatureinfoDictionary {
   clearSelection?: string;
   chooseLayer?: string;
@@ -47,12 +57,14 @@ export interface FeatureinfoDictionary {
   noLayers?: string;
   numberOfFeaturesFound?: string;
   closeSnackbar?: string;
+  showAllResults?: string;
 }
 
 export interface FeatureinfoStateModel {
   hasFeatureinfo: boolean;
   disabled: boolean;
   title: string;
+  maxFeatures: number;
   layers: MangolLayer[];
   selectedLayer: MangolLayer;
   resultsLayer: VectorLayer;
@@ -67,6 +79,7 @@ export interface FeatureinfoStateModel {
     hasFeatureinfo: false,
     disabled: false,
     title: 'Select on Map',
+    maxFeatures: 10,
     layers: [],
     selectedLayer: null,
     resultsLayer: null,
@@ -78,7 +91,8 @@ export interface FeatureinfoStateModel {
       clickOnMap: 'Click on Map',
       noLayers: 'There are currently no queryable layers configured.',
       numberOfFeaturesFound: 'Number of features found',
-      closeSnackbar: 'Close'
+      closeSnackbar: 'Close',
+      showAllResults: 'Show All results'
     }
   }
 })
@@ -113,6 +127,17 @@ export class FeatureinfoState {
     ctx.setState(
       produce(ctx.getState(), draft => {
         draft.title = action.payload;
+      })
+    );
+  }
+  @Action(SetFeatureinfoMaxFeatures)
+  setMaxFeatures(
+    ctx: StateContext<FeatureinfoStateModel>,
+    action: SetFeatureinfoMaxFeatures
+  ) {
+    ctx.setState(
+      produce(ctx.getState(), draft => {
+        draft.maxFeatures = action.payload;
       })
     );
   }
@@ -157,6 +182,17 @@ export class FeatureinfoState {
     ctx.setState(
       produce(ctx.getState(), draft => {
         draft.resultsItems = action.payload;
+      })
+    );
+  }
+  @Action(SetFeatureinfoDictionary)
+  setDictionary(
+    ctx: StateContext<FeatureinfoStateModel>,
+    action: SetFeatureinfoDictionary
+  ) {
+    ctx.setState(
+      produce(ctx.getState(), draft => {
+        draft.dictionary = action.payload;
       })
     );
   }

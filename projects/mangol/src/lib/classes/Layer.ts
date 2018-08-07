@@ -9,6 +9,7 @@ export class MangolLayer extends BaseLayer {
   public details: string;
   public queryable: boolean;
   public querySrs: string;
+  public queryIdProperty: string;
 
   constructor(options: MangolLayerOptions) {
     super(options);
@@ -17,5 +18,6 @@ export class MangolLayer extends BaseLayer {
     this.details = options.details;
     this.queryable = options.queryable;
     this.querySrs = options.querySrs;
+    this.queryIdProperty = options.queryIdProperty;
   }
 }

@@ -1,3 +1,4 @@
+import { SetFeatureinfoDictionary } from './../../../../store/featureinfo.state';
 import { Component, Input, OnDestroy, OnInit } from '@angular/core';
 import { MatSnackBar } from '@angular/material';
 import { Store } from '@ngxs/store';
@@ -201,5 +202,24 @@ export class FeatureinfoResultsComponent implements OnInit, OnDestroy {
         panelClass: 'mangol-featureinfo-snackbar'
       }
     );
+  }
+
+  getExpansionPanelTitle(feature: Feature, index: number) {
+    const noPropTitle = `Feature ${index + 1}`;
+    const layer = this.store.selectSnapshot(
+      (state: MangolState) => state.featureinfo.selectedLayer
+    );
+    if (!!layer.queryIdProperty) {
+      const props = feature.getProperties();
+      if (props.hasOwnProperty(layer.queryIdProperty)) {
+        return props[layer.queryIdProperty].toString().length > 0
+          ? props[layer.queryIdProperty]
+          : noPropTitle;
+      } else {
+        return noPropTitle;
+      }
+    } else {
+      return noPropTitle;
+    }
   }
 }

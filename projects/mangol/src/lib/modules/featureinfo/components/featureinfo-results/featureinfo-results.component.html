@@ -2,6 +2,10 @@
     <mat-expansion-panel *ngFor="let feature of (resultsFeatures$ | async); let i=index"
         [expanded]="(resultsFeatures$ | async).length === 1"
         class="mat-elevation-z1">
-        <mat-expansion-panel-header>Feature {{i + 1}}</mat-expansion-panel-header>
+        <mat-expansion-panel-header>{{getExpansionPanelTitle(feature, i)}}</mat-expansion-panel-header>
+        <mangol-featurenfo-table [feature]="feature"></mangol-featurenfo-table>
     </mat-expansion-panel>
+    <button mat-raised-button
+        color="primary"
+        *ngIf="(resultsFeatures$ | async).length > 1">{{dictionary.showAllResults}}</button>
 </mat-accordion>

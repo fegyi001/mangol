@@ -1,3 +1,4 @@
+import { MangolState } from './../../mangol.state';
 import { map, catchError } from 'rxjs/operators';
 import { Observable } from 'rxjs';
 import { HttpClient, HttpResponse } from '@angular/common/http';
@@ -29,6 +30,9 @@ export class FeatureinfoService {
    */
   getFeatureinfoUrl(layer: MangolLayer, m: Map, coordinates: [number, number]) {
     const source: TileWMS = <TileWMS>layer.layer.getSource();
+    const maxFeatuers = this.store.selectSnapshot(
+      (state: MangolState) => state.featureinfo.maxFeatures
+    );
     let url = source.getGetFeatureInfoUrl(
       coordinates,
       m.getView().getResolution(),
@@ -36,7 +40,7 @@ export class FeatureinfoService {
         .getView()
         .getProjection()
         .getCode(),
-      { INFO_FORMAT: 'application/json', FEATURE_COUNT: 10 }
+      { INFO_FORMAT: 'application/json', FEATURE_COUNT: maxFeatuers }
     );
     if (url) {
       // In case of a GWC layer somehow there is I and J instead of X and Y, so we must change that

@@ -93,6 +93,8 @@ export class DemoFeatureinfoComponent implements OnInit, OnDestroy {
           new MangolLayer({
             name: 'Populated places',
             queryable: true,
+            queryIdProperty: 'NAME',
+            querySrs: 'EPSG:4326',
             layer: new TileLayer({
               source: new TileWMS({
                 url: 'http://188.166.116.137:8080/geoserver/gwc/service/wms',
