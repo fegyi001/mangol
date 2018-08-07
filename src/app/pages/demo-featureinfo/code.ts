@@ -19,6 +19,10 @@ export class DemoLayertreeComponent implements OnInit {
   constructor() {}
 
   ngOnInit() {
+    const feature = new Feature({
+      geometry: new Point([0, 0])
+    });
+    feature.setProperties({ aaa: 'bbb' });
     this.mangolConfig = {
       map: {
         renderer: 'canvas',
@@ -38,7 +42,54 @@ export class DemoLayertreeComponent implements OnInit {
             })
           }),
           new MangolLayer({
+            name: 'States & Provinces',
+            queryable: true,
+            querySrs: 'EPSG:4326',
+            queryIdProperty: 'name_id',
+            layer: new TileLayer({
+              source: new TileWMS({
+                url: 'http://188.166.116.137:8080/geoserver/gwc/service/wms',
+                crossOrigin: 'anonymous',
+                params: {
+                  LAYERS: ['naturalearth:states_provinces'],
+                  format: 'image/png',
+                  SRS: 'EPSG:900913'
+                }
+              }),
+              opacity: 0.8,
+              visible: true
+            })
+          }),
+          new MangolLayer({
+            name: 'Countries',
+            queryable: true,
+            querySrs: 'EPSG:4326',
+            queryIdProperty: 'NAME',
+            queryColumns: [
+              'NAME',
+              'FORMAL_EN',
+              'CONTINENT',
+              'SUBREGION',
+              'POP_EST'
+            ],
+            layer: new TileLayer({
+              source: new TileWMS({
+                url: 'http://188.166.116.137:8080/geoserver/gwc/service/wms',
+                crossOrigin: 'anonymous',
+                params: {
+                  LAYERS: ['naturalearth:countries'],
+                  format: 'image/png',
+                  SRS: 'EPSG:900913'
+                }
+              }),
+              opacity: 0.8,
+              visible: true
+            })
+          }),
+          new MangolLayer({
             name: 'Roads',
+            queryable: true,
+            querySrs: 'EPSG:4326',
             layer: new TileLayer({
               source: new TileWMS({
                 url: 'http://188.166.116.137:8080/geoserver/gwc/service/wms',
@@ -55,6 +106,9 @@ export class DemoLayertreeComponent implements OnInit {
           }),
           new MangolLayer({
             name: 'Populated places',
+            queryable: true,
+            queryIdProperty: 'NAME',
+            querySrs: 'EPSG:4326',
             layer: new TileLayer({
               source: new TileWMS({
                 url: 'http://188.166.116.137:8080/geoserver/gwc/service/wms',
@@ -66,7 +120,16 @@ export class DemoLayertreeComponent implements OnInit {
                 }
               }),
               visible: true,
-              opacity: 0.7
+              opacity: 0.8
+            })
+          }),
+          new MangolLayer({
+            name: 'Vector layer',
+            queryable: true,
+            layer: new VectorLayer({
+              source: new VectorSource({
+                features: [feature]
+              })
             })
           })
         ]

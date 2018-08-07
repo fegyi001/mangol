@@ -34,14 +34,18 @@ export class FeatureinfoTableDialogComponent implements OnInit {
 
   ngOnInit() {
     const source: any[] = [];
+    const hasQueryColumns =
+      !!this.data.layer.queryColumns && this.data.layer.queryColumns.length > 0;
     this.data.features.forEach(feature => {
       const props = { ...feature.getProperties() };
       for (const key in props) {
         if (props.hasOwnProperty(key)) {
-          // Don't show objects or functions in the table
+          // Don't show objects or functions in the table or the property is not in the layers' queryColumns attribute
           if (
             typeof props[key] === 'object' ||
-            typeof props[key] === 'function'
+            typeof props[key] === 'function' ||
+            (hasQueryColumns &&
+              this.data.layer.queryColumns.indexOf(key) === -1)
           ) {
             delete props[key];
           } else {

@@ -73,6 +73,51 @@ export class DemoFeatureinfoComponent implements OnInit, OnDestroy {
             })
           }),
           new MangolLayer({
+            name: 'States & Provinces',
+            queryable: true,
+            querySrs: 'EPSG:4326',
+            queryIdProperty: 'name_id',
+            layer: new TileLayer({
+              source: new TileWMS({
+                url: 'http://188.166.116.137:8080/geoserver/gwc/service/wms',
+                crossOrigin: 'anonymous',
+                params: {
+                  LAYERS: ['naturalearth:states_provinces'],
+                  format: 'image/png',
+                  SRS: 'EPSG:900913'
+                }
+              }),
+              opacity: 0.8,
+              visible: true
+            })
+          }),
+          new MangolLayer({
+            name: 'Countries',
+            queryable: true,
+            querySrs: 'EPSG:4326',
+            queryIdProperty: 'NAME',
+            queryColumns: [
+              'NAME',
+              'FORMAL_EN',
+              'CONTINENT',
+              'SUBREGION',
+              'POP_EST'
+            ],
+            layer: new TileLayer({
+              source: new TileWMS({
+                url: 'http://188.166.116.137:8080/geoserver/gwc/service/wms',
+                crossOrigin: 'anonymous',
+                params: {
+                  LAYERS: ['naturalearth:countries'],
+                  format: 'image/png',
+                  SRS: 'EPSG:900913'
+                }
+              }),
+              opacity: 0.8,
+              visible: true
+            })
+          }),
+          new MangolLayer({
             name: 'Roads',
             queryable: true,
             querySrs: 'EPSG:4326',
@@ -86,7 +131,7 @@ export class DemoFeatureinfoComponent implements OnInit, OnDestroy {
                   SRS: 'EPSG:900913'
                 }
               }),
-              opacity: 0.2,
+              opacity: 0.8,
               visible: true
             })
           }),
@@ -106,7 +151,7 @@ export class DemoFeatureinfoComponent implements OnInit, OnDestroy {
                 }
               }),
               visible: true,
-              opacity: 0.3
+              opacity: 0.8
             })
           }),
           new MangolLayer({

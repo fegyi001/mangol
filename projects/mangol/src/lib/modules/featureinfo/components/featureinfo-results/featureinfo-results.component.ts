@@ -234,7 +234,7 @@ export class FeatureinfoResultsComponent implements OnInit, OnDestroy {
       .pipe(take(1))
       .subscribe(([layer, resultsFeatures]) => {
         this.dialog.open(FeatureinfoTableDialogComponent, {
-          width: '90%',
+          maxWidth: '90%',
           maxHeight: '90%',
           panelClass: 'mangol-dialog',
           autoFocus: false,
