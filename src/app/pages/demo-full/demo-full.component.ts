@@ -50,7 +50,7 @@ export class DemoFullComponent implements OnInit, OnDestroy {
     this.mangolConfig = {
       map: {
         renderer: 'canvas',
-        target: 'my-map',
+        target: 'mangol-demo-full',
         view: new View({
           projection: 'EPSG:900913',
           center: fromLonLat([0, 0], 'EPSG:900913'),

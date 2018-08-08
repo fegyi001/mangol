@@ -58,7 +58,7 @@ export class DemoFeatureinfoComponent implements OnInit, OnDestroy {
     this.mangolConfig = {
       map: {
         renderer: 'canvas',
-        target: 'my-map',
+        target: 'mangol-demo-featureinfo',
         view: new View({
           projection: 'EPSG:900913',
           center: fromLonLat([0, 0], 'EPSG:900913'),
@@ -74,10 +74,11 @@ export class DemoFeatureinfoComponent implements OnInit, OnDestroy {
             })
           }),
           new MangolLayer({
-            name: 'States & Provinces',
+            name: 'States & Provinces (WMS)',
             queryable: true,
             querySrs: 'EPSG:4326',
-            queryIdProperty: 'name_id',
+            queryIdProperty: 'name',
+            queryColumns: ['name', 'code_hasc', 'iso_a2'],
             layer: new TileLayer({
               source: new TileWMS({
                 url: 'http://188.166.116.137:8080/geoserver/gwc/service/wms',
@@ -93,70 +94,7 @@ export class DemoFeatureinfoComponent implements OnInit, OnDestroy {
             })
           }),
           new MangolLayer({
-            name: 'Countries',
-            queryable: true,
-            querySrs: 'EPSG:4326',
-            queryIdProperty: 'NAME',
-            queryColumns: [
-              'NAME',
-              'FORMAL_EN',
-              'CONTINENT',
-              'SUBREGION',
-              'POP_EST'
-            ],
-            layer: new TileLayer({
-              source: new TileWMS({
-                url: 'http://188.166.116.137:8080/geoserver/gwc/service/wms',
-                crossOrigin: 'anonymous',
-                params: {
-                  LAYERS: ['naturalearth:countries'],
-                  format: 'image/png',
-                  SRS: 'EPSG:900913'
-                }
-              }),
-              opacity: 0.8,
-              visible: true
-            })
-          }),
-          new MangolLayer({
-            name: 'Roads',
-            queryable: true,
-            querySrs: 'EPSG:4326',
-            layer: new TileLayer({
-              source: new TileWMS({
-                url: 'http://188.166.116.137:8080/geoserver/gwc/service/wms',
-                crossOrigin: 'anonymous',
-                params: {
-                  LAYERS: ['naturalearth:roads'],
-                  format: 'image/png',
-                  SRS: 'EPSG:900913'
-                }
-              }),
-              opacity: 0.8,
-              visible: true
-            })
-          }),
-          new MangolLayer({
-            name: 'Populated places',
-            queryable: true,
-            queryIdProperty: 'NAME',
-            querySrs: 'EPSG:4326',
-            layer: new TileLayer({
-              source: new TileWMS({
-                url: 'http://188.166.116.137:8080/geoserver/gwc/service/wms',
-                crossOrigin: 'anonymous',
-                params: {
-                  LAYERS: ['naturalearth:populated_places'],
-                  format: 'image/png',
-                  SRS: 'EPSG:900913'
-                }
-              }),
-              visible: true,
-              opacity: 0.8
-            })
-          }),
-          new MangolLayer({
-            name: 'Vector layer',
+            name: 'Countries (Vector)',
             queryable: true,
             queryIdProperty: 'name',
             layer: new VectorLayer({
