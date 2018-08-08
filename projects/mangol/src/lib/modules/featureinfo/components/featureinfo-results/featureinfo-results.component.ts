@@ -162,6 +162,7 @@ export class FeatureinfoResultsComponent implements OnInit, OnDestroy {
               console.log(error);
             }
           );
+
         break;
       case 'VECTOR':
         const l = <VectorLayer>layer.layer;
@@ -171,10 +172,12 @@ export class FeatureinfoResultsComponent implements OnInit, OnDestroy {
           coords[0] + 100000,
           coords[1] + 100000
         ];
+        const vectorFeatures: Feature[] = [];
         l.getSource().forEachFeatureIntersectingExtent(extent, feat => {
-          console.log(feat.getProperties());
+          vectorFeatures.push(feat);
         });
-
+        this.store.dispatch(new SetFeatureinfoResultsItems(vectorFeatures));
+        this._openSnackBar(vectorFeatures.length);
         break;
       default:
         alert(

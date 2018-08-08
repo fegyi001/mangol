@@ -17,6 +17,7 @@ import { AppService } from '../../app.service';
 import { MangolConfig } from './../../../../projects/mangol/src/lib/interfaces/config.interface';
 import { MangolService } from './../../../../projects/mangol/src/lib/mangol.service';
 import { code } from './code';
+import GeoJSON from 'ol/format/GeoJSON';
 
 @Component({
   selector: 'app-demo-featureinfo',
@@ -157,9 +158,15 @@ export class DemoFeatureinfoComponent implements OnInit, OnDestroy {
           new MangolLayer({
             name: 'Vector layer',
             queryable: true,
+            queryIdProperty: 'name',
             layer: new VectorLayer({
               source: new VectorSource({
-                features: [feature]
+                url:
+                  'http://openlayers.org/en/latest/examples/data/geojson/countries.geojson',
+                format: new GeoJSON({
+                  defaultDataProjection: 'EPSG:4326',
+                  featureProjection: 'EPSG:900913'
+                })
               })
             })
           })
