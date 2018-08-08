@@ -1,6 +1,9 @@
-import { Component, OnInit } from '@angular/core';
+import { Observable } from 'rxjs';
+import { MangolControllersZoomOptions } from './../../../interfaces/config-map-controllers.interface';
+import { Component, OnInit, Input } from '@angular/core';
 import { Store } from '@ngxs/store';
 import Map from 'ol/Map';
+import { MangolState } from '../../../mangol.state';
 
 @Component({
   selector: 'mangol-zoom-buttons',
@@ -9,7 +12,13 @@ import Map from 'ol/Map';
 })
 export class ZoomButtonsComponent implements OnInit {
   animationDuration = 500;
-  constructor(private store: Store) {}
+  zoom$: Observable<MangolControllersZoomOptions>;
+
+  constructor(private store: Store) {
+    this.zoom$ = this.store.select(
+      (state: MangolState) => state.controllers.zoom
+    );
+  }
 
   ngOnInit() {}
 

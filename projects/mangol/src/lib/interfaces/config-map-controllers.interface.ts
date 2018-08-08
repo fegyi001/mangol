@@ -1,27 +1,25 @@
-export interface MangolConfigMapControllerMousePosition {
-  precision?: number;
+export interface MangolControllersOptions {
+  show: boolean;
 }
 
-export interface MangolConfigMapControllerScaleLine {
-  units?: string;
+export interface MangolControllersZoomDictionary {
+  zoomIn?: string;
+  zoomOut?: string;
 }
-export interface MangolConfigMapControllerQuickSearchItem {
-  text: string;
-  details?: string;
-  coordinates?: [number, number];
-  extent?: [number, number, number, number];
+export interface MangolControllersZoomOptions extends MangolControllersOptions {
+  dictionary?: MangolControllersZoomDictionary;
+  showTooltip?: boolean;
 }
-export interface MangolConfigMapControllerQuickSearch {
-  placeholder?: string;
-  items: MangolConfigMapControllerQuickSearchItem[];
-}
-
-export interface MangolConfigMapControllerFullScreen {}
+export interface MangolControllersScalebarOptions
+  extends MangolControllersOptions {}
+export interface MangolControllersPositionOptions
+  extends MangolControllersOptions {}
+export interface MangolControllersTileloadOptions
+  extends MangolControllersOptions {}
 
 export interface MangolConfigMapControllers {
-  mousePosition?: MangolConfigMapControllerMousePosition;
-  scaleLine?: MangolConfigMapControllerScaleLine;
-  quickSearch?: MangolConfigMapControllerQuickSearch;
-  fullScreen?: MangolConfigMapControllerFullScreen;
-  tileLoad?: boolean
+  zoom?: MangolControllersZoomOptions;
+  scalebar?: MangolControllersScalebarOptions;
+  position?: MangolControllersPositionOptions;
+  tileload?: MangolControllersTileloadOptions;
 }

@@ -64,5 +64,6 @@ export class DemoSidebarComponent implements OnInit, OnDestroy {
     if (this.sidebarOpenedSubscription) {
       this.sidebarOpenedSubscription.unsubscribe();
     }
+    this.mangolService.setConfig(null);
   }
 }

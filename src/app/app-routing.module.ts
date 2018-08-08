@@ -7,6 +7,7 @@ import { DemoHomeComponent } from './pages/demo-home/demo-home.component';
 import { DemoLayertreeComponent } from './pages/demo-layertree/demo-layertree.component';
 import { DemoMapComponent } from './pages/demo-map/demo-map.component';
 import { DemoSidebarComponent } from './pages/demo-sidebar/demo-sidebar.component';
+import { DemoControllersComponent } from './pages/demo-controllers/demo-controllers.component';
 
 const routes: Routes = [
   {
@@ -26,15 +27,15 @@ const routes: Routes = [
     data: { animation: { page: 'demo-map' } }
   },
   {
+    path: 'demo-controllers',
+    component: DemoControllersComponent,
+    data: { animation: { page: 'demo-controllers' } }
+  },
+  {
     path: 'demo-sidebar',
     component: DemoSidebarComponent,
     data: { animation: { page: 'demo-sidebar' } }
   },
-  // {
-  //   path: 'demo-map-controllers',
-  //   component: DemoMapControllersComponent,
-  //   data: { animation: { page: 'demo-map-controllers' } }
-  // },
   {
     path: 'demo-layertree',
     component: DemoLayertreeComponent,

@@ -20,6 +20,7 @@ import { DemoMapComponent } from './pages/demo-map/demo-map.component';
 import { ApiComponent } from './etc/api/api.component';
 import { DemoFeatureinfoComponent } from './pages/demo-featureinfo/demo-featureinfo.component';
 import { DemoSidebarComponent } from './pages/demo-sidebar/demo-sidebar.component';
+import { DemoControllersComponent } from './pages/demo-controllers/demo-controllers.component';
 
 @NgModule({
   declarations: [
@@ -31,7 +32,8 @@ import { DemoSidebarComponent } from './pages/demo-sidebar/demo-sidebar.componen
     DemoFullComponent,
     ApiComponent,
     DemoFeatureinfoComponent,
-    DemoSidebarComponent
+    DemoSidebarComponent,
+    DemoControllersComponent
   ],
   imports: [
     BrowserModule,

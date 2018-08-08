@@ -1,18 +1,23 @@
 import { Component, OnDestroy, OnInit } from '@angular/core';
+import { fromLonLat } from 'ol/proj.js';
+import View from 'ol/View';
 import { Subscription } from 'rxjs';
 import { filter } from 'rxjs/operators';
 
 import { AppService } from '../../app.service';
+import { MangolConfig } from './../../../../projects/mangol/src/lib/interfaces/config.interface';
 import { MangolService } from './../../../../projects/mangol/src/lib/mangol.service';
 import { code } from './code';
 
 @Component({
-  selector: 'app-demo-map',
-  templateUrl: './demo-map.component.html',
-  styleUrls: ['./demo-map.component.scss']
+  selector: 'app-demo-controllers',
+  templateUrl: './demo-controllers.component.html',
+  styleUrls: ['./demo-controllers.component.scss']
 })
-export class DemoMapComponent implements OnInit, OnDestroy {
+export class DemoControllersComponent implements OnInit, OnDestroy {
+  mangolConfig: MangolConfig;
   sidebarOpenedSubscription: Subscription;
+
   code = code;
 
   constructor(
@@ -35,7 +40,24 @@ export class DemoMapComponent implements OnInit, OnDestroy {
     );
   }
 
-  ngOnInit() {}
+  ngOnInit() {
+    this.mangolConfig = {
+      map: {
+        renderer: 'canvas',
+        target: 'mangol-demo-controllers',
+        view: new View({
+          projection: 'EPSG:900913',
+          center: fromLonLat([0, 0], 'EPSG:900913'),
+          zoom: 3
+        }),
+        controllers: {
+          zoom: {
+            show: true
+          }
+        }
+      }
+    } as MangolConfig;
+  }
 
   ngOnDestroy() {
     if (this.sidebarOpenedSubscription) {

@@ -56,6 +56,16 @@ export class DemoFullComponent implements OnInit, OnDestroy {
           center: fromLonLat([0, 0], 'EPSG:900913'),
           zoom: 3
         }),
+        controllers: {
+          zoom: {
+            show: true,
+            showTooltip: true,
+            dictionary: {
+              zoomIn: 'Zoom in',
+              zoomOut: 'Zoom out'
+            }
+          }
+        },
         layers: [
           new MangolLayer({
             name: 'OpenStreetMap Layer',
@@ -155,5 +165,6 @@ export class DemoFullComponent implements OnInit, OnDestroy {
     if (this.sidebarOpenedSubscription) {
       this.sidebarOpenedSubscription.unsubscribe();
     }
+    this.mangolService.setConfig(null);
   }
 }

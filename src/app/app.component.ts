@@ -64,13 +64,13 @@ export class AppComponent implements OnInit, DoCheck, OnDestroy {
         title: 'Map'
       },
       {
+        link: '/demo-controllers',
+        title: 'Map controllers'
+      },
+      {
         link: '/demo-sidebar',
         title: 'Sidebar'
       },
-      // {
-      //   link: '/demo-map-controllers',
-      //   title: 'Map controllers'
-      // },
       {
         link: '/demo-layertree',
         title: 'Layertree'

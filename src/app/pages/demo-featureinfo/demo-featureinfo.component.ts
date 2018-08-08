@@ -1,5 +1,5 @@
 import { Component, OnDestroy, OnInit } from '@angular/core';
-import Feature from 'ol/Feature';
+import GeoJSON from 'ol/format/GeoJSON';
 import TileLayer from 'ol/layer/Tile';
 import VectorLayer from 'ol/layer/Vector';
 import { fromLonLat } from 'ol/proj.js';
@@ -8,8 +8,6 @@ import TileWMS from 'ol/source/TileWMS';
 import VectorSource from 'ol/source/Vector';
 import View from 'ol/View';
 import { Subscription } from 'rxjs';
-import Polygon from 'ol/geom/Polygon';
-import Point from 'ol/geom/Point';
 import { filter } from 'rxjs/operators';
 
 import { MangolLayer } from '../../../../projects/mangol/src/lib/classes/Layer';
@@ -17,7 +15,6 @@ import { AppService } from '../../app.service';
 import { MangolConfig } from './../../../../projects/mangol/src/lib/interfaces/config.interface';
 import { MangolService } from './../../../../projects/mangol/src/lib/mangol.service';
 import { code } from './code';
-import GeoJSON from 'ol/format/GeoJSON';
 
 @Component({
   selector: 'app-demo-featureinfo',
@@ -51,10 +48,6 @@ export class DemoFeatureinfoComponent implements OnInit, OnDestroy {
   }
 
   ngOnInit() {
-    const feature = new Feature({
-      geometry: new Point([0, 0])
-    });
-    feature.setProperties({ aaa: 'bbb' });
     this.mangolConfig = {
       map: {
         renderer: 'canvas',
@@ -126,5 +119,6 @@ export class DemoFeatureinfoComponent implements OnInit, OnDestroy {
     if (this.sidebarOpenedSubscription) {
       this.sidebarOpenedSubscription.unsubscribe();
     }
+    this.mangolService.setConfig(null);
   }
 }

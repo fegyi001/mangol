@@ -2,10 +2,8 @@ import { Injectable } from '@angular/core';
 import { Store } from '@ngxs/store';
 
 import { MangolConfig } from './interfaces/config.interface';
-import { SetConfig } from './store/config.state';
 import { MangolState } from './mangol.state';
-import { Observable } from 'rxjs';
-import Map from 'ol/Map';
+import { SetConfig } from './store/config.state';
 import {
   SetHasSidebar,
   SetSidebarCollapsible,
