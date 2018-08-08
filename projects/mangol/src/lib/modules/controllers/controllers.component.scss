@@ -1,8 +1,18 @@
 @import "../../assets/scss/mangol";
 :host {
-    margin-left: 20px;
-    margin-top: 20px;
+    display: block;
+}
+
+.elements-left {
+    left: 20px;
+    top: 20px;
     position: absolute;
     z-index: 10;
-    display: block;
+}
+
+.elements-right {
+    position: absolute;
+    z-index: 10;
+    bottom: 20px;
+    right: 20px;
 }

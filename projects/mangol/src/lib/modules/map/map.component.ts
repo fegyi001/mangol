@@ -52,7 +52,8 @@ export class MapComponent implements OnInit, AfterViewInit, OnDestroy {
       })
     ],
     view: new View({
-      center: fromLonLat([37.4057, 8.81566]),
+      projection: 'EPSG:900913',
+      center: fromLonLat([19.3956393810065, 47.168464955013], 'EPSG:900913'),
       zoom: 4
     })
   };

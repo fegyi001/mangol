@@ -13,7 +13,9 @@ export interface MangolControllersZoomOptions extends MangolControllersOptions {
 export interface MangolControllersScalebarOptions
   extends MangolControllersOptions {}
 export interface MangolControllersPositionOptions
-  extends MangolControllersOptions {}
+  extends MangolControllersOptions {
+  precision?: number;
+}
 export interface MangolControllersTileloadOptions
   extends MangolControllersOptions {}
 

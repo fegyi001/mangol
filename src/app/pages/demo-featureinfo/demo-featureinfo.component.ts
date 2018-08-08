@@ -54,8 +54,11 @@ export class DemoFeatureinfoComponent implements OnInit, OnDestroy {
         target: 'mangol-demo-featureinfo',
         view: new View({
           projection: 'EPSG:900913',
-          center: fromLonLat([0, 0], 'EPSG:900913'),
-          zoom: 3
+          center: fromLonLat(
+            [19.3956393810065, 47.168464955013],
+            'EPSG:900913'
+          ),
+          zoom: 4
         }),
         layers: [
           new MangolLayer({

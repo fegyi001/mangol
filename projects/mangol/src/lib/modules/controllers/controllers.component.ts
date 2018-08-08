@@ -7,11 +7,13 @@ import { MangolState } from '../../mangol.state';
 import { MangolConfig } from './../../interfaces/config.interface';
 import {
   ControllersReset,
-  ControllersSetPosition,
+  ControllersSetPositionPrecision,
   ControllersSetScalebar,
+  ControllersSetShowPosition,
   ControllersSetShowTooltip,
   ControllersSetShowZoom,
-  ControllersSetZoomDictionary
+  ControllersSetZoomDictionary,
+  MangolControllersPositionStateModel
 } from './../../store/controllers.state';
 
 @Component({
@@ -24,6 +26,7 @@ export class ControllersComponent implements OnInit, OnDestroy {
   hasSidebar$: Observable<boolean>;
   sidebarCollapsible$: Observable<boolean>;
   zoom$: Observable<MangolControllersZoomOptions>;
+  position$: Observable<MangolControllersPositionStateModel>;
 
   configSubscription: Subscription;
 
@@ -40,6 +43,9 @@ export class ControllersComponent implements OnInit, OnDestroy {
     this.zoom$ = this.store.select(
       (state: MangolState) => state.controllers.zoom
     );
+    this.position$ = this.store.select(
+      (state: MangolState) => state.controllers.position
+    );
   }
 
   ngOnInit() {
@@ -52,18 +58,18 @@ export class ControllersComponent implements OnInit, OnDestroy {
         !!config.map.controllers
       ) {
         if (!!config.map.controllers.zoom) {
-          const zoom = config.map.controllers.zoom;
-          if (!!zoom.show) {
-            this.store.dispatch(new ControllersSetShowZoom(zoom.show));
+          const zoomOptions = config.map.controllers.zoom;
+          if (!!zoomOptions.show) {
+            this.store.dispatch(new ControllersSetShowZoom(zoomOptions.show));
           }
-          if (!!zoom.dictionary) {
+          if (!!zoomOptions.dictionary) {
             this.store.dispatch(
-              new ControllersSetZoomDictionary(zoom.dictionary)
+              new ControllersSetZoomDictionary(zoomOptions.dictionary)
             );
           }
-          if (!!zoom.showTooltip) {
+          if (!!zoomOptions.showTooltip) {
             this.store.dispatch(
-              new ControllersSetShowTooltip(zoom.showTooltip)
+              new ControllersSetShowTooltip(zoomOptions.showTooltip)
             );
           }
         }
@@ -73,9 +79,17 @@ export class ControllersComponent implements OnInit, OnDestroy {
           );
         }
         if (!!config.map.controllers.position) {
-          this.store.dispatch(
-            new ControllersSetPosition(config.map.controllers.position)
-          );
+          const positionOptions = config.map.controllers.position;
+          if (!!positionOptions.show) {
+            this.store.dispatch(
+              new ControllersSetShowPosition(positionOptions.show)
+            );
+          }
+          if (!!positionOptions.precision) {
+            this.store.dispatch(
+              new ControllersSetPositionPrecision(positionOptions.precision)
+            );
+          }
         }
       }
     });

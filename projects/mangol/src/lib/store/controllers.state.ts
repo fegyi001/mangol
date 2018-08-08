@@ -33,15 +33,30 @@ export class ControllersSetScalebar {
   constructor(public payload: MangolControllersScalebarOptions) {}
 }
 
-export class ControllersSetPosition {
-  static readonly type = '[Controllers] Set Position';
-  constructor(public payload: MangolControllersPositionOptions) {}
+export class ControllersSetShowPosition {
+  static readonly type = '[Controllers] Set Show Position';
+  constructor(public payload: boolean) {}
+}
+
+export class ControllersSetPositionPrecision {
+  static readonly type = '[Controllers] Set Position Precision';
+  constructor(public payload: number) {}
+}
+
+export class ControllersSetPositionCoordinates {
+  static readonly type = '[Controllers] Set Position Coordinates';
+  constructor(public payload: [number, number]) {}
+}
+
+export interface MangolControllersPositionStateModel
+  extends MangolControllersPositionOptions {
+  coordinates: number[];
 }
 
 export interface ControllersStateModel {
   zoom: MangolControllersZoomOptions;
   scalebar: MangolControllersScalebarOptions;
-  position: MangolControllersPositionOptions;
+  position: MangolControllersPositionStateModel;
 }
 
 const controllersStateDefaults: ControllersStateModel = {
@@ -54,7 +69,7 @@ const controllersStateDefaults: ControllersStateModel = {
     showTooltip: true
   },
   scalebar: { show: false },
-  position: { show: false }
+  position: { show: false, coordinates: [], precision: 2 }
 };
 
 @State<ControllersStateModel>({
@@ -99,14 +114,36 @@ export class ControllersState {
       })
     );
   }
-  @Action(ControllersSetPosition)
-  setPosition(
+  @Action(ControllersSetShowPosition)
+  setShowPosition(
     ctx: StateContext<ControllersStateModel>,
-    action: ControllersSetPosition
+    action: ControllersSetShowPosition
   ) {
     ctx.setState(
       produce(ctx.getState(), draft => {
-        draft.position = action.payload;
+        draft.position.show = action.payload;
+      })
+    );
+  }
+  @Action(ControllersSetPositionPrecision)
+  setPositionPrecision(
+    ctx: StateContext<ControllersStateModel>,
+    action: ControllersSetPositionPrecision
+  ) {
+    ctx.setState(
+      produce(ctx.getState(), draft => {
+        draft.position.precision = action.payload;
+      })
+    );
+  }
+  @Action(ControllersSetPositionCoordinates)
+  setPositionCoordinates(
+    ctx: StateContext<ControllersStateModel>,
+    action: ControllersSetPositionCoordinates
+  ) {
+    ctx.setState(
+      produce(ctx.getState(), draft => {
+        draft.position.coordinates = action.payload;
       })
     );
   }
