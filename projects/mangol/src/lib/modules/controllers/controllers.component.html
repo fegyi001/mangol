@@ -2,8 +2,10 @@
     <mangol-sidebar-button *ngIf="(hasSidebar$ | async) && (sidebarCollapsible$ | async)">
     </mangol-sidebar-button>
     <mangol-zoom-buttons *ngIf="(zoom$ | async).show"></mangol-zoom-buttons>
+    <mangol-rotation-button *ngIf="(rotation$ | async).show"></mangol-rotation-button>
 </div>
 <div class="elements-right">
     <mangol-position *ngIf="(position$ | async).show"></mangol-position>
+    <!-- <mangol-scalebar></mangol-scalebar> -->
 </div>
 <mangol-cursor></mangol-cursor>

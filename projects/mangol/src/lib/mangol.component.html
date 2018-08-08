@@ -7,7 +7,7 @@
         (openedChange)="onOpenedChange($event)">
         <mangol-tabs></mangol-tabs>
     </mat-drawer>
-    <mangol-controllers></mangol-controllers>
+    <mangol-controllers *ngIf="(map$ | async) !== null"></mangol-controllers>
     <div class="sidenav-content">
         <mangol-map [config]="config"></mangol-map>
     </div>

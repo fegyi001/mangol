@@ -9,6 +9,7 @@ import { MangolConfig } from './../../../../projects/mangol/src/lib/interfaces/c
 import { MangolService } from './../../../../projects/mangol/src/lib/mangol.service';
 import { code } from './code';
 
+// import proj4 from 'proj4';
 @Component({
   selector: 'app-demo-controllers',
   templateUrl: './demo-controllers.component.html',
@@ -46,12 +47,11 @@ export class DemoControllersComponent implements OnInit, OnDestroy {
         renderer: 'canvas',
         target: 'mangol-demo-controllers',
         view: new View({
-          projection: 'EPSG:900913',
-          center: fromLonLat(
-            [19.3956393810065, 47.168464955013],
-            'EPSG:900913'
-          ),
-          zoom: 4
+          projection: 'EPSG:3857',
+          center: fromLonLat([19.3956393810065, 47.168464955013], 'EPSG:3857'),
+          zoom: 4,
+          enableRotation: true,
+          rotation: 45
         }),
         controllers: {
           zoom: {
@@ -60,6 +60,13 @@ export class DemoControllersComponent implements OnInit, OnDestroy {
           position: {
             show: true,
             precision: 2
+          },
+          rotation: {
+            show: true,
+            dictionary: {
+              rotateToNorth: 'Rotate to North'
+            },
+            showTooltip: true
           }
         }
       }

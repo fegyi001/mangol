@@ -161,8 +161,8 @@ export class DemoFullComponent implements OnInit, OnDestroy {
           featureinfo: {
             title: 'Feature info'
           },
-          measure: {},
-          print: {}
+          measure: { disabled: true },
+          print: { disabled: true }
         }
       }
     } as MangolConfig;

@@ -1,4 +1,3 @@
-import { SetCursorVisible } from './../../store/cursor.state';
 import {
   AfterViewInit,
   Component,
@@ -17,11 +16,12 @@ import { Subscription } from 'rxjs';
 import { MangolLayer } from '../../classes/Layer';
 import { MangolLayerGroup } from '../../classes/LayerGroup';
 import { MangolConfig } from '../../interfaces/config.interface';
+import { MangolState } from '../../mangol.state';
 import { MangolConfigMap } from './../../interfaces/config-map.interface';
+import { SetCursorVisible } from './../../store/cursor.state';
 import { AddLayers } from './../../store/layers.state';
 import { AddMap } from './../../store/map.state';
 import { MapService } from './map.service';
-import { MangolState } from '../../mangol.state';
 
 @Component({
   selector: 'mangol-map',
@@ -52,9 +52,10 @@ export class MapComponent implements OnInit, AfterViewInit, OnDestroy {
       })
     ],
     view: new View({
-      projection: 'EPSG:900913',
-      center: fromLonLat([19.3956393810065, 47.168464955013], 'EPSG:900913'),
-      zoom: 4
+      projection: 'EPSG:3857',
+      center: fromLonLat([19.3956393810065, 47.168464955013], 'EPSG:3857'),
+      zoom: 4,
+      enableRotation: true
     })
   };
 

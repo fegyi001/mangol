@@ -1,0 +1,13 @@
+@import "../../../assets/scss/mangol";
+:host {
+    display: block;
+    position: relative;
+}
+
+.mat-icon {
+    @include mat-icon-size(18px);
+}
+
+.mat-mini-fab {
+    display: block;
+}

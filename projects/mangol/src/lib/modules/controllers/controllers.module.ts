@@ -10,6 +10,8 @@ import { CursorComponent } from './cursor/cursor.component';
 import { PositionComponent } from './position/position.component';
 import { SidebarButtonComponent } from './sidebar-button/sidebar-button.component';
 import { ZoomButtonsComponent } from './zoom-buttons/zoom-buttons.component';
+import { ScalebarComponent } from './scalebar/scalebar.component';
+import { RotationButtonComponent } from './rotation-button/rotation-button.component';
 
 @NgModule({
   imports: [
@@ -24,7 +26,9 @@ import { ZoomButtonsComponent } from './zoom-buttons/zoom-buttons.component';
     SidebarButtonComponent,
     ZoomButtonsComponent,
     CursorComponent,
-    PositionComponent
+    PositionComponent,
+    ScalebarComponent,
+    RotationButtonComponent
   ],
   exports: [ControllersComponent]
 })

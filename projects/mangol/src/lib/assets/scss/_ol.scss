@@ -1,5 +1,6 @@
-@import url(https://cdn.rawgit.com/openlayers/openlayers.github.io/master/en/v5.0.2/css/ol.css);
+@import "lib/ol";
 .ol-zoom,
-.ol-attribution {
+.ol-attribution,
+.ol-rotate {
     display: none;
 }

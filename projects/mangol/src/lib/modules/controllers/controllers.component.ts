@@ -6,6 +6,11 @@ import { MangolControllersZoomOptions } from '../../interfaces/config-map-contro
 import { MangolState } from '../../mangol.state';
 import { MangolConfig } from './../../interfaces/config.interface';
 import {
+  ControllersSetShowRotation,
+  ControllersSetRotationDictionary,
+  ControllersSetShowRotationTooltip
+} from '../../store/controllers.state';
+import {
   ControllersReset,
   ControllersSetPositionPrecision,
   ControllersSetScalebar,
@@ -13,7 +18,8 @@ import {
   ControllersSetShowTooltip,
   ControllersSetShowZoom,
   ControllersSetZoomDictionary,
-  MangolControllersPositionStateModel
+  MangolControllersPositionStateModel,
+  MangolControllersRotationStateModel
 } from './../../store/controllers.state';
 
 @Component({
@@ -27,6 +33,7 @@ export class ControllersComponent implements OnInit, OnDestroy {
   sidebarCollapsible$: Observable<boolean>;
   zoom$: Observable<MangolControllersZoomOptions>;
   position$: Observable<MangolControllersPositionStateModel>;
+  rotation$: Observable<MangolControllersRotationStateModel>;
 
   configSubscription: Subscription;
 
@@ -45,6 +52,9 @@ export class ControllersComponent implements OnInit, OnDestroy {
     );
     this.position$ = this.store.select(
       (state: MangolState) => state.controllers.position
+    );
+    this.rotation$ = this.store.select(
+      (state: MangolState) => state.controllers.rotation
     );
   }
 
@@ -88,6 +98,24 @@ export class ControllersComponent implements OnInit, OnDestroy {
           if (!!positionOptions.precision) {
             this.store.dispatch(
               new ControllersSetPositionPrecision(positionOptions.precision)
+            );
+          }
+        }
+        if (!!config.map.controllers.rotation) {
+          const rotationOptions = config.map.controllers.rotation;
+          if (!!rotationOptions.show) {
+            this.store.dispatch(
+              new ControllersSetShowRotation(rotationOptions.show)
+            );
+          }
+          if (!!rotationOptions.dictionary) {
+            this.store.dispatch(
+              new ControllersSetRotationDictionary(rotationOptions.dictionary)
+            );
+          }
+          if (!!rotationOptions.showTooltip) {
+            this.store.dispatch(
+              new ControllersSetShowRotationTooltip(rotationOptions.showTooltip)
             );
           }
         }

@@ -19,9 +19,20 @@ export interface MangolControllersPositionOptions
 export interface MangolControllersTileloadOptions
   extends MangolControllersOptions {}
 
+export interface MangolControllersRotationDictionary {
+  rotateToNorth?: string;
+}
+
+export interface MangolControllersRotationOptions
+  extends MangolControllersOptions {
+  dictionary?: MangolControllersRotationDictionary;
+  showTooltip?: boolean;
+}
+
 export interface MangolConfigMapControllers {
   zoom?: MangolControllersZoomOptions;
   scalebar?: MangolControllersScalebarOptions;
   position?: MangolControllersPositionOptions;
   tileload?: MangolControllersTileloadOptions;
+  rotation?: MangolControllersRotationOptions;
 }

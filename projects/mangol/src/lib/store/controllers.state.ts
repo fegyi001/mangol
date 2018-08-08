@@ -1,10 +1,12 @@
 import { Action, State, StateContext } from '@ngxs/store';
 import produce from 'immer';
+import { MangolControllersRotationDictionary } from '../interfaces/config-map-controllers.interface';
 
 import {
   MangolControllersPositionOptions,
   MangolControllersScalebarOptions,
   MangolControllersZoomDictionary,
+  MangolControllersRotationOptions,
   MangolControllersZoomOptions
 } from '../interfaces/config-map-controllers.interface';
 
@@ -48,15 +50,41 @@ export class ControllersSetPositionCoordinates {
   constructor(public payload: [number, number]) {}
 }
 
+export class ControllersSetShowRotation {
+  static readonly type = '[Controllers] Set Show Rotation';
+  constructor(public payload: boolean) {}
+}
+
+export class ControllersSetRotationDictionary {
+  static readonly type = '[Controllers] Set Rotation Dictionary';
+  constructor(public payload: MangolControllersRotationDictionary) {}
+}
+
+export class ControllersSetShowRotationTooltip {
+  static readonly type = '[Controllers] Set Show Rotation Tooltip';
+  constructor(public payload: boolean) {}
+}
+
+export class ControllersSetRotationValue {
+  static readonly type = '[Controllers] Set Rotation Value';
+  constructor(public payload: number) {}
+}
+
 export interface MangolControllersPositionStateModel
   extends MangolControllersPositionOptions {
   coordinates: number[];
+}
+
+export interface MangolControllersRotationStateModel
+  extends MangolControllersRotationOptions {
+  rotation: number;
 }
 
 export interface ControllersStateModel {
   zoom: MangolControllersZoomOptions;
   scalebar: MangolControllersScalebarOptions;
   position: MangolControllersPositionStateModel;
+  rotation: MangolControllersRotationStateModel;
 }
 
 const controllersStateDefaults: ControllersStateModel = {
@@ -69,7 +97,13 @@ const controllersStateDefaults: ControllersStateModel = {
     showTooltip: true
   },
   scalebar: { show: false },
-  position: { show: false, coordinates: [], precision: 2 }
+  position: { show: false, coordinates: [], precision: 2 },
+  rotation: {
+    show: false,
+    dictionary: { rotateToNorth: 'Rotate to North' },
+    showTooltip: true,
+    rotation: 0
+  }
 };
 
 @State<ControllersStateModel>({
@@ -144,6 +178,50 @@ export class ControllersState {
     ctx.setState(
       produce(ctx.getState(), draft => {
         draft.position.coordinates = action.payload;
+      })
+    );
+  }
+  @Action(ControllersSetShowRotation)
+  setShowRotation(
+    ctx: StateContext<ControllersStateModel>,
+    action: ControllersSetShowRotation
+  ) {
+    ctx.setState(
+      produce(ctx.getState(), draft => {
+        draft.rotation.show = action.payload;
+      })
+    );
+  }
+  @Action(ControllersSetRotationDictionary)
+  setRotationDictionary(
+    ctx: StateContext<ControllersStateModel>,
+    action: ControllersSetRotationDictionary
+  ) {
+    ctx.setState(
+      produce(ctx.getState(), draft => {
+        draft.rotation.dictionary = action.payload;
+      })
+    );
+  }
+  @Action(ControllersSetShowRotationTooltip)
+  setShowRotationTooltip(
+    ctx: StateContext<ControllersStateModel>,
+    action: ControllersSetShowRotationTooltip
+  ) {
+    ctx.setState(
+      produce(ctx.getState(), draft => {
+        draft.rotation.showTooltip = action.payload;
+      })
+    );
+  }
+  @Action(ControllersSetRotationValue)
+  setRotationValue(
+    ctx: StateContext<ControllersStateModel>,
+    action: ControllersSetRotationValue
+  ) {
+    ctx.setState(
+      produce(ctx.getState(), draft => {
+        draft.rotation.rotation = action.payload;
       })
     );
   }

@@ -1,0 +1,8 @@
+<button mat-mini-fab
+    color="primary"
+    (click)="rotateNorth()"
+    [matTooltip]="(rotation$ | async).dictionary.rotateToNorth"
+    [matTooltipDisabled]="!(rotation$ | async).showTooltip"
+    matTooltipPosition="after">
+  <mat-icon fontSet="ms" fontIcon="ms-north-arrow" [ngStyle]="getRotationStyle((rotation$ | async).rotation)"></mat-icon>
+</button>

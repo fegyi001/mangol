@@ -5,6 +5,7 @@ import { Observable } from 'rxjs';
 
 import { MangolConfig } from './interfaces/config.interface';
 import { SetConfig } from './store/config.state';
+import { MangolState } from './mangol.state';
 import {
   SetHasSidebar,
   SetSidebarCollapsible,
@@ -26,11 +27,13 @@ export class MangolComponent implements OnInit {
   hasSidebar$: Observable<boolean>;
   sidebarOpened$: Observable<boolean>;
   sidebarMode$: Observable<string>;
+  map$: Observable<Map>;
 
   constructor(private store: Store) {
     this.hasSidebar$ = this.store.select(state => state.sidebar.hasSidebar);
     this.sidebarOpened$ = this.store.select(state => state.sidebar.opened);
     this.sidebarMode$ = this.store.select(state => state.sidebar.mode);
+    this.map$ = this.store.select((state: MangolState) => state.map.map);
   }
 
   ngOnInit() {
