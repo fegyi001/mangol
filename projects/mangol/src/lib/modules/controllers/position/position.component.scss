@@ -1,3 +1,4 @@
+@import "../../../assets/scss/mangol";
 :host {
     display: block;
     position: relative;
@@ -7,4 +8,11 @@
     font-family: 'Roboto Mono', monospace;
     font-weight: 400;
     text-align: center;
+    transition: width 200ms;
+}
+
+.mat-icon {
+    @include mat-icon-size(18px);
+    cursor: pointer;
+    margin-left: 10px;
 }

@@ -1,12 +1,13 @@
 import { Action, State, StateContext } from '@ngxs/store';
 import produce from 'immer';
-import { MangolControllersRotationDictionary } from '../interfaces/config-map-controllers.interface';
 
 import {
+  MangolControllersPositionDictionary,
   MangolControllersPositionOptions,
+  MangolControllersRotationDictionary,
+  MangolControllersRotationOptions,
   MangolControllersScalebarOptions,
   MangolControllersZoomDictionary,
-  MangolControllersRotationOptions,
   MangolControllersZoomOptions
 } from '../interfaces/config-map-controllers.interface';
 
@@ -48,6 +49,11 @@ export class ControllersSetPositionPrecision {
 export class ControllersSetPositionCoordinates {
   static readonly type = '[Controllers] Set Position Coordinates';
   constructor(public payload: [number, number]) {}
+}
+
+export class ControllersSetPositionDictionary {
+  static readonly type = '[Controllers] Set Position Dictionary';
+  constructor(public payload: MangolControllersPositionDictionary) {}
 }
 
 export class ControllersSetShowRotation {
@@ -97,7 +103,16 @@ const controllersStateDefaults: ControllersStateModel = {
     showTooltip: true
   },
   scalebar: { show: false },
-  position: { show: false, coordinates: [], precision: 2 },
+  position: {
+    show: false,
+    coordinates: [],
+    precision: 2,
+    dictionary: {
+      textCopied: 'Copied',
+      copyCoordinates: 'Copy coordinates',
+      closeSnackbar: 'Close'
+    }
+  },
   rotation: {
     show: false,
     dictionary: { rotateToNorth: 'Rotate to North' },
@@ -178,6 +193,17 @@ export class ControllersState {
     ctx.setState(
       produce(ctx.getState(), draft => {
         draft.position.coordinates = action.payload;
+      })
+    );
+  }
+  @Action(ControllersSetPositionDictionary)
+  setPositionDictionary(
+    ctx: StateContext<ControllersStateModel>,
+    action: ControllersSetPositionDictionary
+  ) {
+    ctx.setState(
+      produce(ctx.getState(), draft => {
+        draft.position.dictionary = action.payload;
       })
     );
   }

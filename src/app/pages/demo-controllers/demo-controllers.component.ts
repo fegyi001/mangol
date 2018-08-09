@@ -59,7 +59,12 @@ export class DemoControllersComponent implements OnInit, OnDestroy {
           },
           position: {
             show: true,
-            precision: 2
+            precision: 2,
+            dictionary: {
+              copyCoordinates: 'Copy coordinates',
+              textCopied: 'Copied',
+              closeSnackbar: 'Close'
+            }
           },
           rotation: {
             show: true,

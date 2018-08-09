@@ -200,7 +200,7 @@ export class FeatureinfoResultsComponent implements OnInit, OnDestroy {
         duration: this.store.selectSnapshot(
           (state: MangolState) => state.featureinfo.snackbarDuration
         ),
-        panelClass: 'mangol-featureinfo-snackbar'
+        panelClass: 'mangol-snackbar'
       }
     );
   }

@@ -1,3 +1,4 @@
+import { take, map } from 'rxjs/operators';
 import { Component, OnDestroy, OnInit } from '@angular/core';
 import { Store } from '@ngxs/store';
 import { Observable, Subscription } from 'rxjs';
@@ -6,6 +7,7 @@ import { MangolState } from '../../../mangol.state';
 import { ControllersSetPositionCoordinates } from '../../../store/controllers.state';
 import { shownStateTrigger } from '../controllers.animations';
 import { MangolControllersPositionStateModel } from './../../../store/controllers.state';
+import { MatSnackBar } from '@angular/material';
 
 @Component({
   selector: 'mangol-position',
@@ -19,7 +21,10 @@ export class PositionComponent implements OnInit, OnDestroy {
   pointerMoveFunction: any = null;
   mapSubscription: Subscription;
 
-  constructor(private store: Store) {
+  showCopyIcon = false;
+  copyIconId = 'mangol-mouse-position-text';
+
+  constructor(private store: Store, public snackBar: MatSnackBar) {
     this.position$ = this.store.select(
       (state: MangolState) => state.controllers.position
     );
@@ -79,5 +84,30 @@ export class PositionComponent implements OnInit, OnDestroy {
       formattedCoords.push(coord);
     });
     return formattedCoords;
+  }
+
+  copyCoordinatesToClipboard() {
+    const range = document.createRange();
+    const element = document.getElementById(this.copyIconId);
+    range.selectNode(element);
+    window.getSelection().removeAllRanges();
+    window.getSelection().addRange(range);
+    document.execCommand('copy');
+    window.getSelection().removeAllRanges();
+    this.position$
+      .pipe(
+        map(position => position.dictionary),
+        take(1)
+      )
+      .subscribe(dictionary => {
+        this.snackBar.open(
+          `${dictionary.textCopied}: ${element.textContent.trim()}`,
+          dictionary.closeSnackbar,
+          {
+            duration: 2000,
+            panelClass: 'mangol-snackbar'
+          }
+        );
+      });
   }
 }

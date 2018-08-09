@@ -6,11 +6,11 @@
         "compodoc": "./node_modules/.bin/compodoc -p tsconfig.lib.json -d ./doc --theme material"
     },
     "peerDependencies": {
-        "@angular/animations": "^6.1.1",
-        "@angular/cdk": "^6.4.2",
-        "@angular/common": "^6.1.1",
-        "@angular/core": "^6.1.1",
-        "@angular/material": "^6.4.2",
+        "@angular/animations": "^6.1.2",
+        "@angular/cdk": "^6.4.3",
+        "@angular/common": "^6.1.2",
+        "@angular/core": "^6.1.2",
+        "@angular/material": "^6.4.3",
         "hammerjs": "^2.0.8"
     },
     "dependencies": {

@@ -6,16 +6,27 @@ export interface MangolControllersZoomDictionary {
   zoomIn?: string;
   zoomOut?: string;
 }
+
 export interface MangolControllersZoomOptions extends MangolControllersOptions {
   dictionary?: MangolControllersZoomDictionary;
   showTooltip?: boolean;
 }
+
 export interface MangolControllersScalebarOptions
   extends MangolControllersOptions {}
+
+export interface MangolControllersPositionDictionary {
+  textCopied?: string;
+  copyCoordinates?: string;
+  closeSnackbar?: string;
+}
+
 export interface MangolControllersPositionOptions
   extends MangolControllersOptions {
   precision?: number;
+  dictionary?: MangolControllersPositionDictionary;
 }
+
 export interface MangolControllersTileloadOptions
   extends MangolControllersOptions {}
 

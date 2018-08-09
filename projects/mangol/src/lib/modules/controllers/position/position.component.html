@@ -2,5 +2,15 @@
     @shownState>
     <mat-chip color="primary"
         selected="true"
-        class="mat-elevation-z2">{{(position$ | async).coordinates.join(', ')}}</mat-chip>
+        class="mat-elevation-z2"
+        (mouseenter)="showCopyIcon = true"
+        (mouseleave)="showCopyIcon = false">
+        <span [attr.id]="copyIconId">
+          {{(position$ | async).coordinates.join(', ')}}
+        </span>
+        <mat-icon *ngIf="showCopyIcon"
+            (click)="copyCoordinatesToClipboard()"
+            [matTooltip]="(position$ | async).dictionary.copyCoordinates"
+            matTooltipPosition="above">file_copy</mat-icon>
+    </mat-chip>
 </mat-chip-list>

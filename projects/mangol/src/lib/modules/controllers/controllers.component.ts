@@ -4,12 +4,13 @@ import { Observable, Subscription } from 'rxjs';
 
 import { MangolControllersZoomOptions } from '../../interfaces/config-map-controllers.interface';
 import { MangolState } from '../../mangol.state';
-import { MangolConfig } from './../../interfaces/config.interface';
 import {
-  ControllersSetShowRotation,
+  ControllersSetPositionDictionary,
   ControllersSetRotationDictionary,
+  ControllersSetShowRotation,
   ControllersSetShowRotationTooltip
 } from '../../store/controllers.state';
+import { MangolConfig } from './../../interfaces/config.interface';
 import {
   ControllersReset,
   ControllersSetPositionPrecision,
@@ -98,6 +99,11 @@ export class ControllersComponent implements OnInit, OnDestroy {
           if (!!positionOptions.precision) {
             this.store.dispatch(
               new ControllersSetPositionPrecision(positionOptions.precision)
+            );
+          }
+          if (!!positionOptions.dictionary) {
+            this.store.dispatch(
+              new ControllersSetPositionDictionary(positionOptions.dictionary)
             );
           }
         }
