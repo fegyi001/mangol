@@ -20,16 +20,12 @@ export class FeatureinfoTableDialogComponent implements OnInit {
   dataSource: MatTableDataSource<any>;
   columns: string[] = [];
 
-  @ViewChild(MatSort) sort: MatSort;
+  @ViewChild(MatSort)
+  sort: MatSort;
 
   constructor(
     public dialogRef: MatDialogRef<FeatureinfoTableDialogComponent>,
-    @Inject(MAT_DIALOG_DATA)
-    public data: {
-      layer: MangolLayer;
-      features: Feature[];
-      dictionary: FeatureinfoDictionary;
-    }
+    @Inject(MAT_DIALOG_DATA) public data: any
   ) {}
 
   ngOnInit() {

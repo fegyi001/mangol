@@ -115,7 +115,7 @@ export class DemoFeatureinfoComponent implements OnInit, OnDestroy {
           featureinfo: {}
         }
       }
-    } as MangolConfig;
+    };
   }
 
   ngOnDestroy() {

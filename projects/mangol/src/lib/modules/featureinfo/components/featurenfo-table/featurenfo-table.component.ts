@@ -1,6 +1,7 @@
-import { Component, OnInit, Input } from '@angular/core';
+import { Component, Input, OnInit } from '@angular/core';
+import { Store } from '@ngxs/store';
 import Feature from 'ol/Feature';
-import { Store } from '../../../../../../node_modules/@ngxs/store';
+
 import { MangolState } from '../../../../mangol.state';
 
 @Component({
@@ -9,7 +10,8 @@ import { MangolState } from '../../../../mangol.state';
   styleUrls: ['./featurenfo-table.component.scss']
 })
 export class FeaturenfoTableComponent implements OnInit {
-  @Input() feature: Feature;
+  @Input()
+  feature: Feature;
 
   dataSource: any[] = [];
   columns: string[] = ['property', 'value'];
