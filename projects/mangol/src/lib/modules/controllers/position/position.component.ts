@@ -4,12 +4,14 @@ import { Observable, Subscription } from 'rxjs';
 
 import { MangolState } from '../../../mangol.state';
 import { ControllersSetPositionCoordinates } from '../../../store/controllers.state';
+import { shownStateTrigger } from '../controllers.animations';
 import { MangolControllersPositionStateModel } from './../../../store/controllers.state';
 
 @Component({
   selector: 'mangol-position',
   templateUrl: './position.component.html',
-  styleUrls: ['./position.component.scss']
+  styleUrls: ['./position.component.scss'],
+  animations: [shownStateTrigger]
 })
 export class PositionComponent implements OnInit, OnDestroy {
   position$: Observable<MangolControllersPositionStateModel>;

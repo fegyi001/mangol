@@ -1,5 +1,7 @@
 <button mat-mini-fab
     color="primary"
+    *ngIf="(rotation$ | async).rotation !== 0"
+    @shownState
     (click)="rotateNorth()"
     [matTooltip]="(rotation$ | async).dictionary.rotateToNorth"
     [matTooltipDisabled]="!(rotation$ | async).showTooltip"

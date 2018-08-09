@@ -6,16 +6,19 @@ import { filter } from 'rxjs/operators';
 
 import { MangolState } from '../../../mangol.state';
 import { ControllersSetRotationValue } from '../../../store/controllers.state';
+import { shownStateTrigger } from '../controllers.animations';
 import { MangolControllersRotationStateModel } from './../../../store/controllers.state';
 
 @Component({
   selector: 'mangol-rotation-button',
   templateUrl: './rotation-button.component.html',
-  styleUrls: ['./rotation-button.component.scss']
+  styleUrls: ['./rotation-button.component.scss'],
+  animations: [shownStateTrigger]
 })
 export class RotationButtonComponent implements OnInit, OnDestroy {
   rotation$: Observable<MangolControllersRotationStateModel>;
   rotationFunction: any = null;
+  animationDuration = 500;
 
   mapSubscription: Subscription;
 
@@ -61,7 +64,10 @@ export class RotationButtonComponent implements OnInit, OnDestroy {
       .subscribe(m => {
         const view = m.getView();
         if (view.getRotation() !== 0) {
-          view.setRotation(0);
+          view.animate({ rotation: 0, duration: this.animationDuration });
+          setTimeout(() => {
+            view.setRotation(0);
+          }, this.animationDuration + 1);
         }
       });
   }

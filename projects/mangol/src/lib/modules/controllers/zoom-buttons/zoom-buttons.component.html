@@ -3,7 +3,8 @@
     (click)="zoomIn()"
     [matTooltip]="(zoom$ | async).dictionary.zoomIn"
     [matTooltipDisabled]="!(zoom$ | async).showTooltip"
-    matTooltipPosition="after">
+    matTooltipPosition="after"
+    @shownState>
   <mat-icon>add</mat-icon>
 </button>
 <button mat-mini-fab
@@ -11,6 +12,7 @@
     (click)="zoomOut()"
     [matTooltip]="(zoom$ | async).dictionary.zoomOut"
     [matTooltipDisabled]="!(zoom$ | async).showTooltip"
-    matTooltipPosition="after">
+    matTooltipPosition="after"
+    @shownState>
   <mat-icon>remove</mat-icon>
 </button>
