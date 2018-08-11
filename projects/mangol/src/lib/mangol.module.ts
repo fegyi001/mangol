@@ -14,7 +14,6 @@ import { mangolStates } from './mangol.state';
 import { ControllersModule } from './modules/controllers/controllers.module';
 import { MapModule } from './modules/map/map.module';
 import { TabsModule } from './modules/tabs/tabs.module';
-import { MapService } from './modules/map/map.service';
 
 @NgModule({
   imports: [
