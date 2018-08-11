@@ -1,17 +1,17 @@
 {
     "name": "mangol",
-    "version": "6.0.2",
+    "version": "6.0.3",
     "license": "MIT",
     "scripts": {
         "compodoc": "./node_modules/.bin/compodoc -p tsconfig.lib.json -d ./doc --theme material"
     },
     "peerDependencies": {
+        "@angular/core": "^6.1.2",
         "@angular/common": "^6.1.2"
     },
     "dependencies": {
         "@angular/animations": "^6.1.2",
         "@angular/cdk": "^6.4.3",
-        "@angular/core": "^6.1.2",
         "@angular/material": "^6.4.3",
         "@types/geojson": "^7946.0.4",
         "@types/jspdf": "^1.1.31",
