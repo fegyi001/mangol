@@ -16,7 +16,9 @@ import {
   SidebarStateModel
 } from './store/sidebar.state';
 
-@Injectable()
+@Injectable({
+  providedIn: 'root'
+})
 export class MangolService {
   constructor(private store: Store) {}
 
