@@ -13,9 +13,7 @@ import {
   ToggleSidebar
 } from './store/sidebar.state';
 
-@Injectable({
-  providedIn: 'root'
-})
+@Injectable()
 export class MangolService {
   constructor(private store: Store) {}
 
