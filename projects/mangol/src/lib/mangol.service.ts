@@ -1,16 +1,19 @@
 import { Injectable } from '@angular/core';
 import { Store } from '@ngxs/store';
+import { Observable } from 'rxjs';
 
 import { MangolConfig } from './interfaces/config.interface';
 import { MangolState } from './mangol.state';
 import { SetConfig } from './store/config.state';
+import Map from 'ol/Map';
 import {
   SetHasSidebar,
   SetSidebarCollapsible,
   SetSidebarMode,
   SetSidebarOpened,
   SetSidebarTitle,
-  ToggleSidebar
+  ToggleSidebar,
+  SidebarStateModel
 } from './store/sidebar.state';
 
 @Injectable()
@@ -20,18 +23,18 @@ export class MangolService {
   /**
    * CONFIG STATE MODIFIER FUNCTIONS
    */
-  getConfig() {
+  getConfig(): Observable<MangolConfig> {
     return this.store.selectOnce((state: MangolState) => state.config.config);
   }
 
-  setConfig(config: MangolConfig) {
+  setConfig(config: MangolConfig): void {
     this.store.dispatch(new SetConfig(config));
   }
 
   /**
    *
    */
-  getMap$() {
+  getMap$(): Observable<Map> {
     return this.store.selectOnce((state: MangolState) => state.map.map);
   }
 
@@ -39,15 +42,15 @@ export class MangolService {
    * SIDEBAR STATE MODIFIER FUNCTIONS
    */
 
-  getSidebar$() {
-    this.store.selectOnce((state: MangolState) => state.sidebar);
+  getSidebar$(): Observable<SidebarStateModel> {
+    return this.store.selectOnce((state: MangolState) => state.sidebar);
   }
 
-  toggleSidebar() {
+  toggleSidebar(): void {
     this.store.dispatch(new ToggleSidebar());
   }
 
-  setHasSidebar(hasSidebar: boolean) {
+  setHasSidebar(hasSidebar: boolean): void {
     this.store.dispatch(new SetHasSidebar(hasSidebar));
   }
 
@@ -55,15 +58,15 @@ export class MangolService {
     this.store.dispatch(new SetSidebarMode(mode));
   }
 
-  setSidebarCollapsible(collapsible: boolean) {
+  setSidebarCollapsible(collapsible: boolean): void {
     this.store.dispatch(new SetSidebarCollapsible(collapsible));
   }
 
-  setSidebarOpened(opened: boolean) {
+  setSidebarOpened(opened: boolean): void {
     this.store.dispatch(new SetSidebarOpened(opened));
   }
 
-  setSidebarTitle(title: string) {
+  setSidebarTitle(title: string): void {
     this.store.dispatch(new SetSidebarTitle(title));
   }
 }
