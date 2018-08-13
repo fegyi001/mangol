@@ -33,7 +33,7 @@ export interface CursorStateModel {
 @State<CursorStateModel>({
   name: 'cursor',
   defaults: {
-    mode: null,
+    mode: { text: null, cursor: 'default' },
     visible: false,
     layer: null
   }
@@ -51,8 +51,7 @@ export class CursorState {
   resetMode(ctx: StateContext<CursorStateModel>, action: ResetCursorMode) {
     ctx.setState(
       produce(ctx.getState(), draft => {
-        draft.mode.text = null;
-        draft.mode.cursor = 'default';
+        draft.mode = { text: null, cursor: 'default' } as CursorMode;
       })
     );
   }

@@ -24,12 +24,29 @@ import { MangolLayer, MangolLayerGroup, MangolConfig } from 'mangol';
     this.mangolConfig = {
       map: {
         renderer: 'canvas',
-        target: 'my-map',
+        target: 'mangol-demo-full',
         view: new View({
           projection: 'EPSG:900913',
-          center: fromLonLat([0, 0], 'EPSG:900913'),
-          zoom: 3
+          center: fromLonLat(
+            [19.3956393810065, 47.168464955013],
+            'EPSG:900913'
+          ),
+          zoom: 4
         }),
+        controllers: {
+          zoom: {
+            show: true,
+            showTooltip: true,
+            dictionary: {
+              zoomIn: 'Zoom in',
+              zoomOut: 'Zoom out'
+            }
+          },
+          position: {
+            show: true,
+            precision: 2
+          }
+        },
         layers: [
           new MangolLayer({
             name: 'OpenStreetMap Layer',
@@ -118,10 +135,10 @@ import { MangolLayer, MangolLayerGroup, MangolConfig } from 'mangol';
           featureinfo: {
             title: 'Feature info'
           },
-          measure: {},
-          print: {}
+          measure: { disabled: true },
+          print: { disabled: true }
         }
       }
-    } as MangolConfig;
+    };
    }
  }`;

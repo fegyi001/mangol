@@ -60,7 +60,7 @@ export class DemoSidebarComponent implements OnInit, OnDestroy {
         title: 'Sidebar example',
         mode: 'side'
       }
-    } as MangolConfig;
+    };
   }
 
   ngOnDestroy() {

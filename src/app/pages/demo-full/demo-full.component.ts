@@ -165,7 +165,7 @@ export class DemoFullComponent implements OnInit, OnDestroy {
           print: { disabled: true }
         }
       }
-    } as MangolConfig;
+    };
   }
 
   ngOnDestroy() {

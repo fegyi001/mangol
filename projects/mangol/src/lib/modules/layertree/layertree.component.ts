@@ -1,16 +1,17 @@
-import { filter } from 'rxjs/operators';
 import { SelectionModel } from '@angular/cdk/collections';
 import { NestedTreeControl } from '@angular/cdk/tree';
 import { Component, OnDestroy, OnInit } from '@angular/core';
 import { MatTreeNestedDataSource } from '@angular/material/tree';
 import { Store } from '@ngxs/store';
 import { of as observableOf, Subscription } from 'rxjs';
+import { filter } from 'rxjs/operators';
 
 import { MangolLayer } from '../../classes/Layer';
 import { MangolLayerGroup } from '../../classes/LayerGroup';
 import { MangolState } from '../../mangol.state';
 import { ResetCursorMode } from '../../store/cursor.state';
 import { MangolConfig } from './../../interfaces/config.interface';
+import { MapService } from './../map/map.service';
 import { LayertreeItemNode } from './classes/layertree-item-node.class';
 import { LayertreeService } from './layertree.service';
 
@@ -28,7 +29,8 @@ export class LayertreeComponent implements OnInit, OnDestroy {
 
   constructor(
     private store: Store,
-    private layertreeService: LayertreeService
+    private layertreeService: LayertreeService,
+    private mapService: MapService
   ) {
     this.nestedTreeControl = new NestedTreeControl<LayertreeItemNode>(
       this.getChildren
@@ -53,10 +55,13 @@ export class LayertreeComponent implements OnInit, OnDestroy {
           const layers: (
             | MangolLayer
             | MangolLayerGroup)[] = config.map.layers.slice().reverse();
-          const data: LayertreeItemNode[] = this.layertreeService.processLayersAndLayerGroups(
+          this.nestedDataSource.data = this.layertreeService.processLayersAndLayerGroups(
             layers
           );
-          this.nestedDataSource.data = data;
+        } else {
+          this.nestedDataSource.data = this.layertreeService.processLayersAndLayerGroups(
+            this.mapService.getDefaultMap().layers
+          );
         }
       });
   }

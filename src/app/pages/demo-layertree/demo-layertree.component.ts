@@ -145,7 +145,7 @@ export class DemoLayertreeComponent implements OnInit, OnDestroy {
           }
         }
       }
-    } as MangolConfig;
+    };
   }
 
   ngOnDestroy() {
