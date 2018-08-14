@@ -23,7 +23,7 @@ If you wish to see the built-in demos or modify the source files, simply run `ng
 
 ## Use as npm dependency
 
-You most likely want to use Mangol as an npm library in your Angular (TypeScript & SCSS) project, you can also do that since [Mangol is on npm](https://www.npmjs.com/package/mangol) as well.
+You most likely want to use Mangol as an npm library in your Angular (TypeScript & SCSS) project. You can also do that since [Mangol is on npm](https://www.npmjs.com/package/mangol) as well.
 
 First, add Mangol as a dependency to your project:
 
@@ -78,7 +78,7 @@ After that, you can use Mangol html tags in your templates such as
 
 ## Basic example
 
-This is the simplest implementation of Mangol in a component (this will create a default map with zoom buttons and with one OpenStreetMap layer) :
+This is the simplest implementation of Mangol in a component (this will create a default map with one OpenStreetMap layer) :
 
 ```typescript
 import { Component } from '@angular/core';
@@ -94,7 +94,7 @@ export class AppComponent {}
 
 ## Configuring the component
 
-You can further configure your Mangol component by creating a variable of type MangolConfig and add this property as a input for yor mangol component like this:
+You can further configure your Mangol component by creating a variable of type <b>MangolConfig</b> and add this property as an input for yor mangol component like this:
 
 ```typescript
 import { Component, OnInit } from '@angular/core';
@@ -105,8 +105,8 @@ import { MangolConfig } from 'mangol';
 @Component({
   selector: 'app',
   template: `
-      <mangol [config]="mangolConfig"></mangol>
-    `
+     <mangol [config]="mangolConfig"></mangol>
+  `
 })
 export class AppComponent implements OnInit {
   // Notice the MangolConfig type, this  is a helper interface to easily fill out the required and optional parameters for your Mangol configuration.
@@ -143,6 +143,47 @@ export class AppComponent implements OnInit {
         }
       }
     };
+  }
+}
+```
+
+Mangol is highly configurable through MangolConfig. Just check the API doc for further options.
+
+## Access and modify the internal State
+
+After initialization you can also modify almost everything on your running Mangol app with a helper service called <b>MangolService</b>. Mangol is written in a reactive way which means almost every property uses RxJS Observables. Mangol itself uses @ngxs/store under the hood, and with the injectable MangolService you can access and modify the store state easily.
+
+For example, if you wish to open the sidebar and change its title in runtime all you have to do is call the appropriate public functions form MangolService:
+
+```typescript
+import { Component, OnInit } from '@angular/core';
+import { MangolService, MangolConfig } from 'mangol';
+
+@Component({
+  selector: 'app-root',
+  template: `
+    <mangol [config]="mangolConfig"></mangol>
+  `
+  styleUrls: ['./app.component.scss']
+})
+export class AppComponent implements OnInit {
+
+  config: MangolConfig;
+
+  constructor(private mangolService: MangolService) {}
+
+  ngOnInit() {
+    // Initialize the MangolConfig with an empty and closed sidebar
+    this.config = {
+      sidebar: { collapsible: true, opened: false }
+    };
+    // Wait 1 second
+    setTimeout(() => {
+      // Change the sidebar title
+      this.mangolService.setSidebarTitle('My title modified on runtime');
+      // Open the sidebar
+      this.mangolService.setSidebarOpened(true);
+    }, 1000);
   }
 }
 ```
