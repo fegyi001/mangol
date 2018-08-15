@@ -16,13 +16,7 @@
             "dom",
             "es2015"
         ],
-        "baseUrl": "./src",
-        "paths": {
-            "@mangol-classes/*": ["./lib/classes/*"],
-            "@mangol-interfaces/*": ["./lib/interfaces/*"],
-            "@mangol-modules/*": ["./lib/modules/*"],
-            "@mangol-layertree/*": ["./lib/modules/layertree/*"]
-        }
+        "baseUrl": "./src"
     },
     "angularCompilerOptions": {
         "annotateForClosureCompiler": true,
