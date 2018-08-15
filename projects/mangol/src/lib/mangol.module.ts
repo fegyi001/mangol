@@ -6,14 +6,26 @@ import { MatButtonModule } from '@angular/material/button';
 import { MatSidenavModule } from '@angular/material/sidenav';
 import { BrowserModule } from '@angular/platform-browser';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
-// import { NgxsLoggerPluginModule } from '@ngxs/logger-plugin';
-import { NgxsModule } from '@ngxs/store';
+import { Action, ActionReducer, StoreModule } from '@ngrx/store';
+import { storeLogger } from 'ngrx-store-logger';
 
 import { MangolComponent } from './mangol.component';
-import { mangolStates } from './mangol.state';
 import { ControllersModule } from './modules/controllers/controllers.module';
 import { MapModule } from './modules/map/map.module';
 import { TabsModule } from './modules/tabs/tabs.module';
+import { mangolReducers, MangolState } from './store/mangol.reducers';
+
+export function logger(reducer: ActionReducer<MangolState, Action>): any {
+  return storeLogger({
+    collapsed: true,
+    filter: {
+      // whitelist: environment.production ? [''] : [],
+      blacklist: []
+    }
+  })(reducer);
+}
+
+export const metaReducers = [logger];
 
 @NgModule({
   imports: [
@@ -25,12 +37,8 @@ import { TabsModule } from './modules/tabs/tabs.module';
     BrowserAnimationsModule,
     MapModule,
     ControllersModule,
-    NgxsModule.forRoot(mangolStates)
-    // NgxsLoggerPluginModule.forRoot({
-    //   logger: console,
-    //   collapsed: true,
-    //   disabled: false
-    // })
+    StoreModule.forRoot(mangolReducers, { metaReducers })
+    // EffectsModule.forRoot([NavigationEffects, EditEffects])
   ],
   declarations: [MangolComponent],
   exports: [MangolComponent]

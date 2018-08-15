@@ -1,15 +1,15 @@
-import { Store } from '@ngxs/store';
-import { Observable, Subscription } from 'rxjs';
-import { Component, Input, OnInit, OnDestroy } from '@angular/core';
+import { Component, Input, OnDestroy, OnInit } from '@angular/core';
 import { MatDialog } from '@angular/material';
+import { Store } from '@ngrx/store';
+import { Observable, Subscription } from 'rxjs';
 
 import { MangolLayer } from '../../../../classes/Layer';
+import { LayertreeDictionary } from '../../../../store/layertree/layertree.reducers';
+import * as fromMangol from './../../../../store/mangol.reducers';
 import { LayertreeItemNode } from './../../classes/layertree-item-node.class';
 import { LayerDetailItem } from './../../interfaces/layer-detail-item.interface';
 import { layertreeVisibilityIconStateTrigger } from './../../layertree.animations';
 import { LayerDetailsComponent } from './../layer-details/layer-details.component';
-import { LayertreeDictionary } from '../../../../store/layertree.state';
-import { MangolState } from '../../../../mangol.state';
 
 @Component({
   selector: 'mangol-layer',
@@ -18,7 +18,8 @@ import { MangolState } from '../../../../mangol.state';
   animations: [layertreeVisibilityIconStateTrigger]
 })
 export class LayerComponent implements OnInit, OnDestroy {
-  @Input() node: LayertreeItemNode;
+  @Input()
+  node: LayertreeItemNode;
 
   dictionary$: Observable<LayertreeDictionary>;
 
@@ -31,10 +32,11 @@ export class LayerComponent implements OnInit, OnDestroy {
 
   dictionarySubscription: Subscription;
 
-  constructor(public dialog: MatDialog, private store: Store) {
-    this.dictionary$ = this.store.select(
-      (state: MangolState) => state.layertree.dictionary
-    );
+  constructor(
+    public dialog: MatDialog,
+    private store: Store<fromMangol.MangolState>
+  ) {
+    this.dictionary$ = this.store.select(state => state.layertree.dictionary);
   }
 
   ngOnInit() {

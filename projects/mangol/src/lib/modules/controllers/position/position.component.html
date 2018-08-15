@@ -1,4 +1,4 @@
-<mat-chip-list *ngIf="(position$ | async).coordinates.length === 2"
+<mat-chip-list *ngIf="position?.coordinates.length === 2"
     @shownState>
     <mat-chip color="primary"
         selected="true"
@@ -6,11 +6,11 @@
         (mouseenter)="showCopyIcon = true"
         (mouseleave)="showCopyIcon = false">
         <span [attr.id]="copyIconId">
-          {{(position$ | async).coordinates.join(', ')}}
+          {{position.coordinates.join(', ')}}
         </span>
         <mat-icon *ngIf="showCopyIcon"
             (click)="copyCoordinatesToClipboard()"
-            [matTooltip]="(position$ | async).dictionary.copyCoordinates"
+            [matTooltip]="position.dictionary.copyCoordinates"
             matTooltipPosition="above">file_copy</mat-icon>
     </mat-chip>
 </mat-chip-list>

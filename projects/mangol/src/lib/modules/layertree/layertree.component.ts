@@ -2,14 +2,14 @@ import { SelectionModel } from '@angular/cdk/collections';
 import { NestedTreeControl } from '@angular/cdk/tree';
 import { Component, OnDestroy, OnInit } from '@angular/core';
 import { MatTreeNestedDataSource } from '@angular/material/tree';
-import { Store } from '@ngxs/store';
+import { Store } from '@ngrx/store';
+import * as fromMangol from './../../store/mangol.reducers';
+import * as CursorActions from './../../store/cursor/cursor.actions';
 import { of as observableOf, Subscription } from 'rxjs';
 import { filter } from 'rxjs/operators';
 
 import { MangolLayer } from '../../classes/Layer';
 import { MangolLayerGroup } from '../../classes/LayerGroup';
-import { MangolState } from '../../mangol.state';
-import { ResetCursorMode } from '../../store/cursor.state';
 import { MangolConfig } from './../../interfaces/config.interface';
 import { MapService } from './../map/map.service';
 import { LayertreeItemNode } from './classes/layertree-item-node.class';
@@ -28,7 +28,7 @@ export class LayertreeComponent implements OnInit, OnDestroy {
   tabSubscription: Subscription;
 
   constructor(
-    private store: Store,
+    private store: Store<fromMangol.MangolState>,
     private layertreeService: LayertreeService,
     private mapService: MapService
   ) {
@@ -37,10 +37,10 @@ export class LayertreeComponent implements OnInit, OnDestroy {
     );
     this.nestedDataSource = new MatTreeNestedDataSource();
     this.tabSubscription = this.store
-      .select((state: MangolState) => state.sidebar.selectedModule)
+      .select(state => state.sidebar.selectedModule)
       .pipe(filter(module => module === 'layertree'))
       .subscribe(module => {
-        this.store.dispatch(new ResetCursorMode());
+        this.store.dispatch(new CursorActions.ResetMode());
       });
 
     this.store

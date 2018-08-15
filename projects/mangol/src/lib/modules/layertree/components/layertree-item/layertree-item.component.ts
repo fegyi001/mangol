@@ -1,10 +1,10 @@
 import { Component, Input, OnInit } from '@angular/core';
-import { Store } from '@ngxs/store';
+import { Store } from '@ngrx/store';
 import { Observable } from 'rxjs';
 
-import { LayertreeDictionary } from '../../../../store/layertree.state';
+import { LayertreeDictionary } from '../../../../store/layertree/layertree.reducers';
 import { LayertreeItemNode } from '../../classes/layertree-item-node.class';
-import { MangolState } from './../../../../mangol.state';
+import * as fromMangol from './../../../../store/mangol.reducers';
 
 @Component({
   selector: 'mangol-layertree-item',
@@ -12,18 +12,18 @@ import { MangolState } from './../../../../mangol.state';
   styleUrls: ['./layertree-item.component.scss']
 })
 export class LayertreeItemComponent implements OnInit {
-  @Input() items: LayertreeItemNode[];
-  @Input() level: number;
+  @Input()
+  items: LayertreeItemNode[];
+  @Input()
+  level: number;
 
   dictionary$: Observable<LayertreeDictionary>;
 
   groupNodes: LayertreeItemNode[] = [];
   layerNodes: LayertreeItemNode[] = [];
 
-  constructor(private store: Store) {
-    this.dictionary$ = this.store.select(
-      (state: MangolState) => state.layertree.dictionary
-    );
+  constructor(private store: Store<fromMangol.MangolState>) {
+    this.dictionary$ = this.store.select(state => state.layertree.dictionary);
   }
 
   ngOnInit() {

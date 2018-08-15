@@ -1,5 +1,5 @@
 import { Component, OnDestroy, OnInit } from '@angular/core';
-import { Store } from '@ngxs/store';
+import { Store } from '@ngrx/store';
 import Feature from 'ol/Feature';
 import VectorLayer from 'ol/layer/Vector';
 import Map from 'ol/Map';
@@ -8,12 +8,10 @@ import { combineLatest, Observable, Subscription } from 'rxjs';
 import { filter, take } from 'rxjs/operators';
 
 import { MangolLayer } from '../../classes/Layer';
-import { MangolState } from '../../mangol.state';
 import { StyleService } from '../_shared/shared/services/style.service';
-import {
-  FeatureinfoDictionary,
-  SetFeatureinfoResultsLayer
-} from './../../store/featureinfo.state';
+import * as FeatureinfoActions from './../../store/featureinfo/featureinfo.actions';
+import { FeatureinfoDictionary } from './../../store/featureinfo/featureinfo.reducers';
+import * as fromMangol from './../../store/mangol.reducers';
 
 @Component({
   selector: 'mangol-featureinfo',
@@ -29,22 +27,23 @@ export class FeatureinfoComponent implements OnInit, OnDestroy {
 
   mapSubscription: Subscription;
 
-  constructor(private store: Store, private styleService: StyleService) {
+  constructor(
+    private store: Store<fromMangol.MangolState>,
+    private styleService: StyleService
+  ) {
     // Get the queryable layers
-    this.layers$ = this.store.select((state: MangolState) =>
+    this.layers$ = this.store.select(state =>
       state.layers.layers.filter(layer => layer.queryable)
     );
     // Get the selected layer
     this.selectedLayer$ = this.store.select(
-      (state: MangolState) => state.featureinfo.selectedLayer
+      state => state.featureinfo.selectedLayer
     );
-    this.map$ = this.store.select((state: MangolState) => state.map.map);
+    this.map$ = this.store.select(state => state.map.map);
     this.resultsLayer$ = this.store.select(
-      (state: MangolState) => state.featureinfo.resultsLayer
+      state => state.featureinfo.resultsLayer
     );
-    this.dictionary$ = this.store.select(
-      (state: MangolState) => state.featureinfo.dictionary
-    );
+    this.dictionary$ = this.store.select(state => state.featureinfo.dictionary);
   }
 
   ngOnInit() {
@@ -60,7 +59,9 @@ export class FeatureinfoComponent implements OnInit, OnDestroy {
       .pipe(filter(m => m !== null))
       .subscribe(m => {
         m.addLayer(resultsLayer);
-        this.store.dispatch(new SetFeatureinfoResultsLayer(resultsLayer));
+        this.store.dispatch(
+          new FeatureinfoActions.SetResultsLayer(resultsLayer)
+        );
       });
   }
 

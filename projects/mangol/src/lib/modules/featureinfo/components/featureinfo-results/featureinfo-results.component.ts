@@ -1,6 +1,6 @@
 import { Component, Input, OnDestroy, OnInit } from '@angular/core';
 import { MatDialog, MatSnackBar } from '@angular/material';
-import { Store } from '@ngxs/store';
+import { Store } from '@ngrx/store';
 import Feature from 'ol/Feature';
 import VectorLayer from 'ol/layer/Vector';
 import Map from 'ol/Map';
@@ -8,17 +8,11 @@ import { combineLatest, Observable, Subscription } from 'rxjs';
 import { filter, take } from 'rxjs/operators';
 
 import { MangolLayer } from '../../../../classes/Layer';
-import { MangolState } from '../../../../mangol.state';
-import {
-  ResetCursorMode,
-  SetCursorMode,
-  SetCursorVisible
-} from '../../../../store/cursor.state';
-import {
-  FeatureinfoDictionary,
-  SetFeatureinfoResultsItems
-} from '../../../../store/featureinfo.state';
 import { FeatureinfoTableDialogComponent } from '../featureinfo-table-dialog/featureinfo-table-dialog.component';
+import * as CursorActions from './../../../../store/cursor/cursor.actions';
+import * as FeatureinfoActions from './../../../../store/featureinfo/featureinfo.actions';
+import { FeatureinfoDictionary } from './../../../../store/featureinfo/featureinfo.reducers';
+import * as fromMangol from './../../../../store/mangol.reducers';
 import { FeatureinfoService } from './../../featureinfo.service';
 
 @Component({
@@ -27,7 +21,8 @@ import { FeatureinfoService } from './../../featureinfo.service';
   styleUrls: ['./featureinfo-results.component.scss']
 })
 export class FeatureinfoResultsComponent implements OnInit, OnDestroy {
-  @Input() dictionary: FeatureinfoDictionary;
+  @Input()
+  dictionary: FeatureinfoDictionary;
 
   layer$: Observable<MangolLayer>;
   resultsLayer$: Observable<VectorLayer>;
@@ -39,7 +34,7 @@ export class FeatureinfoResultsComponent implements OnInit, OnDestroy {
   clickFunction: any = null;
 
   constructor(
-    private store: Store,
+    private store: Store<fromMangol.MangolState>,
     private featureinfoService: FeatureinfoService,
     public snackBar: MatSnackBar,
     public dialog: MatDialog
@@ -47,36 +42,33 @@ export class FeatureinfoResultsComponent implements OnInit, OnDestroy {
 
   ngOnInit() {
     this.resultsLayer$ = this.store.select(
-      (state: MangolState) => state.featureinfo.resultsLayer
+      state => state.featureinfo.resultsLayer
     );
 
     this.resultsFeatures$ = this.store.select(
-      (state: MangolState) => state.featureinfo.resultsItems
+      state => state.featureinfo.resultsItems
     );
 
-    this.layer$ = this.store.select(
-      (state: MangolState) => state.featureinfo.selectedLayer
-    );
+    this.layer$ = this.store.select(state => state.featureinfo.selectedLayer);
 
-    this.tab$ = this.store.select(
-      (state: MangolState) => state.sidebar.selectedModule
-    );
+    this.tab$ = this.store.select(state => state.sidebar.selectedModule);
 
     this.combinedSubscription = combineLatest(this.tab$, this.layer$).subscribe(
       ([selectedModule, layer]) => {
-        this.store.dispatch(new SetFeatureinfoResultsItems([]));
+        this.store.dispatch(new FeatureinfoActions.SetResultsItems([]));
         if (selectedModule === 'featureinfo') {
           if (layer !== null) {
             this.store
-              .selectOnce((state: MangolState) => state.map.map)
+              .select(state => state.map.map)
+              .pipe(take(1))
               .subscribe(m => {
                 this.store.dispatch(
-                  new SetCursorMode({
+                  new CursorActions.SetMode({
                     text: this.dictionary.clickOnMap,
                     cursor: 'crosshair'
                   })
                 );
-                this.store.dispatch(new SetCursorVisible(true));
+                this.store.dispatch(new CursorActions.SetVisible(true));
                 if (this.clickFunction !== null) {
                   m.un('singleclick', this.clickFunction);
                 }
@@ -101,7 +93,7 @@ export class FeatureinfoResultsComponent implements OnInit, OnDestroy {
         take(1)
       )
       .subscribe(r => {
-        this.store.dispatch(new SetFeatureinfoResultsItems([]));
+        this.store.dispatch(new FeatureinfoActions.SetResultsItems([]));
         r.getSource().clear();
       });
     if (this.combinedSubscription) {
@@ -115,13 +107,14 @@ export class FeatureinfoResultsComponent implements OnInit, OnDestroy {
   private _removeClickFunction() {
     if (this.clickFunction !== null) {
       this.store
-        .selectOnce((state: MangolState) => state.map.map)
+        .select(state => state.map.map)
+        .pipe(take(1))
         .subscribe(m => {
           m.un('singleclick', this.clickFunction);
           this.clickFunction = null;
         });
     }
-    this.store.dispatch(new ResetCursorMode());
+    this.store.dispatch(new CursorActions.ResetMode());
   }
 
   /**
@@ -131,61 +124,71 @@ export class FeatureinfoResultsComponent implements OnInit, OnDestroy {
    * @param m
    */
   private _createClickFunction(evt: any, layer: MangolLayer, m: Map) {
-    const resultsLayer = this.store.selectSnapshot(
-      (state: MangolState) => state.featureinfo.resultsLayer
-    );
-    try {
-      m.removeLayer(resultsLayer);
-    } catch (error) {}
-    resultsLayer.getSource().clear();
-    this.store.dispatch(new SetFeatureinfoResultsItems([]));
-    m.addLayer(resultsLayer);
-    const coords = <[number, number]>evt.coordinate;
-    switch (layer.layer['type']) {
-      case 'TILE':
-        const url = this.featureinfoService.getFeatureinfoUrl(layer, m, coords);
-        this.featureinfoService
-          .getFeatureinfo(
-            url,
-            layer.querySrs,
-            m
-              .getView()
-              .getProjection()
-              .getCode()
-          )
-          .subscribe(
-            features => {
-              this.store.dispatch(new SetFeatureinfoResultsItems(features));
-              this._openSnackBar(features.length);
-            },
-            error => {
-              console.log(error);
-            }
-          );
-        break;
-      case 'VECTOR':
-        const l = <VectorLayer>layer.layer;
-        const vectorFeatures: Feature[] = [];
-        m.forEachFeatureAtPixel(
-          evt.pixel,
-          (feature, lay) => {
-            if (lay === l) {
-              vectorFeatures.push(<Feature>feature);
-            }
-          },
-          { hitTolerance: 5 }
-        );
-        this.store.dispatch(new SetFeatureinfoResultsItems(vectorFeatures));
-        this._openSnackBar(vectorFeatures.length);
-        break;
-      default:
-        alert(
-          `Feature info for layer type '${
-            layer.layer['type']
-          }' is not yet supported`
-        );
-        break;
-    }
+    this.store
+      .select(state => state.featureinfo.resultsLayer)
+      .pipe(take(1))
+      .subscribe(resultsLayer => {
+        try {
+          m.removeLayer(resultsLayer);
+        } catch (error) {}
+        resultsLayer.getSource().clear();
+        this.store.dispatch(new FeatureinfoActions.SetResultsItems([]));
+        m.addLayer(resultsLayer);
+        const coords = <[number, number]>evt.coordinate;
+        switch (layer.layer['type']) {
+          case 'TILE':
+            const url: any = this.featureinfoService.getFeatureinfoUrl(
+              layer,
+              m,
+              coords
+            );
+            this.featureinfoService
+              .getFeatureinfo(
+                <string>url,
+                layer.querySrs,
+                m
+                  .getView()
+                  .getProjection()
+                  .getCode()
+              )
+              .subscribe(
+                features => {
+                  this.store.dispatch(
+                    new FeatureinfoActions.SetResultsItems(features)
+                  );
+                  this._openSnackBar(features.length);
+                },
+                error => {
+                  console.log(error);
+                }
+              );
+            break;
+          case 'VECTOR':
+            const l = <VectorLayer>layer.layer;
+            const vectorFeatures: Feature[] = [];
+            m.forEachFeatureAtPixel(
+              evt.pixel,
+              (feature, lay) => {
+                if (lay === l) {
+                  vectorFeatures.push(<Feature>feature);
+                }
+              },
+              { hitTolerance: 5 }
+            );
+            this.store.dispatch(
+              new FeatureinfoActions.SetResultsItems(vectorFeatures)
+            );
+            this._openSnackBar(vectorFeatures.length);
+            break;
+          default:
+            alert(
+              `Feature info for layer type '${
+                layer.layer['type']
+              }' is not yet supported`
+            );
+            break;
+        }
+      });
   }
 
   /**
@@ -193,16 +196,19 @@ export class FeatureinfoResultsComponent implements OnInit, OnDestroy {
    * @param hits
    */
   private _openSnackBar(hits: number) {
-    this.snackBar.open(
-      `${this.dictionary.numberOfFeaturesFound}: ${hits}`,
-      `${this.dictionary.closeSnackbar}`,
-      {
-        duration: this.store.selectSnapshot(
-          (state: MangolState) => state.featureinfo.snackbarDuration
-        ),
-        panelClass: 'mangol-snackbar'
-      }
-    );
+    this.store
+      .select(state => state.featureinfo.snackbarDuration)
+      .pipe(take(1))
+      .subscribe(snackbarDuration => {
+        this.snackBar.open(
+          `${this.dictionary.numberOfFeaturesFound}: ${hits}`,
+          `${this.dictionary.closeSnackbar}`,
+          {
+            duration: snackbarDuration,
+            panelClass: 'mangol-snackbar'
+          }
+        );
+      });
   }
 
   /**
@@ -210,22 +216,24 @@ export class FeatureinfoResultsComponent implements OnInit, OnDestroy {
    * @param feature
    */
   getExpansionPanelTitle(feature: Feature) {
-    const noPropTitle = this.dictionary.feature;
-    const layer = this.store.selectSnapshot(
-      (state: MangolState) => state.featureinfo.selectedLayer
-    );
-    if (!!layer.queryIdProperty) {
-      const props = feature.getProperties();
-      if (props.hasOwnProperty(layer.queryIdProperty)) {
-        return props[layer.queryIdProperty].toString().length > 0
-          ? props[layer.queryIdProperty]
-          : noPropTitle;
-      } else {
-        return noPropTitle;
-      }
-    } else {
-      return noPropTitle;
-    }
+    this.store
+      .select(state => state.featureinfo.selectedLayer)
+      .pipe(take(1))
+      .subscribe(selectedLayer => {
+        const noPropTitle = this.dictionary.feature;
+        if (!!selectedLayer.queryIdProperty) {
+          const props = feature.getProperties();
+          if (props.hasOwnProperty(selectedLayer.queryIdProperty)) {
+            return props[selectedLayer.queryIdProperty].toString().length > 0
+              ? props[selectedLayer.queryIdProperty]
+              : noPropTitle;
+          } else {
+            return noPropTitle;
+          }
+        } else {
+          return noPropTitle;
+        }
+      });
   }
 
   /**
@@ -275,7 +283,8 @@ export class FeatureinfoResultsComponent implements OnInit, OnDestroy {
    */
   zoomToFeature(feature: Feature) {
     this.store
-      .selectOnce((state: MangolState) => state.map.map)
+      .select(state => state.map.map)
+      .pipe(take(1))
       .subscribe(m => {
         m.getView().fit(feature.getGeometry().getExtent(), {
           duration: 500

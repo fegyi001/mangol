@@ -1,13 +1,12 @@
-import { MangolState } from './../../../../mangol.state';
+import { Component, Input, OnDestroy, OnInit } from '@angular/core';
+import { Store } from '@ngrx/store';
 import { Observable, Subscription } from 'rxjs';
-import { Component, Input, OnInit, OnDestroy } from '@angular/core';
 
 import { LayertreeItemNode } from '../../classes/layertree-item-node.class';
 import { slideStateTrigger } from '../../layertree.animations';
+import { LayertreeDictionary } from './../../../../store/layertree/layertree.reducers';
+import * as fromMangol from './../../../../store/mangol.reducers';
 import { LayerGroupDetailItem } from './../../interfaces/layergroup-detail-item.interface';
-import { MangolLayerGroup } from '../../../../classes/LayerGroup';
-import { LayertreeDictionary } from '../../../../store/layertree.state';
-import { Store } from '@ngxs/store';
 
 @Component({
   selector: 'mangol-layer-group',
@@ -16,8 +15,10 @@ import { Store } from '@ngxs/store';
   animations: [slideStateTrigger]
 })
 export class LayerGroupComponent implements OnInit, OnDestroy {
-  @Input() group: LayertreeItemNode;
-  @Input() level: number;
+  @Input()
+  group: LayertreeItemNode;
+  @Input()
+  level: number;
 
   dictionary$: Observable<LayertreeDictionary>;
   showBadges$: Observable<boolean>;
@@ -26,12 +27,10 @@ export class LayerGroupComponent implements OnInit, OnDestroy {
   detailItems: LayerGroupDetailItem[] = [];
   dictionarySubscription: Subscription;
 
-  constructor(private store: Store) {
-    this.dictionary$ = this.store.select(
-      (state: MangolState) => state.layertree.dictionary
-    );
+  constructor(private store: Store<fromMangol.MangolState>) {
+    this.dictionary$ = this.store.select(state => state.layertree.dictionary);
     this.showBadges$ = this.store.select(
-      (state: MangolState) => state.layertree.showLayergroupBadges
+      state => state.layertree.showLayergroupBadges
     );
   }
 

@@ -1,5 +1,5 @@
 import { Component, HostBinding, OnDestroy, OnInit } from '@angular/core';
-import { Store } from '@ngxs/store';
+import { Store } from '@ngrx/store';
 import { Observable, Subscription } from 'rxjs';
 
 import {
@@ -8,36 +8,24 @@ import {
   MangolConfigMeasureItem
 } from '../../interfaces/config-toolbar.interface';
 import { MangolConfig } from '../../interfaces/config.interface';
-import { SetFeatureinfoDisabled } from '../../store/featureinfo.state';
-import {
-  HasLayertree,
-  SetLayertreeDisabled,
-  SetLayertreeTitle
-} from '../../store/layertree.state';
-import { HasMeasure } from '../../store/measure.state';
-import { SetPrintTitle } from '../../store/print.state';
-import { ToggleSidebar } from '../../store/sidebar.state';
 import { MangolConfigPrintItem } from './../../interfaces/config-toolbar.interface';
-import {
-  HasFeatureinfo,
-  SetFeatureinfoTitle
-} from './../../store/featureinfo.state';
-import {
-  SetMeasureDisabled,
-  SetMeasureTitle
-} from './../../store/measure.state';
-import { HasPrint, SetPrintDisabled } from './../../store/print.state';
-import { SetSidebarSelectedModule } from './../../store/sidebar.state';
-
+import * as FeatureinfoActions from './../../store/featureinfo/featureinfo.actions';
+import * as fromMangol from './../../store/mangol.reducers';
+import * as LayertreeActions from './../../store/layertree/layertree.actions';
+import * as MeasureActions from './../../store/measure/measure.actions';
+import * as PrintActions from './../../store/print/print.actions';
+import * as SidebarActions from './../../store/sidebar/sidebar.actions';
+import { filter } from 'rxjs/operators';
 @Component({
   selector: 'mangol-tabs',
   templateUrl: './tabs.component.html',
   styleUrls: ['./tabs.component.scss']
 })
 export class TabsComponent implements OnInit, OnDestroy {
-  @HostBinding('class') class = 'mangol-tabs';
+  @HostBinding('class')
+  class = 'mangol-tabs';
 
-  title$: Observable<boolean>;
+  title$: Observable<string>;
   /** Layertree */
   hasLayertree$: Observable<boolean>;
   layertreeDisabled$: Observable<boolean>;
@@ -59,7 +47,7 @@ export class TabsComponent implements OnInit, OnDestroy {
 
   items: string[] = [];
 
-  constructor(private store: Store) {
+  constructor(private store: Store<fromMangol.MangolState>) {
     this.title$ = this.store.select(state => state.sidebar.title);
     /** Layertree */
     this.hasLayertree$ = this.store.select(
@@ -87,93 +75,107 @@ export class TabsComponent implements OnInit, OnDestroy {
     this.hasPrint$ = this.store.select(state => state.print.hasPrint);
     this.printTitle$ = this.store.select(state => state.print.title);
     this.printDisabled$ = this.store.select(state => state.print.disabled);
+  }
 
+  ngOnInit() {
     this.configSubscription = this.store
       .select(state => state.config.config)
+      .pipe(filter(config => config !== null))
       .subscribe((config: MangolConfig) => {
         this.items = [];
-
         /** Layertree */
         const hasLayertree =
           typeof config !== 'undefined' &&
+          config !== null &&
           !!config.sidebar &&
           !!config.sidebar.toolbar &&
           !!config.sidebar.toolbar.layertree;
-        this.store.dispatch(new HasLayertree(hasLayertree));
+        this.store.dispatch(new LayertreeActions.HasLayertree(hasLayertree));
         if (hasLayertree) {
           this.items.push('layertree');
           const layertree: MangolConfigLayertreeItem =
             config.sidebar.toolbar.layertree;
           if (layertree.hasOwnProperty('disabled')) {
-            this.store.dispatch(new SetLayertreeDisabled(layertree.disabled));
+            this.store.dispatch(
+              new LayertreeActions.SetDisabled(layertree.disabled)
+            );
           }
           if (layertree.hasOwnProperty('title')) {
-            this.store.dispatch(new SetLayertreeTitle(layertree.title));
+            this.store.dispatch(new LayertreeActions.SetTitle(layertree.title));
           }
         }
         /** Featureinfo */
         const hasFeatureinfo =
           typeof config !== 'undefined' &&
+          config !== null &&
           !!config.sidebar &&
           !!config.sidebar.toolbar &&
           !!config.sidebar.toolbar.featureinfo;
-        this.store.dispatch(new HasFeatureinfo(hasFeatureinfo));
+        this.store.dispatch(
+          new FeatureinfoActions.HasFeatureinfo(hasFeatureinfo)
+        );
         if (hasFeatureinfo) {
           this.items.push('featureinfo');
           const featureinfo: MangolConfigFeatureInfoItem =
             config.sidebar.toolbar.featureinfo;
           if (featureinfo.hasOwnProperty('disabled')) {
             this.store.dispatch(
-              new SetFeatureinfoDisabled(featureinfo.disabled)
+              new FeatureinfoActions.SetDisabled(featureinfo.disabled)
             );
           }
           if (featureinfo.hasOwnProperty('title')) {
-            this.store.dispatch(new SetFeatureinfoTitle(featureinfo.title));
+            this.store.dispatch(
+              new FeatureinfoActions.SetTitle(featureinfo.title)
+            );
           }
         }
         /** Measure */
         const hasMeasure =
           typeof config !== 'undefined' &&
+          config !== null &&
           !!config.sidebar &&
           !!config.sidebar.toolbar &&
           !!config.sidebar.toolbar.measure;
-        this.store.dispatch(new HasMeasure(hasMeasure));
+        this.store.dispatch(new MeasureActions.HasMeasure(hasMeasure));
         if (hasMeasure) {
           this.items.push('measure');
           const measure: MangolConfigMeasureItem =
             config.sidebar.toolbar.measure;
           if (measure.hasOwnProperty('disabled')) {
-            this.store.dispatch(new SetMeasureDisabled(measure.disabled));
+            this.store.dispatch(
+              new MeasureActions.SetDisabled(measure.disabled)
+            );
           }
           if (measure.hasOwnProperty('title')) {
-            this.store.dispatch(new SetMeasureTitle(measure.title));
+            this.store.dispatch(new MeasureActions.SetTitle(measure.title));
           }
         }
         /** Print */
         const hasPrint =
           typeof config !== 'undefined' &&
+          config !== null &&
           !!config.sidebar &&
           !!config.sidebar.toolbar &&
           !!config.sidebar.toolbar.print;
-        this.store.dispatch(new HasPrint(hasPrint));
+        this.store.dispatch(new PrintActions.HasPrint(hasPrint));
         if (hasPrint) {
           this.items.push('print');
           const print: MangolConfigPrintItem = config.sidebar.toolbar.print;
           if (print.hasOwnProperty('disabled')) {
-            this.store.dispatch(new SetPrintDisabled(print.disabled));
+            this.store.dispatch(new PrintActions.SetDisabled(print.disabled));
           }
           if (print.hasOwnProperty('title')) {
-            this.store.dispatch(new SetPrintTitle(print.title));
+            this.store.dispatch(new PrintActions.SetTitle(print.title));
           }
         }
 
         if (this.items.length > 0) {
-          this.store.dispatch(new SetSidebarSelectedModule(this.items[0]));
+          this.store.dispatch(
+            new SidebarActions.SetSelectedModule(this.items[0])
+          );
         }
       });
   }
-
-  ngOnInit() {}
 
   ngOnDestroy() {
     if (this.configSubscription) {
@@ -182,10 +184,10 @@ export class TabsComponent implements OnInit, OnDestroy {
   }
 
   toggleSidebar() {
-    this.store.dispatch(new ToggleSidebar());
+    this.store.dispatch(new SidebarActions.Toggle());
   }
 
   selectTab(tabName: string) {
-    this.store.dispatch(new SetSidebarSelectedModule(tabName));
+    this.store.dispatch(new SidebarActions.SetSelectedModule(tabName));
   }
 }

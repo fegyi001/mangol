@@ -1,10 +1,11 @@
-import { Component, Input, OnInit, OnDestroy } from '@angular/core';
+import { Component, Input, OnDestroy, OnInit } from '@angular/core';
 import { MatSliderChange } from '@angular/material';
+import { Store } from '@ngrx/store';
+import { Subscription } from 'rxjs';
 
 import { MangolLayer } from '../../../../../classes/Layer';
-import { Store } from '@ngxs/store';
 import { MangolConfig } from '../../../../../interfaces/config.interface';
-import { Subscription } from 'rxjs';
+import * as fromMangol from './../../../../../store/mangol.reducers';
 
 @Component({
   selector: 'mangol-transparency',
@@ -12,7 +13,8 @@ import { Subscription } from 'rxjs';
   styleUrls: ['./transparency.component.scss']
 })
 export class TransparencyComponent implements OnInit, OnDestroy {
-  @Input() layer: MangolLayer;
+  @Input()
+  layer: MangolLayer;
 
   min = 0;
   max = 100;
@@ -22,7 +24,7 @@ export class TransparencyComponent implements OnInit, OnDestroy {
 
   configSubscription: Subscription;
 
-  constructor(private store: Store) {
+  constructor(private store: Store<fromMangol.MangolState>) {
     this.configSubscription = this.store
       .select(state => state.config.config)
       .subscribe((config: MangolConfig) => {

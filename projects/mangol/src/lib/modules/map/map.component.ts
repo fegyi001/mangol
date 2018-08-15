@@ -5,20 +5,22 @@ import {
   OnDestroy,
   OnInit
 } from '@angular/core';
-import { Store } from '@ngxs/store';
+import { Store } from '@ngrx/store';
 import Map from 'ol/Map';
 import View from 'ol/View';
 import { Subscription } from 'rxjs';
+import { take } from 'rxjs/operators';
 
 import { MangolLayer } from '../../classes/Layer';
 import { MangolLayerGroup } from '../../classes/LayerGroup';
 import { MangolConfig } from '../../interfaces/config.interface';
-import { MangolState } from '../../mangol.state';
+
 import { MangolConfigMap } from './../../interfaces/config-map.interface';
-import { SetCursorVisible } from './../../store/cursor.state';
-import { AddLayers } from './../../store/layers.state';
-import { AddMap } from './../../store/map.state';
+import * as CursorActions from './../../store/cursor/cursor.actions';
+import * as fromMangol from './../../store/mangol.reducers';
 import { MapService } from './map.service';
+import * as MapActions from './../../store/map/map.actions';
+import * as LayersActions from './../../store/layers/layers.actions';
 
 @Component({
   selector: 'mangol-map',
@@ -42,10 +44,13 @@ export class MapComponent implements OnInit, AfterViewInit, OnDestroy {
 
   /**
    *
-   * @param store Ngxs store
+   * @param store Ngrx store
    * @param mapService
    */
-  constructor(private store: Store, private mapService: MapService) {
+  constructor(
+    private store: Store<fromMangol.MangolState>,
+    private mapService: MapService
+  ) {
     this.defaultMap = this.mapService.getDefaultMap();
   }
 
@@ -80,7 +85,7 @@ export class MapComponent implements OnInit, AfterViewInit, OnDestroy {
         }
         // Create the map
         this.store.dispatch(
-          new AddMap(
+          new MapActions.AddMap(
             new Map({
               target: this.target,
               renderer: this.defaultMap.renderer,
@@ -90,23 +95,26 @@ export class MapComponent implements OnInit, AfterViewInit, OnDestroy {
           )
         );
         // Register the layers
-        this.store.dispatch(new AddLayers(layers));
+        this.store.dispatch(new LayersActions.AddLayers(layers));
       });
 
     // React to layer changes in the store
     this.layersSubscription = this.store
       .select(state => state.layers.layers)
       .subscribe((layers: MangolLayer[]) => {
-        this.store.selectOnce(state => state.map.map).subscribe(map => {
-          // Delete all previously loaded layers in the map
-          map.getLayers().forEach(l => {
-            map.removeLayer(l);
+        this.store
+          .select(state => state.map.map)
+          .pipe(take(1))
+          .subscribe(map => {
+            // Delete all previously loaded layers in the map
+            map.getLayers().forEach(l => {
+              map.removeLayer(l);
+            });
+            // Add all OL layers
+            layers.forEach(l => {
+              map.addLayer(l.layer);
+            });
           });
-          // Add all OL layers
-          layers.forEach(l => {
-            map.addLayer(l.layer);
-          });
-        });
       });
   }
 
@@ -162,18 +170,20 @@ export class MapComponent implements OnInit, AfterViewInit, OnDestroy {
   }
 
   getCursorStyle() {
-    const cursorMode = this.store.selectSnapshot(
-      (state: MangolState) => state.cursor.mode
-    );
-    return {
-      cursor:
-        cursorMode !== null && cursorMode.hasOwnProperty('cursor')
-          ? cursorMode.cursor
-          : 'default'
-    };
+    this.store
+      .select(state => state.cursor.mode)
+      .pipe(take(1))
+      .subscribe(cursorMode => {
+        return {
+          cursor:
+            cursorMode !== null && cursorMode.hasOwnProperty('cursor')
+              ? cursorMode.cursor
+              : 'default'
+        };
+      });
   }
 
   onEnterOrLeaveMap(entered: boolean) {
-    this.store.dispatch(new SetCursorVisible(entered));
+    this.store.dispatch(new CursorActions.SetVisible(entered));
   }
 }

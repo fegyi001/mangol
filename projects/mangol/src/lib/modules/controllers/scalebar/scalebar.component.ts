@@ -1,10 +1,10 @@
+import { filter, take } from 'rxjs/operators';
 import { AfterViewInit, Component, OnDestroy, OnInit } from '@angular/core';
-import { Store } from '@ngxs/store';
+import { Store } from '@ngrx/store';
+import * as fromMangol from './../../../store/mangol.reducers';
 import ScaleLine from 'ol/control/ScaleLine';
 import Map from 'ol/Map';
 import { Subscription } from 'rxjs';
-
-import { MangolState } from '../../../mangol.state';
 
 @Component({
   selector: 'mangol-scalebar',
@@ -18,11 +18,19 @@ export class ScalebarComponent implements OnInit, AfterViewInit, OnDestroy {
 
   mapSubscription: Subscription;
 
-  constructor(private store: Store) {}
+  constructor(private store: Store<fromMangol.MangolState>) {}
 
   ngOnInit() {
-    this.map = this.store.selectSnapshot((state: MangolState) => state.map.map);
-    this.target = `${this.map.getTarget()}-scale-line`;
+    this.store
+      .select(state => state.map.map)
+      .pipe(
+        filter(m => m !== null),
+        take(1)
+      )
+      .subscribe(m => {
+        this.map = m;
+        this.target = `${this.map.getTarget()}-scale-line`;
+      });
   }
 
   ngAfterViewInit() {

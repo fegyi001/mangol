@@ -5,11 +5,7 @@ import {
   MatSort,
   MatTableDataSource
 } from '@angular/material';
-import Feature from 'ol/Feature';
 import { saveAs } from 'file-saver/FileSaver';
-
-import { MangolLayer } from './../../../../classes/Layer';
-import { FeatureinfoDictionary } from '../../../../store/featureinfo.state';
 
 @Component({
   selector: 'mangol-featureinfo-table-dialog',

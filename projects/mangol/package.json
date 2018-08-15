@@ -6,27 +6,28 @@
         "compodoc": "./node_modules/.bin/compodoc -p tsconfig.lib.json -d ./doc --theme material"
     },
     "peerDependencies": {
-        "@angular/core": "^6.1.2",
-        "@angular/common": "^6.1.2"
+        "@angular/common": "^6.1.2",
+        "@angular/core": "^6.1.2"
     },
     "dependencies": {
         "@angular/animations": "^6.1.2",
         "@angular/cdk": "^6.4.3",
         "@angular/material": "^6.4.3",
+        "@ngrx/effects": "^6.1.0",
+        "@ngrx/store": "^6.1.0",
         "@types/geojson": "^7946.0.4",
         "@types/jspdf": "^1.1.31",
         "@types/ol": "^4.6.2",
         "file-saver": "^1.3.8",
         "hammerjs": "^2.0.8",
-        "immer": "^1.3.1",
+        "immer": "^1.5.0",
         "jspdf": "^1.4.1",
+        "ngrx-store-logger": "^0.2.2",
         "ol": "^5.1.3",
         "proj4": "^2.4.4"
     },
     "devDependencies": {
         "@compodoc/compodoc": "^1.1.3",
-        "@ngxs/logger-plugin": "^3.2.0",
-        "@ngxs/store": "^3.2.0",
         "@types/file-saver": "^1.3.0"
     }
 }

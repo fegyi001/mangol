@@ -1,13 +1,13 @@
 import { Component, OnDestroy, OnInit } from '@angular/core';
-import { Store } from '@ngxs/store';
+import { Store } from '@ngrx/store';
 import View from 'ol/View';
 import { Observable, Subscription } from 'rxjs';
-import { filter } from 'rxjs/operators';
+import { filter, take } from 'rxjs/operators';
 
-import { MangolState } from '../../../mangol.state';
-import { ControllersSetRotationValue } from '../../../store/controllers.state';
 import { shownStateTrigger } from '../controllers.animations';
-import { MangolControllersRotationStateModel } from './../../../store/controllers.state';
+import * as ControllersActions from './../../../store/controllers/controllers.actions';
+import { MangolControllersRotationStateModel } from './../../../store/controllers/controllers.reducers';
+import * as fromMangol from './../../../store/mangol.reducers';
 
 @Component({
   selector: 'mangol-rotation-button',
@@ -22,18 +22,16 @@ export class RotationButtonComponent implements OnInit, OnDestroy {
 
   mapSubscription: Subscription;
 
-  constructor(private store: Store) {
-    this.rotation$ = this.store.select(
-      (state: MangolState) => state.controllers.rotation
-    );
+  constructor(private store: Store<fromMangol.MangolState>) {
+    this.rotation$ = this.store.select(state => state.controllers.rotation);
 
     this.mapSubscription = this.store
-      .select((state: MangolState) => state.map.map)
+      .select(state => state.map.map)
       .pipe(filter(m => m !== null))
       .subscribe(m => {
         const view = m.getView();
         this.store.dispatch(
-          new ControllersSetRotationValue(view.getRotation())
+          new ControllersActions.SetRotationValue(view.getRotation())
         );
         if (this.rotationFunction !== null) {
           view.un('change:rotation', this.rotationFunction);
@@ -50,8 +48,11 @@ export class RotationButtonComponent implements OnInit, OnDestroy {
       this.mapSubscription.unsubscribe();
     }
     this.store
-      .selectOnce((state: MangolState) => state.map.map)
-      .pipe(filter(m => m !== null))
+      .select(state => state.map.map)
+      .pipe(
+        filter(m => m !== null),
+        take(1)
+      )
       .subscribe(m => {
         m.getView().un('change:rotation', this.rotationFunction);
       });
@@ -59,8 +60,11 @@ export class RotationButtonComponent implements OnInit, OnDestroy {
 
   rotateNorth() {
     this.store
-      .selectOnce((state: MangolState) => state.map.map)
-      .pipe(filter(m => m !== null))
+      .select(state => state.map.map)
+      .pipe(
+        filter(m => m !== null),
+        take(1)
+      )
       .subscribe(m => {
         const view = m.getView();
         if (view.getRotation() !== 0) {
@@ -79,7 +83,7 @@ export class RotationButtonComponent implements OnInit, OnDestroy {
   private _createRotationFunction(evt) {
     const targetView = <View>evt.target;
     this.store.dispatch(
-      new ControllersSetRotationValue(targetView.getRotation())
+      new ControllersActions.SetRotationValue(targetView.getRotation())
     );
   }
 }

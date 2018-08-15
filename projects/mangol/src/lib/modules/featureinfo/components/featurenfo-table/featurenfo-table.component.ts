@@ -1,8 +1,9 @@
 import { Component, Input, OnInit } from '@angular/core';
-import { Store } from '@ngxs/store';
+import { Store } from '@ngrx/store';
 import Feature from 'ol/Feature';
+import { take } from 'rxjs/operators';
 
-import { MangolState } from '../../../../mangol.state';
+import * as fromMangol from './../../../../store/mangol.reducers';
 
 @Component({
   selector: 'mangol-featurenfo-table',
@@ -16,11 +17,12 @@ export class FeaturenfoTableComponent implements OnInit {
   dataSource: any[] = [];
   columns: string[] = ['property', 'value'];
 
-  constructor(private store: Store) {}
+  constructor(private store: Store<fromMangol.MangolState>) {}
 
   ngOnInit() {
     this.store
-      .selectOnce((state: MangolState) => state.featureinfo.selectedLayer)
+      .select(state => state.featureinfo.selectedLayer)
+      .pipe(take(1))
       .subscribe(layer => {
         const hasQueryColumns =
           !!layer.queryColumns && layer.queryColumns.length > 0;

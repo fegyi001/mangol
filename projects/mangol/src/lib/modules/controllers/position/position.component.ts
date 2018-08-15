@@ -1,13 +1,13 @@
-import { take, map } from 'rxjs/operators';
 import { Component, OnDestroy, OnInit } from '@angular/core';
-import { Store } from '@ngxs/store';
-import { Observable, Subscription } from 'rxjs';
-
-import { MangolState } from '../../../mangol.state';
-import { ControllersSetPositionCoordinates } from '../../../store/controllers.state';
-import { shownStateTrigger } from '../controllers.animations';
-import { MangolControllersPositionStateModel } from './../../../store/controllers.state';
 import { MatSnackBar } from '@angular/material';
+import { Store } from '@ngrx/store';
+import { Subscription } from 'rxjs';
+import { filter, take } from 'rxjs/operators';
+
+import { shownStateTrigger } from '../controllers.animations';
+import * as ControllersActions from './../../../store/controllers/controllers.actions';
+import { MangolControllersPositionStateModel } from './../../../store/controllers/controllers.reducers';
+import * as fromMangol from './../../../store/mangol.reducers';
 
 @Component({
   selector: 'mangol-position',
@@ -16,7 +16,7 @@ import { MatSnackBar } from '@angular/material';
   animations: [shownStateTrigger]
 })
 export class PositionComponent implements OnInit, OnDestroy {
-  position$: Observable<MangolControllersPositionStateModel>;
+  position: MangolControllersPositionStateModel = null;
 
   pointerMoveFunction: any = null;
   mapSubscription: Subscription;
@@ -24,15 +24,20 @@ export class PositionComponent implements OnInit, OnDestroy {
   showCopyIcon = false;
   copyIconId = 'mangol-mouse-position-text';
 
-  constructor(private store: Store, public snackBar: MatSnackBar) {
-    this.position$ = this.store.select(
-      (state: MangolState) => state.controllers.position
-    );
+  positionSubscription: Subscription;
+
+  constructor(
+    private store: Store<fromMangol.MangolState>,
+    public snackBar: MatSnackBar
+  ) {
+    this.positionSubscription = this.store
+      .select(state => state.controllers.position)
+      .subscribe(position => (this.position = position));
   }
 
   ngOnInit() {
     this.mapSubscription = this.store
-      .select((state: MangolState) => state.map.map)
+      .select(state => state.map.map)
       .subscribe(m => {
         if (m !== null) {
           if (this.pointerMoveFunction !== null) {
@@ -49,10 +54,19 @@ export class PositionComponent implements OnInit, OnDestroy {
     if (this.mapSubscription) {
       this.mapSubscription.unsubscribe();
     }
+    if (this.positionSubscription) {
+      this.positionSubscription.unsubscribe();
+    }
     if (this.pointerMoveFunction !== null) {
       this.store
-        .selectSnapshot((state: MangolState) => state.map.map)
-        .un('pointermove', this.pointerMoveFunction);
+        .select(state => state.map.map)
+        .pipe(
+          filter(m => m !== null),
+          take(1)
+        )
+        .subscribe(m => {
+          m.un('pointermove', this.pointerMoveFunction);
+        });
     }
   }
 
@@ -65,7 +79,9 @@ export class PositionComponent implements OnInit, OnDestroy {
       return;
     } else {
       const coords = <[number, number]>this._formatCoordinates(evt.coordinate);
-      this.store.dispatch(new ControllersSetPositionCoordinates(coords));
+      this.store.dispatch(
+        new ControllersActions.SetPositionCoordinates(coords)
+      );
     }
   }
 
@@ -76,11 +92,7 @@ export class PositionComponent implements OnInit, OnDestroy {
   private _formatCoordinates(coords: any[]): number[] {
     const formattedCoords: number[] = [];
     coords.forEach((coord: any) => {
-      coord = parseFloat(coord).toFixed(
-        this.store.selectSnapshot(
-          (state: MangolState) => state.controllers.position.precision
-        )
-      );
+      coord = parseFloat(coord).toFixed(this.position.precision);
       formattedCoords.push(coord);
     });
     return formattedCoords;
@@ -94,20 +106,13 @@ export class PositionComponent implements OnInit, OnDestroy {
     window.getSelection().addRange(range);
     document.execCommand('copy');
     window.getSelection().removeAllRanges();
-    this.position$
-      .pipe(
-        map(position => position.dictionary),
-        take(1)
-      )
-      .subscribe(dictionary => {
-        this.snackBar.open(
-          `${dictionary.textCopied}: ${element.textContent.trim()}`,
-          dictionary.closeSnackbar,
-          {
-            duration: 2000,
-            panelClass: 'mangol-snackbar'
-          }
-        );
-      });
+    this.snackBar.open(
+      `${this.position.dictionary.textCopied}: ${element.textContent.trim()}`,
+      this.position.dictionary.closeSnackbar,
+      {
+        duration: 2000,
+        panelClass: 'mangol-snackbar'
+      }
+    );
   }
 }
