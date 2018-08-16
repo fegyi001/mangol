@@ -1,7 +1,5 @@
-import produce from 'immer';
-
 import { MangolLayer } from './../../classes/Layer';
-import { LayersActions, LayersActionTypes } from './layers.actions';
+import * as LayersActions from './layers.actions';
 
 export interface State {
   layers: MangolLayer[];
@@ -11,10 +9,14 @@ const initialState: State = {
   layers: []
 };
 
-export const layersReducer = produce<State, LayersActions>((draft, action) => {
+export function layersReducer(
+  state = initialState,
+  action: LayersActions.LayersActions
+) {
   switch (action.type) {
-    case LayersActionTypes.AddLayers:
-      draft.layers = action.payload;
-      break;
+    case LayersActions.ADD_LAYERS:
+      return { ...state, layers: action.payload };
+    default:
+      return state;
   }
-}, initialState);
+}

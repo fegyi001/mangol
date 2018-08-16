@@ -70,11 +70,15 @@ export class FeatureinfoTableDialogComponent implements OnInit {
     const blob = new Blob([csvContent], {
       type: 'text-csv;charset=utf-8;'
     });
-    saveAs(
-      blob,
-      `${this.data.layer.name
-        .toLowerCase()
-        .replace(/ /g, '_')}_${new Date().getTime()}.csv`
-    );
+    try {
+      saveAs(
+        blob,
+        `${this.data.layer.name
+          .toLowerCase()
+          .replace(/ /g, '_')}_${new Date().getTime()}.csv`
+      );
+    } catch (error) {
+      console.log(error);
+    }
   }
 }

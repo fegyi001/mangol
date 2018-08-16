@@ -1,7 +1,6 @@
-import produce from 'immer';
-
 import Map from 'ol/Map';
-import { MapActions, MapActionTypes } from './map.actions';
+
+import * as MapActions from './map.actions';
 
 export interface State {
   map: Map;
@@ -11,10 +10,14 @@ const initialState: State = {
   map: null
 };
 
-export const mapReducer = produce<State, MapActions>((draft, action) => {
+export function mapReducer(
+  state = initialState,
+  action: MapActions.MapActions
+) {
   switch (action.type) {
-    case MapActionTypes.AddMap:
-      draft.map = action.payload;
-      break;
+    case MapActions.ADD_MAP:
+      return { ...state, map: action.payload };
+    default:
+      return state;
   }
-}, initialState);
+}

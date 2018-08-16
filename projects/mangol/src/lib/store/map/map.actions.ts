@@ -1,12 +1,10 @@
 import { Action } from '@ngrx/store';
 import Map from 'ol/Map';
 
-export enum MapActionTypes {
-  AddMap = '[Map] Add Map'
-}
+export const ADD_MAP = '[Map] Add Map';
 
 export class AddMap implements Action {
-  readonly type = MapActionTypes.AddMap;
+  readonly type = ADD_MAP;
   constructor(public payload: Map) {}
 }
 

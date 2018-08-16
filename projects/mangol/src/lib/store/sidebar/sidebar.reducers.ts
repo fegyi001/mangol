@@ -1,6 +1,4 @@
-import produce from 'immer';
-
-import { SidebarActions, SidebarActionTypes } from './sidebar.actions';
+import * as SidebarActions from './sidebar.actions';
 
 export interface State {
   hasSidebar: boolean;
@@ -20,31 +18,26 @@ const initialState: State = {
   selectedModule: null
 };
 
-export const sidebarReducer = produce<State, SidebarActions>(
-  (draft, action) => {
-    switch (action.type) {
-      case SidebarActionTypes.Toggle:
-        draft.opened = !draft.opened;
-        break;
-      case SidebarActionTypes.SetHasSidebar:
-        draft.hasSidebar = action.payload;
-        break;
-      case SidebarActionTypes.SetMode:
-        draft.mode = action.payload;
-        break;
-      case SidebarActionTypes.SetCollapsible:
-        draft.collapsible = action.payload;
-        break;
-      case SidebarActionTypes.SetOpened:
-        draft.opened = action.payload;
-        break;
-      case SidebarActionTypes.SetTitle:
-        draft.title = action.payload;
-        break;
-      case SidebarActionTypes.SetSelectedModule:
-        draft.selectedModule = action.payload;
-        break;
-    }
-  },
-  initialState
-);
+export function sidebarReducer(
+  state = initialState,
+  action: SidebarActions.SidebarActions
+) {
+  switch (action.type) {
+    case SidebarActions.TOGGLE:
+      return { ...state, opened: !state.opened };
+    case SidebarActions.SET_HAS_SIDEBAR:
+      return { ...state, hasSidebar: action.payload };
+    case SidebarActions.SET_MODE:
+      return { ...state, mode: action.payload };
+    case SidebarActions.SET_COLLAPSIBLE:
+      return { ...state, collapsible: action.payload };
+    case SidebarActions.SET_OPENED:
+      return { ...state, opened: action.payload };
+    case SidebarActions.SET_TITLE:
+      return { ...state, title: action.payload };
+    case SidebarActions.SET_SELECTED_MODULE:
+      return { ...state, selectedModule: action.payload };
+    default:
+      return state;
+  }
+}

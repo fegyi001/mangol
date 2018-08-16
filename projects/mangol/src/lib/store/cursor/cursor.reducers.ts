@@ -1,8 +1,7 @@
-import produce from 'immer';
 import VectorLayer from 'ol/layer/Vector';
 
 import { CursorMode } from './../../interfaces/cursor-mode';
-import { CursorActions, CursorActionTypes } from './cursor.actions';
+import * as CursorActions from './cursor.actions';
 
 export interface State {
   mode: CursorMode;
@@ -16,19 +15,20 @@ const initialState: State = {
   layer: null
 };
 
-export const cursorReducer = produce<State, CursorActions>((draft, action) => {
+export function cursorReducer(
+  state = initialState,
+  action: CursorActions.CursorActions
+) {
   switch (action.type) {
-    case CursorActionTypes.SetMode:
-      draft.mode = action.payload;
-      break;
-    case CursorActionTypes.ResetMode:
-      draft.mode = { text: null, cursor: 'default' } as CursorMode;
-      break;
-    case CursorActionTypes.SetVisible:
-      draft.visible = action.payload;
-      break;
-    case CursorActionTypes.SetLayer:
-      draft.layer = action.payload;
-      break;
+    case CursorActions.SET_MODE:
+      return { ...state, mode: action.payload };
+    case CursorActions.RESET_MODE:
+      return { ...state, mode: initialState.mode };
+    case CursorActions.SET_VISIBLE:
+      return { ...state, visible: action.payload };
+    case CursorActions.SET_LAYER:
+      return { ...state, layer: action.payload };
+    default:
+      return state;
   }
-}, initialState);
+}

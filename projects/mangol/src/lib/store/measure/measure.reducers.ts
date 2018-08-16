@@ -1,6 +1,4 @@
-import produce from 'immer';
-
-import { MeasureActions, MeasureActionTypes } from './measure.actions';
+import * as MeasureActions from './measure.actions';
 
 export interface State {
   hasMeasure: boolean;
@@ -14,19 +12,18 @@ const initialState: State = {
   title: 'Measure'
 };
 
-export const measureReducer = produce<State, MeasureActions>(
-  (draft, action) => {
-    switch (action.type) {
-      case MeasureActionTypes.HasMeasure:
-        draft.hasMeasure = action.payload;
-        break;
-      case MeasureActionTypes.SetDisabled:
-        draft.disabled = action.payload;
-        break;
-      case MeasureActionTypes.SetTitle:
-        draft.title = action.payload;
-        break;
-    }
-  },
-  initialState
-);
+export function measureReducer(
+  state = initialState,
+  action: MeasureActions.MeasureActions
+) {
+  switch (action.type) {
+    case MeasureActions.HAS_MEASURE:
+      return { ...state, hasMeasure: action.payload };
+    case MeasureActions.SET_DISABLED:
+      return { ...state, disabled: action.payload };
+    case MeasureActions.SET_TITLE:
+      return { ...state, title: action.payload };
+    default:
+      return state;
+  }
+}

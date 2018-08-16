@@ -1,6 +1,4 @@
-import produce from 'immer';
-
-import { LayertreeActions, LayertreeActionTypes } from './layertree.actions';
+import * as LayertreeActions from './layertree.actions';
 
 export interface LayertreeDictionary {
   groups?: string;
@@ -38,25 +36,22 @@ const initialState: State = {
   }
 };
 
-export const layertreeReducer = produce<State, LayertreeActions>(
-  (draft, action) => {
-    switch (action.type) {
-      case LayertreeActionTypes.HasLayertree:
-        draft.hasLayertree = action.payload;
-        break;
-      case LayertreeActionTypes.SetDisabled:
-        draft.disabled = action.payload;
-        break;
-      case LayertreeActionTypes.SetTitle:
-        draft.title = action.payload;
-        break;
-      case LayertreeActionTypes.SetDictionary:
-        draft.dictionary = action.payload;
-        break;
-      case LayertreeActionTypes.ShowLayergroupBadges:
-        draft.showLayergroupBadges = action.payload;
-        break;
-    }
-  },
-  initialState
-);
+export function layertreeReducer(
+  state = initialState,
+  action: LayertreeActions.LayertreeActions
+) {
+  switch (action.type) {
+    case LayertreeActions.HAS_LAYERTREE:
+      return { ...state, hasLayertree: action.payload };
+    case LayertreeActions.SET_DISABLED:
+      return { ...state, disabled: action.payload };
+    case LayertreeActions.SET_TITLE:
+      return { ...state, title: action.payload };
+    case LayertreeActions.SET_DICTIONARY:
+      return { ...state, dictionary: action.payload };
+    case LayertreeActions.SHOW_LAYERGROUP_BADGES:
+      return { ...state, showLayergroupBadges: action.payload };
+    default:
+      return state;
+  }
+}

@@ -159,7 +159,7 @@ export class FeatureinfoResultsComponent implements OnInit, OnDestroy {
                   this._openSnackBar(features.length);
                 },
                 error => {
-                  console.log(error);
+                  // console.log(error);
                 }
               );
             break;

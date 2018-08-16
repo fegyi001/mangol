@@ -33,8 +33,6 @@ export class MangolComponent implements OnInit {
   }
 
   ngOnInit() {
-    console.log('itt a config');
-    console.log(this.config);
     this.store.dispatch(new ConfigActions.SetConfig(this.config));
     if (typeof this.config !== 'undefined' && this.config !== null) {
       // register the config in the Store

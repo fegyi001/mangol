@@ -6,7 +6,7 @@ import Feature from 'ol/Feature';
 import GeoJSON from 'ol/format/GeoJSON';
 import Map from 'ol/Map';
 import TileWMS from 'ol/source/TileWMS';
-import { Observable } from 'rxjs';
+import { Observable, throwError } from 'rxjs';
 import { catchError, map, take } from 'rxjs/operators';
 
 import { MangolLayer } from './../../classes/Layer';
@@ -83,7 +83,7 @@ export class FeatureinfoService {
           return format.readFeatures(featureCollection);
         }),
         catchError(error => {
-          return Observable.throw(error);
+          return throwError(error);
         })
       );
   }

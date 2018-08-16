@@ -1,6 +1,4 @@
-import produce from 'immer';
-
-import { PrintActions, PrintActionTypes } from './print.actions';
+import * as PrintActions from './print.actions';
 
 export interface State {
   hasPrint: boolean;
@@ -14,16 +12,18 @@ const initialState: State = {
   title: 'Print'
 };
 
-export const printReducer = produce<State, PrintActions>((draft, action) => {
+export function printReducer(
+  state = initialState,
+  action: PrintActions.PrintActions
+) {
   switch (action.type) {
-    case PrintActionTypes.HasPrint:
-      draft.hasPrint = action.payload;
-      break;
-    case PrintActionTypes.SetDisabled:
-      draft.disabled = action.payload;
-      break;
-    case PrintActionTypes.SetTitle:
-      draft.title = action.payload;
-      break;
+    case PrintActions.HAS_PRINT:
+      return { ...state, hasPrint: action.payload };
+    case PrintActions.SET_DISABLED:
+      return { ...state, disabled: action.payload };
+    case PrintActions.SET_TITLE:
+      return { ...state, title: action.payload };
+    default:
+      return state;
   }
-}, initialState);
+}

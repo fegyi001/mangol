@@ -1,12 +1,8 @@
-import produce from 'immer';
 import Feature from 'ol/Feature';
 import VectorLayer from 'ol/layer/Vector';
 
 import { MangolLayer } from './../../classes/Layer';
-import {
-  FeatureinfoActions,
-  FeatureinfoActionTypes
-} from './featureinfo.actions';
+import * as FeatureinfoActions from './featureinfo.actions';
 
 export interface FeatureinfoDictionary {
   clearSelection?: string;
@@ -60,40 +56,32 @@ const initialState: State = {
   }
 };
 
-export const featureinfoReducer = produce<State, FeatureinfoActions>(
-  (draft, action) => {
-    switch (action.type) {
-      case FeatureinfoActionTypes.HasFeatureinfo:
-        draft.hasFeatureinfo = action.payload;
-        break;
-      case FeatureinfoActionTypes.SetDisabled:
-        draft.disabled = action.payload;
-        break;
-      case FeatureinfoActionTypes.SetTitle:
-        draft.title = action.payload;
-        break;
-      case FeatureinfoActionTypes.SetMaxFeatures:
-        draft.maxFeatures = action.payload;
-        break;
-      case FeatureinfoActionTypes.SetLayers:
-        draft.layers = action.payload;
-        break;
-      case FeatureinfoActionTypes.SetSelectedLayer:
-        draft.selectedLayer = action.payload;
-        break;
-      case FeatureinfoActionTypes.SetResultsLayer:
-        draft.resultsLayer = action.payload;
-        break;
-      case FeatureinfoActionTypes.SetResultsItems:
-        draft.resultsItems = action.payload;
-        break;
-      case FeatureinfoActionTypes.SetDictionary:
-        draft.dictionary = action.payload;
-        break;
-      case FeatureinfoActionTypes.SetHoverColor:
-        draft.hoverColor = action.payload;
-        break;
-    }
-  },
-  initialState
-);
+export function featureinfoReducer(
+  state = initialState,
+  action: FeatureinfoActions.FeatureinfoActions
+) {
+  switch (action.type) {
+    case FeatureinfoActions.HAS_FEATUREINFO:
+      return { ...state, hasFeatureinfo: action.payload };
+    case FeatureinfoActions.SET_DISABLED:
+      return { ...state, disabled: action.payload };
+    case FeatureinfoActions.SET_TITLE:
+      return { ...state, title: action.payload };
+    case FeatureinfoActions.SET_MAX_FEATURES:
+      return { ...state, maxFeatures: action.payload };
+    case FeatureinfoActions.SET_LAYERS:
+      return { ...state, layers: action.payload };
+    case FeatureinfoActions.SET_SELECTED_LAYER:
+      return { ...state, selectedLayer: action.payload };
+    case FeatureinfoActions.SET_RESULTS_LAYER:
+      return { ...state, resultsLayer: action.payload };
+    case FeatureinfoActions.SET_RESULTS_ITEMS:
+      return { ...state, resultsItems: action.payload };
+    case FeatureinfoActions.SET_DICTIONARY:
+      return { ...state, dictionary: action.payload };
+    case FeatureinfoActions.SET_HOVER_COLOR:
+      return { ...state, hoverColor: action.payload };
+    default:
+      return state;
+  }
+}

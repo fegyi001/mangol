@@ -1,15 +1,10 @@
-import produce from 'immer';
-
 import {
   MangolControllersPositionOptions,
   MangolControllersRotationOptions,
   MangolControllersScalebarOptions,
   MangolControllersZoomOptions
 } from './../../interfaces/config-map-controllers.interface';
-import {
-  ControllersActions,
-  ControllersActionTypes
-} from './controllers.actions';
+import * as ControllersActions from './controllers.actions';
 
 export interface MangolControllersPositionStateModel
   extends MangolControllersPositionOptions {
@@ -63,49 +58,68 @@ const initialState: State = {
   }
 };
 
-export const controllersReducer = produce<State, ControllersActions>(
-  (draft, action) => {
-    switch (action.type) {
-      case ControllersActionTypes.Reset:
-        draft = initialState;
-        break;
-      case ControllersActionTypes.SetShowZoom:
-        draft.zoom.show = action.payload;
-        break;
-      case ControllersActionTypes.SetZoomDictionary:
-        draft.zoom.dictionary = action.payload;
-        break;
-      case ControllersActionTypes.SetShowTooltip:
-        draft.zoom.showTooltip = action.payload;
-        break;
-      case ControllersActionTypes.SetScalebar:
-        draft.scalebar = action.payload;
-        break;
-      case ControllersActionTypes.SetShowPosition:
-        draft.position.show = action.payload;
-        break;
-      case ControllersActionTypes.SetPositionPrecision:
-        draft.position.precision = action.payload;
-        break;
-      case ControllersActionTypes.SetPositionCoordinates:
-        draft.position.coordinates = action.payload;
-        break;
-      case ControllersActionTypes.SetPositionDictionary:
-        draft.position.dictionary = action.payload;
-        break;
-      case ControllersActionTypes.SetShowRotation:
-        draft.rotation.show = action.payload;
-        break;
-      case ControllersActionTypes.SetRotationDictionary:
-        draft.rotation.dictionary = action.payload;
-        break;
-      case ControllersActionTypes.SetShowRotationTooltip:
-        draft.rotation.showTooltip = action.payload;
-        break;
-      case ControllersActionTypes.SetRotationValue:
-        draft.rotation.rotation = action.payload;
-        break;
-    }
-  },
-  initialState
-);
+export function controllersReducer(
+  state = initialState,
+  action: ControllersActions.ControllersActions
+) {
+  switch (action.type) {
+    case ControllersActions.RESET:
+      return {
+        ...state,
+        zoom: initialState.zoom,
+        scalebar: initialState.scalebar,
+        position: initialState.position,
+        rotation: initialState.rotation
+      };
+    case ControllersActions.SET_SHOW_ZOOM:
+      return { ...state, zoom: { ...state.zoom, show: action.payload } };
+    case ControllersActions.SET_ZOOM_DICTIONARY:
+      return { ...state, zoom: { ...state.zoom, dictionary: action.payload } };
+    case ControllersActions.SET_SHOW_TOOLTIP:
+      return { ...state, zoom: { ...state.zoom, showTooltip: action.payload } };
+    case ControllersActions.SET_SCALEBAR:
+      return { ...state, scalebar: action.payload };
+    case ControllersActions.SET_SHOW_POSITION:
+      return {
+        ...state,
+        position: { ...state.position, show: action.payload }
+      };
+    case ControllersActions.SET_POSITION_PRECISION:
+      return {
+        ...state,
+        position: { ...state.position, precision: action.payload }
+      };
+    case ControllersActions.SET_POSITION_COORDINATES:
+      return {
+        ...state,
+        position: { ...state.position, coordinates: action.payload }
+      };
+    case ControllersActions.SET_POSITION_DICTIONARY:
+      return {
+        ...state,
+        position: { ...state.position, dictionary: action.payload }
+      };
+    case ControllersActions.SET_SHOW_ROTATION:
+      return {
+        ...state,
+        rotation: { ...state.rotation, show: action.payload }
+      };
+    case ControllersActions.SET_ROTATION_DICTIONARY:
+      return {
+        ...state,
+        rotation: { ...state.rotation, dictionary: action.payload }
+      };
+    case ControllersActions.SET_SHOW_ROTATION_TOOLTIP:
+      return {
+        ...state,
+        rotation: { ...state.rotation, showTooltip: action.payload }
+      };
+    case ControllersActions.SET_ROTATION_VALUE:
+      return {
+        ...state,
+        rotation: { ...state.rotation, rotation: action.payload }
+      };
+    default:
+      return state;
+  }
+}
