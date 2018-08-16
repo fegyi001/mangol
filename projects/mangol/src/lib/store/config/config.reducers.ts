@@ -1,7 +1,5 @@
-import produce from 'immer';
-
 import { MangolConfig } from '../../interfaces/config.interface';
-import { ConfigActions, ConfigActionTypes } from './config.actions';
+import * as ConfigActions from './config.actions';
 
 export interface State {
   config: MangolConfig;
@@ -11,10 +9,14 @@ const initialState: State = {
   config: null
 };
 
-export const configReducer = produce<State, ConfigActions>((draft, action) => {
+export function configReducer(
+  state = initialState,
+  action: ConfigActions.ConfigActions
+) {
   switch (action.type) {
-    case ConfigActionTypes.SetConfig:
-      draft.config = action.payload;
-      break;
+    case ConfigActions.SET_CONFIG:
+      return { ...state, config: action.payload };
+    default:
+      return state;
   }
-}, initialState);
+}
