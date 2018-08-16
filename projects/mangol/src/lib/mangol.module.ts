@@ -25,7 +25,7 @@ export function logger(reducer: ActionReducer<MangolState, Action>): any {
   })(reducer);
 }
 
-export const metaReducers = [logger];
+export const metaReducers = [];
 
 @NgModule({
   imports: [
