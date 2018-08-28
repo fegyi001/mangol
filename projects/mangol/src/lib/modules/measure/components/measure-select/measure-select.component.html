@@ -1,0 +1,16 @@
+<mat-select [placeholder]="dictionary.chooseMode"
+    [value]="selectedMode$ | async"
+    (selectionChange)="onSelectionChanged($event)"
+    class="mat-elevation-z1">
+    <mat-option [disabled]="(selectedMode$ | async) === null">
+        <mat-icon>clear</mat-icon>
+        <span>{{dictionary.clearSelection}}</span>
+    </mat-option>
+    <mat-divider></mat-divider>
+    <mat-option *ngFor="let mode of (modes$ | async)"
+        [value]="mode">
+        <mat-icon [fontSet]="mode.fontSet"
+            [fontIcon]="mode.fontIcon"></mat-icon>
+        <span>{{dictionary[mode.type]}}</span>
+    </mat-option>
+</mat-select>

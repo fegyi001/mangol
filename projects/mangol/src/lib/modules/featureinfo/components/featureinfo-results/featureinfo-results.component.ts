@@ -5,7 +5,7 @@ import Feature from 'ol/Feature';
 import VectorLayer from 'ol/layer/Vector';
 import Map from 'ol/Map';
 import { combineLatest, Observable, Subscription } from 'rxjs';
-import { filter, take } from 'rxjs/operators';
+import { filter, take, map } from 'rxjs/operators';
 
 import { MangolLayer } from '../../../../classes/Layer';
 import { FeatureinfoTableDialogComponent } from '../featureinfo-table-dialog/featureinfo-table-dialog.component';
@@ -87,6 +87,7 @@ export class FeatureinfoResultsComponent implements OnInit, OnDestroy {
   }
 
   ngOnDestroy() {
+    this.store.dispatch(new CursorActions.ResetMode());
     this.resultsLayer$
       .pipe(
         filter(r => r !== null),
@@ -137,31 +138,31 @@ export class FeatureinfoResultsComponent implements OnInit, OnDestroy {
         const coords = <[number, number]>evt.coordinate;
         switch (layer.layer['type']) {
           case 'TILE':
-            const url: any = this.featureinfoService.getFeatureinfoUrl(
-              layer,
-              m,
-              coords
-            );
             this.featureinfoService
-              .getFeatureinfo(
-                <string>url,
-                layer.querySrs,
-                m
-                  .getView()
-                  .getProjection()
-                  .getCode()
-              )
-              .subscribe(
-                features => {
-                  this.store.dispatch(
-                    new FeatureinfoActions.SetResultsItems(features)
+              .getFeatureinfoUrl$(layer, m, coords)
+              .pipe(take(1))
+              .subscribe(url => {
+                this.featureinfoService
+                  .getFeatureinfo(
+                    <string>url,
+                    layer.querySrs,
+                    m
+                      .getView()
+                      .getProjection()
+                      .getCode()
+                  )
+                  .subscribe(
+                    features => {
+                      this.store.dispatch(
+                        new FeatureinfoActions.SetResultsItems(features)
+                      );
+                      this._openSnackBar(features.length);
+                    },
+                    error => {
+                      // console.log(error);
+                    }
                   );
-                  this._openSnackBar(features.length);
-                },
-                error => {
-                  // console.log(error);
-                }
-              );
+              });
             break;
           case 'VECTOR':
             const l = <VectorLayer>layer.layer;
@@ -215,11 +216,10 @@ export class FeatureinfoResultsComponent implements OnInit, OnDestroy {
    * Retrieves the title for the individual feature
    * @param feature
    */
-  getExpansionPanelTitle(feature: Feature) {
-    this.store
-      .select(state => state.featureinfo.selectedLayer)
-      .pipe(take(1))
-      .subscribe(selectedLayer => {
+  getExpansionPanelTitle$(feature: Feature): Observable<string> {
+    return this.store.select(state => state.featureinfo.selectedLayer).pipe(
+      take(1),
+      map(selectedLayer => {
         const noPropTitle = this.dictionary.feature;
         if (!!selectedLayer.queryIdProperty) {
           const props = feature.getProperties();
@@ -233,7 +233,8 @@ export class FeatureinfoResultsComponent implements OnInit, OnDestroy {
         } else {
           return noPropTitle;
         }
-      });
+      })
+    );
   }
 
   /**

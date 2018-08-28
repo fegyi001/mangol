@@ -1,13 +1,14 @@
-import { DemoFeatureinfoComponent } from './pages/demo-featureinfo/demo-featureinfo.component';
 import { NgModule } from '@angular/core';
 import { RouterModule, Routes } from '@angular/router';
 
+import { DemoControllersComponent } from './pages/demo-controllers/demo-controllers.component';
+import { DemoFeatureinfoComponent } from './pages/demo-featureinfo/demo-featureinfo.component';
 import { DemoFullComponent } from './pages/demo-full/demo-full.component';
 import { DemoHomeComponent } from './pages/demo-home/demo-home.component';
 import { DemoLayertreeComponent } from './pages/demo-layertree/demo-layertree.component';
 import { DemoMapComponent } from './pages/demo-map/demo-map.component';
+import { DemoMeasureComponent } from './pages/demo-measure/demo-measure.component';
 import { DemoSidebarComponent } from './pages/demo-sidebar/demo-sidebar.component';
-import { DemoControllersComponent } from './pages/demo-controllers/demo-controllers.component';
 
 const routes: Routes = [
   {
@@ -51,11 +52,11 @@ const routes: Routes = [
   //   component: DemoPrintComponent,
   //   data: { animation: { page: 'demo-print' } }
   // },
-  // {
-  //   path: 'demo-measure',
-  //   component: DemoMeasureComponent,
-  //   data: { animation: { page: 'demo-measure' } }
-  // },
+  {
+    path: 'demo-measure',
+    component: DemoMeasureComponent,
+    data: { animation: { page: 'demo-measure' } }
+  },
   {
     path: 'demo-full',
     component: DemoFullComponent,

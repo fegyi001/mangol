@@ -5,7 +5,7 @@
             (mouseenter)="showFeatureOnMap(feature)"
             (mouseleave)="hideFeatureOnMap(feature)">
             <mat-expansion-panel-header>
-                <mat-panel-title> {{getExpansionPanelTitle(feature)}} </mat-panel-title>
+                <mat-panel-title> {{getExpansionPanelTitle$(feature) | async}} </mat-panel-title>
                 <mat-panel-description>{{i+1}}/{{(resultsFeatures$ | async).length}}</mat-panel-description>
             </mat-expansion-panel-header>
             <button mat-button

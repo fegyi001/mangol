@@ -32,8 +32,11 @@ export class MapComponent implements OnInit, AfterViewInit, OnDestroy {
   config: MangolConfig;
   target: string;
 
+  cursorStyle: any = null;
+
   configSubscription: Subscription;
   layersSubscription: Subscription;
+  cursorModeSubscription: Subscription;
 
   defaultMap: {
     target: string;
@@ -116,6 +119,17 @@ export class MapComponent implements OnInit, AfterViewInit, OnDestroy {
             });
           });
       });
+
+    this.cursorModeSubscription = this.store
+      .select(state => state.cursor.mode)
+      .subscribe(cursorMode => {
+        this.cursorStyle = {
+          cursor:
+            cursorMode !== null && cursorMode.hasOwnProperty('cursor')
+              ? cursorMode.cursor
+              : 'default'
+        };
+      });
   }
 
   ngOnDestroy() {
@@ -124,6 +138,9 @@ export class MapComponent implements OnInit, AfterViewInit, OnDestroy {
     }
     if (this.layersSubscription) {
       this.layersSubscription.unsubscribe();
+    }
+    if (this.cursorModeSubscription) {
+      this.cursorModeSubscription.unsubscribe();
     }
   }
 
@@ -167,20 +184,6 @@ export class MapComponent implements OnInit, AfterViewInit, OnDestroy {
         this.processLayerGroup(c, layers);
       }
     });
-  }
-
-  getCursorStyle() {
-    this.store
-      .select(state => state.cursor.mode)
-      .pipe(take(1))
-      .subscribe(cursorMode => {
-        return {
-          cursor:
-            cursorMode !== null && cursorMode.hasOwnProperty('cursor')
-              ? cursorMode.cursor
-              : 'default'
-        };
-      });
   }
 
   onEnterOrLeaveMap(entered: boolean) {

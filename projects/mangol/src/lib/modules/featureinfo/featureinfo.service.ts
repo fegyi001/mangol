@@ -24,18 +24,21 @@ export class FeatureinfoService {
   ) {}
 
   /**
-   * Gets the GetFeatureInfo WMS url from a layer
+   * Gets the GetFeatureInfo WMS url as an Observable from a layer
    * @param layer
    * @param m
    * @param coordinates
    */
-  getFeatureinfoUrl(layer: MangolLayer, m: Map, coordinates: [number, number]) {
-    this.store
-      .select(state => state.featureinfo.maxFeatures)
-      .pipe(take(1))
-      .subscribe(maxFeatures => {
+  getFeatureinfoUrl$(
+    layer: MangolLayer,
+    m: Map,
+    coordinates: [number, number]
+  ): Observable<string> {
+    return this.store.select(state => state.featureinfo.maxFeatures).pipe(
+      take(1),
+      map(maxFeatures => {
         const source: TileWMS = <TileWMS>layer.layer.getSource();
-        let url = source.getGetFeatureInfoUrl(
+        let url: string = source.getGetFeatureInfoUrl(
           coordinates,
           m.getView().getResolution(),
           m
@@ -47,11 +50,12 @@ export class FeatureinfoService {
         if (url) {
           // In case of a GWC layer somehow there is I and J instead of X and Y, so we must change that
           url = url.replace('&I=', '&X=').replace('&J=', '&Y=');
-          return url;
         } else {
-          return null;
+          url = null;
         }
-      });
+        return url;
+      })
+    );
   }
 
   /**
