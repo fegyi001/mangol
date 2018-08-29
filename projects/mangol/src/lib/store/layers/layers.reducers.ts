@@ -1,12 +1,15 @@
 import { MangolLayer } from './../../classes/Layer';
 import * as LayersActions from './layers.actions';
+import VectorLayer from 'ol/layer/Vector';
 
 export interface State {
   layers: MangolLayer[];
+  measureLayer: VectorLayer;
 }
 
 const initialState: State = {
-  layers: []
+  layers: [],
+  measureLayer: null
 };
 
 export function layersReducer(
@@ -16,6 +19,8 @@ export function layersReducer(
   switch (action.type) {
     case LayersActions.ADD_LAYERS:
       return { ...state, layers: action.payload };
+    case LayersActions.SET_MEASURE_LAYER:
+      return { ...state, measureLayer: action.payload };
     default:
       return state;
   }

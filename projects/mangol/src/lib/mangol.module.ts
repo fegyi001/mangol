@@ -9,10 +9,10 @@ import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { Action, ActionReducer, StoreModule } from '@ngrx/store';
 import { storeLogger } from 'ngrx-store-logger';
 
-import { environment } from './../../../../src/environments/environment';
 import { MangolComponent } from './mangol.component';
 import { ControllersModule } from './modules/controllers/controllers.module';
 import { MapModule } from './modules/map/map.module';
+import { MeasureService } from './modules/measure/measure.service';
 import { TabsModule } from './modules/tabs/tabs.module';
 import { mangolReducers, MangolState } from './store/mangol.reducers';
 
@@ -24,6 +24,7 @@ export function logger(reducer: ActionReducer<MangolState, Action>): any {
       blacklist: [
         '[Controllers] Set Position Coordinates',
         '[Controllers] Set Rotation Value',
+        '[Cursor] Set Mode',
         '[Cursor] Set Visible'
       ]
     }
@@ -46,6 +47,7 @@ export const metaReducers = [logger];
     // EffectsModule.forRoot([NavigationEffects, EditEffects])
   ],
   declarations: [MangolComponent],
+  providers: [MeasureService],
   exports: [MangolComponent]
 })
 export class MangolModule {}

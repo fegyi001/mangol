@@ -7,7 +7,7 @@
         <button mat-icon-button
             class="only-small-screen"
             (click)="toggleSidebar()">
-          <mat-icon>keyboard_arrow_left</mat-icon>
+            <mat-icon>keyboard_arrow_left</mat-icon>
         </button>
     </mat-toolbar-row>
 </mat-toolbar>
@@ -55,7 +55,7 @@
             </div>
         </ng-template>
         <div class="tab-content">
-            <mangol-measure></mangol-measure>
+            <mangol-measure *ngIf="(selectedModule$ | async) === 'measure'"></mangol-measure>
         </div>
     </mat-tab>
     <!-- PRINT -->

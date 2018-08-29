@@ -1,3 +1,5 @@
 <div class="module-container">
     <mangol-measure-select [dictionary]="dictionary$ | async"></mangol-measure-select>
+    <mangol-measure-results *ngIf="(measureMode$ | async) !== null"
+        [dictionary]="dictionary$ | async"></mangol-measure-results>
 </div>

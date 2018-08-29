@@ -1,9 +1,12 @@
+import GeometryType from 'ol/geom/GeometryType';
+
 import * as MeasureActions from './measure.actions';
 
 export interface MeasureMode {
   type: string;
   fontIcon: string;
   fontSet: string;
+  geometryName: GeometryType;
 }
 
 export interface MeasureDictionary {
@@ -14,6 +17,8 @@ export interface MeasureDictionary {
   line?: string;
   area?: string;
   radius?: string;
+  drawStartText?: string;
+  drawStartTextRadius?: string;
 }
 export interface State {
   hasMeasure: boolean;
@@ -29,19 +34,37 @@ const initialState: State = {
   disabled: false,
   title: 'Measure',
   modes: [
-    { type: 'line', fontSet: 'ms', fontIcon: 'ms-measure-distance' },
-    { type: 'area', fontSet: 'ms', fontIcon: 'ms-measure-area' },
-    { type: 'radius', fontSet: 'ms', fontIcon: 'ms-geolocation' }
+    {
+      type: 'line',
+      fontSet: 'ms',
+      fontIcon: 'ms-measure-distance',
+      geometryName: 'LineString'
+    },
+    {
+      type: 'area',
+      fontSet: 'ms',
+      fontIcon: 'ms-measure-area',
+      geometryName: 'Polygon'
+    },
+    {
+      type: 'radius',
+      fontSet: 'ms',
+      fontIcon: 'ms-geolocation',
+      geometryName: 'Circle'
+    }
   ],
   mode: null,
   dictionary: {
     clearSelection: 'Clear selection',
     chooseMode: 'Choose measure mode...',
-    clickOnMap: 'Click on Map',
+    clickOnMap: 'Click on Map to start measurement',
     closeSnackbar: 'Close',
     line: 'Line',
     area: 'Area',
-    radius: 'Radius'
+    radius: 'Radius',
+    drawStartText:
+      'Insert new vertex with single click,\nfinish measurement with double click',
+    drawStartTextRadius: 'Finish measurement with single click'
   }
 };
 
@@ -57,7 +80,13 @@ export function measureReducer(
     case MeasureActions.SET_TITLE:
       return { ...state, title: action.payload };
     case MeasureActions.SET_DICTIONARY:
-      return { ...state, dictionary: action.payload };
+      const dict = { ...state.dictionary };
+      for (const key in action.payload) {
+        if (action.payload.hasOwnProperty(key)) {
+          dict[key] = action.payload[key];
+        }
+      }
+      return { ...state, dictionary: dict };
     case MeasureActions.SET_MODE:
       return { ...state, mode: action.payload };
     default:

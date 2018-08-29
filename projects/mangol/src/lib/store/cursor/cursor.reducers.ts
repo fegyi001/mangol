@@ -21,8 +21,16 @@ export function cursorReducer(
 ) {
   switch (action.type) {
     case CursorActions.SET_MODE:
+      const cursorLayer = state.layer;
+      if (cursorLayer !== null) {
+        cursorLayer.getSource().refresh();
+      }
       return { ...state, mode: action.payload };
     case CursorActions.RESET_MODE:
+      const layer = state.layer;
+      if (layer !== null) {
+        layer.getSource().refresh();
+      }
       return { ...state, mode: initialState.mode };
     case CursorActions.SET_VISIBLE:
       return { ...state, visible: action.payload };

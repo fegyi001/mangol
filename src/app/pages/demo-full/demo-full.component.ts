@@ -161,7 +161,7 @@ export class DemoFullComponent implements OnInit, OnDestroy {
           featureinfo: {
             title: 'Feature info'
           },
-          measure: { disabled: true },
+          measure: { disabled: false },
           print: { disabled: true }
         }
       }

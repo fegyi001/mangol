@@ -57,6 +57,7 @@ export class AppComponent implements OnInit, DoCheck, OnDestroy {
   }
 
   ngOnInit() {
+    this.appService.sidebarOpenedSubject.next(false);
     this.logo = 'assets/img/logo/mangol_logo.png';
     this.items = [
       {

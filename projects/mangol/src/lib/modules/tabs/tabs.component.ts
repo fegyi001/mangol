@@ -25,6 +25,8 @@ export class TabsComponent implements OnInit, OnDestroy {
   @HostBinding('class')
   class = 'mangol-tabs';
 
+  selectedModule$: Observable<string>;
+
   title$: Observable<string>;
   /** Layertree */
   hasLayertree$: Observable<boolean>;
@@ -48,6 +50,9 @@ export class TabsComponent implements OnInit, OnDestroy {
   items: string[] = [];
 
   constructor(private store: Store<fromMangol.MangolState>) {
+    this.selectedModule$ = this.store.select(
+      state => state.sidebar.selectedModule
+    );
     this.title$ = this.store.select(state => state.sidebar.title);
     /** Layertree */
     this.hasLayertree$ = this.store.select(

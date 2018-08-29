@@ -9,18 +9,19 @@ import { Store } from '@ngrx/store';
 import Map from 'ol/Map';
 import View from 'ol/View';
 import { Subscription } from 'rxjs';
-import { take } from 'rxjs/operators';
+import { filter, take } from 'rxjs/operators';
 
 import { MangolLayer } from '../../classes/Layer';
 import { MangolLayerGroup } from '../../classes/LayerGroup';
 import { MangolConfig } from '../../interfaces/config.interface';
-
 import { MangolConfigMap } from './../../interfaces/config-map.interface';
+import * as ControllersActions from './../../store/controllers/controllers.actions';
+import { MangolControllersPositionStateModel } from './../../store/controllers/controllers.reducers';
 import * as CursorActions from './../../store/cursor/cursor.actions';
-import * as fromMangol from './../../store/mangol.reducers';
-import { MapService } from './map.service';
-import * as MapActions from './../../store/map/map.actions';
 import * as LayersActions from './../../store/layers/layers.actions';
+import * as fromMangol from './../../store/mangol.reducers';
+import * as MapActions from './../../store/map/map.actions';
+import { MapService } from './map.service';
 
 @Component({
   selector: 'mangol-map',
@@ -37,6 +38,11 @@ export class MapComponent implements OnInit, AfterViewInit, OnDestroy {
   configSubscription: Subscription;
   layersSubscription: Subscription;
   cursorModeSubscription: Subscription;
+  mapSubscription: Subscription;
+  positionSubscription: Subscription;
+
+  pointerMoveFunction: any = null;
+  position: MangolControllersPositionStateModel = null;
 
   defaultMap: {
     target: string;
@@ -130,6 +136,21 @@ export class MapComponent implements OnInit, AfterViewInit, OnDestroy {
               : 'default'
         };
       });
+
+    this.mapSubscription = this.store
+      .select(state => state.map.map)
+      .pipe(filter(m => m !== null))
+      .subscribe(m => {
+        if (this.pointerMoveFunction !== null) {
+          m.un('pointermove', this.pointerMoveFunction);
+        }
+        this.pointerMoveFunction = evt => this._createPointerMoveFunction(evt);
+        m.on('pointermove', this.pointerMoveFunction);
+      });
+
+    this.positionSubscription = this.store
+      .select(state => state.controllers.position)
+      .subscribe(position => (this.position = position));
   }
 
   ngOnDestroy() {
@@ -142,6 +163,48 @@ export class MapComponent implements OnInit, AfterViewInit, OnDestroy {
     if (this.cursorModeSubscription) {
       this.cursorModeSubscription.unsubscribe();
     }
+    if (this.mapSubscription) {
+      this.mapSubscription.unsubscribe();
+    }
+    if (this.pointerMoveFunction !== null) {
+      this.store
+        .select(state => state.map.map)
+        .pipe(
+          filter(m => m !== null),
+          take(1)
+        )
+        .subscribe(m => {
+          m.un('pointermove', this.pointerMoveFunction);
+        });
+    }
+  }
+
+  /**
+   * Creates the pointermove event handler function
+   * @param evt
+   */
+  private _createPointerMoveFunction(evt) {
+    if (evt.dragging) {
+      return;
+    } else {
+      const coords = <[number, number]>this._formatCoordinates(evt.coordinate);
+      this.store.dispatch(
+        new ControllersActions.SetPositionCoordinates(coords)
+      );
+    }
+  }
+
+  /**
+   * Formats a pair of coordinates bz a given precision
+   * @param coords
+   */
+  private _formatCoordinates(coords: any[]): number[] {
+    const formattedCoords: number[] = [];
+    coords.forEach((coord: any) => {
+      coord = parseFloat(coord).toFixed(this.position.precision);
+      formattedCoords.push(coord);
+    });
+    return formattedCoords;
   }
 
   /**

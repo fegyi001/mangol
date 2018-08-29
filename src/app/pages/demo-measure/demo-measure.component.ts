@@ -52,9 +52,20 @@ export class DemoMeasureComponent implements OnInit, OnDestroy {
         })
       },
       sidebar: {
+        title: 'Measure example',
         opened: true,
         toolbar: {
-          measure: {}
+          measure: {
+            dictionary: {
+              // clearSelection: 'Clear selection',
+              chooseMode: 'Choose measure mode...'
+              // clickOnMap: 'Click on Map',
+              // closeSnackbar: 'Close',
+              // line: 'Line',
+              // area: 'Area',
+              // radius: 'Radius'
+            }
+          }
         }
       }
     } as MangolConfig;

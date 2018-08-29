@@ -45,7 +45,7 @@ export class CursorComponent implements OnInit, OnDestroy {
     this.map$.pipe(filter(m => m !== null)).subscribe(m => {
       const layer = new VectorLayer({
         source: new VectorSource(),
-        zIndex: 1000000,
+        zIndex: 1000,
         style: feat => this.setStyle(<Feature>feat)
       });
       this.store.dispatch(new CursorActions.SetLayer(layer));
