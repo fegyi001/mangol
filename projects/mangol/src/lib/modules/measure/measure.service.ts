@@ -50,6 +50,7 @@ export class MeasureService {
           backgroundFill: new Fill({
             color: [0, 0, 0, 0.6]
           }),
+          overflow: true,
           offsetX: 0,
           offsetY: 0,
           rotation: 0,

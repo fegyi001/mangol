@@ -135,7 +135,7 @@ import { MangolLayer, MangolLayerGroup, MangolConfig } from 'mangol';
           featureinfo: {
             title: 'Feature info'
           },
-          measure: { disabled: true },
+          measure: { disabled: false },
           print: { disabled: true }
         }
       }

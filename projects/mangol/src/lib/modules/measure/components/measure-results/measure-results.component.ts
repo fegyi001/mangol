@@ -32,7 +32,8 @@ export class MeasureResultsComponent implements OnInit, OnDestroy {
   combinedSubscription: Subscription;
 
   draw: Draw = null;
-  displayValue: string;
+  initialText: string = null;
+  displayValue: string = null;
 
   constructor(
     private store: Store<fromMangol.MangolState>,
@@ -77,6 +78,7 @@ export class MeasureResultsComponent implements OnInit, OnDestroy {
       .subscribe(([m, layer]) => {
         this._deactivateDraw(m, layer);
       });
+    this.store.dispatch(new CursorActions.ResetMode());
     if (this.combinedSubscription) {
       this.combinedSubscription.unsubscribe();
     }
@@ -90,22 +92,22 @@ export class MeasureResultsComponent implements OnInit, OnDestroy {
       style: (feature: Feature) => this.measureService.getStyle(feature),
       type: mode.geometryName
     });
-    const initialText =
+    this.initialText =
       (mode.type === 'radius'
         ? this.dictionary.drawStartTextRadius
         : this.dictionary.drawStartText) + '.';
     this.store.dispatch(
       new CursorActions.SetMode({
-        text: initialText,
+        text: this.initialText,
         cursor: 'crosshair'
       })
     );
-    this.displayValue = initialText;
+    this.displayValue = this.initialText;
     this.draw.on('drawstart', (e: any) => {
       layer.getSource().clear();
       this.store.dispatch(
         new CursorActions.SetMode({
-          text: initialText,
+          text: this.initialText,
           cursor: 'crosshair'
         })
       );
@@ -160,7 +162,7 @@ export class MeasureResultsComponent implements OnInit, OnDestroy {
         }
         this.store.dispatch(
           new CursorActions.SetMode({
-            text: `${displayValue}\n${initialText}`,
+            text: `${displayValue}\n${this.initialText}`,
             cursor: 'crosshair'
           })
         );
@@ -169,15 +171,10 @@ export class MeasureResultsComponent implements OnInit, OnDestroy {
     });
 
     this.draw.on('drawend', (e: Draw.Event) => {
-      this.store
-        .select(state => state.cursor.mode.text)
-        .pipe(take(1))
-        .subscribe(text => {
-          e.feature.setProperties({ text: text });
-        });
+      e.feature.setProperties({ text: this.displayValue });
       this.store.dispatch(
         new CursorActions.SetMode({
-          text: 'Kattintson egy új mérés megkezdéséhez!',
+          text: this.dictionary.clickOnMap,
           cursor: 'crosshair'
         })
       );

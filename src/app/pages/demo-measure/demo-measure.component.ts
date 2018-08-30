@@ -55,20 +55,10 @@ export class DemoMeasureComponent implements OnInit, OnDestroy {
         title: 'Measure example',
         opened: true,
         toolbar: {
-          measure: {
-            dictionary: {
-              // clearSelection: 'Clear selection',
-              chooseMode: 'Choose measure mode...'
-              // clickOnMap: 'Click on Map',
-              // closeSnackbar: 'Close',
-              // line: 'Line',
-              // area: 'Area',
-              // radius: 'Radius'
-            }
-          }
+          measure: {}
         }
       }
-    } as MangolConfig;
+    };
   }
 
   ngOnDestroy() {
