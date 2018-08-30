@@ -8,6 +8,7 @@ import { MangolConfig } from './interfaces/config.interface';
 import * as ConfigActions from './store/config/config.actions';
 import * as fromMangol from './store/mangol.reducers';
 import * as SidebarActions from './store/sidebar/sidebar.actions';
+import * as MangolActions from './store/mangol.actions';
 
 @Component({
   selector: 'mangol',
@@ -33,6 +34,7 @@ export class MangolComponent implements OnInit {
   }
 
   ngOnInit() {
+    this.store.dispatch(new MangolActions.ClearState());
     this.store.dispatch(new ConfigActions.SetConfig(this.config));
     if (typeof this.config !== 'undefined' && this.config !== null) {
       // register the config in the Store

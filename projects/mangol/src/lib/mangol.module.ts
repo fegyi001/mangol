@@ -14,7 +14,11 @@ import { ControllersModule } from './modules/controllers/controllers.module';
 import { MapModule } from './modules/map/map.module';
 import { MeasureService } from './modules/measure/measure.service';
 import { TabsModule } from './modules/tabs/tabs.module';
-import { mangolReducers, MangolState } from './store/mangol.reducers';
+import {
+  mangolReducers,
+  MangolState,
+  mangolMetaReducers
+} from './store/mangol.reducers';
 
 export function logger(reducer: ActionReducer<MangolState, Action>): any {
   return storeLogger({
@@ -31,7 +35,7 @@ export function logger(reducer: ActionReducer<MangolState, Action>): any {
   })(reducer);
 }
 
-export const metaReducers = [logger];
+export const metaReducers = [logger, ...mangolMetaReducers];
 
 @NgModule({
   imports: [

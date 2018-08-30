@@ -100,6 +100,7 @@ export class MeasureResultsComponent implements OnInit, OnDestroy {
         cursor: 'crosshair'
       })
     );
+    this.displayValue = initialText;
     this.draw.on('drawstart', (e: any) => {
       layer.getSource().clear();
       this.store.dispatch(
@@ -108,6 +109,7 @@ export class MeasureResultsComponent implements OnInit, OnDestroy {
           cursor: 'crosshair'
         })
       );
+      this.displayValue = null;
       const feature: Feature = e.feature;
       feature.on('change', (evt: any) => {
         const feat: Feature = evt.target;
@@ -115,13 +117,17 @@ export class MeasureResultsComponent implements OnInit, OnDestroy {
         switch (mode.type) {
           case 'line':
             const lineString = <LineString>feat.getGeometry();
-            displayValue = `Distance: ${this.measureService.exchangeMetersAndKilometers(
+            displayValue = `${
+              this.dictionary.distance
+            }: ${this.measureService.exchangeMetersAndKilometers(
               lineString.getLength()
             )}.`;
             break;
           case 'area':
             const polygon = <Polygon>feat.getGeometry();
-            displayValue = `Area: ${this.measureService.exchangeSqmetersAndSqkilometers(
+            displayValue = `${
+              this.dictionary.area
+            }: ${this.measureService.exchangeSqmetersAndSqkilometers(
               polygon.getArea()
             )}.`;
             break;
@@ -142,9 +148,11 @@ export class MeasureResultsComponent implements OnInit, OnDestroy {
                 angle = angle < 0 ? angle + 360 : angle;
                 const displayAngle =
                   parseFloat(angle.toString()).toFixed(2) + '°';
-                displayValue = `Radius: ${this.measureService.exchangeMetersAndKilometers(
+                displayValue = `${
+                  this.dictionary.radius
+                }: ${this.measureService.exchangeMetersAndKilometers(
                   circle.getRadius()
-                )}, angle: ${displayAngle}.`;
+                )}, ${this.dictionary.angle}: ${displayAngle}.`;
               });
             break;
           default:
@@ -156,6 +164,7 @@ export class MeasureResultsComponent implements OnInit, OnDestroy {
             cursor: 'crosshair'
           })
         );
+        this.displayValue = displayValue;
       });
     });
 
@@ -182,9 +191,11 @@ export class MeasureResultsComponent implements OnInit, OnDestroy {
         cursor: 'crosshair'
       })
     );
+    this.displayValue = this.dictionary.clickOnMap;
   }
 
   private _deactivateDraw(map: Map, layer: VectorLayer) {
+    this.displayValue = null;
     try {
       map.removeLayer(layer);
       map.removeInteraction(this.draw);

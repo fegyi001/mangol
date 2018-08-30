@@ -17,6 +17,8 @@ export interface MeasureDictionary {
   line?: string;
   area?: string;
   radius?: string;
+  distance?: string;
+  angle?: string;
   drawStartText?: string;
   drawStartTextRadius?: string;
 }
@@ -62,6 +64,8 @@ const initialState: State = {
     line: 'Line',
     area: 'Area',
     radius: 'Radius',
+    distance: 'Distance',
+    angle: 'angle',
     drawStartText:
       'Insert new vertex with single click,\nfinish measurement with double click',
     drawStartTextRadius: 'Finish measurement with single click'
