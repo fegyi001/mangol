@@ -15,7 +15,7 @@ Mangol is an open source web mapping library for combining [Angular](https://ang
 
 ## Live example
 
-An online example can be opened [here](http://188.166.116.137/mangol_6x).
+An online example can be opened [here](http://188.166.116.137/mangol).
 
 ## Run demo & edit source files
 

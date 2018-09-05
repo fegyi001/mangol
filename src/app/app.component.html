@@ -5,18 +5,22 @@
             [matTooltip]="sidebarOpened ? 'Hide Modules' : 'Show Modules'"
             matTooltipPosition="below"
             [@sidebarButtonState]="sidebarOpened ? 'opened' : 'closed'"
-            (click)="toggleSidebar()"><mat-icon>keyboard_arrow_left</mat-icon></button>
+            (click)="toggleSidebar()">
+            <mat-icon>keyboard_arrow_left</mat-icon>
+        </button>
         <button mat-icon-button
             *ngIf="activeRouteData !== '/demo-home'"
             class="sidebar-button"
             matTooltip="Go back to Start Page"
             matTooltipPosition="below"
             (click)="navigateHome()"
-            @homeButtonState><mat-icon>home</mat-icon></button>
+            @homeButtonState>
+            <mat-icon>home</mat-icon>
+        </button>
         <div class="title">
         </div>
         <span class="fill-remaining-space"></span>
-        <a href="https://github.com/fegyi001/mangol/tree/6.x"
+        <a href="https://github.com/fegyi001/mangol"
             target="_blank"
             matTooltip="Fork me on GitHub"
             matTooltipPosition="below">
