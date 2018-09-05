@@ -11,8 +11,8 @@
   },
   "dependencies": {
     "@angular/animations": "^6.1.6",
-    "@angular/cdk": "^6.4.6",
-    "@angular/material": "^6.4.6",
+    "@angular/cdk": "^6.4.7",
+    "@angular/material": "^6.4.7",
     "@ngrx/effects": "^6.1.0",
     "@ngrx/store": "^6.1.0",
     "@types/geojson": "^7946.0.4",
