@@ -24,7 +24,7 @@ export function logger(reducer: ActionReducer<MangolState, Action>): any {
   return storeLogger({
     collapsed: true,
     filter: {
-      // whitelist: environment.production ? [''] : []
+      // whitelist: ['']
       blacklist: [
         '[Controllers] Set Position Coordinates',
         '[Controllers] Set Rotation Value',
@@ -35,7 +35,10 @@ export function logger(reducer: ActionReducer<MangolState, Action>): any {
   })(reducer);
 }
 
-export const metaReducers = [logger, ...mangolMetaReducers];
+export const metaReducers = [
+  // logger,
+  ...mangolMetaReducers
+];
 
 @NgModule({
   imports: [
