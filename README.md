@@ -76,6 +76,23 @@ After that, you can use Mangol html tags in your templates such as
 <mangol></mangol>
 ```
 
+## Run on localhost
+
+At the moment when you run `ng serve` there will be the well-known error in the browser console: `ExpressionChangedAfterItHasBeenCheckedError`. Until this is fixed in Mangol please enable production mode in `main.ts` like this:
+
+```typescript
+import { enableProdMode } from '@angular/core';
+import { platformBrowserDynamic } from '@angular/platform-browser-dynamic';
+
+import { AppModule } from './app/app.module';
+
+enableProdMode();
+
+platformBrowserDynamic()
+  .bootstrapModule(AppModule)
+  .catch(err => console.log(err));
+```
+
 ## Production build
 
 Unfortunately there is some known issues with OL when build using Ahead-of-time (aot). To make aot possible, you should modify the `angular.json` and set `optimization: false` (default is `true`). After that, `ng build --prod --aot` should work fine.
