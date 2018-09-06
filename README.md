@@ -76,6 +76,10 @@ After that, you can use Mangol html tags in your templates such as
 <mangol></mangol>
 ```
 
+## Production build
+
+Unfortunately there is some known issues with OL when build using Ahead-of-time (aot). To make aot possible, you should modify the `angular.json` and set `optimization: false` (default is `true`). After that, `ng build --prod --aot` should work fine.
+
 ## Basic example
 
 This is the simplest implementation of Mangol in a component (this will create a default map with one OpenStreetMap layer) :
