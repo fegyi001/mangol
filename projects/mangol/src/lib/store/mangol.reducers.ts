@@ -1,4 +1,4 @@
-import { ActionReducer, ActionReducerMap, MetaReducer } from '@ngrx/store';
+import { ActionReducer, ActionReducerMap } from '@ngrx/store';
 
 import * as fromConfig from './config/config.reducers';
 import * as fromControllers from './controllers/controllers.reducers';
@@ -55,5 +55,3 @@ export function clearState(
     return reducer(state, action);
   };
 }
-
-export const mangolMetaReducers: MetaReducer<MangolState>[] = [clearState];

@@ -6,7 +6,7 @@ import { MatButtonModule } from '@angular/material/button';
 import { MatSidenavModule } from '@angular/material/sidenav';
 import { BrowserModule } from '@angular/platform-browser';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
-import { Action, ActionReducer, StoreModule } from '@ngrx/store';
+import { Action, ActionReducer, MetaReducer, StoreModule } from '@ngrx/store';
 import { storeLogger } from 'ngrx-store-logger';
 
 import { MangolComponent } from './mangol.component';
@@ -15,9 +15,9 @@ import { MapModule } from './modules/map/map.module';
 import { MeasureService } from './modules/measure/measure.service';
 import { TabsModule } from './modules/tabs/tabs.module';
 import {
+  clearState,
   mangolReducers,
-  MangolState,
-  mangolMetaReducers
+  MangolState
 } from './store/mangol.reducers';
 
 export function logger(reducer: ActionReducer<MangolState, Action>): any {
@@ -35,6 +35,8 @@ export function logger(reducer: ActionReducer<MangolState, Action>): any {
   })(reducer);
 }
 
+const mangolMetaReducers: MetaReducer<MangolState>[] = [clearState];
+
 export const metaReducers = [
   // logger,
   ...mangolMetaReducers
@@ -51,7 +53,6 @@ export const metaReducers = [
     MapModule,
     ControllersModule,
     StoreModule.forRoot(mangolReducers, { metaReducers })
-    // EffectsModule.forRoot([NavigationEffects, EditEffects])
   ],
   declarations: [MangolComponent],
   providers: [MeasureService],
