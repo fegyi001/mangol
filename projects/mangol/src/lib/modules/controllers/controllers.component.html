@@ -3,7 +3,7 @@
     </mangol-sidebar-button>
     <mangol-zoom-buttons *ngIf="(zoom$ | async).show"></mangol-zoom-buttons>
     <mangol-rotation-button *ngIf="(rotation$ | async).show"></mangol-rotation-button>
-    <mangol-fullscreen-button></mangol-fullscreen-button>
+    <mangol-fullscreen-button *ngIf="(fullScreen$ | async).show"></mangol-fullscreen-button>
 </div>
 <div class="elements-right">
     <mangol-position *ngIf="(position$ | async).show"></mangol-position>

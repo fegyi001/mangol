@@ -2,7 +2,8 @@ import {
   MangolControllersPositionOptions,
   MangolControllersRotationOptions,
   MangolControllersScalebarOptions,
-  MangolControllersZoomOptions
+  MangolControllersZoomOptions,
+  MangolControllersFullScreenOptions
 } from './../../interfaces/config-map-controllers.interface';
 import * as ControllersActions from './controllers.actions';
 
@@ -28,6 +29,7 @@ export interface State {
   scalebar: MangolControllersScalebarOptions;
   position: MangolControllersPositionStateModel;
   rotation: MangolControllersRotationStateModel;
+  fullScreen: MangolControllersFullScreenOptions;
 }
 
 const initialState: State = {
@@ -55,6 +57,14 @@ const initialState: State = {
     dictionary: { rotateToNorth: 'Rotate to North' },
     showTooltip: true,
     rotation: 0
+  },
+  fullScreen: {
+    show: false,
+    showTooltip: true,
+    dictionary: {
+      maximize: 'Maximize',
+      minimize: 'Minimize'
+    }
   }
 };
 
@@ -69,7 +79,8 @@ export function controllersReducer(
         zoom: initialState.zoom,
         scalebar: initialState.scalebar,
         position: initialState.position,
-        rotation: initialState.rotation
+        rotation: initialState.rotation,
+        fullScreen: initialState.fullScreen
       };
     case ControllersActions.SET_SHOW_ZOOM:
       return { ...state, zoom: { ...state.zoom, show: action.payload } };
@@ -118,6 +129,21 @@ export function controllersReducer(
       return {
         ...state,
         rotation: { ...state.rotation, rotation: action.payload }
+      };
+    case ControllersActions.SET_SHOW_FULLSCREEN:
+      return {
+        ...state,
+        fullScreen: { ...state.fullScreen, show: action.payload }
+      };
+    case ControllersActions.SET_SHOW_FULLSCREEN_TOOLTIP:
+      return {
+        ...state,
+        fullScreen: { ...state.fullScreen, showTooltip: action.payload }
+      };
+    case ControllersActions.SET_FULLSCREEN_DICTIONARY:
+      return {
+        ...state,
+        fullScreen: { ...state.fullScreen, dictionary: action.payload }
       };
     default:
       return state;

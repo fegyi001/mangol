@@ -72,6 +72,14 @@ export class DemoControllersComponent implements OnInit, OnDestroy {
               rotateToNorth: 'Rotate to North'
             },
             showTooltip: true
+          },
+          fullScreen: {
+            show: true,
+            dictionary: {
+              maximize: 'Full Screen Mode',
+              minimize: 'Normal Mode'
+            },
+            showTooltip: true
           }
         }
       }

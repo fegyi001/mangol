@@ -2,7 +2,10 @@ import { Component, OnDestroy, OnInit } from '@angular/core';
 import { Store } from '@ngrx/store';
 import { Observable, Subscription } from 'rxjs';
 
-import { MangolControllersZoomOptions } from '../../interfaces/config-map-controllers.interface';
+import {
+  MangolControllersZoomOptions,
+  MangolControllersFullScreenOptions
+} from '../../interfaces/config-map-controllers.interface';
 import { MangolConfig } from './../../interfaces/config.interface';
 import * as ControllersActions from './../../store/controllers/controllers.actions';
 import {
@@ -23,6 +26,7 @@ export class ControllersComponent implements OnInit, OnDestroy {
   zoom$: Observable<MangolControllersZoomOptions>;
   position$: Observable<MangolControllersPositionStateModel>;
   rotation$: Observable<MangolControllersRotationStateModel>;
+  fullScreen$: Observable<MangolControllersFullScreenOptions>;
 
   configSubscription: Subscription;
 
@@ -35,6 +39,7 @@ export class ControllersComponent implements OnInit, OnDestroy {
     this.zoom$ = this.store.select(state => state.controllers.zoom);
     this.position$ = this.store.select(state => state.controllers.position);
     this.rotation$ = this.store.select(state => state.controllers.rotation);
+    this.fullScreen$ = this.store.select(state => state.controllers.fullScreen);
   }
 
   ngOnInit() {
@@ -46,6 +51,9 @@ export class ControllersComponent implements OnInit, OnDestroy {
         !!config.map &&
         !!config.map.controllers
       ) {
+        /**
+         * Zoom buttons config
+         */
         if (!!config.map.controllers.zoom) {
           const zoomOptions = config.map.controllers.zoom;
           if (!!zoomOptions.show) {
@@ -64,11 +72,17 @@ export class ControllersComponent implements OnInit, OnDestroy {
             );
           }
         }
+        /**
+         * Scalebar config (not yet implemented)
+         */
         if (!!config.map.controllers.scalebar) {
           this.store.dispatch(
             new ControllersActions.SetScalebar(config.map.controllers.scalebar)
           );
         }
+        /**
+         * Mouse position config
+         */
         if (!!config.map.controllers.position) {
           const positionOptions = config.map.controllers.position;
           if (!!positionOptions.show) {
@@ -91,6 +105,9 @@ export class ControllersComponent implements OnInit, OnDestroy {
             );
           }
         }
+        /**
+         * Rotation button config
+         */
         if (!!config.map.controllers.rotation) {
           const rotationOptions = config.map.controllers.rotation;
           if (!!rotationOptions.show) {
@@ -109,6 +126,31 @@ export class ControllersComponent implements OnInit, OnDestroy {
             this.store.dispatch(
               new ControllersActions.SetShowRotationTooltip(
                 rotationOptions.showTooltip
+              )
+            );
+          }
+        }
+        /**
+         * Fullscreen button config
+         */
+        if (!!config.map.controllers.fullScreen) {
+          const fullscreenOptions = config.map.controllers.fullScreen;
+          if (fullscreenOptions.hasOwnProperty('show')) {
+            this.store.dispatch(
+              new ControllersActions.SetShowFullscreen(fullscreenOptions.show)
+            );
+          }
+          if (fullscreenOptions.hasOwnProperty('dictionary')) {
+            this.store.dispatch(
+              new ControllersActions.SetFullscreenDictionary(
+                fullscreenOptions.dictionary
+              )
+            );
+          }
+          if (fullscreenOptions.hasOwnProperty('showTooltip')) {
+            this.store.dispatch(
+              new ControllersActions.SetShowFullscreenTooltip(
+                fullscreenOptions.showTooltip
               )
             );
           }

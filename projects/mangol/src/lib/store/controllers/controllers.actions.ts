@@ -1,6 +1,7 @@
 import { Action } from '@ngrx/store';
 
 import {
+  MangolControllersFullScreenDictionary,
   MangolControllersPositionDictionary,
   MangolControllersRotationDictionary,
   MangolControllersScalebarOptions,
@@ -22,6 +23,11 @@ export const SET_ROTATION_DICTIONARY = '[Controllers] Set Rotation Dictionary';
 export const SET_SHOW_ROTATION_TOOLTIP =
   '[Controllers] Set Show Rotation Tooltip';
 export const SET_ROTATION_VALUE = '[Controllers] Set Rotation Value';
+export const SET_SHOW_FULLSCREEN = '[Controllers] Set Show FullScreen';
+export const SET_SHOW_FULLSCREEN_TOOLTIP =
+  '[Controllers] Set Show FullScreen Tooltip';
+export const SET_FULLSCREEN_DICTIONARY =
+  '[Controllers] Set FullScreen Dictionary';
 
 export class Reset implements Action {
   readonly type = RESET;
@@ -75,6 +81,18 @@ export class SetRotationValue implements Action {
   readonly type = SET_ROTATION_VALUE;
   constructor(public payload: number) {}
 }
+export class SetShowFullscreen implements Action {
+  readonly type = SET_SHOW_FULLSCREEN;
+  constructor(public payload: boolean) {}
+}
+export class SetShowFullscreenTooltip implements Action {
+  readonly type = SET_SHOW_FULLSCREEN_TOOLTIP;
+  constructor(public payload: boolean) {}
+}
+export class SetFullscreenDictionary implements Action {
+  readonly type = SET_FULLSCREEN_DICTIONARY;
+  constructor(public payload: MangolControllersFullScreenDictionary) {}
+}
 
 export type ControllersActions =
   | Reset
@@ -89,4 +107,7 @@ export type ControllersActions =
   | SetShowRotation
   | SetRotationDictionary
   | SetShowRotationTooltip
-  | SetRotationValue;
+  | SetRotationValue
+  | SetShowFullscreen
+  | SetShowFullscreenTooltip
+  | SetFullscreenDictionary;

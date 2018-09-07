@@ -1,4 +1,9 @@
 import { Component, OnInit } from '@angular/core';
+import { Store } from '@ngrx/store';
+
+import { Observable } from '../../../../../../../node_modules/rxjs';
+import { MangolControllersFullScreenOptions } from './../../../interfaces/config-map-controllers.interface';
+import * as fromMangol from './../../../store/mangol.reducers';
 
 interface FsDocument extends HTMLDocument {
   mozFullScreenElement?: Element;
@@ -18,7 +23,11 @@ interface FsDocumentElement extends HTMLElement {
   styleUrls: ['./fullscreen-button.component.scss']
 })
 export class FullscreenButtonComponent implements OnInit {
-  constructor() {}
+  fullScreen$: Observable<MangolControllersFullScreenOptions>;
+
+  constructor(private store: Store<fromMangol.MangolState>) {
+    this.fullScreen$ = this.store.select(state => state.controllers.fullScreen);
+  }
 
   ngOnInit() {}
 
@@ -45,12 +54,6 @@ export class FullscreenButtonComponent implements OnInit {
       fsDoc.mozCancelFullScreen();
     } else if (fsDoc.webkitExitFullscreen) {
       fsDoc.webkitExitFullscreen();
-    }
-  }
-
-  setFullScreen(full: boolean): void {
-    if (full !== this.isFullScreen()) {
-      this.toggleFullScreen();
     }
   }
 

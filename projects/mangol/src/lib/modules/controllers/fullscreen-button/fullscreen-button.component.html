@@ -1,6 +1,8 @@
 <button mat-mini-fab
     color="primary"
+    [matTooltip]="isFullScreen() ? (fullScreen$ | async).dictionary.minimize : (fullScreen$ | async).dictionary.maximize"
+    [matTooltipDisabled]="!(fullScreen$ | async).showTooltip"
+    matTooltipPosition="after"
     (click)="toggleFullScreen()">
-    <mat-icon fontSet="ms"
-        fontIcon="ms-max-extent"></mat-icon>
+    <mat-icon>{{isFullScreen() ? 'fullscreen_exit' : 'fullscreen'}}</mat-icon>
 </button>

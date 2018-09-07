@@ -71,6 +71,10 @@ export class DemoFullComponent implements OnInit, OnDestroy {
           position: {
             show: true,
             precision: 2
+          },
+          fullScreen: {
+            show: true,
+            showTooltip: true
           }
         },
         layers: [

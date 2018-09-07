@@ -15,6 +15,17 @@ export interface MangolControllersZoomOptions extends MangolControllersOptions {
 export interface MangolControllersScalebarOptions
   extends MangolControllersOptions {}
 
+export interface MangolControllersFullScreenDictionary {
+  maximize?: string;
+  minimize?: string;
+}
+
+export interface MangolControllersFullScreenOptions
+  extends MangolControllersOptions {
+  dictionary?: MangolControllersFullScreenDictionary;
+  showTooltip?: boolean;
+}
+
 export interface MangolControllersPositionDictionary {
   textCopied?: string;
   copyCoordinates?: string;
@@ -46,4 +57,5 @@ export interface MangolConfigMapControllers {
   position?: MangolControllersPositionOptions;
   tileload?: MangolControllersTileloadOptions;
   rotation?: MangolControllersRotationOptions;
+  fullScreen?: MangolControllersFullScreenOptions;
 }
