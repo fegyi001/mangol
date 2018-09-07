@@ -13,6 +13,7 @@ import { RotationButtonComponent } from './rotation-button/rotation-button.compo
 import { ScalebarComponent } from './scalebar/scalebar.component';
 import { SidebarButtonComponent } from './sidebar-button/sidebar-button.component';
 import { ZoomButtonsComponent } from './zoom-buttons/zoom-buttons.component';
+import { FullscreenButtonComponent } from './fullscreen-button/fullscreen-button.component';
 
 @NgModule({
   imports: [
@@ -30,7 +31,8 @@ import { ZoomButtonsComponent } from './zoom-buttons/zoom-buttons.component';
     CursorComponent,
     PositionComponent,
     ScalebarComponent,
-    RotationButtonComponent
+    RotationButtonComponent,
+    FullscreenButtonComponent
   ],
   exports: [ControllersComponent]
 })
