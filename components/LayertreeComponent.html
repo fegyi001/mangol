@@ -1,0 +1,899 @@
+<!doctype html>
+<html class="no-js" lang="">
+    <head>
+        <meta charset="utf-8">
+        <meta http-equiv="x-ua-compatible" content="ie=edge">
+        <title>mangol documentation</title>
+        <meta name="description" content="">
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+
+        <link rel="icon" type="image/x-icon" href="../images/favicon.ico">
+	      <link rel="stylesheet" href="../styles/style.css">
+        <link rel="stylesheet" href="../styles/material.css">
+    </head>
+    <body>
+
+        <div class="navbar navbar-default navbar-fixed-top visible-xs">
+            <a href="../" class="navbar-brand">mangol documentation</a>
+            <button type="button" class="btn btn-default btn-menu ion-ios-menu" id="btn-menu"></button>
+        </div>
+
+        <div class="xs-menu menu" id="mobile-menu">
+                <div id="book-search-input" role="search">
+    <input type="text" placeholder="Type to search">
+</div>
+            <compodoc-menu></compodoc-menu>
+        </div>
+
+        <div class="container-fluid main">
+           <div class="row main">
+               <div class="hidden-xs menu">
+                   <compodoc-menu mode="normal"></compodoc-menu>
+               </div>
+               <!-- START CONTENT -->
+               <div class="content component">
+                   <div class="content-data">
+
+
+
+
+<ol class="breadcrumb">
+  <li>Components</li>
+  <li>LayertreeComponent</li>
+</ol>
+
+<ul class="nav nav-tabs" role="tablist">
+        <li class="active">
+            <a href="#info" role="tab" id="info-tab" data-toggle="tab" data-link="info">Info</a>
+        </li>
+        <li >
+            <a href="#source" role="tab" id="source-tab" data-toggle="tab" data-link="source">Source</a>
+        </li>
+        <li >
+            <a href="#templateData" role="tab" id="templateData-tab" data-toggle="tab" data-link="template">Template</a>
+        </li>
+        <li >
+            <a href="#tree" role="tab" id="tree-tab" data-toggle="tab" data-link="dom-tree">DOM Tree</a>
+        </li>
+</ul>
+
+<div class="tab-content">
+    <div class="tab-pane fade active in" id="c-info"><p class="comment">
+    <h3>File</h3>
+</p>
+<p class="comment">
+    <code>src/lib/modules/layertree/layertree.component.ts</code>
+</p>
+
+
+
+    <p class="comment">
+        <h3>Implements</h3>
+    </p>
+    <p class="comment">
+                <code><a href="https://angular.io/api/core/OnInit" target="_blank" >OnInit</a></code>
+                <code><a href="https://angular.io/api/core/OnDestroy" target="_blank" >OnDestroy</a></code>
+    </p>
+
+
+<section>
+    <h3>Metadata</h3>
+    <table class="table table-sm table-hover">
+        <tbody>
+
+
+
+
+
+
+
+
+
+
+
+            <tr>
+                <td class="col-md-3">selector</td>
+                <td class="col-md-9"><code>mangol-layertree</code></td>
+            </tr>
+
+            <tr>
+                <td class="col-md-3">styleUrls</td>
+                <td class="col-md-9"><code>layertree.component.scss</code></td>
+            </tr>
+
+
+
+            <tr>
+                <td class="col-md-3">templateUrl</td>
+                <td class="col-md-9"><code>./layertree.component.html</code></td>
+            </tr>
+
+
+        </tbody>
+    </table>
+</section>
+
+    <section>
+    <h3 id="index">Index</h3>
+    <table class="table table-sm table-bordered index-table">
+        <tbody>
+                <tr>
+                    <td class="col-md-4">
+                        <h6><b>Properties</b></h6>
+                    </td>
+                </tr>
+                <tr>
+                    <td class="col-md-4">
+                        <ul class="index-list">
+                            <li>
+                                <a href="#checklistSelection">checklistSelection</a>
+                            </li>
+                            <li>
+                                    <span class="modifier">Private</span>
+                                <a href="#getChildren">getChildren</a>
+                            </li>
+                            <li>
+                                <a href="#hasNestedChild">hasNestedChild</a>
+                            </li>
+                            <li>
+                                <a href="#nestedDataSource">nestedDataSource</a>
+                            </li>
+                            <li>
+                                <a href="#nestedTreeControl">nestedTreeControl</a>
+                            </li>
+                            <li>
+                                <a href="#tabSubscription">tabSubscription</a>
+                            </li>
+                        </ul>
+                    </td>
+                </tr>
+
+                <tr>
+                    <td class="col-md-4">
+                        <h6><b>Methods</b></h6>
+                    </td>
+                </tr>
+                <tr>
+                    <td class="col-md-4">
+                        <ul class="index-list">
+                            <li>
+                                <a href="#ngOnDestroy">ngOnDestroy</a>
+                            </li>
+                            <li>
+                                <a href="#ngOnInit">ngOnInit</a>
+                            </li>
+                            <li>
+                                <a href="#toggleCheckbox">toggleCheckbox</a>
+                            </li>
+                            <li>
+                                <a href="#toggleLayergroup">toggleLayergroup</a>
+                            </li>
+                        </ul>
+                    </td>
+                </tr>
+
+
+
+
+
+        </tbody>
+    </table>
+</section>
+
+    <section>
+    <h3 id="constructor">Constructor</h3>
+        <table class="table table-sm table-bordered">
+            <tbody>
+                <tr>
+                    <td class="col-md-4">
+<code>constructor(store: <a href="../interfaces/State.html">Store<fromMangol.MangolState></a>, layertreeService: <a href="../injectables/LayertreeService.html">LayertreeService</a>, mapService: <a href="../injectables/MapService.html">MapService</a>)</code>
+                    </td>
+                </tr>
+                        <tr>
+                            <td class="col-md-4">
+                                <div class="io-line">Defined in <a href="" data-line="28" class="link-to-prism">src/lib/modules/layertree/layertree.component.ts:28</a></div>
+                            </td>
+                        </tr>
+
+                <tr>
+                    <td class="col-md-4">
+                            <div>
+                                    <b>Parameters :</b>
+                                    <table class="params">
+                                        <thead>
+                                            <tr>
+                                                <td>Name</td>
+                                                    <td>Type</td>
+                                                <td>Optional</td>
+                                            </tr>
+                                        </thead>
+                                        <tbody>
+                                                <tr>
+                                                        <td>store</td>
+                                                  
+                                                        <td>
+                                                                    <code><a href="../interfaces/State.html" target="_self" >Store&lt;fromMangol.MangolState&gt;</a></code>
+                                                        </td>
+                                                  
+                                                    <td>
+                                                            No
+                                                    </td>
+                                                    
+                                                </tr>
+                                                <tr>
+                                                        <td>layertreeService</td>
+                                                  
+                                                        <td>
+                                                                    <code><a href="../injectables/LayertreeService.html" target="_self" >LayertreeService</a></code>
+                                                        </td>
+                                                  
+                                                    <td>
+                                                            No
+                                                    </td>
+                                                    
+                                                </tr>
+                                                <tr>
+                                                        <td>mapService</td>
+                                                  
+                                                        <td>
+                                                                    <code><a href="../injectables/MapService.html" target="_self" >MapService</a></code>
+                                                        </td>
+                                                  
+                                                    <td>
+                                                            No
+                                                    </td>
+                                                    
+                                                </tr>
+                                        </tbody>
+                                    </table>
+                            </div>
+                    </td>
+                </tr>
+            </tbody>
+        </table>
+</section>
+
+
+
+
+
+    <section>
+    
+        <h3 id="methods">
+            Methods
+        </h3>
+        <table class="table table-sm table-bordered">
+            <tbody>
+                <tr>
+                    <td class="col-md-4">
+                        <a name="ngOnDestroy"></a>
+                        <span class="name">
+                            <b>
+                            ngOnDestroy
+                            </b>
+                            <a href="#ngOnDestroy"><span class="icon ion-ios-link"></span></a>
+                        </span>
+                    </td>
+                </tr>
+                <tr>
+                    <td class="col-md-4">
+<code>ngOnDestroy()</code>
+                    </td>
+                </tr>
+
+
+                        <tr>
+                            <td class="col-md-4">
+                                    <div class="io-line">Defined in <a href="" data-line="71" class="link-to-prism">src/lib/modules/layertree/layertree.component.ts:71</a></div>
+                            </td>
+                        </tr>
+
+
+                <tr>
+                    <td class="col-md-4">
+
+                            <div class="io-description">
+                                <b>Returns : </b>    <code><a href="https://www.typescriptlang.org/docs/handbook/basic-types.html" target="_blank" >void</a></code>
+
+                            </div>
+                    </td>
+                </tr>
+            </tbody>
+        </table>
+        <table class="table table-sm table-bordered">
+            <tbody>
+                <tr>
+                    <td class="col-md-4">
+                        <a name="ngOnInit"></a>
+                        <span class="name">
+                            <b>
+                            ngOnInit
+                            </b>
+                            <a href="#ngOnInit"><span class="icon ion-ios-link"></span></a>
+                        </span>
+                    </td>
+                </tr>
+                <tr>
+                    <td class="col-md-4">
+<code>ngOnInit()</code>
+                    </td>
+                </tr>
+
+
+                        <tr>
+                            <td class="col-md-4">
+                                    <div class="io-line">Defined in <a href="" data-line="69" class="link-to-prism">src/lib/modules/layertree/layertree.component.ts:69</a></div>
+                            </td>
+                        </tr>
+
+
+                <tr>
+                    <td class="col-md-4">
+
+                            <div class="io-description">
+                                <b>Returns : </b>    <code><a href="https://www.typescriptlang.org/docs/handbook/basic-types.html" target="_blank" >void</a></code>
+
+                            </div>
+                    </td>
+                </tr>
+            </tbody>
+        </table>
+        <table class="table table-sm table-bordered">
+            <tbody>
+                <tr>
+                    <td class="col-md-4">
+                        <a name="toggleCheckbox"></a>
+                        <span class="name">
+                            <b>
+                            toggleCheckbox
+                            </b>
+                            <a href="#toggleCheckbox"><span class="icon ion-ios-link"></span></a>
+                        </span>
+                    </td>
+                </tr>
+                <tr>
+                    <td class="col-md-4">
+<code>toggleCheckbox(node: <a href="../classes/LayertreeItemNode.html">LayertreeItemNode</a>)</code>
+                    </td>
+                </tr>
+
+
+                        <tr>
+                            <td class="col-md-4">
+                                    <div class="io-line">Defined in <a href="" data-line="89" class="link-to-prism">src/lib/modules/layertree/layertree.component.ts:89</a></div>
+                            </td>
+                        </tr>
+
+
+                <tr>
+                    <td class="col-md-4">
+
+                            <div class="io-description">
+                                    <b>Parameters :</b>
+                                    <table class="params">
+                                        <thead>
+                                            <tr>
+                                                <td>Name</td>
+                                                    <td>Type</td>
+                                                <td>Optional</td>
+                                            </tr>
+                                        </thead>
+                                        <tbody>
+                                                <tr>
+                                                        <td>node</td>
+                                                        <td>
+                                                                    <code><a href="../classes/LayertreeItemNode.html" target="_self" >LayertreeItemNode</a></code>
+                                                        </td>
+                                                    
+                                                    <td>
+                                                            No
+                                                    </td>
+                                                    
+
+                                                </tr>
+                                        </tbody>
+                                    </table>
+                            </div>
+                            <div>
+                            </div>
+                            <div class="io-description">
+                                <b>Returns : </b>    <code><a href="https://www.typescriptlang.org/docs/handbook/basic-types.html" target="_blank" >void</a></code>
+
+                            </div>
+                                <div class="io-description">
+                                    
+                                </div>
+                    </td>
+                </tr>
+            </tbody>
+        </table>
+        <table class="table table-sm table-bordered">
+            <tbody>
+                <tr>
+                    <td class="col-md-4">
+                        <a name="toggleLayergroup"></a>
+                        <span class="name">
+                            <b>
+                            toggleLayergroup
+                            </b>
+                            <a href="#toggleLayergroup"><span class="icon ion-ios-link"></span></a>
+                        </span>
+                    </td>
+                </tr>
+                <tr>
+                    <td class="col-md-4">
+<code>toggleLayergroup(node: <a href="../classes/LayertreeItemNode.html">LayertreeItemNode</a>)</code>
+                    </td>
+                </tr>
+
+
+                        <tr>
+                            <td class="col-md-4">
+                                    <div class="io-line">Defined in <a href="" data-line="94" class="link-to-prism">src/lib/modules/layertree/layertree.component.ts:94</a></div>
+                            </td>
+                        </tr>
+
+
+                <tr>
+                    <td class="col-md-4">
+
+                            <div class="io-description">
+                                    <b>Parameters :</b>
+                                    <table class="params">
+                                        <thead>
+                                            <tr>
+                                                <td>Name</td>
+                                                    <td>Type</td>
+                                                <td>Optional</td>
+                                            </tr>
+                                        </thead>
+                                        <tbody>
+                                                <tr>
+                                                        <td>node</td>
+                                                        <td>
+                                                                    <code><a href="../classes/LayertreeItemNode.html" target="_self" >LayertreeItemNode</a></code>
+                                                        </td>
+                                                    
+                                                    <td>
+                                                            No
+                                                    </td>
+                                                    
+
+                                                </tr>
+                                        </tbody>
+                                    </table>
+                            </div>
+                            <div>
+                            </div>
+                            <div class="io-description">
+                                <b>Returns : </b>    <code><a href="https://www.typescriptlang.org/docs/handbook/basic-types.html" target="_blank" >void</a></code>
+
+                            </div>
+                                <div class="io-description">
+                                    
+                                </div>
+                    </td>
+                </tr>
+            </tbody>
+        </table>
+</section>
+
+    <section>
+    
+        <h3 id="inputs">
+            Properties
+        </h3>
+        <table class="table table-sm table-bordered">
+            <tbody>
+                <tr>
+                    <td class="col-md-4">
+                        <a name="checklistSelection"></a>
+                        <span class="name">
+                            <b>
+                            checklistSelection
+                            </b>
+                            <a href="#checklistSelection"><span class="icon ion-ios-link"></span></a>
+                        </span>
+                    </td>
+                </tr>
+                <tr>
+                    <td class="col-md-4">
+                        <code>checklistSelection:     <code></code>
+</code>
+                    </td>
+                </tr>
+                    <tr>
+                        <td class="col-md-4">
+                            <i>Default value : </i><code>new SelectionModel&lt;LayertreeItemNode&gt;(true)</code>
+                        </td>
+                    </tr>
+                        <tr>
+                            <td class="col-md-4">
+                                    <div class="io-line">Defined in <a href="" data-line="26" class="link-to-prism">src/lib/modules/layertree/layertree.component.ts:26</a></div>
+                            </td>
+                        </tr>
+
+
+            </tbody>
+        </table>
+        <table class="table table-sm table-bordered">
+            <tbody>
+                <tr>
+                    <td class="col-md-4">
+                        <a name="getChildren"></a>
+                        <span class="name">
+                            <b>
+                                <span class="modifier">Private</span>
+                            getChildren
+                            </b>
+                            <a href="#getChildren"><span class="icon ion-ios-link"></span></a>
+                        </span>
+                    </td>
+                </tr>
+                <tr>
+                    <td class="col-md-4">
+                        <span class="modifier-icon icon ion-ios-reset"></span><code>getChildren:     <code></code>
+</code>
+                    </td>
+                </tr>
+                    <tr>
+                        <td class="col-md-4">
+                            <i>Default value : </i><code>(node: LayertreeItemNode) &#x3D;&gt; {
+    return observableOf(node.children);
+  }</code>
+                        </td>
+                    </tr>
+                        <tr>
+                            <td class="col-md-4">
+                                    <div class="io-line">Defined in <a href="" data-line="77" class="link-to-prism">src/lib/modules/layertree/layertree.component.ts:77</a></div>
+                            </td>
+                        </tr>
+
+
+            </tbody>
+        </table>
+        <table class="table table-sm table-bordered">
+            <tbody>
+                <tr>
+                    <td class="col-md-4">
+                        <a name="hasNestedChild"></a>
+                        <span class="name">
+                            <b>
+                            hasNestedChild
+                            </b>
+                            <a href="#hasNestedChild"><span class="icon ion-ios-link"></span></a>
+                        </span>
+                    </td>
+                </tr>
+                <tr>
+                    <td class="col-md-4">
+                        <code>hasNestedChild:     <code></code>
+</code>
+                    </td>
+                </tr>
+                    <tr>
+                        <td class="col-md-4">
+                            <i>Default value : </i><code>(_: number, node: LayertreeItemNode) &#x3D;&gt; {
+    return (
+      !!node.children &amp;&amp;
+      Array.isArray(node.children) &amp;&amp;
+      node.children.length &gt; 0
+    );
+  }</code>
+                        </td>
+                    </tr>
+                        <tr>
+                            <td class="col-md-4">
+                                    <div class="io-line">Defined in <a href="" data-line="81" class="link-to-prism">src/lib/modules/layertree/layertree.component.ts:81</a></div>
+                            </td>
+                        </tr>
+
+
+            </tbody>
+        </table>
+        <table class="table table-sm table-bordered">
+            <tbody>
+                <tr>
+                    <td class="col-md-4">
+                        <a name="nestedDataSource"></a>
+                        <span class="name">
+                            <b>
+                            nestedDataSource
+                            </b>
+                            <a href="#nestedDataSource"><span class="icon ion-ios-link"></span></a>
+                        </span>
+                    </td>
+                </tr>
+                <tr>
+                    <td class="col-md-4">
+                        <code>nestedDataSource:     <code><a href="../classes/LayertreeItemNode.html" target="_self" >MatTreeNestedDataSource&lt;LayertreeItemNode&gt;</a></code>
+</code>
+                    </td>
+                </tr>
+                    <tr>
+                        <td class="col-md-4">
+                            <i>Type : </i>    <code><a href="../classes/LayertreeItemNode.html" target="_self" >MatTreeNestedDataSource&lt;LayertreeItemNode&gt;</a></code>
+
+                        </td>
+                    </tr>
+                        <tr>
+                            <td class="col-md-4">
+                                    <div class="io-line">Defined in <a href="" data-line="25" class="link-to-prism">src/lib/modules/layertree/layertree.component.ts:25</a></div>
+                            </td>
+                        </tr>
+
+
+            </tbody>
+        </table>
+        <table class="table table-sm table-bordered">
+            <tbody>
+                <tr>
+                    <td class="col-md-4">
+                        <a name="nestedTreeControl"></a>
+                        <span class="name">
+                            <b>
+                            nestedTreeControl
+                            </b>
+                            <a href="#nestedTreeControl"><span class="icon ion-ios-link"></span></a>
+                        </span>
+                    </td>
+                </tr>
+                <tr>
+                    <td class="col-md-4">
+                        <code>nestedTreeControl:     <code><a href="../classes/LayertreeItemNode.html" target="_self" >NestedTreeControl&lt;LayertreeItemNode&gt;</a></code>
+</code>
+                    </td>
+                </tr>
+                    <tr>
+                        <td class="col-md-4">
+                            <i>Type : </i>    <code><a href="../classes/LayertreeItemNode.html" target="_self" >NestedTreeControl&lt;LayertreeItemNode&gt;</a></code>
+
+                        </td>
+                    </tr>
+                        <tr>
+                            <td class="col-md-4">
+                                    <div class="io-line">Defined in <a href="" data-line="24" class="link-to-prism">src/lib/modules/layertree/layertree.component.ts:24</a></div>
+                            </td>
+                        </tr>
+
+
+            </tbody>
+        </table>
+        <table class="table table-sm table-bordered">
+            <tbody>
+                <tr>
+                    <td class="col-md-4">
+                        <a name="tabSubscription"></a>
+                        <span class="name">
+                            <b>
+                            tabSubscription
+                            </b>
+                            <a href="#tabSubscription"><span class="icon ion-ios-link"></span></a>
+                        </span>
+                    </td>
+                </tr>
+                <tr>
+                    <td class="col-md-4">
+                        <code>tabSubscription:     <code>Subscription</code>
+</code>
+                    </td>
+                </tr>
+                    <tr>
+                        <td class="col-md-4">
+                            <i>Type : </i>    <code>Subscription</code>
+
+                        </td>
+                    </tr>
+                        <tr>
+                            <td class="col-md-4">
+                                    <div class="io-line">Defined in <a href="" data-line="28" class="link-to-prism">src/lib/modules/layertree/layertree.component.ts:28</a></div>
+                            </td>
+                        </tr>
+
+
+            </tbody>
+        </table>
+</section>
+
+</div>
+
+
+    <div class="tab-pane fade  tab-source-code" id="c-source">
+        <pre class="line-numbers compodoc-sourcecode"><code class="language-typescript">import { SelectionModel } from &#x27;@angular/cdk/collections&#x27;;
+import { NestedTreeControl } from &#x27;@angular/cdk/tree&#x27;;
+import { Component, OnDestroy, OnInit } from &#x27;@angular/core&#x27;;
+import { MatTreeNestedDataSource } from &#x27;@angular/material/tree&#x27;;
+import { Store } from &#x27;@ngrx/store&#x27;;
+import * as fromMangol from &#x27;./../../store/mangol.reducers&#x27;;
+import * as CursorActions from &#x27;./../../store/cursor/cursor.actions&#x27;;
+import { of as observableOf, Subscription } from &#x27;rxjs&#x27;;
+import { filter } from &#x27;rxjs/operators&#x27;;
+
+import { MangolLayer } from &#x27;../../classes/Layer&#x27;;
+import { MangolLayerGroup } from &#x27;../../classes/LayerGroup&#x27;;
+import { MangolConfig } from &#x27;./../../interfaces/config.interface&#x27;;
+import { MapService } from &#x27;./../map/map.service&#x27;;
+import { LayertreeItemNode } from &#x27;./classes/layertree-item-node.class&#x27;;
+import { LayertreeService } from &#x27;./layertree.service&#x27;;
+
+@Component({
+  selector: &#x27;mangol-layertree&#x27;,
+  templateUrl: &#x27;./layertree.component.html&#x27;,
+  styleUrls: [&#x27;./layertree.component.scss&#x27;]
+})
+export class LayertreeComponent implements OnInit, OnDestroy {
+  nestedTreeControl: NestedTreeControl&lt;LayertreeItemNode&gt;;
+  nestedDataSource: MatTreeNestedDataSource&lt;LayertreeItemNode&gt;;
+  checklistSelection &#x3D; new SelectionModel&lt;LayertreeItemNode&gt;(true);
+
+  tabSubscription: Subscription;
+
+  constructor(
+    private store: Store&lt;fromMangol.MangolState&gt;,
+    private layertreeService: LayertreeService,
+    private mapService: MapService
+  ) {
+    this.nestedTreeControl &#x3D; new NestedTreeControl&lt;LayertreeItemNode&gt;(
+      this.getChildren
+    );
+    this.nestedDataSource &#x3D; new MatTreeNestedDataSource();
+    this.tabSubscription &#x3D; this.store
+      .select(state &#x3D;&gt; state.sidebar.selectedModule)
+      .pipe(filter(module &#x3D;&gt; module &#x3D;&#x3D;&#x3D; &#x27;layertree&#x27;))
+      .subscribe(module &#x3D;&gt; {
+        this.store.dispatch(new CursorActions.ResetMode());
+      });
+
+    this.store
+      .select(state &#x3D;&gt; state.config.config)
+      .subscribe((config: MangolConfig) &#x3D;&gt; {
+        if (
+          typeof config !&#x3D;&#x3D; &#x27;undefined&#x27; &amp;&amp;
+          config !&#x3D;&#x3D; null &amp;&amp;
+          !!config.map &amp;&amp;
+          !!config.map.layers
+        ) {
+          const layers: (
+            | MangolLayer
+            | MangolLayerGroup)[] &#x3D; config.map.layers.slice().reverse();
+          this.nestedDataSource.data &#x3D; this.layertreeService.processLayersAndLayerGroups(
+            layers
+          );
+        } else {
+          this.nestedDataSource.data &#x3D; this.layertreeService.processLayersAndLayerGroups(
+            this.mapService.getDefaultMap().layers
+          );
+        }
+      });
+  }
+
+  ngOnInit() {}
+
+  ngOnDestroy() {
+    if (this.tabSubscription) {
+      this.tabSubscription.unsubscribe();
+    }
+  }
+
+  private getChildren &#x3D; (node: LayertreeItemNode) &#x3D;&gt; {
+    return observableOf(node.children);
+  };
+
+  hasNestedChild &#x3D; (_: number, node: LayertreeItemNode) &#x3D;&gt; {
+    return (
+      !!node.children &amp;&amp;
+      Array.isArray(node.children) &amp;&amp;
+      node.children.length &gt; 0
+    );
+  };
+
+  toggleCheckbox(node: LayertreeItemNode) {
+    node.checked &#x3D; !node.checked;
+    node.layer.layer.setVisible(node.checked);
+  }
+
+  toggleLayergroup(node: LayertreeItemNode) {
+    console.log(node);
+  }
+}
+</code></pre>
+    </div>
+
+    <div class="tab-pane fade " id="c-templateData">
+        <pre class="line-numbers"><code class="language-html">&lt;mangol-layertree-item [items]&#x3D;&quot;nestedDataSource.data&quot;
+    [level]&#x3D;&quot;0&quot;&gt;&lt;/mangol-layertree-item&gt;
+</code></pre>
+    </div>
+
+    <div class="tab-pane fade " id="c-tree">
+        <div id="tree-container"></div>
+        <div class="tree-legend">
+            <div class="title">
+                <b>Legend</b>
+            </div>
+            <div>
+                <div class="color htmlelement"></div><span>Html element</span>
+            </div>
+            <div>
+                <div class="color component"></div><span>Component</span>
+            </div>
+            <div>
+                <div class="color directive"></div><span>Html element with directive</span>
+            </div>
+        </div>
+    </div>
+
+    
+</div>
+
+<script src="../js/libs/vis.min.js"></script>
+<script src="../js/libs/htmlparser.js"></script>
+<script src="../js/libs/deep-iterator.js"></script>
+<script>
+        var COMPONENT_TEMPLATE = '<div><mangol-layertree-item [items]="nestedDataSource.data"    [level]="0"></mangol-layertree-item></div>'
+    var COMPONENTS = [{'name': 'ControllersComponent', 'selector': 'mangol-controllers'},{'name': 'CursorComponent', 'selector': 'mangol-cursor'},{'name': 'DescriptionComponent', 'selector': 'mangol-description'},{'name': 'EditComponent', 'selector': 'mangol-edit'},{'name': 'FeatureinfoComponent', 'selector': 'mangol-featureinfo'},{'name': 'FeatureinfoResultsComponent', 'selector': 'mangol-featureinfo-results'},{'name': 'FeatureinfoSelectComponent', 'selector': 'mangol-featureinfo-select'},{'name': 'FeatureinfoTableDialogComponent', 'selector': 'mangol-featureinfo-table-dialog'},{'name': 'FeaturenfoTableComponent', 'selector': 'mangol-featurenfo-table'},{'name': 'FullscreenButtonComponent', 'selector': 'mangol-fullscreen-button'},{'name': 'LayerComponent', 'selector': 'mangol-layer'},{'name': 'LayerDetailsComponent', 'selector': 'mangol-layer-details'},{'name': 'LayerGroupComponent', 'selector': 'mangol-layer-group'},{'name': 'LayertreeComponent', 'selector': 'mangol-layertree'},{'name': 'LayertreeItemComponent', 'selector': 'mangol-layertree-item'},{'name': 'LegendComponent', 'selector': 'mangol-legend'},{'name': 'MangolComponent', 'selector': 'mangol'},{'name': 'MapComponent', 'selector': 'mangol-map'},{'name': 'MeasureComponent', 'selector': 'mangol-measure'},{'name': 'MeasureResultsComponent', 'selector': 'mangol-measure-results'},{'name': 'MeasureSelectComponent', 'selector': 'mangol-measure-select'},{'name': 'PositionComponent', 'selector': 'mangol-position'},{'name': 'PrintComponent', 'selector': 'mangol-print'},{'name': 'RotationButtonComponent', 'selector': 'mangol-rotation-button'},{'name': 'ScalebarComponent', 'selector': 'mangol-scalebar'},{'name': 'SidebarButtonComponent', 'selector': 'mangol-sidebar-button'},{'name': 'TabsComponent', 'selector': 'mangol-tabs'},{'name': 'TransparencyComponent', 'selector': 'mangol-transparency'},{'name': 'ZoomButtonsComponent', 'selector': 'mangol-zoom-buttons'}];
+    var DIRECTIVES = [];
+    var ACTUAL_COMPONENT = {'name': 'LayertreeComponent'};
+</script>
+<script src="../js/tree.js"></script>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+                   </div><div class="search-results">
+    <div class="has-results">
+        <h1 class="search-results-title"><span class='search-results-count'></span> result-matching "<span class='search-query'></span>"</h1>
+        <ul class="search-results-list"></ul>
+    </div>
+    <div class="no-results">
+        <h1 class="search-results-title">No results matching "<span class='search-query'></span>"</h1>
+    </div>
+</div>
+</div>
+               <!-- END CONTENT -->
+           </div>
+       </div>
+
+       <script>
+            var COMPODOC_CURRENT_PAGE_DEPTH = 1;
+            var COMPODOC_CURRENT_PAGE_CONTEXT = 'component';
+            var COMPODOC_CURRENT_PAGE_URL = 'LayertreeComponent.html';
+       </script>
+
+       <script src="../js/libs/custom-elements.min.js"></script>
+       <script src="../js/libs/lit-html.js"></script>
+       <script src="../js/menu-wc.js"></script>
+
+       <script src="../js/libs/bootstrap-native.js"></script>
+
+       <script src="../js/libs/es6-shim.min.js"></script>
+       <script src="../js/libs/EventDispatcher.js"></script>
+       <script src="../js/libs/promise.min.js"></script>
+       <script src="../js/libs/zepto.min.js"></script>
+
+       <script src="../js/compodoc.js"></script>
+
+       <script src="../js/tabs.js"></script>
+       <script src="../js/menu.js"></script>
+       <script src="../js/libs/clipboard.min.js"></script>
+       <script src="../js/libs/prism.js"></script>
+       <script src="../js/sourceCode.js"></script>
+          <script src="../js/search/search.js"></script>
+          <script src="../js/search/lunr.min.js"></script>
+          <script src="../js/search/search-lunr.js"></script>
+          <script src="../js/search/search_index.js"></script>
+       <script src="../js/lazy-load-graphs.js"></script>
+
+
+    </body>
+</html>

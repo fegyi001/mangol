@@ -1,0 +1,1665 @@
+<!doctype html>
+<html class="no-js" lang="">
+    <head>
+        <meta charset="utf-8">
+        <meta http-equiv="x-ua-compatible" content="ie=edge">
+        <title>mangol documentation</title>
+        <meta name="description" content="">
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+
+        <link rel="icon" type="image/x-icon" href="../images/favicon.ico">
+	      <link rel="stylesheet" href="../styles/style.css">
+        <link rel="stylesheet" href="../styles/material.css">
+    </head>
+    <body>
+
+        <div class="navbar navbar-default navbar-fixed-top visible-xs">
+            <a href="../" class="navbar-brand">mangol documentation</a>
+            <button type="button" class="btn btn-default btn-menu ion-ios-menu" id="btn-menu"></button>
+        </div>
+
+        <div class="xs-menu menu" id="mobile-menu">
+                <div id="book-search-input" role="search">
+    <input type="text" placeholder="Type to search">
+</div>
+            <compodoc-menu></compodoc-menu>
+        </div>
+
+        <div class="container-fluid main">
+           <div class="row main">
+               <div class="hidden-xs menu">
+                   <compodoc-menu mode="normal"></compodoc-menu>
+               </div>
+               <!-- START CONTENT -->
+               <div class="content component">
+                   <div class="content-data">
+
+
+
+
+<ol class="breadcrumb">
+  <li>Components</li>
+  <li>FeatureinfoResultsComponent</li>
+</ol>
+
+<ul class="nav nav-tabs" role="tablist">
+        <li class="active">
+            <a href="#info" role="tab" id="info-tab" data-toggle="tab" data-link="info">Info</a>
+        </li>
+        <li >
+            <a href="#source" role="tab" id="source-tab" data-toggle="tab" data-link="source">Source</a>
+        </li>
+        <li >
+            <a href="#templateData" role="tab" id="templateData-tab" data-toggle="tab" data-link="template">Template</a>
+        </li>
+        <li >
+            <a href="#tree" role="tab" id="tree-tab" data-toggle="tab" data-link="dom-tree">DOM Tree</a>
+        </li>
+</ul>
+
+<div class="tab-content">
+    <div class="tab-pane fade active in" id="c-info"><p class="comment">
+    <h3>File</h3>
+</p>
+<p class="comment">
+    <code>src/lib/modules/featureinfo/components/featureinfo-results/featureinfo-results.component.ts</code>
+</p>
+
+
+
+    <p class="comment">
+        <h3>Implements</h3>
+    </p>
+    <p class="comment">
+                <code><a href="https://angular.io/api/core/OnInit" target="_blank" >OnInit</a></code>
+                <code><a href="https://angular.io/api/core/OnDestroy" target="_blank" >OnDestroy</a></code>
+    </p>
+
+
+<section>
+    <h3>Metadata</h3>
+    <table class="table table-sm table-hover">
+        <tbody>
+
+
+
+
+
+
+
+
+
+
+
+            <tr>
+                <td class="col-md-3">selector</td>
+                <td class="col-md-9"><code>mangol-featureinfo-results</code></td>
+            </tr>
+
+            <tr>
+                <td class="col-md-3">styleUrls</td>
+                <td class="col-md-9"><code>featureinfo-results.component.scss</code></td>
+            </tr>
+
+
+
+            <tr>
+                <td class="col-md-3">templateUrl</td>
+                <td class="col-md-9"><code>./featureinfo-results.component.html</code></td>
+            </tr>
+
+
+        </tbody>
+    </table>
+</section>
+
+    <section>
+    <h3 id="index">Index</h3>
+    <table class="table table-sm table-bordered index-table">
+        <tbody>
+                <tr>
+                    <td class="col-md-4">
+                        <h6><b>Properties</b></h6>
+                    </td>
+                </tr>
+                <tr>
+                    <td class="col-md-4">
+                        <ul class="index-list">
+                            <li>
+                                <a href="#clickFunction">clickFunction</a>
+                            </li>
+                            <li>
+                                <a href="#combinedSubscription">combinedSubscription</a>
+                            </li>
+                            <li>
+                                    <span class="modifier">Public</span>
+                                <a href="#dialog">dialog</a>
+                            </li>
+                            <li>
+                                <a href="#layer$">layer$</a>
+                            </li>
+                            <li>
+                                <a href="#resultsFeatures$">resultsFeatures$</a>
+                            </li>
+                            <li>
+                                <a href="#resultsLayer$">resultsLayer$</a>
+                            </li>
+                            <li>
+                                    <span class="modifier">Public</span>
+                                <a href="#snackBar">snackBar</a>
+                            </li>
+                            <li>
+                                <a href="#tab$">tab$</a>
+                            </li>
+                        </ul>
+                    </td>
+                </tr>
+
+                <tr>
+                    <td class="col-md-4">
+                        <h6><b>Methods</b></h6>
+                    </td>
+                </tr>
+                <tr>
+                    <td class="col-md-4">
+                        <ul class="index-list">
+                            <li>
+                                    <span class="modifier">Private</span>
+                                <a href="#_createClickFunction">_createClickFunction</a>
+                            </li>
+                            <li>
+                                    <span class="modifier">Private</span>
+                                <a href="#_openSnackBar">_openSnackBar</a>
+                            </li>
+                            <li>
+                                    <span class="modifier">Private</span>
+                                <a href="#_removeClickFunction">_removeClickFunction</a>
+                            </li>
+                            <li>
+                                <a href="#getExpansionPanelTitle$">getExpansionPanelTitle$</a>
+                            </li>
+                            <li>
+                                <a href="#hideFeatureOnMap">hideFeatureOnMap</a>
+                            </li>
+                            <li>
+                                <a href="#ngOnDestroy">ngOnDestroy</a>
+                            </li>
+                            <li>
+                                <a href="#ngOnInit">ngOnInit</a>
+                            </li>
+                            <li>
+                                <a href="#openTableDialog">openTableDialog</a>
+                            </li>
+                            <li>
+                                <a href="#showFeatureOnMap">showFeatureOnMap</a>
+                            </li>
+                            <li>
+                                <a href="#zoomToFeature">zoomToFeature</a>
+                            </li>
+                        </ul>
+                    </td>
+                </tr>
+
+                <tr>
+                    <td class="col-md-4">
+                        <h6><b>Inputs</b></h6>
+                    </td>
+                </tr>
+                <tr>
+                    <td class="col-md-4">
+                        <ul class="index-list">
+                            <li>
+                                <a href="#dictionary">dictionary</a>
+                            </li>
+                        </ul>
+                    </td>
+                </tr>
+
+
+
+
+        </tbody>
+    </table>
+</section>
+
+    <section>
+    <h3 id="constructor">Constructor</h3>
+        <table class="table table-sm table-bordered">
+            <tbody>
+                <tr>
+                    <td class="col-md-4">
+<code>constructor(store: <a href="../interfaces/State.html">Store<fromMangol.MangolState></a>, featureinfoService: <a href="../injectables/FeatureinfoService.html">FeatureinfoService</a>, snackBar: MatSnackBar, dialog: MatDialog)</code>
+                    </td>
+                </tr>
+                        <tr>
+                            <td class="col-md-4">
+                                <div class="io-line">Defined in <a href="" data-line="34" class="link-to-prism">src/lib/modules/featureinfo/components/featureinfo-results/featureinfo-results.component.ts:34</a></div>
+                            </td>
+                        </tr>
+
+                <tr>
+                    <td class="col-md-4">
+                            <div>
+                                    <b>Parameters :</b>
+                                    <table class="params">
+                                        <thead>
+                                            <tr>
+                                                <td>Name</td>
+                                                    <td>Type</td>
+                                                <td>Optional</td>
+                                            </tr>
+                                        </thead>
+                                        <tbody>
+                                                <tr>
+                                                        <td>store</td>
+                                                  
+                                                        <td>
+                                                                    <code><a href="../interfaces/State.html" target="_self" >Store&lt;fromMangol.MangolState&gt;</a></code>
+                                                        </td>
+                                                  
+                                                    <td>
+                                                            No
+                                                    </td>
+                                                    
+                                                </tr>
+                                                <tr>
+                                                        <td>featureinfoService</td>
+                                                  
+                                                        <td>
+                                                                    <code><a href="../injectables/FeatureinfoService.html" target="_self" >FeatureinfoService</a></code>
+                                                        </td>
+                                                  
+                                                    <td>
+                                                            No
+                                                    </td>
+                                                    
+                                                </tr>
+                                                <tr>
+                                                        <td>snackBar</td>
+                                                  
+                                                        <td>
+                                                                    <code>MatSnackBar</code>
+                                                        </td>
+                                                  
+                                                    <td>
+                                                            No
+                                                    </td>
+                                                    
+                                                </tr>
+                                                <tr>
+                                                        <td>dialog</td>
+                                                  
+                                                        <td>
+                                                                    <code>MatDialog</code>
+                                                        </td>
+                                                  
+                                                    <td>
+                                                            No
+                                                    </td>
+                                                    
+                                                </tr>
+                                        </tbody>
+                                    </table>
+                            </div>
+                    </td>
+                </tr>
+            </tbody>
+        </table>
+</section>
+
+    <section>
+    <h3 id="inputs">Inputs</h3>
+        <table class="table table-sm table-bordered">
+            <tbody>
+                <tr>
+                    <td class="col-md-2">
+                        <a name="dictionary"></a>
+                        <code>dictionary</code>
+                    </td>
+                    <td class="col-md-10">
+                            <p>
+                            <em>Type :</em>    <code><a href="../interfaces/FeatureinfoDictionary.html" target="_self" >FeatureinfoDictionary</a></code>
+
+                            </p>
+                    </td>
+                </tr>
+                        <tr>
+                            <td class="col-md-2" colspan="2">
+                                    <div class="io-line">Defined in <a href="" data-line="25" class="link-to-prism">src/lib/modules/featureinfo/components/featureinfo-results/featureinfo-results.component.ts:25</a></div>
+                            </td>
+                        </tr>
+            </tbody>
+        </table>
+</section>
+
+
+
+    <section>
+    
+        <h3 id="methods">
+            Methods
+        </h3>
+        <table class="table table-sm table-bordered">
+            <tbody>
+                <tr>
+                    <td class="col-md-4">
+                        <a name="_createClickFunction"></a>
+                        <span class="name">
+                            <b>
+                                <span class="modifier">Private</span>
+                            _createClickFunction
+                            </b>
+                            <a href="#_createClickFunction"><span class="icon ion-ios-link"></span></a>
+                        </span>
+                    </td>
+                </tr>
+                <tr>
+                    <td class="col-md-4">
+                            <span class="modifier-icon icon ion-ios-reset"></span>
+                        <code>_createClickFunction(evt: <a href="https://www.typescriptlang.org/docs/handbook/basic-types.html" target="_blank">any</a>, layer: <a href="../classes/MangolLayer.html">MangolLayer</a>, m: Map)</code>
+                    </td>
+                </tr>
+
+
+                        <tr>
+                            <td class="col-md-4">
+                                    <div class="io-line">Defined in <a href="" data-line="127" class="link-to-prism">src/lib/modules/featureinfo/components/featureinfo-results/featureinfo-results.component.ts:127</a></div>
+                            </td>
+                        </tr>
+
+
+                <tr>
+                    <td class="col-md-4">
+                            <div class="io-description"><p>Creates the clickFunction for a given singleclick event</p>
+</div>
+
+                            <div class="io-description">
+                                    <b>Parameters :</b>
+                                    <table class="params">
+                                        <thead>
+                                            <tr>
+                                                <td>Name</td>
+                                                    <td>Type</td>
+                                                <td>Optional</td>
+                                            </tr>
+                                        </thead>
+                                        <tbody>
+                                                <tr>
+                                                        <td>evt</td>
+                                                        <td>
+                                                                    <code><a href="https://www.typescriptlang.org/docs/handbook/basic-types.html" target="_blank" >any</a></code>
+                                                        </td>
+                                                    
+                                                    <td>
+                                                            No
+                                                    </td>
+                                                    
+
+                                                </tr>
+                                                <tr>
+                                                        <td>layer</td>
+                                                        <td>
+                                                                    <code><a href="../classes/MangolLayer.html" target="_self" >MangolLayer</a></code>
+                                                        </td>
+                                                    
+                                                    <td>
+                                                            No
+                                                    </td>
+                                                    
+
+                                                </tr>
+                                                <tr>
+                                                        <td>m</td>
+                                                        <td>
+                                                                    <code>Map</code>
+                                                        </td>
+                                                    
+                                                    <td>
+                                                            No
+                                                    </td>
+                                                    
+
+                                                </tr>
+                                        </tbody>
+                                    </table>
+                            </div>
+                            <div>
+                            </div>
+                            <div class="io-description">
+                                <b>Returns : </b>    <code><a href="https://www.typescriptlang.org/docs/handbook/basic-types.html" target="_blank" >void</a></code>
+
+                            </div>
+                                <div class="io-description">
+                                    
+                                </div>
+                    </td>
+                </tr>
+            </tbody>
+        </table>
+        <table class="table table-sm table-bordered">
+            <tbody>
+                <tr>
+                    <td class="col-md-4">
+                        <a name="_openSnackBar"></a>
+                        <span class="name">
+                            <b>
+                                <span class="modifier">Private</span>
+                            _openSnackBar
+                            </b>
+                            <a href="#_openSnackBar"><span class="icon ion-ios-link"></span></a>
+                        </span>
+                    </td>
+                </tr>
+                <tr>
+                    <td class="col-md-4">
+                            <span class="modifier-icon icon ion-ios-reset"></span>
+                        <code>_openSnackBar(hits: <a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/number" target="_blank">number</a>)</code>
+                    </td>
+                </tr>
+
+
+                        <tr>
+                            <td class="col-md-4">
+                                    <div class="io-line">Defined in <a href="" data-line="199" class="link-to-prism">src/lib/modules/featureinfo/components/featureinfo-results/featureinfo-results.component.ts:199</a></div>
+                            </td>
+                        </tr>
+
+
+                <tr>
+                    <td class="col-md-4">
+                            <div class="io-description"><p>Opens a snackbar with the number of features found</p>
+</div>
+
+                            <div class="io-description">
+                                    <b>Parameters :</b>
+                                    <table class="params">
+                                        <thead>
+                                            <tr>
+                                                <td>Name</td>
+                                                    <td>Type</td>
+                                                <td>Optional</td>
+                                            </tr>
+                                        </thead>
+                                        <tbody>
+                                                <tr>
+                                                        <td>hits</td>
+                                                        <td>
+                                                                    <code><a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/number" target="_blank" >number</a></code>
+                                                        </td>
+                                                    
+                                                    <td>
+                                                            No
+                                                    </td>
+                                                    
+
+                                                </tr>
+                                        </tbody>
+                                    </table>
+                            </div>
+                            <div>
+                            </div>
+                            <div class="io-description">
+                                <b>Returns : </b>    <code><a href="https://www.typescriptlang.org/docs/handbook/basic-types.html" target="_blank" >void</a></code>
+
+                            </div>
+                                <div class="io-description">
+                                    
+                                </div>
+                    </td>
+                </tr>
+            </tbody>
+        </table>
+        <table class="table table-sm table-bordered">
+            <tbody>
+                <tr>
+                    <td class="col-md-4">
+                        <a name="_removeClickFunction"></a>
+                        <span class="name">
+                            <b>
+                                <span class="modifier">Private</span>
+                            _removeClickFunction
+                            </b>
+                            <a href="#_removeClickFunction"><span class="icon ion-ios-link"></span></a>
+                        </span>
+                    </td>
+                </tr>
+                <tr>
+                    <td class="col-md-4">
+                            <span class="modifier-icon icon ion-ios-reset"></span>
+                        <code>_removeClickFunction()</code>
+                    </td>
+                </tr>
+
+
+                        <tr>
+                            <td class="col-md-4">
+                                    <div class="io-line">Defined in <a href="" data-line="108" class="link-to-prism">src/lib/modules/featureinfo/components/featureinfo-results/featureinfo-results.component.ts:108</a></div>
+                            </td>
+                        </tr>
+
+
+                <tr>
+                    <td class="col-md-4">
+                            <div class="io-description"><p>Removes the click funciton if needed, plus resets the cursor style</p>
+</div>
+
+                            <div class="io-description">
+                                <b>Returns : </b>    <code><a href="https://www.typescriptlang.org/docs/handbook/basic-types.html" target="_blank" >void</a></code>
+
+                            </div>
+                    </td>
+                </tr>
+            </tbody>
+        </table>
+        <table class="table table-sm table-bordered">
+            <tbody>
+                <tr>
+                    <td class="col-md-4">
+                        <a name="getExpansionPanelTitle$"></a>
+                        <span class="name">
+                            <b>
+                            getExpansionPanelTitle$
+                            </b>
+                            <a href="#getExpansionPanelTitle$"><span class="icon ion-ios-link"></span></a>
+                        </span>
+                    </td>
+                </tr>
+                <tr>
+                    <td class="col-md-4">
+<code>getExpansionPanelTitle$(feature: Feature)</code>
+                    </td>
+                </tr>
+
+
+                        <tr>
+                            <td class="col-md-4">
+                                    <div class="io-line">Defined in <a href="" data-line="219" class="link-to-prism">src/lib/modules/featureinfo/components/featureinfo-results/featureinfo-results.component.ts:219</a></div>
+                            </td>
+                        </tr>
+
+
+                <tr>
+                    <td class="col-md-4">
+                            <div class="io-description"><p>Retrieves the title for the individual feature</p>
+</div>
+
+                            <div class="io-description">
+                                    <b>Parameters :</b>
+                                    <table class="params">
+                                        <thead>
+                                            <tr>
+                                                <td>Name</td>
+                                                    <td>Type</td>
+                                                <td>Optional</td>
+                                            </tr>
+                                        </thead>
+                                        <tbody>
+                                                <tr>
+                                                        <td>feature</td>
+                                                        <td>
+                                                                    <code>Feature</code>
+                                                        </td>
+                                                    
+                                                    <td>
+                                                            No
+                                                    </td>
+                                                    
+
+                                                </tr>
+                                        </tbody>
+                                    </table>
+                            </div>
+                            <div>
+                            </div>
+                            <div class="io-description">
+                                <b>Returns : </b>    <code>Observable&lt;string&gt;</code>
+
+                            </div>
+                                <div class="io-description">
+                                    
+                                </div>
+                    </td>
+                </tr>
+            </tbody>
+        </table>
+        <table class="table table-sm table-bordered">
+            <tbody>
+                <tr>
+                    <td class="col-md-4">
+                        <a name="hideFeatureOnMap"></a>
+                        <span class="name">
+                            <b>
+                            hideFeatureOnMap
+                            </b>
+                            <a href="#hideFeatureOnMap"><span class="icon ion-ios-link"></span></a>
+                        </span>
+                    </td>
+                </tr>
+                <tr>
+                    <td class="col-md-4">
+<code>hideFeatureOnMap(feature: Feature)</code>
+                    </td>
+                </tr>
+
+
+                        <tr>
+                            <td class="col-md-4">
+                                    <div class="io-line">Defined in <a href="" data-line="275" class="link-to-prism">src/lib/modules/featureinfo/components/featureinfo-results/featureinfo-results.component.ts:275</a></div>
+                            </td>
+                        </tr>
+
+
+                <tr>
+                    <td class="col-md-4">
+                            <div class="io-description"><p>Hides the hovered feature on the map</p>
+</div>
+
+                            <div class="io-description">
+                                    <b>Parameters :</b>
+                                    <table class="params">
+                                        <thead>
+                                            <tr>
+                                                <td>Name</td>
+                                                    <td>Type</td>
+                                                <td>Optional</td>
+                                            </tr>
+                                        </thead>
+                                        <tbody>
+                                                <tr>
+                                                        <td>feature</td>
+                                                        <td>
+                                                                    <code>Feature</code>
+                                                        </td>
+                                                    
+                                                    <td>
+                                                            No
+                                                    </td>
+                                                    
+
+                                                </tr>
+                                        </tbody>
+                                    </table>
+                            </div>
+                            <div>
+                            </div>
+                            <div class="io-description">
+                                <b>Returns : </b>    <code><a href="https://www.typescriptlang.org/docs/handbook/basic-types.html" target="_blank" >void</a></code>
+
+                            </div>
+                                <div class="io-description">
+                                    
+                                </div>
+                    </td>
+                </tr>
+            </tbody>
+        </table>
+        <table class="table table-sm table-bordered">
+            <tbody>
+                <tr>
+                    <td class="col-md-4">
+                        <a name="ngOnDestroy"></a>
+                        <span class="name">
+                            <b>
+                            ngOnDestroy
+                            </b>
+                            <a href="#ngOnDestroy"><span class="icon ion-ios-link"></span></a>
+                        </span>
+                    </td>
+                </tr>
+                <tr>
+                    <td class="col-md-4">
+<code>ngOnDestroy()</code>
+                    </td>
+                </tr>
+
+
+                        <tr>
+                            <td class="col-md-4">
+                                    <div class="io-line">Defined in <a href="" data-line="89" class="link-to-prism">src/lib/modules/featureinfo/components/featureinfo-results/featureinfo-results.component.ts:89</a></div>
+                            </td>
+                        </tr>
+
+
+                <tr>
+                    <td class="col-md-4">
+
+                            <div class="io-description">
+                                <b>Returns : </b>    <code><a href="https://www.typescriptlang.org/docs/handbook/basic-types.html" target="_blank" >void</a></code>
+
+                            </div>
+                    </td>
+                </tr>
+            </tbody>
+        </table>
+        <table class="table table-sm table-bordered">
+            <tbody>
+                <tr>
+                    <td class="col-md-4">
+                        <a name="ngOnInit"></a>
+                        <span class="name">
+                            <b>
+                            ngOnInit
+                            </b>
+                            <a href="#ngOnInit"><span class="icon ion-ios-link"></span></a>
+                        </span>
+                    </td>
+                </tr>
+                <tr>
+                    <td class="col-md-4">
+<code>ngOnInit()</code>
+                    </td>
+                </tr>
+
+
+                        <tr>
+                            <td class="col-md-4">
+                                    <div class="io-line">Defined in <a href="" data-line="43" class="link-to-prism">src/lib/modules/featureinfo/components/featureinfo-results/featureinfo-results.component.ts:43</a></div>
+                            </td>
+                        </tr>
+
+
+                <tr>
+                    <td class="col-md-4">
+
+                            <div class="io-description">
+                                <b>Returns : </b>    <code><a href="https://www.typescriptlang.org/docs/handbook/basic-types.html" target="_blank" >void</a></code>
+
+                            </div>
+                    </td>
+                </tr>
+            </tbody>
+        </table>
+        <table class="table table-sm table-bordered">
+            <tbody>
+                <tr>
+                    <td class="col-md-4">
+                        <a name="openTableDialog"></a>
+                        <span class="name">
+                            <b>
+                            openTableDialog
+                            </b>
+                            <a href="#openTableDialog"><span class="icon ion-ios-link"></span></a>
+                        </span>
+                    </td>
+                </tr>
+                <tr>
+                    <td class="col-md-4">
+<code>openTableDialog()</code>
+                    </td>
+                </tr>
+
+
+                        <tr>
+                            <td class="col-md-4">
+                                    <div class="io-line">Defined in <a href="" data-line="243" class="link-to-prism">src/lib/modules/featureinfo/components/featureinfo-results/featureinfo-results.component.ts:243</a></div>
+                            </td>
+                        </tr>
+
+
+                <tr>
+                    <td class="col-md-4">
+                            <div class="io-description"><p>Opens a full table dialog</p>
+</div>
+
+                            <div class="io-description">
+                                <b>Returns : </b>    <code><a href="https://www.typescriptlang.org/docs/handbook/basic-types.html" target="_blank" >void</a></code>
+
+                            </div>
+                    </td>
+                </tr>
+            </tbody>
+        </table>
+        <table class="table table-sm table-bordered">
+            <tbody>
+                <tr>
+                    <td class="col-md-4">
+                        <a name="showFeatureOnMap"></a>
+                        <span class="name">
+                            <b>
+                            showFeatureOnMap
+                            </b>
+                            <a href="#showFeatureOnMap"><span class="icon ion-ios-link"></span></a>
+                        </span>
+                    </td>
+                </tr>
+                <tr>
+                    <td class="col-md-4">
+<code>showFeatureOnMap(feature: Feature)</code>
+                    </td>
+                </tr>
+
+
+                        <tr>
+                            <td class="col-md-4">
+                                    <div class="io-line">Defined in <a href="" data-line="265" class="link-to-prism">src/lib/modules/featureinfo/components/featureinfo-results/featureinfo-results.component.ts:265</a></div>
+                            </td>
+                        </tr>
+
+
+                <tr>
+                    <td class="col-md-4">
+                            <div class="io-description"><p>Shows the feature on the map with a hover style</p>
+</div>
+
+                            <div class="io-description">
+                                    <b>Parameters :</b>
+                                    <table class="params">
+                                        <thead>
+                                            <tr>
+                                                <td>Name</td>
+                                                    <td>Type</td>
+                                                <td>Optional</td>
+                                            </tr>
+                                        </thead>
+                                        <tbody>
+                                                <tr>
+                                                        <td>feature</td>
+                                                        <td>
+                                                                    <code>Feature</code>
+                                                        </td>
+                                                    
+                                                    <td>
+                                                            No
+                                                    </td>
+                                                    
+
+                                                </tr>
+                                        </tbody>
+                                    </table>
+                            </div>
+                            <div>
+                            </div>
+                            <div class="io-description">
+                                <b>Returns : </b>    <code><a href="https://www.typescriptlang.org/docs/handbook/basic-types.html" target="_blank" >void</a></code>
+
+                            </div>
+                                <div class="io-description">
+                                    
+                                </div>
+                    </td>
+                </tr>
+            </tbody>
+        </table>
+        <table class="table table-sm table-bordered">
+            <tbody>
+                <tr>
+                    <td class="col-md-4">
+                        <a name="zoomToFeature"></a>
+                        <span class="name">
+                            <b>
+                            zoomToFeature
+                            </b>
+                            <a href="#zoomToFeature"><span class="icon ion-ios-link"></span></a>
+                        </span>
+                    </td>
+                </tr>
+                <tr>
+                    <td class="col-md-4">
+<code>zoomToFeature(feature: Feature)</code>
+                    </td>
+                </tr>
+
+
+                        <tr>
+                            <td class="col-md-4">
+                                    <div class="io-line">Defined in <a href="" data-line="285" class="link-to-prism">src/lib/modules/featureinfo/components/featureinfo-results/featureinfo-results.component.ts:285</a></div>
+                            </td>
+                        </tr>
+
+
+                <tr>
+                    <td class="col-md-4">
+                            <div class="io-description"><p>Sets the view extent to a feature</p>
+</div>
+
+                            <div class="io-description">
+                                    <b>Parameters :</b>
+                                    <table class="params">
+                                        <thead>
+                                            <tr>
+                                                <td>Name</td>
+                                                    <td>Type</td>
+                                                <td>Optional</td>
+                                            </tr>
+                                        </thead>
+                                        <tbody>
+                                                <tr>
+                                                        <td>feature</td>
+                                                        <td>
+                                                                    <code>Feature</code>
+                                                        </td>
+                                                    
+                                                    <td>
+                                                            No
+                                                    </td>
+                                                    
+
+                                                </tr>
+                                        </tbody>
+                                    </table>
+                            </div>
+                            <div>
+                            </div>
+                            <div class="io-description">
+                                <b>Returns : </b>    <code><a href="https://www.typescriptlang.org/docs/handbook/basic-types.html" target="_blank" >void</a></code>
+
+                            </div>
+                                <div class="io-description">
+                                    
+                                </div>
+                    </td>
+                </tr>
+            </tbody>
+        </table>
+</section>
+
+    <section>
+    
+        <h3 id="inputs">
+            Properties
+        </h3>
+        <table class="table table-sm table-bordered">
+            <tbody>
+                <tr>
+                    <td class="col-md-4">
+                        <a name="clickFunction"></a>
+                        <span class="name">
+                            <b>
+                            clickFunction
+                            </b>
+                            <a href="#clickFunction"><span class="icon ion-ios-link"></span></a>
+                        </span>
+                    </td>
+                </tr>
+                <tr>
+                    <td class="col-md-4">
+                        <code>clickFunction:     <code><a href="https://www.typescriptlang.org/docs/handbook/basic-types.html" target="_blank" >any</a></code>
+</code>
+                    </td>
+                </tr>
+                    <tr>
+                        <td class="col-md-4">
+                            <i>Type : </i>    <code><a href="https://www.typescriptlang.org/docs/handbook/basic-types.html" target="_blank" >any</a></code>
+
+                        </td>
+                    </tr>
+                    <tr>
+                        <td class="col-md-4">
+                            <i>Default value : </i><code>null</code>
+                        </td>
+                    </tr>
+                        <tr>
+                            <td class="col-md-4">
+                                    <div class="io-line">Defined in <a href="" data-line="34" class="link-to-prism">src/lib/modules/featureinfo/components/featureinfo-results/featureinfo-results.component.ts:34</a></div>
+                            </td>
+                        </tr>
+
+
+            </tbody>
+        </table>
+        <table class="table table-sm table-bordered">
+            <tbody>
+                <tr>
+                    <td class="col-md-4">
+                        <a name="combinedSubscription"></a>
+                        <span class="name">
+                            <b>
+                            combinedSubscription
+                            </b>
+                            <a href="#combinedSubscription"><span class="icon ion-ios-link"></span></a>
+                        </span>
+                    </td>
+                </tr>
+                <tr>
+                    <td class="col-md-4">
+                        <code>combinedSubscription:     <code>Subscription</code>
+</code>
+                    </td>
+                </tr>
+                    <tr>
+                        <td class="col-md-4">
+                            <i>Type : </i>    <code>Subscription</code>
+
+                        </td>
+                    </tr>
+                        <tr>
+                            <td class="col-md-4">
+                                    <div class="io-line">Defined in <a href="" data-line="32" class="link-to-prism">src/lib/modules/featureinfo/components/featureinfo-results/featureinfo-results.component.ts:32</a></div>
+                            </td>
+                        </tr>
+
+
+            </tbody>
+        </table>
+        <table class="table table-sm table-bordered">
+            <tbody>
+                <tr>
+                    <td class="col-md-4">
+                        <a name="dialog"></a>
+                        <span class="name">
+                            <b>
+                                <span class="modifier">Public</span>
+                            dialog
+                            </b>
+                            <a href="#dialog"><span class="icon ion-ios-link"></span></a>
+                        </span>
+                    </td>
+                </tr>
+                <tr>
+                    <td class="col-md-4">
+                        <span class="modifier-icon icon ion-ios-reset"></span><code>dialog:     <code>MatDialog</code>
+</code>
+                    </td>
+                </tr>
+                    <tr>
+                        <td class="col-md-4">
+                            <i>Type : </i>    <code>MatDialog</code>
+
+                        </td>
+                    </tr>
+                        <tr>
+                            <td class="col-md-4">
+                                    <div class="io-line">Defined in <a href="" data-line="40" class="link-to-prism">src/lib/modules/featureinfo/components/featureinfo-results/featureinfo-results.component.ts:40</a></div>
+                            </td>
+                        </tr>
+
+
+            </tbody>
+        </table>
+        <table class="table table-sm table-bordered">
+            <tbody>
+                <tr>
+                    <td class="col-md-4">
+                        <a name="layer$"></a>
+                        <span class="name">
+                            <b>
+                            layer$
+                            </b>
+                            <a href="#layer$"><span class="icon ion-ios-link"></span></a>
+                        </span>
+                    </td>
+                </tr>
+                <tr>
+                    <td class="col-md-4">
+                        <code>layer$:     <code><a href="../classes/MangolLayer.html" target="_self" >Observable&lt;MangolLayer&gt;</a></code>
+</code>
+                    </td>
+                </tr>
+                    <tr>
+                        <td class="col-md-4">
+                            <i>Type : </i>    <code><a href="../classes/MangolLayer.html" target="_self" >Observable&lt;MangolLayer&gt;</a></code>
+
+                        </td>
+                    </tr>
+                        <tr>
+                            <td class="col-md-4">
+                                    <div class="io-line">Defined in <a href="" data-line="27" class="link-to-prism">src/lib/modules/featureinfo/components/featureinfo-results/featureinfo-results.component.ts:27</a></div>
+                            </td>
+                        </tr>
+
+
+            </tbody>
+        </table>
+        <table class="table table-sm table-bordered">
+            <tbody>
+                <tr>
+                    <td class="col-md-4">
+                        <a name="resultsFeatures$"></a>
+                        <span class="name">
+                            <b>
+                            resultsFeatures$
+                            </b>
+                            <a href="#resultsFeatures$"><span class="icon ion-ios-link"></span></a>
+                        </span>
+                    </td>
+                </tr>
+                <tr>
+                    <td class="col-md-4">
+                        <code>resultsFeatures$:     <code>Observable&lt;Feature[]&gt;</code>
+</code>
+                    </td>
+                </tr>
+                    <tr>
+                        <td class="col-md-4">
+                            <i>Type : </i>    <code>Observable&lt;Feature[]&gt;</code>
+
+                        </td>
+                    </tr>
+                        <tr>
+                            <td class="col-md-4">
+                                    <div class="io-line">Defined in <a href="" data-line="29" class="link-to-prism">src/lib/modules/featureinfo/components/featureinfo-results/featureinfo-results.component.ts:29</a></div>
+                            </td>
+                        </tr>
+
+
+            </tbody>
+        </table>
+        <table class="table table-sm table-bordered">
+            <tbody>
+                <tr>
+                    <td class="col-md-4">
+                        <a name="resultsLayer$"></a>
+                        <span class="name">
+                            <b>
+                            resultsLayer$
+                            </b>
+                            <a href="#resultsLayer$"><span class="icon ion-ios-link"></span></a>
+                        </span>
+                    </td>
+                </tr>
+                <tr>
+                    <td class="col-md-4">
+                        <code>resultsLayer$:     <code>Observable&lt;VectorLayer&gt;</code>
+</code>
+                    </td>
+                </tr>
+                    <tr>
+                        <td class="col-md-4">
+                            <i>Type : </i>    <code>Observable&lt;VectorLayer&gt;</code>
+
+                        </td>
+                    </tr>
+                        <tr>
+                            <td class="col-md-4">
+                                    <div class="io-line">Defined in <a href="" data-line="28" class="link-to-prism">src/lib/modules/featureinfo/components/featureinfo-results/featureinfo-results.component.ts:28</a></div>
+                            </td>
+                        </tr>
+
+
+            </tbody>
+        </table>
+        <table class="table table-sm table-bordered">
+            <tbody>
+                <tr>
+                    <td class="col-md-4">
+                        <a name="snackBar"></a>
+                        <span class="name">
+                            <b>
+                                <span class="modifier">Public</span>
+                            snackBar
+                            </b>
+                            <a href="#snackBar"><span class="icon ion-ios-link"></span></a>
+                        </span>
+                    </td>
+                </tr>
+                <tr>
+                    <td class="col-md-4">
+                        <span class="modifier-icon icon ion-ios-reset"></span><code>snackBar:     <code>MatSnackBar</code>
+</code>
+                    </td>
+                </tr>
+                    <tr>
+                        <td class="col-md-4">
+                            <i>Type : </i>    <code>MatSnackBar</code>
+
+                        </td>
+                    </tr>
+                        <tr>
+                            <td class="col-md-4">
+                                    <div class="io-line">Defined in <a href="" data-line="39" class="link-to-prism">src/lib/modules/featureinfo/components/featureinfo-results/featureinfo-results.component.ts:39</a></div>
+                            </td>
+                        </tr>
+
+
+            </tbody>
+        </table>
+        <table class="table table-sm table-bordered">
+            <tbody>
+                <tr>
+                    <td class="col-md-4">
+                        <a name="tab$"></a>
+                        <span class="name">
+                            <b>
+                            tab$
+                            </b>
+                            <a href="#tab$"><span class="icon ion-ios-link"></span></a>
+                        </span>
+                    </td>
+                </tr>
+                <tr>
+                    <td class="col-md-4">
+                        <code>tab$:     <code>Observable&lt;string&gt;</code>
+</code>
+                    </td>
+                </tr>
+                    <tr>
+                        <td class="col-md-4">
+                            <i>Type : </i>    <code>Observable&lt;string&gt;</code>
+
+                        </td>
+                    </tr>
+                        <tr>
+                            <td class="col-md-4">
+                                    <div class="io-line">Defined in <a href="" data-line="30" class="link-to-prism">src/lib/modules/featureinfo/components/featureinfo-results/featureinfo-results.component.ts:30</a></div>
+                            </td>
+                        </tr>
+
+
+            </tbody>
+        </table>
+</section>
+
+</div>
+
+
+    <div class="tab-pane fade  tab-source-code" id="c-source">
+        <pre class="line-numbers compodoc-sourcecode"><code class="language-typescript">import { Component, Input, OnDestroy, OnInit } from &#x27;@angular/core&#x27;;
+import { MatDialog, MatSnackBar } from &#x27;@angular/material&#x27;;
+import { Store } from &#x27;@ngrx/store&#x27;;
+import Feature from &#x27;ol/Feature&#x27;;
+import VectorLayer from &#x27;ol/layer/Vector&#x27;;
+import Map from &#x27;ol/Map&#x27;;
+import { combineLatest, Observable, Subscription } from &#x27;rxjs&#x27;;
+import { filter, take, map } from &#x27;rxjs/operators&#x27;;
+
+import { MangolLayer } from &#x27;../../../../classes/Layer&#x27;;
+import { FeatureinfoTableDialogComponent } from &#x27;../featureinfo-table-dialog/featureinfo-table-dialog.component&#x27;;
+import * as CursorActions from &#x27;./../../../../store/cursor/cursor.actions&#x27;;
+import * as FeatureinfoActions from &#x27;./../../../../store/featureinfo/featureinfo.actions&#x27;;
+import { FeatureinfoDictionary } from &#x27;./../../../../store/featureinfo/featureinfo.reducers&#x27;;
+import * as fromMangol from &#x27;./../../../../store/mangol.reducers&#x27;;
+import { FeatureinfoService } from &#x27;./../../featureinfo.service&#x27;;
+
+@Component({
+  selector: &#x27;mangol-featureinfo-results&#x27;,
+  templateUrl: &#x27;./featureinfo-results.component.html&#x27;,
+  styleUrls: [&#x27;./featureinfo-results.component.scss&#x27;]
+})
+export class FeatureinfoResultsComponent implements OnInit, OnDestroy {
+  @Input()
+  dictionary: FeatureinfoDictionary;
+
+  layer$: Observable&lt;MangolLayer&gt;;
+  resultsLayer$: Observable&lt;VectorLayer&gt;;
+  resultsFeatures$: Observable&lt;Feature[]&gt;;
+  tab$: Observable&lt;string&gt;;
+
+  combinedSubscription: Subscription;
+
+  clickFunction: any &#x3D; null;
+
+  constructor(
+    private store: Store&lt;fromMangol.MangolState&gt;,
+    private featureinfoService: FeatureinfoService,
+    public snackBar: MatSnackBar,
+    public dialog: MatDialog
+  ) {}
+
+  ngOnInit() {
+    this.resultsLayer$ &#x3D; this.store.select(
+      state &#x3D;&gt; state.featureinfo.resultsLayer
+    );
+
+    this.resultsFeatures$ &#x3D; this.store.select(
+      state &#x3D;&gt; state.featureinfo.resultsItems
+    );
+
+    this.layer$ &#x3D; this.store.select(state &#x3D;&gt; state.featureinfo.selectedLayer);
+
+    this.tab$ &#x3D; this.store.select(state &#x3D;&gt; state.sidebar.selectedModule);
+
+    this.combinedSubscription &#x3D; combineLatest(this.tab$, this.layer$).subscribe(
+      ([selectedModule, layer]) &#x3D;&gt; {
+        this.store.dispatch(new FeatureinfoActions.SetResultsItems([]));
+        if (selectedModule &#x3D;&#x3D;&#x3D; &#x27;featureinfo&#x27;) {
+          if (layer !&#x3D;&#x3D; null) {
+            this.store
+              .select(state &#x3D;&gt; state.map.map)
+              .pipe(take(1))
+              .subscribe(m &#x3D;&gt; {
+                this.store.dispatch(
+                  new CursorActions.SetMode({
+                    text: this.dictionary.clickOnMap,
+                    cursor: &#x27;crosshair&#x27;
+                  })
+                );
+                this.store.dispatch(new CursorActions.SetVisible(true));
+                if (this.clickFunction !&#x3D;&#x3D; null) {
+                  m.un(&#x27;singleclick&#x27;, this.clickFunction);
+                }
+                this.clickFunction &#x3D; evt &#x3D;&gt;
+                  this._createClickFunction(evt, layer, m);
+                m.on(&#x27;singleclick&#x27;, this.clickFunction);
+              });
+          } else {
+            this._removeClickFunction();
+          }
+        } else {
+          this._removeClickFunction();
+        }
+      }
+    );
+  }
+
+  ngOnDestroy() {
+    this.store.dispatch(new CursorActions.ResetMode());
+    this.resultsLayer$
+      .pipe(
+        filter(r &#x3D;&gt; r !&#x3D;&#x3D; null),
+        take(1)
+      )
+      .subscribe(r &#x3D;&gt; {
+        this.store.dispatch(new FeatureinfoActions.SetResultsItems([]));
+        r.getSource().clear();
+      });
+    if (this.combinedSubscription) {
+      this.combinedSubscription.unsubscribe();
+    }
+  }
+
+  /**
+   * Removes the click funciton if needed, plus resets the cursor style
+   */
+  private _removeClickFunction() {
+    if (this.clickFunction !&#x3D;&#x3D; null) {
+      this.store
+        .select(state &#x3D;&gt; state.map.map)
+        .pipe(take(1))
+        .subscribe(m &#x3D;&gt; {
+          m.un(&#x27;singleclick&#x27;, this.clickFunction);
+          this.clickFunction &#x3D; null;
+        });
+    }
+    this.store.dispatch(new CursorActions.ResetMode());
+  }
+
+  /**
+   * Creates the clickFunction for a given singleclick event
+   * @param evt
+   * @param layer
+   * @param m
+   */
+  private _createClickFunction(evt: any, layer: MangolLayer, m: Map) {
+    this.store
+      .select(state &#x3D;&gt; state.featureinfo.resultsLayer)
+      .pipe(take(1))
+      .subscribe(resultsLayer &#x3D;&gt; {
+        try {
+          m.removeLayer(resultsLayer);
+        } catch (error) {}
+        resultsLayer.getSource().clear();
+        this.store.dispatch(new FeatureinfoActions.SetResultsItems([]));
+        m.addLayer(resultsLayer);
+        const coords &#x3D; &lt;[number, number]&gt;evt.coordinate;
+        switch (layer.layer[&#x27;type&#x27;]) {
+          case &#x27;TILE&#x27;:
+            this.featureinfoService
+              .getFeatureinfoUrl$(layer, m, coords)
+              .pipe(take(1))
+              .subscribe(url &#x3D;&gt; {
+                this.featureinfoService
+                  .getFeatureinfo(
+                    &lt;string&gt;url,
+                    layer.querySrs,
+                    m
+                      .getView()
+                      .getProjection()
+                      .getCode()
+                  )
+                  .subscribe(
+                    features &#x3D;&gt; {
+                      this.store.dispatch(
+                        new FeatureinfoActions.SetResultsItems(features)
+                      );
+                      this._openSnackBar(features.length);
+                    },
+                    error &#x3D;&gt; {
+                      // console.log(error);
+                    }
+                  );
+              });
+            break;
+          case &#x27;VECTOR&#x27;:
+            const l &#x3D; &lt;VectorLayer&gt;layer.layer;
+            const vectorFeatures: Feature[] &#x3D; [];
+            m.forEachFeatureAtPixel(
+              evt.pixel,
+              (feature, lay) &#x3D;&gt; {
+                if (lay &#x3D;&#x3D;&#x3D; l) {
+                  vectorFeatures.push(&lt;Feature&gt;feature);
+                }
+              },
+              { hitTolerance: 5 }
+            );
+            this.store.dispatch(
+              new FeatureinfoActions.SetResultsItems(vectorFeatures)
+            );
+            this._openSnackBar(vectorFeatures.length);
+            break;
+          default:
+            alert(
+              &#x60;Feature info for layer type &#x27;${
+                layer.layer[&#x27;type&#x27;]
+              }&#x27; is not yet supported&#x60;
+            );
+            break;
+        }
+      });
+  }
+
+  /**
+   * Opens a snackbar with the number of features found
+   * @param hits
+   */
+  private _openSnackBar(hits: number) {
+    this.store
+      .select(state &#x3D;&gt; state.featureinfo.snackbarDuration)
+      .pipe(take(1))
+      .subscribe(snackbarDuration &#x3D;&gt; {
+        this.snackBar.open(
+          &#x60;${this.dictionary.numberOfFeaturesFound}: ${hits}&#x60;,
+          &#x60;${this.dictionary.closeSnackbar}&#x60;,
+          {
+            duration: snackbarDuration,
+            panelClass: &#x27;mangol-snackbar&#x27;
+          }
+        );
+      });
+  }
+
+  /**
+   * Retrieves the title for the individual feature
+   * @param feature
+   */
+  getExpansionPanelTitle$(feature: Feature): Observable&lt;string&gt; {
+    return this.store.select(state &#x3D;&gt; state.featureinfo.selectedLayer).pipe(
+      take(1),
+      map(selectedLayer &#x3D;&gt; {
+        const noPropTitle &#x3D; this.dictionary.feature;
+        if (!!selectedLayer.queryIdProperty) {
+          const props &#x3D; feature.getProperties();
+          if (props.hasOwnProperty(selectedLayer.queryIdProperty)) {
+            return props[selectedLayer.queryIdProperty].toString().length &gt; 0
+              ? props[selectedLayer.queryIdProperty]
+              : noPropTitle;
+          } else {
+            return noPropTitle;
+          }
+        } else {
+          return noPropTitle;
+        }
+      })
+    );
+  }
+
+  /**
+   * Opens a full table dialog
+   */
+  openTableDialog() {
+    combineLatest(this.layer$, this.resultsFeatures$)
+      .pipe(take(1))
+      .subscribe(([layer, resultsFeatures]) &#x3D;&gt; {
+        this.dialog.open(FeatureinfoTableDialogComponent, {
+          maxWidth: &#x27;90%&#x27;,
+          maxHeight: &#x27;90%&#x27;,
+          panelClass: &#x27;mangol-dialog&#x27;,
+          autoFocus: false,
+          data: {
+            layer: layer,
+            features: resultsFeatures,
+            dictionary: this.dictionary
+          }
+        });
+      });
+  }
+
+  /**
+   * Shows the feature on the map with a hover style
+   * @param feature
+   */
+  showFeatureOnMap(feature: Feature) {
+    this.resultsLayer$.pipe(take(1)).subscribe(layer &#x3D;&gt; {
+      layer.getSource().addFeature(feature);
+    });
+  }
+
+  /**
+   * Hides the hovered feature on the map
+   * @param feature
+   */
+  hideFeatureOnMap(feature: Feature) {
+    this.resultsLayer$.pipe(take(1)).subscribe(layer &#x3D;&gt; {
+      layer.getSource().removeFeature(feature);
+    });
+  }
+
+  /**
+   * Sets the view extent to a feature
+   * @param feature
+   */
+  zoomToFeature(feature: Feature) {
+    this.store
+      .select(state &#x3D;&gt; state.map.map)
+      .pipe(take(1))
+      .subscribe(m &#x3D;&gt; {
+        m.getView().fit(feature.getGeometry().getExtent(), {
+          duration: 500
+        });
+      });
+  }
+}
+</code></pre>
+    </div>
+
+    <div class="tab-pane fade " id="c-templateData">
+        <pre class="line-numbers"><code class="language-html">&lt;div *ngIf&#x3D;&quot;(resultsFeatures$ | async).length &gt; 0&quot;&gt;
+    &lt;mat-accordion&gt;
+        &lt;mat-expansion-panel *ngFor&#x3D;&quot;let feature of (resultsFeatures$ | async); let i&#x3D;index&quot;
+            class&#x3D;&quot;mat-elevation-z1&quot;
+            (mouseenter)&#x3D;&quot;showFeatureOnMap(feature)&quot;
+            (mouseleave)&#x3D;&quot;hideFeatureOnMap(feature)&quot;&gt;
+            &lt;mat-expansion-panel-header&gt;
+                &lt;mat-panel-title&gt; {{getExpansionPanelTitle$(feature) | async}} &lt;/mat-panel-title&gt;
+                &lt;mat-panel-description&gt;{{i+1}}/{{(resultsFeatures$ | async).length}}&lt;/mat-panel-description&gt;
+            &lt;/mat-expansion-panel-header&gt;
+            &lt;button mat-button
+                color&#x3D;&quot;primary&quot;
+                (click)&#x3D;&quot;zoomToFeature(feature)&quot;&gt;
+              &lt;mat-icon&gt;zoom_in&lt;/mat-icon&gt;
+              {{dictionary.zoomToFeature}}
+            &lt;/button&gt;
+            &lt;mangol-featurenfo-table [feature]&#x3D;&quot;feature&quot;&gt;&lt;/mangol-featurenfo-table&gt;
+        &lt;/mat-expansion-panel&gt;
+    &lt;/mat-accordion&gt;
+    &lt;button mat-button
+        color&#x3D;&quot;primary&quot;
+        (click)&#x3D;&quot;openTableDialog()&quot;&gt;
+  &lt;mat-icon&gt;open_in_new&lt;/mat-icon&gt;
+  {{dictionary.showAllResults}}
+&lt;/button&gt;
+&lt;/div&gt;
+</code></pre>
+    </div>
+
+    <div class="tab-pane fade " id="c-tree">
+        <div id="tree-container"></div>
+        <div class="tree-legend">
+            <div class="title">
+                <b>Legend</b>
+            </div>
+            <div>
+                <div class="color htmlelement"></div><span>Html element</span>
+            </div>
+            <div>
+                <div class="color component"></div><span>Component</span>
+            </div>
+            <div>
+                <div class="color directive"></div><span>Html element with directive</span>
+            </div>
+        </div>
+    </div>
+
+    
+</div>
+
+<script src="../js/libs/vis.min.js"></script>
+<script src="../js/libs/htmlparser.js"></script>
+<script src="../js/libs/deep-iterator.js"></script>
+<script>
+        var COMPONENT_TEMPLATE = '<div><div *ngIf="(resultsFeatures$ | async).length > 0">    <mat-accordion>        <mat-expansion-panel *ngFor="let feature of (resultsFeatures$ | async); let i=index"            class="mat-elevation-z1"            (mouseenter)="showFeatureOnMap(feature)"            (mouseleave)="hideFeatureOnMap(feature)">            <mat-expansion-panel-header>                <mat-panel-title> {{getExpansionPanelTitle$(feature) | async}} </mat-panel-title>                <mat-panel-description>{{i+1}}/{{(resultsFeatures$ | async).length}}</mat-panel-description>            </mat-expansion-panel-header>            <button mat-button                color="primary"                (click)="zoomToFeature(feature)">              <mat-icon>zoom_in</mat-icon>              {{dictionary.zoomToFeature}}            </button>            <mangol-featurenfo-table [feature]="feature"></mangol-featurenfo-table>        </mat-expansion-panel>    </mat-accordion>    <button mat-button        color="primary"        (click)="openTableDialog()">  <mat-icon>open_in_new</mat-icon>  {{dictionary.showAllResults}}</button></div></div>'
+    var COMPONENTS = [{'name': 'ControllersComponent', 'selector': 'mangol-controllers'},{'name': 'CursorComponent', 'selector': 'mangol-cursor'},{'name': 'DescriptionComponent', 'selector': 'mangol-description'},{'name': 'EditComponent', 'selector': 'mangol-edit'},{'name': 'FeatureinfoComponent', 'selector': 'mangol-featureinfo'},{'name': 'FeatureinfoResultsComponent', 'selector': 'mangol-featureinfo-results'},{'name': 'FeatureinfoSelectComponent', 'selector': 'mangol-featureinfo-select'},{'name': 'FeatureinfoTableDialogComponent', 'selector': 'mangol-featureinfo-table-dialog'},{'name': 'FeaturenfoTableComponent', 'selector': 'mangol-featurenfo-table'},{'name': 'FullscreenButtonComponent', 'selector': 'mangol-fullscreen-button'},{'name': 'LayerComponent', 'selector': 'mangol-layer'},{'name': 'LayerDetailsComponent', 'selector': 'mangol-layer-details'},{'name': 'LayerGroupComponent', 'selector': 'mangol-layer-group'},{'name': 'LayertreeComponent', 'selector': 'mangol-layertree'},{'name': 'LayertreeItemComponent', 'selector': 'mangol-layertree-item'},{'name': 'LegendComponent', 'selector': 'mangol-legend'},{'name': 'MangolComponent', 'selector': 'mangol'},{'name': 'MapComponent', 'selector': 'mangol-map'},{'name': 'MeasureComponent', 'selector': 'mangol-measure'},{'name': 'MeasureResultsComponent', 'selector': 'mangol-measure-results'},{'name': 'MeasureSelectComponent', 'selector': 'mangol-measure-select'},{'name': 'PositionComponent', 'selector': 'mangol-position'},{'name': 'PrintComponent', 'selector': 'mangol-print'},{'name': 'RotationButtonComponent', 'selector': 'mangol-rotation-button'},{'name': 'ScalebarComponent', 'selector': 'mangol-scalebar'},{'name': 'SidebarButtonComponent', 'selector': 'mangol-sidebar-button'},{'name': 'TabsComponent', 'selector': 'mangol-tabs'},{'name': 'TransparencyComponent', 'selector': 'mangol-transparency'},{'name': 'ZoomButtonsComponent', 'selector': 'mangol-zoom-buttons'}];
+    var DIRECTIVES = [];
+    var ACTUAL_COMPONENT = {'name': 'FeatureinfoResultsComponent'};
+</script>
+<script src="../js/tree.js"></script>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+                   </div><div class="search-results">
+    <div class="has-results">
+        <h1 class="search-results-title"><span class='search-results-count'></span> result-matching "<span class='search-query'></span>"</h1>
+        <ul class="search-results-list"></ul>
+    </div>
+    <div class="no-results">
+        <h1 class="search-results-title">No results matching "<span class='search-query'></span>"</h1>
+    </div>
+</div>
+</div>
+               <!-- END CONTENT -->
+           </div>
+       </div>
+
+       <script>
+            var COMPODOC_CURRENT_PAGE_DEPTH = 1;
+            var COMPODOC_CURRENT_PAGE_CONTEXT = 'component';
+            var COMPODOC_CURRENT_PAGE_URL = 'FeatureinfoResultsComponent.html';
+       </script>
+
+       <script src="../js/libs/custom-elements.min.js"></script>
+       <script src="../js/libs/lit-html.js"></script>
+       <script src="../js/menu-wc.js"></script>
+
+       <script src="../js/libs/bootstrap-native.js"></script>
+
+       <script src="../js/libs/es6-shim.min.js"></script>
+       <script src="../js/libs/EventDispatcher.js"></script>
+       <script src="../js/libs/promise.min.js"></script>
+       <script src="../js/libs/zepto.min.js"></script>
+
+       <script src="../js/compodoc.js"></script>
+
+       <script src="../js/tabs.js"></script>
+       <script src="../js/menu.js"></script>
+       <script src="../js/libs/clipboard.min.js"></script>
+       <script src="../js/libs/prism.js"></script>
+       <script src="../js/sourceCode.js"></script>
+          <script src="../js/search/search.js"></script>
+          <script src="../js/search/lunr.min.js"></script>
+          <script src="../js/search/search-lunr.js"></script>
+          <script src="../js/search/search_index.js"></script>
+       <script src="../js/lazy-load-graphs.js"></script>
+
+
+    </body>
+</html>

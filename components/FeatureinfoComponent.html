@@ -1,0 +1,728 @@
+<!doctype html>
+<html class="no-js" lang="">
+    <head>
+        <meta charset="utf-8">
+        <meta http-equiv="x-ua-compatible" content="ie=edge">
+        <title>mangol documentation</title>
+        <meta name="description" content="">
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+
+        <link rel="icon" type="image/x-icon" href="../images/favicon.ico">
+	      <link rel="stylesheet" href="../styles/style.css">
+        <link rel="stylesheet" href="../styles/material.css">
+    </head>
+    <body>
+
+        <div class="navbar navbar-default navbar-fixed-top visible-xs">
+            <a href="../" class="navbar-brand">mangol documentation</a>
+            <button type="button" class="btn btn-default btn-menu ion-ios-menu" id="btn-menu"></button>
+        </div>
+
+        <div class="xs-menu menu" id="mobile-menu">
+                <div id="book-search-input" role="search">
+    <input type="text" placeholder="Type to search">
+</div>
+            <compodoc-menu></compodoc-menu>
+        </div>
+
+        <div class="container-fluid main">
+           <div class="row main">
+               <div class="hidden-xs menu">
+                   <compodoc-menu mode="normal"></compodoc-menu>
+               </div>
+               <!-- START CONTENT -->
+               <div class="content component">
+                   <div class="content-data">
+
+
+
+
+<ol class="breadcrumb">
+  <li>Components</li>
+  <li>FeatureinfoComponent</li>
+</ol>
+
+<ul class="nav nav-tabs" role="tablist">
+        <li class="active">
+            <a href="#info" role="tab" id="info-tab" data-toggle="tab" data-link="info">Info</a>
+        </li>
+        <li >
+            <a href="#source" role="tab" id="source-tab" data-toggle="tab" data-link="source">Source</a>
+        </li>
+        <li >
+            <a href="#templateData" role="tab" id="templateData-tab" data-toggle="tab" data-link="template">Template</a>
+        </li>
+        <li >
+            <a href="#tree" role="tab" id="tree-tab" data-toggle="tab" data-link="dom-tree">DOM Tree</a>
+        </li>
+</ul>
+
+<div class="tab-content">
+    <div class="tab-pane fade active in" id="c-info"><p class="comment">
+    <h3>File</h3>
+</p>
+<p class="comment">
+    <code>src/lib/modules/featureinfo/featureinfo.component.ts</code>
+</p>
+
+
+
+    <p class="comment">
+        <h3>Implements</h3>
+    </p>
+    <p class="comment">
+                <code><a href="https://angular.io/api/core/OnInit" target="_blank" >OnInit</a></code>
+                <code><a href="https://angular.io/api/core/OnDestroy" target="_blank" >OnDestroy</a></code>
+    </p>
+
+
+<section>
+    <h3>Metadata</h3>
+    <table class="table table-sm table-hover">
+        <tbody>
+
+
+
+
+
+
+
+
+
+
+
+            <tr>
+                <td class="col-md-3">selector</td>
+                <td class="col-md-9"><code>mangol-featureinfo</code></td>
+            </tr>
+
+            <tr>
+                <td class="col-md-3">styleUrls</td>
+                <td class="col-md-9"><code>featureinfo.component.scss</code></td>
+            </tr>
+
+
+
+            <tr>
+                <td class="col-md-3">templateUrl</td>
+                <td class="col-md-9"><code>./featureinfo.component.html</code></td>
+            </tr>
+
+
+        </tbody>
+    </table>
+</section>
+
+    <section>
+    <h3 id="index">Index</h3>
+    <table class="table table-sm table-bordered index-table">
+        <tbody>
+                <tr>
+                    <td class="col-md-4">
+                        <h6><b>Properties</b></h6>
+                    </td>
+                </tr>
+                <tr>
+                    <td class="col-md-4">
+                        <ul class="index-list">
+                            <li>
+                                <a href="#dictionary$">dictionary$</a>
+                            </li>
+                            <li>
+                                <a href="#layers$">layers$</a>
+                            </li>
+                            <li>
+                                <a href="#map$">map$</a>
+                            </li>
+                            <li>
+                                <a href="#mapSubscription">mapSubscription</a>
+                            </li>
+                            <li>
+                                <a href="#resultsLayer$">resultsLayer$</a>
+                            </li>
+                            <li>
+                                <a href="#selectedLayer$">selectedLayer$</a>
+                            </li>
+                        </ul>
+                    </td>
+                </tr>
+
+                <tr>
+                    <td class="col-md-4">
+                        <h6><b>Methods</b></h6>
+                    </td>
+                </tr>
+                <tr>
+                    <td class="col-md-4">
+                        <ul class="index-list">
+                            <li>
+                                <a href="#ngOnDestroy">ngOnDestroy</a>
+                            </li>
+                            <li>
+                                <a href="#ngOnInit">ngOnInit</a>
+                            </li>
+                        </ul>
+                    </td>
+                </tr>
+
+
+
+
+
+        </tbody>
+    </table>
+</section>
+
+    <section>
+    <h3 id="constructor">Constructor</h3>
+        <table class="table table-sm table-bordered">
+            <tbody>
+                <tr>
+                    <td class="col-md-4">
+<code>constructor(store: <a href="../interfaces/State.html">Store<fromMangol.MangolState></a>, styleService: <a href="../injectables/StyleService.html">StyleService</a>)</code>
+                    </td>
+                </tr>
+                        <tr>
+                            <td class="col-md-4">
+                                <div class="io-line">Defined in <a href="" data-line="28" class="link-to-prism">src/lib/modules/featureinfo/featureinfo.component.ts:28</a></div>
+                            </td>
+                        </tr>
+
+                <tr>
+                    <td class="col-md-4">
+                            <div>
+                                    <b>Parameters :</b>
+                                    <table class="params">
+                                        <thead>
+                                            <tr>
+                                                <td>Name</td>
+                                                    <td>Type</td>
+                                                <td>Optional</td>
+                                            </tr>
+                                        </thead>
+                                        <tbody>
+                                                <tr>
+                                                        <td>store</td>
+                                                  
+                                                        <td>
+                                                                    <code><a href="../interfaces/State.html" target="_self" >Store&lt;fromMangol.MangolState&gt;</a></code>
+                                                        </td>
+                                                  
+                                                    <td>
+                                                            No
+                                                    </td>
+                                                    
+                                                </tr>
+                                                <tr>
+                                                        <td>styleService</td>
+                                                  
+                                                        <td>
+                                                                    <code><a href="../injectables/StyleService.html" target="_self" >StyleService</a></code>
+                                                        </td>
+                                                  
+                                                    <td>
+                                                            No
+                                                    </td>
+                                                    
+                                                </tr>
+                                        </tbody>
+                                    </table>
+                            </div>
+                    </td>
+                </tr>
+            </tbody>
+        </table>
+</section>
+
+
+
+
+
+    <section>
+    
+        <h3 id="methods">
+            Methods
+        </h3>
+        <table class="table table-sm table-bordered">
+            <tbody>
+                <tr>
+                    <td class="col-md-4">
+                        <a name="ngOnDestroy"></a>
+                        <span class="name">
+                            <b>
+                            ngOnDestroy
+                            </b>
+                            <a href="#ngOnDestroy"><span class="icon ion-ios-link"></span></a>
+                        </span>
+                    </td>
+                </tr>
+                <tr>
+                    <td class="col-md-4">
+<code>ngOnDestroy()</code>
+                    </td>
+                </tr>
+
+
+                        <tr>
+                            <td class="col-md-4">
+                                    <div class="io-line">Defined in <a href="" data-line="68" class="link-to-prism">src/lib/modules/featureinfo/featureinfo.component.ts:68</a></div>
+                            </td>
+                        </tr>
+
+
+                <tr>
+                    <td class="col-md-4">
+
+                            <div class="io-description">
+                                <b>Returns : </b>    <code><a href="https://www.typescriptlang.org/docs/handbook/basic-types.html" target="_blank" >void</a></code>
+
+                            </div>
+                    </td>
+                </tr>
+            </tbody>
+        </table>
+        <table class="table table-sm table-bordered">
+            <tbody>
+                <tr>
+                    <td class="col-md-4">
+                        <a name="ngOnInit"></a>
+                        <span class="name">
+                            <b>
+                            ngOnInit
+                            </b>
+                            <a href="#ngOnInit"><span class="icon ion-ios-link"></span></a>
+                        </span>
+                    </td>
+                </tr>
+                <tr>
+                    <td class="col-md-4">
+<code>ngOnInit()</code>
+                    </td>
+                </tr>
+
+
+                        <tr>
+                            <td class="col-md-4">
+                                    <div class="io-line">Defined in <a href="" data-line="49" class="link-to-prism">src/lib/modules/featureinfo/featureinfo.component.ts:49</a></div>
+                            </td>
+                        </tr>
+
+
+                <tr>
+                    <td class="col-md-4">
+
+                            <div class="io-description">
+                                <b>Returns : </b>    <code><a href="https://www.typescriptlang.org/docs/handbook/basic-types.html" target="_blank" >void</a></code>
+
+                            </div>
+                    </td>
+                </tr>
+            </tbody>
+        </table>
+</section>
+
+    <section>
+    
+        <h3 id="inputs">
+            Properties
+        </h3>
+        <table class="table table-sm table-bordered">
+            <tbody>
+                <tr>
+                    <td class="col-md-4">
+                        <a name="dictionary$"></a>
+                        <span class="name">
+                            <b>
+                            dictionary$
+                            </b>
+                            <a href="#dictionary$"><span class="icon ion-ios-link"></span></a>
+                        </span>
+                    </td>
+                </tr>
+                <tr>
+                    <td class="col-md-4">
+                        <code>dictionary$:     <code><a href="../interfaces/FeatureinfoDictionary.html" target="_self" >Observable&lt;FeatureinfoDictionary&gt;</a></code>
+</code>
+                    </td>
+                </tr>
+                    <tr>
+                        <td class="col-md-4">
+                            <i>Type : </i>    <code><a href="../interfaces/FeatureinfoDictionary.html" target="_self" >Observable&lt;FeatureinfoDictionary&gt;</a></code>
+
+                        </td>
+                    </tr>
+                        <tr>
+                            <td class="col-md-4">
+                                    <div class="io-line">Defined in <a href="" data-line="26" class="link-to-prism">src/lib/modules/featureinfo/featureinfo.component.ts:26</a></div>
+                            </td>
+                        </tr>
+
+
+            </tbody>
+        </table>
+        <table class="table table-sm table-bordered">
+            <tbody>
+                <tr>
+                    <td class="col-md-4">
+                        <a name="layers$"></a>
+                        <span class="name">
+                            <b>
+                            layers$
+                            </b>
+                            <a href="#layers$"><span class="icon ion-ios-link"></span></a>
+                        </span>
+                    </td>
+                </tr>
+                <tr>
+                    <td class="col-md-4">
+                        <code>layers$:     <code><a href="../classes/MangolLayer.html" target="_self" >Observable&lt;MangolLayer[]&gt;</a></code>
+</code>
+                    </td>
+                </tr>
+                    <tr>
+                        <td class="col-md-4">
+                            <i>Type : </i>    <code><a href="../classes/MangolLayer.html" target="_self" >Observable&lt;MangolLayer[]&gt;</a></code>
+
+                        </td>
+                    </tr>
+                        <tr>
+                            <td class="col-md-4">
+                                    <div class="io-line">Defined in <a href="" data-line="22" class="link-to-prism">src/lib/modules/featureinfo/featureinfo.component.ts:22</a></div>
+                            </td>
+                        </tr>
+
+
+            </tbody>
+        </table>
+        <table class="table table-sm table-bordered">
+            <tbody>
+                <tr>
+                    <td class="col-md-4">
+                        <a name="map$"></a>
+                        <span class="name">
+                            <b>
+                            map$
+                            </b>
+                            <a href="#map$"><span class="icon ion-ios-link"></span></a>
+                        </span>
+                    </td>
+                </tr>
+                <tr>
+                    <td class="col-md-4">
+                        <code>map$:     <code>Observable&lt;Map&gt;</code>
+</code>
+                    </td>
+                </tr>
+                    <tr>
+                        <td class="col-md-4">
+                            <i>Type : </i>    <code>Observable&lt;Map&gt;</code>
+
+                        </td>
+                    </tr>
+                        <tr>
+                            <td class="col-md-4">
+                                    <div class="io-line">Defined in <a href="" data-line="24" class="link-to-prism">src/lib/modules/featureinfo/featureinfo.component.ts:24</a></div>
+                            </td>
+                        </tr>
+
+
+            </tbody>
+        </table>
+        <table class="table table-sm table-bordered">
+            <tbody>
+                <tr>
+                    <td class="col-md-4">
+                        <a name="mapSubscription"></a>
+                        <span class="name">
+                            <b>
+                            mapSubscription
+                            </b>
+                            <a href="#mapSubscription"><span class="icon ion-ios-link"></span></a>
+                        </span>
+                    </td>
+                </tr>
+                <tr>
+                    <td class="col-md-4">
+                        <code>mapSubscription:     <code>Subscription</code>
+</code>
+                    </td>
+                </tr>
+                    <tr>
+                        <td class="col-md-4">
+                            <i>Type : </i>    <code>Subscription</code>
+
+                        </td>
+                    </tr>
+                        <tr>
+                            <td class="col-md-4">
+                                    <div class="io-line">Defined in <a href="" data-line="28" class="link-to-prism">src/lib/modules/featureinfo/featureinfo.component.ts:28</a></div>
+                            </td>
+                        </tr>
+
+
+            </tbody>
+        </table>
+        <table class="table table-sm table-bordered">
+            <tbody>
+                <tr>
+                    <td class="col-md-4">
+                        <a name="resultsLayer$"></a>
+                        <span class="name">
+                            <b>
+                            resultsLayer$
+                            </b>
+                            <a href="#resultsLayer$"><span class="icon ion-ios-link"></span></a>
+                        </span>
+                    </td>
+                </tr>
+                <tr>
+                    <td class="col-md-4">
+                        <code>resultsLayer$:     <code>Observable&lt;VectorLayer&gt;</code>
+</code>
+                    </td>
+                </tr>
+                    <tr>
+                        <td class="col-md-4">
+                            <i>Type : </i>    <code>Observable&lt;VectorLayer&gt;</code>
+
+                        </td>
+                    </tr>
+                        <tr>
+                            <td class="col-md-4">
+                                    <div class="io-line">Defined in <a href="" data-line="25" class="link-to-prism">src/lib/modules/featureinfo/featureinfo.component.ts:25</a></div>
+                            </td>
+                        </tr>
+
+
+            </tbody>
+        </table>
+        <table class="table table-sm table-bordered">
+            <tbody>
+                <tr>
+                    <td class="col-md-4">
+                        <a name="selectedLayer$"></a>
+                        <span class="name">
+                            <b>
+                            selectedLayer$
+                            </b>
+                            <a href="#selectedLayer$"><span class="icon ion-ios-link"></span></a>
+                        </span>
+                    </td>
+                </tr>
+                <tr>
+                    <td class="col-md-4">
+                        <code>selectedLayer$:     <code><a href="../classes/MangolLayer.html" target="_self" >Observable&lt;MangolLayer&gt;</a></code>
+</code>
+                    </td>
+                </tr>
+                    <tr>
+                        <td class="col-md-4">
+                            <i>Type : </i>    <code><a href="../classes/MangolLayer.html" target="_self" >Observable&lt;MangolLayer&gt;</a></code>
+
+                        </td>
+                    </tr>
+                        <tr>
+                            <td class="col-md-4">
+                                    <div class="io-line">Defined in <a href="" data-line="23" class="link-to-prism">src/lib/modules/featureinfo/featureinfo.component.ts:23</a></div>
+                            </td>
+                        </tr>
+
+
+            </tbody>
+        </table>
+</section>
+
+</div>
+
+
+    <div class="tab-pane fade  tab-source-code" id="c-source">
+        <pre class="line-numbers compodoc-sourcecode"><code class="language-typescript">import { Component, OnDestroy, OnInit } from &#x27;@angular/core&#x27;;
+import { Store } from &#x27;@ngrx/store&#x27;;
+import Feature from &#x27;ol/Feature&#x27;;
+import VectorLayer from &#x27;ol/layer/Vector&#x27;;
+import Map from &#x27;ol/Map&#x27;;
+import VectorSource from &#x27;ol/source/Vector&#x27;;
+import { combineLatest, Observable, Subscription } from &#x27;rxjs&#x27;;
+import { filter, take } from &#x27;rxjs/operators&#x27;;
+
+import { MangolLayer } from &#x27;../../classes/Layer&#x27;;
+import { StyleService } from &#x27;../_shared/shared/services/style.service&#x27;;
+import * as FeatureinfoActions from &#x27;./../../store/featureinfo/featureinfo.actions&#x27;;
+import { FeatureinfoDictionary } from &#x27;./../../store/featureinfo/featureinfo.reducers&#x27;;
+import * as fromMangol from &#x27;./../../store/mangol.reducers&#x27;;
+
+@Component({
+  selector: &#x27;mangol-featureinfo&#x27;,
+  templateUrl: &#x27;./featureinfo.component.html&#x27;,
+  styleUrls: [&#x27;./featureinfo.component.scss&#x27;]
+})
+export class FeatureinfoComponent implements OnInit, OnDestroy {
+  layers$: Observable&lt;MangolLayer[]&gt;;
+  selectedLayer$: Observable&lt;MangolLayer&gt;;
+  map$: Observable&lt;Map&gt;;
+  resultsLayer$: Observable&lt;VectorLayer&gt;;
+  dictionary$: Observable&lt;FeatureinfoDictionary&gt;;
+
+  mapSubscription: Subscription;
+
+  constructor(
+    private store: Store&lt;fromMangol.MangolState&gt;,
+    private styleService: StyleService
+  ) {
+    // Get the queryable layers
+    this.layers$ &#x3D; this.store.select(state &#x3D;&gt;
+      state.layers.layers.filter(layer &#x3D;&gt; layer.queryable)
+    );
+    // Get the selected layer
+    this.selectedLayer$ &#x3D; this.store.select(
+      state &#x3D;&gt; state.featureinfo.selectedLayer
+    );
+    this.map$ &#x3D; this.store.select(state &#x3D;&gt; state.map.map);
+    this.resultsLayer$ &#x3D; this.store.select(
+      state &#x3D;&gt; state.featureinfo.resultsLayer
+    );
+    this.dictionary$ &#x3D; this.store.select(state &#x3D;&gt; state.featureinfo.dictionary);
+  }
+
+  ngOnInit() {
+    const resultsLayer &#x3D; new VectorLayer({
+      source: new VectorSource({
+        features: []
+      }),
+      style: feat &#x3D;&gt; this.styleService.hoverStyle(&lt;Feature&gt;feat)
+    });
+
+    // Add the resultsLayer to the map
+    this.mapSubscription &#x3D; this.map$
+      .pipe(filter(m &#x3D;&gt; m !&#x3D;&#x3D; null))
+      .subscribe(m &#x3D;&gt; {
+        m.addLayer(resultsLayer);
+        this.store.dispatch(
+          new FeatureinfoActions.SetResultsLayer(resultsLayer)
+        );
+      });
+  }
+
+  ngOnDestroy() {
+    // Remove the resultsLayer from the map
+    combineLatest(
+      this.map$.pipe(filter(m &#x3D;&gt; m !&#x3D;&#x3D; null)),
+      this.resultsLayer$.pipe(filter(r &#x3D;&gt; r !&#x3D;&#x3D; null))
+    )
+      .pipe(take(1))
+      .subscribe(([m, resultsLayer]) &#x3D;&gt; {
+        m.removeLayer(resultsLayer);
+      });
+    if (this.mapSubscription) {
+      this.mapSubscription.unsubscribe();
+    }
+  }
+}
+</code></pre>
+    </div>
+
+    <div class="tab-pane fade " id="c-templateData">
+        <pre class="line-numbers"><code class="language-html">&lt;div class&#x3D;&quot;module-container&quot;&gt;
+    &lt;div *ngIf&#x3D;&quot;(layers$ | async).length &#x3D;&#x3D;&#x3D; 0; else hasLayers&quot;&gt;{{(dictionary$ | async).noLayers}}&lt;/div&gt;
+    &lt;ng-template #hasLayers&gt;
+        &lt;mangol-featureinfo-select [layers]&#x3D;&quot;layers$ | async&quot;
+            [dictionary]&#x3D;&quot;dictionary$ | async&quot;&gt;&lt;/mangol-featureinfo-select&gt;
+        &lt;mangol-featureinfo-results *ngIf&#x3D;&quot;(selectedLayer$ | async) !&#x3D;&#x3D; null&quot;
+            [dictionary]&#x3D;&quot;dictionary$ | async&quot;&gt;&lt;/mangol-featureinfo-results&gt;
+    &lt;/ng-template&gt;
+&lt;/div&gt;
+</code></pre>
+    </div>
+
+    <div class="tab-pane fade " id="c-tree">
+        <div id="tree-container"></div>
+        <div class="tree-legend">
+            <div class="title">
+                <b>Legend</b>
+            </div>
+            <div>
+                <div class="color htmlelement"></div><span>Html element</span>
+            </div>
+            <div>
+                <div class="color component"></div><span>Component</span>
+            </div>
+            <div>
+                <div class="color directive"></div><span>Html element with directive</span>
+            </div>
+        </div>
+    </div>
+
+    
+</div>
+
+<script src="../js/libs/vis.min.js"></script>
+<script src="../js/libs/htmlparser.js"></script>
+<script src="../js/libs/deep-iterator.js"></script>
+<script>
+        var COMPONENT_TEMPLATE = '<div><div class="module-container">    <div *ngIf="(layers$ | async).length === 0; else hasLayers">{{(dictionary$ | async).noLayers}}</div>    <ng-template #hasLayers>        <mangol-featureinfo-select [layers]="layers$ | async"            [dictionary]="dictionary$ | async"></mangol-featureinfo-select>        <mangol-featureinfo-results *ngIf="(selectedLayer$ | async) !== null"            [dictionary]="dictionary$ | async"></mangol-featureinfo-results>    </ng-template></div></div>'
+    var COMPONENTS = [{'name': 'ControllersComponent', 'selector': 'mangol-controllers'},{'name': 'CursorComponent', 'selector': 'mangol-cursor'},{'name': 'DescriptionComponent', 'selector': 'mangol-description'},{'name': 'EditComponent', 'selector': 'mangol-edit'},{'name': 'FeatureinfoComponent', 'selector': 'mangol-featureinfo'},{'name': 'FeatureinfoResultsComponent', 'selector': 'mangol-featureinfo-results'},{'name': 'FeatureinfoSelectComponent', 'selector': 'mangol-featureinfo-select'},{'name': 'FeatureinfoTableDialogComponent', 'selector': 'mangol-featureinfo-table-dialog'},{'name': 'FeaturenfoTableComponent', 'selector': 'mangol-featurenfo-table'},{'name': 'FullscreenButtonComponent', 'selector': 'mangol-fullscreen-button'},{'name': 'LayerComponent', 'selector': 'mangol-layer'},{'name': 'LayerDetailsComponent', 'selector': 'mangol-layer-details'},{'name': 'LayerGroupComponent', 'selector': 'mangol-layer-group'},{'name': 'LayertreeComponent', 'selector': 'mangol-layertree'},{'name': 'LayertreeItemComponent', 'selector': 'mangol-layertree-item'},{'name': 'LegendComponent', 'selector': 'mangol-legend'},{'name': 'MangolComponent', 'selector': 'mangol'},{'name': 'MapComponent', 'selector': 'mangol-map'},{'name': 'MeasureComponent', 'selector': 'mangol-measure'},{'name': 'MeasureResultsComponent', 'selector': 'mangol-measure-results'},{'name': 'MeasureSelectComponent', 'selector': 'mangol-measure-select'},{'name': 'PositionComponent', 'selector': 'mangol-position'},{'name': 'PrintComponent', 'selector': 'mangol-print'},{'name': 'RotationButtonComponent', 'selector': 'mangol-rotation-button'},{'name': 'ScalebarComponent', 'selector': 'mangol-scalebar'},{'name': 'SidebarButtonComponent', 'selector': 'mangol-sidebar-button'},{'name': 'TabsComponent', 'selector': 'mangol-tabs'},{'name': 'TransparencyComponent', 'selector': 'mangol-transparency'},{'name': 'ZoomButtonsComponent', 'selector': 'mangol-zoom-buttons'}];
+    var DIRECTIVES = [];
+    var ACTUAL_COMPONENT = {'name': 'FeatureinfoComponent'};
+</script>
+<script src="../js/tree.js"></script>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+                   </div><div class="search-results">
+    <div class="has-results">
+        <h1 class="search-results-title"><span class='search-results-count'></span> result-matching "<span class='search-query'></span>"</h1>
+        <ul class="search-results-list"></ul>
+    </div>
+    <div class="no-results">
+        <h1 class="search-results-title">No results matching "<span class='search-query'></span>"</h1>
+    </div>
+</div>
+</div>
+               <!-- END CONTENT -->
+           </div>
+       </div>
+
+       <script>
+            var COMPODOC_CURRENT_PAGE_DEPTH = 1;
+            var COMPODOC_CURRENT_PAGE_CONTEXT = 'component';
+            var COMPODOC_CURRENT_PAGE_URL = 'FeatureinfoComponent.html';
+       </script>
+
+       <script src="../js/libs/custom-elements.min.js"></script>
+       <script src="../js/libs/lit-html.js"></script>
+       <script src="../js/menu-wc.js"></script>
+
+       <script src="../js/libs/bootstrap-native.js"></script>
+
+       <script src="../js/libs/es6-shim.min.js"></script>
+       <script src="../js/libs/EventDispatcher.js"></script>
+       <script src="../js/libs/promise.min.js"></script>
+       <script src="../js/libs/zepto.min.js"></script>
+
+       <script src="../js/compodoc.js"></script>
+
+       <script src="../js/tabs.js"></script>
+       <script src="../js/menu.js"></script>
+       <script src="../js/libs/clipboard.min.js"></script>
+       <script src="../js/libs/prism.js"></script>
+       <script src="../js/sourceCode.js"></script>
+          <script src="../js/search/search.js"></script>
+          <script src="../js/search/lunr.min.js"></script>
+          <script src="../js/search/search-lunr.js"></script>
+          <script src="../js/search/search_index.js"></script>
+       <script src="../js/lazy-load-graphs.js"></script>
+
+
+    </body>
+</html>
