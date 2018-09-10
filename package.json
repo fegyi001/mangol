@@ -8,7 +8,9 @@
         "test": "ng test",
         "lint": "ng lint",
         "e2e": "ng e2e",
-        "build-lib": "ng build mangol --prod && cp -r projects/mangol/src/lib/assets/scss dist/mangol"
+        "copy-readme": "cp README.md projects/mangol",
+        "build-lib": "ng build mangol --prod && cp -r projects/mangol/src/lib/assets/scss dist/mangol",
+        "build-mangol": "npm run copy-readme && npm run build-lib"
     },
     "license": "MIT",
     "private": false,
@@ -39,9 +41,9 @@
         "zone.js": "^0.8.26"
     },
     "devDependencies": {
-        "@angular-devkit/build-angular": "~0.7.5",
-        "@angular-devkit/build-ng-packagr": "~0.7.5",
-        "@angular/cli": "~6.1.5",
+        "@angular-devkit/build-angular": "~0.8.1",
+        "@angular-devkit/build-ng-packagr": "~0.8.1",
+        "@angular/cli": "~6.2.1",
         "@angular/compiler-cli": "^6.1.7",
         "@angular/language-service": "^6.1.7",
         "@ngrx/schematics": "^6.1.0",
@@ -54,11 +56,11 @@
         "jasmine-spec-reporter": "~4.2.1",
         "karma": "~3.0.0",
         "karma-chrome-launcher": "~2.2.0",
-        "karma-coverage-istanbul-reporter": "~2.0.3",
+        "karma-coverage-istanbul-reporter": "~2.0.4",
         "karma-jasmine": "~1.1.2",
         "karma-jasmine-html-reporter": "^1.3.1",
         "ng-packagr": "^4.1.1",
-        "protractor": "~5.4.0",
+        "protractor": "~5.4.1",
         "ts-node": "~7.0.1",
         "tsickle": ">=0.32.1",
         "tslib": "^1.9.3",
