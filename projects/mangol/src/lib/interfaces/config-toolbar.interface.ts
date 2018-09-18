@@ -31,7 +31,20 @@ export interface MangolConfigMeasureItem extends MangolConfigToolbarItem {
   dictionary?: MeasureDictionary;
 }
 
-export interface MangolConfigPrintItem extends MangolConfigToolbarItem {}
+export interface PrintDictionary {
+  print?: string;
+  layout?: string;
+  size?: string;
+  resolution?: string;
+  portrait?: string;
+  landscape?: string;
+}
+
+export interface MangolConfigPrintItem extends MangolConfigToolbarItem {
+  resolutions?: number[];
+  sizes?: string[];
+  dictionary?: PrintDictionary;
+}
 
 export interface MangolConfigFeatureInfoItem extends MangolConfigToolbarItem {
   maxFeatures?: number;

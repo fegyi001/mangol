@@ -8,6 +8,7 @@ import { DemoHomeComponent } from './pages/demo-home/demo-home.component';
 import { DemoLayertreeComponent } from './pages/demo-layertree/demo-layertree.component';
 import { DemoMapComponent } from './pages/demo-map/demo-map.component';
 import { DemoMeasureComponent } from './pages/demo-measure/demo-measure.component';
+import { DemoPrintComponent } from './pages/demo-print/demo-print.component';
 import { DemoSidebarComponent } from './pages/demo-sidebar/demo-sidebar.component';
 
 const routes: Routes = [
@@ -47,11 +48,11 @@ const routes: Routes = [
     component: DemoFeatureinfoComponent,
     data: { animation: { page: 'demo-featureinfo' } }
   },
-  // {
-  //   path: 'demo-print',
-  //   component: DemoPrintComponent,
-  //   data: { animation: { page: 'demo-print' } }
-  // },
+  {
+    path: 'demo-print',
+    component: DemoPrintComponent,
+    data: { animation: { page: 'demo-print' } }
+  },
   {
     path: 'demo-measure',
     component: DemoMeasureComponent,

@@ -83,10 +83,10 @@ export class AppComponent implements OnInit, DoCheck, OnDestroy {
         link: '/demo-measure',
         title: 'Measure'
       },
-      // {
-      //   link: '/demo-print',
-      //   title: 'Print'
-      // },
+      {
+        link: '/demo-print',
+        title: 'Print'
+      },
       {
         link: '/demo-full',
         title: 'Full functionality'

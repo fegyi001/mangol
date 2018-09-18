@@ -123,7 +123,6 @@ import { MangolLayer, MangolLayerGroup, MangolConfig } from 'mangol';
         toolbar: {
           layertree: {
             active: true,
-            disabled: false,
             title: 'Layers',
             details: {
               opacity: {
@@ -135,8 +134,8 @@ import { MangolLayer, MangolLayerGroup, MangolConfig } from 'mangol';
           featureinfo: {
             title: 'Feature info'
           },
-          measure: { disabled: false },
-          print: { disabled: true }
+          measure: {},
+          print: {}
         }
       }
     };

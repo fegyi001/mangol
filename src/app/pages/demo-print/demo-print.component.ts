@@ -10,11 +10,11 @@ import { MangolService } from './../../../../projects/mangol/src/lib/mangol.serv
 import { code } from './code';
 
 @Component({
-  selector: 'app-demo-measure',
-  templateUrl: './demo-measure.component.html',
-  styleUrls: ['./demo-measure.component.scss']
+  selector: 'app-demo-print',
+  templateUrl: './demo-print.component.html',
+  styleUrls: ['./demo-print.component.scss']
 })
-export class DemoMeasureComponent implements OnInit, OnDestroy {
+export class DemoPrintComponent implements OnInit, OnDestroy {
   mangolConfig: MangolConfig;
   sidebarOpenedSubscription: Subscription;
 
@@ -44,7 +44,7 @@ export class DemoMeasureComponent implements OnInit, OnDestroy {
     this.mangolConfig = {
       map: {
         renderer: 'canvas',
-        target: 'mangol-demo-measure',
+        target: 'mangol-demo-print',
         view: new View({
           projection: 'EPSG:3857',
           center: fromLonLat([19.3956393810065, 47.168464955013], 'EPSG:3857'),
@@ -52,10 +52,21 @@ export class DemoMeasureComponent implements OnInit, OnDestroy {
         })
       },
       sidebar: {
-        title: 'Measure example',
+        title: 'Print example',
         opened: true,
         toolbar: {
-          measure: {}
+          print: {
+            resolutions: [72, 100, 150, 300],
+            sizes: ['A4', 'A5'],
+            dictionary: {
+              print: 'Print',
+              layout: 'Layout',
+              size: 'Size',
+              resolution: 'Resolution',
+              landscape: 'Landscape',
+              portrait: 'Portrait'
+            }
+          }
         }
       }
     };
