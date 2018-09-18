@@ -22,61 +22,85 @@
 <text text-anchor="start" x="429.7258" y="-15.4" font-family="sans-serif" font-size="14.00" fill="#000000"> &#160;Exports</text>
 <g id="clust1" class="cluster">
 <title>cluster_SharedModule</title>
-<polygon fill="none" stroke="#000000" stroke-dasharray="1,5" points="118,-70 118,-268 378,-268 378,-70 118,-70"/>
+<polygon fill="none" stroke="#000000" stroke-dasharray="1,5" points="74,-70 74,-268 422,-268 422,-70 74,-70"/>
 </g>
 <g id="clust2" class="cluster">
 <title>cluster_SharedModule_declarations</title>
-<polygon fill="none" stroke="#000000" points="270,-78 270,-130 370,-130 370,-78 270,-78"/>
+<polygon fill="none" stroke="#000000" points="226,-78 226,-130 414,-130 414,-78 226,-78"/>
 </g>
-<g id="clust5" class="cluster">
+<g id="clust6" class="cluster">
 <title>cluster_SharedModule_exports</title>
-<polygon fill="none" stroke="#000000" points="204,-208 204,-260 308,-260 308,-208 204,-208"/>
+<polygon fill="none" stroke="#000000" points="172,-208 172,-260 368,-260 368,-208 172,-208"/>
 </g>
-<g id="clust7" class="cluster">
+<g id="clust8" class="cluster">
 <title>cluster_SharedModule_providers</title>
-<polygon fill="none" stroke="#000000" points="126,-78 126,-130 262,-130 262,-78 126,-78"/>
+<polygon fill="none" stroke="#000000" points="82,-78 82,-130 218,-130 218,-78 82,-78"/>
 </g>
-<!-- ShortenPipe -->
+<!-- KeysPipe -->
 <g id="node1" class="node">
-<title>ShortenPipe</title>
-<polygon fill="#ffffb3" stroke="#000000" points="362.4373,-122 277.5627,-122 277.5627,-86 362.4373,-86 362.4373,-122"/>
-<text text-anchor="middle" x="320" y="-99.8" font-family="Times,serif" font-size="14.00" fill="#000000">ShortenPipe</text>
+<title>KeysPipe</title>
+<polygon fill="#ffffb3" stroke="#000000" points="405.6545,-122 336.3455,-122 336.3455,-86 405.6545,-86 405.6545,-122"/>
+<text text-anchor="middle" x="371" y="-99.8" font-family="Times,serif" font-size="14.00" fill="#000000">KeysPipe</text>
 </g>
 <!-- SharedModule -->
-<g id="node2" class="node">
+<g id="node3" class="node">
 <title>SharedModule</title>
-<polygon fill="#8dd3c7" stroke="#000000" points="305.4231,-187 302.4231,-191 281.4231,-191 278.4231,-187 206.5769,-187 206.5769,-151 305.4231,-151 305.4231,-187"/>
-<text text-anchor="middle" x="256" y="-164.8" font-family="Times,serif" font-size="14.00" fill="#000000">SharedModule</text>
+<polygon fill="#8dd3c7" stroke="#000000" points="325.4231,-187 322.4231,-191 301.4231,-191 298.4231,-187 226.5769,-187 226.5769,-151 325.4231,-151 325.4231,-187"/>
+<text text-anchor="middle" x="276" y="-164.8" font-family="Times,serif" font-size="14.00" fill="#000000">SharedModule</text>
+</g>
+<!-- KeysPipe&#45;&gt;SharedModule -->
+<g id="edge1" class="edge">
+<title>KeysPipe&#45;&gt;SharedModule</title>
+<path fill="none" stroke="#000000" d="M347.875,-122.1061C347.875,-141.3391 347.875,-169 347.875,-169 347.875,-169 335.5273,-169 335.5273,-169"/>
+<polygon fill="#000000" stroke="#000000" points="335.5273,-165.5001 325.5273,-169 335.5273,-172.5001 335.5273,-165.5001"/>
+</g>
+<!-- ShortenPipe -->
+<g id="node2" class="node">
+<title>ShortenPipe</title>
+<polygon fill="#ffffb3" stroke="#000000" points="318.4373,-122 233.5627,-122 233.5627,-86 318.4373,-86 318.4373,-122"/>
+<text text-anchor="middle" x="276" y="-99.8" font-family="Times,serif" font-size="14.00" fill="#000000">ShortenPipe</text>
 </g>
 <!-- ShortenPipe&#45;&gt;SharedModule -->
-<g id="edge1" class="edge">
+<g id="edge2" class="edge">
 <title>ShortenPipe&#45;&gt;SharedModule</title>
-<path fill="none" stroke="#000000" d="M291.4965,-122.1061C291.4965,-122.1061 291.4965,-140.991 291.4965,-140.991"/>
-<polygon fill="#000000" stroke="#000000" points="287.9966,-140.9909 291.4965,-150.991 294.9966,-140.991 287.9966,-140.9909"/>
+<path fill="none" stroke="#000000" d="M276,-122.1061C276,-122.1061 276,-140.991 276,-140.991"/>
+<polygon fill="#000000" stroke="#000000" points="272.5001,-140.9909 276,-150.991 279.5001,-140.991 272.5001,-140.9909"/>
+</g>
+<!-- KeysPipe  -->
+<g id="node4" class="node">
+<title>KeysPipe </title>
+<polygon fill="#fb8072" stroke="#000000" points="359.6538,-252 286.3462,-252 286.3462,-216 359.6538,-216 359.6538,-252"/>
+<text text-anchor="middle" x="323" y="-229.8" font-family="Times,serif" font-size="14.00" fill="#000000">KeysPipe </text>
+</g>
+<!-- SharedModule&#45;&gt;KeysPipe  -->
+<g id="edge3" class="edge">
+<title>SharedModule&#45;&gt;KeysPipe </title>
+<path fill="none" stroke="#000000" stroke-dasharray="5,2" d="M305.8171,-187.1061C305.8171,-187.1061 305.8171,-205.991 305.8171,-205.991"/>
+<polygon fill="#000000" stroke="#000000" points="302.3172,-205.9909 305.8171,-215.991 309.3172,-205.991 302.3172,-205.9909"/>
 </g>
 <!-- ShortenPipe  -->
-<g id="node3" class="node">
+<g id="node5" class="node">
 <title>ShortenPipe </title>
-<polygon fill="#fb8072" stroke="#000000" points="299.9362,-252 212.0638,-252 212.0638,-216 299.9362,-216 299.9362,-252"/>
-<text text-anchor="middle" x="256" y="-229.8" font-family="Times,serif" font-size="14.00" fill="#000000">ShortenPipe </text>
+<polygon fill="#fb8072" stroke="#000000" points="267.9362,-252 180.0638,-252 180.0638,-216 267.9362,-216 267.9362,-252"/>
+<text text-anchor="middle" x="224" y="-229.8" font-family="Times,serif" font-size="14.00" fill="#000000">ShortenPipe </text>
 </g>
 <!-- SharedModule&#45;&gt;ShortenPipe  -->
-<g id="edge2" class="edge">
+<g id="edge4" class="edge">
 <title>SharedModule&#45;&gt;ShortenPipe </title>
-<path fill="none" stroke="#000000" stroke-dasharray="5,2" d="M256,-187.1061C256,-187.1061 256,-205.991 256,-205.991"/>
-<polygon fill="#000000" stroke="#000000" points="252.5001,-205.9909 256,-215.991 259.5001,-205.991 252.5001,-205.9909"/>
+<path fill="none" stroke="#000000" stroke-dasharray="5,2" d="M247.3785,-187.1061C247.3785,-187.1061 247.3785,-205.991 247.3785,-205.991"/>
+<polygon fill="#000000" stroke="#000000" points="243.8786,-205.9909 247.3785,-215.991 250.8786,-205.991 243.8786,-205.9909"/>
 </g>
 <!-- StyleService -->
-<g id="node4" class="node">
+<g id="node6" class="node">
 <title>StyleService</title>
-<ellipse fill="#fdb462" stroke="#000000" cx="194" cy="-104" rx="59.6858" ry="18"/>
-<text text-anchor="middle" x="194" y="-99.8" font-family="Times,serif" font-size="14.00" fill="#000000">StyleService</text>
+<ellipse fill="#fdb462" stroke="#000000" cx="150" cy="-104" rx="59.6858" ry="18"/>
+<text text-anchor="middle" x="150" y="-99.8" font-family="Times,serif" font-size="14.00" fill="#000000">StyleService</text>
 </g>
 <!-- StyleService&#45;&gt;SharedModule -->
-<g id="edge3" class="edge">
+<g id="edge5" class="edge">
 <title>StyleService&#45;&gt;SharedModule</title>
-<path fill="none" stroke="#000000" d="M230.3158,-118.4256C230.3158,-118.4256 230.3158,-140.8939 230.3158,-140.8939"/>
-<polygon fill="#000000" stroke="#000000" points="226.8159,-140.8938 230.3158,-150.8939 233.8159,-140.8939 226.8159,-140.8938"/>
+<path fill="none" stroke="#000000" d="M194.9373,-115.922C194.9373,-134.687 194.9373,-169 194.9373,-169 194.9373,-169 216.5104,-169 216.5104,-169"/>
+<polygon fill="#000000" stroke="#000000" points="216.5104,-172.5001 226.5104,-169 216.5103,-165.5001 216.5104,-172.5001"/>
 </g>
 </g>
 </svg>

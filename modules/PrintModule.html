@@ -3,7 +3,7 @@
     <head>
         <meta charset="utf-8">
         <meta http-equiv="x-ua-compatible" content="ie=edge">
-        <title>mangol documentation</title>
+        <title>mangol-app documentation</title>
         <meta name="description" content="">
         <meta name="viewport" content="width=device-width, initial-scale=1">
 
@@ -14,7 +14,7 @@
     <body>
 
         <div class="navbar navbar-default navbar-fixed-top visible-xs">
-            <a href="../" class="navbar-brand">mangol documentation</a>
+            <a href="../" class="navbar-brand">mangol-app documentation</a>
             <button type="button" class="btn btn-default btn-menu ion-ios-menu" id="btn-menu"></button>
         </div>
 
@@ -67,11 +67,15 @@
 <text text-anchor="start" x="429.7258" y="-15.4" font-family="sans-serif" font-size="14.00" fill="#000000"> &#160;Exports</text>
 <g id="clust1" class="cluster">
 <title>cluster_PrintModule</title>
-<polygon fill="none" stroke="#000000" stroke-dasharray="1,5" points="176,-70 176,-268 320,-268 320,-70 176,-70"/>
+<polygon fill="none" stroke="#000000" stroke-dasharray="1,5" points="117,-70 117,-268 379,-268 379,-70 117,-70"/>
 </g>
 <g id="clust2" class="cluster">
 <title>cluster_PrintModule_declarations</title>
-<polygon fill="none" stroke="#000000" points="186,-78 186,-130 310,-130 310,-78 186,-78"/>
+<polygon fill="none" stroke="#000000" points="247,-78 247,-130 371,-130 371,-78 247,-78"/>
+</g>
+<g id="clust4" class="cluster">
+<title>cluster_PrintModule_imports</title>
+<polygon fill="none" stroke="#000000" points="125,-78 125,-130 239,-130 239,-78 125,-78"/>
 </g>
 <g id="clust5" class="cluster">
 <title>cluster_PrintModule_exports</title>
@@ -80,8 +84,8 @@
 <!-- PrintComponent -->
 <g id="node1" class="node">
 <title>PrintComponent</title>
-<polygon fill="#ffffb3" stroke="#000000" points="302.0577,-122 193.9423,-122 193.9423,-86 302.0577,-86 302.0577,-122"/>
-<text text-anchor="middle" x="248" y="-99.8" font-family="Times,serif" font-size="14.00" fill="#000000">PrintComponent</text>
+<polygon fill="#ffffb3" stroke="#000000" points="363.0577,-122 254.9423,-122 254.9423,-86 363.0577,-86 363.0577,-122"/>
+<text text-anchor="middle" x="309" y="-99.8" font-family="Times,serif" font-size="14.00" fill="#000000">PrintComponent</text>
 </g>
 <!-- PrintModule -->
 <g id="node2" class="node">
@@ -92,20 +96,32 @@
 <!-- PrintComponent&#45;&gt;PrintModule -->
 <g id="edge1" class="edge">
 <title>PrintComponent&#45;&gt;PrintModule</title>
-<path fill="none" stroke="#000000" d="M248,-122.1061C248,-122.1061 248,-140.991 248,-140.991"/>
-<polygon fill="#000000" stroke="#000000" points="244.5001,-140.9909 248,-150.991 251.5001,-140.991 244.5001,-140.9909"/>
+<path fill="none" stroke="#000000" d="M273.0544,-122.1061C273.0544,-122.1061 273.0544,-140.991 273.0544,-140.991"/>
+<polygon fill="#000000" stroke="#000000" points="269.5544,-140.9909 273.0544,-150.991 276.5544,-140.991 269.5544,-140.9909"/>
 </g>
 <!-- PrintComponent  -->
-<g id="node3" class="node">
+<g id="node4" class="node">
 <title>PrintComponent </title>
 <polygon fill="#fb8072" stroke="#000000" points="304.0568,-252 191.9432,-252 191.9432,-216 304.0568,-216 304.0568,-252"/>
 <text text-anchor="middle" x="248" y="-229.8" font-family="Times,serif" font-size="14.00" fill="#000000">PrintComponent </text>
 </g>
 <!-- PrintModule&#45;&gt;PrintComponent  -->
-<g id="edge2" class="edge">
+<g id="edge3" class="edge">
 <title>PrintModule&#45;&gt;PrintComponent </title>
 <path fill="none" stroke="#000000" stroke-dasharray="5,2" d="M248,-187.1061C248,-187.1061 248,-205.991 248,-205.991"/>
 <polygon fill="#000000" stroke="#000000" points="244.5001,-205.9909 248,-215.991 251.5001,-205.991 244.5001,-205.9909"/>
+</g>
+<!-- SharedModule -->
+<g id="node3" class="node">
+<title>SharedModule</title>
+<polygon fill="#8dd3c7" stroke="#000000" points="231.4231,-122 228.4231,-126 207.4231,-126 204.4231,-122 132.5769,-122 132.5769,-86 231.4231,-86 231.4231,-122"/>
+<text text-anchor="middle" x="182" y="-99.8" font-family="Times,serif" font-size="14.00" fill="#000000">SharedModule</text>
+</g>
+<!-- SharedModule&#45;&gt;PrintModule -->
+<g id="edge2" class="edge">
+<title>SharedModule&#45;&gt;PrintModule</title>
+<path fill="none" stroke="#000000" d="M217.912,-122.1061C217.912,-122.1061 217.912,-140.991 217.912,-140.991"/>
+<polygon fill="#000000" stroke="#000000" points="214.4121,-140.9909 217.912,-150.991 221.4121,-140.991 214.4121,-140.9909"/>
 </g>
 </g>
 </svg>
@@ -137,7 +153,7 @@
             <h3>File</h3>
         </p>
         <p class="comment">
-            <code>src/lib/modules/print/print.module.ts</code>
+            <code>projects/mangol/src/lib/modules/print/print.module.ts</code>
         </p>
 
 
@@ -150,6 +166,14 @@
                     <ul class="list-group">
                             <li class="list-group-item">
                                 <a href="../components/PrintComponent.html">PrintComponent</a>
+                            </li>
+                    </ul>
+                </div>
+                <div class="col-sm-3">
+                    <h3>Imports<a href="https://angular.io/api/core/NgModule#imports" target="_blank" title="Official documentation about module imports"><span class="icon ion-ios-information-circle-outline"></a></h3>
+                    <ul class="list-group">
+                            <li class="list-group-item">
+                                    <a href="../modules/SharedModule.html" >SharedModule</a>
                             </li>
                     </ul>
                 </div>
@@ -167,12 +191,30 @@
 
 
     <div class="tab-pane fade  tab-source-code" id="c-source">
-        <pre class="line-numbers compodoc-sourcecode"><code class="language-typescript">import { NgModule } from &#x27;@angular/core&#x27;;
-import { CommonModule } from &#x27;@angular/common&#x27;;
+        <pre class="line-numbers compodoc-sourcecode"><code class="language-typescript">import { CommonModule } from &#x27;@angular/common&#x27;;
+import { NgModule } from &#x27;@angular/core&#x27;;
+import { FormsModule, ReactiveFormsModule } from &#x27;@angular/forms&#x27;;
+import { MatButtonModule } from &#x27;@angular/material/button&#x27;;
+import { MatFormFieldModule } from &#x27;@angular/material/form-field&#x27;;
+import { MatIconModule } from &#x27;@angular/material/icon&#x27;;
+import { MatSelectModule } from &#x27;@angular/material/select&#x27;;
+import { MatDividerModule } from &#x27;@angular/material/divider&#x27;;
+
+import { SharedModule } from &#x27;./../_shared/shared/shared.module&#x27;;
 import { PrintComponent } from &#x27;./print.component&#x27;;
 
 @NgModule({
-  imports: [CommonModule],
+  imports: [
+    CommonModule,
+    FormsModule,
+    ReactiveFormsModule,
+    MatFormFieldModule,
+    MatSelectModule,
+    MatIconModule,
+    MatButtonModule,
+    MatDividerModule,
+    SharedModule
+  ],
   declarations: [PrintComponent],
   exports: [PrintComponent]
 })
