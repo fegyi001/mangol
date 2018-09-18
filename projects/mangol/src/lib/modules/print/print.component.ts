@@ -117,30 +117,26 @@ export class PrintComponent implements OnInit, OnDestroy {
         );
         const mapSize = m.getSize();
         const extent = m.getView().calculateExtent(mapSize);
-        m.once('postcompose', (event: any) => {
-          let interval: any;
-          interval = setInterval(() => {
-            clearInterval(interval);
-            const canvas = event['context']['canvas'];
-            const data = canvas.toDataURL('image/jpeg');
-            const pdf = new jsPDF(layout.type, undefined, size.id);
-            pdf.addImage(
-              data,
-              'JPEG',
-              0,
-              0,
-              layout.type === 'landscape' ? size.width : size.height,
-              layout.type === 'landscape' ? size.height : size.width
-            );
-            pdf.save('map.pdf');
-            m.setSize(mapSize);
-            m.getView().fit(extent);
-            m.renderSync();
-            this.printInProgress = false;
-          }, 5000);
+        m.once('rendercomplete', (event: any) => {
+          const canvas = event.context.canvas;
+          const data = canvas.toDataURL('image/jpeg');
+          const pdf = new jsPDF(layout.type, undefined, size.id);
+          pdf.addImage(
+            data,
+            'JPEG',
+            0,
+            0,
+            layout.type === 'landscape' ? size.width : size.height,
+            layout.type === 'landscape' ? size.height : size.width
+          );
+          pdf.save('map.pdf');
+          m.setSize(mapSize);
+          m.getView().fit(extent, { size: mapSize });
+          this.printInProgress = false;
         });
-        m.setSize([width, height]);
-        m.getView().fit(extent);
+        const printSize: [number, number] = [width, height];
+        m.setSize(printSize);
+        m.getView().fit(extent, { size: printSize });
         m.renderSync();
       });
   }
