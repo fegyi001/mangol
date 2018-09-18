@@ -2,10 +2,31 @@
     display: block;
 }
 
-.mat-form-field {
-    width: 100%;
+.mat-select {
+    padding: 20px;
+    width: calc(100% - 40px);
+    margin-bottom: 20px;
 }
+
 
 button {
     margin-top: 10px;
+    width: 100%;
+}
+
+.rotate-infinite {
+    animation-name: rotate;
+    animation-duration: 1.5s;
+    animation-iteration-count: infinite;
+    animation-timing-function: linear;
+}
+
+@keyframes rotate {
+    from {
+        transform: rotate(0deg);
+    }
+
+    to {
+        transform: rotate(360deg);
+    }
 }

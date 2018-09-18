@@ -1,38 +1,61 @@
 <div class="module-container">
-
-    <mat-form-field>
-        <mat-select placeholder="Layout"
-            (selectionChange)="onLayoutChange($event)">
-            <mat-option [value]="layout"
-                *ngFor="let layout of layouts">
-                {{layout.name}}
+    <form [formGroup]="form">
+        <mat-select formControlName="layout"
+            [placeholder]="(dictionary$ | async).layout"
+            [value]="selectedLayout$ | async"
+            (selectionChange)="onLayoutChange($event)"
+            class="mat-elevation-z1">
+            <mat-option [disabled]="(selectedLayout$ | async) === null">
+                <mat-icon>clear</mat-icon>
+                <span>{{(dictionary$ | async).clearSelection}}</span>
+            </mat-option>
+            <mat-divider></mat-divider>
+            <mat-select-trigger *ngIf="(selectedLayout$ | async) !== null">
+                {{(dictionary$ | async)[(selectedLayout$ | async).type]}}
+            </mat-select-trigger>
+            <mat-option *ngFor="let layout of (layouts$ | async)"
+                [value]="layout">
+                <mat-icon>{{layout.type === 'portrait' ? 'crop_portrait' : 'crop_landscape'}}</mat-icon>
+                {{(dictionary$ | async)[layout.type]}}
             </mat-option>
         </mat-select>
-    </mat-form-field>
-
-    <mat-form-field>
-        <mat-select placeholder="Size"
-            (selectionChange)="onSizeChange($event)">
-            <mat-option [value]="key"
-                *ngFor="let key of dims | keys">
-                {{key}} ({{dims[key][0]}} x {{dims[key][1]}} mm)
+        <mat-select formControlName="size"
+            [placeholder]="(dictionary$ | async).size"
+            [value]="selectedSize$ | async"
+            (selectionChange)="onSizeChange($event)"
+            class="mat-elevation-z1">
+            <mat-option [disabled]="(selectedSize$ | async) === null">
+                <mat-icon>clear</mat-icon>
+                <span>{{(dictionary$ | async).clearSelection}}</span>
+            </mat-option>
+            <mat-divider></mat-divider>
+            <mat-option *ngFor="let size of (sizes$ | async)"
+                [value]="size">
+                {{size.id}} ({{size.width}} x {{size.height}})
             </mat-option>
         </mat-select>
-    </mat-form-field>
-
-    <mat-form-field>
-        <mat-select placeholder="Resolution"
-            (selectionChange)="onResolutionChange($event)">
-            <mat-option [value]="r"
-                *ngFor="let r of resolutions">
-                {{r}}
-                <span matSuffix>dpi</span>
+        <mat-select formControlName="resolution"
+            [placeholder]="(dictionary$ | async).resolution"
+            [value]="selectedResolution$ | async"
+            (selectionChange)="onResolutionChange($event)"
+            class="mat-elevation-z1">
+            <mat-option [disabled]="(selectedResolution$ | async) === null">
+                <mat-icon>clear</mat-icon>
+                <span>{{(dictionary$ | async).clearSelection}}</span>
+            </mat-option>
+            <mat-divider></mat-divider>
+            <mat-option *ngFor="let resolution of (resolutions$ | async)"
+                [value]="resolution">
+                {{resolution}} dpi
             </mat-option>
         </mat-select>
-    </mat-form-field>
-
+    </form>
     <button mat-raised-button
         color="primary"
-        [disabled]="selectedLayout === null || selectedDim === null || selectedResolution === null"
-        (click)="print()">Print</button>
+        [disabled]="!form.valid || printInProgress"
+        (click)="print()">
+        <mat-icon *ngIf="printInProgress"
+            class="rotate-infinite">hourglass_empty</mat-icon>
+        <span *ngIf="!printInProgress">{{(dictionary$ | async).print}}</span>
+    </button>
 </div>

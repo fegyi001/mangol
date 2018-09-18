@@ -1,5 +1,8 @@
-import { MeasureDictionary } from './../store/measure/measure.reducers';
 import Style from 'ol/style/Style';
+
+import { PrintLayout } from '../store/print/print.reducers';
+import { MeasureDictionary } from './../store/measure/measure.reducers';
+import { PrintSize } from './../store/print/print.reducers';
 
 export interface MangolConfigToolbarItem {
   title?: string;
@@ -38,11 +41,13 @@ export interface PrintDictionary {
   resolution?: string;
   portrait?: string;
   landscape?: string;
+  clearSelection?: string;
 }
 
 export interface MangolConfigPrintItem extends MangolConfigToolbarItem {
   resolutions?: number[];
-  sizes?: string[];
+  sizes?: PrintSize[];
+  layouts?: PrintLayout[];
   dictionary?: PrintDictionary;
 }
 

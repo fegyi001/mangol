@@ -2,43 +2,25 @@ import { PrintDictionary } from './../../interfaces/config-toolbar.interface';
 import * as PrintActions from './print.actions';
 
 export interface PrintLayout {
-  name: string;
-  value: string;
+  type: 'landscape' | 'portrait';
 }
 
-const dictionary: PrintDictionary = {
-  print: 'Print',
-  layout: 'Layout',
-  size: 'Size',
-  resolution: 'Resolution',
-  landscape: 'Landscape',
-  portrait: 'Portrait'
-};
-
-const dims = {
-  A5: [210, 148],
-  A4: [297, 210],
-  A3: [420, 297],
-  A2: [594, 420],
-  A1: [841, 594],
-  A0: [1189, 841]
-};
-
-const sizes: string[] = [];
-for (const key in dims) {
-  if (dims.hasOwnProperty(key)) {
-    sizes.push(key);
-  }
+export interface PrintSize {
+  id: string;
+  width: number;
+  height: number;
 }
 
 export interface State {
   hasPrint: boolean;
   disabled: boolean;
   title: string;
-  dims: any;
   layouts: PrintLayout[];
   resolutions: number[];
-  sizes: string[];
+  sizes: PrintSize[];
+  selectedLayout: PrintLayout;
+  selectedResolution: number;
+  selectedSize: PrintSize;
   dictionary: PrintDictionary;
 }
 
@@ -46,20 +28,35 @@ const initialState: State = {
   hasPrint: false,
   disabled: false,
   title: 'Print',
-  dims: dims,
   resolutions: [72, 100, 150, 300],
-  sizes: sizes,
-  dictionary: dictionary,
+  sizes: [
+    { id: 'A5', width: 210, height: 148 },
+    { id: 'A4', width: 297, height: 210 },
+    { id: 'A3', width: 420, height: 297 },
+    { id: 'A2', width: 594, height: 420 },
+    { id: 'A1', width: 841, height: 594 },
+    { id: 'A0', width: 1189, height: 841 }
+  ],
   layouts: [
     {
-      name: dictionary.landscape,
-      value: 'landscape'
+      type: 'landscape'
     },
     {
-      name: dictionary.portrait,
-      value: 'portrait'
+      type: 'portrait'
     }
-  ]
+  ],
+  selectedLayout: null,
+  selectedResolution: null,
+  selectedSize: null,
+  dictionary: {
+    print: 'Print',
+    layout: 'Layout',
+    size: 'Size',
+    resolution: 'Resolution',
+    landscape: 'Landscape',
+    portrait: 'Portrait',
+    clearSelection: 'Clear'
+  }
 };
 
 export function printReducer(
@@ -73,6 +70,26 @@ export function printReducer(
       return { ...state, disabled: action.payload };
     case PrintActions.SET_TITLE:
       return { ...state, title: action.payload };
+    case PrintActions.SET_RESOLUTIONS:
+      return { ...state, resolutions: action.payload };
+    case PrintActions.SET_LAYOUTS:
+      return { ...state, layouts: action.payload };
+    case PrintActions.SET_SIZES:
+      return { ...state, sizes: action.payload };
+    case PrintActions.SET_DICTIONARY:
+      const dict = { ...state.dictionary };
+      for (const key in action.payload) {
+        if (action.payload.hasOwnProperty(key)) {
+          dict[key] = action.payload[key];
+        }
+      }
+      return { ...state, dictionary: dict };
+    case PrintActions.SET_SELECTED_LAYOUT:
+      return { ...state, selectedLayout: action.payload };
+    case PrintActions.SET_SELECTED_RESOLUTION:
+      return { ...state, selectedResolution: action.payload };
+    case PrintActions.SET_SELECTED_SIZE:
+      return { ...state, selectedSize: action.payload };
     default:
       return state;
   }

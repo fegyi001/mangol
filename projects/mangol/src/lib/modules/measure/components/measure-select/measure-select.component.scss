@@ -1,11 +1,12 @@
 @import "../../../../assets/scss/mangol";
+
 :host {
     display: block;
 }
 
 .mat-select {
     padding: 20px;
-    width: initial;
+    width: calc(100% - 40px);
 }
 
 .ms {
