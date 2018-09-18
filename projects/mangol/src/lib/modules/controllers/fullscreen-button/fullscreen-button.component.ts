@@ -1,7 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { Store } from '@ngrx/store';
+import { Observable } from 'rxjs';
 
-import { Observable } from '../../../../../../../node_modules/rxjs';
 import { MangolControllersFullScreenOptions } from './../../../interfaces/config-map-controllers.interface';
 import * as fromMangol from './../../../store/mangol.reducers';
 

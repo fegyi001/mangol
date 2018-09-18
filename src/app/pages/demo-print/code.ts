@@ -30,7 +30,34 @@ import { MangolLayer, MangolLayerGroup, MangolConfig } from 'mangol';
         title: 'Print example',
         opened: true,
         toolbar: {
-          print: {}
+          print: {
+            resolutions: [72, 100, 150, 300],
+            sizes: [
+              { id: 'A5', width: 210, height: 148 },
+              { id: 'A4', width: 297, height: 210 },
+              { id: 'A3', width: 420, height: 297 },
+              { id: 'A2', width: 594, height: 420 },
+              { id: 'A1', width: 841, height: 594 },
+              { id: 'A0', width: 1189, height: 841 }
+            ],
+            layouts: [
+              {
+                type: 'landscape'
+              },
+              {
+                type: 'portrait'
+              }
+            ],
+            dictionary: {
+              print: 'Print',
+              layout: 'Choose layout...',
+              size: 'Choose paper size...',
+              resolution: 'Choose resolution...',
+              landscape: 'Landscape',
+              portrait: 'Portrait',
+              clearSelection: 'Clear'
+            }
+          }
         }
       }
     };
