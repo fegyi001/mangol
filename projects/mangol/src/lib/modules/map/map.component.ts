@@ -94,7 +94,7 @@ export class MapComponent implements OnInit, AfterViewInit, OnDestroy {
         }
         // Create the map
         this.store.dispatch(
-          new MapActions.AddMap(
+          new MapActions.SetMap(
             new Map({
               target: this.target,
               renderer: this.defaultMap.renderer,

@@ -39,7 +39,11 @@
         <h1>Demos</h1>
         <mat-card *ngFor="let item of items"
             [ngClass]="{'active': activeRouteData === item.link}"
-            (click)="navigate(item)">{{item.title}} </mat-card>
+            (click)="navigate(item)">
+            <span>
+                {{item.title}}
+            </span>
+        </mat-card>
     </mat-drawer>
     <div class="demo-sidenav-content"
         [@routeState]="getAnimationData(rOutlet)">

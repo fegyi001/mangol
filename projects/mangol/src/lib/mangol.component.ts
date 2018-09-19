@@ -6,9 +6,9 @@ import { take } from 'rxjs/operators';
 
 import { MangolConfig } from './interfaces/config.interface';
 import * as ConfigActions from './store/config/config.actions';
+import * as MangolActions from './store/mangol.actions';
 import * as fromMangol from './store/mangol.reducers';
 import * as SidebarActions from './store/sidebar/sidebar.actions';
-import * as MangolActions from './store/mangol.actions';
 
 @Component({
   selector: 'mangol',

@@ -121,14 +121,14 @@ export class AppComponent implements OnInit, DoCheck, OnDestroy {
   }
 
   navigate(item: MangolDemoItem) {
-    this.appService.sidebarOpenedSubject.next(false);
-    if (window.innerWidth <= 500) {
+    if (window.innerWidth <= 1000) {
+      this.appService.sidebarOpenedSubject.next(false);
     }
     this.router.navigate([item.link]);
   }
 
   navigateHome() {
-    if (window.innerWidth <= 500) {
+    if (window.innerWidth <= 1000) {
       this.appService.sidebarOpenedSubject.next(false);
     }
     this.router.navigate(['/demo-home']);

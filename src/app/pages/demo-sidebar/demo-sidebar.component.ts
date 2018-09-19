@@ -2,7 +2,7 @@ import { Component, OnDestroy, OnInit } from '@angular/core';
 import { fromLonLat } from 'ol/proj.js';
 import View from 'ol/View';
 import { Subscription } from 'rxjs';
-import { filter } from 'rxjs/operators';
+import { filter, map } from 'rxjs/operators';
 
 import { AppService } from '../../app.service';
 import { MangolConfig } from './../../../../projects/mangol/src/lib/interfaces/config.interface';
@@ -28,11 +28,14 @@ export class DemoSidebarComponent implements OnInit, OnDestroy {
       opened => {
         if (opened !== null) {
           this.mangolService
-            .getMap$()
-            .pipe(filter(map => map !== null))
-            .subscribe(map => {
+            .getMapState$()
+            .pipe(
+              map(m => m.map),
+              filter(m => m !== null)
+            )
+            .subscribe(m => {
               setTimeout(() => {
-                map.updateSize();
+                m.updateSize();
               }, 500);
             });
         }
@@ -67,6 +70,6 @@ export class DemoSidebarComponent implements OnInit, OnDestroy {
     if (this.sidebarOpenedSubscription) {
       this.sidebarOpenedSubscription.unsubscribe();
     }
-    this.mangolService.setConfig(null);
+    this.mangolService.resetMangolState();
   }
 }

@@ -15,7 +15,7 @@ export function mapReducer(
   action: MapActions.MapActions
 ) {
   switch (action.type) {
-    case MapActions.ADD_MAP:
+    case MapActions.SET_MAP:
       return { ...state, map: action.payload };
     default:
       return state;

@@ -6,7 +6,7 @@ import TileJSON from 'ol/source/TileJSON';
 import TileWMS from 'ol/source/TileWMS';
 import View from 'ol/View';
 import { Subscription } from 'rxjs';
-import { filter } from 'rxjs/operators';
+import { filter, map } from 'rxjs/operators';
 
 import { MangolLayer } from '../../../../projects/mangol/src/lib/classes/Layer';
 import { AppService } from '../../app.service';
@@ -34,11 +34,14 @@ export class DemoFullComponent implements OnInit, OnDestroy {
       opened => {
         if (opened !== null) {
           this.mangolService
-            .getMap$()
-            .pipe(filter(map => map !== null))
-            .subscribe(map => {
+            .getMapState$()
+            .pipe(
+              map(m => m.map),
+              filter(m => m !== null)
+            )
+            .subscribe(m => {
               setTimeout(() => {
-                map.updateSize();
+                m.updateSize();
               }, 500);
             });
         }
@@ -176,6 +179,6 @@ export class DemoFullComponent implements OnInit, OnDestroy {
     if (this.sidebarOpenedSubscription) {
       this.sidebarOpenedSubscription.unsubscribe();
     }
-    this.mangolService.setConfig(null);
+    this.mangolService.resetMangolState();
   }
 }

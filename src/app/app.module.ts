@@ -22,9 +22,9 @@ import { DemoFullComponent } from './pages/demo-full/demo-full.component';
 import { DemoHomeComponent } from './pages/demo-home/demo-home.component';
 import { DemoLayertreeComponent } from './pages/demo-layertree/demo-layertree.component';
 import { DemoMapComponent } from './pages/demo-map/demo-map.component';
-import { DemoSidebarComponent } from './pages/demo-sidebar/demo-sidebar.component';
 import { DemoMeasureComponent } from './pages/demo-measure/demo-measure.component';
 import { DemoPrintComponent } from './pages/demo-print/demo-print.component';
+import { DemoSidebarComponent } from './pages/demo-sidebar/demo-sidebar.component';
 
 @NgModule({
   declarations: [
