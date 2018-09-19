@@ -95,7 +95,7 @@ platformBrowserDynamic()
 
 ## Production build
 
-Unfortunately there are some known issues with OL when build using Ahead-of-time (aot). To make aot possible, you should modify the `angular.json` and set `optimization: false` (default is `true`). After that, `ng build --prod --aot` should work fine.
+Unfortunately there is a known issue with OL when build using Ahead-of-time (aot). To make aot possible, you should modify `node_modules/ol/package.json` file, and set `"sideEffects": true`. Another option is to disable optimization in your project config (in `angular.json` and set `optimization: false`, but I don't recommend it since the bundle size will be much bigger). After either of the above solutions, `ng build --prod --aot` should work fine.
 
 ## Basic example
 
