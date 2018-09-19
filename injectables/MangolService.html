@@ -79,19 +79,73 @@
                     <td class="col-md-4">
                         <ul class="index-list">
                             <li>
-                                <a href="#getConfig">getConfig</a>
+                                <a href="#getConfigState$">getConfigState$</a>
                             </li>
                             <li>
-                                <a href="#getMap$">getMap$</a>
+                                <a href="#getControllersState$">getControllersState$</a>
                             </li>
                             <li>
-                                <a href="#getSidebar$">getSidebar$</a>
+                                <a href="#getMapState$">getMapState$</a>
+                            </li>
+                            <li>
+                                <a href="#getSidebarState$">getSidebarState$</a>
+                            </li>
+                            <li>
+                                <a href="#resetControllers">resetControllers</a>
+                            </li>
+                            <li>
+                                <a href="#resetMangolState">resetMangolState</a>
                             </li>
                             <li>
                                 <a href="#setConfig">setConfig</a>
                             </li>
                             <li>
+                                <a href="#setControllersFullscreenDictionary">setControllersFullscreenDictionary</a>
+                            </li>
+                            <li>
+                                <a href="#setControllersPositionCoordinates">setControllersPositionCoordinates</a>
+                            </li>
+                            <li>
+                                <a href="#setControllersPositionDictionary">setControllersPositionDictionary</a>
+                            </li>
+                            <li>
+                                <a href="#setControllersPositionPrecision">setControllersPositionPrecision</a>
+                            </li>
+                            <li>
+                                <a href="#setControllersRotationDictionary">setControllersRotationDictionary</a>
+                            </li>
+                            <li>
+                                <a href="#setControllersRotationValue">setControllersRotationValue</a>
+                            </li>
+                            <li>
+                                <a href="#setControllersShowFullscreen">setControllersShowFullscreen</a>
+                            </li>
+                            <li>
+                                <a href="#setControllersShowFullscreenTooltip">setControllersShowFullscreenTooltip</a>
+                            </li>
+                            <li>
+                                <a href="#setControllersShowPosition">setControllersShowPosition</a>
+                            </li>
+                            <li>
+                                <a href="#setControllersShowRotation">setControllersShowRotation</a>
+                            </li>
+                            <li>
+                                <a href="#setControllersShowRotationTooltip">setControllersShowRotationTooltip</a>
+                            </li>
+                            <li>
+                                <a href="#setControllersShowTooltip">setControllersShowTooltip</a>
+                            </li>
+                            <li>
+                                <a href="#setControllersShowZoom">setControllersShowZoom</a>
+                            </li>
+                            <li>
+                                <a href="#setControllersZoomDictionary">setControllersZoomDictionary</a>
+                            </li>
+                            <li>
                                 <a href="#setHasSidebar">setHasSidebar</a>
+                            </li>
+                            <li>
+                                <a href="#setMap">setMap</a>
                             </li>
                             <li>
                                 <a href="#setSidebarCollapsible">setSidebarCollapsible</a>
@@ -101,6 +155,9 @@
                             </li>
                             <li>
                                 <a href="#setSidebarOpened">setSidebarOpened</a>
+                            </li>
+                            <li>
+                                <a href="#setSidebarSelectedModule">setSidebarSelectedModule</a>
                             </li>
                             <li>
                                 <a href="#setSidebarTitle">setSidebarTitle</a>
@@ -131,7 +188,7 @@
                 </tr>
                         <tr>
                             <td class="col-md-4">
-                                <div class="io-line">Defined in <a href="" data-line="15" class="link-to-prism">projects/mangol/src/lib/mangol.service.ts:15</a></div>
+                                <div class="io-line">Defined in <a href="" data-line="27" class="link-to-prism">projects/mangol/src/lib/mangol.service.ts:27</a></div>
                             </td>
                         </tr>
 
@@ -178,36 +235,38 @@
             <tbody>
                 <tr>
                     <td class="col-md-4">
-                        <a name="getConfig"></a>
+                        <a name="getConfigState$"></a>
                         <span class="name">
                             <b>
-                            getConfig
+                            getConfigState$
                             </b>
-                            <a href="#getConfig"><span class="icon ion-ios-link"></span></a>
+                            <a href="#getConfigState$"><span class="icon ion-ios-link"></span></a>
                         </span>
                     </td>
                 </tr>
                 <tr>
                     <td class="col-md-4">
-<code>getConfig()</code>
+<code>getConfigState$()</code>
                     </td>
                 </tr>
 
 
                         <tr>
                             <td class="col-md-4">
-                                    <div class="io-line">Defined in <a href="" data-line="21" class="link-to-prism">projects/mangol/src/lib/mangol.service.ts:21</a></div>
+                                    <div class="io-line">Defined in <a href="" data-line="44" class="link-to-prism">projects/mangol/src/lib/mangol.service.ts:44</a></div>
                             </td>
                         </tr>
 
 
                 <tr>
                     <td class="col-md-4">
-                            <div class="io-description"><p>CONFIG STATE MODIFIER FUNCTIONS</p>
+                            <div class="io-description"><hr>
+<p>CONFIG state functions *</p>
+<hr>
 </div>
 
                             <div class="io-description">
-                                <b>Returns : </b>    <code><a href="../interfaces/MangolConfig.html" target="_self" >Observable&lt;MangolConfig&gt;</a></code>
+                                <b>Returns : </b>    <code><a href="../interfaces/State.html" target="_self" >Observable&lt;fromConfig.State&gt;</a></code>
 
                             </div>
                     </td>
@@ -218,34 +277,38 @@
             <tbody>
                 <tr>
                     <td class="col-md-4">
-                        <a name="getMap$"></a>
+                        <a name="getControllersState$"></a>
                         <span class="name">
                             <b>
-                            getMap$
+                            getControllersState$
                             </b>
-                            <a href="#getMap$"><span class="icon ion-ios-link"></span></a>
+                            <a href="#getControllersState$"><span class="icon ion-ios-link"></span></a>
                         </span>
                     </td>
                 </tr>
                 <tr>
                     <td class="col-md-4">
-<code>getMap$()</code>
+<code>getControllersState$()</code>
                     </td>
                 </tr>
 
 
                         <tr>
                             <td class="col-md-4">
-                                    <div class="io-line">Defined in <a href="" data-line="32" class="link-to-prism">projects/mangol/src/lib/mangol.service.ts:32</a></div>
+                                    <div class="io-line">Defined in <a href="" data-line="117" class="link-to-prism">projects/mangol/src/lib/mangol.service.ts:117</a></div>
                             </td>
                         </tr>
 
 
                 <tr>
                     <td class="col-md-4">
+                            <div class="io-description"><hr>
+<p>CONTROLLERS state functions *</p>
+<hr>
+</div>
 
                             <div class="io-description">
-                                <b>Returns : </b>    <code>Observable&lt;Map&gt;</code>
+                                <b>Returns : </b>    <code><a href="../interfaces/State.html" target="_self" >Observable&lt;fromControllers.State&gt;</a></code>
 
                             </div>
                     </td>
@@ -256,36 +319,158 @@
             <tbody>
                 <tr>
                     <td class="col-md-4">
-                        <a name="getSidebar$"></a>
+                        <a name="getMapState$"></a>
                         <span class="name">
                             <b>
-                            getSidebar$
+                            getMapState$
                             </b>
-                            <a href="#getSidebar$"><span class="icon ion-ios-link"></span></a>
+                            <a href="#getMapState$"><span class="icon ion-ios-link"></span></a>
                         </span>
                     </td>
                 </tr>
                 <tr>
                     <td class="col-md-4">
-<code>getSidebar$()</code>
+<code>getMapState$()</code>
                     </td>
                 </tr>
 
 
                         <tr>
                             <td class="col-md-4">
-                                    <div class="io-line">Defined in <a href="" data-line="40" class="link-to-prism">projects/mangol/src/lib/mangol.service.ts:40</a></div>
+                                    <div class="io-line">Defined in <a href="" data-line="63" class="link-to-prism">projects/mangol/src/lib/mangol.service.ts:63</a></div>
                             </td>
                         </tr>
 
 
                 <tr>
                     <td class="col-md-4">
-                            <div class="io-description"><p>SIDEBAR STATE MODIFIER FUNCTIONS</p>
+                            <div class="io-description"><hr>
+<p>MAP state functions *</p>
+<hr>
+</div>
+
+                            <div class="io-description">
+                                <b>Returns : </b>    <code><a href="../interfaces/State.html" target="_self" >Observable&lt;fromMap.State&gt;</a></code>
+
+                            </div>
+                    </td>
+                </tr>
+            </tbody>
+        </table>
+        <table class="table table-sm table-bordered">
+            <tbody>
+                <tr>
+                    <td class="col-md-4">
+                        <a name="getSidebarState$"></a>
+                        <span class="name">
+                            <b>
+                            getSidebarState$
+                            </b>
+                            <a href="#getSidebarState$"><span class="icon ion-ios-link"></span></a>
+                        </span>
+                    </td>
+                </tr>
+                <tr>
+                    <td class="col-md-4">
+<code>getSidebarState$()</code>
+                    </td>
+                </tr>
+
+
+                        <tr>
+                            <td class="col-md-4">
+                                    <div class="io-line">Defined in <a href="" data-line="78" class="link-to-prism">projects/mangol/src/lib/mangol.service.ts:78</a></div>
+                            </td>
+                        </tr>
+
+
+                <tr>
+                    <td class="col-md-4">
+                            <div class="io-description"><hr>
+<p>SIDEBAR state functions *</p>
+<hr>
 </div>
 
                             <div class="io-description">
                                 <b>Returns : </b>    <code><a href="../interfaces/State.html" target="_self" >Observable&lt;fromSidebar.State&gt;</a></code>
+
+                            </div>
+                    </td>
+                </tr>
+            </tbody>
+        </table>
+        <table class="table table-sm table-bordered">
+            <tbody>
+                <tr>
+                    <td class="col-md-4">
+                        <a name="resetControllers"></a>
+                        <span class="name">
+                            <b>
+                            resetControllers
+                            </b>
+                            <a href="#resetControllers"><span class="icon ion-ios-link"></span></a>
+                        </span>
+                    </td>
+                </tr>
+                <tr>
+                    <td class="col-md-4">
+<code>resetControllers()</code>
+                    </td>
+                </tr>
+
+
+                        <tr>
+                            <td class="col-md-4">
+                                    <div class="io-line">Defined in <a href="" data-line="121" class="link-to-prism">projects/mangol/src/lib/mangol.service.ts:121</a></div>
+                            </td>
+                        </tr>
+
+
+                <tr>
+                    <td class="col-md-4">
+
+                            <div class="io-description">
+                                <b>Returns : </b>    <code><a href="https://www.typescriptlang.org/docs/handbook/basic-types.html" target="_blank" >void</a></code>
+
+                            </div>
+                    </td>
+                </tr>
+            </tbody>
+        </table>
+        <table class="table table-sm table-bordered">
+            <tbody>
+                <tr>
+                    <td class="col-md-4">
+                        <a name="resetMangolState"></a>
+                        <span class="name">
+                            <b>
+                            resetMangolState
+                            </b>
+                            <a href="#resetMangolState"><span class="icon ion-ios-link"></span></a>
+                        </span>
+                    </td>
+                </tr>
+                <tr>
+                    <td class="col-md-4">
+<code>resetMangolState()</code>
+                    </td>
+                </tr>
+
+
+                        <tr>
+                            <td class="col-md-4">
+                                    <div class="io-line">Defined in <a href="" data-line="33" class="link-to-prism">projects/mangol/src/lib/mangol.service.ts:33</a></div>
+                            </td>
+                        </tr>
+
+
+                <tr>
+                    <td class="col-md-4">
+                            <div class="io-description"><p>Resets the Mangol State</p>
+</div>
+
+                            <div class="io-description">
+                                <b>Returns : </b>    <code><a href="https://www.typescriptlang.org/docs/handbook/basic-types.html" target="_blank" >void</a></code>
 
                             </div>
                     </td>
@@ -314,7 +499,78 @@
 
                         <tr>
                             <td class="col-md-4">
-                                    <div class="io-line">Defined in <a href="" data-line="25" class="link-to-prism">projects/mangol/src/lib/mangol.service.ts:25</a></div>
+                                    <div class="io-line">Defined in <a href="" data-line="52" class="link-to-prism">projects/mangol/src/lib/mangol.service.ts:52</a></div>
+                            </td>
+                        </tr>
+
+
+                <tr>
+                    <td class="col-md-4">
+                            <div class="io-description"><p>Set the fromConfig.State.config</p>
+</div>
+
+                            <div class="io-description">
+                                    <b>Parameters :</b>
+                                    <table class="params">
+                                        <thead>
+                                            <tr>
+                                                <td>Name</td>
+                                                    <td>Type</td>
+                                                <td>Optional</td>
+                                            </tr>
+                                        </thead>
+                                        <tbody>
+                                                <tr>
+                                                        <td>config</td>
+                                                        <td>
+                                                                    <code><a href="../interfaces/MangolConfig.html" target="_self" >MangolConfig</a></code>
+                                                        </td>
+                                                    
+                                                    <td>
+                                                            No
+                                                    </td>
+                                                    
+
+                                                </tr>
+                                        </tbody>
+                                    </table>
+                            </div>
+                            <div>
+                            </div>
+                            <div class="io-description">
+                                <b>Returns : </b>    <code><a href="https://www.typescriptlang.org/docs/handbook/basic-types.html" target="_blank" >void</a></code>
+
+                            </div>
+                                <div class="io-description">
+                                    
+                                </div>
+                    </td>
+                </tr>
+            </tbody>
+        </table>
+        <table class="table table-sm table-bordered">
+            <tbody>
+                <tr>
+                    <td class="col-md-4">
+                        <a name="setControllersFullscreenDictionary"></a>
+                        <span class="name">
+                            <b>
+                            setControllersFullscreenDictionary
+                            </b>
+                            <a href="#setControllersFullscreenDictionary"><span class="icon ion-ios-link"></span></a>
+                        </span>
+                    </td>
+                </tr>
+                <tr>
+                    <td class="col-md-4">
+<code>setControllersFullscreenDictionary(dictionary: <a href="../interfaces/MangolControllersFullScreenDictionary.html">MangolControllersFullScreenDictionary</a>)</code>
+                    </td>
+                </tr>
+
+
+                        <tr>
+                            <td class="col-md-4">
+                                    <div class="io-line">Defined in <a href="" data-line="189" class="link-to-prism">projects/mangol/src/lib/mangol.service.ts:189</a></div>
                             </td>
                         </tr>
 
@@ -334,9 +590,906 @@
                                         </thead>
                                         <tbody>
                                                 <tr>
-                                                        <td>config</td>
+                                                        <td>dictionary</td>
                                                         <td>
-                                                                    <code><a href="../interfaces/MangolConfig.html" target="_self" >MangolConfig</a></code>
+                                                                    <code><a href="../interfaces/MangolControllersFullScreenDictionary.html" target="_self" >MangolControllersFullScreenDictionary</a></code>
+                                                        </td>
+                                                    
+                                                    <td>
+                                                            No
+                                                    </td>
+                                                    
+
+                                                </tr>
+                                        </tbody>
+                                    </table>
+                            </div>
+                            <div>
+                            </div>
+                            <div class="io-description">
+                                <b>Returns : </b>    <code><a href="https://www.typescriptlang.org/docs/handbook/basic-types.html" target="_blank" >void</a></code>
+
+                            </div>
+                                <div class="io-description">
+                                    
+                                </div>
+                    </td>
+                </tr>
+            </tbody>
+        </table>
+        <table class="table table-sm table-bordered">
+            <tbody>
+                <tr>
+                    <td class="col-md-4">
+                        <a name="setControllersPositionCoordinates"></a>
+                        <span class="name">
+                            <b>
+                            setControllersPositionCoordinates
+                            </b>
+                            <a href="#setControllersPositionCoordinates"><span class="icon ion-ios-link"></span></a>
+                        </span>
+                    </td>
+                </tr>
+                <tr>
+                    <td class="col-md-4">
+<code>setControllersPositionCoordinates(coordinates: [number, number])</code>
+                    </td>
+                </tr>
+
+
+                        <tr>
+                            <td class="col-md-4">
+                                    <div class="io-line">Defined in <a href="" data-line="147" class="link-to-prism">projects/mangol/src/lib/mangol.service.ts:147</a></div>
+                            </td>
+                        </tr>
+
+
+                <tr>
+                    <td class="col-md-4">
+
+                            <div class="io-description">
+                                    <b>Parameters :</b>
+                                    <table class="params">
+                                        <thead>
+                                            <tr>
+                                                <td>Name</td>
+                                                    <td>Type</td>
+                                                <td>Optional</td>
+                                            </tr>
+                                        </thead>
+                                        <tbody>
+                                                <tr>
+                                                        <td>coordinates</td>
+                                                        <td>
+                                                                    <code>[number, number]</code>
+                                                        </td>
+                                                    
+                                                    <td>
+                                                            No
+                                                    </td>
+                                                    
+
+                                                </tr>
+                                        </tbody>
+                                    </table>
+                            </div>
+                            <div>
+                            </div>
+                            <div class="io-description">
+                                <b>Returns : </b>    <code><a href="https://www.typescriptlang.org/docs/handbook/basic-types.html" target="_blank" >void</a></code>
+
+                            </div>
+                                <div class="io-description">
+                                    
+                                </div>
+                    </td>
+                </tr>
+            </tbody>
+        </table>
+        <table class="table table-sm table-bordered">
+            <tbody>
+                <tr>
+                    <td class="col-md-4">
+                        <a name="setControllersPositionDictionary"></a>
+                        <span class="name">
+                            <b>
+                            setControllersPositionDictionary
+                            </b>
+                            <a href="#setControllersPositionDictionary"><span class="icon ion-ios-link"></span></a>
+                        </span>
+                    </td>
+                </tr>
+                <tr>
+                    <td class="col-md-4">
+<code>setControllersPositionDictionary(dictionary: <a href="../interfaces/MangolControllersPositionDictionary.html">MangolControllersPositionDictionary</a>)</code>
+                    </td>
+                </tr>
+
+
+                        <tr>
+                            <td class="col-md-4">
+                                    <div class="io-line">Defined in <a href="" data-line="153" class="link-to-prism">projects/mangol/src/lib/mangol.service.ts:153</a></div>
+                            </td>
+                        </tr>
+
+
+                <tr>
+                    <td class="col-md-4">
+
+                            <div class="io-description">
+                                    <b>Parameters :</b>
+                                    <table class="params">
+                                        <thead>
+                                            <tr>
+                                                <td>Name</td>
+                                                    <td>Type</td>
+                                                <td>Optional</td>
+                                            </tr>
+                                        </thead>
+                                        <tbody>
+                                                <tr>
+                                                        <td>dictionary</td>
+                                                        <td>
+                                                                    <code><a href="../interfaces/MangolControllersPositionDictionary.html" target="_self" >MangolControllersPositionDictionary</a></code>
+                                                        </td>
+                                                    
+                                                    <td>
+                                                            No
+                                                    </td>
+                                                    
+
+                                                </tr>
+                                        </tbody>
+                                    </table>
+                            </div>
+                            <div>
+                            </div>
+                            <div class="io-description">
+                                <b>Returns : </b>    <code><a href="https://www.typescriptlang.org/docs/handbook/basic-types.html" target="_blank" >void</a></code>
+
+                            </div>
+                                <div class="io-description">
+                                    
+                                </div>
+                    </td>
+                </tr>
+            </tbody>
+        </table>
+        <table class="table table-sm table-bordered">
+            <tbody>
+                <tr>
+                    <td class="col-md-4">
+                        <a name="setControllersPositionPrecision"></a>
+                        <span class="name">
+                            <b>
+                            setControllersPositionPrecision
+                            </b>
+                            <a href="#setControllersPositionPrecision"><span class="icon ion-ios-link"></span></a>
+                        </span>
+                    </td>
+                </tr>
+                <tr>
+                    <td class="col-md-4">
+<code>setControllersPositionPrecision(precision: <a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/number" target="_blank">number</a>)</code>
+                    </td>
+                </tr>
+
+
+                        <tr>
+                            <td class="col-md-4">
+                                    <div class="io-line">Defined in <a href="" data-line="143" class="link-to-prism">projects/mangol/src/lib/mangol.service.ts:143</a></div>
+                            </td>
+                        </tr>
+
+
+                <tr>
+                    <td class="col-md-4">
+
+                            <div class="io-description">
+                                    <b>Parameters :</b>
+                                    <table class="params">
+                                        <thead>
+                                            <tr>
+                                                <td>Name</td>
+                                                    <td>Type</td>
+                                                <td>Optional</td>
+                                            </tr>
+                                        </thead>
+                                        <tbody>
+                                                <tr>
+                                                        <td>precision</td>
+                                                        <td>
+                                                                    <code><a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/number" target="_blank" >number</a></code>
+                                                        </td>
+                                                    
+                                                    <td>
+                                                            No
+                                                    </td>
+                                                    
+
+                                                </tr>
+                                        </tbody>
+                                    </table>
+                            </div>
+                            <div>
+                            </div>
+                            <div class="io-description">
+                                <b>Returns : </b>    <code><a href="https://www.typescriptlang.org/docs/handbook/basic-types.html" target="_blank" >void</a></code>
+
+                            </div>
+                                <div class="io-description">
+                                    
+                                </div>
+                    </td>
+                </tr>
+            </tbody>
+        </table>
+        <table class="table table-sm table-bordered">
+            <tbody>
+                <tr>
+                    <td class="col-md-4">
+                        <a name="setControllersRotationDictionary"></a>
+                        <span class="name">
+                            <b>
+                            setControllersRotationDictionary
+                            </b>
+                            <a href="#setControllersRotationDictionary"><span class="icon ion-ios-link"></span></a>
+                        </span>
+                    </td>
+                </tr>
+                <tr>
+                    <td class="col-md-4">
+<code>setControllersRotationDictionary(dictionary: <a href="../interfaces/MangolControllersRotationDictionary.html">MangolControllersRotationDictionary</a>)</code>
+                    </td>
+                </tr>
+
+
+                        <tr>
+                            <td class="col-md-4">
+                                    <div class="io-line">Defined in <a href="" data-line="165" class="link-to-prism">projects/mangol/src/lib/mangol.service.ts:165</a></div>
+                            </td>
+                        </tr>
+
+
+                <tr>
+                    <td class="col-md-4">
+
+                            <div class="io-description">
+                                    <b>Parameters :</b>
+                                    <table class="params">
+                                        <thead>
+                                            <tr>
+                                                <td>Name</td>
+                                                    <td>Type</td>
+                                                <td>Optional</td>
+                                            </tr>
+                                        </thead>
+                                        <tbody>
+                                                <tr>
+                                                        <td>dictionary</td>
+                                                        <td>
+                                                                    <code><a href="../interfaces/MangolControllersRotationDictionary.html" target="_self" >MangolControllersRotationDictionary</a></code>
+                                                        </td>
+                                                    
+                                                    <td>
+                                                            No
+                                                    </td>
+                                                    
+
+                                                </tr>
+                                        </tbody>
+                                    </table>
+                            </div>
+                            <div>
+                            </div>
+                            <div class="io-description">
+                                <b>Returns : </b>    <code><a href="https://www.typescriptlang.org/docs/handbook/basic-types.html" target="_blank" >void</a></code>
+
+                            </div>
+                                <div class="io-description">
+                                    
+                                </div>
+                    </td>
+                </tr>
+            </tbody>
+        </table>
+        <table class="table table-sm table-bordered">
+            <tbody>
+                <tr>
+                    <td class="col-md-4">
+                        <a name="setControllersRotationValue"></a>
+                        <span class="name">
+                            <b>
+                            setControllersRotationValue
+                            </b>
+                            <a href="#setControllersRotationValue"><span class="icon ion-ios-link"></span></a>
+                        </span>
+                    </td>
+                </tr>
+                <tr>
+                    <td class="col-md-4">
+<code>setControllersRotationValue(value: <a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/number" target="_blank">number</a>)</code>
+                    </td>
+                </tr>
+
+
+                        <tr>
+                            <td class="col-md-4">
+                                    <div class="io-line">Defined in <a href="" data-line="177" class="link-to-prism">projects/mangol/src/lib/mangol.service.ts:177</a></div>
+                            </td>
+                        </tr>
+
+
+                <tr>
+                    <td class="col-md-4">
+
+                            <div class="io-description">
+                                    <b>Parameters :</b>
+                                    <table class="params">
+                                        <thead>
+                                            <tr>
+                                                <td>Name</td>
+                                                    <td>Type</td>
+                                                <td>Optional</td>
+                                            </tr>
+                                        </thead>
+                                        <tbody>
+                                                <tr>
+                                                        <td>value</td>
+                                                        <td>
+                                                                    <code><a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/number" target="_blank" >number</a></code>
+                                                        </td>
+                                                    
+                                                    <td>
+                                                            No
+                                                    </td>
+                                                    
+
+                                                </tr>
+                                        </tbody>
+                                    </table>
+                            </div>
+                            <div>
+                            </div>
+                            <div class="io-description">
+                                <b>Returns : </b>    <code><a href="https://www.typescriptlang.org/docs/handbook/basic-types.html" target="_blank" >void</a></code>
+
+                            </div>
+                                <div class="io-description">
+                                    
+                                </div>
+                    </td>
+                </tr>
+            </tbody>
+        </table>
+        <table class="table table-sm table-bordered">
+            <tbody>
+                <tr>
+                    <td class="col-md-4">
+                        <a name="setControllersShowFullscreen"></a>
+                        <span class="name">
+                            <b>
+                            setControllersShowFullscreen
+                            </b>
+                            <a href="#setControllersShowFullscreen"><span class="icon ion-ios-link"></span></a>
+                        </span>
+                    </td>
+                </tr>
+                <tr>
+                    <td class="col-md-4">
+<code>setControllersShowFullscreen(show: <a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/boolean" target="_blank">boolean</a>)</code>
+                    </td>
+                </tr>
+
+
+                        <tr>
+                            <td class="col-md-4">
+                                    <div class="io-line">Defined in <a href="" data-line="181" class="link-to-prism">projects/mangol/src/lib/mangol.service.ts:181</a></div>
+                            </td>
+                        </tr>
+
+
+                <tr>
+                    <td class="col-md-4">
+
+                            <div class="io-description">
+                                    <b>Parameters :</b>
+                                    <table class="params">
+                                        <thead>
+                                            <tr>
+                                                <td>Name</td>
+                                                    <td>Type</td>
+                                                <td>Optional</td>
+                                            </tr>
+                                        </thead>
+                                        <tbody>
+                                                <tr>
+                                                        <td>show</td>
+                                                        <td>
+                                                                    <code><a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/boolean" target="_blank" >boolean</a></code>
+                                                        </td>
+                                                    
+                                                    <td>
+                                                            No
+                                                    </td>
+                                                    
+
+                                                </tr>
+                                        </tbody>
+                                    </table>
+                            </div>
+                            <div>
+                            </div>
+                            <div class="io-description">
+                                <b>Returns : </b>    <code><a href="https://www.typescriptlang.org/docs/handbook/basic-types.html" target="_blank" >void</a></code>
+
+                            </div>
+                                <div class="io-description">
+                                    
+                                </div>
+                    </td>
+                </tr>
+            </tbody>
+        </table>
+        <table class="table table-sm table-bordered">
+            <tbody>
+                <tr>
+                    <td class="col-md-4">
+                        <a name="setControllersShowFullscreenTooltip"></a>
+                        <span class="name">
+                            <b>
+                            setControllersShowFullscreenTooltip
+                            </b>
+                            <a href="#setControllersShowFullscreenTooltip"><span class="icon ion-ios-link"></span></a>
+                        </span>
+                    </td>
+                </tr>
+                <tr>
+                    <td class="col-md-4">
+<code>setControllersShowFullscreenTooltip(show: <a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/boolean" target="_blank">boolean</a>)</code>
+                    </td>
+                </tr>
+
+
+                        <tr>
+                            <td class="col-md-4">
+                                    <div class="io-line">Defined in <a href="" data-line="185" class="link-to-prism">projects/mangol/src/lib/mangol.service.ts:185</a></div>
+                            </td>
+                        </tr>
+
+
+                <tr>
+                    <td class="col-md-4">
+
+                            <div class="io-description">
+                                    <b>Parameters :</b>
+                                    <table class="params">
+                                        <thead>
+                                            <tr>
+                                                <td>Name</td>
+                                                    <td>Type</td>
+                                                <td>Optional</td>
+                                            </tr>
+                                        </thead>
+                                        <tbody>
+                                                <tr>
+                                                        <td>show</td>
+                                                        <td>
+                                                                    <code><a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/boolean" target="_blank" >boolean</a></code>
+                                                        </td>
+                                                    
+                                                    <td>
+                                                            No
+                                                    </td>
+                                                    
+
+                                                </tr>
+                                        </tbody>
+                                    </table>
+                            </div>
+                            <div>
+                            </div>
+                            <div class="io-description">
+                                <b>Returns : </b>    <code><a href="https://www.typescriptlang.org/docs/handbook/basic-types.html" target="_blank" >void</a></code>
+
+                            </div>
+                                <div class="io-description">
+                                    
+                                </div>
+                    </td>
+                </tr>
+            </tbody>
+        </table>
+        <table class="table table-sm table-bordered">
+            <tbody>
+                <tr>
+                    <td class="col-md-4">
+                        <a name="setControllersShowPosition"></a>
+                        <span class="name">
+                            <b>
+                            setControllersShowPosition
+                            </b>
+                            <a href="#setControllersShowPosition"><span class="icon ion-ios-link"></span></a>
+                        </span>
+                    </td>
+                </tr>
+                <tr>
+                    <td class="col-md-4">
+<code>setControllersShowPosition(show: <a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/boolean" target="_blank">boolean</a>)</code>
+                    </td>
+                </tr>
+
+
+                        <tr>
+                            <td class="col-md-4">
+                                    <div class="io-line">Defined in <a href="" data-line="139" class="link-to-prism">projects/mangol/src/lib/mangol.service.ts:139</a></div>
+                            </td>
+                        </tr>
+
+
+                <tr>
+                    <td class="col-md-4">
+
+                            <div class="io-description">
+                                    <b>Parameters :</b>
+                                    <table class="params">
+                                        <thead>
+                                            <tr>
+                                                <td>Name</td>
+                                                    <td>Type</td>
+                                                <td>Optional</td>
+                                            </tr>
+                                        </thead>
+                                        <tbody>
+                                                <tr>
+                                                        <td>show</td>
+                                                        <td>
+                                                                    <code><a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/boolean" target="_blank" >boolean</a></code>
+                                                        </td>
+                                                    
+                                                    <td>
+                                                            No
+                                                    </td>
+                                                    
+
+                                                </tr>
+                                        </tbody>
+                                    </table>
+                            </div>
+                            <div>
+                            </div>
+                            <div class="io-description">
+                                <b>Returns : </b>    <code><a href="https://www.typescriptlang.org/docs/handbook/basic-types.html" target="_blank" >void</a></code>
+
+                            </div>
+                                <div class="io-description">
+                                    
+                                </div>
+                    </td>
+                </tr>
+            </tbody>
+        </table>
+        <table class="table table-sm table-bordered">
+            <tbody>
+                <tr>
+                    <td class="col-md-4">
+                        <a name="setControllersShowRotation"></a>
+                        <span class="name">
+                            <b>
+                            setControllersShowRotation
+                            </b>
+                            <a href="#setControllersShowRotation"><span class="icon ion-ios-link"></span></a>
+                        </span>
+                    </td>
+                </tr>
+                <tr>
+                    <td class="col-md-4">
+<code>setControllersShowRotation(show: <a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/boolean" target="_blank">boolean</a>)</code>
+                    </td>
+                </tr>
+
+
+                        <tr>
+                            <td class="col-md-4">
+                                    <div class="io-line">Defined in <a href="" data-line="161" class="link-to-prism">projects/mangol/src/lib/mangol.service.ts:161</a></div>
+                            </td>
+                        </tr>
+
+
+                <tr>
+                    <td class="col-md-4">
+
+                            <div class="io-description">
+                                    <b>Parameters :</b>
+                                    <table class="params">
+                                        <thead>
+                                            <tr>
+                                                <td>Name</td>
+                                                    <td>Type</td>
+                                                <td>Optional</td>
+                                            </tr>
+                                        </thead>
+                                        <tbody>
+                                                <tr>
+                                                        <td>show</td>
+                                                        <td>
+                                                                    <code><a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/boolean" target="_blank" >boolean</a></code>
+                                                        </td>
+                                                    
+                                                    <td>
+                                                            No
+                                                    </td>
+                                                    
+
+                                                </tr>
+                                        </tbody>
+                                    </table>
+                            </div>
+                            <div>
+                            </div>
+                            <div class="io-description">
+                                <b>Returns : </b>    <code><a href="https://www.typescriptlang.org/docs/handbook/basic-types.html" target="_blank" >void</a></code>
+
+                            </div>
+                                <div class="io-description">
+                                    
+                                </div>
+                    </td>
+                </tr>
+            </tbody>
+        </table>
+        <table class="table table-sm table-bordered">
+            <tbody>
+                <tr>
+                    <td class="col-md-4">
+                        <a name="setControllersShowRotationTooltip"></a>
+                        <span class="name">
+                            <b>
+                            setControllersShowRotationTooltip
+                            </b>
+                            <a href="#setControllersShowRotationTooltip"><span class="icon ion-ios-link"></span></a>
+                        </span>
+                    </td>
+                </tr>
+                <tr>
+                    <td class="col-md-4">
+<code>setControllersShowRotationTooltip(show: <a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/boolean" target="_blank">boolean</a>)</code>
+                    </td>
+                </tr>
+
+
+                        <tr>
+                            <td class="col-md-4">
+                                    <div class="io-line">Defined in <a href="" data-line="173" class="link-to-prism">projects/mangol/src/lib/mangol.service.ts:173</a></div>
+                            </td>
+                        </tr>
+
+
+                <tr>
+                    <td class="col-md-4">
+
+                            <div class="io-description">
+                                    <b>Parameters :</b>
+                                    <table class="params">
+                                        <thead>
+                                            <tr>
+                                                <td>Name</td>
+                                                    <td>Type</td>
+                                                <td>Optional</td>
+                                            </tr>
+                                        </thead>
+                                        <tbody>
+                                                <tr>
+                                                        <td>show</td>
+                                                        <td>
+                                                                    <code><a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/boolean" target="_blank" >boolean</a></code>
+                                                        </td>
+                                                    
+                                                    <td>
+                                                            No
+                                                    </td>
+                                                    
+
+                                                </tr>
+                                        </tbody>
+                                    </table>
+                            </div>
+                            <div>
+                            </div>
+                            <div class="io-description">
+                                <b>Returns : </b>    <code><a href="https://www.typescriptlang.org/docs/handbook/basic-types.html" target="_blank" >void</a></code>
+
+                            </div>
+                                <div class="io-description">
+                                    
+                                </div>
+                    </td>
+                </tr>
+            </tbody>
+        </table>
+        <table class="table table-sm table-bordered">
+            <tbody>
+                <tr>
+                    <td class="col-md-4">
+                        <a name="setControllersShowTooltip"></a>
+                        <span class="name">
+                            <b>
+                            setControllersShowTooltip
+                            </b>
+                            <a href="#setControllersShowTooltip"><span class="icon ion-ios-link"></span></a>
+                        </span>
+                    </td>
+                </tr>
+                <tr>
+                    <td class="col-md-4">
+<code>setControllersShowTooltip(show: <a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/boolean" target="_blank">boolean</a>)</code>
+                    </td>
+                </tr>
+
+
+                        <tr>
+                            <td class="col-md-4">
+                                    <div class="io-line">Defined in <a href="" data-line="135" class="link-to-prism">projects/mangol/src/lib/mangol.service.ts:135</a></div>
+                            </td>
+                        </tr>
+
+
+                <tr>
+                    <td class="col-md-4">
+
+                            <div class="io-description">
+                                    <b>Parameters :</b>
+                                    <table class="params">
+                                        <thead>
+                                            <tr>
+                                                <td>Name</td>
+                                                    <td>Type</td>
+                                                <td>Optional</td>
+                                            </tr>
+                                        </thead>
+                                        <tbody>
+                                                <tr>
+                                                        <td>show</td>
+                                                        <td>
+                                                                    <code><a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/boolean" target="_blank" >boolean</a></code>
+                                                        </td>
+                                                    
+                                                    <td>
+                                                            No
+                                                    </td>
+                                                    
+
+                                                </tr>
+                                        </tbody>
+                                    </table>
+                            </div>
+                            <div>
+                            </div>
+                            <div class="io-description">
+                                <b>Returns : </b>    <code><a href="https://www.typescriptlang.org/docs/handbook/basic-types.html" target="_blank" >void</a></code>
+
+                            </div>
+                                <div class="io-description">
+                                    
+                                </div>
+                    </td>
+                </tr>
+            </tbody>
+        </table>
+        <table class="table table-sm table-bordered">
+            <tbody>
+                <tr>
+                    <td class="col-md-4">
+                        <a name="setControllersShowZoom"></a>
+                        <span class="name">
+                            <b>
+                            setControllersShowZoom
+                            </b>
+                            <a href="#setControllersShowZoom"><span class="icon ion-ios-link"></span></a>
+                        </span>
+                    </td>
+                </tr>
+                <tr>
+                    <td class="col-md-4">
+<code>setControllersShowZoom(show: <a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/boolean" target="_blank">boolean</a>)</code>
+                    </td>
+                </tr>
+
+
+                        <tr>
+                            <td class="col-md-4">
+                                    <div class="io-line">Defined in <a href="" data-line="125" class="link-to-prism">projects/mangol/src/lib/mangol.service.ts:125</a></div>
+                            </td>
+                        </tr>
+
+
+                <tr>
+                    <td class="col-md-4">
+
+                            <div class="io-description">
+                                    <b>Parameters :</b>
+                                    <table class="params">
+                                        <thead>
+                                            <tr>
+                                                <td>Name</td>
+                                                    <td>Type</td>
+                                                <td>Optional</td>
+                                            </tr>
+                                        </thead>
+                                        <tbody>
+                                                <tr>
+                                                        <td>show</td>
+                                                        <td>
+                                                                    <code><a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/boolean" target="_blank" >boolean</a></code>
+                                                        </td>
+                                                    
+                                                    <td>
+                                                            No
+                                                    </td>
+                                                    
+
+                                                </tr>
+                                        </tbody>
+                                    </table>
+                            </div>
+                            <div>
+                            </div>
+                            <div class="io-description">
+                                <b>Returns : </b>    <code><a href="https://www.typescriptlang.org/docs/handbook/basic-types.html" target="_blank" >void</a></code>
+
+                            </div>
+                                <div class="io-description">
+                                    
+                                </div>
+                    </td>
+                </tr>
+            </tbody>
+        </table>
+        <table class="table table-sm table-bordered">
+            <tbody>
+                <tr>
+                    <td class="col-md-4">
+                        <a name="setControllersZoomDictionary"></a>
+                        <span class="name">
+                            <b>
+                            setControllersZoomDictionary
+                            </b>
+                            <a href="#setControllersZoomDictionary"><span class="icon ion-ios-link"></span></a>
+                        </span>
+                    </td>
+                </tr>
+                <tr>
+                    <td class="col-md-4">
+<code>setControllersZoomDictionary(dictionary: <a href="../interfaces/MangolControllersZoomDictionary.html">MangolControllersZoomDictionary</a>)</code>
+                    </td>
+                </tr>
+
+
+                        <tr>
+                            <td class="col-md-4">
+                                    <div class="io-line">Defined in <a href="" data-line="129" class="link-to-prism">projects/mangol/src/lib/mangol.service.ts:129</a></div>
+                            </td>
+                        </tr>
+
+
+                <tr>
+                    <td class="col-md-4">
+
+                            <div class="io-description">
+                                    <b>Parameters :</b>
+                                    <table class="params">
+                                        <thead>
+                                            <tr>
+                                                <td>Name</td>
+                                                    <td>Type</td>
+                                                <td>Optional</td>
+                                            </tr>
+                                        </thead>
+                                        <tbody>
+                                                <tr>
+                                                        <td>dictionary</td>
+                                                        <td>
+                                                                    <code><a href="../interfaces/MangolControllersZoomDictionary.html" target="_self" >MangolControllersZoomDictionary</a></code>
                                                         </td>
                                                     
                                                     <td>
@@ -383,7 +1536,7 @@
 
                         <tr>
                             <td class="col-md-4">
-                                    <div class="io-line">Defined in <a href="" data-line="48" class="link-to-prism">projects/mangol/src/lib/mangol.service.ts:48</a></div>
+                                    <div class="io-line">Defined in <a href="" data-line="86" class="link-to-prism">projects/mangol/src/lib/mangol.service.ts:86</a></div>
                             </td>
                         </tr>
 
@@ -434,6 +1587,75 @@
             <tbody>
                 <tr>
                     <td class="col-md-4">
+                        <a name="setMap"></a>
+                        <span class="name">
+                            <b>
+                            setMap
+                            </b>
+                            <a href="#setMap"><span class="icon ion-ios-link"></span></a>
+                        </span>
+                    </td>
+                </tr>
+                <tr>
+                    <td class="col-md-4">
+<code>setMap(map: Map)</code>
+                    </td>
+                </tr>
+
+
+                        <tr>
+                            <td class="col-md-4">
+                                    <div class="io-line">Defined in <a href="" data-line="67" class="link-to-prism">projects/mangol/src/lib/mangol.service.ts:67</a></div>
+                            </td>
+                        </tr>
+
+
+                <tr>
+                    <td class="col-md-4">
+
+                            <div class="io-description">
+                                    <b>Parameters :</b>
+                                    <table class="params">
+                                        <thead>
+                                            <tr>
+                                                <td>Name</td>
+                                                    <td>Type</td>
+                                                <td>Optional</td>
+                                            </tr>
+                                        </thead>
+                                        <tbody>
+                                                <tr>
+                                                        <td>map</td>
+                                                        <td>
+                                                                    <code>Map</code>
+                                                        </td>
+                                                    
+                                                    <td>
+                                                            No
+                                                    </td>
+                                                    
+
+                                                </tr>
+                                        </tbody>
+                                    </table>
+                            </div>
+                            <div>
+                            </div>
+                            <div class="io-description">
+                                <b>Returns : </b>    <code><a href="https://www.typescriptlang.org/docs/handbook/basic-types.html" target="_blank" >void</a></code>
+
+                            </div>
+                                <div class="io-description">
+                                    
+                                </div>
+                    </td>
+                </tr>
+            </tbody>
+        </table>
+        <table class="table table-sm table-bordered">
+            <tbody>
+                <tr>
+                    <td class="col-md-4">
                         <a name="setSidebarCollapsible"></a>
                         <span class="name">
                             <b>
@@ -452,7 +1674,7 @@
 
                         <tr>
                             <td class="col-md-4">
-                                    <div class="io-line">Defined in <a href="" data-line="56" class="link-to-prism">projects/mangol/src/lib/mangol.service.ts:56</a></div>
+                                    <div class="io-line">Defined in <a href="" data-line="94" class="link-to-prism">projects/mangol/src/lib/mangol.service.ts:94</a></div>
                             </td>
                         </tr>
 
@@ -521,7 +1743,7 @@
 
                         <tr>
                             <td class="col-md-4">
-                                    <div class="io-line">Defined in <a href="" data-line="52" class="link-to-prism">projects/mangol/src/lib/mangol.service.ts:52</a></div>
+                                    <div class="io-line">Defined in <a href="" data-line="90" class="link-to-prism">projects/mangol/src/lib/mangol.service.ts:90</a></div>
                             </td>
                         </tr>
 
@@ -590,7 +1812,7 @@
 
                         <tr>
                             <td class="col-md-4">
-                                    <div class="io-line">Defined in <a href="" data-line="60" class="link-to-prism">projects/mangol/src/lib/mangol.service.ts:60</a></div>
+                                    <div class="io-line">Defined in <a href="" data-line="98" class="link-to-prism">projects/mangol/src/lib/mangol.service.ts:98</a></div>
                             </td>
                         </tr>
 
@@ -641,6 +1863,75 @@
             <tbody>
                 <tr>
                     <td class="col-md-4">
+                        <a name="setSidebarSelectedModule"></a>
+                        <span class="name">
+                            <b>
+                            setSidebarSelectedModule
+                            </b>
+                            <a href="#setSidebarSelectedModule"><span class="icon ion-ios-link"></span></a>
+                        </span>
+                    </td>
+                </tr>
+                <tr>
+                    <td class="col-md-4">
+<code>setSidebarSelectedModule(module: <a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/string" target="_blank">string</a>)</code>
+                    </td>
+                </tr>
+
+
+                        <tr>
+                            <td class="col-md-4">
+                                    <div class="io-line">Defined in <a href="" data-line="106" class="link-to-prism">projects/mangol/src/lib/mangol.service.ts:106</a></div>
+                            </td>
+                        </tr>
+
+
+                <tr>
+                    <td class="col-md-4">
+
+                            <div class="io-description">
+                                    <b>Parameters :</b>
+                                    <table class="params">
+                                        <thead>
+                                            <tr>
+                                                <td>Name</td>
+                                                    <td>Type</td>
+                                                <td>Optional</td>
+                                            </tr>
+                                        </thead>
+                                        <tbody>
+                                                <tr>
+                                                        <td>module</td>
+                                                        <td>
+                                                                    <code><a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/string" target="_blank" >string</a></code>
+                                                        </td>
+                                                    
+                                                    <td>
+                                                            No
+                                                    </td>
+                                                    
+
+                                                </tr>
+                                        </tbody>
+                                    </table>
+                            </div>
+                            <div>
+                            </div>
+                            <div class="io-description">
+                                <b>Returns : </b>    <code><a href="https://www.typescriptlang.org/docs/handbook/basic-types.html" target="_blank" >void</a></code>
+
+                            </div>
+                                <div class="io-description">
+                                    
+                                </div>
+                    </td>
+                </tr>
+            </tbody>
+        </table>
+        <table class="table table-sm table-bordered">
+            <tbody>
+                <tr>
+                    <td class="col-md-4">
                         <a name="setSidebarTitle"></a>
                         <span class="name">
                             <b>
@@ -659,7 +1950,7 @@
 
                         <tr>
                             <td class="col-md-4">
-                                    <div class="io-line">Defined in <a href="" data-line="64" class="link-to-prism">projects/mangol/src/lib/mangol.service.ts:64</a></div>
+                                    <div class="io-line">Defined in <a href="" data-line="102" class="link-to-prism">projects/mangol/src/lib/mangol.service.ts:102</a></div>
                             </td>
                         </tr>
 
@@ -728,7 +2019,7 @@
 
                         <tr>
                             <td class="col-md-4">
-                                    <div class="io-line">Defined in <a href="" data-line="44" class="link-to-prism">projects/mangol/src/lib/mangol.service.ts:44</a></div>
+                                    <div class="io-line">Defined in <a href="" data-line="82" class="link-to-prism">projects/mangol/src/lib/mangol.service.ts:82</a></div>
                             </td>
                         </tr>
 
@@ -756,9 +2047,21 @@ import { Store } from &#x27;@ngrx/store&#x27;;
 import Map from &#x27;ol/Map&#x27;;
 import { Observable } from &#x27;rxjs&#x27;;
 
+import {
+  MangolControllersFullScreenDictionary,
+  MangolControllersPositionDictionary,
+  MangolControllersRotationDictionary,
+  MangolControllersZoomDictionary
+} from &#x27;./interfaces/config-map-controllers.interface&#x27;;
 import { MangolConfig } from &#x27;./interfaces/config.interface&#x27;;
 import * as ConfigActions from &#x27;./store/config/config.actions&#x27;;
+import * as fromConfig from &#x27;./store/config/config.reducers&#x27;;
+import * as ControllersActions from &#x27;./store/controllers/controllers.actions&#x27;;
+import * as fromControllers from &#x27;./store/controllers/controllers.reducers&#x27;;
+import * as MangolActions from &#x27;./store/mangol.actions&#x27;;
 import * as fromMangol from &#x27;./store/mangol.reducers&#x27;;
+import * as MapActions from &#x27;./store/map/map.actions&#x27;;
+import * as fromMap from &#x27;./store/map/map.reducers&#x27;;
 import * as SidebarActions from &#x27;./store/sidebar/sidebar.actions&#x27;;
 import * as fromSidebar from &#x27;./store/sidebar/sidebar.reducers&#x27;;
 
@@ -769,28 +2072,54 @@ export class MangolService {
   constructor(private store: Store&lt;fromMangol.MangolState&gt;) {}
 
   /**
-   * CONFIG STATE MODIFIER FUNCTIONS
+   * Resets the Mangol State
    */
-  getConfig(): Observable&lt;MangolConfig&gt; {
-    return this.store.select(state &#x3D;&gt; state.config.config);
+  resetMangolState(): void {
+    this.store.dispatch(new MangolActions.ClearState());
   }
 
+  /**************************
+   * CONFIG state functions *
+   **************************/
+
+  /**
+   * Get fromConfig.State
+   */
+  getConfigState$(): Observable&lt;fromConfig.State&gt; {
+    return this.store.select(state &#x3D;&gt; state.config);
+  }
+
+  /**
+   * Set the fromConfig.State.config
+   * @param config
+   */
   setConfig(config: MangolConfig): void {
     this.store.dispatch(new ConfigActions.SetConfig(config));
   }
 
+  /***********************
+   * MAP state functions *
+   ***********************/
+
   /**
-   *
+   * Get fromMap.State
    */
-  getMap$(): Observable&lt;Map&gt; {
-    return this.store.select(state &#x3D;&gt; state.map.map);
+  getMapState$(): Observable&lt;fromMap.State&gt; {
+    return this.store.select(state &#x3D;&gt; state.map);
   }
 
-  /**
-   * SIDEBAR STATE MODIFIER FUNCTIONS
-   */
+  setMap(map: Map): void {
+    this.store.dispatch(new MapActions.SetMap(map));
+  }
 
-  getSidebar$(): Observable&lt;fromSidebar.State&gt; {
+  /***************************
+   * SIDEBAR state functions *
+   ***************************/
+
+  /**
+   * Get fromSidebar.State
+   */
+  getSidebarState$(): Observable&lt;fromSidebar.State&gt; {
     return this.store.select(state &#x3D;&gt; state.sidebar);
   }
 
@@ -816,6 +2145,97 @@ export class MangolService {
 
   setSidebarTitle(title: string): void {
     this.store.dispatch(new SidebarActions.SetTitle(title));
+  }
+
+  setSidebarSelectedModule(module: string) {
+    this.store.dispatch(new SidebarActions.SetSelectedModule(module));
+  }
+
+  /*******************************
+   * CONTROLLERS state functions *
+   *******************************/
+
+  /**
+   * Get fromControllers.State
+   */
+  getControllersState$(): Observable&lt;fromControllers.State&gt; {
+    return this.store.select(state &#x3D;&gt; state.controllers);
+  }
+
+  resetControllers(): void {
+    this.store.dispatch(new ControllersActions.Reset());
+  }
+
+  setControllersShowZoom(show: boolean): void {
+    this.store.dispatch(new ControllersActions.SetShowZoom(show));
+  }
+
+  setControllersZoomDictionary(
+    dictionary: MangolControllersZoomDictionary
+  ): void {
+    this.store.dispatch(new ControllersActions.SetZoomDictionary(dictionary));
+  }
+
+  setControllersShowTooltip(show: boolean): void {
+    this.store.dispatch(new ControllersActions.SetShowTooltip(show));
+  }
+
+  setControllersShowPosition(show: boolean): void {
+    this.store.dispatch(new ControllersActions.SetShowPosition(show));
+  }
+
+  setControllersPositionPrecision(precision: number): void {
+    this.store.dispatch(new ControllersActions.SetPositionPrecision(precision));
+  }
+
+  setControllersPositionCoordinates(coordinates: [number, number]): void {
+    this.store.dispatch(
+      new ControllersActions.SetPositionCoordinates(coordinates)
+    );
+  }
+
+  setControllersPositionDictionary(
+    dictionary: MangolControllersPositionDictionary
+  ): void {
+    this.store.dispatch(
+      new ControllersActions.SetPositionDictionary(dictionary)
+    );
+  }
+
+  setControllersShowRotation(show: boolean): void {
+    this.store.dispatch(new ControllersActions.SetShowRotation(show));
+  }
+
+  setControllersRotationDictionary(
+    dictionary: MangolControllersRotationDictionary
+  ): void {
+    this.store.dispatch(
+      new ControllersActions.SetRotationDictionary(dictionary)
+    );
+  }
+
+  setControllersShowRotationTooltip(show: boolean): void {
+    this.store.dispatch(new ControllersActions.SetShowRotationTooltip(show));
+  }
+
+  setControllersRotationValue(value: number): void {
+    this.store.dispatch(new ControllersActions.SetRotationValue(value));
+  }
+
+  setControllersShowFullscreen(show: boolean): void {
+    this.store.dispatch(new ControllersActions.SetShowFullscreen(show));
+  }
+
+  setControllersShowFullscreenTooltip(show: boolean): void {
+    this.store.dispatch(new ControllersActions.SetShowFullscreenTooltip(show));
+  }
+
+  setControllersFullscreenDictionary(
+    dictionary: MangolControllersFullScreenDictionary
+  ): void {
+    this.store.dispatch(
+      new ControllersActions.SetFullscreenDictionary(dictionary)
+    );
   }
 }
 </code></pre>

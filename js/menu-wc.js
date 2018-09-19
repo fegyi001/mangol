@@ -343,9 +343,6 @@ customElements.define('compodoc-menu', class extends HTMLElement {
                         <a href="classes/AddLayers.html" data-type="entity-link">AddLayers</a>
                     </li>
                     <li class="link">
-                        <a href="classes/AddMap.html" data-type="entity-link">AddMap</a>
-                    </li>
-                    <li class="link">
                         <a href="classes/ClearState.html" data-type="entity-link">ClearState</a>
                     </li>
                     <li class="link">
@@ -425,6 +422,9 @@ customElements.define('compodoc-menu', class extends HTMLElement {
                     </li>
                     <li class="link">
                         <a href="classes/SetLayouts.html" data-type="entity-link">SetLayouts</a>
+                    </li>
+                    <li class="link">
+                        <a href="classes/SetMap.html" data-type="entity-link">SetMap</a>
                     </li>
                     <li class="link">
                         <a href="classes/SetMaxFeatures.html" data-type="entity-link">SetMaxFeatures</a>

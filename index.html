@@ -79,7 +79,7 @@ enableProdMode();
 platformBrowserDynamic()
   .bootstrapModule(AppModule)
   .catch(err =&gt; console.log(err));</code></pre></div><h2 id="production-build">Production build</h2>
-<p>Unfortunately there are some known issues with OL when build using Ahead-of-time (aot). To make aot possible, you should modify the <code>angular.json</code> and set <code>optimization: false</code> (default is <code>true</code>). After that, <code>ng build --prod --aot</code> should work fine.</p>
+<p>Unfortunately there is a known issue with OL when build using Ahead-of-time (aot). To make aot possible, you should modify <code>node_modules/ol/package.json</code> file, and set <code>&quot;sideEffects&quot;: true</code>. Another option is to disable optimization in your project config (in <code>angular.json</code> and set <code>optimization: false</code>, but I don&#39;t recommend it since the bundle size will be much bigger). After either of the above solutions, <code>ng build --prod --aot</code> should work fine.</p>
 <h2 id="basic-example">Basic example</h2>
 <p>This is the simplest implementation of Mangol in a component (this will create a default map with one OpenStreetMap layer) :</p>
 <div><pre class="line-numbers"><code class="language-typescript">import { Component } from &#39;&#64;angular/core&#39;;

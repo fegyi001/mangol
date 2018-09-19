@@ -281,30 +281,26 @@ export class PrintComponent implements OnInit, OnDestroy {
         );
         const mapSize &#x3D; m.getSize();
         const extent &#x3D; m.getView().calculateExtent(mapSize);
-        m.once(&#x27;postcompose&#x27;, (event: any) &#x3D;&gt; {
-          let interval: any;
-          interval &#x3D; setInterval(() &#x3D;&gt; {
-            clearInterval(interval);
-            const canvas &#x3D; event[&#x27;context&#x27;][&#x27;canvas&#x27;];
-            const data &#x3D; canvas.toDataURL(&#x27;image/jpeg&#x27;);
-            const pdf &#x3D; new jsPDF(layout.type, undefined, size.id);
-            pdf.addImage(
-              data,
-              &#x27;JPEG&#x27;,
-              0,
-              0,
-              layout.type &#x3D;&#x3D;&#x3D; &#x27;landscape&#x27; ? size.width : size.height,
-              layout.type &#x3D;&#x3D;&#x3D; &#x27;landscape&#x27; ? size.height : size.width
-            );
-            pdf.save(&#x27;map.pdf&#x27;);
-            m.setSize(mapSize);
-            m.getView().fit(extent);
-            m.renderSync();
-            this.printInProgress &#x3D; false;
-          }, 5000);
+        m.once(&#x27;rendercomplete&#x27;, (event: any) &#x3D;&gt; {
+          const canvas &#x3D; event.context.canvas;
+          const data &#x3D; canvas.toDataURL(&#x27;image/jpeg&#x27;);
+          const pdf &#x3D; new jsPDF(layout.type, undefined, size.id);
+          pdf.addImage(
+            data,
+            &#x27;JPEG&#x27;,
+            0,
+            0,
+            layout.type &#x3D;&#x3D;&#x3D; &#x27;landscape&#x27; ? size.width : size.height,
+            layout.type &#x3D;&#x3D;&#x3D; &#x27;landscape&#x27; ? size.height : size.width
+          );
+          pdf.save(&#x27;map.pdf&#x27;);
+          m.setSize(mapSize);
+          m.getView().fit(extent, { size: mapSize });
+          this.printInProgress &#x3D; false;
         });
-        m.setSize([width, height]);
-        m.getView().fit(extent);
+        const printSize: [number, number] &#x3D; [width, height];
+        m.setSize(printSize);
+        m.getView().fit(extent, { size: printSize });
         m.renderSync();
       });
   }
