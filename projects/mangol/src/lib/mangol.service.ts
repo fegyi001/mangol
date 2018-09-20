@@ -1,6 +1,8 @@
+import { CursorMode } from './interfaces/cursor-mode';
 import { Injectable } from '@angular/core';
 import { Store } from '@ngrx/store';
 import Map from 'ol/Map';
+import VectorLayer from 'ol/layer/Vector';
 import { Observable } from 'rxjs';
 
 import {
@@ -20,12 +22,30 @@ import * as MapActions from './store/map/map.actions';
 import * as fromMap from './store/map/map.reducers';
 import * as SidebarActions from './store/sidebar/sidebar.actions';
 import * as fromSidebar from './store/sidebar/sidebar.reducers';
+import * as fromCursor from './store/cursor/cursor.reducers';
+import * as CursorActions from './store/cursor/cursor.actions';
+import * as FeatureinfoActions from './store/featureinfo/featureinfo.actions';
+import * as fromFeatureinfo from './store/featureinfo/featureinfo.reducers';
 
 @Injectable({
   providedIn: 'root'
 })
 export class MangolService {
-  constructor(private store: Store<fromMangol.MangolState>) {}
+  configState$: Observable<fromConfig.State>;
+  mapState$: Observable<fromMap.State>;
+  sidebarState$: Observable<fromSidebar.State>;
+  controllersState$: Observable<fromControllers.State>;
+  cursorState$: Observable<fromCursor.State>;
+  featureinfoState$: Observable<fromFeatureinfo.State>;
+
+  constructor(private store: Store<fromMangol.MangolState>) {
+    this.configState$ = this.store.select(state => state.config);
+    this.mapState$ = this.store.select(state => state.map);
+    this.sidebarState$ = this.store.select(state => state.sidebar);
+    this.controllersState$ = this.store.select(state => state.controllers);
+    this.cursorState$ = this.store.select(state => state.cursor);
+    this.featureinfoState$ = this.store.select(state => state.featureinfo);
+  }
 
   /**
    * Resets the Mangol State
@@ -38,17 +58,6 @@ export class MangolService {
    * CONFIG state functions *
    **************************/
 
-  /**
-   * Get fromConfig.State
-   */
-  getConfigState$(): Observable<fromConfig.State> {
-    return this.store.select(state => state.config);
-  }
-
-  /**
-   * Set the fromConfig.State.config
-   * @param config
-   */
   setConfig(config: MangolConfig): void {
     this.store.dispatch(new ConfigActions.SetConfig(config));
   }
@@ -57,13 +66,6 @@ export class MangolService {
    * MAP state functions *
    ***********************/
 
-  /**
-   * Get fromMap.State
-   */
-  getMapState$(): Observable<fromMap.State> {
-    return this.store.select(state => state.map);
-  }
-
   setMap(map: Map): void {
     this.store.dispatch(new MapActions.SetMap(map));
   }
@@ -71,13 +73,6 @@ export class MangolService {
   /***************************
    * SIDEBAR state functions *
    ***************************/
-
-  /**
-   * Get fromSidebar.State
-   */
-  getSidebarState$(): Observable<fromSidebar.State> {
-    return this.store.select(state => state.sidebar);
-  }
 
   toggleSidebar(): void {
     this.store.dispatch(new SidebarActions.Toggle());
@@ -111,9 +106,6 @@ export class MangolService {
    * CONTROLLERS state functions *
    *******************************/
 
-  /**
-   * Get fromControllers.State
-   */
   getControllersState$(): Observable<fromControllers.State> {
     return this.store.select(state => state.controllers);
   }
@@ -192,5 +184,37 @@ export class MangolService {
     this.store.dispatch(
       new ControllersActions.SetFullscreenDictionary(dictionary)
     );
+  }
+
+  /**************************
+   * CURSOR state functions *
+   **************************/
+
+  getCursorState$(): Observable<fromCursor.State> {
+    return this.store.select(state => state.cursor);
+  }
+
+  resetCursorMode(): void {
+    this.store.dispatch(new CursorActions.ResetMode());
+  }
+
+  setCursorMode(mode: CursorMode): void {
+    this.store.dispatch(new CursorActions.SetMode(mode));
+  }
+
+  setCursorVisible(visible: boolean): void {
+    this.store.dispatch(new CursorActions.SetVisible(visible));
+  }
+
+  setCursorLayer(layer: VectorLayer): void {
+    this.store.dispatch(new CursorActions.SetLayer(layer));
+  }
+
+  /**************************
+   * FEATUREINFO state functions *
+   **************************/
+
+  getFeatureinfoState$(): Observable<fromFeatureinfo.State> {
+    return this.store.select(state => state.featureinfo);
   }
 }
