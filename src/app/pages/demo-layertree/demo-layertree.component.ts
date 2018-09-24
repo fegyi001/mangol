@@ -33,8 +33,7 @@ export class DemoLayertreeComponent implements OnInit, OnDestroy {
     this.sidebarOpenedSubscription = this.appService.sidebarOpenedSubject.subscribe(
       opened => {
         if (opened !== null) {
-          this.mangolService
-            .getMapState$()
+          this.mangolService.mapState$
             .pipe(
               map(m => m.map),
               filter(m => m !== null)

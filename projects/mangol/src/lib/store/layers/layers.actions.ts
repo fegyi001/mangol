@@ -3,11 +3,11 @@ import { Action } from '@ngrx/store';
 import { MangolLayer } from './../../classes/Layer';
 import VectorLayer from 'ol/layer/Vector';
 
-export const ADD_LAYERS = '[Layers] Add Layers';
+export const SET_LAYERS = '[Layers] Set Layers';
 export const SET_MEASURE_LAYER = '[Layers] Set Measure Layer';
 
-export class AddLayers implements Action {
-  readonly type = ADD_LAYERS;
+export class SetLayers implements Action {
+  readonly type = SET_LAYERS;
   constructor(public payload: MangolLayer[]) {}
 }
 export class SetMeasureLayer implements Action {
@@ -15,4 +15,4 @@ export class SetMeasureLayer implements Action {
   constructor(public payload: VectorLayer) {}
 }
 
-export type LayersActions = AddLayers | SetMeasureLayer;
+export type LayersActions = SetLayers | SetMeasureLayer;

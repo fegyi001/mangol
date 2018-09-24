@@ -17,7 +17,7 @@ export function layersReducer(
   action: LayersActions.LayersActions
 ) {
   switch (action.type) {
-    case LayersActions.ADD_LAYERS:
+    case LayersActions.SET_LAYERS:
       return { ...state, layers: action.payload };
     case LayersActions.SET_MEASURE_LAYER:
       return { ...state, measureLayer: action.payload };
