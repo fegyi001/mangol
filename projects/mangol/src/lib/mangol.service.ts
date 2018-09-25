@@ -309,7 +309,7 @@ export class MangolService {
   printSetLayouts(layouts: PrintLayout[]): void {
     this.store.dispatch(new PrintActions.SetLayouts(layouts));
   }
-  printSizes(sizes: PrintSize[]): void {
+  printSetSizes(sizes: PrintSize[]): void {
     this.store.dispatch(new PrintActions.SetSizes(sizes));
   }
   printSetDictionary(dictionary: PrintDictionary): void {
