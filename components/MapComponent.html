@@ -1396,7 +1396,7 @@ export class MapComponent implements OnInit, AfterViewInit, OnDestroy {
           )
         );
         // Register the layers
-        this.store.dispatch(new LayersActions.AddLayers(layers));
+        this.store.dispatch(new LayersActions.SetLayers(layers));
       });
 
     // React to layer changes in the store

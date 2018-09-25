@@ -65,7 +65,7 @@
             <h3>File</h3>
         </p>
         <p class="comment">
-            <code>projects/mangol/src/lib/store/layers/layers.reducers.ts</code>
+            <code>projects/mangol/src/lib/store/cursor/cursor.reducers.ts</code>
         </p>
 
 
@@ -83,10 +83,13 @@
                         <td class="col-md-4">
                             <ul class="index-list">
                                 <li>
-                                        <a href="#layers">layers</a>
+                                        <a href="#layer">layer</a>
                                 </li>
                                 <li>
-                                        <a href="#measureLayer">measureLayer</a>
+                                        <a href="#mode">mode</a>
+                                </li>
+                                <li>
+                                        <a href="#visible">visible</a>
                                 </li>
                             </ul>
                         </td>
@@ -103,42 +106,13 @@
                         <tbody>
                                 <tr>
                                     <td class="col-md-4">
-                                        <a name="layers"></a>
-                                        <span class="name"><b>layers</b><a href="#layers"><span class="icon ion-ios-link"></span></a></span>
+                                        <a name="layer"></a>
+                                        <span class="name"><b>layer</b><a href="#layer"><span class="icon ion-ios-link"></span></a></span>
                                     </td>
                                 </tr>
                                 <tr>
                                     <td class="col-md-4">
-                                        <code>layers:     <code><a href="../classes/MangolLayer.html" target="_self" >MangolLayer[]</a></code>
-</code>
-                                    </td>
-                                </tr>
-
-
-                                    <tr>
-                                        <td class="col-md-4">
-                                            <i>Type : </i>    <code><a href="../classes/MangolLayer.html" target="_self" >MangolLayer[]</a></code>
-
-                                        </td>
-                                    </tr>
-
-
-
-
-
-                        </tbody>
-                    </table>
-                    <table class="table table-sm table-bordered">
-                        <tbody>
-                                <tr>
-                                    <td class="col-md-4">
-                                        <a name="measureLayer"></a>
-                                        <span class="name"><b>measureLayer</b><a href="#measureLayer"><span class="icon ion-ios-link"></span></a></span>
-                                    </td>
-                                </tr>
-                                <tr>
-                                    <td class="col-md-4">
-                                        <code>measureLayer:     <code>VectorLayer</code>
+                                        <code>layer:     <code>VectorLayer</code>
 </code>
                                     </td>
                                 </tr>
@@ -157,34 +131,107 @@
 
                         </tbody>
                     </table>
+                    <table class="table table-sm table-bordered">
+                        <tbody>
+                                <tr>
+                                    <td class="col-md-4">
+                                        <a name="mode"></a>
+                                        <span class="name"><b>mode</b><a href="#mode"><span class="icon ion-ios-link"></span></a></span>
+                                    </td>
+                                </tr>
+                                <tr>
+                                    <td class="col-md-4">
+                                        <code>mode:     <code><a href="../interfaces/CursorMode.html" target="_self" >CursorMode</a></code>
+</code>
+                                    </td>
+                                </tr>
+
+
+                                    <tr>
+                                        <td class="col-md-4">
+                                            <i>Type : </i>    <code><a href="../interfaces/CursorMode.html" target="_self" >CursorMode</a></code>
+
+                                        </td>
+                                    </tr>
+
+
+
+
+
+                        </tbody>
+                    </table>
+                    <table class="table table-sm table-bordered">
+                        <tbody>
+                                <tr>
+                                    <td class="col-md-4">
+                                        <a name="visible"></a>
+                                        <span class="name"><b>visible</b><a href="#visible"><span class="icon ion-ios-link"></span></a></span>
+                                    </td>
+                                </tr>
+                                <tr>
+                                    <td class="col-md-4">
+                                        <code>visible:     <code><a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/boolean" target="_blank" >boolean</a></code>
+</code>
+                                    </td>
+                                </tr>
+
+
+                                    <tr>
+                                        <td class="col-md-4">
+                                            <i>Type : </i>    <code><a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/boolean" target="_blank" >boolean</a></code>
+
+                                        </td>
+                                    </tr>
+
+
+
+
+
+                        </tbody>
+                    </table>
             </section>
     </div>
 
 
     <div class="tab-pane fade  tab-source-code" id="c-source">
-        <pre class="line-numbers compodoc-sourcecode"><code class="language-typescript">import { MangolLayer } from &#x27;./../../classes/Layer&#x27;;
-import * as LayersActions from &#x27;./layers.actions&#x27;;
-import VectorLayer from &#x27;ol/layer/Vector&#x27;;
+        <pre class="line-numbers compodoc-sourcecode"><code class="language-typescript">import VectorLayer from &#x27;ol/layer/Vector&#x27;;
+
+import { CursorMode } from &#x27;./../../interfaces/cursor-mode&#x27;;
+import * as CursorActions from &#x27;./cursor.actions&#x27;;
 
 export interface State {
-  layers: MangolLayer[];
-  measureLayer: VectorLayer;
+  mode: CursorMode;
+  visible: boolean;
+  layer: VectorLayer;
 }
 
 const initialState: State &#x3D; {
-  layers: [],
-  measureLayer: null
+  mode: { text: null, cursor: &#x27;default&#x27; },
+  visible: false,
+  layer: null
 };
 
-export function layersReducer(
+export function cursorReducer(
   state &#x3D; initialState,
-  action: LayersActions.LayersActions
+  action: CursorActions.CursorActions
 ) {
   switch (action.type) {
-    case LayersActions.ADD_LAYERS:
-      return { ...state, layers: action.payload };
-    case LayersActions.SET_MEASURE_LAYER:
-      return { ...state, measureLayer: action.payload };
+    case CursorActions.SET_MODE:
+      const cursorLayer &#x3D; state.layer;
+      if (cursorLayer !&#x3D;&#x3D; null) {
+        cursorLayer.getSource().refresh();
+      }
+      return { ...state, mode: action.payload };
+    case CursorActions.RESET_MODE:
+      const layer &#x3D; state.layer;
+      if (layer !&#x3D;&#x3D; null) {
+        layer.getSource().refresh();
+      }
+      return { ...state, mode: initialState.mode };
+    case CursorActions.SET_VISIBLE:
+      return { ...state, visible: action.payload };
+    case CursorActions.SET_LAYER:
+      return { ...state, layer: action.payload };
     default:
       return state;
   }

@@ -340,9 +340,6 @@ customElements.define('compodoc-menu', class extends HTMLElement {
             <ul class="links collapse"
             ${ isNormalMode ? 'id="classes-links"' : 'id="xs-classes-links"' }>
                     <li class="link">
-                        <a href="classes/AddLayers.html" data-type="entity-link">AddLayers</a>
-                    </li>
-                    <li class="link">
                         <a href="classes/ClearState.html" data-type="entity-link">ClearState</a>
                     </li>
                     <li class="link">
@@ -419,6 +416,9 @@ customElements.define('compodoc-menu', class extends HTMLElement {
                     </li>
                     <li class="link">
                         <a href="classes/SetLayers.html" data-type="entity-link">SetLayers</a>
+                    </li>
+                    <li class="link">
+                        <a href="classes/SetLayers-1.html" data-type="entity-link">SetLayers</a>
                     </li>
                     <li class="link">
                         <a href="classes/SetLayouts.html" data-type="entity-link">SetLayouts</a>

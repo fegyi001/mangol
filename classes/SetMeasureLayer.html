@@ -250,11 +250,11 @@
 import { MangolLayer } from &#x27;./../../classes/Layer&#x27;;
 import VectorLayer from &#x27;ol/layer/Vector&#x27;;
 
-export const ADD_LAYERS &#x3D; &#x27;[Layers] Add Layers&#x27;;
+export const SET_LAYERS &#x3D; &#x27;[Layers] Set Layers&#x27;;
 export const SET_MEASURE_LAYER &#x3D; &#x27;[Layers] Set Measure Layer&#x27;;
 
-export class AddLayers implements Action {
-  readonly type &#x3D; ADD_LAYERS;
+export class SetLayers implements Action {
+  readonly type &#x3D; SET_LAYERS;
   constructor(public payload: MangolLayer[]) {}
 }
 export class SetMeasureLayer implements Action {
@@ -262,7 +262,7 @@ export class SetMeasureLayer implements Action {
   constructor(public payload: VectorLayer) {}
 }
 
-export type LayersActions &#x3D; AddLayers | SetMeasureLayer;
+export type LayersActions &#x3D; SetLayers | SetMeasureLayer;
 </code></pre>
     </div>
 </div>
