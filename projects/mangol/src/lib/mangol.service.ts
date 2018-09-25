@@ -1,11 +1,13 @@
-import { MangolLayer } from './classes/Layer';
-import { CursorMode } from './interfaces/cursor-mode';
 import { Injectable } from '@angular/core';
 import { Store } from '@ngrx/store';
-import Map from 'ol/Map';
 import VectorLayer from 'ol/layer/Vector';
+import Map from 'ol/Map';
+import Feature from 'ol/Feature';
 import { Observable } from 'rxjs';
 
+import { PrintDictionary } from './interfaces/config-toolbar.interface';
+import { MangolLayer } from './classes/Layer';
+import { CursorMode } from './interfaces/cursor-mode';
 import {
   MangolControllersFullScreenDictionary,
   MangolControllersPositionDictionary,
@@ -29,6 +31,7 @@ import * as LayersActions from './store/layers/layers.actions';
 import * as fromLayers from './store/layers/layers.reducers';
 import * as FeatureinfoActions from './store/featureinfo/featureinfo.actions';
 import * as fromFeatureinfo from './store/featureinfo/featureinfo.reducers';
+import { FeatureinfoDictionary } from './store/featureinfo/featureinfo.reducers';
 import * as fromLayertree from './store/layertree/layertree.reducers';
 import * as LayertreeActions from './store/layertree/layertree.actions';
 import { LayertreeDictionary } from './store/layertree/layertree.reducers';
@@ -38,6 +41,9 @@ import {
   MeasureDictionary,
   MeasureMode
 } from './store/measure/measure.reducers';
+import { PrintLayout, PrintSize } from './store/print/print.reducers';
+import * as fromPrint from './store/print/print.reducers';
+import * as PrintActions from './store/print/print.actions';
 
 @Injectable({
   providedIn: 'root'
@@ -52,6 +58,7 @@ export class MangolService {
   layersState$: Observable<fromLayers.State>;
   layertreeState$: Observable<fromLayertree.State>;
   measureState$: Observable<fromMeasure.State>;
+  printState$: Observable<fromPrint.State>;
 
   constructor(private store: Store<fromMangol.MangolState>) {
     this.configState$ = this.store.select(state => state.config);
@@ -63,6 +70,7 @@ export class MangolService {
     this.layersState$ = this.store.select(state => state.layers);
     this.layertreeState$ = this.store.select(state => state.layertree);
     this.measureState$ = this.store.select(state => state.measure);
+    this.printState$ = this.store.select(state => state.print);
   }
 
   /**
@@ -98,7 +106,7 @@ export class MangolService {
   setHasSidebar(hasSidebar: boolean): void {
     this.store.dispatch(new SidebarActions.SetHasSidebar(hasSidebar));
   }
-  setSidebarMode(mode: string) {
+  setSidebarMode(mode: string): void {
     this.store.dispatch(new SidebarActions.SetMode(mode));
   }
   setSidebarCollapsible(collapsible: boolean): void {
@@ -110,7 +118,7 @@ export class MangolService {
   setSidebarTitle(title: string): void {
     this.store.dispatch(new SidebarActions.SetTitle(title));
   }
-  setSidebarSelectedModule(module: string) {
+  setSidebarSelectedModule(module: string): void {
     this.store.dispatch(new SidebarActions.SetSelectedModule(module));
   }
 
@@ -201,14 +209,45 @@ export class MangolService {
    * FEATUREINFO state functions
    */
 
+  featureinfoSetHasFeatureinfo(hasFeatureinfo: boolean): void {
+    this.store.dispatch(new FeatureinfoActions.HasFeatureinfo(hasFeatureinfo));
+  }
+  featureinfoSetDisabled(disabled: boolean): void {
+    this.store.dispatch(new FeatureinfoActions.SetDisabled(disabled));
+  }
+  featureinfoSetTitle(title: string): void {
+    this.store.dispatch(new FeatureinfoActions.SetTitle(title));
+  }
+  featureinfoSetMaxFeatures(maxFeatures: number): void {
+    this.store.dispatch(new FeatureinfoActions.SetMaxFeatures(maxFeatures));
+  }
+  featureinfoSetLayers(layers: MangolLayer[]): void {
+    this.store.dispatch(new FeatureinfoActions.SetLayers(layers));
+  }
+  featureinfoSetSelectedLayer(layer: MangolLayer): void {
+    this.store.dispatch(new FeatureinfoActions.SetSelectedLayer(layer));
+  }
+  featureinfoSetResultsLayer(layer: VectorLayer): void {
+    this.store.dispatch(new FeatureinfoActions.SetResultsLayer(layer));
+  }
+  featureinfoSetResultsItems(features: Feature[]): void {
+    this.store.dispatch(new FeatureinfoActions.SetResultsItems(features));
+  }
+  featureinfoSetDictionary(dictionary: FeatureinfoDictionary): void {
+    this.store.dispatch(new FeatureinfoActions.SetDictionary(dictionary));
+  }
+  featureinfoSetHoverColor(color: [number, number, number]): void {
+    this.store.dispatch(new FeatureinfoActions.SetHoverColor(color));
+  }
+
   /**
    * LAYERS state functions
    */
 
-  layersSetLayers(layers: MangolLayer[]) {
+  layersSetLayers(layers: MangolLayer[]): void {
     this.store.dispatch(new LayersActions.SetLayers(layers));
   }
-  layersSetMeasureLayer(layer: VectorLayer) {
+  layersSetMeasureLayer(layer: VectorLayer): void {
     this.store.dispatch(new LayersActions.SetMeasureLayer(layer));
   }
 
@@ -216,19 +255,19 @@ export class MangolService {
    * LAYERTREE state functions
    */
 
-  layertreeSetHasLayertree(hasLayertree: boolean) {
+  layertreeSetHasLayertree(hasLayertree: boolean): void {
     this.store.dispatch(new LayertreeActions.HasLayertree(hasLayertree));
   }
-  layertreeSetDisabled(disabled: boolean) {
+  layertreeSetDisabled(disabled: boolean): void {
     this.store.dispatch(new LayertreeActions.SetDisabled(disabled));
   }
-  layertreeSetTitle(title: string) {
+  layertreeSetTitle(title: string): void {
     this.store.dispatch(new LayertreeActions.SetTitle(title));
   }
-  layertreeSetDictionary(dictionary: LayertreeDictionary) {
+  layertreeSetDictionary(dictionary: LayertreeDictionary): void {
     this.store.dispatch(new LayertreeActions.SetDictionary(dictionary));
   }
-  layertreeShowLayergroupBadges(showBadges: boolean) {
+  layertreeShowLayergroupBadges(showBadges: boolean): void {
     this.store.dispatch(new LayertreeActions.ShowLayergroupBadges(showBadges));
   }
 
@@ -236,19 +275,53 @@ export class MangolService {
    * MEASURE state functions
    */
 
-  measureSetHasMeasure(hasMeasure: boolean) {
+  measureSetHasMeasure(hasMeasure: boolean): void {
     this.store.dispatch(new MeasureActions.HasMeasure(hasMeasure));
   }
-  measureSetDisabled(disabled: boolean) {
+  measureSetDisabled(disabled: boolean): void {
     this.store.dispatch(new MeasureActions.SetDisabled(disabled));
   }
-  measureSetTitle(title: string) {
+  measureSetTitle(title: string): void {
     this.store.dispatch(new MeasureActions.SetTitle(title));
   }
-  measureSetDictionary(dictionary: MeasureDictionary) {
+  measureSetDictionary(dictionary: MeasureDictionary): void {
     this.store.dispatch(new MeasureActions.SetDictionary(dictionary));
   }
-  measureSetMode(mode: MeasureMode) {
+  measureSetMode(mode: MeasureMode): void {
     this.store.dispatch(new MeasureActions.SetMode(mode));
+  }
+
+  /**
+   * PRINT state functions
+   */
+  printSetHasPrint(hasPrint: boolean): void {
+    this.store.dispatch(new PrintActions.HasPrint(hasPrint));
+  }
+  printSetDisabled(disabled: boolean): void {
+    this.store.dispatch(new PrintActions.SetDisabled(disabled));
+  }
+  printSetTitle(title: string): void {
+    this.store.dispatch(new PrintActions.SetTitle(title));
+  }
+  printSetResolutions(resolutions: number[]): void {
+    this.store.dispatch(new PrintActions.SetResolutions(resolutions));
+  }
+  printSetLayouts(layouts: PrintLayout[]): void {
+    this.store.dispatch(new PrintActions.SetLayouts(layouts));
+  }
+  printSizes(sizes: PrintSize[]): void {
+    this.store.dispatch(new PrintActions.SetSizes(sizes));
+  }
+  printSetDictionary(dictionary: PrintDictionary): void {
+    this.store.dispatch(new PrintActions.SetDictionary(dictionary));
+  }
+  printSetSelectedLayout(layout: PrintLayout): void {
+    this.store.dispatch(new PrintActions.SetSelectedLayout(layout));
+  }
+  printSetSelectedResolution(resolution: number): void {
+    this.store.dispatch(new PrintActions.SetSelectedResolution(resolution));
+  }
+  printSetSelectedSize(size: PrintSize): void {
+    this.store.dispatch(new PrintActions.SetSelectedSize(size));
   }
 }

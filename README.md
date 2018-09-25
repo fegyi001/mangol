@@ -175,7 +175,7 @@ Mangol is highly configurable through MangolConfig. Just check the API doc for f
 
 ## Access and modify the internal State
 
-After initialization you can also modify almost everything (also in progress) on your running Mangol app with a helper service called <b>MangolService</b>. Mangol is written in a reactive way which means almost every property is an RxJS Observable. Mangol itself uses @ngrx/store under the hood, and with the injectable MangolService you can access and modify the store state easily.
+After initialization you can also modify almost everything in your running Mangol app with a helper service called **MangolService**. Mangol is written in a reactive way which means almost every property is an RxJS Observable. Mangol itself uses @ngrx/store under the hood, and with the injectable MangolService you can access and modify the store state easily.
 
 For example, if you wish to open the sidebar and change its title in runtime all you have to do is call the appropriate public functions form MangolService:
 
@@ -238,10 +238,6 @@ $mangol-quicksearch-width: 250px;
 
 @import '~mangol/scss/mangol';
 ```
-
-## Present & Future
-
-This project is still under heavy development. In the near future I intend to add/extend other widgets. More examples will arrive as soon as the project becomes smarter. Any notice, remarks or pull requests are appreciated.
 
 ## Author
 
