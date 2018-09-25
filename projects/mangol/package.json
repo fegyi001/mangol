@@ -1,15 +1,15 @@
 {
     "name": "mangol",
-    "version": "6.1.13",
+    "version": "6.1.14",
     "license": "MIT",
     "homepage": "https://github.com/fegyi001/mangol",
     "scripts": {},
     "peerDependencies": {
-        "@angular/common": "^6.1.7",
-        "@angular/core": "^6.1.7"
+        "@angular/common": "^6.1.8",
+        "@angular/core": "^6.1.8"
     },
     "dependencies": {
-        "@angular/animations": "^6.1.7",
+        "@angular/animations": "^6.1.8",
         "@angular/cdk": "^6.4.7",
         "@angular/material": "^6.4.7",
         "@ngrx/effects": "^6.1.0",
