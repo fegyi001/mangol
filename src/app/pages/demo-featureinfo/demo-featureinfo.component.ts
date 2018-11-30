@@ -100,7 +100,7 @@ export class DemoFeatureinfoComponent implements OnInit, OnDestroy {
                 url:
                   'http://openlayers.org/en/latest/examples/data/geojson/countries.geojson',
                 format: new GeoJSON({
-                  defaultDataProjection: 'EPSG:4326',
+                  dataProjection: 'EPSG:4326',
                   featureProjection: 'EPSG:900913'
                 })
               })
