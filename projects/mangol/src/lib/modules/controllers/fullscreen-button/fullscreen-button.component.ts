@@ -43,8 +43,8 @@ export class FullscreenButtonComponent implements OnInit {
         fsDocElem.msRequestFullscreen();
       } else if (fsDocElem.mozRequestFullScreen) {
         fsDocElem.mozRequestFullScreen();
-      } else if (fsDocElem.webkitRequestFullscreen) {
-        fsDocElem.webkitRequestFullscreen();
+      } else if (fsDocElem['webkitRequestFullscreen']) {
+        (<any>fsDocElem).webkitRequestFullscreen();
       }
     } else if (fsDoc.exitFullscreen) {
       fsDoc.exitFullscreen();
@@ -52,17 +52,17 @@ export class FullscreenButtonComponent implements OnInit {
       fsDoc.msExitFullscreen();
     } else if (fsDoc.mozCancelFullScreen) {
       fsDoc.mozCancelFullScreen();
-    } else if (fsDoc.webkitExitFullscreen) {
-      fsDoc.webkitExitFullscreen();
+    } else if (fsDoc['webkitExitFullscreen']) {
+      (<any>fsDoc).webkitExitFullscreen();
     }
   }
 
   isFullScreen(): boolean {
     const fsDoc = <FsDocument>document;
     return !!(
-      fsDoc.fullscreenElement ||
+      fsDoc['fullscreenElement'] ||
       fsDoc.mozFullScreenElement ||
-      fsDoc.webkitFullscreenElement ||
+      fsDoc['webkitFullscreenElement'] ||
       fsDoc.msFullscreenElement
     );
   }

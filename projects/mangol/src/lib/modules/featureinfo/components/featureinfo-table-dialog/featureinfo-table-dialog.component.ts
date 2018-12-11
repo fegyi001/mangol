@@ -5,7 +5,7 @@ import {
   MatSort,
   MatTableDataSource
 } from '@angular/material';
-import { saveAs } from 'file-saver/FileSaver';
+import { saveAs } from 'file-saver';
 
 @Component({
   selector: 'mangol-featureinfo-table-dialog',
