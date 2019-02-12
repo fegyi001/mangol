@@ -59,8 +59,12 @@ $active: #ff3e45;
 .demo-drawer-container {
     height: calc(100% - 64px);
 
-    .mat-drawer {
+    /deep/.mat-drawer {
         width: 300px;
+
+        .mat-drawer-inner-container {
+            overflow-x: hidden;
+        }
 
         @media screen and (max-width: 500px) {
             width: 100vw;
@@ -97,21 +101,21 @@ $active: #ff3e45;
     &.active {
         background-color: $active;
         color: white;
-        animation: resizeMe 500ms ease-in;
+        // animation: resizeMe 500ms ease-in;
     }
 
 }
 
-@keyframes resizeMe {
-    0% {
-        transform: scale(1);
-    }
+// @keyframes resizeMe {
+//     0% {
+//         transform: scale(1);
+//     }
 
-    50% {
-        transform: scale(1.03);
-    }
+//     50% {
+//         transform: scale(1.03);
+//     }
 
-    100% {
-        transform: scale(1);
-    }
-}
+//     100% {
+//         transform: scale(1);
+//     }
+// }

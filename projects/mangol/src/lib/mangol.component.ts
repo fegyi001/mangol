@@ -10,6 +10,10 @@ import * as MangolActions from './store/mangol.actions';
 import * as fromMangol from './store/mangol.reducers';
 import * as SidebarActions from './store/sidebar/sidebar.actions';
 
+import { addCommon as addCommonProjections } from 'ol/proj.js';
+import { register } from 'ol/proj/proj4.js';
+import proj4 from 'proj4';
+
 @Component({
   selector: 'mangol',
   templateUrl: './mangol.component.html',
@@ -34,6 +38,9 @@ export class MangolComponent implements OnInit {
   }
 
   ngOnInit() {
+    addCommonProjections();
+    register(proj4);
+
     this.store.dispatch(new MangolActions.ClearState());
     this.store.dispatch(new ConfigActions.SetConfig(this.config));
     if (typeof this.config !== 'undefined' && this.config !== null) {

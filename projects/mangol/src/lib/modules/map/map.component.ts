@@ -7,7 +7,10 @@ import {
 } from '@angular/core';
 import { Store } from '@ngrx/store';
 import Map from 'ol/Map';
+import { addCommon as addCommonProjections } from 'ol/proj.js';
+import { register } from 'ol/proj/proj4.js';
 import View from 'ol/View';
+import proj4 from 'proj4';
 import { Subscription } from 'rxjs';
 import { filter, take } from 'rxjs/operators';
 
@@ -75,6 +78,8 @@ export class MapComponent implements OnInit, AfterViewInit, OnDestroy {
   }
 
   ngAfterViewInit() {
+    addCommonProjections();
+    register(proj4);
     // React to config changes in the store
     this.configSubscription = this.store
       .select(state => state.config.config)
