@@ -19,10 +19,7 @@
         </div>
 
         <div class="xs-menu menu" id="mobile-menu">
-                <div id="book-search-input" role="search">
-    <input type="text" placeholder="Type to search">
-</div>
-            <compodoc-menu></compodoc-menu>
+                <div id="book-search-input" role="search"><input type="text" placeholder="Type to search"></div>            <compodoc-menu></compodoc-menu>
         </div>
 
         <div class="container-fluid main">
@@ -51,6 +48,9 @@
         </li>
         <li >
             <a href="#templateData" role="tab" id="templateData-tab" data-toggle="tab" data-link="template">Template</a>
+        </li>
+        <li >
+            <a href="#styleData" role="tab" id="styleData-tab" data-toggle="tab" data-link="style">Styles</a>
         </li>
         <li >
             <a href="#tree" role="tab" id="tree-tab" data-toggle="tab" data-link="dom-tree">DOM Tree</a>
@@ -98,7 +98,7 @@
 
             <tr>
                 <td class="col-md-3">styleUrls</td>
-                <td class="col-md-9"><code>layertree.component.scss</code></td>
+                <td class="col-md-9"><code>./layertree.component.scss</code></td>
             </tr>
 
 
@@ -107,6 +107,12 @@
                 <td class="col-md-3">templateUrl</td>
                 <td class="col-md-9"><code>./layertree.component.html</code></td>
             </tr>
+
+
+
+
+
+
 
 
         </tbody>
@@ -805,6 +811,50 @@ export class LayertreeComponent implements OnInit, OnDestroy {
 </code></pre>
     </div>
 
+    <div class="tab-pane fade " id="c-styleData">
+                <p class="comment">
+                    <code>./layertree.component.scss</code>
+                </p>
+                <pre class="line-numbers"><code class="language-scss">@import &#x27;../../assets/scss/mangol&#x27;;
+:host {
+    display: block;
+}
+
+.example-tree-invisible {
+    display: none;
+}
+
+.example-tree ul,
+.example-tree li {
+    margin-top: 0;
+    margin-bottom: 0;
+    list-style-type: none;
+}
+
+.mat-expansion-panel {
+    box-shadow: none !important;
+    width: 100%;
+}
+
+.mat-tree-node {
+    cursor: pointer;
+    .mat-checkbox {
+        margin-left: 10px;
+    }
+    .expanded {
+        color: mat-color($mangol-primary);
+        font-size: larger;
+        transition: all 0.2s;
+        padding-left: 3px;
+    }
+}
+
+.layergroup-icon {
+    @include mat-icon-size(24px);
+}
+</code></pre>
+    </div>
+
     <div class="tab-pane fade " id="c-tree">
         <div id="tree-container"></div>
         <div class="tree-legend">
@@ -872,7 +922,9 @@ export class LayertreeComponent implements OnInit, OnDestroy {
 
        <script src="../js/libs/custom-elements.min.js"></script>
        <script src="../js/libs/lit-html.js"></script>
-       <script src="../js/menu-wc.js"></script>
+       <!-- Required to polyfill modern browsers as code is ES5 for IE... -->
+       <script src="../js/libs/custom-elements-es5-adapter.js" charset="utf-8" defer></script>
+       <script src="../js/menu-wc.js" defer></script>
 
        <script src="../js/libs/bootstrap-native.js"></script>
 

@@ -19,10 +19,7 @@
         </div>
 
         <div class="xs-menu menu" id="mobile-menu">
-                <div id="book-search-input" role="search">
-    <input type="text" placeholder="Type to search">
-</div>
-            <compodoc-menu></compodoc-menu>
+                <div id="book-search-input" role="search"><input type="text" placeholder="Type to search"></div>            <compodoc-menu></compodoc-menu>
         </div>
 
         <div class="container-fluid main">
@@ -51,6 +48,9 @@
         </li>
         <li >
             <a href="#templateData" role="tab" id="templateData-tab" data-toggle="tab" data-link="template">Template</a>
+        </li>
+        <li >
+            <a href="#styleData" role="tab" id="styleData-tab" data-toggle="tab" data-link="style">Styles</a>
         </li>
         <li >
             <a href="#tree" role="tab" id="tree-tab" data-toggle="tab" data-link="dom-tree">DOM Tree</a>
@@ -97,7 +97,7 @@
 
             <tr>
                 <td class="col-md-3">styleUrls</td>
-                <td class="col-md-9"><code>layer-details.component.scss</code></td>
+                <td class="col-md-9"><code>./layer-details.component.scss</code></td>
             </tr>
 
 
@@ -106,6 +106,12 @@
                 <td class="col-md-3">templateUrl</td>
                 <td class="col-md-9"><code>./layer-details.component.html</code></td>
             </tr>
+
+
+
+
+
+
 
 
         </tbody>
@@ -304,7 +310,11 @@
                     </tr>
                     <tr>
                         <td class="col-md-4">
-                            <i>Decorators : </i><code>Inject</code>
+                            <b>Decorators : </b>
+                            <br />
+                            <code>
+                                @Inject(MAT_DIALOG_DATA)<br />
+                            </code>
                         </td>
                     </tr>
                         <tr>
@@ -435,6 +445,36 @@ export class LayerDetailsComponent implements OnInit {
 </code></pre>
     </div>
 
+    <div class="tab-pane fade " id="c-styleData">
+                <p class="comment">
+                    <code>./layer-details.component.scss</code>
+                </p>
+                <pre class="line-numbers"><code class="language-scss">@import &quot;../../../../assets/scss/mangol&quot;;
+:host {
+    display: block;
+    padding: 0; // margin-left: 55px;
+    background-color: rgba(0, 0, 0, 0); // border: 1px solid rgba(0, 0, 0, 0.12);
+}
+
+.mat-toolbar {
+    // background-color: rgba(0, 0, 0, 0.);
+    min-height: 40px;
+    .mat-toolbar-row {
+        height: 40px;
+        padding-right: 0; // padding-left: 0;
+        white-space: initial;
+        font-weight: initial; // font-size: 14px;
+        line-height: initial;
+        font-size: smaller;
+    }
+}
+
+.details-content {
+    padding: 16px;
+}
+</code></pre>
+    </div>
+
     <div class="tab-pane fade " id="c-tree">
         <div id="tree-container"></div>
         <div class="tree-legend">
@@ -502,7 +542,9 @@ export class LayerDetailsComponent implements OnInit {
 
        <script src="../js/libs/custom-elements.min.js"></script>
        <script src="../js/libs/lit-html.js"></script>
-       <script src="../js/menu-wc.js"></script>
+       <!-- Required to polyfill modern browsers as code is ES5 for IE... -->
+       <script src="../js/libs/custom-elements-es5-adapter.js" charset="utf-8" defer></script>
+       <script src="../js/menu-wc.js" defer></script>
 
        <script src="../js/libs/bootstrap-native.js"></script>
 

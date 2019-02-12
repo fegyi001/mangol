@@ -19,10 +19,7 @@
         </div>
 
         <div class="xs-menu menu" id="mobile-menu">
-                <div id="book-search-input" role="search">
-    <input type="text" placeholder="Type to search">
-</div>
-            <compodoc-menu></compodoc-menu>
+                <div id="book-search-input" role="search"><input type="text" placeholder="Type to search"></div>            <compodoc-menu></compodoc-menu>
         </div>
 
         <div class="container-fluid main">
@@ -225,8 +222,8 @@ export class FullscreenButtonComponent implements OnInit {
         fsDocElem.msRequestFullscreen();
       } else if (fsDocElem.mozRequestFullScreen) {
         fsDocElem.mozRequestFullScreen();
-      } else if (fsDocElem.webkitRequestFullscreen) {
-        fsDocElem.webkitRequestFullscreen();
+      } else if (fsDocElem[&#x27;webkitRequestFullscreen&#x27;]) {
+        (&lt;any&gt;fsDocElem).webkitRequestFullscreen();
       }
     } else if (fsDoc.exitFullscreen) {
       fsDoc.exitFullscreen();
@@ -234,17 +231,17 @@ export class FullscreenButtonComponent implements OnInit {
       fsDoc.msExitFullscreen();
     } else if (fsDoc.mozCancelFullScreen) {
       fsDoc.mozCancelFullScreen();
-    } else if (fsDoc.webkitExitFullscreen) {
-      fsDoc.webkitExitFullscreen();
+    } else if (fsDoc[&#x27;webkitExitFullscreen&#x27;]) {
+      (&lt;any&gt;fsDoc).webkitExitFullscreen();
     }
   }
 
   isFullScreen(): boolean {
     const fsDoc &#x3D; &lt;FsDocument&gt;document;
     return !!(
-      fsDoc.fullscreenElement ||
+      fsDoc[&#x27;fullscreenElement&#x27;] ||
       fsDoc.mozFullScreenElement ||
-      fsDoc.webkitFullscreenElement ||
+      fsDoc[&#x27;webkitFullscreenElement&#x27;] ||
       fsDoc.msFullscreenElement
     );
   }
@@ -280,7 +277,9 @@ export class FullscreenButtonComponent implements OnInit {
 
        <script src="../js/libs/custom-elements.min.js"></script>
        <script src="../js/libs/lit-html.js"></script>
-       <script src="../js/menu-wc.js"></script>
+       <!-- Required to polyfill modern browsers as code is ES5 for IE... -->
+       <script src="../js/libs/custom-elements-es5-adapter.js" charset="utf-8" defer></script>
+       <script src="../js/menu-wc.js" defer></script>
 
        <script src="../js/libs/bootstrap-native.js"></script>
 

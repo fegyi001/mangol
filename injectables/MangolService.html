@@ -19,10 +19,7 @@
         </div>
 
         <div class="xs-menu menu" id="mobile-menu">
-                <div id="book-search-input" role="search">
-    <input type="text" placeholder="Type to search">
-</div>
-            <compodoc-menu></compodoc-menu>
+                <div id="book-search-input" role="search"><input type="text" placeholder="Type to search"></div>            <compodoc-menu></compodoc-menu>
         </div>
 
         <div class="container-fluid main">
@@ -210,10 +207,10 @@
                                 <a href="#printSetSelectedSize">printSetSelectedSize</a>
                             </li>
                             <li>
-                                <a href="#printSetTitle">printSetTitle</a>
+                                <a href="#printSetSizes">printSetSizes</a>
                             </li>
                             <li>
-                                <a href="#printSizes">printSizes</a>
+                                <a href="#printSetTitle">printSetTitle</a>
                             </li>
                             <li>
                                 <a href="#resetControllers">resetControllers</a>
@@ -2450,6 +2447,75 @@
             <tbody>
                 <tr>
                     <td class="col-md-4">
+                        <a name="printSetSizes"></a>
+                        <span class="name">
+                            <b>
+                            printSetSizes
+                            </b>
+                            <a href="#printSetSizes"><span class="icon ion-ios-link"></span></a>
+                        </span>
+                    </td>
+                </tr>
+                <tr>
+                    <td class="col-md-4">
+<code>printSetSizes(sizes: <a href="../interfaces/PrintSize.html">PrintSize[]</a>)</code>
+                    </td>
+                </tr>
+
+
+                        <tr>
+                            <td class="col-md-4">
+                                    <div class="io-line">Defined in <a href="" data-line="312" class="link-to-prism">projects/mangol/src/lib/mangol.service.ts:312</a></div>
+                            </td>
+                        </tr>
+
+
+                <tr>
+                    <td class="col-md-4">
+
+                            <div class="io-description">
+                                    <b>Parameters :</b>
+                                    <table class="params">
+                                        <thead>
+                                            <tr>
+                                                <td>Name</td>
+                                                    <td>Type</td>
+                                                <td>Optional</td>
+                                            </tr>
+                                        </thead>
+                                        <tbody>
+                                                <tr>
+                                                        <td>sizes</td>
+                                                        <td>
+                                                                    <code><a href="../interfaces/PrintSize.html" target="_self" >PrintSize[]</a></code>
+                                                        </td>
+                                                    
+                                                    <td>
+                                                            No
+                                                    </td>
+                                                    
+
+                                                </tr>
+                                        </tbody>
+                                    </table>
+                            </div>
+                            <div>
+                            </div>
+                            <div class="io-description">
+                                <b>Returns : </b>    <code><a href="https://www.typescriptlang.org/docs/handbook/basic-types.html" target="_blank" >void</a></code>
+
+                            </div>
+                                <div class="io-description">
+                                    
+                                </div>
+                    </td>
+                </tr>
+            </tbody>
+        </table>
+        <table class="table table-sm table-bordered">
+            <tbody>
+                <tr>
+                    <td class="col-md-4">
                         <a name="printSetTitle"></a>
                         <span class="name">
                             <b>
@@ -2491,75 +2557,6 @@
                                                         <td>title</td>
                                                         <td>
                                                                     <code><a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/string" target="_blank" >string</a></code>
-                                                        </td>
-                                                    
-                                                    <td>
-                                                            No
-                                                    </td>
-                                                    
-
-                                                </tr>
-                                        </tbody>
-                                    </table>
-                            </div>
-                            <div>
-                            </div>
-                            <div class="io-description">
-                                <b>Returns : </b>    <code><a href="https://www.typescriptlang.org/docs/handbook/basic-types.html" target="_blank" >void</a></code>
-
-                            </div>
-                                <div class="io-description">
-                                    
-                                </div>
-                    </td>
-                </tr>
-            </tbody>
-        </table>
-        <table class="table table-sm table-bordered">
-            <tbody>
-                <tr>
-                    <td class="col-md-4">
-                        <a name="printSizes"></a>
-                        <span class="name">
-                            <b>
-                            printSizes
-                            </b>
-                            <a href="#printSizes"><span class="icon ion-ios-link"></span></a>
-                        </span>
-                    </td>
-                </tr>
-                <tr>
-                    <td class="col-md-4">
-<code>printSizes(sizes: <a href="../interfaces/PrintSize.html">PrintSize[]</a>)</code>
-                    </td>
-                </tr>
-
-
-                        <tr>
-                            <td class="col-md-4">
-                                    <div class="io-line">Defined in <a href="" data-line="312" class="link-to-prism">projects/mangol/src/lib/mangol.service.ts:312</a></div>
-                            </td>
-                        </tr>
-
-
-                <tr>
-                    <td class="col-md-4">
-
-                            <div class="io-description">
-                                    <b>Parameters :</b>
-                                    <table class="params">
-                                        <thead>
-                                            <tr>
-                                                <td>Name</td>
-                                                    <td>Type</td>
-                                                <td>Optional</td>
-                                            </tr>
-                                        </thead>
-                                        <tbody>
-                                                <tr>
-                                                        <td>sizes</td>
-                                                        <td>
-                                                                    <code><a href="../interfaces/PrintSize.html" target="_self" >PrintSize[]</a></code>
                                                         </td>
                                                     
                                                     <td>
@@ -5127,7 +5124,7 @@ export class MangolService {
   printSetLayouts(layouts: PrintLayout[]): void {
     this.store.dispatch(new PrintActions.SetLayouts(layouts));
   }
-  printSizes(sizes: PrintSize[]): void {
+  printSetSizes(sizes: PrintSize[]): void {
     this.store.dispatch(new PrintActions.SetSizes(sizes));
   }
   printSetDictionary(dictionary: PrintDictionary): void {
@@ -5180,7 +5177,9 @@ export class MangolService {
 
        <script src="../js/libs/custom-elements.min.js"></script>
        <script src="../js/libs/lit-html.js"></script>
-       <script src="../js/menu-wc.js"></script>
+       <!-- Required to polyfill modern browsers as code is ES5 for IE... -->
+       <script src="../js/libs/custom-elements-es5-adapter.js" charset="utf-8" defer></script>
+       <script src="../js/menu-wc.js" defer></script>
 
        <script src="../js/libs/bootstrap-native.js"></script>
 

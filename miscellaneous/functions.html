@@ -19,10 +19,7 @@
         </div>
 
         <div class="xs-menu menu" id="mobile-menu">
-                <div id="book-search-input" role="search">
-    <input type="text" placeholder="Type to search">
-</div>
-            <compodoc-menu></compodoc-menu>
+                <div id="book-search-input" role="search"><input type="text" placeholder="Type to search"></div>            <compodoc-menu></compodoc-menu>
         </div>
 
         <div class="container-fluid main">
@@ -120,7 +117,7 @@
                 </tr>
                 <tr>
                     <td class="col-md-4">
-<code>clearState(reducer: undefined)</code>
+<code>clearState(reducer)</code>
                     </td>
                 </tr>
 
@@ -176,7 +173,7 @@
                 </tr>
                 <tr>
                     <td class="col-md-4">
-<code>configReducer(state: , action: undefined)</code>
+<code>configReducer(state, action)</code>
                     </td>
                 </tr>
 
@@ -241,7 +238,7 @@
                 </tr>
                 <tr>
                     <td class="col-md-4">
-<code>controllersReducer(state: , action: undefined)</code>
+<code>controllersReducer(state, action)</code>
                     </td>
                 </tr>
 
@@ -306,7 +303,7 @@
                 </tr>
                 <tr>
                     <td class="col-md-4">
-<code>cursorReducer(state: , action: undefined)</code>
+<code>cursorReducer(state, action)</code>
                     </td>
                 </tr>
 
@@ -371,7 +368,7 @@
                 </tr>
                 <tr>
                     <td class="col-md-4">
-<code>featureinfoReducer(state: , action: undefined)</code>
+<code>featureinfoReducer(state, action)</code>
                     </td>
                 </tr>
 
@@ -436,7 +433,7 @@
                 </tr>
                 <tr>
                     <td class="col-md-4">
-<code>layersReducer(state: , action: undefined)</code>
+<code>layersReducer(state, action)</code>
                     </td>
                 </tr>
 
@@ -501,7 +498,7 @@
                 </tr>
                 <tr>
                     <td class="col-md-4">
-<code>layertreeReducer(state: , action: undefined)</code>
+<code>layertreeReducer(state, action)</code>
                     </td>
                 </tr>
 
@@ -566,7 +563,7 @@
                 </tr>
                 <tr>
                     <td class="col-md-4">
-<code>logger(reducer: undefined)</code>
+<code>logger(reducer)</code>
                     </td>
                 </tr>
 
@@ -622,7 +619,7 @@
                 </tr>
                 <tr>
                     <td class="col-md-4">
-<code>mapReducer(state: , action: undefined)</code>
+<code>mapReducer(state, action)</code>
                     </td>
                 </tr>
 
@@ -687,7 +684,7 @@
                 </tr>
                 <tr>
                     <td class="col-md-4">
-<code>measureReducer(state: , action: undefined)</code>
+<code>measureReducer(state, action)</code>
                     </td>
                 </tr>
 
@@ -752,7 +749,7 @@
                 </tr>
                 <tr>
                     <td class="col-md-4">
-<code>printReducer(state: , action: undefined)</code>
+<code>printReducer(state, action)</code>
                     </td>
                 </tr>
 
@@ -817,7 +814,7 @@
                 </tr>
                 <tr>
                     <td class="col-md-4">
-<code>sidebarReducer(state: , action: undefined)</code>
+<code>sidebarReducer(state, action)</code>
                     </td>
                 </tr>
 
@@ -890,7 +887,9 @@
 
        <script src="../js/libs/custom-elements.min.js"></script>
        <script src="../js/libs/lit-html.js"></script>
-       <script src="../js/menu-wc.js"></script>
+       <!-- Required to polyfill modern browsers as code is ES5 for IE... -->
+       <script src="../js/libs/custom-elements-es5-adapter.js" charset="utf-8" defer></script>
+       <script src="../js/menu-wc.js" defer></script>
 
        <script src="../js/libs/bootstrap-native.js"></script>
 
