@@ -1,6 +1,7 @@
 $mangol-sidebar-width: 100px;
 $mangol-height: 400px;
 @import "../projects/mangol/src/lib/assets/scss/mangol";
+
 html,
 body {
     margin: 0;
@@ -12,6 +13,7 @@ body {
 
 .mat-tab-group {
     height: 100%;
+
     .mat-tab-body-wrapper {
         height: 100%;
     }
@@ -19,20 +21,26 @@ body {
 
 .tab-content {
     height: 100%;
+
     .map-container-outer {
         height: 100%;
+
         .map-container {
             height: calc(100% - 40px);
             padding: 20px;
+
             @media screen and (max-width: 500px) {
                 height: 100%;
                 padding: 0;
             }
+
             transition: padding 300ms;
+
             .mat-card {
                 position: relative;
                 padding: 0px;
                 height: 100%;
+
                 .mangol {
                     height: 100%;
                     display: block;

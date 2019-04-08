@@ -59,7 +59,7 @@ $active: #ff3e45;
 .demo-drawer-container {
     height: calc(100% - 64px);
 
-    /deep/.mat-drawer {
+    ::ng-deep.mat-drawer {
         width: 300px;
 
         .mat-drawer-inner-container {
