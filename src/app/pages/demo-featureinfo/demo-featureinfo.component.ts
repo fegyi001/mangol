@@ -50,6 +50,7 @@ export class DemoFeatureinfoComponent implements OnInit, OnDestroy {
   }
 
   ngOnInit() {
+    const pseudoGeoJSONFormat = <any>GeoJSON;
     this.mangolConfig = {
       map: {
         renderer: 'canvas',
@@ -99,7 +100,7 @@ export class DemoFeatureinfoComponent implements OnInit, OnDestroy {
               source: new VectorSource({
                 url:
                   'http://openlayers.org/en/latest/examples/data/geojson/countries.geojson',
-                format: new GeoJSON({
+                format: new pseudoGeoJSONFormat({
                   dataProjection: 'EPSG:4326',
                   featureProjection: 'EPSG:900913'
                 })

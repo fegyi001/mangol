@@ -34,28 +34,30 @@ export class FeatureinfoService {
     m: Map,
     coordinates: [number, number]
   ): Observable<string> {
-    return this.store.select(state => state.featureinfo.maxFeatures).pipe(
-      take(1),
-      map(maxFeatures => {
-        const source: TileWMS = <TileWMS>layer.layer.getSource();
-        let url: string = source.getGetFeatureInfoUrl(
-          coordinates,
-          m.getView().getResolution(),
-          m
-            .getView()
-            .getProjection()
-            .getCode(),
-          { INFO_FORMAT: 'application/json', FEATURE_COUNT: maxFeatures }
-        );
-        if (url) {
-          // In case of a GWC layer somehow there is I and J instead of X and Y, so we must change that
-          url = url.replace('&I=', '&X=').replace('&J=', '&Y=');
-        } else {
-          url = null;
-        }
-        return url;
-      })
-    );
+    return this.store
+      .select(state => state.featureinfo.maxFeatures)
+      .pipe(
+        take(1),
+        map(maxFeatures => {
+          const source: TileWMS = <TileWMS>layer.layer.getSource();
+          let url: string = source.getGetFeatureInfoUrl(
+            coordinates,
+            m.getView().getResolution(),
+            m
+              .getView()
+              .getProjection()
+              .getCode(),
+            { INFO_FORMAT: 'application/json', FEATURE_COUNT: maxFeatures }
+          );
+          if (url) {
+            // In case of a GWC layer somehow there is I and J instead of X and Y, so we must change that
+            url = url.replace('&I=', '&X=').replace('&J=', '&Y=');
+          } else {
+            url = null;
+          }
+          return url;
+        })
+      );
   }
 
   /**
@@ -77,13 +79,14 @@ export class FeatureinfoService {
       .pipe(
         map(response => {
           const featureCollection = <FeatureCollection<any, any>>response;
-          const format =
-            dataProjection !== featureProjection
-              ? new GeoJSON({
-                  dataProjection: dataProjection,
-                  featureProjection: featureProjection
-                })
-              : this.geojsonFormat;
+          let format = new GeoJSON();
+          if (dataProjection !== featureProjection) {
+            const pseudoGeoJSONFormat = <any>GeoJSON;
+            format = new pseudoGeoJSONFormat({
+              dataProjection: dataProjection,
+              featureProjection: featureProjection
+            });
+          }
           return format.readFeatures(featureCollection);
         }),
         catchError(error => {
