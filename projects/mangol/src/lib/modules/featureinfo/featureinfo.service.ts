@@ -80,7 +80,7 @@ export class FeatureinfoService {
           const format =
             dataProjection !== featureProjection
               ? new GeoJSON({
-                  defaultDataProjection: dataProjection,
+                  dataProjection: dataProjection,
                   featureProjection: featureProjection
                 })
               : this.geojsonFormat;
