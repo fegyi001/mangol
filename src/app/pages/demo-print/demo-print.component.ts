@@ -45,7 +45,6 @@ export class DemoPrintComponent implements OnInit, OnDestroy {
   ngOnInit() {
     this.mangolConfig = {
       map: {
-        renderer: 'canvas',
         target: 'mangol-demo-print',
         view: new View({
           projection: 'EPSG:3857',

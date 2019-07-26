@@ -52,7 +52,15 @@ export const metaReducers = [
     BrowserAnimationsModule,
     MapModule,
     ControllersModule,
-    StoreModule.forRoot(mangolReducers, { metaReducers })
+    StoreModule.forRoot(mangolReducers, {
+      metaReducers,
+      runtimeChecks: {
+        strictStateImmutability: false,
+        strictActionImmutability: false,
+        strictStateSerializability: false,
+        strictActionSerializability: false
+      }
+    })
   ],
   declarations: [MangolComponent],
   providers: [MeasureService],

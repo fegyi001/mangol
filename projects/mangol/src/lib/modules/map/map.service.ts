@@ -14,13 +14,11 @@ export class MapService {
 
   getDefaultMap(): {
     target: string;
-    renderer: string;
     layers: MangolLayer[];
     view: View;
   } {
     return {
       target: 'my-map',
-      renderer: 'canvas',
       layers: [
         new MangolLayer({
           name: 'OpenStreetMap Layer',

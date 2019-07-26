@@ -18,7 +18,6 @@ import { MangolLayer, MangolLayerGroup, MangolConfig } from 'mangol';
    ngOnInit() {
     this.mangolConfig = {
       map: {
-        renderer: 'canvas',
         target: 'mangol-demo-print',
         view: new View({
           projection: 'EPSG:3857',

@@ -1,20 +1,20 @@
-import { MeasureDictionary } from './../../../../store/measure/measure.reducers';
-import VectorLayer from 'ol/layer/Vector';
-import { filter, take } from 'rxjs/operators';
+import { Component, Input, OnDestroy, OnInit } from '@angular/core';
 import { Store } from '@ngrx/store';
-import Map from 'ol/Map';
-import { Component, OnInit, OnDestroy, Input } from '@angular/core';
-import { Observable, Subscription, combineLatest } from 'rxjs';
 import Feature from 'ol/Feature';
 import Circle from 'ol/geom/Circle';
 import LineString from 'ol/geom/LineString';
 import Polygon from 'ol/geom/Polygon';
-import Draw from 'ol/interaction/Draw';
+import Draw, { DrawEvent } from 'ol/interaction/Draw';
+import VectorLayer from 'ol/layer/Vector';
+import Map from 'ol/Map';
+import { combineLatest, Observable, Subscription } from 'rxjs';
+import { filter, take } from 'rxjs/operators';
 
+import * as CursorActions from '../../../../store/cursor/cursor.actions';
 import * as fromMangol from '../../../../store/mangol.reducers';
 import { MeasureMode } from '../../../../store/measure/measure.reducers';
 import { MeasureService } from '../../measure.service';
-import * as CursorActions from '../../../../store/cursor/cursor.actions';
+import { MeasureDictionary } from './../../../../store/measure/measure.reducers';
 
 @Component({
   selector: 'mangol-measure-results',
@@ -170,7 +170,7 @@ export class MeasureResultsComponent implements OnInit, OnDestroy {
       });
     });
 
-    this.draw.on('drawend', (e: Draw.Event) => {
+    this.draw.on('drawend', (e: DrawEvent) => {
       e.feature.setProperties({ text: this.displayValue });
       this.store.dispatch(
         new CursorActions.SetMode({

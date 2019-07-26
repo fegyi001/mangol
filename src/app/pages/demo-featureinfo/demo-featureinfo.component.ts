@@ -53,7 +53,6 @@ export class DemoFeatureinfoComponent implements OnInit, OnDestroy {
     const pseudoGeoJSONFormat = <any>GeoJSON;
     this.mangolConfig = {
       map: {
-        renderer: 'canvas',
         target: 'mangol-demo-featureinfo',
         view: new View({
           projection: 'EPSG:900913',

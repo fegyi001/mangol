@@ -138,7 +138,6 @@ export class AppComponent implements OnInit {
   public ngOnInit() {
     this.mangolConfig = {
       map: {
-        renderer: 'canvas',
         target: 'mangol-demo',
         view: new View({
           projection: 'EPSG:900913',

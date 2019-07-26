@@ -49,7 +49,6 @@ export class MapComponent implements OnInit, AfterViewInit, OnDestroy {
 
   defaultMap: {
     target: string;
-    renderer: string;
     layers: MangolLayer[];
     view: View;
   } = null;
@@ -102,7 +101,6 @@ export class MapComponent implements OnInit, AfterViewInit, OnDestroy {
           new MapActions.SetMap(
             new Map({
               target: this.target,
-              renderer: this.defaultMap.renderer,
               view: view !== null ? view : this.defaultMap.view,
               layers: []
             })

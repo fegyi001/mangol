@@ -1,8 +1,12 @@
 @import '~@angular/material/theming';
 @include mat-core();
 
+$mangol-theme: mat-light-theme(mat-palette($mat-blue), mat-palette($mat-red), mat-palette($mat-deep-orange));
+$mangol-sidebar-width: 450px;
+$mangol-font-family: Roboto;
+
 @if not variable-exists(mangol-theme) {
-    $mangol-theme: mat-light-theme(mat-palette($mat-blue), mat-palette($mat-red), mat-palette($mat-deep-orange)) !global;
+    $mangol-theme: mat-light-theme(mat-palette($mat-blue), mat-palette($mat-red), mat-palette($mat-deep-orange));
 }
 
 @include angular-material-theme($mangol-theme);
@@ -12,10 +16,10 @@ $mangol-warn: map-get($mangol-theme, warn);
 
 // Sidebar width
 @if not variable-exists(mangol-sidebar-width) {
-    $mangol-sidebar-width: 450px !global;
+    $mangol-sidebar-width: 450px;
 }
 
 // Font family
 @if not variable-exists(mangol-font-family) {
-    $mangol-font-family: Roboto !global;
+    $mangol-font-family: Roboto;
 }

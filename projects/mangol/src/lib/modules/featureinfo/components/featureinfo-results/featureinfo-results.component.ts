@@ -1,7 +1,7 @@
 import { Component, Input, OnDestroy, OnInit } from '@angular/core';
 import { MatDialog, MatSnackBar } from '@angular/material';
 import { Store } from '@ngrx/store';
-import Feature from 'ol/Feature';
+import Feature, { FeatureLike } from 'ol/Feature';
 import VectorLayer from 'ol/layer/Vector';
 import Map from 'ol/Map';
 import { combineLatest, Observable, Subscription } from 'rxjs';
@@ -165,16 +165,12 @@ export class FeatureinfoResultsComponent implements OnInit, OnDestroy {
               });
             break;
           case 'VECTOR':
-            const l = <VectorLayer>layer.layer;
-            const vectorFeatures: Feature[] = [];
-            m.forEachFeatureAtPixel(
+            const vectorFeatures: Feature[] = <Feature[]>m.getFeaturesAtPixel(
               evt.pixel,
-              (feature, lay) => {
-                if (lay === l) {
-                  vectorFeatures.push(<Feature>feature);
-                }
-              },
-              { hitTolerance: 5 }
+              {
+                layerFilter: lay => lay === <VectorLayer>layer.layer,
+                hitTolerance: 5
+              }
             );
             this.store.dispatch(
               new FeatureinfoActions.SetResultsItems(vectorFeatures)
@@ -217,24 +213,26 @@ export class FeatureinfoResultsComponent implements OnInit, OnDestroy {
    * @param feature
    */
   getExpansionPanelTitle$(feature: Feature): Observable<string> {
-    return this.store.select(state => state.featureinfo.selectedLayer).pipe(
-      take(1),
-      map(selectedLayer => {
-        const noPropTitle = this.dictionary.feature;
-        if (!!selectedLayer.queryIdProperty) {
-          const props = feature.getProperties();
-          if (props.hasOwnProperty(selectedLayer.queryIdProperty)) {
-            return props[selectedLayer.queryIdProperty].toString().length > 0
-              ? props[selectedLayer.queryIdProperty]
-              : noPropTitle;
+    return this.store
+      .select(state => state.featureinfo.selectedLayer)
+      .pipe(
+        take(1),
+        map(selectedLayer => {
+          const noPropTitle = this.dictionary.feature;
+          if (!!selectedLayer.queryIdProperty) {
+            const props = feature.getProperties();
+            if (props.hasOwnProperty(selectedLayer.queryIdProperty)) {
+              return props[selectedLayer.queryIdProperty].toString().length > 0
+                ? props[selectedLayer.queryIdProperty]
+                : noPropTitle;
+            } else {
+              return noPropTitle;
+            }
           } else {
             return noPropTitle;
           }
-        } else {
-          return noPropTitle;
-        }
-      })
-    );
+        })
+      );
   }
 
   /**

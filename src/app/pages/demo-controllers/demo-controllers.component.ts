@@ -46,7 +46,6 @@ export class DemoControllersComponent implements OnInit, OnDestroy {
   ngOnInit() {
     this.mangolConfig = {
       map: {
-        renderer: 'canvas',
         target: 'mangol-demo-controllers',
         view: new View({
           projection: 'EPSG:3857',

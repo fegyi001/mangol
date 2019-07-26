@@ -40,19 +40,19 @@ const initialState: State = {
       type: 'line',
       fontSet: 'ms',
       fontIcon: 'ms-measure-distance',
-      geometryName: 'LineString'
+      geometryName: GeometryType.LINE_STRING
     },
     {
       type: 'area',
       fontSet: 'ms',
       fontIcon: 'ms-measure-area',
-      geometryName: 'Polygon'
+      geometryName: GeometryType.POLYGON
     },
     {
       type: 'radius',
       fontSet: 'ms',
       fontIcon: 'ms-geolocation',
-      geometryName: 'Circle'
+      geometryName: GeometryType.CIRCLE
     }
   ],
   mode: null,

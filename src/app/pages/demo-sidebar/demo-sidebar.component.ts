@@ -45,7 +45,6 @@ export class DemoSidebarComponent implements OnInit, OnDestroy {
   ngOnInit() {
     this.mangolConfig = {
       map: {
-        renderer: 'canvas',
         target: 'mangol-demo-sidebar',
         view: new View({
           projection: 'EPSG:900913',

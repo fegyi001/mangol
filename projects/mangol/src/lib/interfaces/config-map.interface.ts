@@ -24,7 +24,6 @@ export interface MangolConfigMap {
   target: string;
   view: View;
   layertree?: MangolConfigLayertree;
-  renderer?: string;
   controllers?: MangolConfigMapControllers;
   layers?: (MangolLayer | MangolLayerGroup)[];
 }

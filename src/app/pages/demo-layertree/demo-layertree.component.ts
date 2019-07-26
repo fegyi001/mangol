@@ -51,7 +51,6 @@ export class DemoLayertreeComponent implements OnInit, OnDestroy {
   ngOnInit() {
     this.mangolConfig = {
       map: {
-        renderer: 'canvas',
         target: 'mangol-demo-layertree',
         view: new View({
           projection: 'EPSG:900913',

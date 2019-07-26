@@ -18,7 +18,6 @@ export class DemoLayertreeComponent implements OnInit {
   ngOnInit() {
     this.mangolConfig = {
       map: {
-        renderer: 'canvas',
         target: 'mangol-demo-controllers',
         view: new View({
           projection: 'EPSG:3857',

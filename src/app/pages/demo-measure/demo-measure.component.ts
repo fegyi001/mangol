@@ -45,7 +45,6 @@ export class DemoMeasureComponent implements OnInit, OnDestroy {
   ngOnInit() {
     this.mangolConfig = {
       map: {
-        renderer: 'canvas',
         target: 'mangol-demo-measure',
         view: new View({
           projection: 'EPSG:3857',
