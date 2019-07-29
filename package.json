@@ -1,6 +1,6 @@
 {
     "name": "mangol-app",
-    "version": "7.2.6",
+    "version": "8.1.3",
     "scripts": {
         "ng": "ng",
         "start": "ng serve -o --port 4200",
