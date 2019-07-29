@@ -41,10 +41,10 @@
 <p><a href="https://david-dm.org/fegyi001/mangol"><img src="https://david-dm.org/fegyi001/mangol.svg" alt="Dependency Status" class="img-responsive"></a>
 <a href="https://david-dm.org/fegyi001/mangol#info=devDependencies"><img src="https://david-dm.org/fegyi001/mangol/dev-status.svg" alt="devDependency Status" class="img-responsive"></a></p>
 <h2 id="about-mangol">About Mangol</h2>
-<p>Mangol is an open source web mapping library for combining <a href="https://angular.io/">Angular</a>, <a href="https://material.angular.io/">Angular Material</a> and <a href="https://openlayers.org/">OpenLayers</a> to create a modern, responsive interactive GUI for web maps (<em>M_ stands for _Material</em>, <em>ang</em> for <em>Angular</em> and <em>ol</em> for <em>OpenLayers</em>). The project is written in TypeScript and uses SCSS for styling. Mangol uses <a href="https://github.com/ngrx/platform">@ngrx/store</a> under the hood for state management.</p>
+<p>Mangol is an open source web mapping library for combining <a href="https://angular.io/">Angular</a>, <a href="https://material.angular.io/">Angular Material</a> and <a href="https://openlayers.org/">OpenLayers</a> to create a modern, responsive interactive GUI for web maps (<em>M</em> stands for <em>Material</em>, <em>ang</em> for <em>Angular</em> and <em>ol</em> for <em>OpenLayers</em>). The project is written in TypeScript and uses SCSS for styling. Mangol uses <a href="https://github.com/ngrx/platform">@ngrx/store</a> under the hood for state management.</p>
 <h2 id="live-example">Live example</h2>
 <p>An online example can be opened <a href="http://188.166.116.137/mangol">here</a>.</p>
-<h2 id="run-demo-edit-source-files">Run demo &amp; edit source files</h2>
+<h2 id="run-demo--edit-source-files">Run demo &amp; edit source files</h2>
 <p>If you wish to see the built-in demos or modify the source files, simply run <code>ng serve</code> or <code>npm run start</code> to load the demo page on <code>localhost:4200</code>. With this command you can also watch file changes until you shut it down.</p>
 <h2 id="use-as-npm-dependency">Use as npm dependency</h2>
 <p>You most likely want to use Mangol as an npm library in your Angular (TypeScript &amp; SCSS) project. You can also do that since <a href="https://www.npmjs.com/package/mangol">Mangol is on npm</a> as well.</p>
@@ -109,7 +109,6 @@ export class AppComponent implements OnInit {
   public ngOnInit() {
     this.mangolConfig = {
       map: {
-        renderer: &#39;canvas&#39;,
         target: &#39;mangol-demo&#39;,
         view: new View({
           projection: &#39;EPSG:900913&#39;,
@@ -204,6 +203,7 @@ $mangol-quicksearch-width: 250px;
 
 
 
+                   
 
 
 

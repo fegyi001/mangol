@@ -287,7 +287,15 @@ export const metaReducers &#x3D; [
     BrowserAnimationsModule,
     MapModule,
     ControllersModule,
-    StoreModule.forRoot(mangolReducers, { metaReducers })
+    StoreModule.forRoot(mangolReducers, {
+      metaReducers,
+      runtimeChecks: {
+        strictStateImmutability: false,
+        strictActionImmutability: false,
+        strictStateSerializability: false,
+        strictActionSerializability: false
+      }
+    })
   ],
   declarations: [MangolComponent],
   providers: [MeasureService],
@@ -307,6 +315,7 @@ export class MangolModule {}
 
 
 
+                   
 
 
 

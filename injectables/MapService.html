@@ -62,6 +62,7 @@
 
 
 
+
             <section>
     <h3 id="index">Index</h3>
     <table class="table table-sm table-bordered index-table">
@@ -111,49 +112,49 @@
 
             <section>
     
-        <h3 id="methods">
-            Methods
-        </h3>
-        <table class="table table-sm table-bordered">
-            <tbody>
-                <tr>
-                    <td class="col-md-4">
-                        <a name="getDefaultMap"></a>
-                        <span class="name">
-                            <b>
+    <h3 id="methods">
+        Methods
+    </h3>
+    <table class="table table-sm table-bordered">
+        <tbody>
+            <tr>
+                <td class="col-md-4">
+                    <a name="getDefaultMap"></a>
+                    <span class="name">
+                        <b>
                             getDefaultMap
-                            </b>
-                            <a href="#getDefaultMap"><span class="icon ion-ios-link"></span></a>
-                        </span>
-                    </td>
-                </tr>
-                <tr>
-                    <td class="col-md-4">
+                        </b>
+                        <a href="#getDefaultMap"><span class="icon ion-ios-link"></span></a>
+                    </span>
+                </td>
+            </tr>
+            <tr>
+                <td class="col-md-4">
 <code>getDefaultMap()</code>
-                    </td>
-                </tr>
+                </td>
+            </tr>
 
 
-                        <tr>
-                            <td class="col-md-4">
-                                    <div class="io-line">Defined in <a href="" data-line="15" class="link-to-prism">projects/mangol/src/lib/modules/map/map.service.ts:15</a></div>
-                            </td>
-                        </tr>
+            <tr>
+                <td class="col-md-4">
+                    <div class="io-line">Defined in <a href="" data-line="15"
+                            class="link-to-prism">projects/mangol/src/lib/modules/map/map.service.ts:15</a></div>
+                </td>
+            </tr>
 
 
-                <tr>
-                    <td class="col-md-4">
+            <tr>
+                <td class="col-md-4">
 
-                            <div class="io-description">
-                                <b>Returns : </b>    <code>literal type</code>
+                    <div class="io-description">
+                        <b>Returns : </b>    <code>literal type</code>
 
-                            </div>
-                    </td>
-                </tr>
-            </tbody>
-        </table>
+                    </div>
+                </td>
+            </tr>
+        </tbody>
+    </table>
 </section>
-
 
     </div>
 
@@ -175,13 +176,11 @@ export class MapService {
 
   getDefaultMap(): {
     target: string;
-    renderer: string;
     layers: MangolLayer[];
     view: View;
   } {
     return {
       target: &#x27;my-map&#x27;,
-      renderer: &#x27;canvas&#x27;,
       layers: [
         new MangolLayer({
           name: &#x27;OpenStreetMap Layer&#x27;,
@@ -210,6 +209,7 @@ export class MapService {
 
 
 
+                   
 
 
 
