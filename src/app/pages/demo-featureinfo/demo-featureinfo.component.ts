@@ -97,8 +97,7 @@ export class DemoFeatureinfoComponent implements OnInit, OnDestroy {
             queryIdProperty: 'name',
             layer: new VectorLayer({
               source: new VectorSource({
-                url:
-                  'http://openlayers.org/en/latest/examples/data/geojson/countries.geojson',
+                url: 'assets/geojson/countries.geojson',
                 format: new pseudoGeoJSONFormat({
                   dataProjection: 'EPSG:4326',
                   featureProjection: 'EPSG:900913'
