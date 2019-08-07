@@ -124,7 +124,7 @@ export class DemoLayertreeComponent implements OnInit, OnDestroy {
                           SRS: 'EPSG:900913'
                         }
                       }),
-                      visible: false
+                      visible: true
                     })
                   })
                 ]

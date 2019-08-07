@@ -113,19 +113,27 @@ export class DemoFullComponent implements OnInit, OnDestroy {
                 children: [
                   new MangolLayer({
                     name: 'Country borders',
+                    queryable: true,
                     details:
                       'Lorem ipsum dolor sit amet consectetur adipisicing elit.',
                     layer: new TileLayer({
-                      source: new TileJSON({
+                      source: new TileWMS({
                         url:
-                          'https://api.tiles.mapbox.com/v3/mapbox.world-borders-light.json?secure',
-                        crossOrigin: 'anonymous'
+                          'http://188.166.116.137:8080/geoserver/gwc/service/wms',
+                        crossOrigin: 'anonymous',
+                        params: {
+                          LAYERS: ['naturalearth:countries'],
+                          format: 'image/png',
+                          SRS: 'EPSG:900913'
+                        }
                       }),
-                      visible: true
+                      opacity: 0.5,
+                      visible: false
                     })
                   }),
                   new MangolLayer({
                     name: 'Populated places',
+                    queryable: true,
                     layer: new TileLayer({
                       source: new TileWMS({
                         url:
@@ -137,7 +145,7 @@ export class DemoFullComponent implements OnInit, OnDestroy {
                           SRS: 'EPSG:900913'
                         }
                       }),
-                      visible: false
+                      visible: true
                     })
                   })
                 ]
