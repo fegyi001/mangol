@@ -1,11 +1,11 @@
 import { Component, Input, OnDestroy, OnInit } from '@angular/core';
 import { MatDialog, MatSnackBar } from '@angular/material';
 import { Store } from '@ngrx/store';
-import Feature, { FeatureLike } from 'ol/Feature';
+import Feature from 'ol/Feature';
 import VectorLayer from 'ol/layer/Vector';
 import Map from 'ol/Map';
 import { combineLatest, Observable, Subscription } from 'rxjs';
-import { filter, take, map } from 'rxjs/operators';
+import { filter, map, take } from 'rxjs/operators';
 
 import { MangolLayer } from '../../../../classes/Layer';
 import { FeatureinfoTableDialogComponent } from '../featureinfo-table-dialog/featureinfo-table-dialog.component';
@@ -159,7 +159,7 @@ export class FeatureinfoResultsComponent implements OnInit, OnDestroy {
                       this._openSnackBar(features.length);
                     },
                     error => {
-                      // console.log(error);
+                      console.log(error);
                     }
                   );
               });

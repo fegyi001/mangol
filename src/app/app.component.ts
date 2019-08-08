@@ -53,7 +53,7 @@ export class AppComponent implements OnInit, DoCheck, OnDestroy {
         }
       }
     );
-    this.appService.sidebarOpenedSubject.next(window.innerWidth > 500);
+    // this.appService.sidebarOpenedSubject.next(window.innerWidth > 500);
   }
 
   ngOnInit() {

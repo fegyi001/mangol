@@ -72,26 +72,6 @@ export class DemoFeatureinfoComponent implements OnInit, OnDestroy {
             })
           }),
           new MangolLayer({
-            name: 'States & Provinces (WMS)',
-            queryable: true,
-            querySrs: 'EPSG:4326',
-            queryIdProperty: 'name',
-            queryColumns: ['name', 'code_hasc', 'iso_a2'],
-            layer: new TileLayer({
-              source: new TileWMS({
-                url: 'http://188.166.116.137:8080/geoserver/gwc/service/wms',
-                crossOrigin: 'anonymous',
-                params: {
-                  LAYERS: ['naturalearth:states_provinces'],
-                  format: 'image/png',
-                  SRS: 'EPSG:900913'
-                }
-              }),
-              opacity: 0.8,
-              visible: true
-            })
-          }),
-          new MangolLayer({
             name: 'Countries (Vector)',
             queryable: true,
             queryIdProperty: 'name',
@@ -103,6 +83,32 @@ export class DemoFeatureinfoComponent implements OnInit, OnDestroy {
                   featureProjection: 'EPSG:900913'
                 })
               })
+            })
+          }),
+          new MangolLayer({
+            name: 'Cities (WMS)',
+            queryable: true,
+            querySrs: 'EPSG:900913',
+            queryIdProperty: 'NAME',
+            queryColumns: [
+              'NAME',
+              'ADM0NAME',
+              'POP_MIN',
+              'POP_MAX',
+              'TIMEZONE',
+              'FEATURECLA'
+            ],
+            layer: new TileLayer({
+              source: new TileWMS({
+                url: 'http://188.166.116.137:8080/geoserver/gwc/service/wms',
+                crossOrigin: 'anonymous',
+                params: {
+                  LAYERS: ['naturalearth:populated_places'],
+                  format: 'image/png',
+                  SRS: 'EPSG:900913'
+                }
+              }),
+              visible: true
             })
           })
         ]

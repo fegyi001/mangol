@@ -61,6 +61,7 @@ import { MangolLayer, MangolLayerGroup, MangolConfig } from 'mangol';
               new MangolLayer({
                 name: 'Roads',
                 queryable: true,
+                querySrs: 'EPSG:900913',
                 layer: new TileLayer({
                   source: new TileWMS({
                     url:
@@ -82,6 +83,7 @@ import { MangolLayer, MangolLayerGroup, MangolConfig } from 'mangol';
                   new MangolLayer({
                     name: 'Country borders',
                     queryable: true,
+                    querySrs: 'EPSG:900913',
                     details:
                       'Lorem ipsum dolor sit amet consectetur adipisicing elit.',
                     layer: new TileLayer({
@@ -100,8 +102,9 @@ import { MangolLayer, MangolLayerGroup, MangolConfig } from 'mangol';
                     })
                   }),
                   new MangolLayer({
-                    name: 'Populated places',
+                    name: 'Cities',
                     queryable: true,
+                    querySrs: 'EPSG:900913',
                     layer: new TileLayer({
                       source: new TileWMS({
                         url:
