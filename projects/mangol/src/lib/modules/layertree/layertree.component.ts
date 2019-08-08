@@ -3,14 +3,14 @@ import { NestedTreeControl } from '@angular/cdk/tree';
 import { Component, OnDestroy, OnInit } from '@angular/core';
 import { MatTreeNestedDataSource } from '@angular/material/tree';
 import { Store } from '@ngrx/store';
-import * as fromMangol from './../../store/mangol.reducers';
-import * as CursorActions from './../../store/cursor/cursor.actions';
 import { of as observableOf, Subscription } from 'rxjs';
 import { filter } from 'rxjs/operators';
 
 import { MangolLayer } from '../../classes/Layer';
 import { MangolLayerGroup } from '../../classes/LayerGroup';
 import { MangolConfig } from './../../interfaces/config.interface';
+import * as CursorActions from './../../store/cursor/cursor.actions';
+import * as fromMangol from './../../store/mangol.reducers';
 import { MapService } from './../map/map.service';
 import { LayertreeItemNode } from './classes/layertree-item-node.class';
 import { LayertreeService } from './layertree.service';
@@ -26,6 +26,7 @@ export class LayertreeComponent implements OnInit, OnDestroy {
   checklistSelection = new SelectionModel<LayertreeItemNode>(true);
 
   tabSubscription: Subscription;
+  configSub: Subscription;
 
   constructor(
     private store: Store<fromMangol.MangolState>,
@@ -43,7 +44,7 @@ export class LayertreeComponent implements OnInit, OnDestroy {
         this.store.dispatch(new CursorActions.ResetMode());
       });
 
-    this.store
+    this.configSub = this.store
       .select(state => state.config.config)
       .subscribe((config: MangolConfig) => {
         if (
@@ -71,6 +72,9 @@ export class LayertreeComponent implements OnInit, OnDestroy {
   ngOnDestroy() {
     if (this.tabSubscription) {
       this.tabSubscription.unsubscribe();
+    }
+    if (this.configSub) {
+      this.configSub.unsubscribe();
     }
   }
 
