@@ -23,10 +23,10 @@ export class RotationButtonComponent implements OnInit, OnDestroy {
   mapSubscription: Subscription;
 
   constructor(private store: Store<fromMangol.MangolState>) {
-    this.rotation$ = this.store.select(state => state.controllers.rotation);
+    this.rotation$ = this.store.select(fromMangol.getControllersRotation);
 
     this.mapSubscription = this.store
-      .select(state => state.map.map)
+      .select(fromMangol.getMap)
       .pipe(filter(m => m !== null))
       .subscribe(m => {
         const view = m.getView();
@@ -48,7 +48,7 @@ export class RotationButtonComponent implements OnInit, OnDestroy {
       this.mapSubscription.unsubscribe();
     }
     this.store
-      .select(state => state.map.map)
+      .select(fromMangol.getMap)
       .pipe(
         filter(m => m !== null),
         take(1)
@@ -60,7 +60,7 @@ export class RotationButtonComponent implements OnInit, OnDestroy {
 
   rotateNorth() {
     this.store
-      .select(state => state.map.map)
+      .select(fromMangol.getMap)
       .pipe(
         filter(m => m !== null),
         take(1)

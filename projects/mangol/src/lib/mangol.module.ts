@@ -14,13 +14,14 @@ import { ControllersModule } from './modules/controllers/controllers.module';
 import { MapModule } from './modules/map/map.module';
 import { MeasureService } from './modules/measure/measure.service';
 import { TabsModule } from './modules/tabs/tabs.module';
-import {
-  clearState,
-  mangolReducers,
-  MangolState
-} from './store/mangol.reducers';
+// import {
+//   clearState,
+//   mangolReducers,
+//   MangolState
+// } from './store/mangol.reducers';
 
-export function logger(reducer: ActionReducer<MangolState, Action>): any {
+import * as fromMangol from './store/mangol.reducers';
+export function logger(reducer: ActionReducer<fromMangol.MangolState, Action>): any {
   return storeLogger({
     collapsed: true,
     filter: {
@@ -35,12 +36,12 @@ export function logger(reducer: ActionReducer<MangolState, Action>): any {
   })(reducer);
 }
 
-const mangolMetaReducers: MetaReducer<MangolState>[] = [clearState];
+// const mangolMetaReducers: MetaReducer<MangolState>[] = [clearState];
 
-export const metaReducers = [
-  // logger,
-  ...mangolMetaReducers
-];
+// export const metaReducers = [
+//   // logger,
+//   ...mangolMetaReducers
+// ];
 
 @NgModule({
   imports: [
@@ -52,15 +53,16 @@ export const metaReducers = [
     BrowserAnimationsModule,
     MapModule,
     ControllersModule,
-    StoreModule.forRoot(mangolReducers, {
-      metaReducers,
-      runtimeChecks: {
-        strictStateImmutability: false,
-        strictActionImmutability: false,
-        strictStateSerializability: false,
-        strictActionSerializability: false
-      }
-    })
+    StoreModule.forFeature(fromMangol.mangolFeatureKey, fromMangol.reducers)
+    // StoreModule.forRoot(mangolReducers, {
+    //   metaReducers,
+    //   runtimeChecks: {
+    //     strictStateImmutability: false,
+    //     strictActionImmutability: false,
+    //     strictStateSerializability: false,
+    //     strictActionSerializability: false
+    //   }
+    // })
   ],
   declarations: [MangolComponent],
   providers: [MeasureService],

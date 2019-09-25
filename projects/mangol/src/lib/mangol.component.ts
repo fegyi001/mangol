@@ -1,7 +1,7 @@
 import { Component, HostBinding, Input, OnInit } from '@angular/core';
 import { Store } from '@ngrx/store';
 import Map from 'ol/Map';
-import { Observable } from 'rxjs';
+import { Observable, from } from 'rxjs';
 import { take } from 'rxjs/operators';
 
 import { MangolConfig } from './interfaces/config.interface';
@@ -31,10 +31,10 @@ export class MangolComponent implements OnInit {
   map$: Observable<Map>;
 
   constructor(private store: Store<fromMangol.MangolState>) {
-    this.hasSidebar$ = this.store.select(state => state.sidebar.hasSidebar);
-    this.sidebarOpened$ = this.store.select(state => state.sidebar.opened);
-    this.sidebarMode$ = this.store.select(state => state.sidebar.mode);
-    this.map$ = this.store.select(state => state.map.map);
+    this.sidebarOpened$ = this.store.select(fromMangol.getSidebarOpened);
+    this.sidebarMode$ = this.store.select(fromMangol.getSidebarMode);
+    this.hasSidebar$ = this.store.select(fromMangol.getHasSidebar);
+    this.map$ = this.store.select(fromMangol.getMap);
   }
 
   ngOnInit() {
@@ -80,14 +80,14 @@ export class MangolComponent implements OnInit {
 
   onOpenedChange(evt: boolean) {
     this.store
-      .select(state => state.sidebar.opened)
+      .select(fromMangol.getSidebarOpened)
       .pipe(take(1))
       .subscribe(opened => {
         if (opened !== evt) {
           this.store.dispatch(new SidebarActions.Toggle());
         }
         this.store
-          .select(state => state.map.map)
+          .select(fromMangol.getMap)
           .pipe(take(1))
           .subscribe((m: Map) => {
             if (m !== null) {

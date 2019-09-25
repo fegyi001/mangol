@@ -29,6 +29,7 @@
         "@angular/router": "^8.2.0",
         "@ngrx/effects": "^8.2.0",
         "@ngrx/store": "^8.2.0",
+        "@ngrx/store-devtools": "^8.3.0",
         "@types/geojson": "^7946.0.7",
         "@types/ol": "^5.3.4",
         "core-js": "^3.1.4",

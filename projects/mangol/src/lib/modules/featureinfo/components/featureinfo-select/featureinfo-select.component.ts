@@ -22,9 +22,7 @@ export class FeatureinfoSelectComponent implements OnInit {
   selectedLayer$: Observable<MangolLayer>;
 
   constructor(private store: Store<fromMangol.MangolState>) {
-    this.selectedLayer$ = this.store.select(
-      state => state.featureinfo.selectedLayer
-    );
+    this.selectedLayer$ = this.store.select(fromMangol.getFeatureSelectedLayer);
   }
 
   ngOnInit() {

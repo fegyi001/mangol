@@ -25,6 +25,8 @@ import { DemoMapComponent } from './pages/demo-map/demo-map.component';
 import { DemoMeasureComponent } from './pages/demo-measure/demo-measure.component';
 import { DemoPrintComponent } from './pages/demo-print/demo-print.component';
 import { DemoSidebarComponent } from './pages/demo-sidebar/demo-sidebar.component';
+import { StoreModule } from '@ngrx/store';
+import { StoreDevtoolsModule } from '@ngrx/store-devtools';
 
 @NgModule({
   declarations: [
@@ -52,7 +54,9 @@ import { DemoSidebarComponent } from './pages/demo-sidebar/demo-sidebar.componen
     MatToolbarModule,
     MatTooltipModule,
     AppRoutingModule,
-    MangolModule
+    MangolModule,
+    StoreModule.forRoot({}),
+    StoreDevtoolsModule.instrument(),
   ],
   providers: [
     MangolService,

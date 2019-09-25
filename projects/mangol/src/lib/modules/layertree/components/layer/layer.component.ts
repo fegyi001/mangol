@@ -36,7 +36,7 @@ export class LayerComponent implements OnInit, OnDestroy {
     public dialog: MatDialog,
     private store: Store<fromMangol.MangolState>
   ) {
-    this.dictionary$ = this.store.select(state => state.layertree.dictionary);
+    this.dictionary$ = this.store.select(fromMangol.getLayerGroupDictionary);
   }
 
   ngOnInit() {

@@ -35,7 +35,7 @@ export class FeatureinfoService {
     coordinates: [number, number]
   ): Observable<string> {
     return this.store
-      .select(state => state.featureinfo.maxFeatures)
+      .select(fromMangol.getFeatureMaxFeatures)
       .pipe(
         take(1),
         map(maxFeatures => {

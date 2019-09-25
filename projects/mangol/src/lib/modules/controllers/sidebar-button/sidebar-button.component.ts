@@ -19,7 +19,7 @@ export class SidebarButtonComponent implements OnInit {
   sidebarOpened$: Observable<boolean>;
 
   constructor(private store: Store<fromMangol.MangolState>) {
-    this.sidebarOpened$ = this.store.select(state => state.sidebar.opened);
+    this.sidebarOpened$ = this.store.select(fromMangol.getSidebarOpened);
   }
 
   ngOnInit() {}

@@ -38,14 +38,14 @@ export class LayertreeComponent implements OnInit, OnDestroy {
     );
     this.nestedDataSource = new MatTreeNestedDataSource();
     this.tabSubscription = this.store
-      .select(state => state.sidebar.selectedModule)
+      .select(fromMangol.getSidebarSelectedModule)
       .pipe(filter(module => module === 'layertree'))
       .subscribe(module => {
         this.store.dispatch(new CursorActions.ResetMode());
       });
 
     this.configSub = this.store
-      .select(state => state.config.config)
+      .select(fromMangol.getConfig)
       .subscribe((config: MangolConfig) => {
         if (
           typeof config !== 'undefined' &&
@@ -80,7 +80,7 @@ export class LayertreeComponent implements OnInit, OnDestroy {
 
   private getChildren = (node: LayertreeItemNode) => {
     return observableOf(node.children);
-  };
+  }
 
   hasNestedChild = (_: number, node: LayertreeItemNode) => {
     return (
@@ -88,7 +88,7 @@ export class LayertreeComponent implements OnInit, OnDestroy {
       Array.isArray(node.children) &&
       node.children.length > 0
     );
-  };
+  }
 
   toggleCheckbox(node: LayertreeItemNode) {
     node.checked = !node.checked;

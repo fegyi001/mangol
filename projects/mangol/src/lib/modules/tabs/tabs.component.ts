@@ -50,41 +50,29 @@ export class TabsComponent implements OnInit, OnDestroy {
   items: string[] = [];
 
   constructor(private store: Store<fromMangol.MangolState>) {
-    this.selectedModule$ = this.store.select(
-      state => state.sidebar.selectedModule
-    );
-    this.title$ = this.store.select(state => state.sidebar.title);
+    this.selectedModule$ = this.store.select(fromMangol.getSidebarSelectedModule);
+    this.title$ = this.store.select(fromMangol.getSidebarTitle);
     /** Layertree */
-    this.hasLayertree$ = this.store.select(
-      state => state.layertree.hasLayertree
-    );
-    this.layertreeTitle$ = this.store.select(state => state.layertree.title);
-    this.layertreeDisabled$ = this.store.select(
-      state => state.layertree.disabled
-    );
+    this.hasLayertree$ = this.store.select(fromMangol.getHasSidebar);
+    this.layertreeTitle$ = this.store.select(fromMangol.getLayertreeTitle);
+    this.layertreeDisabled$ = this.store.select(fromMangol.getLayertreeDisabled);
     /** Featureinfo */
-    this.hasFeatureinfo$ = this.store.select(
-      state => state.featureinfo.hasFeatureinfo
-    );
-    this.featureinfoTitle$ = this.store.select(
-      state => state.featureinfo.title
-    );
-    this.featureinfoDisabled$ = this.store.select(
-      state => state.featureinfo.disabled
-    );
+    this.hasFeatureinfo$ = this.store.select(fromMangol.getHasFeatureInfo);
+    this.featureinfoTitle$ = this.store.select(fromMangol.getFeatureInfoTitle);
+    this.featureinfoDisabled$ = this.store.select(fromMangol.getFeatureInfoDisabled);
     /** Measure */
-    this.hasMeasure$ = this.store.select(state => state.measure.hasMeasure);
-    this.measureTitle$ = this.store.select(state => state.measure.title);
-    this.measureDisabled$ = this.store.select(state => state.measure.disabled);
+    this.hasMeasure$ = this.store.select(fromMangol.getHasMeasure);
+    this.measureTitle$ = this.store.select(fromMangol.getMeasureTitle);
+    this.measureDisabled$ = this.store.select(fromMangol.getMeasureDisabled);
     /** Print */
-    this.hasPrint$ = this.store.select(state => state.print.hasPrint);
-    this.printTitle$ = this.store.select(state => state.print.title);
-    this.printDisabled$ = this.store.select(state => state.print.disabled);
+    this.hasPrint$ = this.store.select(fromMangol.getHasPrint);
+    this.printTitle$ = this.store.select(fromMangol.getPrintTitle);
+    this.printDisabled$ = this.store.select(fromMangol.getPrintDisabled);
   }
 
   ngOnInit() {
     this.configSubscription = this.store
-      .select(state => state.config.config)
+      .select(fromMangol.getConfig)
       .pipe(filter(config => config !== null))
       .subscribe((config: MangolConfig) => {
         this.items = [];

@@ -36,17 +36,15 @@ export class MeasureComponent implements OnInit, OnDestroy {
     private store: Store<fromMangol.MangolState>,
     private measureService: MeasureService
   ) {
-    this.dictionary$ = this.store.select(state => state.measure.dictionary);
-    this.measureConfig$ = this.store.select(
-      state => state.config.config.sidebar.toolbar.measure
-    );
+    this.dictionary$ = this.store.select(fromMangol.getMeasureDictionary);
+    this.measureConfig$ = this.store.select(fromMangol.getMeasureConfig);
     this.map$ = this.store
-      .select(state => state.map.map)
+      .select(fromMangol.getMap)
       .pipe(filter(m => m !== null));
     this.measureLayer$ = this.store
-      .select(state => state.layers.measureLayer)
+      .select(fromMangol.getMeasureLayer)
       .pipe(filter(measureLayer => measureLayer !== null));
-    this.measureMode$ = this.store.select(state => state.measure.mode);
+    this.measureMode$ = this.store.select(fromMangol.getMeasureMode);
 
     this.measureConfigSubscription = this.measureConfig$.subscribe(config => {
       if (config.hasOwnProperty('dictionary')) {

@@ -21,7 +21,7 @@ export class FeaturenfoTableComponent implements OnInit {
 
   ngOnInit() {
     this.store
-      .select(state => state.featureinfo.selectedLayer)
+      .select(fromMangol.getFeatureSelectedLayer)
       .pipe(take(1))
       .subscribe(layer => {
         const hasQueryColumns =

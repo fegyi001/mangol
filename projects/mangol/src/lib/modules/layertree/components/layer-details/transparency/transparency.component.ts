@@ -26,7 +26,7 @@ export class TransparencyComponent implements OnInit, OnDestroy {
 
   constructor(private store: Store<fromMangol.MangolState>) {
     this.configSubscription = this.store
-      .select(state => state.config.config)
+      .select(fromMangol.getConfig)
       .subscribe((config: MangolConfig) => {
         if (
           !!config.sidebar &&

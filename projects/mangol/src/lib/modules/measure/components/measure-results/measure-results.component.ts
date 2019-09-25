@@ -40,15 +40,15 @@ export class MeasureResultsComponent implements OnInit, OnDestroy {
     private measureService: MeasureService
   ) {
     this.map$ = this.store
-      .select(state => state.map.map)
+      .select(fromMangol.getMap)
       .pipe(filter(m => m !== null));
     this.layer$ = this.store
-      .select(state => state.layers.measureLayer)
+      .select(fromMangol.getMeasureLayer)
       .pipe(filter(l => l !== null));
     this.measureMode$ = this.store
-      .select(state => state.measure.mode)
+      .select(fromMangol.getMeasureMode)
       .pipe(filter(mode => mode !== null));
-    this.cursorText$ = this.store.select(state => state.cursor.mode.text);
+    this.cursorText$ = this.store.select(fromMangol.getCursorModeText);
   }
 
   ngOnInit() {
@@ -136,7 +136,7 @@ export class MeasureResultsComponent implements OnInit, OnDestroy {
           case 'radius':
             const circle = <Circle>feat.getGeometry();
             this.store
-              .select(state => state.controllers.position.coordinates)
+              .select(fromMangol.getControllersCoordinates)
               .pipe(take(1))
               .subscribe(position => {
                 const center = circle.getCenter();

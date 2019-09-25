@@ -22,7 +22,7 @@ export class ScalebarComponent implements OnInit, AfterViewInit, OnDestroy {
 
   ngOnInit() {
     this.store
-      .select(state => state.map.map)
+      .select(fromMangol.getMap)
       .pipe(
         filter(m => m !== null),
         take(1)

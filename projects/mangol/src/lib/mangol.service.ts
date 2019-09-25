@@ -61,16 +61,16 @@ export class MangolService {
   printState$: Observable<fromPrint.State>;
 
   constructor(private store: Store<fromMangol.MangolState>) {
-    this.configState$ = this.store.select(state => state.config);
-    this.mapState$ = this.store.select(state => state.map);
-    this.sidebarState$ = this.store.select(state => state.sidebar);
-    this.controllersState$ = this.store.select(state => state.controllers);
-    this.cursorState$ = this.store.select(state => state.cursor);
-    this.featureinfoState$ = this.store.select(state => state.featureinfo);
-    this.layersState$ = this.store.select(state => state.layers);
-    this.layertreeState$ = this.store.select(state => state.layertree);
-    this.measureState$ = this.store.select(state => state.measure);
-    this.printState$ = this.store.select(state => state.print);
+    this.configState$ = this.store.select(fromMangol.getConfigState);
+    this.mapState$ = this.store.select(fromMangol.getMapState);
+    this.sidebarState$ = this.store.select(fromMangol.getSidebarState);
+    this.controllersState$ = this.store.select(fromMangol.getControllersState);
+    this.cursorState$ = this.store.select(fromMangol.getCursorState);
+    this.featureinfoState$ = this.store.select(fromMangol.getFeatureInfoState);
+    this.layersState$ = this.store.select(fromMangol.getLayersState);
+    this.layertreeState$ = this.store.select(fromMangol.getLayertreeState);
+    this.measureState$ = this.store.select(fromMangol.getMeasureState);
+    this.printState$ = this.store.select(fromMangol.getPrint);
   }
 
   /**

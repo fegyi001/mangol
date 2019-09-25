@@ -19,14 +19,14 @@ export class ZoomButtonsComponent implements OnInit {
   zoom$: Observable<MangolControllersZoomOptions>;
 
   constructor(private store: Store<fromMangol.MangolState>) {
-    this.zoom$ = this.store.select(state => state.controllers.zoom);
+    this.zoom$ = this.store.select(fromMangol.getControllersZoom);
   }
 
   ngOnInit() {}
 
   zoomIn() {
     this.store
-      .select(state => state.map.map)
+      .select(fromMangol.getMap)
       .pipe(take(1))
       .subscribe((m: Map) => {
         m.getView().animate({
@@ -38,7 +38,7 @@ export class ZoomButtonsComponent implements OnInit {
 
   zoomOut() {
     this.store
-      .select(state => state.map.map)
+      .select(fromMangol.getMap)
       .pipe(take(1))
       .subscribe((m: Map) => {
         m.getView().animate({

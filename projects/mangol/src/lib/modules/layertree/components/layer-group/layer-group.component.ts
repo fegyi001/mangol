@@ -28,10 +28,8 @@ export class LayerGroupComponent implements OnInit, OnDestroy {
   dictionarySubscription: Subscription;
 
   constructor(private store: Store<fromMangol.MangolState>) {
-    this.dictionary$ = this.store.select(state => state.layertree.dictionary);
-    this.showBadges$ = this.store.select(
-      state => state.layertree.showLayergroupBadges
-    );
+    this.dictionary$ = this.store.select(fromMangol.getLayerGroupDictionary);
+    this.showBadges$ = this.store.select(fromMangol.getLayerGroupShowBadges);
   }
 
   ngOnInit() {

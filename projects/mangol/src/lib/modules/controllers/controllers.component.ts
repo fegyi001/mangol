@@ -31,15 +31,15 @@ export class ControllersComponent implements OnInit, OnDestroy {
   configSubscription: Subscription;
 
   constructor(private store: Store<fromMangol.MangolState>) {
-    this.config$ = this.store.select(state => state.config.config);
-    this.hasSidebar$ = this.store.select(state => state.sidebar.hasSidebar);
+    this.config$ = this.store.select(fromMangol.getConfig);
+    this.hasSidebar$ = this.store.select(fromMangol.getHasSidebar);
     this.sidebarCollapsible$ = this.store.select(
-      state => state.sidebar.collapsible
+      fromMangol.getSidebarCollapsible
     );
-    this.zoom$ = this.store.select(state => state.controllers.zoom);
-    this.position$ = this.store.select(state => state.controllers.position);
-    this.rotation$ = this.store.select(state => state.controllers.rotation);
-    this.fullScreen$ = this.store.select(state => state.controllers.fullScreen);
+    this.zoom$ = this.store.select(fromMangol.getControllersZoom);
+    this.position$ = this.store.select(fromMangol.getControllersPosition);
+    this.rotation$ = this.store.select(fromMangol.getControllersRotation);
+    this.fullScreen$ = this.store.select(fromMangol.getControllersFullScreen);
   }
 
   ngOnInit() {

@@ -22,8 +22,8 @@ export class MeasureSelectComponent implements OnInit {
   selectedMode$: Observable<MeasureMode>;
 
   constructor(private store: Store<fromMangol.MangolState>) {
-    this.modes$ = this.store.select(state => state.measure.modes);
-    this.selectedMode$ = this.store.select(state => state.measure.mode);
+    this.modes$ = this.store.select(fromMangol.getMeasureModes);
+    this.selectedMode$ = this.store.select(fromMangol.getMeasureMode);
   }
 
   ngOnInit() {}

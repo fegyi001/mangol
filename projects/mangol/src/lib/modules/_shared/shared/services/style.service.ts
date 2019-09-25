@@ -18,7 +18,7 @@ export class StyleService {
 
   constructor(private store: Store<fromMangol.MangolState>) {
     this.store
-      .select(state => state.featureinfo.hoverColor)
+      .select(fromMangol.getFeatureHoverColor)
       .subscribe(color => (this.hoverColor = color));
   }
 

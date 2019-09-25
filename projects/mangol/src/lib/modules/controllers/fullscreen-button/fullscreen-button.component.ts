@@ -26,7 +26,7 @@ export class FullscreenButtonComponent implements OnInit {
   fullScreen$: Observable<MangolControllersFullScreenOptions>;
 
   constructor(private store: Store<fromMangol.MangolState>) {
-    this.fullScreen$ = this.store.select(state => state.controllers.fullScreen);
+    this.fullScreen$ = this.store.select(fromMangol.getControllersFullScreen);
   }
 
   ngOnInit() {}

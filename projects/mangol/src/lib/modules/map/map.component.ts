@@ -81,7 +81,7 @@ export class MapComponent implements OnInit, AfterViewInit, OnDestroy {
     register(proj4);
     // React to config changes in the store
     this.configSubscription = this.store
-      .select(state => state.config.config)
+      .select(fromMangol.getConfig)
       .subscribe((config: MangolConfig) => {
         let view: View = null;
         let layers: MangolLayer[] = null;
@@ -112,10 +112,10 @@ export class MapComponent implements OnInit, AfterViewInit, OnDestroy {
 
     // React to layer changes in the store
     this.layersSubscription = this.store
-      .select(state => state.layers.layers)
+      .select(fromMangol.getLayers)
       .subscribe((layers: MangolLayer[]) => {
         this.store
-          .select(state => state.map.map)
+          .select(fromMangol.getMap)
           .pipe(take(1))
           .subscribe(map => {
             // Delete all previously loaded layers in the map
@@ -130,7 +130,7 @@ export class MapComponent implements OnInit, AfterViewInit, OnDestroy {
       });
 
     this.cursorModeSubscription = this.store
-      .select(state => state.cursor.mode)
+      .select(fromMangol.getCursorMode)
       .subscribe(cursorMode => {
         this.cursorStyle = {
           cursor:
@@ -141,7 +141,7 @@ export class MapComponent implements OnInit, AfterViewInit, OnDestroy {
       });
 
     this.mapSubscription = this.store
-      .select(state => state.map.map)
+      .select(fromMangol.getMap)
       .pipe(filter(m => m !== null))
       .subscribe(m => {
         if (this.pointerMoveFunction !== null) {
@@ -152,7 +152,7 @@ export class MapComponent implements OnInit, AfterViewInit, OnDestroy {
       });
 
     this.positionSubscription = this.store
-      .select(state => state.controllers.position)
+      .select(fromMangol.getControllersPosition)
       .subscribe(position => (this.position = position));
   }
 
@@ -171,7 +171,7 @@ export class MapComponent implements OnInit, AfterViewInit, OnDestroy {
     }
     if (this.pointerMoveFunction !== null) {
       this.store
-        .select(state => state.map.map)
+        .select(fromMangol.getMap)
         .pipe(
           filter(m => m !== null),
           take(1)

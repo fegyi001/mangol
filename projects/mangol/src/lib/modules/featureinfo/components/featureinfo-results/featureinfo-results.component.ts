@@ -41,17 +41,10 @@ export class FeatureinfoResultsComponent implements OnInit, OnDestroy {
   ) {}
 
   ngOnInit() {
-    this.resultsLayer$ = this.store.select(
-      state => state.featureinfo.resultsLayer
-    );
-
-    this.resultsFeatures$ = this.store.select(
-      state => state.featureinfo.resultsItems
-    );
-
-    this.layer$ = this.store.select(state => state.featureinfo.selectedLayer);
-
-    this.tab$ = this.store.select(state => state.sidebar.selectedModule);
+    this.resultsLayer$ = this.store.select(fromMangol.getFeatureResultsLayer);
+    this.resultsFeatures$ = this.store.select(fromMangol.getFeatureResultItems);
+    this.layer$ = this.store.select(fromMangol.getFeatureSelectedLayer);
+    this.tab$ = this.store.select(fromMangol.getSidebarSelectedModule);
 
     this.combinedSubscription = combineLatest(this.tab$, this.layer$).subscribe(
       ([selectedModule, layer]) => {
@@ -59,7 +52,7 @@ export class FeatureinfoResultsComponent implements OnInit, OnDestroy {
         if (selectedModule === 'featureinfo') {
           if (layer !== null) {
             this.store
-              .select(state => state.map.map)
+              .select(fromMangol.getMap)
               .pipe(take(1))
               .subscribe(m => {
                 this.store.dispatch(
@@ -108,7 +101,7 @@ export class FeatureinfoResultsComponent implements OnInit, OnDestroy {
   private _removeClickFunction() {
     if (this.clickFunction !== null) {
       this.store
-        .select(state => state.map.map)
+        .select(fromMangol.getMap)
         .pipe(take(1))
         .subscribe(m => {
           m.un('singleclick', this.clickFunction);
@@ -126,7 +119,7 @@ export class FeatureinfoResultsComponent implements OnInit, OnDestroy {
    */
   private _createClickFunction(evt: any, layer: MangolLayer, m: Map) {
     this.store
-      .select(state => state.featureinfo.resultsLayer)
+      .select(fromMangol.getFeatureResultsLayer)
       .pipe(take(1))
       .subscribe(resultsLayer => {
         try {
@@ -194,7 +187,7 @@ export class FeatureinfoResultsComponent implements OnInit, OnDestroy {
    */
   private _openSnackBar(hits: number) {
     this.store
-      .select(state => state.featureinfo.snackbarDuration)
+      .select(fromMangol.getFeatureSnackbarduration)
       .pipe(take(1))
       .subscribe(snackbarDuration => {
         this.snackBar.open(
@@ -214,7 +207,7 @@ export class FeatureinfoResultsComponent implements OnInit, OnDestroy {
    */
   getExpansionPanelTitle$(feature: Feature): Observable<string> {
     return this.store
-      .select(state => state.featureinfo.selectedLayer)
+      .select(fromMangol.getFeatureSelectedLayer)
       .pipe(
         take(1),
         map(selectedLayer => {
@@ -282,7 +275,7 @@ export class FeatureinfoResultsComponent implements OnInit, OnDestroy {
    */
   zoomToFeature(feature: Feature) {
     this.store
-      .select(state => state.map.map)
+      .select(fromMangol.getMap)
       .pipe(take(1))
       .subscribe(m => {
         m.getView().fit(feature.getGeometry().getExtent(), {

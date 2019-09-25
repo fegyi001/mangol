@@ -44,20 +44,14 @@ export class PrintComponent implements OnInit, OnDestroy {
     private store: Store<fromMangol.MangolState>,
     private fb: FormBuilder
   ) {
-    this.printConfig$ = this.store.select(
-      state => state.config.config.sidebar.toolbar.print
-    );
-    this.dictionary$ = this.store.select(state => state.print.dictionary);
-    this.layouts$ = this.store.select(state => state.print.layouts);
-    this.resolutions$ = this.store.select(state => state.print.resolutions);
-    this.sizes$ = this.store.select(state => state.print.sizes);
-    this.selectedLayout$ = this.store.select(
-      state => state.print.selectedLayout
-    );
-    this.selectedResolution$ = this.store.select(
-      state => state.print.selectedResolution
-    );
-    this.selectedSize$ = this.store.select(state => state.print.selectedSize);
+    this.printConfig$ = this.store.select(fromMangol.getPrintConfig);
+    this.dictionary$ = this.store.select(fromMangol.getPrintDictionary);
+    this.layouts$ = this.store.select(fromMangol.getPrintLayouts);
+    this.resolutions$ = this.store.select(fromMangol.getPrintResolutions);
+    this.sizes$ = this.store.select(fromMangol.getPrintSizes);
+    this.selectedLayout$ = this.store.select(fromMangol.getPrintSelectedLayout);
+    this.selectedResolution$ = this.store.select(fromMangol.getPrintSelectedResolution);
+    this.selectedSize$ = this.store.select(fromMangol.getPrintSelectedSize);
 
     this.printConfigSubscription = this.printConfig$.subscribe(config => {
       if (config.hasOwnProperty('dictionary')) {
@@ -97,7 +91,7 @@ export class PrintComponent implements OnInit, OnDestroy {
    */
   print(): void {
     combineLatest(
-      this.store.select(state => state.map.map).pipe(filter(m => m !== null)),
+      this.store.select(fromMangol.getMap).pipe(filter(m => m !== null)),
       this.selectedLayout$,
       this.selectedResolution$,
       this.selectedSize$

@@ -32,18 +32,12 @@ export class FeatureinfoComponent implements OnInit, OnDestroy {
     private styleService: StyleService
   ) {
     // Get the queryable layers
-    this.layers$ = this.store.select(state =>
-      state.layers.layers.filter(layer => layer.queryable)
-    );
+    this.layers$ = this.store.select(fromMangol.getQueryableLayers);
     // Get the selected layer
-    this.selectedLayer$ = this.store.select(
-      state => state.featureinfo.selectedLayer
-    );
-    this.map$ = this.store.select(state => state.map.map);
-    this.resultsLayer$ = this.store.select(
-      state => state.featureinfo.resultsLayer
-    );
-    this.dictionary$ = this.store.select(state => state.featureinfo.dictionary);
+    this.selectedLayer$ = this.store.select(fromMangol.getFeatureSelectedLayer);
+    this.map$ = this.store.select(fromMangol.getMap);
+    this.resultsLayer$ = this.store.select(fromMangol.getFeatureResultsLayer);
+    this.dictionary$ = this.store.select(fromMangol.getFeatureDictionary);
   }
 
   ngOnInit() {

@@ -31,13 +31,13 @@ export class CursorComponent implements OnInit, OnDestroy {
   layerSubscription: Subscription;
 
   constructor(private store: Store<fromMangol.MangolState>) {
-    this.map$ = this.store.select(state => state.map.map);
+    this.map$ = this.store.select(fromMangol.getMap);
 
     this.modeSubscription = this.store
-      .select(state => state.cursor.mode)
+      .select(fromMangol.getCursorMode)
       .subscribe(mode => (this.mode = mode));
     this.layerSubscription = this.store
-      .select(state => state.cursor.layer)
+      .select(fromMangol.getVectorLayer)
       .subscribe(layer => (this.layer = layer));
   }
 
@@ -55,9 +55,9 @@ export class CursorComponent implements OnInit, OnDestroy {
 
     this.combinedSubscription = combineLatest(
       this.store
-        .select(state => state.cursor.layer)
+        .select(fromMangol.getVectorLayer)
         .pipe(filter(layer => layer !== null)),
-      this.store.select(state => state.cursor.visible)
+      this.store.select(fromMangol.getCursorVisible)
     ).subscribe(([layer, visible]) => {
       layer.setVisible(visible);
     });

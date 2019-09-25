@@ -29,7 +29,7 @@ export class PositionComponent implements OnInit, OnDestroy {
     public snackBar: MatSnackBar
   ) {
     this.positionSubscription = this.store
-      .select(state => state.controllers.position)
+      .select(fromMangol.getControllersPosition)
       .subscribe(position => (this.position = position));
   }
 
