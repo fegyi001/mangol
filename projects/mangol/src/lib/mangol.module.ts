@@ -6,7 +6,7 @@ import { MatButtonModule } from '@angular/material/button';
 import { MatSidenavModule } from '@angular/material/sidenav';
 import { BrowserModule } from '@angular/platform-browser';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
-import { Action, ActionReducer, MetaReducer, StoreModule } from '@ngrx/store';
+import { Action, ActionReducer, StoreModule } from '@ngrx/store';
 import { storeLogger } from 'ngrx-store-logger';
 
 import { MangolComponent } from './mangol.component';
@@ -14,13 +14,9 @@ import { ControllersModule } from './modules/controllers/controllers.module';
 import { MapModule } from './modules/map/map.module';
 import { MeasureService } from './modules/measure/measure.service';
 import { TabsModule } from './modules/tabs/tabs.module';
-// import {
-//   clearState,
-//   mangolReducers,
-//   MangolState
-// } from './store/mangol.reducers';
 
 import * as fromMangol from './store/mangol.reducers';
+
 export function logger(reducer: ActionReducer<fromMangol.MangolState, Action>): any {
   return storeLogger({
     collapsed: true,
@@ -36,13 +32,6 @@ export function logger(reducer: ActionReducer<fromMangol.MangolState, Action>): 
   })(reducer);
 }
 
-// const mangolMetaReducers: MetaReducer<MangolState>[] = [clearState];
-
-// export const metaReducers = [
-//   // logger,
-//   ...mangolMetaReducers
-// ];
-
 @NgModule({
   imports: [
     BrowserModule,
@@ -54,15 +43,6 @@ export function logger(reducer: ActionReducer<fromMangol.MangolState, Action>): 
     MapModule,
     ControllersModule,
     StoreModule.forFeature(fromMangol.mangolFeatureKey, fromMangol.reducers)
-    // StoreModule.forRoot(mangolReducers, {
-    //   metaReducers,
-    //   runtimeChecks: {
-    //     strictStateImmutability: false,
-    //     strictActionImmutability: false,
-    //     strictStateSerializability: false,
-    //     strictActionSerializability: false
-    //   }
-    // })
   ],
   declarations: [MangolComponent],
   providers: [MeasureService],
