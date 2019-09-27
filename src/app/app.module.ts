@@ -27,6 +27,7 @@ import { DemoPrintComponent } from './pages/demo-print/demo-print.component';
 import { DemoSidebarComponent } from './pages/demo-sidebar/demo-sidebar.component';
 import { StoreModule } from '@ngrx/store';
 import { StoreDevtoolsModule } from '@ngrx/store-devtools';
+import { environment } from '../environments/environment';
 
 @NgModule({
   declarations: [
@@ -56,7 +57,7 @@ import { StoreDevtoolsModule } from '@ngrx/store-devtools';
     AppRoutingModule,
     MangolModule,
     StoreModule.forRoot({}),
-    StoreDevtoolsModule.instrument(),
+    !environment.production ? StoreDevtoolsModule.instrument() : [],
   ],
   providers: [
     MangolService,

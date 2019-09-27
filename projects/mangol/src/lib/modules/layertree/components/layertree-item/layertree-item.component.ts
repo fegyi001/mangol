@@ -1,4 +1,4 @@
-import { Component, Input, OnInit } from '@angular/core';
+import { Component, Input, OnInit, ChangeDetectionStrategy, OnChanges, SimpleChanges } from '@angular/core';
 import { Store } from '@ngrx/store';
 import { Observable } from 'rxjs';
 
@@ -11,7 +11,8 @@ import * as fromMangol from './../../../../store/mangol.reducers';
   templateUrl: './layertree-item.component.html',
   styleUrls: ['./layertree-item.component.scss']
 })
-export class LayertreeItemComponent implements OnInit {
+export class LayertreeItemComponent implements OnInit, OnChanges {
+
   @Input()
   items: LayertreeItemNode[];
   @Input()
@@ -34,6 +35,20 @@ export class LayertreeItemComponent implements OnInit {
         this.layerNodes.push(i);
       }
     });
+  }
+
+  ngOnChanges(changes: SimpleChanges) {
+    if (changes.items && changes.items.currentValue !== changes.items.previousValue) {
+      this.groupNodes = [];
+      this.layerNodes = [];
+      this.items.forEach(i => {
+        if (!!i.children) {
+          this.groupNodes.push(i);
+        } else if (!!i.layer) {
+          this.layerNodes.push(i);
+        }
+      });
+    }
   }
 
   getStyle() {

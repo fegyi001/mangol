@@ -1,10 +1,10 @@
 import { SelectionModel } from '@angular/cdk/collections';
 import { NestedTreeControl } from '@angular/cdk/tree';
-import { Component, OnDestroy, OnInit } from '@angular/core';
+import { Component, OnDestroy, OnInit, AfterViewInit, ChangeDetectionStrategy } from '@angular/core';
 import { MatTreeNestedDataSource } from '@angular/material/tree';
 import { Store } from '@ngrx/store';
 import { of as observableOf, Subscription } from 'rxjs';
-import { filter } from 'rxjs/operators';
+import { filter, take } from 'rxjs/operators';
 
 import { MangolLayer } from '../../classes/Layer';
 import { MangolLayerGroup } from '../../classes/LayerGroup';
@@ -20,13 +20,14 @@ import { LayertreeService } from './layertree.service';
   templateUrl: './layertree.component.html',
   styleUrls: ['./layertree.component.scss']
 })
-export class LayertreeComponent implements OnInit, OnDestroy {
+export class LayertreeComponent implements OnInit, OnDestroy, AfterViewInit {
   nestedTreeControl: NestedTreeControl<LayertreeItemNode>;
   nestedDataSource: MatTreeNestedDataSource<LayertreeItemNode>;
   checklistSelection = new SelectionModel<LayertreeItemNode>(true);
 
   tabSubscription: Subscription;
   configSub: Subscription;
+  layersSubscription: Subscription;
 
   constructor(
     private store: Store<fromMangol.MangolState>,
@@ -44,7 +45,7 @@ export class LayertreeComponent implements OnInit, OnDestroy {
         this.store.dispatch(new CursorActions.ResetMode());
       });
 
-    this.configSub = this.store
+      this.configSub = this.store
       .select(fromMangol.getConfig)
       .subscribe((config: MangolConfig) => {
         if (
@@ -67,7 +68,19 @@ export class LayertreeComponent implements OnInit, OnDestroy {
       });
   }
 
-  ngOnInit() {}
+  ngOnInit() {
+  }
+
+  ngAfterViewInit() {
+    // React to layer changes in the store
+    this.layersSubscription = this.store
+      .select(fromMangol.getLayers)
+      .subscribe((layers: MangolLayer[]) => {
+        this.nestedDataSource.data = this.layertreeService.processLayersAndLayerGroups(
+          layers
+        );
+      });
+  }
 
   ngOnDestroy() {
     if (this.tabSubscription) {

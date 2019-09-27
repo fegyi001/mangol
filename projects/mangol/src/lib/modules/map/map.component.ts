@@ -118,14 +118,19 @@ export class MapComponent implements OnInit, AfterViewInit, OnDestroy {
           .select(fromMangol.getMap)
           .pipe(take(1))
           .subscribe(map => {
-            // Delete all previously loaded layers in the map
-            map.getLayers().forEach(l => {
-              map.removeLayer(l);
-            });
-            // Add all OL layers
-            layers.forEach(l => {
-              map.addLayer(l.layer);
-            });
+            // Add or remove OL layers depending on updates from store
+            const existingLayers = map.getLayers().getArray();
+            layers.length > existingLayers.length - 1 ?
+              layers.forEach(l => {
+                if (existingLayers.indexOf(l.layer) === -1) {
+                  map.addLayer(l.layer);
+                }
+              }) :
+              layers.forEach(l => {
+                if (existingLayers.indexOf(l.layer) !== -1) {
+                  map.removeLayer(l.layer);
+                }
+              });
           });
       });
 
