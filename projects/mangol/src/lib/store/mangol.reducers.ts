@@ -42,26 +42,6 @@ export const mangolReducers: ActionReducerMap<MangolState> = {
   sidebar: fromSidebar.sidebarReducer
 };
 
-
-
-// export function clearState(
-//   reducer: ActionReducer<MangolState>
-// ): ActionReducer<MangolState> {
-//   return function(
-//     state: MangolState,
-//     action: MangolActions.MangolActions
-//   ): MangolState {
-//     switch (action.type) {
-//       case MangolActions.CLEAR_STATE:
-//         state = undefined;
-//         break;
-//       default:
-//         break;
-//     }
-//     return reducer(state, action);
-//   };
-// }
-
 /** Provide reducer in AoT-compilation happy way */
 export function reducers(state: MangolState | undefined, action: Action) {
   return combineReducers({
