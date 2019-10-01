@@ -1,5 +1,6 @@
 import { Component, OnDestroy, OnInit } from '@angular/core';
 import TileLayer from 'ol/layer/Tile';
+import XYZ from 'ol/source/XYZ';
 import { fromLonLat } from 'ol/proj.js';
 import OSM from 'ol/source/OSM';
 import TileJSON from 'ol/source/TileJSON';
@@ -61,75 +62,25 @@ export class DemoLayertreeComponent implements OnInit, OnDestroy {
           zoom: 4
         }),
         layers: [
+          // new MangolLayer({
+          //     name: 'MapBox Map layer',
+          //     layer: new TileLayer({
+          //         source: new XYZ({
+          //             // tslint:disable-next-line: max-line-length
+          //             url: 'https://api.mapbox.com/styles/v1/azasorin/cjyiq6x7t0ne21cmd1yrpmr56/tiles/256/{z}/{x}/{y}?access_token=pk.eyJ1IjoiYXphc29yaW4iLCJhIjoiY2p5aG1taTBrMDE4aTNjanh2dmxpZTNlOCJ9.a4WIatoIu-3qZDO-EjV8dQ',
+          //         })
+          //     }),
+          // }),
           new MangolLayer({
-            name: 'OpenStreetMap Layer',
-            details: 'Here are the OSM layer details',
-            layer: new TileLayer({
-              source: new OSM(),
-              visible: true
-            })
-          }),
-          new MangolLayerGroup({
-            name: 'Overlays',
-            children: [
-              new MangolLayer({
-                name: 'Roads',
-                layer: new TileLayer({
+              name: 'Giovanni Grid layer',
+              layer: new TileLayer({
                   source: new TileWMS({
-                    url:
-                      'http://188.166.116.137:8080/geoserver/gwc/service/wms',
-                    crossOrigin: 'anonymous',
-                    params: {
-                      LAYERS: ['naturalearth:roads'],
-                      format: 'image/png',
-                      SRS: 'EPSG:900913'
-                    }
+                      url:
+                          'https://disc1.gesdisc.eosdis.nasa.gov/daac-bin/wms_ogc',
+                      params: { LAYERS: 'grid45', VERSION: '1.1.1' },
+                      projection: 'EPSG:4326'
                   }),
-                  opacity: 0.5,
-                  visible: false
-                })
               }),
-              new MangolLayerGroup({
-                name: 'Coutries & Cities',
-                children: [
-                  new MangolLayer({
-                    name: 'Country borders',
-                    details:
-                      'Lorem ipsum dolor sit amet consectetur adipisicing elit.',
-                    layer: new TileLayer({
-                      source: new TileWMS({
-                        url:
-                          'http://188.166.116.137:8080/geoserver/gwc/service/wms',
-                        crossOrigin: 'anonymous',
-                        params: {
-                          LAYERS: ['naturalearth:countries'],
-                          format: 'image/png',
-                          SRS: 'EPSG:900913'
-                        }
-                      }),
-                      opacity: 0.5,
-                      visible: false
-                    })
-                  }),
-                  new MangolLayer({
-                    name: 'Populated places',
-                    layer: new TileLayer({
-                      source: new TileWMS({
-                        url:
-                          'http://188.166.116.137:8080/geoserver/gwc/service/wms',
-                        crossOrigin: 'anonymous',
-                        params: {
-                          LAYERS: ['naturalearth:populated_places'],
-                          format: 'image/png',
-                          SRS: 'EPSG:900913'
-                        }
-                      }),
-                      visible: true
-                    })
-                  })
-                ]
-              })
-            ]
           })
         ]
       },
@@ -153,6 +104,35 @@ export class DemoLayertreeComponent implements OnInit, OnDestroy {
         }
       }
     };
+    const newLayer =
+      new MangolLayer({
+        name: 'OpenStreetMap Layer',
+        details: 'Here are the OSM layer details',
+        layer: new TileLayer({
+          source: new OSM(),
+          visible: true
+          // source: new TileWMS({
+          //   url: 'https://hthyyjxkdl.execute-api.us-east-1.amazonaws.com/SIT/?layer=img%3Avisualization-49d65bf2-e165-11e9-813c-7627c4ddd645%3Adata-4a441d40-e165-11e9-890f-3e95ceb867f0',
+          //   // url: plot.data.uri,
+          //   params: { VERSION: '1.1.1'},
+          //   projection: 'EPSG:4326'
+          // })
+        })
+      });
+    const that = this;
+
+    setTimeout(function() {
+      that.mangolService.layersRemoveLayer('OpenStreetMap Layer');
+    }, 1000);
+
+    setTimeout(function() {
+      that.mangolService.layersAddLayer(newLayer);
+    }, 3000);
+
+    setTimeout(function() {
+      that.mangolService.layersRemoveLayer('OpenStreetMap Layer');
+    }, 10000);
+
   }
 
   ngOnDestroy() {

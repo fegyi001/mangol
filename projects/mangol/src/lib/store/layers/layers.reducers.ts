@@ -19,6 +19,10 @@ export function layersReducer(
   switch (action.type) {
     case LayersActions.SET_LAYERS:
       return { ...state, layers: action.payload };
+    case LayersActions.ADD_LAYER:
+        return { ...state, layers: [...state.layers, action.payload]};
+    case LayersActions.REMOVE_LAYER:
+        return { ...state, layers: [...state.layers.filter(l => l.name !== action.payload)]};
     case LayersActions.SET_MEASURE_LAYER:
       return { ...state, measureLayer: action.payload };
     default:

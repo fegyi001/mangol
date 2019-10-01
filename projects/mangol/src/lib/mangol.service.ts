@@ -247,6 +247,15 @@ export class MangolService {
   layersSetLayers(layers: MangolLayer[]): void {
     this.store.dispatch(new LayersActions.SetLayers(layers));
   }
+
+  layersAddLayer(layer: MangolLayer): void {
+    this.store.dispatch(new LayersActions.AddLayer(layer));
+  }
+
+  layersRemoveLayer(name: string): void {
+    this.store.dispatch(new LayersActions.RemoveLayer(name));
+  }
+
   layersSetMeasureLayer(layer: VectorLayer): void {
     this.store.dispatch(new LayersActions.SetMeasureLayer(layer));
   }
