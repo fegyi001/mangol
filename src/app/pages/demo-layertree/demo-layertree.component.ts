@@ -111,16 +111,28 @@ export class DemoLayertreeComponent implements OnInit, OnDestroy {
         layer: new TileLayer({
           source: new OSM(),
           visible: true
+          // source: new TileWMS({
+          //   url: 'https://hthyyjxkdl.execute-api.us-east-1.amazonaws.com/SIT/?layer=img%3Avisualization-49d65bf2-e165-11e9-813c-7627c4ddd645%3Adata-4a441d40-e165-11e9-890f-3e95ceb867f0',
+          //   // url: plot.data.uri,
+          //   params: { VERSION: '1.1.1'},
+          //   projection: 'EPSG:4326'
+          // })
         })
       });
     const that = this;
+
+    setTimeout(function() {
+      that.mangolService.layersRemoveLayer('OpenStreetMap Layer');
+    }, 1000);
+
     setTimeout(function() {
       that.mangolService.layersAddLayer(newLayer);
     }, 3000);
 
-    // setTimeout(function() {
-    //   that.mangolService.layersRemoveLayer('OpenStreetMap Layer');
-    // }, 60000);
+    setTimeout(function() {
+      that.mangolService.layersRemoveLayer('OpenStreetMap Layer');
+    }, 10000);
+
   }
 
   ngOnDestroy() {

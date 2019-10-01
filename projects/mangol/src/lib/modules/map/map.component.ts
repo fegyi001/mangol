@@ -25,6 +25,7 @@ import * as LayersActions from './../../store/layers/layers.actions';
 import * as fromMangol from './../../store/mangol.reducers';
 import * as MapActions from './../../store/map/map.actions';
 import { MapService } from './map.service';
+import BaseLayer from 'ol/layer/Base';
 
 @Component({
   selector: 'mangol-map',
@@ -120,15 +121,16 @@ export class MapComponent implements OnInit, AfterViewInit, OnDestroy {
           .subscribe(map => {
             // Add or remove OL layers depending on updates from store
             const existingLayers = map.getLayers().getArray();
-            layers.length > existingLayers.length - 1 ?
-              layers.forEach(l => {
-                if (existingLayers.indexOf(l.layer) === -1) {
-                  map.addLayer(l.layer);
+            const tileLayers = layers.map(l => l.layer) as BaseLayer[];
+            tileLayers.length > existingLayers.length - 1 ?
+            tileLayers.forEach(l => {
+                if (existingLayers.indexOf(l) === -1) {
+                  map.addLayer(l);
                 }
               }) :
-              layers.forEach(l => {
-                if (existingLayers.indexOf(l.layer) !== -1) {
-                  map.removeLayer(l.layer);
+              existingLayers.forEach(l => {
+                if (l.getType() === 'TILE' && tileLayers.indexOf(l) === -1) {
+                  map.removeLayer(l);
                 }
               });
           });
