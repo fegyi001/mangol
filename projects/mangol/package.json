@@ -1,28 +1,28 @@
 {
-    "name": "mangol",
-    "version": "8.2.0",
-    "license": "MIT",
-    "homepage": "https://github.com/fegyi001/mangol",
-    "scripts": {},
-    "peerDependencies": {
-        "@angular/common": "^8.2.0",
-        "@angular/core": "^8.2.0"
-    },
-    "dependencies": {
-        "@angular/animations": "^8.2.0",
-        "@angular/cdk": "^8.1.2",
-        "@angular/material": "^8.1.2",
-        "@ngrx/effects": "^8.2.0",
-        "@ngrx/store": "^8.2.0",
-        "@types/file-saver": "^2.0.1",
-        "@types/geojson": "^7946.0.7",
-        "@types/jspdf": "^1.3.1",
-        "@types/ol": "^5.3.4",
-        "file-saver": "^2.0.2",
-        "hammerjs": "^2.0.8",
-        "jspdf": "^1.5.3",
-        "ngrx-store-logger": "^0.2.3",
-        "ol": "^5.3.3",
-        "proj4": "^2.5.0"
-    }
+  "name": "mangol",
+  "version": "9.1.10",
+  "license": "MIT",
+  "homepage": "https://github.com/fegyi001/mangol",
+  "scripts": {},
+  "peerDependencies": {
+    "@angular/common": "^9.1.10",
+    "@angular/core": "^9.1.10"
+  },
+  "dependencies": {
+    "@angular/animations": "^9.1.10",
+    "@angular/cdk": "^9.2.4",
+    "@angular/material": "^9.2.4",
+    "@ngrx/effects": "^9.2.0",
+    "@ngrx/store": "^9.2.0",
+    "@types/file-saver": "^2.0.1",
+    "@types/geojson": "^7946.0.7",
+    "@types/jspdf": "^1.3.3",
+    "@types/ol": "^6.3.1",
+    "file-saver": "^2.0.2",
+    "hammerjs": "^2.0.8",
+    "jspdf": "^1.5.3",
+    "ngrx-store-logger": "^0.2.4",
+    "ol": "^6.3.1",
+    "proj4": "^2.6.2"
+  }
 }
