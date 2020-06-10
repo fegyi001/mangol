@@ -36,17 +36,17 @@ import { FeatureinfoService } from './featureinfo.service';
     MatSortModule,
     MatToolbarModule,
     MatTooltipModule,
-    SharedModule
+    SharedModule,
   ],
   declarations: [
     FeatureinfoComponent,
     FeatureinfoSelectComponent,
     FeatureinfoResultsComponent,
     FeaturenfoTableComponent,
-    FeatureinfoTableDialogComponent
+    FeatureinfoTableDialogComponent,
   ],
   entryComponents: [FeatureinfoTableDialogComponent],
   exports: [FeatureinfoComponent],
-  providers: [FeatureinfoService]
+  providers: [FeatureinfoService],
 })
 export class FeatureinfoModule {}

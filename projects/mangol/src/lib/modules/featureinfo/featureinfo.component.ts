@@ -16,7 +16,7 @@ import * as fromMangol from './../../store/mangol.reducers';
 @Component({
   selector: 'mangol-featureinfo',
   templateUrl: './featureinfo.component.html',
-  styleUrls: ['./featureinfo.component.scss']
+  styleUrls: ['./featureinfo.component.scss'],
 })
 export class FeatureinfoComponent implements OnInit, OnDestroy {
   layers$: Observable<MangolLayer[]>;
@@ -32,32 +32,34 @@ export class FeatureinfoComponent implements OnInit, OnDestroy {
     private styleService: StyleService
   ) {
     // Get the queryable layers
-    this.layers$ = this.store.select(state =>
-      state.layers.layers.filter(layer => layer.queryable)
+    this.layers$ = this.store.select((state) =>
+      state.layers.layers.filter((layer) => layer.queryable)
     );
     // Get the selected layer
     this.selectedLayer$ = this.store.select(
-      state => state.featureinfo.selectedLayer
+      (state) => state.featureinfo.selectedLayer
     );
-    this.map$ = this.store.select(state => state.map.map);
+    this.map$ = this.store.select((state) => state.map.map);
     this.resultsLayer$ = this.store.select(
-      state => state.featureinfo.resultsLayer
+      (state) => state.featureinfo.resultsLayer
     );
-    this.dictionary$ = this.store.select(state => state.featureinfo.dictionary);
+    this.dictionary$ = this.store.select(
+      (state) => state.featureinfo.dictionary
+    );
   }
 
   ngOnInit() {
     const resultsLayer = new VectorLayer({
       source: new VectorSource({
-        features: []
+        features: [],
       }),
-      style: feat => this.styleService.hoverStyle(<Feature>feat)
+      style: (feat) => this.styleService.hoverStyle(<Feature>feat),
     });
 
     // Add the resultsLayer to the map
     this.mapSubscription = this.map$
-      .pipe(filter(m => m !== null))
-      .subscribe(m => {
+      .pipe(filter((m) => m !== null))
+      .subscribe((m) => {
         m.addLayer(resultsLayer);
         this.store.dispatch(
           new FeatureinfoActions.SetResultsLayer(resultsLayer)
@@ -67,10 +69,10 @@ export class FeatureinfoComponent implements OnInit, OnDestroy {
 
   ngOnDestroy() {
     // Remove the resultsLayer from the map
-    combineLatest(
-      this.map$.pipe(filter(m => m !== null)),
-      this.resultsLayer$.pipe(filter(r => r !== null))
-    )
+    combineLatest([
+      this.map$.pipe(filter((m) => m !== null)),
+      this.resultsLayer$.pipe(filter((r) => r !== null)),
+    ])
       .pipe(take(1))
       .subscribe(([m, resultsLayer]) => {
         m.removeLayer(resultsLayer);

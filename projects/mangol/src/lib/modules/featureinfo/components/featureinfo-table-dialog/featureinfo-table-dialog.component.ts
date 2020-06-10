@@ -1,16 +1,13 @@
 import { Component, Inject, OnInit, ViewChild } from '@angular/core';
-import {
-  MAT_DIALOG_DATA,
-  MatDialogRef,
-  MatSort,
-  MatTableDataSource
-} from '@angular/material';
+import { MAT_DIALOG_DATA, MatDialogRef } from '@angular/material/dialog';
+import { MatSort } from '@angular/material/sort';
+import { MatTableDataSource } from '@angular/material/table';
 import { saveAs } from 'file-saver';
 
 @Component({
   selector: 'mangol-featureinfo-table-dialog',
   templateUrl: './featureinfo-table-dialog.component.html',
-  styleUrls: ['./featureinfo-table-dialog.component.scss']
+  styleUrls: ['./featureinfo-table-dialog.component.scss'],
 })
 export class FeatureinfoTableDialogComponent implements OnInit {
   dataSource: MatTableDataSource<any>;
@@ -28,7 +25,7 @@ export class FeatureinfoTableDialogComponent implements OnInit {
     const source: any[] = [];
     const hasQueryColumns =
       !!this.data.layer.queryColumns && this.data.layer.queryColumns.length > 0;
-    this.data.features.forEach(feature => {
+    this.data.features.forEach((feature) => {
       const props = { ...feature.getProperties() };
       for (const key in props) {
         if (props.hasOwnProperty(key)) {
@@ -58,17 +55,17 @@ export class FeatureinfoTableDialogComponent implements OnInit {
     const data: any[] = this.dataSource.data;
     let csvContent = '';
     const separator = ';';
-    this.columns.forEach(column => {
+    this.columns.forEach((column) => {
       csvContent += column + separator;
     });
-    data.forEach(d => {
+    data.forEach((d) => {
       csvContent += '\n';
-      this.columns.forEach(c => {
+      this.columns.forEach((c) => {
         csvContent += (d.hasOwnProperty(c) ? d[c] : '') + separator;
       });
     });
     const blob = new Blob([csvContent], {
-      type: 'text-csv;charset=utf-8;'
+      type: 'text-csv;charset=utf-8;',
     });
     try {
       saveAs(

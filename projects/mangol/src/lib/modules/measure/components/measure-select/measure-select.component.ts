@@ -1,18 +1,19 @@
+import { Component, Input, OnInit } from '@angular/core';
+import { MatSelectChange } from '@angular/material/select';
 import { Store } from '@ngrx/store';
-import { Component, OnInit, Input } from '@angular/core';
+import { Observable } from 'rxjs';
+
+import * as fromMangol from '../../../../store/mangol.reducers';
+import * as MeasureActions from '../../../../store/measure/measure.actions';
 import {
   MeasureDictionary,
-  MeasureMode
+  MeasureMode,
 } from '../../../../store/measure/measure.reducers';
-import { Observable } from 'rxjs';
-import * as fromMangol from '../../../../store/mangol.reducers';
-import { MatSelectChange } from '@angular/material';
-import * as MeasureActions from '../../../../store/measure/measure.actions';
 
 @Component({
   selector: 'mangol-measure-select',
   templateUrl: './measure-select.component.html',
-  styleUrls: ['./measure-select.component.scss']
+  styleUrls: ['./measure-select.component.scss'],
 })
 export class MeasureSelectComponent implements OnInit {
   @Input()
@@ -22,8 +23,8 @@ export class MeasureSelectComponent implements OnInit {
   selectedMode$: Observable<MeasureMode>;
 
   constructor(private store: Store<fromMangol.MangolState>) {
-    this.modes$ = this.store.select(state => state.measure.modes);
-    this.selectedMode$ = this.store.select(state => state.measure.mode);
+    this.modes$ = this.store.select((state) => state.measure.modes);
+    this.selectedMode$ = this.store.select((state) => state.measure.mode);
   }
 
   ngOnInit() {}

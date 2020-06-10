@@ -1,6 +1,6 @@
 import { Component, OnDestroy, OnInit } from '@angular/core';
 import { FormBuilder, FormGroup, Validators } from '@angular/forms';
-import { MatSelectChange } from '@angular/material';
+import { MatSelectChange } from '@angular/material/select';
 import { Store } from '@ngrx/store';
 import { combineLatest, Observable, Subscription } from 'rxjs';
 import { filter, take } from 'rxjs/operators';
@@ -8,7 +8,7 @@ import { filter, take } from 'rxjs/operators';
 import { PrintLayout, PrintSize } from '../../store/print/print.reducers';
 import {
   MangolConfigPrintItem,
-  PrintDictionary
+  PrintDictionary,
 } from './../../interfaces/config-toolbar.interface';
 import * as fromMangol from './../../store/mangol.reducers';
 import * as PrintActions from './../../store/print/print.actions';
@@ -22,7 +22,7 @@ export interface Layout {
 @Component({
   selector: 'mangol-print',
   templateUrl: './print.component.html',
-  styleUrls: ['./print.component.scss']
+  styleUrls: ['./print.component.scss'],
 })
 export class PrintComponent implements OnInit, OnDestroy {
   form: FormGroup;
@@ -45,21 +45,21 @@ export class PrintComponent implements OnInit, OnDestroy {
     private fb: FormBuilder
   ) {
     this.printConfig$ = this.store.select(
-      state => state.config.config.sidebar.toolbar.print
+      (state) => state.config.config.sidebar.toolbar.print
     );
-    this.dictionary$ = this.store.select(state => state.print.dictionary);
-    this.layouts$ = this.store.select(state => state.print.layouts);
-    this.resolutions$ = this.store.select(state => state.print.resolutions);
-    this.sizes$ = this.store.select(state => state.print.sizes);
+    this.dictionary$ = this.store.select((state) => state.print.dictionary);
+    this.layouts$ = this.store.select((state) => state.print.layouts);
+    this.resolutions$ = this.store.select((state) => state.print.resolutions);
+    this.sizes$ = this.store.select((state) => state.print.sizes);
     this.selectedLayout$ = this.store.select(
-      state => state.print.selectedLayout
+      (state) => state.print.selectedLayout
     );
     this.selectedResolution$ = this.store.select(
-      state => state.print.selectedResolution
+      (state) => state.print.selectedResolution
     );
-    this.selectedSize$ = this.store.select(state => state.print.selectedSize);
+    this.selectedSize$ = this.store.select((state) => state.print.selectedSize);
 
-    this.printConfigSubscription = this.printConfig$.subscribe(config => {
+    this.printConfigSubscription = this.printConfig$.subscribe((config) => {
       if (config.hasOwnProperty('dictionary')) {
         this.store.dispatch(new PrintActions.SetDictionary(config.dictionary));
       }
@@ -82,7 +82,7 @@ export class PrintComponent implements OnInit, OnDestroy {
     this.form = this.fb.group({
       layout: ['', Validators.required],
       size: ['', Validators.required],
-      resolution: ['', Validators.required]
+      resolution: ['', Validators.required],
     });
   }
 
@@ -96,12 +96,14 @@ export class PrintComponent implements OnInit, OnDestroy {
    * Performs the print action
    */
   print(): void {
-    combineLatest(
-      this.store.select(state => state.map.map).pipe(filter(m => m !== null)),
+    combineLatest([
+      this.store
+        .select((state) => state.map.map)
+        .pipe(filter((m) => m !== null)),
       this.selectedLayout$,
       this.selectedResolution$,
-      this.selectedSize$
-    )
+      this.selectedSize$,
+    ])
       .pipe(take(1))
       .subscribe(([m, layout, resolution, size]) => {
         this.printInProgress = true;
@@ -117,12 +119,35 @@ export class PrintComponent implements OnInit, OnDestroy {
         );
         const mapSize = m.getSize();
         const extent = m.getView().calculateExtent(mapSize);
+        // https://openlayers.org/en/latest/examples/export-pdf.html
         m.once('rendercomplete', (event: any) => {
-          const canvas = event.context.canvas;
-          const data = canvas.toDataURL('image/jpeg');
+          const mapCanvas = document.createElement('canvas');
+          mapCanvas.width = width;
+          mapCanvas.height = height;
+          const mapContext = mapCanvas.getContext('2d');
+          document
+            .querySelectorAll('.ol-layer canvas')
+            .forEach((canvas: any) => {
+              if (canvas.width > 0) {
+                const opacity = canvas.parentNode.style.opacity;
+                mapContext.globalAlpha = opacity === '' ? 1 : Number(opacity);
+                const transform = canvas.style.transform;
+                // Get the transform parameters from the style's transform matrix
+                const matrix = transform
+                  .match(/^matrix\(([^\(]*)\)$/)[1]
+                  .split(',')
+                  .map(Number);
+                // Apply the transform to the export map context
+                CanvasRenderingContext2D.prototype.setTransform.apply(
+                  mapContext,
+                  matrix
+                );
+                mapContext.drawImage(canvas, 0, 0);
+              }
+            });
           const pdf = new jsPDF(layout.type, undefined, size.id);
           pdf.addImage(
-            data,
+            mapCanvas.toDataURL('image/jpeg'),
             'JPEG',
             0,
             0,

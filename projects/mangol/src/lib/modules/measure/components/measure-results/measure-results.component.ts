@@ -19,7 +19,7 @@ import { MeasureDictionary } from './../../../../store/measure/measure.reducers'
 @Component({
   selector: 'mangol-measure-results',
   templateUrl: './measure-results.component.html',
-  styleUrls: ['./measure-results.component.scss']
+  styleUrls: ['./measure-results.component.scss'],
 })
 export class MeasureResultsComponent implements OnInit, OnDestroy {
   @Input()
@@ -40,28 +40,28 @@ export class MeasureResultsComponent implements OnInit, OnDestroy {
     private measureService: MeasureService
   ) {
     this.map$ = this.store
-      .select(state => state.map.map)
-      .pipe(filter(m => m !== null));
+      .select((state) => state.map.map)
+      .pipe(filter((m) => m !== null));
     this.layer$ = this.store
-      .select(state => state.layers.measureLayer)
-      .pipe(filter(l => l !== null));
+      .select((state) => state.layers.measureLayer)
+      .pipe(filter((l) => l !== null));
     this.measureMode$ = this.store
-      .select(state => state.measure.mode)
-      .pipe(filter(mode => mode !== null));
-    this.cursorText$ = this.store.select(state => state.cursor.mode.text);
+      .select((state) => state.measure.mode)
+      .pipe(filter((mode) => mode !== null));
+    this.cursorText$ = this.store.select((state) => state.cursor.mode.text);
   }
 
   ngOnInit() {
-    this.combinedSubscription = combineLatest(
+    this.combinedSubscription = combineLatest([
       this.map$,
       this.layer$,
-      this.measureMode$
-    ).subscribe(([m, layer, mode]) => {
+      this.measureMode$,
+    ]).subscribe(([m, layer, mode]) => {
       const mapLayers = m.getLayers().getArray();
       let maxZIndex = mapLayers.length - 1;
       m.getLayers()
         .getArray()
-        .forEach(l => {
+        .forEach((l) => {
           if (l !== layer) {
             maxZIndex = l.getZIndex() > maxZIndex ? l.getZIndex() : maxZIndex;
           }
@@ -73,7 +73,7 @@ export class MeasureResultsComponent implements OnInit, OnDestroy {
   }
 
   ngOnDestroy() {
-    combineLatest(this.map$, this.layer$)
+    combineLatest([this.map$, this.layer$])
       .pipe(take(1))
       .subscribe(([m, layer]) => {
         this._deactivateDraw(m, layer);
@@ -90,7 +90,7 @@ export class MeasureResultsComponent implements OnInit, OnDestroy {
     this.draw = new Draw({
       source: layer.getSource(),
       style: (feature: Feature) => this.measureService.getStyle(feature),
-      type: mode.geometryName
+      type: mode.geometryName,
     });
     this.initialText =
       (mode.type === 'radius'
@@ -99,7 +99,7 @@ export class MeasureResultsComponent implements OnInit, OnDestroy {
     this.store.dispatch(
       new CursorActions.SetMode({
         text: this.initialText,
-        cursor: 'crosshair'
+        cursor: 'crosshair',
       })
     );
     this.displayValue = this.initialText;
@@ -108,7 +108,7 @@ export class MeasureResultsComponent implements OnInit, OnDestroy {
       this.store.dispatch(
         new CursorActions.SetMode({
           text: this.initialText,
-          cursor: 'crosshair'
+          cursor: 'crosshair',
         })
       );
       this.displayValue = null;
@@ -136,9 +136,9 @@ export class MeasureResultsComponent implements OnInit, OnDestroy {
           case 'radius':
             const circle = <Circle>feat.getGeometry();
             this.store
-              .select(state => state.controllers.position.coordinates)
+              .select((state) => state.controllers.position.coordinates)
               .pipe(take(1))
-              .subscribe(position => {
+              .subscribe((position) => {
                 const center = circle.getCenter();
                 const dx = position[0] - center[0];
                 const dy = position[1] - center[1];
@@ -163,7 +163,7 @@ export class MeasureResultsComponent implements OnInit, OnDestroy {
         this.store.dispatch(
           new CursorActions.SetMode({
             text: `${displayValue}\n${this.initialText}`,
-            cursor: 'crosshair'
+            cursor: 'crosshair',
           })
         );
         this.displayValue = displayValue;
@@ -175,7 +175,7 @@ export class MeasureResultsComponent implements OnInit, OnDestroy {
       this.store.dispatch(
         new CursorActions.SetMode({
           text: this.dictionary.clickOnMap,
-          cursor: 'crosshair'
+          cursor: 'crosshair',
         })
       );
     });
@@ -185,7 +185,7 @@ export class MeasureResultsComponent implements OnInit, OnDestroy {
     this.store.dispatch(
       new CursorActions.SetMode({
         text: this.dictionary.clickOnMap,
-        cursor: 'crosshair'
+        cursor: 'crosshair',
       })
     );
     this.displayValue = this.dictionary.clickOnMap;

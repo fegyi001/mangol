@@ -1,6 +1,8 @@
 @import "lib/ol";
+
 .ol-zoom,
 .ol-attribution,
-.ol-rotate {
+.ol-rotate,
+.ol-overlaycontainer-stopevent {
     display: none;
 }
