@@ -3,6 +3,7 @@ import { MatDialog } from '@angular/material/dialog';
 import { MatSnackBar } from '@angular/material/snack-bar';
 import { Store } from '@ngrx/store';
 import Feature from 'ol/Feature';
+import TileLayer from 'ol/layer/Tile';
 import VectorLayer from 'ol/layer/Vector';
 import Map from 'ol/Map';
 import { combineLatest, Observable, Subscription } from 'rxjs';
@@ -75,7 +76,7 @@ export class FeatureinfoResultsComponent implements OnInit, OnDestroy {
               if (this.clickFunction !== null) {
                 m.un('singleclick', this.clickFunction);
               }
-              this.clickFunction = (evt) =>
+              this.clickFunction = (evt: any) =>
                 this._createClickFunction(evt, layer, m);
               m.on('singleclick', this.clickFunction);
             });
@@ -138,49 +139,43 @@ export class FeatureinfoResultsComponent implements OnInit, OnDestroy {
         this.store.dispatch(new FeatureinfoActions.SetResultsItems([]));
         m.addLayer(resultsLayer);
         const coords = <[number, number]>evt.coordinate;
-        switch (layer.layer['type']) {
-          case 'TILE':
-            this.featureinfoService
-              .getFeatureinfoUrl$(layer, m, coords)
-              .pipe(take(1))
-              .subscribe((url) => {
-                this.featureinfoService
-                  .getFeatureinfo(
-                    <string>url,
-                    layer.querySrs,
-                    m.getView().getProjection().getCode()
-                  )
-                  .subscribe(
-                    (features) => {
-                      this.store.dispatch(
-                        new FeatureinfoActions.SetResultsItems(features)
-                      );
-                      this._openSnackBar(features.length);
-                    },
-                    (error) => {
-                      console.log(error);
-                    }
-                  );
-              });
-            break;
-          case 'VECTOR':
-            const vectorFeatures: Feature[] = <Feature[]>m.getFeaturesAtPixel(
-              evt.pixel,
-              {
-                layerFilter: (lay) => lay === <VectorLayer>layer.layer,
-                hitTolerance: 5,
-              }
-            );
-            this.store.dispatch(
-              new FeatureinfoActions.SetResultsItems(vectorFeatures)
-            );
-            this._openSnackBar(vectorFeatures.length);
-            break;
-          default:
-            alert(
-              `Feature info for layer type '${layer.layer['type']}' is not yet supported`
-            );
-            break;
+        if (layer.layer instanceof TileLayer) {
+          this.featureinfoService
+            .getFeatureinfoUrl$(layer, m, coords)
+            .pipe(take(1))
+            .subscribe((url) => {
+              this.featureinfoService
+                .getFeatureinfo(
+                  <string>url,
+                  layer.querySrs,
+                  m.getView().getProjection().getCode()
+                )
+                .subscribe(
+                  (features) => {
+                    this.store.dispatch(
+                      new FeatureinfoActions.SetResultsItems(features)
+                    );
+                    this._openSnackBar(features.length);
+                  },
+                  (error) => {
+                    console.log(error);
+                  }
+                );
+            });
+        } else if (layer.layer instanceof VectorLayer) {
+          const vectorFeatures: Feature[] = <Feature[]>m.getFeaturesAtPixel(
+            evt.pixel,
+            {
+              layerFilter: (lay) => lay === <VectorLayer>layer.layer,
+              hitTolerance: 5,
+            }
+          );
+          this.store.dispatch(
+            new FeatureinfoActions.SetResultsItems(vectorFeatures)
+          );
+          this._openSnackBar(vectorFeatures.length);
+        } else {
+          alert(`Feature info for layer is not yet supported`);
         }
       });
   }
