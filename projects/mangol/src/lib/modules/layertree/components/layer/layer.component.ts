@@ -1,5 +1,5 @@
 import { Component, Input, OnDestroy, OnInit } from '@angular/core';
-import { MatDialog } from '@angular/material';
+import { MatDialog } from '@angular/material/dialog';
 import { Store } from '@ngrx/store';
 import { Observable, Subscription } from 'rxjs';
 
@@ -15,7 +15,7 @@ import { LayerDetailsComponent } from './../layer-details/layer-details.componen
   selector: 'mangol-layer',
   templateUrl: './layer.component.html',
   styleUrls: ['./layer.component.scss'],
-  animations: [layertreeVisibilityIconStateTrigger]
+  animations: [layertreeVisibilityIconStateTrigger],
 })
 export class LayerComponent implements OnInit, OnDestroy {
   @Input()
@@ -36,20 +36,20 @@ export class LayerComponent implements OnInit, OnDestroy {
     public dialog: MatDialog,
     private store: Store<fromMangol.MangolState>
   ) {
-    this.dictionary$ = this.store.select(state => state.layertree.dictionary);
+    this.dictionary$ = this.store.select((state) => state.layertree.dictionary);
   }
 
   ngOnInit() {
     this.layer = this.node.layer;
 
-    this.dictionarySubscription = this.dictionary$.subscribe(dict => {
+    this.dictionarySubscription = this.dictionary$.subscribe((dict) => {
       this.detailItems = [];
       this.detailItems.push({
         type: 'transparency',
         text: dict.showLayerTransparency,
         fontSet: null,
         fontIcon: 'opacity',
-        disabled: false
+        disabled: false,
       });
       if (!!this.layer.details) {
         this.detailItems.push({
@@ -57,7 +57,7 @@ export class LayerComponent implements OnInit, OnDestroy {
           text: dict.showLayerDescription,
           fontSet: null,
           fontIcon: 'subject',
-          disabled: false
+          disabled: false,
         });
       }
     });
@@ -83,9 +83,9 @@ export class LayerComponent implements OnInit, OnDestroy {
       autoFocus: false,
       panelClass: 'mangol-dialog',
       hasBackdrop: true,
-      data: { item: this.selectedDetail, layer: this.layer }
+      data: { item: this.selectedDetail, layer: this.layer },
     });
 
-    dialogRef.afterClosed().subscribe(result => {});
+    dialogRef.afterClosed().subscribe((result) => {});
   }
 }

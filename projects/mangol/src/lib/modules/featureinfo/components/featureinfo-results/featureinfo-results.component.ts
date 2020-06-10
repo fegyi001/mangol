@@ -1,7 +1,9 @@
 import { Component, Input, OnDestroy, OnInit } from '@angular/core';
-import { MatDialog, MatSnackBar } from '@angular/material';
+import { MatDialog } from '@angular/material/dialog';
+import { MatSnackBar } from '@angular/material/snack-bar';
 import { Store } from '@ngrx/store';
 import Feature from 'ol/Feature';
+import TileLayer from 'ol/layer/Tile';
 import VectorLayer from 'ol/layer/Vector';
 import Map from 'ol/Map';
 import { combineLatest, Observable, Subscription } from 'rxjs';
@@ -18,7 +20,7 @@ import { FeatureinfoService } from './../../featureinfo.service';
 @Component({
   selector: 'mangol-featureinfo-results',
   templateUrl: './featureinfo-results.component.html',
-  styleUrls: ['./featureinfo-results.component.scss']
+  styleUrls: ['./featureinfo-results.component.scss'],
 })
 export class FeatureinfoResultsComponent implements OnInit, OnDestroy {
   @Input()
@@ -42,58 +44,59 @@ export class FeatureinfoResultsComponent implements OnInit, OnDestroy {
 
   ngOnInit() {
     this.resultsLayer$ = this.store.select(
-      state => state.featureinfo.resultsLayer
+      (state) => state.featureinfo.resultsLayer
     );
 
     this.resultsFeatures$ = this.store.select(
-      state => state.featureinfo.resultsItems
+      (state) => state.featureinfo.resultsItems
     );
 
-    this.layer$ = this.store.select(state => state.featureinfo.selectedLayer);
+    this.layer$ = this.store.select((state) => state.featureinfo.selectedLayer);
 
-    this.tab$ = this.store.select(state => state.sidebar.selectedModule);
+    this.tab$ = this.store.select((state) => state.sidebar.selectedModule);
 
-    this.combinedSubscription = combineLatest(this.tab$, this.layer$).subscribe(
-      ([selectedModule, layer]) => {
-        this.store.dispatch(new FeatureinfoActions.SetResultsItems([]));
-        if (selectedModule === 'featureinfo') {
-          if (layer !== null) {
-            this.store
-              .select(state => state.map.map)
-              .pipe(take(1))
-              .subscribe(m => {
-                this.store.dispatch(
-                  new CursorActions.SetMode({
-                    text: this.dictionary.clickOnMap,
-                    cursor: 'crosshair'
-                  })
-                );
-                this.store.dispatch(new CursorActions.SetVisible(true));
-                if (this.clickFunction !== null) {
-                  m.un('singleclick', this.clickFunction);
-                }
-                this.clickFunction = evt =>
-                  this._createClickFunction(evt, layer, m);
-                m.on('singleclick', this.clickFunction);
-              });
-          } else {
-            this._removeClickFunction();
-          }
+    this.combinedSubscription = combineLatest([
+      this.tab$,
+      this.layer$,
+    ]).subscribe(([selectedModule, layer]) => {
+      this.store.dispatch(new FeatureinfoActions.SetResultsItems([]));
+      if (selectedModule === 'featureinfo') {
+        if (layer !== null) {
+          this.store
+            .select((state) => state.map.map)
+            .pipe(take(1))
+            .subscribe((m) => {
+              this.store.dispatch(
+                new CursorActions.SetMode({
+                  text: this.dictionary.clickOnMap,
+                  cursor: 'crosshair',
+                })
+              );
+              this.store.dispatch(new CursorActions.SetVisible(true));
+              if (this.clickFunction !== null) {
+                m.un('singleclick', this.clickFunction);
+              }
+              this.clickFunction = (evt: any) =>
+                this._createClickFunction(evt, layer, m);
+              m.on('singleclick', this.clickFunction);
+            });
         } else {
           this._removeClickFunction();
         }
+      } else {
+        this._removeClickFunction();
       }
-    );
+    });
   }
 
   ngOnDestroy() {
     this.store.dispatch(new CursorActions.ResetMode());
     this.resultsLayer$
       .pipe(
-        filter(r => r !== null),
+        filter((r) => r !== null),
         take(1)
       )
-      .subscribe(r => {
+      .subscribe((r) => {
         this.store.dispatch(new FeatureinfoActions.SetResultsItems([]));
         r.getSource().clear();
       });
@@ -108,9 +111,9 @@ export class FeatureinfoResultsComponent implements OnInit, OnDestroy {
   private _removeClickFunction() {
     if (this.clickFunction !== null) {
       this.store
-        .select(state => state.map.map)
+        .select((state) => state.map.map)
         .pipe(take(1))
-        .subscribe(m => {
+        .subscribe((m) => {
           m.un('singleclick', this.clickFunction);
           this.clickFunction = null;
         });
@@ -126,9 +129,9 @@ export class FeatureinfoResultsComponent implements OnInit, OnDestroy {
    */
   private _createClickFunction(evt: any, layer: MangolLayer, m: Map) {
     this.store
-      .select(state => state.featureinfo.resultsLayer)
+      .select((state) => state.featureinfo.resultsLayer)
       .pipe(take(1))
-      .subscribe(resultsLayer => {
+      .subscribe((resultsLayer) => {
         try {
           m.removeLayer(resultsLayer);
         } catch (error) {}
@@ -136,54 +139,43 @@ export class FeatureinfoResultsComponent implements OnInit, OnDestroy {
         this.store.dispatch(new FeatureinfoActions.SetResultsItems([]));
         m.addLayer(resultsLayer);
         const coords = <[number, number]>evt.coordinate;
-        switch (layer.layer['type']) {
-          case 'TILE':
-            this.featureinfoService
-              .getFeatureinfoUrl$(layer, m, coords)
-              .pipe(take(1))
-              .subscribe(url => {
-                this.featureinfoService
-                  .getFeatureinfo(
-                    <string>url,
-                    layer.querySrs,
-                    m
-                      .getView()
-                      .getProjection()
-                      .getCode()
-                  )
-                  .subscribe(
-                    features => {
-                      this.store.dispatch(
-                        new FeatureinfoActions.SetResultsItems(features)
-                      );
-                      this._openSnackBar(features.length);
-                    },
-                    error => {
-                      console.log(error);
-                    }
-                  );
-              });
-            break;
-          case 'VECTOR':
-            const vectorFeatures: Feature[] = <Feature[]>m.getFeaturesAtPixel(
-              evt.pixel,
-              {
-                layerFilter: lay => lay === <VectorLayer>layer.layer,
-                hitTolerance: 5
-              }
-            );
-            this.store.dispatch(
-              new FeatureinfoActions.SetResultsItems(vectorFeatures)
-            );
-            this._openSnackBar(vectorFeatures.length);
-            break;
-          default:
-            alert(
-              `Feature info for layer type '${
-                layer.layer['type']
-              }' is not yet supported`
-            );
-            break;
+        if (layer.layer instanceof TileLayer) {
+          this.featureinfoService
+            .getFeatureinfoUrl$(layer, m, coords)
+            .pipe(take(1))
+            .subscribe((url) => {
+              this.featureinfoService
+                .getFeatureinfo(
+                  <string>url,
+                  layer.querySrs,
+                  m.getView().getProjection().getCode()
+                )
+                .subscribe(
+                  (features) => {
+                    this.store.dispatch(
+                      new FeatureinfoActions.SetResultsItems(features)
+                    );
+                    this._openSnackBar(features.length);
+                  },
+                  (error) => {
+                    console.log(error);
+                  }
+                );
+            });
+        } else if (layer.layer instanceof VectorLayer) {
+          const vectorFeatures: Feature[] = <Feature[]>m.getFeaturesAtPixel(
+            evt.pixel,
+            {
+              layerFilter: (lay) => lay === <VectorLayer>layer.layer,
+              hitTolerance: 5,
+            }
+          );
+          this.store.dispatch(
+            new FeatureinfoActions.SetResultsItems(vectorFeatures)
+          );
+          this._openSnackBar(vectorFeatures.length);
+        } else {
+          alert(`Feature info for layer is not yet supported`);
         }
       });
   }
@@ -194,15 +186,15 @@ export class FeatureinfoResultsComponent implements OnInit, OnDestroy {
    */
   private _openSnackBar(hits: number) {
     this.store
-      .select(state => state.featureinfo.snackbarDuration)
+      .select((state) => state.featureinfo.snackbarDuration)
       .pipe(take(1))
-      .subscribe(snackbarDuration => {
+      .subscribe((snackbarDuration) => {
         this.snackBar.open(
           `${this.dictionary.numberOfFeaturesFound}: ${hits}`,
           `${this.dictionary.closeSnackbar}`,
           {
             duration: snackbarDuration,
-            panelClass: 'mangol-snackbar'
+            panelClass: 'mangol-snackbar',
           }
         );
       });
@@ -214,10 +206,10 @@ export class FeatureinfoResultsComponent implements OnInit, OnDestroy {
    */
   getExpansionPanelTitle$(feature: Feature): Observable<string> {
     return this.store
-      .select(state => state.featureinfo.selectedLayer)
+      .select((state) => state.featureinfo.selectedLayer)
       .pipe(
         take(1),
-        map(selectedLayer => {
+        map((selectedLayer) => {
           const noPropTitle = this.dictionary.feature;
           if (!!selectedLayer.queryIdProperty) {
             const props = feature.getProperties();
@@ -239,7 +231,7 @@ export class FeatureinfoResultsComponent implements OnInit, OnDestroy {
    * Opens a full table dialog
    */
   openTableDialog() {
-    combineLatest(this.layer$, this.resultsFeatures$)
+    combineLatest([this.layer$, this.resultsFeatures$])
       .pipe(take(1))
       .subscribe(([layer, resultsFeatures]) => {
         this.dialog.open(FeatureinfoTableDialogComponent, {
@@ -250,8 +242,8 @@ export class FeatureinfoResultsComponent implements OnInit, OnDestroy {
           data: {
             layer: layer,
             features: resultsFeatures,
-            dictionary: this.dictionary
-          }
+            dictionary: this.dictionary,
+          },
         });
       });
   }
@@ -261,7 +253,7 @@ export class FeatureinfoResultsComponent implements OnInit, OnDestroy {
    * @param feature
    */
   showFeatureOnMap(feature: Feature) {
-    this.resultsLayer$.pipe(take(1)).subscribe(layer => {
+    this.resultsLayer$.pipe(take(1)).subscribe((layer) => {
       layer.getSource().addFeature(feature);
     });
   }
@@ -271,7 +263,7 @@ export class FeatureinfoResultsComponent implements OnInit, OnDestroy {
    * @param feature
    */
   hideFeatureOnMap(feature: Feature) {
-    this.resultsLayer$.pipe(take(1)).subscribe(layer => {
+    this.resultsLayer$.pipe(take(1)).subscribe((layer) => {
       layer.getSource().removeFeature(feature);
     });
   }
@@ -282,11 +274,11 @@ export class FeatureinfoResultsComponent implements OnInit, OnDestroy {
    */
   zoomToFeature(feature: Feature) {
     this.store
-      .select(state => state.map.map)
+      .select((state) => state.map.map)
       .pipe(take(1))
-      .subscribe(m => {
+      .subscribe((m) => {
         m.getView().fit(feature.getGeometry().getExtent(), {
-          duration: 500
+          duration: 500,
         });
       });
   }

@@ -1,5 +1,5 @@
 import { Component, Input, OnInit } from '@angular/core';
-import { MatSelectChange } from '@angular/material';
+import { MatSelectChange } from '@angular/material/select';
 import { Store } from '@ngrx/store';
 import { Observable } from 'rxjs';
 
@@ -11,7 +11,7 @@ import * as fromMangol from './../../../../store/mangol.reducers';
 @Component({
   selector: 'mangol-featureinfo-select',
   templateUrl: './featureinfo-select.component.html',
-  styleUrls: ['./featureinfo-select.component.scss']
+  styleUrls: ['./featureinfo-select.component.scss'],
 })
 export class FeatureinfoSelectComponent implements OnInit {
   @Input()
@@ -23,7 +23,7 @@ export class FeatureinfoSelectComponent implements OnInit {
 
   constructor(private store: Store<fromMangol.MangolState>) {
     this.selectedLayer$ = this.store.select(
-      state => state.featureinfo.selectedLayer
+      (state) => state.featureinfo.selectedLayer
     );
   }
 

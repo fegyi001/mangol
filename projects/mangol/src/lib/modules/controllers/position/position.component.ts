@@ -1,5 +1,5 @@
 import { Component, OnDestroy, OnInit } from '@angular/core';
-import { MatSnackBar } from '@angular/material';
+import { MatSnackBar } from '@angular/material/snack-bar';
 import { Store } from '@ngrx/store';
 import { Subscription } from 'rxjs';
 
@@ -11,7 +11,7 @@ import * as fromMangol from './../../../store/mangol.reducers';
   selector: 'mangol-position',
   templateUrl: './position.component.html',
   styleUrls: ['./position.component.scss'],
-  animations: [shownStateTrigger]
+  animations: [shownStateTrigger],
 })
 export class PositionComponent implements OnInit, OnDestroy {
   position: MangolControllersPositionStateModel = null;
@@ -29,8 +29,8 @@ export class PositionComponent implements OnInit, OnDestroy {
     public snackBar: MatSnackBar
   ) {
     this.positionSubscription = this.store
-      .select(state => state.controllers.position)
-      .subscribe(position => (this.position = position));
+      .select((state) => state.controllers.position)
+      .subscribe((position) => (this.position = position));
   }
 
   ngOnInit() {}
@@ -54,7 +54,7 @@ export class PositionComponent implements OnInit, OnDestroy {
       this.position.dictionary.closeSnackbar,
       {
         duration: 2000,
-        panelClass: 'mangol-snackbar'
+        panelClass: 'mangol-snackbar',
       }
     );
   }

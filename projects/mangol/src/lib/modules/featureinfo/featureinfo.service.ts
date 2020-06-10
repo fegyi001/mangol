@@ -13,7 +13,7 @@ import { MangolLayer } from './../../classes/Layer';
 import * as fromMangol from './../../store/mangol.reducers';
 
 @Injectable({
-  providedIn: 'root'
+  providedIn: 'root',
 })
 export class FeatureinfoService {
   geojsonFormat = new GeoJSON();
@@ -35,18 +35,15 @@ export class FeatureinfoService {
     coordinates: [number, number]
   ): Observable<string> {
     return this.store
-      .select(state => state.featureinfo.maxFeatures)
+      .select((state) => state.featureinfo.maxFeatures)
       .pipe(
         take(1),
-        map(maxFeatures => {
+        map((maxFeatures) => {
           const source: TileWMS = <TileWMS>layer.layer.getSource();
-          let url: string = source.getGetFeatureInfoUrl(
+          let url: string = source.getFeatureInfoUrl(
             coordinates,
             m.getView().getResolution(),
-            m
-              .getView()
-              .getProjection()
-              .getCode(),
+            m.getView().getProjection().getCode(),
             { INFO_FORMAT: 'application/json', FEATURE_COUNT: maxFeatures }
           );
           if (url) {
@@ -74,22 +71,22 @@ export class FeatureinfoService {
     return this.http
       .get(url, {
         observe: 'body',
-        responseType: 'json'
+        responseType: 'json',
       })
       .pipe(
-        map(response => {
+        map((response) => {
           const featureCollection = <FeatureCollection<any, any>>response;
           let format = new GeoJSON();
           if (dataProjection !== featureProjection) {
             const pseudoGeoJSONFormat = <any>GeoJSON;
             format = new pseudoGeoJSONFormat({
               dataProjection: dataProjection,
-              featureProjection: featureProjection
+              featureProjection: featureProjection,
             });
           }
           return format.readFeatures(featureCollection);
         }),
-        catchError(error => {
+        catchError((error) => {
           return throwError(error);
         })
       );

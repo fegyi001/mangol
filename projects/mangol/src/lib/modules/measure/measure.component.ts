@@ -12,7 +12,7 @@ import * as fromMangol from '../../store/mangol.reducers';
 import * as MeasureActions from '../../store/measure/measure.actions';
 import {
   MeasureDictionary,
-  MeasureMode
+  MeasureMode,
 } from '../../store/measure/measure.reducers';
 import { MangolConfigMeasureItem } from './../../interfaces/config-toolbar.interface';
 import * as CursorActions from './../../store/cursor/cursor.actions';
@@ -21,7 +21,7 @@ import { MeasureService } from './measure.service';
 @Component({
   selector: 'mangol-measure',
   templateUrl: './measure.component.html',
-  styleUrls: ['./measure.component.scss']
+  styleUrls: ['./measure.component.scss'],
 })
 export class MeasureComponent implements OnInit, OnDestroy {
   dictionary$: Observable<MeasureDictionary>;
@@ -36,19 +36,19 @@ export class MeasureComponent implements OnInit, OnDestroy {
     private store: Store<fromMangol.MangolState>,
     private measureService: MeasureService
   ) {
-    this.dictionary$ = this.store.select(state => state.measure.dictionary);
+    this.dictionary$ = this.store.select((state) => state.measure.dictionary);
     this.measureConfig$ = this.store.select(
-      state => state.config.config.sidebar.toolbar.measure
+      (state) => state.config.config.sidebar.toolbar.measure
     );
     this.map$ = this.store
-      .select(state => state.map.map)
-      .pipe(filter(m => m !== null));
+      .select((state) => state.map.map)
+      .pipe(filter((m) => m !== null));
     this.measureLayer$ = this.store
-      .select(state => state.layers.measureLayer)
-      .pipe(filter(measureLayer => measureLayer !== null));
-    this.measureMode$ = this.store.select(state => state.measure.mode);
+      .select((state) => state.layers.measureLayer)
+      .pipe(filter((measureLayer) => measureLayer !== null));
+    this.measureMode$ = this.store.select((state) => state.measure.mode);
 
-    this.measureConfigSubscription = this.measureConfig$.subscribe(config => {
+    this.measureConfigSubscription = this.measureConfig$.subscribe((config) => {
       if (config.hasOwnProperty('dictionary')) {
         this.store.dispatch(
           new MeasureActions.SetDictionary(config.dictionary)
@@ -58,10 +58,10 @@ export class MeasureComponent implements OnInit, OnDestroy {
   }
 
   ngOnInit() {
-    this.map$.pipe(take(1)).subscribe(m => {
+    this.map$.pipe(take(1)).subscribe((m) => {
       const layer = new VectorLayer({
         source: new VectorSource(),
-        style: (feature: Feature) => this.measureService.getStyle(feature)
+        style: (feature: Feature) => this.measureService.getStyle(feature),
       });
       m.addLayer(layer);
       this.store.dispatch(new LayerActions.SetMeasureLayer(layer));
@@ -76,7 +76,7 @@ export class MeasureComponent implements OnInit, OnDestroy {
   }
 
   private _cleanUp() {
-    combineLatest(this.map$, this.measureLayer$)
+    combineLatest([this.map$, this.measureLayer$])
       .pipe(take(1))
       .subscribe(([m, measureLayer]) => {
         this.store.dispatch(new LayerActions.SetMeasureLayer(null));
