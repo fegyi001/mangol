@@ -239,8 +239,6 @@ import { CommonModule } from &#x27;@angular/common&#x27;;
 import { NgModule } from &#x27;@angular/core&#x27;;
 import { MatButtonModule } from &#x27;@angular/material/button&#x27;;
 import { MatSidenavModule } from &#x27;@angular/material/sidenav&#x27;;
-import { BrowserModule } from &#x27;@angular/platform-browser&#x27;;
-import { BrowserAnimationsModule } from &#x27;@angular/platform-browser/animations&#x27;;
 import { Action, ActionReducer, MetaReducer, StoreModule } from &#x27;@ngrx/store&#x27;;
 import { storeLogger } from &#x27;ngrx-store-logger&#x27;;
 
@@ -252,7 +250,7 @@ import { TabsModule } from &#x27;./modules/tabs/tabs.module&#x27;;
 import {
   clearState,
   mangolReducers,
-  MangolState
+  MangolState,
 } from &#x27;./store/mangol.reducers&#x27;;
 
 export function logger(reducer: ActionReducer&lt;MangolState, Action&gt;): any {
@@ -264,9 +262,9 @@ export function logger(reducer: ActionReducer&lt;MangolState, Action&gt;): any {
         &#x27;[Controllers] Set Position Coordinates&#x27;,
         &#x27;[Controllers] Set Rotation Value&#x27;,
         &#x27;[Cursor] Set Mode&#x27;,
-        &#x27;[Cursor] Set Visible&#x27;
-      ]
-    }
+        &#x27;[Cursor] Set Visible&#x27;,
+      ],
+    },
   })(reducer);
 }
 
@@ -274,17 +272,15 @@ const mangolMetaReducers: MetaReducer&lt;MangolState&gt;[] &#x3D; [clearState];
 
 export const metaReducers &#x3D; [
   // logger,
-  ...mangolMetaReducers
+  ...mangolMetaReducers,
 ];
 
 @NgModule({
   imports: [
-    BrowserModule,
     CommonModule,
     MatButtonModule,
     MatSidenavModule,
     TabsModule,
-    BrowserAnimationsModule,
     MapModule,
     ControllersModule,
     StoreModule.forRoot(mangolReducers, {
@@ -293,13 +289,13 @@ export const metaReducers &#x3D; [
         strictStateImmutability: false,
         strictActionImmutability: false,
         strictStateSerializability: false,
-        strictActionSerializability: false
-      }
-    })
+        strictActionSerializability: false,
+      },
+    }),
   ],
   declarations: [MangolComponent],
   providers: [MeasureService],
-  exports: [MangolComponent]
+  exports: [MangolComponent],
 })
 export class MangolModule {}
 </code></pre>
@@ -338,6 +334,7 @@ export class MangolModule {}
             var COMPODOC_CURRENT_PAGE_DEPTH = 1;
             var COMPODOC_CURRENT_PAGE_CONTEXT = 'module';
             var COMPODOC_CURRENT_PAGE_URL = 'MangolModule.html';
+            var MAX_SEARCH_RESULTS = 15;
        </script>
 
        <script src="../js/libs/custom-elements.min.js"></script>

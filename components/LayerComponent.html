@@ -706,7 +706,7 @@
 
     <div class="tab-pane fade  tab-source-code" id="c-source">
         <pre class="line-numbers compodoc-sourcecode"><code class="language-typescript">import { Component, Input, OnDestroy, OnInit } from &#x27;@angular/core&#x27;;
-import { MatDialog } from &#x27;@angular/material&#x27;;
+import { MatDialog } from &#x27;@angular/material/dialog&#x27;;
 import { Store } from &#x27;@ngrx/store&#x27;;
 import { Observable, Subscription } from &#x27;rxjs&#x27;;
 
@@ -722,7 +722,7 @@ import { LayerDetailsComponent } from &#x27;./../layer-details/layer-details.com
   selector: &#x27;mangol-layer&#x27;,
   templateUrl: &#x27;./layer.component.html&#x27;,
   styleUrls: [&#x27;./layer.component.scss&#x27;],
-  animations: [layertreeVisibilityIconStateTrigger]
+  animations: [layertreeVisibilityIconStateTrigger],
 })
 export class LayerComponent implements OnInit, OnDestroy {
   @Input()
@@ -743,20 +743,20 @@ export class LayerComponent implements OnInit, OnDestroy {
     public dialog: MatDialog,
     private store: Store&lt;fromMangol.MangolState&gt;
   ) {
-    this.dictionary$ &#x3D; this.store.select(state &#x3D;&gt; state.layertree.dictionary);
+    this.dictionary$ &#x3D; this.store.select((state) &#x3D;&gt; state.layertree.dictionary);
   }
 
   ngOnInit() {
     this.layer &#x3D; this.node.layer;
 
-    this.dictionarySubscription &#x3D; this.dictionary$.subscribe(dict &#x3D;&gt; {
+    this.dictionarySubscription &#x3D; this.dictionary$.subscribe((dict) &#x3D;&gt; {
       this.detailItems &#x3D; [];
       this.detailItems.push({
         type: &#x27;transparency&#x27;,
         text: dict.showLayerTransparency,
         fontSet: null,
         fontIcon: &#x27;opacity&#x27;,
-        disabled: false
+        disabled: false,
       });
       if (!!this.layer.details) {
         this.detailItems.push({
@@ -764,7 +764,7 @@ export class LayerComponent implements OnInit, OnDestroy {
           text: dict.showLayerDescription,
           fontSet: null,
           fontIcon: &#x27;subject&#x27;,
-          disabled: false
+          disabled: false,
         });
       }
     });
@@ -790,10 +790,10 @@ export class LayerComponent implements OnInit, OnDestroy {
       autoFocus: false,
       panelClass: &#x27;mangol-dialog&#x27;,
       hasBackdrop: true,
-      data: { item: this.selectedDetail, layer: this.layer }
+      data: { item: this.selectedDetail, layer: this.layer },
     });
 
-    dialogRef.afterClosed().subscribe(result &#x3D;&gt; {});
+    dialogRef.afterClosed().subscribe((result) &#x3D;&gt; {});
   }
 }
 </code></pre>
@@ -928,6 +928,7 @@ export class LayerComponent implements OnInit, OnDestroy {
             var COMPODOC_CURRENT_PAGE_DEPTH = 1;
             var COMPODOC_CURRENT_PAGE_CONTEXT = 'component';
             var COMPODOC_CURRENT_PAGE_URL = 'LayerComponent.html';
+            var MAX_SEARCH_RESULTS = 15;
        </script>
 
        <script src="../js/libs/custom-elements.min.js"></script>

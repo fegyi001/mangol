@@ -380,15 +380,15 @@
 
     <div class="tab-pane fade  tab-source-code" id="c-source">
         <pre class="line-numbers compodoc-sourcecode"><code class="language-typescript">import { Component, Inject, OnInit } from &#x27;@angular/core&#x27;;
-import { MAT_DIALOG_DATA, MatDialogRef } from &#x27;@angular/material&#x27;;
+import { MAT_DIALOG_DATA, MatDialogRef } from &#x27;@angular/material/dialog&#x27;;
 
-import { LayerDetailItem } from &#x27;../../interfaces/layer-detail-item.interface&#x27;;
 import { MangolLayer } from &#x27;../../../../classes/Layer&#x27;;
+import { LayerDetailItem } from &#x27;../../interfaces/layer-detail-item.interface&#x27;;
 
 @Component({
   selector: &#x27;mangol-layer-details&#x27;,
   templateUrl: &#x27;./layer-details.component.html&#x27;,
-  styleUrls: [&#x27;./layer-details.component.scss&#x27;]
+  styleUrls: [&#x27;./layer-details.component.scss&#x27;],
 })
 export class LayerDetailsComponent implements OnInit {
   item: LayerDetailItem;
@@ -518,6 +518,7 @@ export class LayerDetailsComponent implements OnInit {
             var COMPODOC_CURRENT_PAGE_DEPTH = 1;
             var COMPODOC_CURRENT_PAGE_CONTEXT = 'component';
             var COMPODOC_CURRENT_PAGE_URL = 'LayerDetailsComponent.html';
+            var MAX_SEARCH_RESULTS = 15;
        </script>
 
        <script src="../js/libs/custom-elements.min.js"></script>

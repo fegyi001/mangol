@@ -822,7 +822,7 @@ import { MeasureDictionary } from &#x27;./../../../../store/measure/measure.redu
 @Component({
   selector: &#x27;mangol-measure-results&#x27;,
   templateUrl: &#x27;./measure-results.component.html&#x27;,
-  styleUrls: [&#x27;./measure-results.component.scss&#x27;]
+  styleUrls: [&#x27;./measure-results.component.scss&#x27;],
 })
 export class MeasureResultsComponent implements OnInit, OnDestroy {
   @Input()
@@ -843,28 +843,28 @@ export class MeasureResultsComponent implements OnInit, OnDestroy {
     private measureService: MeasureService
   ) {
     this.map$ &#x3D; this.store
-      .select(state &#x3D;&gt; state.map.map)
-      .pipe(filter(m &#x3D;&gt; m !&#x3D;&#x3D; null));
+      .select((state) &#x3D;&gt; state.map.map)
+      .pipe(filter((m) &#x3D;&gt; m !&#x3D;&#x3D; null));
     this.layer$ &#x3D; this.store
-      .select(state &#x3D;&gt; state.layers.measureLayer)
-      .pipe(filter(l &#x3D;&gt; l !&#x3D;&#x3D; null));
+      .select((state) &#x3D;&gt; state.layers.measureLayer)
+      .pipe(filter((l) &#x3D;&gt; l !&#x3D;&#x3D; null));
     this.measureMode$ &#x3D; this.store
-      .select(state &#x3D;&gt; state.measure.mode)
-      .pipe(filter(mode &#x3D;&gt; mode !&#x3D;&#x3D; null));
-    this.cursorText$ &#x3D; this.store.select(state &#x3D;&gt; state.cursor.mode.text);
+      .select((state) &#x3D;&gt; state.measure.mode)
+      .pipe(filter((mode) &#x3D;&gt; mode !&#x3D;&#x3D; null));
+    this.cursorText$ &#x3D; this.store.select((state) &#x3D;&gt; state.cursor.mode.text);
   }
 
   ngOnInit() {
-    this.combinedSubscription &#x3D; combineLatest(
+    this.combinedSubscription &#x3D; combineLatest([
       this.map$,
       this.layer$,
-      this.measureMode$
-    ).subscribe(([m, layer, mode]) &#x3D;&gt; {
+      this.measureMode$,
+    ]).subscribe(([m, layer, mode]) &#x3D;&gt; {
       const mapLayers &#x3D; m.getLayers().getArray();
       let maxZIndex &#x3D; mapLayers.length - 1;
       m.getLayers()
         .getArray()
-        .forEach(l &#x3D;&gt; {
+        .forEach((l) &#x3D;&gt; {
           if (l !&#x3D;&#x3D; layer) {
             maxZIndex &#x3D; l.getZIndex() &gt; maxZIndex ? l.getZIndex() : maxZIndex;
           }
@@ -876,7 +876,7 @@ export class MeasureResultsComponent implements OnInit, OnDestroy {
   }
 
   ngOnDestroy() {
-    combineLatest(this.map$, this.layer$)
+    combineLatest([this.map$, this.layer$])
       .pipe(take(1))
       .subscribe(([m, layer]) &#x3D;&gt; {
         this._deactivateDraw(m, layer);
@@ -893,7 +893,7 @@ export class MeasureResultsComponent implements OnInit, OnDestroy {
     this.draw &#x3D; new Draw({
       source: layer.getSource(),
       style: (feature: Feature) &#x3D;&gt; this.measureService.getStyle(feature),
-      type: mode.geometryName
+      type: mode.geometryName,
     });
     this.initialText &#x3D;
       (mode.type &#x3D;&#x3D;&#x3D; &#x27;radius&#x27;
@@ -902,7 +902,7 @@ export class MeasureResultsComponent implements OnInit, OnDestroy {
     this.store.dispatch(
       new CursorActions.SetMode({
         text: this.initialText,
-        cursor: &#x27;crosshair&#x27;
+        cursor: &#x27;crosshair&#x27;,
       })
     );
     this.displayValue &#x3D; this.initialText;
@@ -911,7 +911,7 @@ export class MeasureResultsComponent implements OnInit, OnDestroy {
       this.store.dispatch(
         new CursorActions.SetMode({
           text: this.initialText,
-          cursor: &#x27;crosshair&#x27;
+          cursor: &#x27;crosshair&#x27;,
         })
       );
       this.displayValue &#x3D; null;
@@ -939,9 +939,9 @@ export class MeasureResultsComponent implements OnInit, OnDestroy {
           case &#x27;radius&#x27;:
             const circle &#x3D; &lt;Circle&gt;feat.getGeometry();
             this.store
-              .select(state &#x3D;&gt; state.controllers.position.coordinates)
+              .select((state) &#x3D;&gt; state.controllers.position.coordinates)
               .pipe(take(1))
-              .subscribe(position &#x3D;&gt; {
+              .subscribe((position) &#x3D;&gt; {
                 const center &#x3D; circle.getCenter();
                 const dx &#x3D; position[0] - center[0];
                 const dy &#x3D; position[1] - center[1];
@@ -966,7 +966,7 @@ export class MeasureResultsComponent implements OnInit, OnDestroy {
         this.store.dispatch(
           new CursorActions.SetMode({
             text: &#x60;${displayValue}\n${this.initialText}&#x60;,
-            cursor: &#x27;crosshair&#x27;
+            cursor: &#x27;crosshair&#x27;,
           })
         );
         this.displayValue &#x3D; displayValue;
@@ -978,7 +978,7 @@ export class MeasureResultsComponent implements OnInit, OnDestroy {
       this.store.dispatch(
         new CursorActions.SetMode({
           text: this.dictionary.clickOnMap,
-          cursor: &#x27;crosshair&#x27;
+          cursor: &#x27;crosshair&#x27;,
         })
       );
     });
@@ -988,7 +988,7 @@ export class MeasureResultsComponent implements OnInit, OnDestroy {
     this.store.dispatch(
       new CursorActions.SetMode({
         text: this.dictionary.clickOnMap,
-        cursor: &#x27;crosshair&#x27;
+        cursor: &#x27;crosshair&#x27;,
       })
     );
     this.displayValue &#x3D; this.dictionary.clickOnMap;
@@ -1093,6 +1093,7 @@ export class MeasureResultsComponent implements OnInit, OnDestroy {
             var COMPODOC_CURRENT_PAGE_DEPTH = 1;
             var COMPODOC_CURRENT_PAGE_CONTEXT = 'component';
             var COMPODOC_CURRENT_PAGE_URL = 'MeasureResultsComponent.html';
+            var MAX_SEARCH_RESULTS = 15;
        </script>
 
        <script src="../js/libs/custom-elements.min.js"></script>

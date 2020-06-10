@@ -196,8 +196,8 @@
 
             <tr>
                 <td class="col-md-4">
-                    <div class="io-line">Defined in <a href="" data-line="69"
-                            class="link-to-prism">projects/mangol/src/lib/modules/featureinfo/featureinfo.service.ts:69</a></div>
+                    <div class="io-line">Defined in <a href="" data-line="66"
+                            class="link-to-prism">projects/mangol/src/lib/modules/featureinfo/featureinfo.service.ts:66</a></div>
                 </td>
             </tr>
 
@@ -419,7 +419,7 @@ import { MangolLayer } from &#x27;./../../classes/Layer&#x27;;
 import * as fromMangol from &#x27;./../../store/mangol.reducers&#x27;;
 
 @Injectable({
-  providedIn: &#x27;root&#x27;
+  providedIn: &#x27;root&#x27;,
 })
 export class FeatureinfoService {
   geojsonFormat &#x3D; new GeoJSON();
@@ -441,18 +441,15 @@ export class FeatureinfoService {
     coordinates: [number, number]
   ): Observable&lt;string&gt; {
     return this.store
-      .select(state &#x3D;&gt; state.featureinfo.maxFeatures)
+      .select((state) &#x3D;&gt; state.featureinfo.maxFeatures)
       .pipe(
         take(1),
-        map(maxFeatures &#x3D;&gt; {
+        map((maxFeatures) &#x3D;&gt; {
           const source: TileWMS &#x3D; &lt;TileWMS&gt;layer.layer.getSource();
-          let url: string &#x3D; source.getGetFeatureInfoUrl(
+          let url: string &#x3D; source.getFeatureInfoUrl(
             coordinates,
             m.getView().getResolution(),
-            m
-              .getView()
-              .getProjection()
-              .getCode(),
+            m.getView().getProjection().getCode(),
             { INFO_FORMAT: &#x27;application/json&#x27;, FEATURE_COUNT: maxFeatures }
           );
           if (url) {
@@ -480,22 +477,22 @@ export class FeatureinfoService {
     return this.http
       .get(url, {
         observe: &#x27;body&#x27;,
-        responseType: &#x27;json&#x27;
+        responseType: &#x27;json&#x27;,
       })
       .pipe(
-        map(response &#x3D;&gt; {
+        map((response) &#x3D;&gt; {
           const featureCollection &#x3D; &lt;FeatureCollection&lt;any, any&gt;&gt;response;
           let format &#x3D; new GeoJSON();
           if (dataProjection !&#x3D;&#x3D; featureProjection) {
             const pseudoGeoJSONFormat &#x3D; &lt;any&gt;GeoJSON;
             format &#x3D; new pseudoGeoJSONFormat({
               dataProjection: dataProjection,
-              featureProjection: featureProjection
+              featureProjection: featureProjection,
             });
           }
           return format.readFeatures(featureCollection);
         }),
-        catchError(error &#x3D;&gt; {
+        catchError((error) &#x3D;&gt; {
           return throwError(error);
         })
       );
@@ -535,6 +532,7 @@ export class FeatureinfoService {
             var COMPODOC_CURRENT_PAGE_DEPTH = 1;
             var COMPODOC_CURRENT_PAGE_CONTEXT = 'injectable';
             var COMPODOC_CURRENT_PAGE_URL = 'FeatureinfoService.html';
+            var MAX_SEARCH_RESULTS = 15;
        </script>
 
        <script src="../js/libs/custom-elements.min.js"></script>

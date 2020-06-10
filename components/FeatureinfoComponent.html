@@ -271,8 +271,8 @@
 
             <tr>
                 <td class="col-md-4">
-                    <div class="io-line">Defined in <a href="" data-line="68"
-                            class="link-to-prism">projects/mangol/src/lib/modules/featureinfo/featureinfo.component.ts:68</a></div>
+                    <div class="io-line">Defined in <a href="" data-line="70"
+                            class="link-to-prism">projects/mangol/src/lib/modules/featureinfo/featureinfo.component.ts:70</a></div>
                 </td>
             </tr>
 
@@ -310,8 +310,8 @@
 
             <tr>
                 <td class="col-md-4">
-                    <div class="io-line">Defined in <a href="" data-line="49"
-                            class="link-to-prism">projects/mangol/src/lib/modules/featureinfo/featureinfo.component.ts:49</a></div>
+                    <div class="io-line">Defined in <a href="" data-line="51"
+                            class="link-to-prism">projects/mangol/src/lib/modules/featureinfo/featureinfo.component.ts:51</a></div>
                 </td>
             </tr>
 
@@ -519,7 +519,7 @@ import * as fromMangol from &#x27;./../../store/mangol.reducers&#x27;;
 @Component({
   selector: &#x27;mangol-featureinfo&#x27;,
   templateUrl: &#x27;./featureinfo.component.html&#x27;,
-  styleUrls: [&#x27;./featureinfo.component.scss&#x27;]
+  styleUrls: [&#x27;./featureinfo.component.scss&#x27;],
 })
 export class FeatureinfoComponent implements OnInit, OnDestroy {
   layers$: Observable&lt;MangolLayer[]&gt;;
@@ -535,32 +535,34 @@ export class FeatureinfoComponent implements OnInit, OnDestroy {
     private styleService: StyleService
   ) {
     // Get the queryable layers
-    this.layers$ &#x3D; this.store.select(state &#x3D;&gt;
-      state.layers.layers.filter(layer &#x3D;&gt; layer.queryable)
+    this.layers$ &#x3D; this.store.select((state) &#x3D;&gt;
+      state.layers.layers.filter((layer) &#x3D;&gt; layer.queryable)
     );
     // Get the selected layer
     this.selectedLayer$ &#x3D; this.store.select(
-      state &#x3D;&gt; state.featureinfo.selectedLayer
+      (state) &#x3D;&gt; state.featureinfo.selectedLayer
     );
-    this.map$ &#x3D; this.store.select(state &#x3D;&gt; state.map.map);
+    this.map$ &#x3D; this.store.select((state) &#x3D;&gt; state.map.map);
     this.resultsLayer$ &#x3D; this.store.select(
-      state &#x3D;&gt; state.featureinfo.resultsLayer
+      (state) &#x3D;&gt; state.featureinfo.resultsLayer
     );
-    this.dictionary$ &#x3D; this.store.select(state &#x3D;&gt; state.featureinfo.dictionary);
+    this.dictionary$ &#x3D; this.store.select(
+      (state) &#x3D;&gt; state.featureinfo.dictionary
+    );
   }
 
   ngOnInit() {
     const resultsLayer &#x3D; new VectorLayer({
       source: new VectorSource({
-        features: []
+        features: [],
       }),
-      style: feat &#x3D;&gt; this.styleService.hoverStyle(&lt;Feature&gt;feat)
+      style: (feat) &#x3D;&gt; this.styleService.hoverStyle(&lt;Feature&gt;feat),
     });
 
     // Add the resultsLayer to the map
     this.mapSubscription &#x3D; this.map$
-      .pipe(filter(m &#x3D;&gt; m !&#x3D;&#x3D; null))
-      .subscribe(m &#x3D;&gt; {
+      .pipe(filter((m) &#x3D;&gt; m !&#x3D;&#x3D; null))
+      .subscribe((m) &#x3D;&gt; {
         m.addLayer(resultsLayer);
         this.store.dispatch(
           new FeatureinfoActions.SetResultsLayer(resultsLayer)
@@ -570,10 +572,10 @@ export class FeatureinfoComponent implements OnInit, OnDestroy {
 
   ngOnDestroy() {
     // Remove the resultsLayer from the map
-    combineLatest(
-      this.map$.pipe(filter(m &#x3D;&gt; m !&#x3D;&#x3D; null)),
-      this.resultsLayer$.pipe(filter(r &#x3D;&gt; r !&#x3D;&#x3D; null))
-    )
+    combineLatest([
+      this.map$.pipe(filter((m) &#x3D;&gt; m !&#x3D;&#x3D; null)),
+      this.resultsLayer$.pipe(filter((r) &#x3D;&gt; r !&#x3D;&#x3D; null)),
+    ])
       .pipe(take(1))
       .subscribe(([m, resultsLayer]) &#x3D;&gt; {
         m.removeLayer(resultsLayer);
@@ -670,6 +672,7 @@ export class FeatureinfoComponent implements OnInit, OnDestroy {
             var COMPODOC_CURRENT_PAGE_DEPTH = 1;
             var COMPODOC_CURRENT_PAGE_CONTEXT = 'component';
             var COMPODOC_CURRENT_PAGE_URL = 'FeatureinfoComponent.html';
+            var MAX_SEARCH_RESULTS = 15;
        </script>
 
        <script src="../js/libs/custom-elements.min.js"></script>

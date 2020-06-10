@@ -431,7 +431,7 @@
 
     <div class="tab-pane fade  tab-source-code" id="c-source">
         <pre class="line-numbers compodoc-sourcecode"><code class="language-typescript">import { Component, Input, OnInit } from &#x27;@angular/core&#x27;;
-import { MatSelectChange } from &#x27;@angular/material&#x27;;
+import { MatSelectChange } from &#x27;@angular/material/select&#x27;;
 import { Store } from &#x27;@ngrx/store&#x27;;
 import { Observable } from &#x27;rxjs&#x27;;
 
@@ -443,7 +443,7 @@ import * as fromMangol from &#x27;./../../../../store/mangol.reducers&#x27;;
 @Component({
   selector: &#x27;mangol-featureinfo-select&#x27;,
   templateUrl: &#x27;./featureinfo-select.component.html&#x27;,
-  styleUrls: [&#x27;./featureinfo-select.component.scss&#x27;]
+  styleUrls: [&#x27;./featureinfo-select.component.scss&#x27;],
 })
 export class FeatureinfoSelectComponent implements OnInit {
   @Input()
@@ -455,7 +455,7 @@ export class FeatureinfoSelectComponent implements OnInit {
 
   constructor(private store: Store&lt;fromMangol.MangolState&gt;) {
     this.selectedLayer$ &#x3D; this.store.select(
-      state &#x3D;&gt; state.featureinfo.selectedLayer
+      (state) &#x3D;&gt; state.featureinfo.selectedLayer
     );
   }
 
@@ -572,6 +572,7 @@ export class FeatureinfoSelectComponent implements OnInit {
             var COMPODOC_CURRENT_PAGE_DEPTH = 1;
             var COMPODOC_CURRENT_PAGE_CONTEXT = 'component';
             var COMPODOC_CURRENT_PAGE_URL = 'FeatureinfoSelectComponent.html';
+            var MAX_SEARCH_RESULTS = 15;
        </script>
 
        <script src="../js/libs/custom-elements.min.js"></script>

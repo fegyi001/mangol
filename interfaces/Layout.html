@@ -161,7 +161,7 @@
     <div class="tab-pane fade  tab-source-code" id="c-source">
         <pre class="line-numbers compodoc-sourcecode"><code class="language-typescript">import { Component, OnDestroy, OnInit } from &#x27;@angular/core&#x27;;
 import { FormBuilder, FormGroup, Validators } from &#x27;@angular/forms&#x27;;
-import { MatSelectChange } from &#x27;@angular/material&#x27;;
+import { MatSelectChange } from &#x27;@angular/material/select&#x27;;
 import { Store } from &#x27;@ngrx/store&#x27;;
 import { combineLatest, Observable, Subscription } from &#x27;rxjs&#x27;;
 import { filter, take } from &#x27;rxjs/operators&#x27;;
@@ -169,7 +169,7 @@ import { filter, take } from &#x27;rxjs/operators&#x27;;
 import { PrintLayout, PrintSize } from &#x27;../../store/print/print.reducers&#x27;;
 import {
   MangolConfigPrintItem,
-  PrintDictionary
+  PrintDictionary,
 } from &#x27;./../../interfaces/config-toolbar.interface&#x27;;
 import * as fromMangol from &#x27;./../../store/mangol.reducers&#x27;;
 import * as PrintActions from &#x27;./../../store/print/print.actions&#x27;;
@@ -183,7 +183,7 @@ export interface Layout {
 @Component({
   selector: &#x27;mangol-print&#x27;,
   templateUrl: &#x27;./print.component.html&#x27;,
-  styleUrls: [&#x27;./print.component.scss&#x27;]
+  styleUrls: [&#x27;./print.component.scss&#x27;],
 })
 export class PrintComponent implements OnInit, OnDestroy {
   form: FormGroup;
@@ -206,21 +206,21 @@ export class PrintComponent implements OnInit, OnDestroy {
     private fb: FormBuilder
   ) {
     this.printConfig$ &#x3D; this.store.select(
-      state &#x3D;&gt; state.config.config.sidebar.toolbar.print
+      (state) &#x3D;&gt; state.config.config.sidebar.toolbar.print
     );
-    this.dictionary$ &#x3D; this.store.select(state &#x3D;&gt; state.print.dictionary);
-    this.layouts$ &#x3D; this.store.select(state &#x3D;&gt; state.print.layouts);
-    this.resolutions$ &#x3D; this.store.select(state &#x3D;&gt; state.print.resolutions);
-    this.sizes$ &#x3D; this.store.select(state &#x3D;&gt; state.print.sizes);
+    this.dictionary$ &#x3D; this.store.select((state) &#x3D;&gt; state.print.dictionary);
+    this.layouts$ &#x3D; this.store.select((state) &#x3D;&gt; state.print.layouts);
+    this.resolutions$ &#x3D; this.store.select((state) &#x3D;&gt; state.print.resolutions);
+    this.sizes$ &#x3D; this.store.select((state) &#x3D;&gt; state.print.sizes);
     this.selectedLayout$ &#x3D; this.store.select(
-      state &#x3D;&gt; state.print.selectedLayout
+      (state) &#x3D;&gt; state.print.selectedLayout
     );
     this.selectedResolution$ &#x3D; this.store.select(
-      state &#x3D;&gt; state.print.selectedResolution
+      (state) &#x3D;&gt; state.print.selectedResolution
     );
-    this.selectedSize$ &#x3D; this.store.select(state &#x3D;&gt; state.print.selectedSize);
+    this.selectedSize$ &#x3D; this.store.select((state) &#x3D;&gt; state.print.selectedSize);
 
-    this.printConfigSubscription &#x3D; this.printConfig$.subscribe(config &#x3D;&gt; {
+    this.printConfigSubscription &#x3D; this.printConfig$.subscribe((config) &#x3D;&gt; {
       if (config.hasOwnProperty(&#x27;dictionary&#x27;)) {
         this.store.dispatch(new PrintActions.SetDictionary(config.dictionary));
       }
@@ -243,7 +243,7 @@ export class PrintComponent implements OnInit, OnDestroy {
     this.form &#x3D; this.fb.group({
       layout: [&#x27;&#x27;, Validators.required],
       size: [&#x27;&#x27;, Validators.required],
-      resolution: [&#x27;&#x27;, Validators.required]
+      resolution: [&#x27;&#x27;, Validators.required],
     });
   }
 
@@ -257,12 +257,14 @@ export class PrintComponent implements OnInit, OnDestroy {
    * Performs the print action
    */
   print(): void {
-    combineLatest(
-      this.store.select(state &#x3D;&gt; state.map.map).pipe(filter(m &#x3D;&gt; m !&#x3D;&#x3D; null)),
+    combineLatest([
+      this.store
+        .select((state) &#x3D;&gt; state.map.map)
+        .pipe(filter((m) &#x3D;&gt; m !&#x3D;&#x3D; null)),
       this.selectedLayout$,
       this.selectedResolution$,
-      this.selectedSize$
-    )
+      this.selectedSize$,
+    ])
       .pipe(take(1))
       .subscribe(([m, layout, resolution, size]) &#x3D;&gt; {
         this.printInProgress &#x3D; true;
@@ -278,12 +280,35 @@ export class PrintComponent implements OnInit, OnDestroy {
         );
         const mapSize &#x3D; m.getSize();
         const extent &#x3D; m.getView().calculateExtent(mapSize);
+        // https://openlayers.org/en/latest/examples/export-pdf.html
         m.once(&#x27;rendercomplete&#x27;, (event: any) &#x3D;&gt; {
-          const canvas &#x3D; event.context.canvas;
-          const data &#x3D; canvas.toDataURL(&#x27;image/jpeg&#x27;);
+          const mapCanvas &#x3D; document.createElement(&#x27;canvas&#x27;);
+          mapCanvas.width &#x3D; width;
+          mapCanvas.height &#x3D; height;
+          const mapContext &#x3D; mapCanvas.getContext(&#x27;2d&#x27;);
+          document
+            .querySelectorAll(&#x27;.ol-layer canvas&#x27;)
+            .forEach((canvas: any) &#x3D;&gt; {
+              if (canvas.width &gt; 0) {
+                const opacity &#x3D; canvas.parentNode.style.opacity;
+                mapContext.globalAlpha &#x3D; opacity &#x3D;&#x3D;&#x3D; &#x27;&#x27; ? 1 : Number(opacity);
+                const transform &#x3D; canvas.style.transform;
+                // Get the transform parameters from the style&#x27;s transform matrix
+                const matrix &#x3D; transform
+                  .match(/^matrix\(([^\(]*)\)$/)[1]
+                  .split(&#x27;,&#x27;)
+                  .map(Number);
+                // Apply the transform to the export map context
+                CanvasRenderingContext2D.prototype.setTransform.apply(
+                  mapContext,
+                  matrix
+                );
+                mapContext.drawImage(canvas, 0, 0);
+              }
+            });
           const pdf &#x3D; new jsPDF(layout.type, undefined, size.id);
           pdf.addImage(
-            data,
+            mapCanvas.toDataURL(&#x27;image/jpeg&#x27;),
             &#x27;JPEG&#x27;,
             0,
             0,
@@ -366,6 +391,7 @@ export class PrintComponent implements OnInit, OnDestroy {
             var COMPODOC_CURRENT_PAGE_DEPTH = 1;
             var COMPODOC_CURRENT_PAGE_CONTEXT = 'interface';
             var COMPODOC_CURRENT_PAGE_URL = 'Layout.html';
+            var MAX_SEARCH_RESULTS = 15;
        </script>
 
        <script src="../js/libs/custom-elements.min.js"></script>

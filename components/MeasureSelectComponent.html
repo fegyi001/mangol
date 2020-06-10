@@ -191,7 +191,7 @@
                 </tr>
                         <tr>
                             <td class="col-md-4">
-                                <div class="io-line">Defined in <a href="" data-line="22" class="link-to-prism">projects/mangol/src/lib/modules/measure/components/measure-select/measure-select.component.ts:22</a></div>
+                                <div class="io-line">Defined in <a href="" data-line="23" class="link-to-prism">projects/mangol/src/lib/modules/measure/components/measure-select/measure-select.component.ts:23</a></div>
                             </td>
                         </tr>
 
@@ -247,7 +247,7 @@
                 </tr>
                         <tr>
                             <td class="col-md-2" colspan="2">
-                                    <div class="io-line">Defined in <a href="" data-line="19" class="link-to-prism">projects/mangol/src/lib/modules/measure/components/measure-select/measure-select.component.ts:19</a></div>
+                                    <div class="io-line">Defined in <a href="" data-line="20" class="link-to-prism">projects/mangol/src/lib/modules/measure/components/measure-select/measure-select.component.ts:20</a></div>
                             </td>
                         </tr>
             </tbody>
@@ -283,8 +283,8 @@
 
             <tr>
                 <td class="col-md-4">
-                    <div class="io-line">Defined in <a href="" data-line="29"
-                            class="link-to-prism">projects/mangol/src/lib/modules/measure/components/measure-select/measure-select.component.ts:29</a></div>
+                    <div class="io-line">Defined in <a href="" data-line="30"
+                            class="link-to-prism">projects/mangol/src/lib/modules/measure/components/measure-select/measure-select.component.ts:30</a></div>
                 </td>
             </tr>
 
@@ -322,8 +322,8 @@
 
             <tr>
                 <td class="col-md-4">
-                    <div class="io-line">Defined in <a href="" data-line="31"
-                            class="link-to-prism">projects/mangol/src/lib/modules/measure/components/measure-select/measure-select.component.ts:31</a></div>
+                    <div class="io-line">Defined in <a href="" data-line="32"
+                            class="link-to-prism">projects/mangol/src/lib/modules/measure/components/measure-select/measure-select.component.ts:32</a></div>
                 </td>
             </tr>
 
@@ -396,7 +396,7 @@
                     </tr>
                         <tr>
                             <td class="col-md-4">
-                                    <div class="io-line">Defined in <a href="" data-line="21" class="link-to-prism">projects/mangol/src/lib/modules/measure/components/measure-select/measure-select.component.ts:21</a></div>
+                                    <div class="io-line">Defined in <a href="" data-line="22" class="link-to-prism">projects/mangol/src/lib/modules/measure/components/measure-select/measure-select.component.ts:22</a></div>
                             </td>
                         </tr>
 
@@ -423,7 +423,7 @@
                     </tr>
                         <tr>
                             <td class="col-md-4">
-                                    <div class="io-line">Defined in <a href="" data-line="22" class="link-to-prism">projects/mangol/src/lib/modules/measure/components/measure-select/measure-select.component.ts:22</a></div>
+                                    <div class="io-line">Defined in <a href="" data-line="23" class="link-to-prism">projects/mangol/src/lib/modules/measure/components/measure-select/measure-select.component.ts:23</a></div>
                             </td>
                         </tr>
 
@@ -436,21 +436,22 @@
 
 
     <div class="tab-pane fade  tab-source-code" id="c-source">
-        <pre class="line-numbers compodoc-sourcecode"><code class="language-typescript">import { Store } from &#x27;@ngrx/store&#x27;;
-import { Component, OnInit, Input } from &#x27;@angular/core&#x27;;
+        <pre class="line-numbers compodoc-sourcecode"><code class="language-typescript">import { Component, Input, OnInit } from &#x27;@angular/core&#x27;;
+import { MatSelectChange } from &#x27;@angular/material/select&#x27;;
+import { Store } from &#x27;@ngrx/store&#x27;;
+import { Observable } from &#x27;rxjs&#x27;;
+
+import * as fromMangol from &#x27;../../../../store/mangol.reducers&#x27;;
+import * as MeasureActions from &#x27;../../../../store/measure/measure.actions&#x27;;
 import {
   MeasureDictionary,
-  MeasureMode
+  MeasureMode,
 } from &#x27;../../../../store/measure/measure.reducers&#x27;;
-import { Observable } from &#x27;rxjs&#x27;;
-import * as fromMangol from &#x27;../../../../store/mangol.reducers&#x27;;
-import { MatSelectChange } from &#x27;@angular/material&#x27;;
-import * as MeasureActions from &#x27;../../../../store/measure/measure.actions&#x27;;
 
 @Component({
   selector: &#x27;mangol-measure-select&#x27;,
   templateUrl: &#x27;./measure-select.component.html&#x27;,
-  styleUrls: [&#x27;./measure-select.component.scss&#x27;]
+  styleUrls: [&#x27;./measure-select.component.scss&#x27;],
 })
 export class MeasureSelectComponent implements OnInit {
   @Input()
@@ -460,8 +461,8 @@ export class MeasureSelectComponent implements OnInit {
   selectedMode$: Observable&lt;MeasureMode&gt;;
 
   constructor(private store: Store&lt;fromMangol.MangolState&gt;) {
-    this.modes$ &#x3D; this.store.select(state &#x3D;&gt; state.measure.modes);
-    this.selectedMode$ &#x3D; this.store.select(state &#x3D;&gt; state.measure.mode);
+    this.modes$ &#x3D; this.store.select((state) &#x3D;&gt; state.measure.modes);
+    this.selectedMode$ &#x3D; this.store.select((state) &#x3D;&gt; state.measure.mode);
   }
 
   ngOnInit() {}
@@ -586,6 +587,7 @@ export class MeasureSelectComponent implements OnInit {
             var COMPODOC_CURRENT_PAGE_DEPTH = 1;
             var COMPODOC_CURRENT_PAGE_CONTEXT = 'component';
             var COMPODOC_CURRENT_PAGE_URL = 'MeasureSelectComponent.html';
+            var MAX_SEARCH_RESULTS = 15;
        </script>
 
        <script src="../js/libs/custom-elements.min.js"></script>

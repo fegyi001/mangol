@@ -325,18 +325,18 @@ import { FeatureinfoService } from &#x27;./featureinfo.service&#x27;;
     MatSortModule,
     MatToolbarModule,
     MatTooltipModule,
-    SharedModule
+    SharedModule,
   ],
   declarations: [
     FeatureinfoComponent,
     FeatureinfoSelectComponent,
     FeatureinfoResultsComponent,
     FeaturenfoTableComponent,
-    FeatureinfoTableDialogComponent
+    FeatureinfoTableDialogComponent,
   ],
   entryComponents: [FeatureinfoTableDialogComponent],
   exports: [FeatureinfoComponent],
-  providers: [FeatureinfoService]
+  providers: [FeatureinfoService],
 })
 export class FeatureinfoModule {}
 </code></pre>
@@ -375,6 +375,7 @@ export class FeatureinfoModule {}
             var COMPODOC_CURRENT_PAGE_DEPTH = 1;
             var COMPODOC_CURRENT_PAGE_CONTEXT = 'module';
             var COMPODOC_CURRENT_PAGE_URL = 'FeatureinfoModule.html';
+            var MAX_SEARCH_RESULTS = 15;
        </script>
 
        <script src="../js/libs/custom-elements.min.js"></script>

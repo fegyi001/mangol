@@ -61,7 +61,7 @@
             <h3>File</h3>
         </p>
         <p class="comment">
-            <code>projects/mangol/src/lib/store/print/print.actions.ts</code>
+            <code>projects/mangol/src/lib/store/measure/measure.actions.ts</code>
         </p>
 
 
@@ -113,12 +113,12 @@
             <tbody>
                 <tr>
                     <td class="col-md-4">
-<code>constructor(payload: <a href="../interfaces/PrintDictionary.html">PrintDictionary</a>)</code>
+<code>constructor(payload: <a href="../interfaces/MeasureDictionary.html">MeasureDictionary</a>)</code>
                     </td>
                 </tr>
                         <tr>
                             <td class="col-md-4">
-                                <div class="io-line">Defined in <a href="" data-line="42" class="link-to-prism">projects/mangol/src/lib/store/print/print.actions.ts:42</a></div>
+                                <div class="io-line">Defined in <a href="" data-line="23" class="link-to-prism">projects/mangol/src/lib/store/measure/measure.actions.ts:23</a></div>
                             </td>
                         </tr>
 
@@ -139,7 +139,7 @@
                                                         <td>payload</td>
                                                   
                                                         <td>
-                                                                        <code><a href="../interfaces/PrintDictionary.html" target="_self" >PrintDictionary</a></code>
+                                                                        <code><a href="../interfaces/MeasureDictionary.html" target="_self" >MeasureDictionary</a></code>
                                                         </td>
                                                   
                                                     <td>
@@ -176,13 +176,13 @@
                 </tr>
                     <tr>
                         <td class="col-md-4">
-                            <i>Type : </i>        <code><a href="../interfaces/PrintDictionary.html" target="_self" >PrintDictionary</a></code>
+                            <i>Type : </i>        <code><a href="../interfaces/MeasureDictionary.html" target="_self" >MeasureDictionary</a></code>
 
                         </td>
                     </tr>
                         <tr>
                             <td class="col-md-4">
-                                    <div class="io-line">Defined in <a href="" data-line="43" class="link-to-prism">projects/mangol/src/lib/store/print/print.actions.ts:43</a></div>
+                                    <div class="io-line">Defined in <a href="" data-line="24" class="link-to-prism">projects/mangol/src/lib/store/measure/measure.actions.ts:24</a></div>
                             </td>
                         </tr>
 
@@ -209,7 +209,7 @@
                     </tr>
                         <tr>
                             <td class="col-md-4">
-                                    <div class="io-line">Defined in <a href="" data-line="42" class="link-to-prism">projects/mangol/src/lib/store/print/print.actions.ts:42</a></div>
+                                    <div class="io-line">Defined in <a href="" data-line="23" class="link-to-prism">projects/mangol/src/lib/store/measure/measure.actions.ts:23</a></div>
                             </td>
                         </tr>
 
@@ -228,24 +228,17 @@
 
 
     <div class="tab-pane fade  tab-source-code" id="c-source">
-        <pre class="line-numbers compodoc-sourcecode"><code class="language-typescript">import { Action } from &#x27;@ngrx/store&#x27;;
+        <pre class="line-numbers compodoc-sourcecode"><code class="language-typescript">import { MeasureDictionary, MeasureMode } from &#x27;./measure.reducers&#x27;;
+import { Action } from &#x27;@ngrx/store&#x27;;
 
-import { PrintDictionary } from &#x27;../../interfaces/config-toolbar.interface&#x27;;
-import { PrintLayout, PrintSize } from &#x27;./print.reducers&#x27;;
+export const HAS_MEASURE &#x3D; &#x27;[Measure] Has Measure&#x27;;
+export const SET_DISABLED &#x3D; &#x27;[Measure] Set Disabled&#x27;;
+export const SET_TITLE &#x3D; &#x27;[Measure] Set Title&#x27;;
+export const SET_DICTIONARY &#x3D; &#x27;[Measure] Set Dictionary&#x27;;
+export const SET_MODE &#x3D; &#x27;[Measure] Set Mode&#x27;;
 
-export const HAS_PRINT &#x3D; &#x27;[Print] Has Print &#x27;;
-export const SET_DISABLED &#x3D; &#x27;[Print] Set Disabled&#x27;;
-export const SET_TITLE &#x3D; &#x27;[Print] Set Title&#x27;;
-export const SET_RESOLUTIONS &#x3D; &#x27;[Print] Set Resolutions&#x27;;
-export const SET_SIZES &#x3D; &#x27;[Print] Set Sizes&#x27;;
-export const SET_LAYOUTS &#x3D; &#x27;[Print] Set Layouts&#x27;;
-export const SET_DICTIONARY &#x3D; &#x27;[Print] Set Dictionary&#x27;;
-export const SET_SELECTED_LAYOUT &#x3D; &#x27;[Print] Set Selected Layout&#x27;;
-export const SET_SELECTED_RESOLUTION &#x3D; &#x27;[Print] Set Selected Resolution&#x27;;
-export const SET_SELECTED_SIZE &#x3D; &#x27;[Print] Set Selected Size&#x27;;
-
-export class HasPrint implements Action {
-  readonly type &#x3D; HAS_PRINT;
+export class HasMeasure implements Action {
+  readonly type &#x3D; HAS_MEASURE;
   constructor(public payload: boolean) {}
 }
 export class SetDisabled implements Action {
@@ -256,46 +249,21 @@ export class SetTitle implements Action {
   readonly type &#x3D; SET_TITLE;
   constructor(public payload: string) {}
 }
-export class SetResolutions implements Action {
-  readonly type &#x3D; SET_RESOLUTIONS;
-  constructor(public payload: number[]) {}
-}
-export class SetSizes implements Action {
-  readonly type &#x3D; SET_SIZES;
-  constructor(public payload: PrintSize[]) {}
-}
-export class SetLayouts implements Action {
-  readonly type &#x3D; SET_LAYOUTS;
-  constructor(public payload: PrintLayout[]) {}
-}
 export class SetDictionary implements Action {
   readonly type &#x3D; SET_DICTIONARY;
-  constructor(public payload: PrintDictionary) {}
+  constructor(public payload: MeasureDictionary) {}
 }
-export class SetSelectedLayout implements Action {
-  readonly type &#x3D; SET_SELECTED_LAYOUT;
-  constructor(public payload: PrintLayout) {}
-}
-export class SetSelectedResolution implements Action {
-  readonly type &#x3D; SET_SELECTED_RESOLUTION;
-  constructor(public payload: number) {}
-}
-export class SetSelectedSize implements Action {
-  readonly type &#x3D; SET_SELECTED_SIZE;
-  constructor(public payload: PrintSize) {}
+export class SetMode implements Action {
+  readonly type &#x3D; SET_MODE;
+  constructor(public payload: MeasureMode) {}
 }
 
-export type PrintActions &#x3D;
-  | HasPrint
+export type MeasureActions &#x3D;
+  | HasMeasure
   | SetDisabled
   | SetTitle
-  | SetResolutions
-  | SetSizes
-  | SetLayouts
   | SetDictionary
-  | SetSelectedLayout
-  | SetSelectedResolution
-  | SetSelectedSize;
+  | SetMode;
 </code></pre>
     </div>
 </div>
@@ -325,6 +293,7 @@ export type PrintActions &#x3D;
             var COMPODOC_CURRENT_PAGE_DEPTH = 1;
             var COMPODOC_CURRENT_PAGE_CONTEXT = 'class';
             var COMPODOC_CURRENT_PAGE_URL = 'SetDictionary-3.html';
+            var MAX_SEARCH_RESULTS = 15;
        </script>
 
        <script src="../js/libs/custom-elements.min.js"></script>

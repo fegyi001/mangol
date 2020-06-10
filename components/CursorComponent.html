@@ -671,7 +671,7 @@ import * as fromMangol from &#x27;./../../../store/mangol.reducers&#x27;;
 @Component({
   selector: &#x27;mangol-cursor&#x27;,
   templateUrl: &#x27;./cursor.component.html&#x27;,
-  styleUrls: [&#x27;./cursor.component.scss&#x27;]
+  styleUrls: [&#x27;./cursor.component.scss&#x27;],
 })
 export class CursorComponent implements OnInit, OnDestroy {
   map$: Observable&lt;Map&gt;;
@@ -684,34 +684,34 @@ export class CursorComponent implements OnInit, OnDestroy {
   layerSubscription: Subscription;
 
   constructor(private store: Store&lt;fromMangol.MangolState&gt;) {
-    this.map$ &#x3D; this.store.select(state &#x3D;&gt; state.map.map);
+    this.map$ &#x3D; this.store.select((state) &#x3D;&gt; state.map.map);
 
     this.modeSubscription &#x3D; this.store
-      .select(state &#x3D;&gt; state.cursor.mode)
-      .subscribe(mode &#x3D;&gt; (this.mode &#x3D; mode));
+      .select((state) &#x3D;&gt; state.cursor.mode)
+      .subscribe((mode) &#x3D;&gt; (this.mode &#x3D; mode));
     this.layerSubscription &#x3D; this.store
-      .select(state &#x3D;&gt; state.cursor.layer)
-      .subscribe(layer &#x3D;&gt; (this.layer &#x3D; layer));
+      .select((state) &#x3D;&gt; state.cursor.layer)
+      .subscribe((layer) &#x3D;&gt; (this.layer &#x3D; layer));
   }
 
   ngOnInit() {
-    this.map$.pipe(filter(m &#x3D;&gt; m !&#x3D;&#x3D; null)).subscribe(m &#x3D;&gt; {
+    this.map$.pipe(filter((m) &#x3D;&gt; m !&#x3D;&#x3D; null)).subscribe((m) &#x3D;&gt; {
       const layer &#x3D; new VectorLayer({
         source: new VectorSource(),
         zIndex: 1000,
-        style: feat &#x3D;&gt; this.setStyle(&lt;Feature&gt;feat)
+        style: (feat) &#x3D;&gt; this.setStyle(&lt;Feature&gt;feat),
       });
       this.store.dispatch(new CursorActions.SetLayer(layer));
       m.addLayer(layer);
-      m.on(&#x27;pointermove&#x27;, evt &#x3D;&gt; this.onMouseMove(evt));
+      m.on(&#x27;pointermove&#x27;, (evt) &#x3D;&gt; this.onMouseMove(evt));
     });
 
-    this.combinedSubscription &#x3D; combineLatest(
+    this.combinedSubscription &#x3D; combineLatest([
       this.store
-        .select(state &#x3D;&gt; state.cursor.layer)
-        .pipe(filter(layer &#x3D;&gt; layer !&#x3D;&#x3D; null)),
-      this.store.select(state &#x3D;&gt; state.cursor.visible)
-    ).subscribe(([layer, visible]) &#x3D;&gt; {
+        .select((state) &#x3D;&gt; state.cursor.layer)
+        .pipe(filter((layer) &#x3D;&gt; layer !&#x3D;&#x3D; null)),
+      this.store.select((state) &#x3D;&gt; state.cursor.visible),
+    ]).subscribe(([layer, visible]) &#x3D;&gt; {
       layer.setVisible(visible);
     });
   }
@@ -737,26 +737,26 @@ export class CursorComponent implements OnInit, OnDestroy {
           color:
             this.mode !&#x3D;&#x3D; null &amp;&amp; this.mode.hasOwnProperty(&#x27;color&#x27;)
               ? this.mode.color
-              : &#x27;white&#x27;
+              : &#x27;white&#x27;,
         }),
         backgroundFill: new Fill({
           color:
             this.mode !&#x3D;&#x3D; null &amp;&amp; this.mode.hasOwnProperty(&#x27;backgroundFill&#x27;)
               ? this.mode.backgroundFill
-              : [0, 0, 0, 0.6]
+              : [0, 0, 0, 0.6],
         }),
         padding: [5, 8, 5, 8],
         rotateWithView: true,
         offsetX: 20,
         offsetY: -20,
-        textAlign: &#x27;left&#x27;
-      })
+        textAlign: &#x27;left&#x27;,
+      }),
     });
   }
 
   private onMouseMove(evt: any) {
     const feat &#x3D; new Feature({
-      geometry: new Point(evt.coordinate)
+      geometry: new Point(evt.coordinate),
     });
     this.layer.getSource().clear();
     this.layer.getSource().addFeature(feat);
@@ -844,6 +844,7 @@ export class CursorComponent implements OnInit, OnDestroy {
             var COMPODOC_CURRENT_PAGE_DEPTH = 1;
             var COMPODOC_CURRENT_PAGE_CONTEXT = 'component';
             var COMPODOC_CURRENT_PAGE_URL = 'CursorComponent.html';
+            var MAX_SEARCH_RESULTS = 15;
        </script>
 
        <script src="../js/libs/custom-elements.min.js"></script>

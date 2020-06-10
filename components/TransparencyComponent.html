@@ -614,7 +614,7 @@
 
     <div class="tab-pane fade  tab-source-code" id="c-source">
         <pre class="line-numbers compodoc-sourcecode"><code class="language-typescript">import { Component, Input, OnDestroy, OnInit } from &#x27;@angular/core&#x27;;
-import { MatSliderChange } from &#x27;@angular/material&#x27;;
+import { MatSliderChange } from &#x27;@angular/material/slider&#x27;;
 import { Store } from &#x27;@ngrx/store&#x27;;
 import { Subscription } from &#x27;rxjs&#x27;;
 
@@ -625,7 +625,7 @@ import * as fromMangol from &#x27;./../../../../../store/mangol.reducers&#x27;;
 @Component({
   selector: &#x27;mangol-transparency&#x27;,
   templateUrl: &#x27;./transparency.component.html&#x27;,
-  styleUrls: [&#x27;./transparency.component.scss&#x27;]
+  styleUrls: [&#x27;./transparency.component.scss&#x27;],
 })
 export class TransparencyComponent implements OnInit, OnDestroy {
   @Input()
@@ -641,7 +641,7 @@ export class TransparencyComponent implements OnInit, OnDestroy {
 
   constructor(private store: Store&lt;fromMangol.MangolState&gt;) {
     this.configSubscription &#x3D; this.store
-      .select(state &#x3D;&gt; state.config.config)
+      .select((state) &#x3D;&gt; state.config.config)
       .subscribe((config: MangolConfig) &#x3D;&gt; {
         if (
           !!config.sidebar &amp;&amp;
@@ -768,6 +768,7 @@ export class TransparencyComponent implements OnInit, OnDestroy {
             var COMPODOC_CURRENT_PAGE_DEPTH = 1;
             var COMPODOC_CURRENT_PAGE_CONTEXT = 'component';
             var COMPODOC_CURRENT_PAGE_URL = 'TransparencyComponent.html';
+            var MAX_SEARCH_RESULTS = 15;
        </script>
 
        <script src="../js/libs/custom-elements.min.js"></script>
