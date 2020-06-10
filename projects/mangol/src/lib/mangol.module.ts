@@ -4,8 +4,6 @@ import { CommonModule } from '@angular/common';
 import { NgModule } from '@angular/core';
 import { MatButtonModule } from '@angular/material/button';
 import { MatSidenavModule } from '@angular/material/sidenav';
-import { BrowserModule } from '@angular/platform-browser';
-import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { Action, ActionReducer, MetaReducer, StoreModule } from '@ngrx/store';
 import { storeLogger } from 'ngrx-store-logger';
 
@@ -17,7 +15,7 @@ import { TabsModule } from './modules/tabs/tabs.module';
 import {
   clearState,
   mangolReducers,
-  MangolState
+  MangolState,
 } from './store/mangol.reducers';
 
 export function logger(reducer: ActionReducer<MangolState, Action>): any {
@@ -29,9 +27,9 @@ export function logger(reducer: ActionReducer<MangolState, Action>): any {
         '[Controllers] Set Position Coordinates',
         '[Controllers] Set Rotation Value',
         '[Cursor] Set Mode',
-        '[Cursor] Set Visible'
-      ]
-    }
+        '[Cursor] Set Visible',
+      ],
+    },
   })(reducer);
 }
 
@@ -39,17 +37,15 @@ const mangolMetaReducers: MetaReducer<MangolState>[] = [clearState];
 
 export const metaReducers = [
   // logger,
-  ...mangolMetaReducers
+  ...mangolMetaReducers,
 ];
 
 @NgModule({
   imports: [
-    BrowserModule,
     CommonModule,
     MatButtonModule,
     MatSidenavModule,
     TabsModule,
-    BrowserAnimationsModule,
     MapModule,
     ControllersModule,
     StoreModule.forRoot(mangolReducers, {
@@ -58,12 +54,12 @@ export const metaReducers = [
         strictStateImmutability: false,
         strictActionImmutability: false,
         strictStateSerializability: false,
-        strictActionSerializability: false
-      }
-    })
+        strictActionSerializability: false,
+      },
+    }),
   ],
   declarations: [MangolComponent],
   providers: [MeasureService],
-  exports: [MangolComponent]
+  exports: [MangolComponent],
 })
 export class MangolModule {}
