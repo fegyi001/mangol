@@ -12,7 +12,7 @@ import { code } from './code';
 @Component({
   selector: 'app-demo-measure',
   templateUrl: './demo-measure.component.html',
-  styleUrls: ['./demo-measure.component.scss']
+  styleUrls: ['./demo-measure.component.scss'],
 })
 export class DemoMeasureComponent implements OnInit, OnDestroy {
   mangolConfig: MangolConfig;
@@ -25,14 +25,14 @@ export class DemoMeasureComponent implements OnInit, OnDestroy {
     private mangolService: MangolService
   ) {
     this.sidebarOpenedSubscription = this.appService.sidebarOpenedSubject.subscribe(
-      opened => {
+      (opened) => {
         if (opened !== null) {
           this.mangolService.mapState$
             .pipe(
-              map(m => m.map),
-              filter(m => m !== null)
+              map((m) => m.map),
+              filter((m) => m !== null)
             )
-            .subscribe(m => {
+            .subscribe((m) => {
               setTimeout(() => {
                 m.updateSize();
               }, 500);
@@ -49,16 +49,16 @@ export class DemoMeasureComponent implements OnInit, OnDestroy {
         view: new View({
           projection: 'EPSG:3857',
           center: fromLonLat([19.3956393810065, 47.168464955013], 'EPSG:3857'),
-          zoom: 4
-        })
+          zoom: 11,
+        }),
       },
       sidebar: {
         title: 'Measure example',
         opened: true,
         toolbar: {
-          measure: {}
-        }
-      }
+          measure: {},
+        },
+      },
     };
   }
 
