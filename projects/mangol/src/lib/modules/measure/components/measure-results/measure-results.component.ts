@@ -1,12 +1,16 @@
 import { Component, Input, OnDestroy, OnInit } from '@angular/core';
 import { Store } from '@ngrx/store';
+import BaseEvent from 'ol/events/Event';
 import Feature from 'ol/Feature';
 import Circle from 'ol/geom/Circle';
+import Geometry from 'ol/geom/Geometry';
 import LineString from 'ol/geom/LineString';
 import Polygon from 'ol/geom/Polygon';
 import Draw, { DrawEvent } from 'ol/interaction/Draw';
 import VectorLayer from 'ol/layer/Vector';
 import Map from 'ol/Map';
+import { unByKey } from 'ol/Observable';
+import { getArea, getLength } from 'ol/sphere';
 import { combineLatest, Observable, Subscription } from 'rxjs';
 import { filter, take } from 'rxjs/operators';
 
@@ -103,7 +107,8 @@ export class MeasureResultsComponent implements OnInit, OnDestroy {
       })
     );
     this.displayValue = this.initialText;
-    this.draw.on('drawstart', (e: any) => {
+    let listener = null;
+    this.draw.on('drawstart', (e: DrawEvent) => {
       layer.getSource().clear();
       this.store.dispatch(
         new CursorActions.SetMode({
@@ -112,29 +117,29 @@ export class MeasureResultsComponent implements OnInit, OnDestroy {
         })
       );
       this.displayValue = null;
-      const feature: Feature = e.feature;
-      feature.on('change', (evt: any) => {
-        const feat: Feature = evt.target;
+      const feature = e.feature;
+      listener = feature.getGeometry().on('change', (evt: BaseEvent) => {
+        const geom: Geometry = evt.target;
         let displayValue: string = null;
         switch (mode.type) {
           case 'line':
-            const lineString = <LineString>feat.getGeometry();
+            const lineString = geom as LineString;
             displayValue = `${
               this.dictionary.distance
             }: ${this.measureService.exchangeMetersAndKilometers(
-              lineString.getLength()
+              getLength(lineString)
             )}.`;
             break;
           case 'area':
-            const polygon = <Polygon>feat.getGeometry();
+            const polygon = geom as Polygon;
             displayValue = `${
               this.dictionary.area
             }: ${this.measureService.exchangeSqmetersAndSqkilometers(
-              polygon.getArea()
+              getArea(polygon)
             )}.`;
             break;
           case 'radius':
-            const circle = <Circle>feat.getGeometry();
+            const circle = geom as Circle;
             this.store
               .select((state) => state.controllers.position.coordinates)
               .pipe(take(1))
@@ -142,6 +147,11 @@ export class MeasureResultsComponent implements OnInit, OnDestroy {
                 const center = circle.getCenter();
                 const dx = position[0] - center[0];
                 const dy = position[1] - center[1];
+                // This is needed for calculationg the length of the radius
+                const line = new LineString([
+                  [+center[0], +center[1]],
+                  [+position[0], +position[1]],
+                ]);
                 // range (-PI, PI]
                 let angle = Math.atan2(dy, dx);
                 // rads to degs, range (-180, 180]
@@ -153,7 +163,7 @@ export class MeasureResultsComponent implements OnInit, OnDestroy {
                 displayValue = `${
                   this.dictionary.radius
                 }: ${this.measureService.exchangeMetersAndKilometers(
-                  circle.getRadius()
+                  getLength(line)
                 )}, ${this.dictionary.angle}: ${displayAngle}.`;
               });
             break;
@@ -171,6 +181,7 @@ export class MeasureResultsComponent implements OnInit, OnDestroy {
     });
 
     this.draw.on('drawend', (e: DrawEvent) => {
+      unByKey(listener);
       e.feature.setProperties({ text: this.displayValue });
       this.store.dispatch(
         new CursorActions.SetMode({

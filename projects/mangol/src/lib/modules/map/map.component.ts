@@ -3,7 +3,7 @@ import {
   Component,
   Input,
   OnDestroy,
-  OnInit
+  OnInit,
 } from '@angular/core';
 import { Store } from '@ngrx/store';
 import Map from 'ol/Map';
@@ -29,7 +29,7 @@ import { MapService } from './map.service';
 @Component({
   selector: 'mangol-map',
   templateUrl: './map.component.html',
-  styleUrls: ['./map.component.scss']
+  styleUrls: ['./map.component.scss'],
 })
 export class MapComponent implements OnInit, AfterViewInit, OnDestroy {
   @Input()
@@ -81,7 +81,7 @@ export class MapComponent implements OnInit, AfterViewInit, OnDestroy {
     register(proj4);
     // React to config changes in the store
     this.configSubscription = this.store
-      .select(state => state.config.config)
+      .select((state) => state.config.config)
       .subscribe((config: MangolConfig) => {
         let view: View = null;
         let layers: MangolLayer[] = null;
@@ -102,7 +102,7 @@ export class MapComponent implements OnInit, AfterViewInit, OnDestroy {
             new Map({
               target: this.target,
               view: view !== null ? view : this.defaultMap.view,
-              layers: []
+              layers: [],
             })
           )
         );
@@ -112,48 +112,49 @@ export class MapComponent implements OnInit, AfterViewInit, OnDestroy {
 
     // React to layer changes in the store
     this.layersSubscription = this.store
-      .select(state => state.layers.layers)
+      .select((state) => state.layers.layers)
       .subscribe((layers: MangolLayer[]) => {
         this.store
-          .select(state => state.map.map)
+          .select((state) => state.map.map)
           .pipe(take(1))
-          .subscribe(map => {
+          .subscribe((map) => {
             // Delete all previously loaded layers in the map
-            map.getLayers().forEach(l => {
+            map.getLayers().forEach((l) => {
               map.removeLayer(l);
             });
             // Add all OL layers
-            layers.forEach(l => {
+            layers.forEach((l) => {
               map.addLayer(l.layer);
             });
           });
       });
 
     this.cursorModeSubscription = this.store
-      .select(state => state.cursor.mode)
-      .subscribe(cursorMode => {
+      .select((state) => state.cursor.mode)
+      .subscribe((cursorMode) => {
         this.cursorStyle = {
           cursor:
             cursorMode !== null && cursorMode.hasOwnProperty('cursor')
               ? cursorMode.cursor
-              : 'default'
+              : 'default',
         };
       });
 
     this.mapSubscription = this.store
-      .select(state => state.map.map)
-      .pipe(filter(m => m !== null))
-      .subscribe(m => {
+      .select((state) => state.map.map)
+      .pipe(filter((m) => m !== null))
+      .subscribe((m) => {
         if (this.pointerMoveFunction !== null) {
           m.un('pointermove', this.pointerMoveFunction);
         }
-        this.pointerMoveFunction = evt => this._createPointerMoveFunction(evt);
+        this.pointerMoveFunction = (evt: any) =>
+          this._createPointerMoveFunction(evt);
         m.on('pointermove', this.pointerMoveFunction);
       });
 
     this.positionSubscription = this.store
-      .select(state => state.controllers.position)
-      .subscribe(position => (this.position = position));
+      .select((state) => state.controllers.position)
+      .subscribe((position) => (this.position = position));
   }
 
   ngOnDestroy() {
@@ -171,12 +172,12 @@ export class MapComponent implements OnInit, AfterViewInit, OnDestroy {
     }
     if (this.pointerMoveFunction !== null) {
       this.store
-        .select(state => state.map.map)
+        .select((state) => state.map.map)
         .pipe(
-          filter(m => m !== null),
+          filter((m) => m !== null),
           take(1)
         )
-        .subscribe(m => {
+        .subscribe((m) => {
           m.un('pointermove', this.pointerMoveFunction);
         });
     }
@@ -186,7 +187,7 @@ export class MapComponent implements OnInit, AfterViewInit, OnDestroy {
    * Creates the pointermove event handler function
    * @param evt
    */
-  private _createPointerMoveFunction(evt) {
+  private _createPointerMoveFunction(evt: any) {
     if (evt.dragging) {
       return;
     } else {
@@ -218,7 +219,7 @@ export class MapComponent implements OnInit, AfterViewInit, OnDestroy {
     layers: (MangolLayer | MangolLayerGroup)[]
   ): MangolLayer[] {
     const myLayers: MangolLayer[] = [];
-    layers.forEach(l => {
+    layers.forEach((l) => {
       if (l instanceof MangolLayer) {
         this.processLayer(l, myLayers);
       } else if (l instanceof MangolLayerGroup) {

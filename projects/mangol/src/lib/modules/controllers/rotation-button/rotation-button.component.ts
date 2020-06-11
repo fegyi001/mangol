@@ -13,7 +13,7 @@ import * as fromMangol from './../../../store/mangol.reducers';
   selector: 'mangol-rotation-button',
   templateUrl: './rotation-button.component.html',
   styleUrls: ['./rotation-button.component.scss'],
-  animations: [shownStateTrigger]
+  animations: [shownStateTrigger],
 })
 export class RotationButtonComponent implements OnInit, OnDestroy {
   rotation$: Observable<MangolControllersRotationStateModel>;
@@ -23,12 +23,12 @@ export class RotationButtonComponent implements OnInit, OnDestroy {
   mapSubscription: Subscription;
 
   constructor(private store: Store<fromMangol.MangolState>) {
-    this.rotation$ = this.store.select(state => state.controllers.rotation);
+    this.rotation$ = this.store.select((state) => state.controllers.rotation);
 
     this.mapSubscription = this.store
-      .select(state => state.map.map)
-      .pipe(filter(m => m !== null))
-      .subscribe(m => {
+      .select((state) => state.map.map)
+      .pipe(filter((m) => m !== null))
+      .subscribe((m) => {
         const view = m.getView();
         this.store.dispatch(
           new ControllersActions.SetRotationValue(view.getRotation())
@@ -36,7 +36,7 @@ export class RotationButtonComponent implements OnInit, OnDestroy {
         if (this.rotationFunction !== null) {
           view.un('change:rotation', this.rotationFunction);
         }
-        this.rotationFunction = evt => this._createRotationFunction(evt);
+        this.rotationFunction = (evt: any) => this._createRotationFunction(evt);
         view.on('change:rotation', this.rotationFunction);
       });
   }
@@ -48,24 +48,24 @@ export class RotationButtonComponent implements OnInit, OnDestroy {
       this.mapSubscription.unsubscribe();
     }
     this.store
-      .select(state => state.map.map)
+      .select((state) => state.map.map)
       .pipe(
-        filter(m => m !== null),
+        filter((m) => m !== null),
         take(1)
       )
-      .subscribe(m => {
+      .subscribe((m) => {
         m.getView().un('change:rotation', this.rotationFunction);
       });
   }
 
   rotateNorth() {
     this.store
-      .select(state => state.map.map)
+      .select((state) => state.map.map)
       .pipe(
-        filter(m => m !== null),
+        filter((m) => m !== null),
         take(1)
       )
-      .subscribe(m => {
+      .subscribe((m) => {
         const view = m.getView();
         if (view.getRotation() !== 0) {
           view.animate({ rotation: 0, duration: this.animationDuration });
@@ -80,7 +80,7 @@ export class RotationButtonComponent implements OnInit, OnDestroy {
     return { transform: `rotate(${rotation}rad)` };
   }
 
-  private _createRotationFunction(evt) {
+  private _createRotationFunction(evt: any) {
     const targetView = <View>evt.target;
     this.store.dispatch(
       new ControllersActions.SetRotationValue(targetView.getRotation())
