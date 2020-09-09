@@ -36,7 +36,7 @@
     "ngrx-store-logger": "^0.2.4",
     "ol": "^6.3.1",
     "proj4": "^2.6.2",
-    "rxjs": "^6.5.3",
+    "rxjs": "^6.6.3",
     "zone.js": "^0.10.3"
   },
   "devDependencies": {
