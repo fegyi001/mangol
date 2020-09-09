@@ -1,6 +1,6 @@
 {
   "name": "mangol-app",
-  "version": "9.1.10-0.3",
+  "version": "10.1.1",
   "scripts": {
     "ng": "ng",
     "start": "ng serve --port 4200 --host 0.0.0.0 --disableHostCheck",
