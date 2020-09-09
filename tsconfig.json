@@ -16,6 +16,7 @@
             "es2018",
             "dom"
         ],
+        "module": "ES2015",
         "paths": {
             //workaround: https://github.com/zloirock/core-js/issues/412
             "core-js/es7/reflect": [
