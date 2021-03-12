@@ -32,7 +32,7 @@
     "@types/ol": "^6.3.1",
     "core-js": "^3.6.5",
     "file-saver": "^2.0.2",
-    "jspdf": "^1.5.3",
+    "jspdf": "^2.3.1",
     "ngrx-store-logger": "^0.2.4",
     "ol": "^6.4.3",
     "proj4": "^2.6.2",
