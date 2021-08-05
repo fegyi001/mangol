@@ -6,6 +6,7 @@
 /out-tsc
 /.ng_pkg_build
 /doc
+yarn.lock
 
 # dependencies
 /node_modules
