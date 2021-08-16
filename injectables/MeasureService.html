@@ -8,7 +8,8 @@
         <meta name="viewport" content="width=device-width, initial-scale=1">
 
         <link rel="icon" type="image/x-icon" href="../images/favicon.ico">
-	      <link rel="stylesheet" href="../styles/style.css">
+	   <link rel="stylesheet" href="../styles/style.css">
+        <link rel="stylesheet" href="../styles/dark.css" media="(prefers-color-scheme: dark)">
         <link rel="stylesheet" href="../styles/material.css">
     </head>
     <body>
@@ -39,7 +40,7 @@
 
 <ol class="breadcrumb">
   <li>Injectables</li>
-  <li>MeasureService</li>
+  <li >MeasureService</li>
 </ol>
 
 <ul class="nav nav-tabs" role="tablist">
@@ -63,6 +64,7 @@
 
 
 
+
             <section>
     <h3 id="index">Index</h3>
     <table class="table table-sm table-bordered index-table">
@@ -77,13 +79,13 @@
                     <td class="col-md-4">
                         <ul class="index-list">
                             <li>
-                                <a href="#exchangeMetersAndKilometers">exchangeMetersAndKilometers</a>
+                                <a href="#exchangeMetersAndKilometers" >exchangeMetersAndKilometers</a>
                             </li>
                             <li>
-                                <a href="#exchangeSqmetersAndSqkilometers">exchangeSqmetersAndSqkilometers</a>
+                                <a href="#exchangeSqmetersAndSqkilometers" >exchangeSqmetersAndSqkilometers</a>
                             </li>
                             <li>
-                                <a href="#getStyle">getStyle</a>
+                                <a href="#getStyle" >getStyle</a>
                             </li>
                         </ul>
                     </td>
@@ -108,7 +110,7 @@
                 </tr>
                         <tr>
                             <td class="col-md-4">
-                                <div class="io-line">Defined in <a href="" data-line="12" class="link-to-prism">projects/mangol/src/lib/modules/measure/measure.service.ts:12</a></div>
+                                <div class="io-line">Defined in <a href="" data-line="14" class="link-to-prism">projects/mangol/src/lib/modules/measure/measure.service.ts:14</a></div>
                             </td>
                         </tr>
 
@@ -127,9 +129,7 @@
                 <td class="col-md-4">
                     <a name="exchangeMetersAndKilometers"></a>
                     <span class="name">
-                        <b>
-                            exchangeMetersAndKilometers
-                        </b>
+                        <span ><b>exchangeMetersAndKilometers</b></span>
                         <a href="#exchangeMetersAndKilometers"><span class="icon ion-ios-link"></span></a>
                     </span>
                 </td>
@@ -143,8 +143,8 @@
 
             <tr>
                 <td class="col-md-4">
-                    <div class="io-line">Defined in <a href="" data-line="15"
-                            class="link-to-prism">projects/mangol/src/lib/modules/measure/measure.service.ts:15</a></div>
+                    <div class="io-line">Defined in <a href="" data-line="17"
+                            class="link-to-prism">projects/mangol/src/lib/modules/measure/measure.service.ts:17</a></div>
                 </td>
             </tr>
 
@@ -197,9 +197,7 @@
                 <td class="col-md-4">
                     <a name="exchangeSqmetersAndSqkilometers"></a>
                     <span class="name">
-                        <b>
-                            exchangeSqmetersAndSqkilometers
-                        </b>
+                        <span ><b>exchangeSqmetersAndSqkilometers</b></span>
                         <a href="#exchangeSqmetersAndSqkilometers"><span class="icon ion-ios-link"></span></a>
                     </span>
                 </td>
@@ -213,8 +211,8 @@
 
             <tr>
                 <td class="col-md-4">
-                    <div class="io-line">Defined in <a href="" data-line="21"
-                            class="link-to-prism">projects/mangol/src/lib/modules/measure/measure.service.ts:21</a></div>
+                    <div class="io-line">Defined in <a href="" data-line="23"
+                            class="link-to-prism">projects/mangol/src/lib/modules/measure/measure.service.ts:23</a></div>
                 </td>
             </tr>
 
@@ -267,24 +265,22 @@
                 <td class="col-md-4">
                     <a name="getStyle"></a>
                     <span class="name">
-                        <b>
-                            getStyle
-                        </b>
+                        <span ><b>getStyle</b></span>
                         <a href="#getStyle"><span class="icon ion-ios-link"></span></a>
                     </span>
                 </td>
             </tr>
             <tr>
                 <td class="col-md-4">
-<code>getStyle(feature: Feature)</code>
+<code>getStyle(feature: Feature<Polygon | LineString | Point>)</code>
                 </td>
             </tr>
 
 
             <tr>
                 <td class="col-md-4">
-                    <div class="io-line">Defined in <a href="" data-line="27"
-                            class="link-to-prism">projects/mangol/src/lib/modules/measure/measure.service.ts:27</a></div>
+                    <div class="io-line">Defined in <a href="" data-line="29"
+                            class="link-to-prism">projects/mangol/src/lib/modules/measure/measure.service.ts:29</a></div>
                 </td>
             </tr>
 
@@ -306,7 +302,7 @@
                                 <tr>
                                     <td>feature</td>
                                     <td>
-                                            <code>Feature</code>
+                                            <code>Feature&lt;Polygon | LineString | Point&gt;</code>
                                     </td>
 
                                     <td>
@@ -339,14 +335,16 @@
     <div class="tab-pane fade  tab-source-code" id="c-source">
         <pre class="line-numbers compodoc-sourcecode"><code class="language-typescript">import { Injectable } from &#x27;@angular/core&#x27;;
 import Feature from &#x27;ol/Feature&#x27;;
+import LineString from &#x27;ol/geom/LineString&#x27;;
+import Point from &#x27;ol/geom/Point&#x27;;
+import Polygon from &#x27;ol/geom/Polygon&#x27;;
 import Fill from &#x27;ol/style/Fill&#x27;;
 import Stroke from &#x27;ol/style/Stroke&#x27;;
 import Style from &#x27;ol/style/Style&#x27;;
 import Text from &#x27;ol/style/Text&#x27;;
-import CircleStyle from &#x27;ol/style/Circle&#x27;;
 
 @Injectable({
-  providedIn: &#x27;root&#x27;
+  providedIn: &#x27;root&#x27;,
 })
 export class MeasureService {
   constructor() {}
@@ -363,18 +361,18 @@ export class MeasureService {
       : parseFloat((value / 1000000).toString()).toFixed(2) + &#x27; km\u00B2&#x27;;
   }
 
-  getStyle(feature: Feature): Style[] {
+  getStyle(feature: Feature&lt;Polygon | LineString | Point&gt;): Style[] {
     return [
       new Style({
         fill: new Fill({
-          color: [0, 0, 0, 0]
-        })
+          color: [0, 0, 0, 0],
+        }),
       }),
       new Style({
         stroke: new Stroke({
           color: [28, 28, 28, 1],
           width: 2,
-          lineDash: [5, 5]
+          lineDash: [5, 5],
         }),
         text: new Text({
           textAlign: &#x27;center&#x27;,
@@ -384,18 +382,18 @@ export class MeasureService {
             : &#x27;&#x27;,
           font: &#x27;normal 12px Roboto&#x27;,
           fill: new Fill({
-            color: &#x27;white&#x27;
+            color: &#x27;white&#x27;,
           }),
           backgroundFill: new Fill({
-            color: [0, 0, 0, 0.6]
+            color: [0, 0, 0, 0.6],
           }),
           overflow: true,
           offsetX: 0,
           offsetY: 0,
           rotation: 0,
-          padding: [5, 8, 5, 8]
-        })
-      })
+          padding: [5, 8, 5, 8],
+        }),
+      }),
     ];
   }
 }
@@ -438,9 +436,9 @@ export class MeasureService {
 
        <script src="../js/libs/custom-elements.min.js"></script>
        <script src="../js/libs/lit-html.js"></script>
-       <!-- Required to polyfill modern browsers as code is ES5 for IE... -->
-       <script src="../js/libs/custom-elements-es5-adapter.js" charset="utf-8" defer></script>
-       <script src="../js/menu-wc.js" defer></script>
+       
+       <script type="module" src="../js/menu-wc.js" defer></script>
+       <script nomodule src="../js/menu-wc_es5.js" defer></script>
 
        <script src="../js/libs/bootstrap-native.js"></script>
 

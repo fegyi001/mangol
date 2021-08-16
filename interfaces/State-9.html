@@ -8,7 +8,8 @@
         <meta name="viewport" content="width=device-width, initial-scale=1">
 
         <link rel="icon" type="image/x-icon" href="../images/favicon.ico">
-	      <link rel="stylesheet" href="../styles/style.css">
+	   <link rel="stylesheet" href="../styles/style.css">
+        <link rel="stylesheet" href="../styles/dark.css" media="(prefers-color-scheme: dark)">
         <link rel="stylesheet" href="../styles/material.css">
     </head>
     <body>
@@ -44,7 +45,9 @@
 
 <ol class="breadcrumb">
   <li>Interfaces</li>
-  <li>State</li>
+  <li
+  >
+  State</li>
 </ol>
 
 <ul class="nav nav-tabs" role="tablist">
@@ -62,8 +65,9 @@
             <h3>File</h3>
         </p>
         <p class="comment">
-            <code>projects/mangol/src/lib/store/sidebar/sidebar.reducers.ts</code>
+            <code>projects/mangol/src/lib/store/print/print.reducers.ts</code>
         </p>
+
 
 
 
@@ -80,22 +84,64 @@
                         <td class="col-md-4">
                             <ul class="index-list">
                                 <li>
-                                        <a href="#collapsible">collapsible</a>
+                                        <a href="#dictionary" 
+>
+                                            dictionary
+                                        </a>
                                 </li>
                                 <li>
-                                        <a href="#hasSidebar">hasSidebar</a>
+                                        <a href="#disabled" 
+>
+                                            disabled
+                                        </a>
                                 </li>
                                 <li>
-                                        <a href="#mode">mode</a>
+                                        <a href="#hasPrint" 
+>
+                                            hasPrint
+                                        </a>
                                 </li>
                                 <li>
-                                        <a href="#opened">opened</a>
+                                        <a href="#layouts" 
+>
+                                            layouts
+                                        </a>
                                 </li>
                                 <li>
-                                        <a href="#selectedModule">selectedModule</a>
+                                        <a href="#resolutions" 
+>
+                                            resolutions
+                                        </a>
                                 </li>
                                 <li>
-                                        <a href="#title">title</a>
+                                        <a href="#selectedLayout" 
+>
+                                            selectedLayout
+                                        </a>
+                                </li>
+                                <li>
+                                        <a href="#selectedResolution" 
+>
+                                            selectedResolution
+                                        </a>
+                                </li>
+                                <li>
+                                        <a href="#selectedSize" 
+>
+                                            selectedSize
+                                        </a>
+                                </li>
+                                <li>
+                                        <a href="#sizes" 
+>
+                                            sizes
+                                        </a>
+                                </li>
+                                <li>
+                                        <a href="#title" 
+>
+                                            title
+                                        </a>
                                 </li>
                             </ul>
                         </td>
@@ -112,13 +158,50 @@
                         <tbody>
                                 <tr>
                                     <td class="col-md-4">
-                                        <a name="collapsible"></a>
-                                        <span class="name"><b>collapsible</b><a href="#collapsible"><span class="icon ion-ios-link"></span></a></span>
+                                        <a name="dictionary"></a>
+                                        <span class="name "><b>dictionary</b>
+                                            <a href="#dictionary">
+                                                <span class="icon ion-ios-link"></span>
+                                            </a>
+                                        </span>
                                     </td>
                                 </tr>
                                 <tr>
                                     <td class="col-md-4">
-                                        <code>collapsible:         <code><a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/boolean" target="_blank" >boolean</a></code>
+                                        <code>dictionary:         <code><a href="../interfaces/PrintDictionary.html" target="_self" >PrintDictionary</a></code>
+</code>
+                                    </td>
+                                </tr>
+
+
+                                    <tr>
+                                        <td class="col-md-4">
+                                            <i>Type : </i>        <code><a href="../interfaces/PrintDictionary.html" target="_self" >PrintDictionary</a></code>
+
+                                        </td>
+                                    </tr>
+
+
+
+
+
+                        </tbody>
+                    </table>
+                    <table class="table table-sm table-bordered">
+                        <tbody>
+                                <tr>
+                                    <td class="col-md-4">
+                                        <a name="disabled"></a>
+                                        <span class="name "><b>disabled</b>
+                                            <a href="#disabled">
+                                                <span class="icon ion-ios-link"></span>
+                                            </a>
+                                        </span>
+                                    </td>
+                                </tr>
+                                <tr>
+                                    <td class="col-md-4">
+                                        <code>disabled:         <code><a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/boolean" target="_blank" >boolean</a></code>
 </code>
                                     </td>
                                 </tr>
@@ -141,13 +224,17 @@
                         <tbody>
                                 <tr>
                                     <td class="col-md-4">
-                                        <a name="hasSidebar"></a>
-                                        <span class="name"><b>hasSidebar</b><a href="#hasSidebar"><span class="icon ion-ios-link"></span></a></span>
+                                        <a name="hasPrint"></a>
+                                        <span class="name "><b>hasPrint</b>
+                                            <a href="#hasPrint">
+                                                <span class="icon ion-ios-link"></span>
+                                            </a>
+                                        </span>
                                     </td>
                                 </tr>
                                 <tr>
                                     <td class="col-md-4">
-                                        <code>hasSidebar:         <code><a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/boolean" target="_blank" >boolean</a></code>
+                                        <code>hasPrint:         <code><a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/boolean" target="_blank" >boolean</a></code>
 </code>
                                     </td>
                                 </tr>
@@ -170,13 +257,17 @@
                         <tbody>
                                 <tr>
                                     <td class="col-md-4">
-                                        <a name="mode"></a>
-                                        <span class="name"><b>mode</b><a href="#mode"><span class="icon ion-ios-link"></span></a></span>
+                                        <a name="layouts"></a>
+                                        <span class="name "><b>layouts</b>
+                                            <a href="#layouts">
+                                                <span class="icon ion-ios-link"></span>
+                                            </a>
+                                        </span>
                                     </td>
                                 </tr>
                                 <tr>
                                     <td class="col-md-4">
-                                        <code>mode:         <code><a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/string" target="_blank" >string</a></code>
+                                        <code>layouts:     <code>PrintLayout[]</code>
 </code>
                                     </td>
                                 </tr>
@@ -184,7 +275,7 @@
 
                                     <tr>
                                         <td class="col-md-4">
-                                            <i>Type : </i>        <code><a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/string" target="_blank" >string</a></code>
+                                            <i>Type : </i>    <code>PrintLayout[]</code>
 
                                         </td>
                                     </tr>
@@ -199,13 +290,17 @@
                         <tbody>
                                 <tr>
                                     <td class="col-md-4">
-                                        <a name="opened"></a>
-                                        <span class="name"><b>opened</b><a href="#opened"><span class="icon ion-ios-link"></span></a></span>
+                                        <a name="resolutions"></a>
+                                        <span class="name "><b>resolutions</b>
+                                            <a href="#resolutions">
+                                                <span class="icon ion-ios-link"></span>
+                                            </a>
+                                        </span>
                                     </td>
                                 </tr>
                                 <tr>
                                     <td class="col-md-4">
-                                        <code>opened:         <code><a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/boolean" target="_blank" >boolean</a></code>
+                                        <code>resolutions:     <code>number[]</code>
 </code>
                                     </td>
                                 </tr>
@@ -213,7 +308,7 @@
 
                                     <tr>
                                         <td class="col-md-4">
-                                            <i>Type : </i>        <code><a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/boolean" target="_blank" >boolean</a></code>
+                                            <i>Type : </i>    <code>number[]</code>
 
                                         </td>
                                     </tr>
@@ -228,13 +323,17 @@
                         <tbody>
                                 <tr>
                                     <td class="col-md-4">
-                                        <a name="selectedModule"></a>
-                                        <span class="name"><b>selectedModule</b><a href="#selectedModule"><span class="icon ion-ios-link"></span></a></span>
+                                        <a name="selectedLayout"></a>
+                                        <span class="name "><b>selectedLayout</b>
+                                            <a href="#selectedLayout">
+                                                <span class="icon ion-ios-link"></span>
+                                            </a>
+                                        </span>
                                     </td>
                                 </tr>
                                 <tr>
                                     <td class="col-md-4">
-                                        <code>selectedModule:         <code><a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/string" target="_blank" >string</a></code>
+                                        <code>selectedLayout:         <code><a href="../interfaces/PrintLayout.html" target="_self" >PrintLayout</a></code>
 </code>
                                     </td>
                                 </tr>
@@ -242,7 +341,106 @@
 
                                     <tr>
                                         <td class="col-md-4">
-                                            <i>Type : </i>        <code><a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/string" target="_blank" >string</a></code>
+                                            <i>Type : </i>        <code><a href="../interfaces/PrintLayout.html" target="_self" >PrintLayout</a></code>
+
+                                        </td>
+                                    </tr>
+
+
+
+
+
+                        </tbody>
+                    </table>
+                    <table class="table table-sm table-bordered">
+                        <tbody>
+                                <tr>
+                                    <td class="col-md-4">
+                                        <a name="selectedResolution"></a>
+                                        <span class="name "><b>selectedResolution</b>
+                                            <a href="#selectedResolution">
+                                                <span class="icon ion-ios-link"></span>
+                                            </a>
+                                        </span>
+                                    </td>
+                                </tr>
+                                <tr>
+                                    <td class="col-md-4">
+                                        <code>selectedResolution:         <code><a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/number" target="_blank" >number</a></code>
+</code>
+                                    </td>
+                                </tr>
+
+
+                                    <tr>
+                                        <td class="col-md-4">
+                                            <i>Type : </i>        <code><a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/number" target="_blank" >number</a></code>
+
+                                        </td>
+                                    </tr>
+
+
+
+
+
+                        </tbody>
+                    </table>
+                    <table class="table table-sm table-bordered">
+                        <tbody>
+                                <tr>
+                                    <td class="col-md-4">
+                                        <a name="selectedSize"></a>
+                                        <span class="name "><b>selectedSize</b>
+                                            <a href="#selectedSize">
+                                                <span class="icon ion-ios-link"></span>
+                                            </a>
+                                        </span>
+                                    </td>
+                                </tr>
+                                <tr>
+                                    <td class="col-md-4">
+                                        <code>selectedSize:         <code><a href="../interfaces/PrintSize.html" target="_self" >PrintSize</a></code>
+</code>
+                                    </td>
+                                </tr>
+
+
+                                    <tr>
+                                        <td class="col-md-4">
+                                            <i>Type : </i>        <code><a href="../interfaces/PrintSize.html" target="_self" >PrintSize</a></code>
+
+                                        </td>
+                                    </tr>
+
+
+
+
+
+                        </tbody>
+                    </table>
+                    <table class="table table-sm table-bordered">
+                        <tbody>
+                                <tr>
+                                    <td class="col-md-4">
+                                        <a name="sizes"></a>
+                                        <span class="name "><b>sizes</b>
+                                            <a href="#sizes">
+                                                <span class="icon ion-ios-link"></span>
+                                            </a>
+                                        </span>
+                                    </td>
+                                </tr>
+                                <tr>
+                                    <td class="col-md-4">
+                                        <code>sizes:         <code><a href="../interfaces/PrintSize.html" target="_self" >PrintSize[]</a></code>
+</code>
+                                    </td>
+                                </tr>
+
+
+                                    <tr>
+                                        <td class="col-md-4">
+                                            <i>Type : </i>        <code><a href="../interfaces/PrintSize.html" target="_self" >PrintSize[]</a></code>
 
                                         </td>
                                     </tr>
@@ -258,7 +456,11 @@
                                 <tr>
                                     <td class="col-md-4">
                                         <a name="title"></a>
-                                        <span class="name"><b>title</b><a href="#title"><span class="icon ion-ios-link"></span></a></span>
+                                        <span class="name "><b>title</b>
+                                            <a href="#title">
+                                                <span class="icon ion-ios-link"></span>
+                                            </a>
+                                        </span>
                                     </td>
                                 </tr>
                                 <tr>
@@ -287,45 +489,98 @@
 
 
     <div class="tab-pane fade  tab-source-code" id="c-source">
-        <pre class="line-numbers compodoc-sourcecode"><code class="language-typescript">import * as SidebarActions from &#x27;./sidebar.actions&#x27;;
+        <pre class="line-numbers compodoc-sourcecode"><code class="language-typescript">import { PrintDictionary } from &#x27;./../../interfaces/config-toolbar.interface&#x27;;
+import * as PrintActions from &#x27;./print.actions&#x27;;
+
+export interface PrintLayout {
+  type: &#x27;landscape&#x27; | &#x27;portrait&#x27;;
+}
+
+export interface PrintSize {
+  id: string;
+  width: number;
+  height: number;
+}
 
 export interface State {
-  hasSidebar: boolean;
-  opened: boolean;
-  collapsible: boolean;
+  hasPrint: boolean;
+  disabled: boolean;
   title: string;
-  mode: string;
-  selectedModule: string;
+  layouts: PrintLayout[];
+  resolutions: number[];
+  sizes: PrintSize[];
+  selectedLayout: PrintLayout;
+  selectedResolution: number;
+  selectedSize: PrintSize;
+  dictionary: PrintDictionary;
 }
 
 const initialState: State &#x3D; {
-  hasSidebar: false,
-  collapsible: true,
-  opened: false,
-  title: null,
-  mode: &#x27;side&#x27;,
-  selectedModule: null
+  hasPrint: false,
+  disabled: false,
+  title: &#x27;Print&#x27;,
+  resolutions: [72, 100, 150, 300],
+  sizes: [
+    { id: &#x27;A5&#x27;, width: 210, height: 148 },
+    { id: &#x27;A4&#x27;, width: 297, height: 210 },
+    { id: &#x27;A3&#x27;, width: 420, height: 297 },
+    { id: &#x27;A2&#x27;, width: 594, height: 420 },
+    { id: &#x27;A1&#x27;, width: 841, height: 594 },
+    { id: &#x27;A0&#x27;, width: 1189, height: 841 }
+  ],
+  layouts: [
+    {
+      type: &#x27;landscape&#x27;
+    },
+    {
+      type: &#x27;portrait&#x27;
+    }
+  ],
+  selectedLayout: null,
+  selectedResolution: null,
+  selectedSize: null,
+  dictionary: {
+    print: &#x27;Print&#x27;,
+    layout: &#x27;Layout&#x27;,
+    size: &#x27;Size&#x27;,
+    resolution: &#x27;Resolution&#x27;,
+    landscape: &#x27;Landscape&#x27;,
+    portrait: &#x27;Portrait&#x27;,
+    clearSelection: &#x27;Clear&#x27;
+  }
 };
 
-export function sidebarReducer(
+export function printReducer(
   state &#x3D; initialState,
-  action: SidebarActions.SidebarActions
+  action: PrintActions.PrintActions
 ) {
   switch (action.type) {
-    case SidebarActions.TOGGLE:
-      return { ...state, opened: !state.opened };
-    case SidebarActions.SET_HAS_SIDEBAR:
-      return { ...state, hasSidebar: action.payload };
-    case SidebarActions.SET_MODE:
-      return { ...state, mode: action.payload };
-    case SidebarActions.SET_COLLAPSIBLE:
-      return { ...state, collapsible: action.payload };
-    case SidebarActions.SET_OPENED:
-      return { ...state, opened: action.payload };
-    case SidebarActions.SET_TITLE:
+    case PrintActions.HAS_PRINT:
+      return { ...state, hasPrint: action.payload };
+    case PrintActions.SET_DISABLED:
+      return { ...state, disabled: action.payload };
+    case PrintActions.SET_TITLE:
       return { ...state, title: action.payload };
-    case SidebarActions.SET_SELECTED_MODULE:
-      return { ...state, selectedModule: action.payload };
+    case PrintActions.SET_RESOLUTIONS:
+      return { ...state, resolutions: action.payload };
+    case PrintActions.SET_LAYOUTS:
+      return { ...state, layouts: action.payload };
+    case PrintActions.SET_SIZES:
+      return { ...state, sizes: action.payload };
+    case PrintActions.SET_DICTIONARY:
+      const dict &#x3D; { ...state.dictionary };
+      for (const key in action.payload) {
+        if (action.payload.hasOwnProperty(key)) {
+          dict[key] &#x3D; action.payload[key];
+        }
+      }
+      return { ...state, dictionary: dict };
+    case PrintActions.SET_SELECTED_LAYOUT:
+      return { ...state, selectedLayout: action.payload };
+    case PrintActions.SET_SELECTED_RESOLUTION:
+      return { ...state, selectedResolution: action.payload };
+    case PrintActions.SET_SELECTED_SIZE:
+      return { ...state, selectedSize: action.payload };
     default:
       return state;
   }
@@ -363,9 +618,9 @@ export function sidebarReducer(
 
        <script src="../js/libs/custom-elements.min.js"></script>
        <script src="../js/libs/lit-html.js"></script>
-       <!-- Required to polyfill modern browsers as code is ES5 for IE... -->
-       <script src="../js/libs/custom-elements-es5-adapter.js" charset="utf-8" defer></script>
-       <script src="../js/menu-wc.js" defer></script>
+       
+       <script type="module" src="../js/menu-wc.js" defer></script>
+       <script nomodule src="../js/menu-wc_es5.js" defer></script>
 
        <script src="../js/libs/bootstrap-native.js"></script>
 

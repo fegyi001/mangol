@@ -8,7 +8,8 @@
         <meta name="viewport" content="width=device-width, initial-scale=1">
 
         <link rel="icon" type="image/x-icon" href="../images/favicon.ico">
-	      <link rel="stylesheet" href="../styles/style.css">
+	   <link rel="stylesheet" href="../styles/style.css">
+        <link rel="stylesheet" href="../styles/dark.css" media="(prefers-color-scheme: dark)">
         <link rel="stylesheet" href="../styles/material.css">
     </head>
     <body>
@@ -44,7 +45,9 @@
 
 <ol class="breadcrumb">
   <li>Interfaces</li>
-  <li>MangolConfigSidebar</li>
+  <li
+  >
+  MangolConfigSidebar</li>
 </ol>
 
 <ul class="nav nav-tabs" role="tablist">
@@ -67,6 +70,7 @@
 
 
 
+
         <section>
             <h3 id="index">Index</h3>
             <table class="table table-sm table-bordered index-table">
@@ -81,23 +85,38 @@
                             <ul class="index-list">
                                 <li>
                                             <span class="modifier">Optional</span>
-                                        <a href="#collapsible">collapsible</a>
+                                        <a href="#collapsible" 
+>
+                                            collapsible
+                                        </a>
                                 </li>
                                 <li>
                                             <span class="modifier">Optional</span>
-                                        <a href="#mode">mode</a>
+                                        <a href="#mode" 
+>
+                                            mode
+                                        </a>
                                 </li>
                                 <li>
                                             <span class="modifier">Optional</span>
-                                        <a href="#opened">opened</a>
+                                        <a href="#opened" 
+>
+                                            opened
+                                        </a>
                                 </li>
                                 <li>
                                             <span class="modifier">Optional</span>
-                                        <a href="#title">title</a>
+                                        <a href="#title" 
+>
+                                            title
+                                        </a>
                                 </li>
                                 <li>
                                             <span class="modifier">Optional</span>
-                                        <a href="#toolbar">toolbar</a>
+                                        <a href="#toolbar" 
+>
+                                            toolbar
+                                        </a>
                                 </li>
                             </ul>
                         </td>
@@ -115,7 +134,11 @@
                                 <tr>
                                     <td class="col-md-4">
                                         <a name="collapsible"></a>
-                                        <span class="name"><b>collapsible</b><a href="#collapsible"><span class="icon ion-ios-link"></span></a></span>
+                                        <span class="name "><b>collapsible</b>
+                                            <a href="#collapsible">
+                                                <span class="icon ion-ios-link"></span>
+                                            </a>
+                                        </span>
                                     </td>
                                 </tr>
                                 <tr>
@@ -149,7 +172,11 @@
                                 <tr>
                                     <td class="col-md-4">
                                         <a name="mode"></a>
-                                        <span class="name"><b>mode</b><a href="#mode"><span class="icon ion-ios-link"></span></a></span>
+                                        <span class="name "><b>mode</b>
+                                            <a href="#mode">
+                                                <span class="icon ion-ios-link"></span>
+                                            </a>
+                                        </span>
                                     </td>
                                 </tr>
                                 <tr>
@@ -183,7 +210,11 @@
                                 <tr>
                                     <td class="col-md-4">
                                         <a name="opened"></a>
-                                        <span class="name"><b>opened</b><a href="#opened"><span class="icon ion-ios-link"></span></a></span>
+                                        <span class="name "><b>opened</b>
+                                            <a href="#opened">
+                                                <span class="icon ion-ios-link"></span>
+                                            </a>
+                                        </span>
                                     </td>
                                 </tr>
                                 <tr>
@@ -217,7 +248,11 @@
                                 <tr>
                                     <td class="col-md-4">
                                         <a name="title"></a>
-                                        <span class="name"><b>title</b><a href="#title"><span class="icon ion-ios-link"></span></a></span>
+                                        <span class="name "><b>title</b>
+                                            <a href="#title">
+                                                <span class="icon ion-ios-link"></span>
+                                            </a>
+                                        </span>
                                     </td>
                                 </tr>
                                 <tr>
@@ -251,7 +286,11 @@
                                 <tr>
                                     <td class="col-md-4">
                                         <a name="toolbar"></a>
-                                        <span class="name"><b>toolbar</b><a href="#toolbar"><span class="icon ion-ios-link"></span></a></span>
+                                        <span class="name "><b>toolbar</b>
+                                            <a href="#toolbar">
+                                                <span class="icon ion-ios-link"></span>
+                                            </a>
+                                        </span>
                                     </td>
                                 </tr>
                                 <tr>
@@ -327,9 +366,9 @@ export interface MangolConfigSidebar {
 
        <script src="../js/libs/custom-elements.min.js"></script>
        <script src="../js/libs/lit-html.js"></script>
-       <!-- Required to polyfill modern browsers as code is ES5 for IE... -->
-       <script src="../js/libs/custom-elements-es5-adapter.js" charset="utf-8" defer></script>
-       <script src="../js/menu-wc.js" defer></script>
+       
+       <script type="module" src="../js/menu-wc.js" defer></script>
+       <script nomodule src="../js/menu-wc_es5.js" defer></script>
 
        <script src="../js/libs/bootstrap-native.js"></script>
 

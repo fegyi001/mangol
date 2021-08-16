@@ -8,7 +8,8 @@
         <meta name="viewport" content="width=device-width, initial-scale=1">
 
         <link rel="icon" type="image/x-icon" href="../images/favicon.ico">
-	      <link rel="stylesheet" href="../styles/style.css">
+	   <link rel="stylesheet" href="../styles/style.css">
+        <link rel="stylesheet" href="../styles/dark.css" media="(prefers-color-scheme: dark)">
         <link rel="stylesheet" href="../styles/material.css">
     </head>
     <body>
@@ -43,7 +44,7 @@
 
 <ol class="breadcrumb">
   <li>Classes</li>
-  <li>SetOpened</li>
+  <li >SetOpened</li>
 </ol>
 
 <ul class="nav nav-tabs" role="tablist">
@@ -63,6 +64,7 @@
         <p class="comment">
             <code>projects/mangol/src/lib/store/sidebar/sidebar.actions.ts</code>
         </p>
+
 
 
 
@@ -88,11 +90,11 @@
                         <ul class="index-list">
                             <li>
                                     <span class="modifier">Public</span>
-                                <a href="#payload">payload</a>
+                                <a href="#payload" >payload</a>
                             </li>
                             <li>
                                     <span class="modifier">Readonly</span>
-                                <a href="#type">type</a>
+                                <a href="#type" >type</a>
                             </li>
                         </ul>
                     </td>
@@ -158,64 +160,62 @@
 
             <section>
     
-        <h3 id="inputs">
-            Properties
-        </h3>
-        <table class="table table-sm table-bordered">
-            <tbody>
+    <h3 id="inputs">
+        Properties
+    </h3>
+    <table class="table table-sm table-bordered">
+        <tbody>
+            <tr>
+                <td class="col-md-4">
+                    <a name="payload"></a>
+                    <span class="name">
+                            <span class="modifier">Public</span>
+                        <span ><b>payload</b></span>
+                        <a href="#payload"><span class="icon ion-ios-link"></span></a>
+                    </span>
+                </td>
+            </tr>
                 <tr>
                     <td class="col-md-4">
-                        <a name="payload"></a>
-                        <span class="name">
-                            <b>
-                                <span class="modifier">Public</span>
-                            payload</b>
-                            <a href="#payload"><span class="icon ion-ios-link"></span></a>
-                        </span>
+                        <i>Type : </i>        <code><a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/boolean" target="_blank" >boolean</a></code>
+
                     </td>
                 </tr>
                     <tr>
                         <td class="col-md-4">
-                            <i>Type : </i>        <code><a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/boolean" target="_blank" >boolean</a></code>
-
+                                <div class="io-line">Defined in <a href="" data-line="29" class="link-to-prism">projects/mangol/src/lib/store/sidebar/sidebar.actions.ts:29</a></div>
                         </td>
                     </tr>
-                        <tr>
-                            <td class="col-md-4">
-                                    <div class="io-line">Defined in <a href="" data-line="29" class="link-to-prism">projects/mangol/src/lib/store/sidebar/sidebar.actions.ts:29</a></div>
-                            </td>
-                        </tr>
 
 
-            </tbody>
-        </table>
-        <table class="table table-sm table-bordered">
-            <tbody>
+        </tbody>
+    </table>
+    <table class="table table-sm table-bordered">
+        <tbody>
+            <tr>
+                <td class="col-md-4">
+                    <a name="type"></a>
+                    <span class="name">
+                            <span class="modifier">Readonly</span>
+                        <span ><b>type</b></span>
+                        <a href="#type"><span class="icon ion-ios-link"></span></a>
+                    </span>
+                </td>
+            </tr>
                 <tr>
                     <td class="col-md-4">
-                        <a name="type"></a>
-                        <span class="name">
-                            <b>
-                                <span class="modifier">Readonly</span>
-                            type</b>
-                            <a href="#type"><span class="icon ion-ios-link"></span></a>
-                        </span>
+                        <i>Default value : </i><code>SET_OPENED</code>
                     </td>
                 </tr>
                     <tr>
                         <td class="col-md-4">
-                            <i>Default value : </i><code>SET_OPENED</code>
+                                <div class="io-line">Defined in <a href="" data-line="28" class="link-to-prism">projects/mangol/src/lib/store/sidebar/sidebar.actions.ts:28</a></div>
                         </td>
                     </tr>
-                        <tr>
-                            <td class="col-md-4">
-                                    <div class="io-line">Defined in <a href="" data-line="28" class="link-to-prism">projects/mangol/src/lib/store/sidebar/sidebar.actions.ts:28</a></div>
-                            </td>
-                        </tr>
 
 
-            </tbody>
-        </table>
+        </tbody>
+    </table>
 </section>
 
 
@@ -309,9 +309,9 @@ export type SidebarActions &#x3D;
 
        <script src="../js/libs/custom-elements.min.js"></script>
        <script src="../js/libs/lit-html.js"></script>
-       <!-- Required to polyfill modern browsers as code is ES5 for IE... -->
-       <script src="../js/libs/custom-elements-es5-adapter.js" charset="utf-8" defer></script>
-       <script src="../js/menu-wc.js" defer></script>
+       
+       <script type="module" src="../js/menu-wc.js" defer></script>
+       <script nomodule src="../js/menu-wc_es5.js" defer></script>
 
        <script src="../js/libs/bootstrap-native.js"></script>
 

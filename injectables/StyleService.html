@@ -8,7 +8,8 @@
         <meta name="viewport" content="width=device-width, initial-scale=1">
 
         <link rel="icon" type="image/x-icon" href="../images/favicon.ico">
-	      <link rel="stylesheet" href="../styles/style.css">
+	   <link rel="stylesheet" href="../styles/style.css">
+        <link rel="stylesheet" href="../styles/dark.css" media="(prefers-color-scheme: dark)">
         <link rel="stylesheet" href="../styles/material.css">
     </head>
     <body>
@@ -39,7 +40,7 @@
 
 <ol class="breadcrumb">
   <li>Injectables</li>
-  <li>StyleService</li>
+  <li >StyleService</li>
 </ol>
 
 <ul class="nav nav-tabs" role="tablist">
@@ -63,6 +64,7 @@
 
 
 
+
             <section>
     <h3 id="index">Index</h3>
     <table class="table table-sm table-bordered index-table">
@@ -76,7 +78,7 @@
                     <td class="col-md-4">
                         <ul class="index-list">
                             <li>
-                                <a href="#hoverColor">hoverColor</a>
+                                <a href="#hoverColor" >hoverColor</a>
                             </li>
                         </ul>
                     </td>
@@ -92,10 +94,10 @@
                         <ul class="index-list">
                             <li>
                                     <span class="modifier">Private</span>
-                                <a href="#_colorWithOpacity">_colorWithOpacity</a>
+                                <a href="#_colorWithOpacity" >_colorWithOpacity</a>
                             </li>
                             <li>
-                                <a href="#hoverStyle">hoverStyle</a>
+                                <a href="#hoverStyle" >hoverStyle</a>
                             </li>
                         </ul>
                     </td>
@@ -120,7 +122,7 @@
                 </tr>
                         <tr>
                             <td class="col-md-4">
-                                <div class="io-line">Defined in <a href="" data-line="17" class="link-to-prism">projects/mangol/src/lib/modules/_shared/shared/services/style.service.ts:17</a></div>
+                                <div class="io-line">Defined in <a href="" data-line="18" class="link-to-prism">projects/mangol/src/lib/modules/_shared/shared/services/style.service.ts:18</a></div>
                             </td>
                         </tr>
 
@@ -169,10 +171,8 @@
                 <td class="col-md-4">
                     <a name="_colorWithOpacity"></a>
                     <span class="name">
-                        <b>
-                            <span class="modifier">Private</span>
-                            _colorWithOpacity
-                        </b>
+                        <span class="modifier">Private</span>
+                        <span ><b>_colorWithOpacity</b></span>
                         <a href="#_colorWithOpacity"><span class="icon ion-ios-link"></span></a>
                     </span>
                 </td>
@@ -187,8 +187,8 @@
 
             <tr>
                 <td class="col-md-4">
-                    <div class="io-line">Defined in <a href="" data-line="49"
-                            class="link-to-prism">projects/mangol/src/lib/modules/_shared/shared/services/style.service.ts:49</a></div>
+                    <div class="io-line">Defined in <a href="" data-line="50"
+                            class="link-to-prism">projects/mangol/src/lib/modules/_shared/shared/services/style.service.ts:50</a></div>
                 </td>
             </tr>
 
@@ -246,24 +246,22 @@
                 <td class="col-md-4">
                     <a name="hoverStyle"></a>
                     <span class="name">
-                        <b>
-                            hoverStyle
-                        </b>
+                        <span ><b>hoverStyle</b></span>
                         <a href="#hoverStyle"><span class="icon ion-ios-link"></span></a>
                     </span>
                 </td>
             </tr>
             <tr>
                 <td class="col-md-4">
-<code>hoverStyle(feature: Feature)</code>
+<code>hoverStyle(feature: Feature<Point | LineString | Polygon>)</code>
                 </td>
             </tr>
 
 
             <tr>
                 <td class="col-md-4">
-                    <div class="io-line">Defined in <a href="" data-line="25"
-                            class="link-to-prism">projects/mangol/src/lib/modules/_shared/shared/services/style.service.ts:25</a></div>
+                    <div class="io-line">Defined in <a href="" data-line="26"
+                            class="link-to-prism">projects/mangol/src/lib/modules/_shared/shared/services/style.service.ts:26</a></div>
                 </td>
             </tr>
 
@@ -285,7 +283,7 @@
                                 <tr>
                                     <td>feature</td>
                                     <td>
-                                            <code>Feature</code>
+                                            <code>Feature&lt;Point | LineString | Polygon&gt;</code>
                                     </td>
 
                                     <td>
@@ -313,87 +311,87 @@
 </section>
             <section>
     
-        <h3 id="inputs">
-            Properties
-        </h3>
-        <table class="table table-sm table-bordered">
-            <tbody>
+    <h3 id="inputs">
+        Properties
+    </h3>
+    <table class="table table-sm table-bordered">
+        <tbody>
+            <tr>
+                <td class="col-md-4">
+                    <a name="hoverColor"></a>
+                    <span class="name">
+                        <span ><b>hoverColor</b></span>
+                        <a href="#hoverColor"><span class="icon ion-ios-link"></span></a>
+                    </span>
+                </td>
+            </tr>
                 <tr>
                     <td class="col-md-4">
-                        <a name="hoverColor"></a>
-                        <span class="name">
-                            <b>
-                            hoverColor</b>
-                            <a href="#hoverColor"><span class="icon ion-ios-link"></span></a>
-                        </span>
+                        <i>Type : </i>    <code>[number, number, number]</code>
+
                     </td>
                 </tr>
                     <tr>
                         <td class="col-md-4">
-                            <i>Type : </i>    <code>[number, number, number]</code>
-
+                                <div class="io-line">Defined in <a href="" data-line="18" class="link-to-prism">projects/mangol/src/lib/modules/_shared/shared/services/style.service.ts:18</a></div>
                         </td>
                     </tr>
-                        <tr>
-                            <td class="col-md-4">
-                                    <div class="io-line">Defined in <a href="" data-line="17" class="link-to-prism">projects/mangol/src/lib/modules/_shared/shared/services/style.service.ts:17</a></div>
-                            </td>
-                        </tr>
 
 
-            </tbody>
-        </table>
+        </tbody>
+    </table>
 </section>
 
     </div>
 
 
     <div class="tab-pane fade  tab-source-code" id="c-source">
-        <pre class="line-numbers compodoc-sourcecode"><code class="language-typescript">import { Store } from &#x27;@ngrx/store&#x27;;
-import { Injectable } from &#x27;@angular/core&#x27;;
+        <pre class="line-numbers compodoc-sourcecode"><code class="language-typescript">import { Injectable } from &#x27;@angular/core&#x27;;
+import { Store } from &#x27;@ngrx/store&#x27;;
 import Feature from &#x27;ol/Feature&#x27;;
+import LineString from &#x27;ol/geom/LineString&#x27;;
+import Point from &#x27;ol/geom/Point&#x27;;
+import Polygon from &#x27;ol/geom/Polygon&#x27;;
 import CircleStyle from &#x27;ol/style/Circle&#x27;;
 import Fill from &#x27;ol/style/Fill&#x27;;
 import Stroke from &#x27;ol/style/Stroke&#x27;;
 import Style from &#x27;ol/style/Style&#x27;;
-import Text from &#x27;ol/style/Text&#x27;;
-import Icon from &#x27;ol/style/Icon&#x27;;
+
 import * as fromMangol from &#x27;./../../../../store/mangol.reducers&#x27;;
-import { take } from &#x27;rxjs/operators&#x27;;
 
 @Injectable({
-  providedIn: &#x27;root&#x27;
+  providedIn: &#x27;root&#x27;,
 })
 export class StyleService {
   hoverColor: [number, number, number];
 
   constructor(private store: Store&lt;fromMangol.MangolState&gt;) {
     this.store
-      .select(state &#x3D;&gt; state.featureinfo.hoverColor)
-      .subscribe(color &#x3D;&gt; (this.hoverColor &#x3D; color));
+      .select((state) &#x3D;&gt; state.featureinfo.hoverColor)
+      .subscribe((color) &#x3D;&gt; (this.hoverColor &#x3D; color));
   }
 
-  hoverStyle(feature: Feature) {
+  hoverStyle(feature: Feature&lt;Point | LineString | Polygon&gt;) {
     return [
       new Style({
         fill: new Fill({
-          color: this._colorWithOpacity(this.hoverColor, 0.3)
+          color: this._colorWithOpacity(this.hoverColor, 0.3),
         }),
         stroke: new Stroke({
           color: this._colorWithOpacity(this.hoverColor, 0.5),
-          width: 10
+          width: 10,
         }),
         image: new CircleStyle({
           fill: new Fill({
-            color: this._colorWithOpacity(this.hoverColor, 0.7)
+            color: this._colorWithOpacity(this.hoverColor, 0.7),
           }),
           stroke: new Stroke({
             width: 1,
-            color: this._colorWithOpacity(this.hoverColor, 0.9)
+            color: this._colorWithOpacity(this.hoverColor, 0.9),
           }),
-          radius: 7
-        })
-      })
+          radius: 7,
+        }),
+      }),
     ];
   }
 
@@ -405,7 +403,7 @@ export class StyleService {
       color[0],
       color[1],
       color[2],
-      opacity
+      opacity,
     ];
   }
 }
@@ -448,9 +446,9 @@ export class StyleService {
 
        <script src="../js/libs/custom-elements.min.js"></script>
        <script src="../js/libs/lit-html.js"></script>
-       <!-- Required to polyfill modern browsers as code is ES5 for IE... -->
-       <script src="../js/libs/custom-elements-es5-adapter.js" charset="utf-8" defer></script>
-       <script src="../js/menu-wc.js" defer></script>
+       
+       <script type="module" src="../js/menu-wc.js" defer></script>
+       <script nomodule src="../js/menu-wc_es5.js" defer></script>
 
        <script src="../js/libs/bootstrap-native.js"></script>
 

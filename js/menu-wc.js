@@ -52,7 +52,7 @@ customElements.define('compodoc-menu', class extends HTMLElement {
                         </a>
                         <ul class="links collapse " ${ isNormalMode ? 'id="modules-links"' : 'id="xs-modules-links"' }>
                             <li class="link">
-                                <a href="modules/ControllersModule.html" data-type="entity-link">ControllersModule</a>
+                                <a href="modules/ControllersModule.html" data-type="entity-link" >ControllersModule</a>
                                     <li class="chapter inner">
                                         <div class="simple menu-toggler" data-toggle="collapse" ${ isNormalMode ?
                                             'data-target="#components-links-module-ControllersModule-f94111b0ff62a3dea6edd14393826a25"' : 'data-target="#xs-components-links-module-ControllersModule-f94111b0ff62a3dea6edd14393826a25"' }>
@@ -63,42 +63,34 @@ customElements.define('compodoc-menu', class extends HTMLElement {
                                         <ul class="links collapse" ${ isNormalMode ? 'id="components-links-module-ControllersModule-f94111b0ff62a3dea6edd14393826a25"' :
                                             'id="xs-components-links-module-ControllersModule-f94111b0ff62a3dea6edd14393826a25"' }>
                                             <li class="link">
-                                                <a href="components/ControllersComponent.html"
-                                                    data-type="entity-link" data-context="sub-entity" data-context-id="modules">ControllersComponent</a>
+                                                <a href="components/ControllersComponent.html" data-type="entity-link" data-context="sub-entity" data-context-id="modules" >ControllersComponent</a>
                                             </li>
                                             <li class="link">
-                                                <a href="components/CursorComponent.html"
-                                                    data-type="entity-link" data-context="sub-entity" data-context-id="modules">CursorComponent</a>
+                                                <a href="components/CursorComponent.html" data-type="entity-link" data-context="sub-entity" data-context-id="modules" >CursorComponent</a>
                                             </li>
                                             <li class="link">
-                                                <a href="components/FullscreenButtonComponent.html"
-                                                    data-type="entity-link" data-context="sub-entity" data-context-id="modules">FullscreenButtonComponent</a>
+                                                <a href="components/FullscreenButtonComponent.html" data-type="entity-link" data-context="sub-entity" data-context-id="modules" >FullscreenButtonComponent</a>
                                             </li>
                                             <li class="link">
-                                                <a href="components/PositionComponent.html"
-                                                    data-type="entity-link" data-context="sub-entity" data-context-id="modules">PositionComponent</a>
+                                                <a href="components/PositionComponent.html" data-type="entity-link" data-context="sub-entity" data-context-id="modules" >PositionComponent</a>
                                             </li>
                                             <li class="link">
-                                                <a href="components/RotationButtonComponent.html"
-                                                    data-type="entity-link" data-context="sub-entity" data-context-id="modules">RotationButtonComponent</a>
+                                                <a href="components/RotationButtonComponent.html" data-type="entity-link" data-context="sub-entity" data-context-id="modules" >RotationButtonComponent</a>
                                             </li>
                                             <li class="link">
-                                                <a href="components/ScalebarComponent.html"
-                                                    data-type="entity-link" data-context="sub-entity" data-context-id="modules">ScalebarComponent</a>
+                                                <a href="components/ScalebarComponent.html" data-type="entity-link" data-context="sub-entity" data-context-id="modules" >ScalebarComponent</a>
                                             </li>
                                             <li class="link">
-                                                <a href="components/SidebarButtonComponent.html"
-                                                    data-type="entity-link" data-context="sub-entity" data-context-id="modules">SidebarButtonComponent</a>
+                                                <a href="components/SidebarButtonComponent.html" data-type="entity-link" data-context="sub-entity" data-context-id="modules" >SidebarButtonComponent</a>
                                             </li>
                                             <li class="link">
-                                                <a href="components/ZoomButtonsComponent.html"
-                                                    data-type="entity-link" data-context="sub-entity" data-context-id="modules">ZoomButtonsComponent</a>
+                                                <a href="components/ZoomButtonsComponent.html" data-type="entity-link" data-context="sub-entity" data-context-id="modules" >ZoomButtonsComponent</a>
                                             </li>
                                         </ul>
                                     </li>
                             </li>
                             <li class="link">
-                                <a href="modules/EditModule.html" data-type="entity-link">EditModule</a>
+                                <a href="modules/EditModule.html" data-type="entity-link" >EditModule</a>
                                     <li class="chapter inner">
                                         <div class="simple menu-toggler" data-toggle="collapse" ${ isNormalMode ?
                                             'data-target="#components-links-module-EditModule-995958f78a4811f197138c92cdef982b"' : 'data-target="#xs-components-links-module-EditModule-995958f78a4811f197138c92cdef982b"' }>
@@ -109,63 +101,56 @@ customElements.define('compodoc-menu', class extends HTMLElement {
                                         <ul class="links collapse" ${ isNormalMode ? 'id="components-links-module-EditModule-995958f78a4811f197138c92cdef982b"' :
                                             'id="xs-components-links-module-EditModule-995958f78a4811f197138c92cdef982b"' }>
                                             <li class="link">
-                                                <a href="components/EditComponent.html"
-                                                    data-type="entity-link" data-context="sub-entity" data-context-id="modules">EditComponent</a>
+                                                <a href="components/EditComponent.html" data-type="entity-link" data-context="sub-entity" data-context-id="modules" >EditComponent</a>
                                             </li>
                                         </ul>
                                     </li>
                             </li>
                             <li class="link">
-                                <a href="modules/FeatureinfoModule.html" data-type="entity-link">FeatureinfoModule</a>
+                                <a href="modules/FeatureinfoModule.html" data-type="entity-link" >FeatureinfoModule</a>
                                     <li class="chapter inner">
                                         <div class="simple menu-toggler" data-toggle="collapse" ${ isNormalMode ?
-                                            'data-target="#components-links-module-FeatureinfoModule-216f2b6db9f7af8c60743f9481fb7b71"' : 'data-target="#xs-components-links-module-FeatureinfoModule-216f2b6db9f7af8c60743f9481fb7b71"' }>
+                                            'data-target="#components-links-module-FeatureinfoModule-5e1e6196d43e3cd8e4e1a9d893619135"' : 'data-target="#xs-components-links-module-FeatureinfoModule-5e1e6196d43e3cd8e4e1a9d893619135"' }>
                                             <span class="icon ion-md-cog"></span>
                                             <span>Components</span>
                                             <span class="icon ion-ios-arrow-down"></span>
                                         </div>
-                                        <ul class="links collapse" ${ isNormalMode ? 'id="components-links-module-FeatureinfoModule-216f2b6db9f7af8c60743f9481fb7b71"' :
-                                            'id="xs-components-links-module-FeatureinfoModule-216f2b6db9f7af8c60743f9481fb7b71"' }>
+                                        <ul class="links collapse" ${ isNormalMode ? 'id="components-links-module-FeatureinfoModule-5e1e6196d43e3cd8e4e1a9d893619135"' :
+                                            'id="xs-components-links-module-FeatureinfoModule-5e1e6196d43e3cd8e4e1a9d893619135"' }>
                                             <li class="link">
-                                                <a href="components/FeatureinfoComponent.html"
-                                                    data-type="entity-link" data-context="sub-entity" data-context-id="modules">FeatureinfoComponent</a>
+                                                <a href="components/FeatureinfoComponent.html" data-type="entity-link" data-context="sub-entity" data-context-id="modules" >FeatureinfoComponent</a>
                                             </li>
                                             <li class="link">
-                                                <a href="components/FeatureinfoResultsComponent.html"
-                                                    data-type="entity-link" data-context="sub-entity" data-context-id="modules">FeatureinfoResultsComponent</a>
+                                                <a href="components/FeatureinfoResultsComponent.html" data-type="entity-link" data-context="sub-entity" data-context-id="modules" >FeatureinfoResultsComponent</a>
                                             </li>
                                             <li class="link">
-                                                <a href="components/FeatureinfoSelectComponent.html"
-                                                    data-type="entity-link" data-context="sub-entity" data-context-id="modules">FeatureinfoSelectComponent</a>
+                                                <a href="components/FeatureinfoSelectComponent.html" data-type="entity-link" data-context="sub-entity" data-context-id="modules" >FeatureinfoSelectComponent</a>
                                             </li>
                                             <li class="link">
-                                                <a href="components/FeatureinfoTableDialogComponent.html"
-                                                    data-type="entity-link" data-context="sub-entity" data-context-id="modules">FeatureinfoTableDialogComponent</a>
+                                                <a href="components/FeatureinfoTableComponent.html" data-type="entity-link" data-context="sub-entity" data-context-id="modules" >FeatureinfoTableComponent</a>
                                             </li>
                                             <li class="link">
-                                                <a href="components/FeaturenfoTableComponent.html"
-                                                    data-type="entity-link" data-context="sub-entity" data-context-id="modules">FeaturenfoTableComponent</a>
+                                                <a href="components/FeatureinfoTableDialogComponent.html" data-type="entity-link" data-context="sub-entity" data-context-id="modules" >FeatureinfoTableDialogComponent</a>
                                             </li>
                                         </ul>
                                     </li>
                                 <li class="chapter inner">
                                     <div class="simple menu-toggler" data-toggle="collapse" ${ isNormalMode ?
-                                        'data-target="#injectables-links-module-FeatureinfoModule-216f2b6db9f7af8c60743f9481fb7b71"' : 'data-target="#xs-injectables-links-module-FeatureinfoModule-216f2b6db9f7af8c60743f9481fb7b71"' }>
+                                        'data-target="#injectables-links-module-FeatureinfoModule-5e1e6196d43e3cd8e4e1a9d893619135"' : 'data-target="#xs-injectables-links-module-FeatureinfoModule-5e1e6196d43e3cd8e4e1a9d893619135"' }>
                                         <span class="icon ion-md-arrow-round-down"></span>
                                         <span>Injectables</span>
                                         <span class="icon ion-ios-arrow-down"></span>
                                     </div>
-                                    <ul class="links collapse" ${ isNormalMode ? 'id="injectables-links-module-FeatureinfoModule-216f2b6db9f7af8c60743f9481fb7b71"' :
-                                        'id="xs-injectables-links-module-FeatureinfoModule-216f2b6db9f7af8c60743f9481fb7b71"' }>
+                                    <ul class="links collapse" ${ isNormalMode ? 'id="injectables-links-module-FeatureinfoModule-5e1e6196d43e3cd8e4e1a9d893619135"' :
+                                        'id="xs-injectables-links-module-FeatureinfoModule-5e1e6196d43e3cd8e4e1a9d893619135"' }>
                                         <li class="link">
-                                            <a href="injectables/FeatureinfoService.html"
-                                                data-type="entity-link" data-context="sub-entity" data-context-id="modules" }>FeatureinfoService</a>
+                                            <a href="injectables/FeatureinfoService.html" data-type="entity-link" data-context="sub-entity" data-context-id="modules" >FeatureinfoService</a>
                                         </li>
                                     </ul>
                                 </li>
                             </li>
                             <li class="link">
-                                <a href="modules/LayertreeModule.html" data-type="entity-link">LayertreeModule</a>
+                                <a href="modules/LayertreeModule.html" data-type="entity-link" >LayertreeModule</a>
                                     <li class="chapter inner">
                                         <div class="simple menu-toggler" data-toggle="collapse" ${ isNormalMode ?
                                             'data-target="#components-links-module-LayertreeModule-ecaa743a6cf825fe4c57dd9ba476f571"' : 'data-target="#xs-components-links-module-LayertreeModule-ecaa743a6cf825fe4c57dd9ba476f571"' }>
@@ -176,75 +161,65 @@ customElements.define('compodoc-menu', class extends HTMLElement {
                                         <ul class="links collapse" ${ isNormalMode ? 'id="components-links-module-LayertreeModule-ecaa743a6cf825fe4c57dd9ba476f571"' :
                                             'id="xs-components-links-module-LayertreeModule-ecaa743a6cf825fe4c57dd9ba476f571"' }>
                                             <li class="link">
-                                                <a href="components/DescriptionComponent.html"
-                                                    data-type="entity-link" data-context="sub-entity" data-context-id="modules">DescriptionComponent</a>
+                                                <a href="components/DescriptionComponent.html" data-type="entity-link" data-context="sub-entity" data-context-id="modules" >DescriptionComponent</a>
                                             </li>
                                             <li class="link">
-                                                <a href="components/LayerComponent.html"
-                                                    data-type="entity-link" data-context="sub-entity" data-context-id="modules">LayerComponent</a>
+                                                <a href="components/LayerComponent.html" data-type="entity-link" data-context="sub-entity" data-context-id="modules" >LayerComponent</a>
                                             </li>
                                             <li class="link">
-                                                <a href="components/LayerDetailsComponent.html"
-                                                    data-type="entity-link" data-context="sub-entity" data-context-id="modules">LayerDetailsComponent</a>
+                                                <a href="components/LayerDetailsComponent.html" data-type="entity-link" data-context="sub-entity" data-context-id="modules" >LayerDetailsComponent</a>
                                             </li>
                                             <li class="link">
-                                                <a href="components/LayerGroupComponent.html"
-                                                    data-type="entity-link" data-context="sub-entity" data-context-id="modules">LayerGroupComponent</a>
+                                                <a href="components/LayerGroupComponent.html" data-type="entity-link" data-context="sub-entity" data-context-id="modules" >LayerGroupComponent</a>
                                             </li>
                                             <li class="link">
-                                                <a href="components/LayertreeComponent.html"
-                                                    data-type="entity-link" data-context="sub-entity" data-context-id="modules">LayertreeComponent</a>
+                                                <a href="components/LayertreeComponent.html" data-type="entity-link" data-context="sub-entity" data-context-id="modules" >LayertreeComponent</a>
                                             </li>
                                             <li class="link">
-                                                <a href="components/LayertreeItemComponent.html"
-                                                    data-type="entity-link" data-context="sub-entity" data-context-id="modules">LayertreeItemComponent</a>
+                                                <a href="components/LayertreeItemComponent.html" data-type="entity-link" data-context="sub-entity" data-context-id="modules" >LayertreeItemComponent</a>
                                             </li>
                                             <li class="link">
-                                                <a href="components/LegendComponent.html"
-                                                    data-type="entity-link" data-context="sub-entity" data-context-id="modules">LegendComponent</a>
+                                                <a href="components/LegendComponent.html" data-type="entity-link" data-context="sub-entity" data-context-id="modules" >LegendComponent</a>
                                             </li>
                                             <li class="link">
-                                                <a href="components/TransparencyComponent.html"
-                                                    data-type="entity-link" data-context="sub-entity" data-context-id="modules">TransparencyComponent</a>
+                                                <a href="components/TransparencyComponent.html" data-type="entity-link" data-context="sub-entity" data-context-id="modules" >TransparencyComponent</a>
                                             </li>
                                         </ul>
                                     </li>
                             </li>
                             <li class="link">
-                                <a href="modules/MangolModule.html" data-type="entity-link">MangolModule</a>
+                                <a href="modules/MangolModule.html" data-type="entity-link" >MangolModule</a>
                                     <li class="chapter inner">
                                         <div class="simple menu-toggler" data-toggle="collapse" ${ isNormalMode ?
-                                            'data-target="#components-links-module-MangolModule-c4562f6dccbb60fb6e9960571f258636"' : 'data-target="#xs-components-links-module-MangolModule-c4562f6dccbb60fb6e9960571f258636"' }>
+                                            'data-target="#components-links-module-MangolModule-a885c54680089ea32cd864072b1de38e"' : 'data-target="#xs-components-links-module-MangolModule-a885c54680089ea32cd864072b1de38e"' }>
                                             <span class="icon ion-md-cog"></span>
                                             <span>Components</span>
                                             <span class="icon ion-ios-arrow-down"></span>
                                         </div>
-                                        <ul class="links collapse" ${ isNormalMode ? 'id="components-links-module-MangolModule-c4562f6dccbb60fb6e9960571f258636"' :
-                                            'id="xs-components-links-module-MangolModule-c4562f6dccbb60fb6e9960571f258636"' }>
+                                        <ul class="links collapse" ${ isNormalMode ? 'id="components-links-module-MangolModule-a885c54680089ea32cd864072b1de38e"' :
+                                            'id="xs-components-links-module-MangolModule-a885c54680089ea32cd864072b1de38e"' }>
                                             <li class="link">
-                                                <a href="components/MangolComponent.html"
-                                                    data-type="entity-link" data-context="sub-entity" data-context-id="modules">MangolComponent</a>
+                                                <a href="components/MangolComponent.html" data-type="entity-link" data-context="sub-entity" data-context-id="modules" >MangolComponent</a>
                                             </li>
                                         </ul>
                                     </li>
                                 <li class="chapter inner">
                                     <div class="simple menu-toggler" data-toggle="collapse" ${ isNormalMode ?
-                                        'data-target="#injectables-links-module-MangolModule-c4562f6dccbb60fb6e9960571f258636"' : 'data-target="#xs-injectables-links-module-MangolModule-c4562f6dccbb60fb6e9960571f258636"' }>
+                                        'data-target="#injectables-links-module-MangolModule-a885c54680089ea32cd864072b1de38e"' : 'data-target="#xs-injectables-links-module-MangolModule-a885c54680089ea32cd864072b1de38e"' }>
                                         <span class="icon ion-md-arrow-round-down"></span>
                                         <span>Injectables</span>
                                         <span class="icon ion-ios-arrow-down"></span>
                                     </div>
-                                    <ul class="links collapse" ${ isNormalMode ? 'id="injectables-links-module-MangolModule-c4562f6dccbb60fb6e9960571f258636"' :
-                                        'id="xs-injectables-links-module-MangolModule-c4562f6dccbb60fb6e9960571f258636"' }>
+                                    <ul class="links collapse" ${ isNormalMode ? 'id="injectables-links-module-MangolModule-a885c54680089ea32cd864072b1de38e"' :
+                                        'id="xs-injectables-links-module-MangolModule-a885c54680089ea32cd864072b1de38e"' }>
                                         <li class="link">
-                                            <a href="injectables/MeasureService.html"
-                                                data-type="entity-link" data-context="sub-entity" data-context-id="modules" }>MeasureService</a>
+                                            <a href="injectables/MeasureService.html" data-type="entity-link" data-context="sub-entity" data-context-id="modules" >MeasureService</a>
                                         </li>
                                     </ul>
                                 </li>
                             </li>
                             <li class="link">
-                                <a href="modules/MapModule.html" data-type="entity-link">MapModule</a>
+                                <a href="modules/MapModule.html" data-type="entity-link" >MapModule</a>
                                     <li class="chapter inner">
                                         <div class="simple menu-toggler" data-toggle="collapse" ${ isNormalMode ?
                                             'data-target="#components-links-module-MapModule-d31198ad48ab70d67fa044a5ba058de0"' : 'data-target="#xs-components-links-module-MapModule-d31198ad48ab70d67fa044a5ba058de0"' }>
@@ -255,14 +230,13 @@ customElements.define('compodoc-menu', class extends HTMLElement {
                                         <ul class="links collapse" ${ isNormalMode ? 'id="components-links-module-MapModule-d31198ad48ab70d67fa044a5ba058de0"' :
                                             'id="xs-components-links-module-MapModule-d31198ad48ab70d67fa044a5ba058de0"' }>
                                             <li class="link">
-                                                <a href="components/MapComponent.html"
-                                                    data-type="entity-link" data-context="sub-entity" data-context-id="modules">MapComponent</a>
+                                                <a href="components/MapComponent.html" data-type="entity-link" data-context="sub-entity" data-context-id="modules" >MapComponent</a>
                                             </li>
                                         </ul>
                                     </li>
                             </li>
                             <li class="link">
-                                <a href="modules/MeasureModule.html" data-type="entity-link">MeasureModule</a>
+                                <a href="modules/MeasureModule.html" data-type="entity-link" >MeasureModule</a>
                                     <li class="chapter inner">
                                         <div class="simple menu-toggler" data-toggle="collapse" ${ isNormalMode ?
                                             'data-target="#components-links-module-MeasureModule-ee8784319db000a529567048e7fb8c4c"' : 'data-target="#xs-components-links-module-MeasureModule-ee8784319db000a529567048e7fb8c4c"' }>
@@ -273,22 +247,19 @@ customElements.define('compodoc-menu', class extends HTMLElement {
                                         <ul class="links collapse" ${ isNormalMode ? 'id="components-links-module-MeasureModule-ee8784319db000a529567048e7fb8c4c"' :
                                             'id="xs-components-links-module-MeasureModule-ee8784319db000a529567048e7fb8c4c"' }>
                                             <li class="link">
-                                                <a href="components/MeasureComponent.html"
-                                                    data-type="entity-link" data-context="sub-entity" data-context-id="modules">MeasureComponent</a>
+                                                <a href="components/MeasureComponent.html" data-type="entity-link" data-context="sub-entity" data-context-id="modules" >MeasureComponent</a>
                                             </li>
                                             <li class="link">
-                                                <a href="components/MeasureResultsComponent.html"
-                                                    data-type="entity-link" data-context="sub-entity" data-context-id="modules">MeasureResultsComponent</a>
+                                                <a href="components/MeasureResultsComponent.html" data-type="entity-link" data-context="sub-entity" data-context-id="modules" >MeasureResultsComponent</a>
                                             </li>
                                             <li class="link">
-                                                <a href="components/MeasureSelectComponent.html"
-                                                    data-type="entity-link" data-context="sub-entity" data-context-id="modules">MeasureSelectComponent</a>
+                                                <a href="components/MeasureSelectComponent.html" data-type="entity-link" data-context="sub-entity" data-context-id="modules" >MeasureSelectComponent</a>
                                             </li>
                                         </ul>
                                     </li>
                             </li>
                             <li class="link">
-                                <a href="modules/PrintModule.html" data-type="entity-link">PrintModule</a>
+                                <a href="modules/PrintModule.html" data-type="entity-link" >PrintModule</a>
                                     <li class="chapter inner">
                                         <div class="simple menu-toggler" data-toggle="collapse" ${ isNormalMode ?
                                             'data-target="#components-links-module-PrintModule-d39c1458a62a781c11e0e87c519b8573"' : 'data-target="#xs-components-links-module-PrintModule-d39c1458a62a781c11e0e87c519b8573"' }>
@@ -299,14 +270,13 @@ customElements.define('compodoc-menu', class extends HTMLElement {
                                         <ul class="links collapse" ${ isNormalMode ? 'id="components-links-module-PrintModule-d39c1458a62a781c11e0e87c519b8573"' :
                                             'id="xs-components-links-module-PrintModule-d39c1458a62a781c11e0e87c519b8573"' }>
                                             <li class="link">
-                                                <a href="components/PrintComponent.html"
-                                                    data-type="entity-link" data-context="sub-entity" data-context-id="modules">PrintComponent</a>
+                                                <a href="components/PrintComponent.html" data-type="entity-link" data-context="sub-entity" data-context-id="modules" >PrintComponent</a>
                                             </li>
                                         </ul>
                                     </li>
                             </li>
                             <li class="link">
-                                <a href="modules/SharedModule.html" data-type="entity-link">SharedModule</a>
+                                <a href="modules/SharedModule.html" data-type="entity-link" >SharedModule</a>
                                 <li class="chapter inner">
                                     <div class="simple menu-toggler" data-toggle="collapse" ${ isNormalMode ?
                                         'data-target="#injectables-links-module-SharedModule-e34df982df436b55eafcd55b193d14d7"' : 'data-target="#xs-injectables-links-module-SharedModule-e34df982df436b55eafcd55b193d14d7"' }>
@@ -317,8 +287,7 @@ customElements.define('compodoc-menu', class extends HTMLElement {
                                     <ul class="links collapse" ${ isNormalMode ? 'id="injectables-links-module-SharedModule-e34df982df436b55eafcd55b193d14d7"' :
                                         'id="xs-injectables-links-module-SharedModule-e34df982df436b55eafcd55b193d14d7"' }>
                                         <li class="link">
-                                            <a href="injectables/StyleService.html"
-                                                data-type="entity-link" data-context="sub-entity" data-context-id="modules" }>StyleService</a>
+                                            <a href="injectables/StyleService.html" data-type="entity-link" data-context="sub-entity" data-context-id="modules" >StyleService</a>
                                         </li>
                                     </ul>
                                 </li>
@@ -332,18 +301,16 @@ customElements.define('compodoc-menu', class extends HTMLElement {
                                         <ul class="links collapse" ${ isNormalMode ? 'id="pipes-links-module-SharedModule-e34df982df436b55eafcd55b193d14d7"' :
                                             'id="xs-pipes-links-module-SharedModule-e34df982df436b55eafcd55b193d14d7"' }>
                                             <li class="link">
-                                                <a href="pipes/KeysPipe.html"
-                                                    data-type="entity-link" data-context="sub-entity" data-context-id="modules">KeysPipe</a>
+                                                <a href="pipes/KeysPipe.html" data-type="entity-link" data-context="sub-entity" data-context-id="modules" >KeysPipe</a>
                                             </li>
                                             <li class="link">
-                                                <a href="pipes/ShortenPipe.html"
-                                                    data-type="entity-link" data-context="sub-entity" data-context-id="modules">ShortenPipe</a>
+                                                <a href="pipes/ShortenPipe.html" data-type="entity-link" data-context="sub-entity" data-context-id="modules" >ShortenPipe</a>
                                             </li>
                                         </ul>
                                     </li>
                             </li>
                             <li class="link">
-                                <a href="modules/TabsModule.html" data-type="entity-link">TabsModule</a>
+                                <a href="modules/TabsModule.html" data-type="entity-link" >TabsModule</a>
                                     <li class="chapter inner">
                                         <div class="simple menu-toggler" data-toggle="collapse" ${ isNormalMode ?
                                             'data-target="#components-links-module-TabsModule-636695226582d31bd07b89c1ac19432a"' : 'data-target="#xs-components-links-module-TabsModule-636695226582d31bd07b89c1ac19432a"' }>
@@ -354,8 +321,7 @@ customElements.define('compodoc-menu', class extends HTMLElement {
                                         <ul class="links collapse" ${ isNormalMode ? 'id="components-links-module-TabsModule-636695226582d31bd07b89c1ac19432a"' :
                                             'id="xs-components-links-module-TabsModule-636695226582d31bd07b89c1ac19432a"' }>
                                             <li class="link">
-                                                <a href="components/TabsComponent.html"
-                                                    data-type="entity-link" data-context="sub-entity" data-context-id="modules">TabsComponent</a>
+                                                <a href="components/TabsComponent.html" data-type="entity-link" data-context="sub-entity" data-context-id="modules" >TabsComponent</a>
                                             </li>
                                         </ul>
                                     </li>
@@ -371,202 +337,202 @@ customElements.define('compodoc-menu', class extends HTMLElement {
                         </div>
                         <ul class="links collapse " ${ isNormalMode ? 'id="classes-links"' : 'id="xs-classes-links"' }>
                             <li class="link">
-                                <a href="classes/ClearState.html" data-type="entity-link">ClearState</a>
+                                <a href="classes/ClearState.html" data-type="entity-link" >ClearState</a>
                             </li>
                             <li class="link">
-                                <a href="classes/HasFeatureinfo.html" data-type="entity-link">HasFeatureinfo</a>
+                                <a href="classes/HasFeatureinfo.html" data-type="entity-link" >HasFeatureinfo</a>
                             </li>
                             <li class="link">
-                                <a href="classes/HasLayertree.html" data-type="entity-link">HasLayertree</a>
+                                <a href="classes/HasLayertree.html" data-type="entity-link" >HasLayertree</a>
                             </li>
                             <li class="link">
-                                <a href="classes/HasMeasure.html" data-type="entity-link">HasMeasure</a>
+                                <a href="classes/HasMeasure.html" data-type="entity-link" >HasMeasure</a>
                             </li>
                             <li class="link">
-                                <a href="classes/HasPrint.html" data-type="entity-link">HasPrint</a>
+                                <a href="classes/HasPrint.html" data-type="entity-link" >HasPrint</a>
                             </li>
                             <li class="link">
-                                <a href="classes/LayertreeItemNode.html" data-type="entity-link">LayertreeItemNode</a>
+                                <a href="classes/LayertreeItemNode.html" data-type="entity-link" >LayertreeItemNode</a>
                             </li>
                             <li class="link">
-                                <a href="classes/MangolLayer.html" data-type="entity-link">MangolLayer</a>
+                                <a href="classes/MangolLayer.html" data-type="entity-link" >MangolLayer</a>
                             </li>
                             <li class="link">
-                                <a href="classes/MangolLayerGroup.html" data-type="entity-link">MangolLayerGroup</a>
+                                <a href="classes/MangolLayerGroup.html" data-type="entity-link" >MangolLayerGroup</a>
                             </li>
                             <li class="link">
-                                <a href="classes/MangolMap.html" data-type="entity-link">MangolMap</a>
+                                <a href="classes/MangolMap.html" data-type="entity-link" >MangolMap</a>
                             </li>
                             <li class="link">
-                                <a href="classes/Reset.html" data-type="entity-link">Reset</a>
+                                <a href="classes/Reset.html" data-type="entity-link" >Reset</a>
                             </li>
                             <li class="link">
-                                <a href="classes/ResetMode.html" data-type="entity-link">ResetMode</a>
+                                <a href="classes/ResetMode.html" data-type="entity-link" >ResetMode</a>
                             </li>
                             <li class="link">
-                                <a href="classes/SetCollapsible.html" data-type="entity-link">SetCollapsible</a>
+                                <a href="classes/SetCollapsible.html" data-type="entity-link" >SetCollapsible</a>
                             </li>
                             <li class="link">
-                                <a href="classes/SetConfig.html" data-type="entity-link">SetConfig</a>
+                                <a href="classes/SetConfig.html" data-type="entity-link" >SetConfig</a>
                             </li>
                             <li class="link">
-                                <a href="classes/SetDictionary.html" data-type="entity-link">SetDictionary</a>
+                                <a href="classes/SetDictionary.html" data-type="entity-link" >SetDictionary</a>
                             </li>
                             <li class="link">
-                                <a href="classes/SetDictionary-1.html" data-type="entity-link">SetDictionary</a>
+                                <a href="classes/SetDictionary-1.html" data-type="entity-link" >SetDictionary</a>
                             </li>
                             <li class="link">
-                                <a href="classes/SetDictionary-2.html" data-type="entity-link">SetDictionary</a>
+                                <a href="classes/SetDictionary-2.html" data-type="entity-link" >SetDictionary</a>
                             </li>
                             <li class="link">
-                                <a href="classes/SetDictionary-3.html" data-type="entity-link">SetDictionary</a>
+                                <a href="classes/SetDictionary-3.html" data-type="entity-link" >SetDictionary</a>
                             </li>
                             <li class="link">
-                                <a href="classes/SetDisabled.html" data-type="entity-link">SetDisabled</a>
+                                <a href="classes/SetDisabled.html" data-type="entity-link" >SetDisabled</a>
                             </li>
                             <li class="link">
-                                <a href="classes/SetDisabled-1.html" data-type="entity-link">SetDisabled</a>
+                                <a href="classes/SetDisabled-1.html" data-type="entity-link" >SetDisabled</a>
                             </li>
                             <li class="link">
-                                <a href="classes/SetDisabled-2.html" data-type="entity-link">SetDisabled</a>
+                                <a href="classes/SetDisabled-2.html" data-type="entity-link" >SetDisabled</a>
                             </li>
                             <li class="link">
-                                <a href="classes/SetDisabled-3.html" data-type="entity-link">SetDisabled</a>
+                                <a href="classes/SetDisabled-3.html" data-type="entity-link" >SetDisabled</a>
                             </li>
                             <li class="link">
-                                <a href="classes/SetFullscreenDictionary.html" data-type="entity-link">SetFullscreenDictionary</a>
+                                <a href="classes/SetFullscreenDictionary.html" data-type="entity-link" >SetFullscreenDictionary</a>
                             </li>
                             <li class="link">
-                                <a href="classes/SetHasSidebar.html" data-type="entity-link">SetHasSidebar</a>
+                                <a href="classes/SetHasSidebar.html" data-type="entity-link" >SetHasSidebar</a>
                             </li>
                             <li class="link">
-                                <a href="classes/SetHoverColor.html" data-type="entity-link">SetHoverColor</a>
+                                <a href="classes/SetHoverColor.html" data-type="entity-link" >SetHoverColor</a>
                             </li>
                             <li class="link">
-                                <a href="classes/SetLayer.html" data-type="entity-link">SetLayer</a>
+                                <a href="classes/SetLayer.html" data-type="entity-link" >SetLayer</a>
                             </li>
                             <li class="link">
-                                <a href="classes/SetLayers.html" data-type="entity-link">SetLayers</a>
+                                <a href="classes/SetLayers.html" data-type="entity-link" >SetLayers</a>
                             </li>
                             <li class="link">
-                                <a href="classes/SetLayers-1.html" data-type="entity-link">SetLayers</a>
+                                <a href="classes/SetLayers-1.html" data-type="entity-link" >SetLayers</a>
                             </li>
                             <li class="link">
-                                <a href="classes/SetLayouts.html" data-type="entity-link">SetLayouts</a>
+                                <a href="classes/SetLayouts.html" data-type="entity-link" >SetLayouts</a>
                             </li>
                             <li class="link">
-                                <a href="classes/SetMap.html" data-type="entity-link">SetMap</a>
+                                <a href="classes/SetMap.html" data-type="entity-link" >SetMap</a>
                             </li>
                             <li class="link">
-                                <a href="classes/SetMaxFeatures.html" data-type="entity-link">SetMaxFeatures</a>
+                                <a href="classes/SetMaxFeatures.html" data-type="entity-link" >SetMaxFeatures</a>
                             </li>
                             <li class="link">
-                                <a href="classes/SetMeasureLayer.html" data-type="entity-link">SetMeasureLayer</a>
+                                <a href="classes/SetMeasureLayer.html" data-type="entity-link" >SetMeasureLayer</a>
                             </li>
                             <li class="link">
-                                <a href="classes/SetMode.html" data-type="entity-link">SetMode</a>
+                                <a href="classes/SetMode.html" data-type="entity-link" >SetMode</a>
                             </li>
                             <li class="link">
-                                <a href="classes/SetMode-1.html" data-type="entity-link">SetMode</a>
+                                <a href="classes/SetMode-1.html" data-type="entity-link" >SetMode</a>
                             </li>
                             <li class="link">
-                                <a href="classes/SetMode-2.html" data-type="entity-link">SetMode</a>
+                                <a href="classes/SetMode-2.html" data-type="entity-link" >SetMode</a>
                             </li>
                             <li class="link">
-                                <a href="classes/SetOpened.html" data-type="entity-link">SetOpened</a>
+                                <a href="classes/SetOpened.html" data-type="entity-link" >SetOpened</a>
                             </li>
                             <li class="link">
-                                <a href="classes/SetPositionCoordinates.html" data-type="entity-link">SetPositionCoordinates</a>
+                                <a href="classes/SetPositionCoordinates.html" data-type="entity-link" >SetPositionCoordinates</a>
                             </li>
                             <li class="link">
-                                <a href="classes/SetPositionDictionary.html" data-type="entity-link">SetPositionDictionary</a>
+                                <a href="classes/SetPositionDictionary.html" data-type="entity-link" >SetPositionDictionary</a>
                             </li>
                             <li class="link">
-                                <a href="classes/SetPositionPrecision.html" data-type="entity-link">SetPositionPrecision</a>
+                                <a href="classes/SetPositionPrecision.html" data-type="entity-link" >SetPositionPrecision</a>
                             </li>
                             <li class="link">
-                                <a href="classes/SetResolutions.html" data-type="entity-link">SetResolutions</a>
+                                <a href="classes/SetResolutions.html" data-type="entity-link" >SetResolutions</a>
                             </li>
                             <li class="link">
-                                <a href="classes/SetResultsItems.html" data-type="entity-link">SetResultsItems</a>
+                                <a href="classes/SetResultsItems.html" data-type="entity-link" >SetResultsItems</a>
                             </li>
                             <li class="link">
-                                <a href="classes/SetResultsLayer.html" data-type="entity-link">SetResultsLayer</a>
+                                <a href="classes/SetResultsLayer.html" data-type="entity-link" >SetResultsLayer</a>
                             </li>
                             <li class="link">
-                                <a href="classes/SetRotationDictionary.html" data-type="entity-link">SetRotationDictionary</a>
+                                <a href="classes/SetRotationDictionary.html" data-type="entity-link" >SetRotationDictionary</a>
                             </li>
                             <li class="link">
-                                <a href="classes/SetRotationValue.html" data-type="entity-link">SetRotationValue</a>
+                                <a href="classes/SetRotationValue.html" data-type="entity-link" >SetRotationValue</a>
                             </li>
                             <li class="link">
-                                <a href="classes/SetScalebar.html" data-type="entity-link">SetScalebar</a>
+                                <a href="classes/SetScalebar.html" data-type="entity-link" >SetScalebar</a>
                             </li>
                             <li class="link">
-                                <a href="classes/SetSelectedLayer.html" data-type="entity-link">SetSelectedLayer</a>
+                                <a href="classes/SetSelectedLayer.html" data-type="entity-link" >SetSelectedLayer</a>
                             </li>
                             <li class="link">
-                                <a href="classes/SetSelectedLayout.html" data-type="entity-link">SetSelectedLayout</a>
+                                <a href="classes/SetSelectedLayout.html" data-type="entity-link" >SetSelectedLayout</a>
                             </li>
                             <li class="link">
-                                <a href="classes/SetSelectedModule.html" data-type="entity-link">SetSelectedModule</a>
+                                <a href="classes/SetSelectedModule.html" data-type="entity-link" >SetSelectedModule</a>
                             </li>
                             <li class="link">
-                                <a href="classes/SetSelectedResolution.html" data-type="entity-link">SetSelectedResolution</a>
+                                <a href="classes/SetSelectedResolution.html" data-type="entity-link" >SetSelectedResolution</a>
                             </li>
                             <li class="link">
-                                <a href="classes/SetSelectedSize.html" data-type="entity-link">SetSelectedSize</a>
+                                <a href="classes/SetSelectedSize.html" data-type="entity-link" >SetSelectedSize</a>
                             </li>
                             <li class="link">
-                                <a href="classes/SetShowFullscreen.html" data-type="entity-link">SetShowFullscreen</a>
+                                <a href="classes/SetShowFullscreen.html" data-type="entity-link" >SetShowFullscreen</a>
                             </li>
                             <li class="link">
-                                <a href="classes/SetShowFullscreenTooltip.html" data-type="entity-link">SetShowFullscreenTooltip</a>
+                                <a href="classes/SetShowFullscreenTooltip.html" data-type="entity-link" >SetShowFullscreenTooltip</a>
                             </li>
                             <li class="link">
-                                <a href="classes/SetShowPosition.html" data-type="entity-link">SetShowPosition</a>
+                                <a href="classes/SetShowPosition.html" data-type="entity-link" >SetShowPosition</a>
                             </li>
                             <li class="link">
-                                <a href="classes/SetShowRotation.html" data-type="entity-link">SetShowRotation</a>
+                                <a href="classes/SetShowRotation.html" data-type="entity-link" >SetShowRotation</a>
                             </li>
                             <li class="link">
-                                <a href="classes/SetShowRotationTooltip.html" data-type="entity-link">SetShowRotationTooltip</a>
+                                <a href="classes/SetShowRotationTooltip.html" data-type="entity-link" >SetShowRotationTooltip</a>
                             </li>
                             <li class="link">
-                                <a href="classes/SetShowTooltip.html" data-type="entity-link">SetShowTooltip</a>
+                                <a href="classes/SetShowTooltip.html" data-type="entity-link" >SetShowTooltip</a>
                             </li>
                             <li class="link">
-                                <a href="classes/SetShowZoom.html" data-type="entity-link">SetShowZoom</a>
+                                <a href="classes/SetShowZoom.html" data-type="entity-link" >SetShowZoom</a>
                             </li>
                             <li class="link">
-                                <a href="classes/SetSizes.html" data-type="entity-link">SetSizes</a>
+                                <a href="classes/SetSizes.html" data-type="entity-link" >SetSizes</a>
                             </li>
                             <li class="link">
-                                <a href="classes/SetTitle.html" data-type="entity-link">SetTitle</a>
+                                <a href="classes/SetTitle.html" data-type="entity-link" >SetTitle</a>
                             </li>
                             <li class="link">
-                                <a href="classes/SetTitle-1.html" data-type="entity-link">SetTitle</a>
+                                <a href="classes/SetTitle-1.html" data-type="entity-link" >SetTitle</a>
                             </li>
                             <li class="link">
-                                <a href="classes/SetTitle-2.html" data-type="entity-link">SetTitle</a>
+                                <a href="classes/SetTitle-2.html" data-type="entity-link" >SetTitle</a>
                             </li>
                             <li class="link">
-                                <a href="classes/SetTitle-3.html" data-type="entity-link">SetTitle</a>
+                                <a href="classes/SetTitle-3.html" data-type="entity-link" >SetTitle</a>
                             </li>
                             <li class="link">
-                                <a href="classes/SetTitle-4.html" data-type="entity-link">SetTitle</a>
+                                <a href="classes/SetTitle-4.html" data-type="entity-link" >SetTitle</a>
                             </li>
                             <li class="link">
-                                <a href="classes/SetVisible.html" data-type="entity-link">SetVisible</a>
+                                <a href="classes/SetVisible.html" data-type="entity-link" >SetVisible</a>
                             </li>
                             <li class="link">
-                                <a href="classes/SetZoomDictionary.html" data-type="entity-link">SetZoomDictionary</a>
+                                <a href="classes/SetZoomDictionary.html" data-type="entity-link" >SetZoomDictionary</a>
                             </li>
                             <li class="link">
-                                <a href="classes/ShowLayergroupBadges.html" data-type="entity-link">ShowLayergroupBadges</a>
+                                <a href="classes/ShowLayergroupBadges.html" data-type="entity-link" >ShowLayergroupBadges</a>
                             </li>
                             <li class="link">
-                                <a href="classes/Toggle.html" data-type="entity-link">Toggle</a>
+                                <a href="classes/Toggle.html" data-type="entity-link" >Toggle</a>
                             </li>
                         </ul>
                     </li>
@@ -579,22 +545,13 @@ customElements.define('compodoc-menu', class extends HTMLElement {
                             </div>
                             <ul class="links collapse " ${ isNormalMode ? 'id="injectables-links"' : 'id="xs-injectables-links"' }>
                                 <li class="link">
-                                    <a href="injectables/FeatureinfoService.html" data-type="entity-link">FeatureinfoService</a>
+                                    <a href="injectables/LayertreeService.html" data-type="entity-link" >LayertreeService</a>
                                 </li>
                                 <li class="link">
-                                    <a href="injectables/LayertreeService.html" data-type="entity-link">LayertreeService</a>
+                                    <a href="injectables/MangolService.html" data-type="entity-link" >MangolService</a>
                                 </li>
                                 <li class="link">
-                                    <a href="injectables/MangolService.html" data-type="entity-link">MangolService</a>
-                                </li>
-                                <li class="link">
-                                    <a href="injectables/MapService.html" data-type="entity-link">MapService</a>
-                                </li>
-                                <li class="link">
-                                    <a href="injectables/MeasureService.html" data-type="entity-link">MeasureService</a>
-                                </li>
-                                <li class="link">
-                                    <a href="injectables/StyleService.html" data-type="entity-link">StyleService</a>
+                                    <a href="injectables/MapService.html" data-type="entity-link" >MapService</a>
                                 </li>
                             </ul>
                         </li>
@@ -607,187 +564,187 @@ customElements.define('compodoc-menu', class extends HTMLElement {
                         </div>
                         <ul class="links collapse " ${ isNormalMode ? ' id="interfaces-links"' : 'id="xs-interfaces-links"' }>
                             <li class="link">
-                                <a href="interfaces/ControllersStateModel.html" data-type="entity-link">ControllersStateModel</a>
+                                <a href="interfaces/ControllersStateModel.html" data-type="entity-link" >ControllersStateModel</a>
                             </li>
                             <li class="link">
-                                <a href="interfaces/CursorMode.html" data-type="entity-link">CursorMode</a>
+                                <a href="interfaces/CursorMode.html" data-type="entity-link" >CursorMode</a>
                             </li>
                             <li class="link">
-                                <a href="interfaces/FeatureinfoDictionary.html" data-type="entity-link">FeatureinfoDictionary</a>
+                                <a href="interfaces/FeatureinfoDictionary.html" data-type="entity-link" >FeatureinfoDictionary</a>
                             </li>
                             <li class="link">
-                                <a href="interfaces/FsDocument.html" data-type="entity-link">FsDocument</a>
+                                <a href="interfaces/FsDocument.html" data-type="entity-link" >FsDocument</a>
                             </li>
                             <li class="link">
-                                <a href="interfaces/FsDocumentElement.html" data-type="entity-link">FsDocumentElement</a>
+                                <a href="interfaces/FsDocumentElement.html" data-type="entity-link" >FsDocumentElement</a>
                             </li>
                             <li class="link">
-                                <a href="interfaces/LayerDetailItem.html" data-type="entity-link">LayerDetailItem</a>
+                                <a href="interfaces/LayerDetailItem.html" data-type="entity-link" >LayerDetailItem</a>
                             </li>
                             <li class="link">
-                                <a href="interfaces/LayerGroupDetailItem.html" data-type="entity-link">LayerGroupDetailItem</a>
+                                <a href="interfaces/LayerGroupDetailItem.html" data-type="entity-link" >LayerGroupDetailItem</a>
                             </li>
                             <li class="link">
-                                <a href="interfaces/LayertreeDictionary.html" data-type="entity-link">LayertreeDictionary</a>
+                                <a href="interfaces/LayertreeDictionary.html" data-type="entity-link" >LayertreeDictionary</a>
                             </li>
                             <li class="link">
-                                <a href="interfaces/Layout.html" data-type="entity-link">Layout</a>
+                                <a href="interfaces/Layout.html" data-type="entity-link" >Layout</a>
                             </li>
                             <li class="link">
-                                <a href="interfaces/MangolConfig.html" data-type="entity-link">MangolConfig</a>
+                                <a href="interfaces/MangolConfig.html" data-type="entity-link" >MangolConfig</a>
                             </li>
                             <li class="link">
-                                <a href="interfaces/MangolConfigFeatureInfoItem.html" data-type="entity-link">MangolConfigFeatureInfoItem</a>
+                                <a href="interfaces/MangolConfigFeatureInfoItem.html" data-type="entity-link" >MangolConfigFeatureInfoItem</a>
                             </li>
                             <li class="link">
-                                <a href="interfaces/MangolConfigLayer.html" data-type="entity-link">MangolConfigLayer</a>
+                                <a href="interfaces/MangolConfigLayer.html" data-type="entity-link" >MangolConfigLayer</a>
                             </li>
                             <li class="link">
-                                <a href="interfaces/MangolConfigLayer2.html" data-type="entity-link">MangolConfigLayer2</a>
+                                <a href="interfaces/MangolConfigLayer2.html" data-type="entity-link" >MangolConfigLayer2</a>
                             </li>
                             <li class="link">
-                                <a href="interfaces/MangolConfigLayerColumn.html" data-type="entity-link">MangolConfigLayerColumn</a>
+                                <a href="interfaces/MangolConfigLayerColumn.html" data-type="entity-link" >MangolConfigLayerColumn</a>
                             </li>
                             <li class="link">
-                                <a href="interfaces/MangolConfigLayerGroup.html" data-type="entity-link">MangolConfigLayerGroup</a>
+                                <a href="interfaces/MangolConfigLayerGroup.html" data-type="entity-link" >MangolConfigLayerGroup</a>
                             </li>
                             <li class="link">
-                                <a href="interfaces/MangolConfigLayerGroup-1.html" data-type="entity-link">MangolConfigLayerGroup</a>
+                                <a href="interfaces/MangolConfigLayerGroup-1.html" data-type="entity-link" >MangolConfigLayerGroup</a>
                             </li>
                             <li class="link">
-                                <a href="interfaces/MangolConfigLayertree.html" data-type="entity-link">MangolConfigLayertree</a>
+                                <a href="interfaces/MangolConfigLayertree.html" data-type="entity-link" >MangolConfigLayertree</a>
                             </li>
                             <li class="link">
-                                <a href="interfaces/MangolConfigLayertreeItem.html" data-type="entity-link">MangolConfigLayertreeItem</a>
+                                <a href="interfaces/MangolConfigLayertreeItem.html" data-type="entity-link" >MangolConfigLayertreeItem</a>
                             </li>
                             <li class="link">
-                                <a href="interfaces/MangolConfigMap.html" data-type="entity-link">MangolConfigMap</a>
+                                <a href="interfaces/MangolConfigMap.html" data-type="entity-link" >MangolConfigMap</a>
                             </li>
                             <li class="link">
-                                <a href="interfaces/MangolConfigMapControllers.html" data-type="entity-link">MangolConfigMapControllers</a>
+                                <a href="interfaces/MangolConfigMapControllers.html" data-type="entity-link" >MangolConfigMapControllers</a>
                             </li>
                             <li class="link">
-                                <a href="interfaces/MangolConfigMapMousePosition.html" data-type="entity-link">MangolConfigMapMousePosition</a>
+                                <a href="interfaces/MangolConfigMapMousePosition.html" data-type="entity-link" >MangolConfigMapMousePosition</a>
                             </li>
                             <li class="link">
-                                <a href="interfaces/MangolConfigMeasureItem.html" data-type="entity-link">MangolConfigMeasureItem</a>
+                                <a href="interfaces/MangolConfigMeasureItem.html" data-type="entity-link" >MangolConfigMeasureItem</a>
                             </li>
                             <li class="link">
-                                <a href="interfaces/MangolConfigPrintItem.html" data-type="entity-link">MangolConfigPrintItem</a>
+                                <a href="interfaces/MangolConfigPrintItem.html" data-type="entity-link" >MangolConfigPrintItem</a>
                             </li>
                             <li class="link">
-                                <a href="interfaces/MangolConfigSidebar.html" data-type="entity-link">MangolConfigSidebar</a>
+                                <a href="interfaces/MangolConfigSidebar.html" data-type="entity-link" >MangolConfigSidebar</a>
                             </li>
                             <li class="link">
-                                <a href="interfaces/MangolConfigToolbar.html" data-type="entity-link">MangolConfigToolbar</a>
+                                <a href="interfaces/MangolConfigToolbar.html" data-type="entity-link" >MangolConfigToolbar</a>
                             </li>
                             <li class="link">
-                                <a href="interfaces/MangolConfigToolbarItem.html" data-type="entity-link">MangolConfigToolbarItem</a>
+                                <a href="interfaces/MangolConfigToolbarItem.html" data-type="entity-link" >MangolConfigToolbarItem</a>
                             </li>
                             <li class="link">
-                                <a href="interfaces/MangolConfigToolbarLayertreeDetails.html" data-type="entity-link">MangolConfigToolbarLayertreeDetails</a>
+                                <a href="interfaces/MangolConfigToolbarLayertreeDetails.html" data-type="entity-link" >MangolConfigToolbarLayertreeDetails</a>
                             </li>
                             <li class="link">
-                                <a href="interfaces/MangolConfigView.html" data-type="entity-link">MangolConfigView</a>
+                                <a href="interfaces/MangolConfigView.html" data-type="entity-link" >MangolConfigView</a>
                             </li>
                             <li class="link">
-                                <a href="interfaces/MangolControllersFullScreenDictionary.html" data-type="entity-link">MangolControllersFullScreenDictionary</a>
+                                <a href="interfaces/MangolControllersFullScreenDictionary.html" data-type="entity-link" >MangolControllersFullScreenDictionary</a>
                             </li>
                             <li class="link">
-                                <a href="interfaces/MangolControllersFullScreenOptions.html" data-type="entity-link">MangolControllersFullScreenOptions</a>
+                                <a href="interfaces/MangolControllersFullScreenOptions.html" data-type="entity-link" >MangolControllersFullScreenOptions</a>
                             </li>
                             <li class="link">
-                                <a href="interfaces/MangolControllersOptions.html" data-type="entity-link">MangolControllersOptions</a>
+                                <a href="interfaces/MangolControllersOptions.html" data-type="entity-link" >MangolControllersOptions</a>
                             </li>
                             <li class="link">
-                                <a href="interfaces/MangolControllersPositionDictionary.html" data-type="entity-link">MangolControllersPositionDictionary</a>
+                                <a href="interfaces/MangolControllersPositionDictionary.html" data-type="entity-link" >MangolControllersPositionDictionary</a>
                             </li>
                             <li class="link">
-                                <a href="interfaces/MangolControllersPositionOptions.html" data-type="entity-link">MangolControllersPositionOptions</a>
+                                <a href="interfaces/MangolControllersPositionOptions.html" data-type="entity-link" >MangolControllersPositionOptions</a>
                             </li>
                             <li class="link">
-                                <a href="interfaces/MangolControllersPositionStateModel.html" data-type="entity-link">MangolControllersPositionStateModel</a>
+                                <a href="interfaces/MangolControllersPositionStateModel.html" data-type="entity-link" >MangolControllersPositionStateModel</a>
                             </li>
                             <li class="link">
-                                <a href="interfaces/MangolControllersRotationDictionary.html" data-type="entity-link">MangolControllersRotationDictionary</a>
+                                <a href="interfaces/MangolControllersRotationDictionary.html" data-type="entity-link" >MangolControllersRotationDictionary</a>
                             </li>
                             <li class="link">
-                                <a href="interfaces/MangolControllersRotationOptions.html" data-type="entity-link">MangolControllersRotationOptions</a>
+                                <a href="interfaces/MangolControllersRotationOptions.html" data-type="entity-link" >MangolControllersRotationOptions</a>
                             </li>
                             <li class="link">
-                                <a href="interfaces/MangolControllersRotationStateModel.html" data-type="entity-link">MangolControllersRotationStateModel</a>
+                                <a href="interfaces/MangolControllersRotationStateModel.html" data-type="entity-link" >MangolControllersRotationStateModel</a>
                             </li>
                             <li class="link">
-                                <a href="interfaces/MangolControllersScalebarOptions.html" data-type="entity-link">MangolControllersScalebarOptions</a>
+                                <a href="interfaces/MangolControllersScalebarOptions.html" data-type="entity-link" >MangolControllersScalebarOptions</a>
                             </li>
                             <li class="link">
-                                <a href="interfaces/MangolControllersTileloadOptions.html" data-type="entity-link">MangolControllersTileloadOptions</a>
+                                <a href="interfaces/MangolControllersTileloadOptions.html" data-type="entity-link" >MangolControllersTileloadOptions</a>
                             </li>
                             <li class="link">
-                                <a href="interfaces/MangolControllersZoomDictionary.html" data-type="entity-link">MangolControllersZoomDictionary</a>
+                                <a href="interfaces/MangolControllersZoomDictionary.html" data-type="entity-link" >MangolControllersZoomDictionary</a>
                             </li>
                             <li class="link">
-                                <a href="interfaces/MangolControllersZoomOptions.html" data-type="entity-link">MangolControllersZoomOptions</a>
+                                <a href="interfaces/MangolControllersZoomOptions.html" data-type="entity-link" >MangolControllersZoomOptions</a>
                             </li>
                             <li class="link">
-                                <a href="interfaces/MangolLayerGroupOptions.html" data-type="entity-link">MangolLayerGroupOptions</a>
+                                <a href="interfaces/MangolLayerGroupOptions.html" data-type="entity-link" >MangolLayerGroupOptions</a>
                             </li>
                             <li class="link">
-                                <a href="interfaces/MangolLayerOptions.html" data-type="entity-link">MangolLayerOptions</a>
+                                <a href="interfaces/MangolLayerOptions.html" data-type="entity-link" >MangolLayerOptions</a>
                             </li>
                             <li class="link">
-                                <a href="interfaces/MangolReady.html" data-type="entity-link">MangolReady</a>
+                                <a href="interfaces/MangolReady.html" data-type="entity-link" >MangolReady</a>
                             </li>
                             <li class="link">
-                                <a href="interfaces/MangolState.html" data-type="entity-link">MangolState</a>
+                                <a href="interfaces/MangolState.html" data-type="entity-link" >MangolState</a>
                             </li>
                             <li class="link">
-                                <a href="interfaces/MeasureDictionary.html" data-type="entity-link">MeasureDictionary</a>
+                                <a href="interfaces/MeasureDictionary.html" data-type="entity-link" >MeasureDictionary</a>
                             </li>
                             <li class="link">
-                                <a href="interfaces/MeasureMode.html" data-type="entity-link">MeasureMode</a>
+                                <a href="interfaces/MeasureMode.html" data-type="entity-link" >MeasureMode</a>
                             </li>
                             <li class="link">
-                                <a href="interfaces/OlxLayerLayerOptions.html" data-type="entity-link">OlxLayerLayerOptions</a>
+                                <a href="interfaces/OlxLayerLayerOptions.html" data-type="entity-link" >OlxLayerLayerOptions</a>
                             </li>
                             <li class="link">
-                                <a href="interfaces/PrintDictionary.html" data-type="entity-link">PrintDictionary</a>
+                                <a href="interfaces/PrintDictionary.html" data-type="entity-link" >PrintDictionary</a>
                             </li>
                             <li class="link">
-                                <a href="interfaces/PrintLayout.html" data-type="entity-link">PrintLayout</a>
+                                <a href="interfaces/PrintLayout.html" data-type="entity-link" >PrintLayout</a>
                             </li>
                             <li class="link">
-                                <a href="interfaces/PrintSize.html" data-type="entity-link">PrintSize</a>
+                                <a href="interfaces/PrintSize.html" data-type="entity-link" >PrintSize</a>
                             </li>
                             <li class="link">
-                                <a href="interfaces/State.html" data-type="entity-link">State</a>
+                                <a href="interfaces/State.html" data-type="entity-link" >State</a>
                             </li>
                             <li class="link">
-                                <a href="interfaces/State-1.html" data-type="entity-link">State</a>
+                                <a href="interfaces/State-1.html" data-type="entity-link" >State</a>
                             </li>
                             <li class="link">
-                                <a href="interfaces/State-2.html" data-type="entity-link">State</a>
+                                <a href="interfaces/State-2.html" data-type="entity-link" >State</a>
                             </li>
                             <li class="link">
-                                <a href="interfaces/State-3.html" data-type="entity-link">State</a>
+                                <a href="interfaces/State-3.html" data-type="entity-link" >State</a>
                             </li>
                             <li class="link">
-                                <a href="interfaces/State-4.html" data-type="entity-link">State</a>
+                                <a href="interfaces/State-4.html" data-type="entity-link" >State</a>
                             </li>
                             <li class="link">
-                                <a href="interfaces/State-5.html" data-type="entity-link">State</a>
+                                <a href="interfaces/State-5.html" data-type="entity-link" >State</a>
                             </li>
                             <li class="link">
-                                <a href="interfaces/State-6.html" data-type="entity-link">State</a>
+                                <a href="interfaces/State-6.html" data-type="entity-link" >State</a>
                             </li>
                             <li class="link">
-                                <a href="interfaces/State-7.html" data-type="entity-link">State</a>
+                                <a href="interfaces/State-7.html" data-type="entity-link" >State</a>
                             </li>
                             <li class="link">
-                                <a href="interfaces/State-8.html" data-type="entity-link">State</a>
+                                <a href="interfaces/State-8.html" data-type="entity-link" >State</a>
                             </li>
                             <li class="link">
-                                <a href="interfaces/State-9.html" data-type="entity-link">State</a>
+                                <a href="interfaces/State-9.html" data-type="entity-link" >State</a>
                             </li>
                         </ul>
                     </li>

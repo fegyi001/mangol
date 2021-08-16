@@ -8,7 +8,8 @@
         <meta name="viewport" content="width=device-width, initial-scale=1">
 
         <link rel="icon" type="image/x-icon" href="../images/favicon.ico">
-	      <link rel="stylesheet" href="../styles/style.css">
+	   <link rel="stylesheet" href="../styles/style.css">
+        <link rel="stylesheet" href="../styles/dark.css" media="(prefers-color-scheme: dark)">
         <link rel="stylesheet" href="../styles/material.css">
     </head>
     <body>
@@ -39,7 +40,7 @@
 
 <ol class="breadcrumb">
   <li>Injectables</li>
-  <li>FeatureinfoService</li>
+  <li >FeatureinfoService</li>
 </ol>
 
 <ul class="nav nav-tabs" role="tablist">
@@ -63,6 +64,7 @@
 
 
 
+
             <section>
     <h3 id="index">Index</h3>
     <table class="table table-sm table-bordered index-table">
@@ -76,7 +78,7 @@
                     <td class="col-md-4">
                         <ul class="index-list">
                             <li>
-                                <a href="#geojsonFormat">geojsonFormat</a>
+                                <a href="#geojsonFormat" >geojsonFormat</a>
                             </li>
                         </ul>
                     </td>
@@ -91,10 +93,10 @@
                     <td class="col-md-4">
                         <ul class="index-list">
                             <li>
-                                <a href="#getFeatureinfo">getFeatureinfo</a>
+                                <a href="#getFeatureinfo" >getFeatureinfo</a>
                             </li>
                             <li>
-                                <a href="#getFeatureinfoUrl$">getFeatureinfoUrl$</a>
+                                <a href="#getFeatureinfoUrl$" >getFeatureinfoUrl$</a>
                             </li>
                         </ul>
                     </td>
@@ -119,7 +121,7 @@
                 </tr>
                         <tr>
                             <td class="col-md-4">
-                                <div class="io-line">Defined in <a href="" data-line="19" class="link-to-prism">projects/mangol/src/lib/modules/featureinfo/featureinfo.service.ts:19</a></div>
+                                <div class="io-line">Defined in <a href="" data-line="22" class="link-to-prism">projects/mangol/src/lib/modules/featureinfo/featureinfo.service.ts:22</a></div>
                             </td>
                         </tr>
 
@@ -180,9 +182,7 @@
                 <td class="col-md-4">
                     <a name="getFeatureinfo"></a>
                     <span class="name">
-                        <b>
-                            getFeatureinfo
-                        </b>
+                        <span ><b>getFeatureinfo</b></span>
                         <a href="#getFeatureinfo"><span class="icon ion-ios-link"></span></a>
                     </span>
                 </td>
@@ -196,8 +196,8 @@
 
             <tr>
                 <td class="col-md-4">
-                    <div class="io-line">Defined in <a href="" data-line="66"
-                            class="link-to-prism">projects/mangol/src/lib/modules/featureinfo/featureinfo.service.ts:66</a></div>
+                    <div class="io-line">Defined in <a href="" data-line="69"
+                            class="link-to-prism">projects/mangol/src/lib/modules/featureinfo/featureinfo.service.ts:69</a></div>
                 </td>
             </tr>
 
@@ -276,24 +276,22 @@
                 <td class="col-md-4">
                     <a name="getFeatureinfoUrl$"></a>
                     <span class="name">
-                        <b>
-                            getFeatureinfoUrl$
-                        </b>
+                        <span ><b>getFeatureinfoUrl$</b></span>
                         <a href="#getFeatureinfoUrl$"><span class="icon ion-ios-link"></span></a>
                     </span>
                 </td>
             </tr>
             <tr>
                 <td class="col-md-4">
-<code>getFeatureinfoUrl$(layer: <a href="../classes/MangolLayer.html">MangolLayer</a>, m: Map, coordinates: [number, number])</code>
+<code>getFeatureinfoUrl$(layer: <a href="../classes/MangolLayer.html" target="_self">MangolLayer</a>, m: Map, coordinates: [number, number])</code>
                 </td>
             </tr>
 
 
             <tr>
                 <td class="col-md-4">
-                    <div class="io-line">Defined in <a href="" data-line="32"
-                            class="link-to-prism">projects/mangol/src/lib/modules/featureinfo/featureinfo.service.ts:32</a></div>
+                    <div class="io-line">Defined in <a href="" data-line="35"
+                            class="link-to-prism">projects/mangol/src/lib/modules/featureinfo/featureinfo.service.ts:35</a></div>
                 </td>
             </tr>
 
@@ -369,35 +367,34 @@
 </section>
             <section>
     
-        <h3 id="inputs">
-            Properties
-        </h3>
-        <table class="table table-sm table-bordered">
-            <tbody>
+    <h3 id="inputs">
+        Properties
+    </h3>
+    <table class="table table-sm table-bordered">
+        <tbody>
+            <tr>
+                <td class="col-md-4">
+                    <a name="geojsonFormat"></a>
+                    <span class="name">
+                        <span ><b>geojsonFormat</b></span>
+                        <a href="#geojsonFormat"><span class="icon ion-ios-link"></span></a>
+                    </span>
+                </td>
+            </tr>
                 <tr>
                     <td class="col-md-4">
-                        <a name="geojsonFormat"></a>
-                        <span class="name">
-                            <b>
-                            geojsonFormat</b>
-                            <a href="#geojsonFormat"><span class="icon ion-ios-link"></span></a>
-                        </span>
+                        <i>Default value : </i><code>new GeoJSON()</code>
                     </td>
                 </tr>
                     <tr>
                         <td class="col-md-4">
-                            <i>Default value : </i><code>new GeoJSON()</code>
+                                <div class="io-line">Defined in <a href="" data-line="22" class="link-to-prism">projects/mangol/src/lib/modules/featureinfo/featureinfo.service.ts:22</a></div>
                         </td>
                     </tr>
-                        <tr>
-                            <td class="col-md-4">
-                                    <div class="io-line">Defined in <a href="" data-line="19" class="link-to-prism">projects/mangol/src/lib/modules/featureinfo/featureinfo.service.ts:19</a></div>
-                            </td>
-                        </tr>
 
 
-            </tbody>
-        </table>
+        </tbody>
+    </table>
 </section>
 
     </div>
@@ -410,6 +407,9 @@ import { Store } from &#x27;@ngrx/store&#x27;;
 import { FeatureCollection } from &#x27;geojson&#x27;;
 import Feature from &#x27;ol/Feature&#x27;;
 import GeoJSON from &#x27;ol/format/GeoJSON&#x27;;
+import LineString from &#x27;ol/geom/LineString&#x27;;
+import Point from &#x27;ol/geom/Point&#x27;;
+import Polygon from &#x27;ol/geom/Polygon&#x27;;
 import Map from &#x27;ol/Map&#x27;;
 import TileWMS from &#x27;ol/source/TileWMS&#x27;;
 import { Observable, throwError } from &#x27;rxjs&#x27;;
@@ -473,7 +473,7 @@ export class FeatureinfoService {
     url: string,
     dataProjection: string,
     featureProjection: string
-  ): Observable&lt;Feature[]&gt; {
+  ): Observable&lt;Feature&lt;Point | LineString | Polygon&gt;[]&gt; {
     return this.http
       .get(url, {
         observe: &#x27;body&#x27;,
@@ -537,9 +537,9 @@ export class FeatureinfoService {
 
        <script src="../js/libs/custom-elements.min.js"></script>
        <script src="../js/libs/lit-html.js"></script>
-       <!-- Required to polyfill modern browsers as code is ES5 for IE... -->
-       <script src="../js/libs/custom-elements-es5-adapter.js" charset="utf-8" defer></script>
-       <script src="../js/menu-wc.js" defer></script>
+       
+       <script type="module" src="../js/menu-wc.js" defer></script>
+       <script nomodule src="../js/menu-wc_es5.js" defer></script>
 
        <script src="../js/libs/bootstrap-native.js"></script>
 

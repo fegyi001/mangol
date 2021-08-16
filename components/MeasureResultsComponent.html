@@ -8,7 +8,8 @@
         <meta name="viewport" content="width=device-width, initial-scale=1">
 
         <link rel="icon" type="image/x-icon" href="../images/favicon.ico">
-	      <link rel="stylesheet" href="../styles/style.css">
+	   <link rel="stylesheet" href="../styles/style.css">
+        <link rel="stylesheet" href="../styles/dark.css" media="(prefers-color-scheme: dark)">
         <link rel="stylesheet" href="../styles/material.css">
     </head>
     <body>
@@ -36,7 +37,9 @@
 
 <ol class="breadcrumb">
   <li>Components</li>
-  <li>MeasureResultsComponent</li>
+  <li
+  >
+  MeasureResultsComponent</li>
 </ol>
 
 <ul class="nav nav-tabs" role="tablist">
@@ -64,6 +67,7 @@
 <p class="comment">
     <code>projects/mangol/src/lib/modules/measure/components/measure-results/measure-results.component.ts</code>
 </p>
+
 
 
 
@@ -132,28 +136,28 @@
                     <td class="col-md-4">
                         <ul class="index-list">
                             <li>
-                                <a href="#combinedSubscription">combinedSubscription</a>
+                                <a href="#combinedSubscription" >combinedSubscription</a>
                             </li>
                             <li>
-                                <a href="#cursorText$">cursorText$</a>
+                                <a href="#cursorText$" >cursorText$</a>
                             </li>
                             <li>
-                                <a href="#displayValue">displayValue</a>
+                                <a href="#displayValue" >displayValue</a>
                             </li>
                             <li>
-                                <a href="#draw">draw</a>
+                                <a href="#draw" >draw</a>
                             </li>
                             <li>
-                                <a href="#initialText">initialText</a>
+                                <a href="#initialText" >initialText</a>
                             </li>
                             <li>
-                                <a href="#layer$">layer$</a>
+                                <a href="#layer$" >layer$</a>
                             </li>
                             <li>
-                                <a href="#map$">map$</a>
+                                <a href="#map$" >map$</a>
                             </li>
                             <li>
-                                <a href="#measureMode$">measureMode$</a>
+                                <a href="#measureMode$" >measureMode$</a>
                             </li>
                         </ul>
                     </td>
@@ -169,17 +173,17 @@
                         <ul class="index-list">
                             <li>
                                     <span class="modifier">Private</span>
-                                <a href="#_activateDraw">_activateDraw</a>
+                                <a href="#_activateDraw" >_activateDraw</a>
                             </li>
                             <li>
                                     <span class="modifier">Private</span>
-                                <a href="#_deactivateDraw">_deactivateDraw</a>
+                                <a href="#_deactivateDraw" >_deactivateDraw</a>
                             </li>
                             <li>
-                                <a href="#ngOnDestroy">ngOnDestroy</a>
+                                <a href="#ngOnDestroy" >ngOnDestroy</a>
                             </li>
                             <li>
-                                <a href="#ngOnInit">ngOnInit</a>
+                                <a href="#ngOnInit" >ngOnInit</a>
                             </li>
                         </ul>
                     </td>
@@ -194,7 +198,7 @@
                     <td class="col-md-4">
                         <ul class="index-list">
                             <li>
-                                <a href="#dictionary">dictionary</a>
+                                <a href="#dictionary" >dictionary</a>
                             </li>
                         </ul>
                     </td>
@@ -213,12 +217,12 @@
             <tbody>
                 <tr>
                     <td class="col-md-4">
-<code>constructor(store: Store<fromMangol.MangolState>, measureService: <a href="../injectables/MeasureService.html">MeasureService</a>)</code>
+<code>constructor(store: Store<fromMangol.MangolState>, measureService: <a href="../injectables/MeasureService.html" target="_self">MeasureService</a>)</code>
                     </td>
                 </tr>
                         <tr>
                             <td class="col-md-4">
-                                <div class="io-line">Defined in <a href="" data-line="36" class="link-to-prism">projects/mangol/src/lib/modules/measure/components/measure-results/measure-results.component.ts:36</a></div>
+                                <div class="io-line">Defined in <a href="" data-line="42" class="link-to-prism">projects/mangol/src/lib/modules/measure/components/measure-results/measure-results.component.ts:42</a></div>
                             </td>
                         </tr>
 
@@ -286,7 +290,7 @@
                 </tr>
                         <tr>
                             <td class="col-md-2" colspan="2">
-                                    <div class="io-line">Defined in <a href="" data-line="26" class="link-to-prism">projects/mangol/src/lib/modules/measure/components/measure-results/measure-results.component.ts:26</a></div>
+                                    <div class="io-line">Defined in <a href="" data-line="32" class="link-to-prism">projects/mangol/src/lib/modules/measure/components/measure-results/measure-results.component.ts:32</a></div>
                             </td>
                         </tr>
             </tbody>
@@ -306,10 +310,8 @@
                 <td class="col-md-4">
                     <a name="_activateDraw"></a>
                     <span class="name">
-                        <b>
-                            <span class="modifier">Private</span>
-                            _activateDraw
-                        </b>
+                        <span class="modifier">Private</span>
+                        <span ><b>_activateDraw</b></span>
                         <a href="#_activateDraw"><span class="icon ion-ios-link"></span></a>
                     </span>
                 </td>
@@ -317,15 +319,15 @@
             <tr>
                 <td class="col-md-4">
                     <span class="modifier-icon icon ion-ios-reset"></span>
-                    <code>_activateDraw(map: Map, layer: VectorLayer, mode: <a href="../interfaces/MeasureMode.html">MeasureMode</a>)</code>
+                    <code>_activateDraw(map: Map, layer: VectorLayer<VectorSource<Point | LineString | Polygon>>, mode: <a href="../interfaces/MeasureMode.html" target="_self">MeasureMode</a>)</code>
                 </td>
             </tr>
 
 
             <tr>
                 <td class="col-md-4">
-                    <div class="io-line">Defined in <a href="" data-line="87"
-                            class="link-to-prism">projects/mangol/src/lib/modules/measure/components/measure-results/measure-results.component.ts:87</a></div>
+                    <div class="io-line">Defined in <a href="" data-line="93"
+                            class="link-to-prism">projects/mangol/src/lib/modules/measure/components/measure-results/measure-results.component.ts:93</a></div>
                 </td>
             </tr>
 
@@ -359,7 +361,7 @@
                                 <tr>
                                     <td>layer</td>
                                     <td>
-                                            <code>VectorLayer</code>
+                                            <code>VectorLayer&lt;VectorSource&lt;Point | LineString | Polygon&gt;&gt;</code>
                                     </td>
 
                                     <td>
@@ -402,10 +404,8 @@
                 <td class="col-md-4">
                     <a name="_deactivateDraw"></a>
                     <span class="name">
-                        <b>
-                            <span class="modifier">Private</span>
-                            _deactivateDraw
-                        </b>
+                        <span class="modifier">Private</span>
+                        <span ><b>_deactivateDraw</b></span>
                         <a href="#_deactivateDraw"><span class="icon ion-ios-link"></span></a>
                     </span>
                 </td>
@@ -413,15 +413,15 @@
             <tr>
                 <td class="col-md-4">
                     <span class="modifier-icon icon ion-ios-reset"></span>
-                    <code>_deactivateDraw(map: Map, layer: VectorLayer)</code>
+                    <code>_deactivateDraw(map: Map, layer: VectorLayer<VectorSource<Point | LineString | Polygon>>)</code>
                 </td>
             </tr>
 
 
             <tr>
                 <td class="col-md-4">
-                    <div class="io-line">Defined in <a href="" data-line="194"
-                            class="link-to-prism">projects/mangol/src/lib/modules/measure/components/measure-results/measure-results.component.ts:194</a></div>
+                    <div class="io-line">Defined in <a href="" data-line="212"
+                            class="link-to-prism">projects/mangol/src/lib/modules/measure/components/measure-results/measure-results.component.ts:212</a></div>
                 </td>
             </tr>
 
@@ -455,7 +455,7 @@
                                 <tr>
                                     <td>layer</td>
                                     <td>
-                                            <code>VectorLayer</code>
+                                            <code>VectorLayer&lt;VectorSource&lt;Point | LineString | Polygon&gt;&gt;</code>
                                     </td>
 
                                     <td>
@@ -486,9 +486,7 @@
                 <td class="col-md-4">
                     <a name="ngOnDestroy"></a>
                     <span class="name">
-                        <b>
-                            ngOnDestroy
-                        </b>
+                        <span ><b>ngOnDestroy</b></span>
                         <a href="#ngOnDestroy"><span class="icon ion-ios-link"></span></a>
                     </span>
                 </td>
@@ -502,8 +500,8 @@
 
             <tr>
                 <td class="col-md-4">
-                    <div class="io-line">Defined in <a href="" data-line="75"
-                            class="link-to-prism">projects/mangol/src/lib/modules/measure/components/measure-results/measure-results.component.ts:75</a></div>
+                    <div class="io-line">Defined in <a href="" data-line="81"
+                            class="link-to-prism">projects/mangol/src/lib/modules/measure/components/measure-results/measure-results.component.ts:81</a></div>
                 </td>
             </tr>
 
@@ -525,9 +523,7 @@
                 <td class="col-md-4">
                     <a name="ngOnInit"></a>
                     <span class="name">
-                        <b>
-                            ngOnInit
-                        </b>
+                        <span ><b>ngOnInit</b></span>
                         <a href="#ngOnInit"><span class="icon ion-ios-link"></span></a>
                     </span>
                 </td>
@@ -541,8 +537,8 @@
 
             <tr>
                 <td class="col-md-4">
-                    <div class="io-line">Defined in <a href="" data-line="54"
-                            class="link-to-prism">projects/mangol/src/lib/modules/measure/components/measure-results/measure-results.component.ts:54</a></div>
+                    <div class="io-line">Defined in <a href="" data-line="60"
+                            class="link-to-prism">projects/mangol/src/lib/modules/measure/components/measure-results/measure-results.component.ts:60</a></div>
                 </td>
             </tr>
 
@@ -561,240 +557,232 @@
 </section>
     <section>
     
-        <h3 id="inputs">
-            Properties
-        </h3>
-        <table class="table table-sm table-bordered">
-            <tbody>
+    <h3 id="inputs">
+        Properties
+    </h3>
+    <table class="table table-sm table-bordered">
+        <tbody>
+            <tr>
+                <td class="col-md-4">
+                    <a name="combinedSubscription"></a>
+                    <span class="name">
+                        <span ><b>combinedSubscription</b></span>
+                        <a href="#combinedSubscription"><span class="icon ion-ios-link"></span></a>
+                    </span>
+                </td>
+            </tr>
                 <tr>
                     <td class="col-md-4">
-                        <a name="combinedSubscription"></a>
-                        <span class="name">
-                            <b>
-                            combinedSubscription</b>
-                            <a href="#combinedSubscription"><span class="icon ion-ios-link"></span></a>
-                        </span>
+                        <i>Type : </i>    <code>Subscription</code>
+
                     </td>
                 </tr>
                     <tr>
                         <td class="col-md-4">
-                            <i>Type : </i>    <code>Subscription</code>
-
+                                <div class="io-line">Defined in <a href="" data-line="38" class="link-to-prism">projects/mangol/src/lib/modules/measure/components/measure-results/measure-results.component.ts:38</a></div>
                         </td>
                     </tr>
-                        <tr>
-                            <td class="col-md-4">
-                                    <div class="io-line">Defined in <a href="" data-line="32" class="link-to-prism">projects/mangol/src/lib/modules/measure/components/measure-results/measure-results.component.ts:32</a></div>
-                            </td>
-                        </tr>
 
 
-            </tbody>
-        </table>
-        <table class="table table-sm table-bordered">
-            <tbody>
+        </tbody>
+    </table>
+    <table class="table table-sm table-bordered">
+        <tbody>
+            <tr>
+                <td class="col-md-4">
+                    <a name="cursorText$"></a>
+                    <span class="name">
+                        <span ><b>cursorText$</b></span>
+                        <a href="#cursorText$"><span class="icon ion-ios-link"></span></a>
+                    </span>
+                </td>
+            </tr>
                 <tr>
                     <td class="col-md-4">
-                        <a name="cursorText$"></a>
-                        <span class="name">
-                            <b>
-                            cursorText$</b>
-                            <a href="#cursorText$"><span class="icon ion-ios-link"></span></a>
-                        </span>
+                        <i>Type : </i>    <code>Observable&lt;string&gt;</code>
+
                     </td>
                 </tr>
                     <tr>
                         <td class="col-md-4">
-                            <i>Type : </i>    <code>Observable&lt;string&gt;</code>
-
+                                <div class="io-line">Defined in <a href="" data-line="36" class="link-to-prism">projects/mangol/src/lib/modules/measure/components/measure-results/measure-results.component.ts:36</a></div>
                         </td>
                     </tr>
-                        <tr>
-                            <td class="col-md-4">
-                                    <div class="io-line">Defined in <a href="" data-line="30" class="link-to-prism">projects/mangol/src/lib/modules/measure/components/measure-results/measure-results.component.ts:30</a></div>
-                            </td>
-                        </tr>
 
 
-            </tbody>
-        </table>
-        <table class="table table-sm table-bordered">
-            <tbody>
+        </tbody>
+    </table>
+    <table class="table table-sm table-bordered">
+        <tbody>
+            <tr>
+                <td class="col-md-4">
+                    <a name="displayValue"></a>
+                    <span class="name">
+                        <span ><b>displayValue</b></span>
+                        <a href="#displayValue"><span class="icon ion-ios-link"></span></a>
+                    </span>
+                </td>
+            </tr>
                 <tr>
                     <td class="col-md-4">
-                        <a name="displayValue"></a>
-                        <span class="name">
-                            <b>
-                            displayValue</b>
-                            <a href="#displayValue"><span class="icon ion-ios-link"></span></a>
-                        </span>
+                        <i>Type : </i>        <code><a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/string" target="_blank" >string</a></code>
+
+                    </td>
+                </tr>
+                <tr>
+                    <td class="col-md-4">
+                        <i>Default value : </i><code>null</code>
                     </td>
                 </tr>
                     <tr>
                         <td class="col-md-4">
-                            <i>Type : </i>        <code><a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/string" target="_blank" >string</a></code>
-
+                                <div class="io-line">Defined in <a href="" data-line="42" class="link-to-prism">projects/mangol/src/lib/modules/measure/components/measure-results/measure-results.component.ts:42</a></div>
                         </td>
                     </tr>
-                    <tr>
-                        <td class="col-md-4">
-                            <i>Default value : </i><code>null</code>
-                        </td>
-                    </tr>
-                        <tr>
-                            <td class="col-md-4">
-                                    <div class="io-line">Defined in <a href="" data-line="36" class="link-to-prism">projects/mangol/src/lib/modules/measure/components/measure-results/measure-results.component.ts:36</a></div>
-                            </td>
-                        </tr>
 
 
-            </tbody>
-        </table>
-        <table class="table table-sm table-bordered">
-            <tbody>
+        </tbody>
+    </table>
+    <table class="table table-sm table-bordered">
+        <tbody>
+            <tr>
+                <td class="col-md-4">
+                    <a name="draw"></a>
+                    <span class="name">
+                        <span ><b>draw</b></span>
+                        <a href="#draw"><span class="icon ion-ios-link"></span></a>
+                    </span>
+                </td>
+            </tr>
                 <tr>
                     <td class="col-md-4">
-                        <a name="draw"></a>
-                        <span class="name">
-                            <b>
-                            draw</b>
-                            <a href="#draw"><span class="icon ion-ios-link"></span></a>
-                        </span>
+                        <i>Type : </i>    <code>Draw</code>
+
+                    </td>
+                </tr>
+                <tr>
+                    <td class="col-md-4">
+                        <i>Default value : </i><code>null</code>
                     </td>
                 </tr>
                     <tr>
                         <td class="col-md-4">
-                            <i>Type : </i>    <code>Draw</code>
-
+                                <div class="io-line">Defined in <a href="" data-line="40" class="link-to-prism">projects/mangol/src/lib/modules/measure/components/measure-results/measure-results.component.ts:40</a></div>
                         </td>
                     </tr>
-                    <tr>
-                        <td class="col-md-4">
-                            <i>Default value : </i><code>null</code>
-                        </td>
-                    </tr>
-                        <tr>
-                            <td class="col-md-4">
-                                    <div class="io-line">Defined in <a href="" data-line="34" class="link-to-prism">projects/mangol/src/lib/modules/measure/components/measure-results/measure-results.component.ts:34</a></div>
-                            </td>
-                        </tr>
 
 
-            </tbody>
-        </table>
-        <table class="table table-sm table-bordered">
-            <tbody>
+        </tbody>
+    </table>
+    <table class="table table-sm table-bordered">
+        <tbody>
+            <tr>
+                <td class="col-md-4">
+                    <a name="initialText"></a>
+                    <span class="name">
+                        <span ><b>initialText</b></span>
+                        <a href="#initialText"><span class="icon ion-ios-link"></span></a>
+                    </span>
+                </td>
+            </tr>
                 <tr>
                     <td class="col-md-4">
-                        <a name="initialText"></a>
-                        <span class="name">
-                            <b>
-                            initialText</b>
-                            <a href="#initialText"><span class="icon ion-ios-link"></span></a>
-                        </span>
+                        <i>Type : </i>        <code><a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/string" target="_blank" >string</a></code>
+
+                    </td>
+                </tr>
+                <tr>
+                    <td class="col-md-4">
+                        <i>Default value : </i><code>null</code>
                     </td>
                 </tr>
                     <tr>
                         <td class="col-md-4">
-                            <i>Type : </i>        <code><a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/string" target="_blank" >string</a></code>
-
+                                <div class="io-line">Defined in <a href="" data-line="41" class="link-to-prism">projects/mangol/src/lib/modules/measure/components/measure-results/measure-results.component.ts:41</a></div>
                         </td>
                     </tr>
-                    <tr>
-                        <td class="col-md-4">
-                            <i>Default value : </i><code>null</code>
-                        </td>
-                    </tr>
-                        <tr>
-                            <td class="col-md-4">
-                                    <div class="io-line">Defined in <a href="" data-line="35" class="link-to-prism">projects/mangol/src/lib/modules/measure/components/measure-results/measure-results.component.ts:35</a></div>
-                            </td>
-                        </tr>
 
 
-            </tbody>
-        </table>
-        <table class="table table-sm table-bordered">
-            <tbody>
+        </tbody>
+    </table>
+    <table class="table table-sm table-bordered">
+        <tbody>
+            <tr>
+                <td class="col-md-4">
+                    <a name="layer$"></a>
+                    <span class="name">
+                        <span ><b>layer$</b></span>
+                        <a href="#layer$"><span class="icon ion-ios-link"></span></a>
+                    </span>
+                </td>
+            </tr>
                 <tr>
                     <td class="col-md-4">
-                        <a name="layer$"></a>
-                        <span class="name">
-                            <b>
-                            layer$</b>
-                            <a href="#layer$"><span class="icon ion-ios-link"></span></a>
-                        </span>
+                        <i>Type : </i>    <code>Observable&lt;VectorLayer&lt;VectorSource&lt;Point | LineString | Polygon&gt;&gt;&gt;</code>
+
                     </td>
                 </tr>
                     <tr>
                         <td class="col-md-4">
-                            <i>Type : </i>    <code>Observable&lt;VectorLayer&gt;</code>
-
+                                <div class="io-line">Defined in <a href="" data-line="34" class="link-to-prism">projects/mangol/src/lib/modules/measure/components/measure-results/measure-results.component.ts:34</a></div>
                         </td>
                     </tr>
-                        <tr>
-                            <td class="col-md-4">
-                                    <div class="io-line">Defined in <a href="" data-line="28" class="link-to-prism">projects/mangol/src/lib/modules/measure/components/measure-results/measure-results.component.ts:28</a></div>
-                            </td>
-                        </tr>
 
 
-            </tbody>
-        </table>
-        <table class="table table-sm table-bordered">
-            <tbody>
+        </tbody>
+    </table>
+    <table class="table table-sm table-bordered">
+        <tbody>
+            <tr>
+                <td class="col-md-4">
+                    <a name="map$"></a>
+                    <span class="name">
+                        <span ><b>map$</b></span>
+                        <a href="#map$"><span class="icon ion-ios-link"></span></a>
+                    </span>
+                </td>
+            </tr>
                 <tr>
                     <td class="col-md-4">
-                        <a name="map$"></a>
-                        <span class="name">
-                            <b>
-                            map$</b>
-                            <a href="#map$"><span class="icon ion-ios-link"></span></a>
-                        </span>
+                        <i>Type : </i>    <code>Observable&lt;Map&gt;</code>
+
                     </td>
                 </tr>
                     <tr>
                         <td class="col-md-4">
-                            <i>Type : </i>    <code>Observable&lt;Map&gt;</code>
-
+                                <div class="io-line">Defined in <a href="" data-line="33" class="link-to-prism">projects/mangol/src/lib/modules/measure/components/measure-results/measure-results.component.ts:33</a></div>
                         </td>
                     </tr>
-                        <tr>
-                            <td class="col-md-4">
-                                    <div class="io-line">Defined in <a href="" data-line="27" class="link-to-prism">projects/mangol/src/lib/modules/measure/components/measure-results/measure-results.component.ts:27</a></div>
-                            </td>
-                        </tr>
 
 
-            </tbody>
-        </table>
-        <table class="table table-sm table-bordered">
-            <tbody>
+        </tbody>
+    </table>
+    <table class="table table-sm table-bordered">
+        <tbody>
+            <tr>
+                <td class="col-md-4">
+                    <a name="measureMode$"></a>
+                    <span class="name">
+                        <span ><b>measureMode$</b></span>
+                        <a href="#measureMode$"><span class="icon ion-ios-link"></span></a>
+                    </span>
+                </td>
+            </tr>
                 <tr>
                     <td class="col-md-4">
-                        <a name="measureMode$"></a>
-                        <span class="name">
-                            <b>
-                            measureMode$</b>
-                            <a href="#measureMode$"><span class="icon ion-ios-link"></span></a>
-                        </span>
+                        <i>Type : </i>        <code><a href="../interfaces/MeasureMode.html" target="_self" >Observable&lt;MeasureMode&gt;</a></code>
+
                     </td>
                 </tr>
                     <tr>
                         <td class="col-md-4">
-                            <i>Type : </i>        <code><a href="../interfaces/MeasureMode.html" target="_self" >Observable&lt;MeasureMode&gt;</a></code>
-
+                                <div class="io-line">Defined in <a href="" data-line="35" class="link-to-prism">projects/mangol/src/lib/modules/measure/components/measure-results/measure-results.component.ts:35</a></div>
                         </td>
                     </tr>
-                        <tr>
-                            <td class="col-md-4">
-                                    <div class="io-line">Defined in <a href="" data-line="29" class="link-to-prism">projects/mangol/src/lib/modules/measure/components/measure-results/measure-results.component.ts:29</a></div>
-                            </td>
-                        </tr>
 
 
-            </tbody>
-        </table>
+        </tbody>
+    </table>
 </section>
 
 </div>
@@ -803,13 +791,19 @@
     <div class="tab-pane fade  tab-source-code" id="c-source">
         <pre class="line-numbers compodoc-sourcecode"><code class="language-typescript">import { Component, Input, OnDestroy, OnInit } from &#x27;@angular/core&#x27;;
 import { Store } from &#x27;@ngrx/store&#x27;;
+import BaseEvent from &#x27;ol/events/Event&#x27;;
 import Feature from &#x27;ol/Feature&#x27;;
 import Circle from &#x27;ol/geom/Circle&#x27;;
+import Geometry from &#x27;ol/geom/Geometry&#x27;;
 import LineString from &#x27;ol/geom/LineString&#x27;;
+import Point from &#x27;ol/geom/Point&#x27;;
 import Polygon from &#x27;ol/geom/Polygon&#x27;;
 import Draw, { DrawEvent } from &#x27;ol/interaction/Draw&#x27;;
 import VectorLayer from &#x27;ol/layer/Vector&#x27;;
 import Map from &#x27;ol/Map&#x27;;
+import { unByKey } from &#x27;ol/Observable&#x27;;
+import VectorSource from &#x27;ol/source/Vector&#x27;;
+import { getArea, getLength } from &#x27;ol/sphere&#x27;;
 import { combineLatest, Observable, Subscription } from &#x27;rxjs&#x27;;
 import { filter, take } from &#x27;rxjs/operators&#x27;;
 
@@ -828,7 +822,7 @@ export class MeasureResultsComponent implements OnInit, OnDestroy {
   @Input()
   dictionary: MeasureDictionary;
   map$: Observable&lt;Map&gt;;
-  layer$: Observable&lt;VectorLayer&gt;;
+  layer$: Observable&lt;VectorLayer&lt;VectorSource&lt;Point | LineString | Polygon&gt;&gt;&gt;;
   measureMode$: Observable&lt;MeasureMode&gt;;
   cursorText$: Observable&lt;string&gt;;
 
@@ -887,12 +881,17 @@ export class MeasureResultsComponent implements OnInit, OnDestroy {
     }
   }
 
-  private _activateDraw(map: Map, layer: VectorLayer, mode: MeasureMode) {
+  private _activateDraw(
+    map: Map,
+    layer: VectorLayer&lt;VectorSource&lt;Point | LineString | Polygon&gt;&gt;,
+    mode: MeasureMode
+  ) {
     this._deactivateDraw(map, layer);
     map.addLayer(layer);
     this.draw &#x3D; new Draw({
       source: layer.getSource(),
-      style: (feature: Feature) &#x3D;&gt; this.measureService.getStyle(feature),
+      style: (feature: Feature&lt;Point | LineString | Polygon&gt;) &#x3D;&gt;
+        this.measureService.getStyle(feature),
       type: mode.geometryName,
     });
     this.initialText &#x3D;
@@ -906,7 +905,8 @@ export class MeasureResultsComponent implements OnInit, OnDestroy {
       })
     );
     this.displayValue &#x3D; this.initialText;
-    this.draw.on(&#x27;drawstart&#x27;, (e: any) &#x3D;&gt; {
+    let listener &#x3D; null;
+    this.draw.on(&#x27;drawstart&#x27;, (e: DrawEvent) &#x3D;&gt; {
       layer.getSource().clear();
       this.store.dispatch(
         new CursorActions.SetMode({
@@ -915,29 +915,29 @@ export class MeasureResultsComponent implements OnInit, OnDestroy {
         })
       );
       this.displayValue &#x3D; null;
-      const feature: Feature &#x3D; e.feature;
-      feature.on(&#x27;change&#x27;, (evt: any) &#x3D;&gt; {
-        const feat: Feature &#x3D; evt.target;
+      const feature &#x3D; e.feature;
+      listener &#x3D; feature.getGeometry().on(&#x27;change&#x27;, (evt: BaseEvent) &#x3D;&gt; {
+        const geom: Geometry &#x3D; evt.target as Geometry;
         let displayValue: string &#x3D; null;
         switch (mode.type) {
           case &#x27;line&#x27;:
-            const lineString &#x3D; &lt;LineString&gt;feat.getGeometry();
+            const lineString &#x3D; geom as LineString;
             displayValue &#x3D; &#x60;${
               this.dictionary.distance
             }: ${this.measureService.exchangeMetersAndKilometers(
-              lineString.getLength()
+              getLength(lineString)
             )}.&#x60;;
             break;
           case &#x27;area&#x27;:
-            const polygon &#x3D; &lt;Polygon&gt;feat.getGeometry();
+            const polygon &#x3D; geom as Polygon;
             displayValue &#x3D; &#x60;${
               this.dictionary.area
             }: ${this.measureService.exchangeSqmetersAndSqkilometers(
-              polygon.getArea()
+              getArea(polygon)
             )}.&#x60;;
             break;
           case &#x27;radius&#x27;:
-            const circle &#x3D; &lt;Circle&gt;feat.getGeometry();
+            const circle &#x3D; geom as Circle;
             this.store
               .select((state) &#x3D;&gt; state.controllers.position.coordinates)
               .pipe(take(1))
@@ -945,6 +945,11 @@ export class MeasureResultsComponent implements OnInit, OnDestroy {
                 const center &#x3D; circle.getCenter();
                 const dx &#x3D; position[0] - center[0];
                 const dy &#x3D; position[1] - center[1];
+                // This is needed for calculationg the length of the radius
+                const line &#x3D; new LineString([
+                  [+center[0], +center[1]],
+                  [+position[0], +position[1]],
+                ]);
                 // range (-PI, PI]
                 let angle &#x3D; Math.atan2(dy, dx);
                 // rads to degs, range (-180, 180]
@@ -956,7 +961,7 @@ export class MeasureResultsComponent implements OnInit, OnDestroy {
                 displayValue &#x3D; &#x60;${
                   this.dictionary.radius
                 }: ${this.measureService.exchangeMetersAndKilometers(
-                  circle.getRadius()
+                  getLength(line)
                 )}, ${this.dictionary.angle}: ${displayAngle}.&#x60;;
               });
             break;
@@ -974,6 +979,7 @@ export class MeasureResultsComponent implements OnInit, OnDestroy {
     });
 
     this.draw.on(&#x27;drawend&#x27;, (e: DrawEvent) &#x3D;&gt; {
+      unByKey(listener);
       e.feature.setProperties({ text: this.displayValue });
       this.store.dispatch(
         new CursorActions.SetMode({
@@ -994,7 +1000,10 @@ export class MeasureResultsComponent implements OnInit, OnDestroy {
     this.displayValue &#x3D; this.dictionary.clickOnMap;
   }
 
-  private _deactivateDraw(map: Map, layer: VectorLayer) {
+  private _deactivateDraw(
+    map: Map,
+    layer: VectorLayer&lt;VectorSource&lt;Point | LineString | Polygon&gt;&gt;
+  ) {
     this.displayValue &#x3D; null;
     try {
       map.removeLayer(layer);
@@ -1055,7 +1064,7 @@ export class MeasureResultsComponent implements OnInit, OnDestroy {
 <script src="../js/libs/deep-iterator.js"></script>
 <script>
         var COMPONENT_TEMPLATE = '<div><div class="results"    *ngIf="displayValue !== null">    <mat-icon [fontSet]="(measureMode$ | async).fontSet"        [fontIcon]="(measureMode$ | async).fontIcon"></mat-icon>    {{displayValue}}</div></div>'
-    var COMPONENTS = [{'name': 'ControllersComponent', 'selector': 'mangol-controllers'},{'name': 'CursorComponent', 'selector': 'mangol-cursor'},{'name': 'DescriptionComponent', 'selector': 'mangol-description'},{'name': 'EditComponent', 'selector': 'mangol-edit'},{'name': 'FeatureinfoComponent', 'selector': 'mangol-featureinfo'},{'name': 'FeatureinfoResultsComponent', 'selector': 'mangol-featureinfo-results'},{'name': 'FeatureinfoSelectComponent', 'selector': 'mangol-featureinfo-select'},{'name': 'FeatureinfoTableDialogComponent', 'selector': 'mangol-featureinfo-table-dialog'},{'name': 'FeaturenfoTableComponent', 'selector': 'mangol-featurenfo-table'},{'name': 'FullscreenButtonComponent', 'selector': 'mangol-fullscreen-button'},{'name': 'LayerComponent', 'selector': 'mangol-layer'},{'name': 'LayerDetailsComponent', 'selector': 'mangol-layer-details'},{'name': 'LayerGroupComponent', 'selector': 'mangol-layer-group'},{'name': 'LayertreeComponent', 'selector': 'mangol-layertree'},{'name': 'LayertreeItemComponent', 'selector': 'mangol-layertree-item'},{'name': 'LegendComponent', 'selector': 'mangol-legend'},{'name': 'MangolComponent', 'selector': 'mangol'},{'name': 'MapComponent', 'selector': 'mangol-map'},{'name': 'MeasureComponent', 'selector': 'mangol-measure'},{'name': 'MeasureResultsComponent', 'selector': 'mangol-measure-results'},{'name': 'MeasureSelectComponent', 'selector': 'mangol-measure-select'},{'name': 'PositionComponent', 'selector': 'mangol-position'},{'name': 'PrintComponent', 'selector': 'mangol-print'},{'name': 'RotationButtonComponent', 'selector': 'mangol-rotation-button'},{'name': 'ScalebarComponent', 'selector': 'mangol-scalebar'},{'name': 'SidebarButtonComponent', 'selector': 'mangol-sidebar-button'},{'name': 'TabsComponent', 'selector': 'mangol-tabs'},{'name': 'TransparencyComponent', 'selector': 'mangol-transparency'},{'name': 'ZoomButtonsComponent', 'selector': 'mangol-zoom-buttons'}];
+    var COMPONENTS = [{'name': 'ControllersComponent', 'selector': 'mangol-controllers'},{'name': 'CursorComponent', 'selector': 'mangol-cursor'},{'name': 'DescriptionComponent', 'selector': 'mangol-description'},{'name': 'EditComponent', 'selector': 'mangol-edit'},{'name': 'FeatureinfoComponent', 'selector': 'mangol-featureinfo'},{'name': 'FeatureinfoResultsComponent', 'selector': 'mangol-featureinfo-results'},{'name': 'FeatureinfoSelectComponent', 'selector': 'mangol-featureinfo-select'},{'name': 'FeatureinfoTableComponent', 'selector': 'mangol-featureinfo-table'},{'name': 'FeatureinfoTableDialogComponent', 'selector': 'mangol-featureinfo-table-dialog'},{'name': 'FullscreenButtonComponent', 'selector': 'mangol-fullscreen-button'},{'name': 'LayerComponent', 'selector': 'mangol-layer'},{'name': 'LayerDetailsComponent', 'selector': 'mangol-layer-details'},{'name': 'LayerGroupComponent', 'selector': 'mangol-layer-group'},{'name': 'LayertreeComponent', 'selector': 'mangol-layertree'},{'name': 'LayertreeItemComponent', 'selector': 'mangol-layertree-item'},{'name': 'LegendComponent', 'selector': 'mangol-legend'},{'name': 'MangolComponent', 'selector': 'mangol'},{'name': 'MapComponent', 'selector': 'mangol-map'},{'name': 'MeasureComponent', 'selector': 'mangol-measure'},{'name': 'MeasureResultsComponent', 'selector': 'mangol-measure-results'},{'name': 'MeasureSelectComponent', 'selector': 'mangol-measure-select'},{'name': 'PositionComponent', 'selector': 'mangol-position'},{'name': 'PrintComponent', 'selector': 'mangol-print'},{'name': 'RotationButtonComponent', 'selector': 'mangol-rotation-button'},{'name': 'ScalebarComponent', 'selector': 'mangol-scalebar'},{'name': 'SidebarButtonComponent', 'selector': 'mangol-sidebar-button'},{'name': 'TabsComponent', 'selector': 'mangol-tabs'},{'name': 'TransparencyComponent', 'selector': 'mangol-transparency'},{'name': 'ZoomButtonsComponent', 'selector': 'mangol-zoom-buttons'}];
     var DIRECTIVES = [];
     var ACTUAL_COMPONENT = {'name': 'MeasureResultsComponent'};
 </script>
@@ -1098,9 +1107,9 @@ export class MeasureResultsComponent implements OnInit, OnDestroy {
 
        <script src="../js/libs/custom-elements.min.js"></script>
        <script src="../js/libs/lit-html.js"></script>
-       <!-- Required to polyfill modern browsers as code is ES5 for IE... -->
-       <script src="../js/libs/custom-elements-es5-adapter.js" charset="utf-8" defer></script>
-       <script src="../js/menu-wc.js" defer></script>
+       
+       <script type="module" src="../js/menu-wc.js" defer></script>
+       <script nomodule src="../js/menu-wc_es5.js" defer></script>
 
        <script src="../js/libs/bootstrap-native.js"></script>
 

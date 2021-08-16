@@ -8,7 +8,8 @@
         <meta name="viewport" content="width=device-width, initial-scale=1">
 
         <link rel="icon" type="image/x-icon" href="../images/favicon.ico">
-	      <link rel="stylesheet" href="../styles/style.css">
+	   <link rel="stylesheet" href="../styles/style.css">
+        <link rel="stylesheet" href="../styles/dark.css" media="(prefers-color-scheme: dark)">
         <link rel="stylesheet" href="../styles/material.css">
     </head>
     <body>
@@ -44,7 +45,9 @@
 
 <ol class="breadcrumb">
   <li>Interfaces</li>
-  <li>Layout</li>
+  <li
+  >
+  Layout</li>
 </ol>
 
 <ul class="nav nav-tabs" role="tablist">
@@ -67,6 +70,7 @@
 
 
 
+
         <section>
             <h3 id="index">Index</h3>
             <table class="table table-sm table-bordered index-table">
@@ -80,10 +84,16 @@
                         <td class="col-md-4">
                             <ul class="index-list">
                                 <li>
-                                        <a href="#name">name</a>
+                                        <a href="#name" 
+>
+                                            name
+                                        </a>
                                 </li>
                                 <li>
-                                        <a href="#value">value</a>
+                                        <a href="#value" 
+>
+                                            value
+                                        </a>
                                 </li>
                             </ul>
                         </td>
@@ -101,7 +111,11 @@
                                 <tr>
                                     <td class="col-md-4">
                                         <a name="name"></a>
-                                        <span class="name"><b>name</b><a href="#name"><span class="icon ion-ios-link"></span></a></span>
+                                        <span class="name "><b>name</b>
+                                            <a href="#name">
+                                                <span class="icon ion-ios-link"></span>
+                                            </a>
+                                        </span>
                                     </td>
                                 </tr>
                                 <tr>
@@ -130,7 +144,11 @@
                                 <tr>
                                     <td class="col-md-4">
                                         <a name="value"></a>
-                                        <span class="name"><b>value</b><a href="#value"><span class="icon ion-ios-link"></span></a></span>
+                                        <span class="name "><b>value</b>
+                                            <a href="#value">
+                                                <span class="icon ion-ios-link"></span>
+                                            </a>
+                                        </span>
                                     </td>
                                 </tr>
                                 <tr>
@@ -163,6 +181,7 @@
 import { FormBuilder, FormGroup, Validators } from &#x27;@angular/forms&#x27;;
 import { MatSelectChange } from &#x27;@angular/material/select&#x27;;
 import { Store } from &#x27;@ngrx/store&#x27;;
+import { jsPDF } from &#x27;jspdf&#x27;;
 import { combineLatest, Observable, Subscription } from &#x27;rxjs&#x27;;
 import { filter, take } from &#x27;rxjs/operators&#x27;;
 
@@ -174,7 +193,6 @@ import {
 import * as fromMangol from &#x27;./../../store/mangol.reducers&#x27;;
 import * as PrintActions from &#x27;./../../store/print/print.actions&#x27;;
 
-declare var jsPDF: any;
 export interface Layout {
   name: string;
   value: string;
@@ -396,9 +414,9 @@ export class PrintComponent implements OnInit, OnDestroy {
 
        <script src="../js/libs/custom-elements.min.js"></script>
        <script src="../js/libs/lit-html.js"></script>
-       <!-- Required to polyfill modern browsers as code is ES5 for IE... -->
-       <script src="../js/libs/custom-elements-es5-adapter.js" charset="utf-8" defer></script>
-       <script src="../js/menu-wc.js" defer></script>
+       
+       <script type="module" src="../js/menu-wc.js" defer></script>
+       <script nomodule src="../js/menu-wc_es5.js" defer></script>
 
        <script src="../js/libs/bootstrap-native.js"></script>
 

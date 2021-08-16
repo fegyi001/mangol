@@ -8,7 +8,8 @@
         <meta name="viewport" content="width=device-width, initial-scale=1">
 
         <link rel="icon" type="image/x-icon" href="../images/favicon.ico">
-	      <link rel="stylesheet" href="../styles/style.css">
+	   <link rel="stylesheet" href="../styles/style.css">
+        <link rel="stylesheet" href="../styles/dark.css" media="(prefers-color-scheme: dark)">
         <link rel="stylesheet" href="../styles/material.css">
     </head>
     <body>
@@ -39,7 +40,7 @@
 
 <ol class="breadcrumb">
   <li>Injectables</li>
-  <li>LayertreeService</li>
+  <li >LayertreeService</li>
 </ol>
 
 <ul class="nav nav-tabs" role="tablist">
@@ -63,6 +64,7 @@
 
 
 
+
             <section>
     <h3 id="index">Index</h3>
     <table class="table table-sm table-bordered index-table">
@@ -78,14 +80,14 @@
                         <ul class="index-list">
                             <li>
                                     <span class="modifier">Private</span>
-                                <a href="#processLayer">processLayer</a>
+                                <a href="#processLayer" >processLayer</a>
                             </li>
                             <li>
                                     <span class="modifier">Private</span>
-                                <a href="#processLayerGroup">processLayerGroup</a>
+                                <a href="#processLayerGroup" >processLayerGroup</a>
                             </li>
                             <li>
-                                <a href="#processLayersAndLayerGroups">processLayersAndLayerGroups</a>
+                                <a href="#processLayersAndLayerGroups" >processLayersAndLayerGroups</a>
                             </li>
                         </ul>
                     </td>
@@ -129,10 +131,8 @@
                 <td class="col-md-4">
                     <a name="processLayer"></a>
                     <span class="name">
-                        <b>
-                            <span class="modifier">Private</span>
-                            processLayer
-                        </b>
+                        <span class="modifier">Private</span>
+                        <span ><b>processLayer</b></span>
                         <a href="#processLayer"><span class="icon ion-ios-link"></span></a>
                     </span>
                 </td>
@@ -140,7 +140,7 @@
             <tr>
                 <td class="col-md-4">
                     <span class="modifier-icon icon ion-ios-reset"></span>
-                    <code>processLayer(layer: <a href="../classes/MangolLayer.html">MangolLayer</a>, data: <a href="../classes/LayertreeItemNode.html">LayertreeItemNode[]</a>)</code>
+                    <code>processLayer(layer: <a href="../classes/MangolLayer.html" target="_self">MangolLayer</a>, data: <a href="../classes/LayertreeItemNode.html" target="_self">LayertreeItemNode[]</a>)</code>
                 </td>
             </tr>
 
@@ -213,10 +213,8 @@
                 <td class="col-md-4">
                     <a name="processLayerGroup"></a>
                     <span class="name">
-                        <b>
-                            <span class="modifier">Private</span>
-                            processLayerGroup
-                        </b>
+                        <span class="modifier">Private</span>
+                        <span ><b>processLayerGroup</b></span>
                         <a href="#processLayerGroup"><span class="icon ion-ios-link"></span></a>
                     </span>
                 </td>
@@ -224,7 +222,7 @@
             <tr>
                 <td class="col-md-4">
                     <span class="modifier-icon icon ion-ios-reset"></span>
-                    <code>processLayerGroup(group: <a href="../classes/MangolLayerGroup.html">MangolLayerGroup</a>, data: <a href="../classes/LayertreeItemNode.html">LayertreeItemNode[]</a>)</code>
+                    <code>processLayerGroup(group: <a href="../classes/MangolLayerGroup.html" target="_self">MangolLayerGroup</a>, data: <a href="../classes/LayertreeItemNode.html" target="_self">LayertreeItemNode[]</a>)</code>
                 </td>
             </tr>
 
@@ -297,9 +295,7 @@
                 <td class="col-md-4">
                     <a name="processLayersAndLayerGroups"></a>
                     <span class="name">
-                        <b>
-                            processLayersAndLayerGroups
-                        </b>
+                        <span ><b>processLayersAndLayerGroups</b></span>
                         <a href="#processLayersAndLayerGroups"><span class="icon ion-ios-link"></span></a>
                     </span>
                 </td>
@@ -466,9 +462,9 @@ export class LayertreeService {
 
        <script src="../js/libs/custom-elements.min.js"></script>
        <script src="../js/libs/lit-html.js"></script>
-       <!-- Required to polyfill modern browsers as code is ES5 for IE... -->
-       <script src="../js/libs/custom-elements-es5-adapter.js" charset="utf-8" defer></script>
-       <script src="../js/menu-wc.js" defer></script>
+       
+       <script type="module" src="../js/menu-wc.js" defer></script>
+       <script nomodule src="../js/menu-wc_es5.js" defer></script>
 
        <script src="../js/libs/bootstrap-native.js"></script>
 

@@ -8,7 +8,8 @@
         <meta name="viewport" content="width=device-width, initial-scale=1">
 
         <link rel="icon" type="image/x-icon" href="../images/favicon.ico">
-	      <link rel="stylesheet" href="../styles/style.css">
+	   <link rel="stylesheet" href="../styles/style.css">
+        <link rel="stylesheet" href="../styles/dark.css" media="(prefers-color-scheme: dark)">
         <link rel="stylesheet" href="../styles/material.css">
     </head>
     <body>
@@ -36,7 +37,9 @@
 
 <ol class="breadcrumb">
   <li>Components</li>
-  <li>MeasureSelectComponent</li>
+  <li
+  >
+  MeasureSelectComponent</li>
 </ol>
 
 <ul class="nav nav-tabs" role="tablist">
@@ -64,6 +67,7 @@
 <p class="comment">
     <code>projects/mangol/src/lib/modules/measure/components/measure-select/measure-select.component.ts</code>
 </p>
+
 
 
 
@@ -131,10 +135,10 @@
                     <td class="col-md-4">
                         <ul class="index-list">
                             <li>
-                                <a href="#modes$">modes$</a>
+                                <a href="#modes$" >modes$</a>
                             </li>
                             <li>
-                                <a href="#selectedMode$">selectedMode$</a>
+                                <a href="#selectedMode$" >selectedMode$</a>
                             </li>
                         </ul>
                     </td>
@@ -149,10 +153,10 @@
                     <td class="col-md-4">
                         <ul class="index-list">
                             <li>
-                                <a href="#ngOnInit">ngOnInit</a>
+                                <a href="#ngOnInit" >ngOnInit</a>
                             </li>
                             <li>
-                                <a href="#onSelectionChanged">onSelectionChanged</a>
+                                <a href="#onSelectionChanged" >onSelectionChanged</a>
                             </li>
                         </ul>
                     </td>
@@ -167,7 +171,7 @@
                     <td class="col-md-4">
                         <ul class="index-list">
                             <li>
-                                <a href="#dictionary">dictionary</a>
+                                <a href="#dictionary" >dictionary</a>
                             </li>
                         </ul>
                     </td>
@@ -267,9 +271,7 @@
                 <td class="col-md-4">
                     <a name="ngOnInit"></a>
                     <span class="name">
-                        <b>
-                            ngOnInit
-                        </b>
+                        <span ><b>ngOnInit</b></span>
                         <a href="#ngOnInit"><span class="icon ion-ios-link"></span></a>
                     </span>
                 </td>
@@ -306,9 +308,7 @@
                 <td class="col-md-4">
                     <a name="onSelectionChanged"></a>
                     <span class="name">
-                        <b>
-                            onSelectionChanged
-                        </b>
+                        <span ><b>onSelectionChanged</b></span>
                         <a href="#onSelectionChanged"><span class="icon ion-ios-link"></span></a>
                     </span>
                 </td>
@@ -373,63 +373,61 @@
 </section>
     <section>
     
-        <h3 id="inputs">
-            Properties
-        </h3>
-        <table class="table table-sm table-bordered">
-            <tbody>
+    <h3 id="inputs">
+        Properties
+    </h3>
+    <table class="table table-sm table-bordered">
+        <tbody>
+            <tr>
+                <td class="col-md-4">
+                    <a name="modes$"></a>
+                    <span class="name">
+                        <span ><b>modes$</b></span>
+                        <a href="#modes$"><span class="icon ion-ios-link"></span></a>
+                    </span>
+                </td>
+            </tr>
                 <tr>
                     <td class="col-md-4">
-                        <a name="modes$"></a>
-                        <span class="name">
-                            <b>
-                            modes$</b>
-                            <a href="#modes$"><span class="icon ion-ios-link"></span></a>
-                        </span>
+                        <i>Type : </i>        <code><a href="../interfaces/MeasureMode.html" target="_self" >Observable&lt;MeasureMode[]&gt;</a></code>
+
                     </td>
                 </tr>
                     <tr>
                         <td class="col-md-4">
-                            <i>Type : </i>        <code><a href="../interfaces/MeasureMode.html" target="_self" >Observable&lt;MeasureMode[]&gt;</a></code>
-
+                                <div class="io-line">Defined in <a href="" data-line="22" class="link-to-prism">projects/mangol/src/lib/modules/measure/components/measure-select/measure-select.component.ts:22</a></div>
                         </td>
                     </tr>
-                        <tr>
-                            <td class="col-md-4">
-                                    <div class="io-line">Defined in <a href="" data-line="22" class="link-to-prism">projects/mangol/src/lib/modules/measure/components/measure-select/measure-select.component.ts:22</a></div>
-                            </td>
-                        </tr>
 
 
-            </tbody>
-        </table>
-        <table class="table table-sm table-bordered">
-            <tbody>
+        </tbody>
+    </table>
+    <table class="table table-sm table-bordered">
+        <tbody>
+            <tr>
+                <td class="col-md-4">
+                    <a name="selectedMode$"></a>
+                    <span class="name">
+                        <span ><b>selectedMode$</b></span>
+                        <a href="#selectedMode$"><span class="icon ion-ios-link"></span></a>
+                    </span>
+                </td>
+            </tr>
                 <tr>
                     <td class="col-md-4">
-                        <a name="selectedMode$"></a>
-                        <span class="name">
-                            <b>
-                            selectedMode$</b>
-                            <a href="#selectedMode$"><span class="icon ion-ios-link"></span></a>
-                        </span>
+                        <i>Type : </i>        <code><a href="../interfaces/MeasureMode.html" target="_self" >Observable&lt;MeasureMode&gt;</a></code>
+
                     </td>
                 </tr>
                     <tr>
                         <td class="col-md-4">
-                            <i>Type : </i>        <code><a href="../interfaces/MeasureMode.html" target="_self" >Observable&lt;MeasureMode&gt;</a></code>
-
+                                <div class="io-line">Defined in <a href="" data-line="23" class="link-to-prism">projects/mangol/src/lib/modules/measure/components/measure-select/measure-select.component.ts:23</a></div>
                         </td>
                     </tr>
-                        <tr>
-                            <td class="col-md-4">
-                                    <div class="io-line">Defined in <a href="" data-line="23" class="link-to-prism">projects/mangol/src/lib/modules/measure/components/measure-select/measure-select.component.ts:23</a></div>
-                            </td>
-                        </tr>
 
 
-            </tbody>
-        </table>
+        </tbody>
+    </table>
 </section>
 
 </div>
@@ -549,7 +547,7 @@ export class MeasureSelectComponent implements OnInit {
 <script src="../js/libs/deep-iterator.js"></script>
 <script>
         var COMPONENT_TEMPLATE = '<div><mat-select [placeholder]="dictionary.chooseMode"    [value]="selectedMode$ | async"    (selectionChange)="onSelectionChanged($event)"    class="mat-elevation-z1">    <mat-option [disabled]="(selectedMode$ | async) === null">        <mat-icon>clear</mat-icon>        <span>{{dictionary.clearSelection}}</span>    </mat-option>    <mat-divider></mat-divider>    <mat-option *ngFor="let mode of (modes$ | async)"        [value]="mode">        <mat-icon [fontSet]="mode.fontSet"            [fontIcon]="mode.fontIcon"></mat-icon>        <span>{{dictionary[mode.type]}}</span>    </mat-option></mat-select></div>'
-    var COMPONENTS = [{'name': 'ControllersComponent', 'selector': 'mangol-controllers'},{'name': 'CursorComponent', 'selector': 'mangol-cursor'},{'name': 'DescriptionComponent', 'selector': 'mangol-description'},{'name': 'EditComponent', 'selector': 'mangol-edit'},{'name': 'FeatureinfoComponent', 'selector': 'mangol-featureinfo'},{'name': 'FeatureinfoResultsComponent', 'selector': 'mangol-featureinfo-results'},{'name': 'FeatureinfoSelectComponent', 'selector': 'mangol-featureinfo-select'},{'name': 'FeatureinfoTableDialogComponent', 'selector': 'mangol-featureinfo-table-dialog'},{'name': 'FeaturenfoTableComponent', 'selector': 'mangol-featurenfo-table'},{'name': 'FullscreenButtonComponent', 'selector': 'mangol-fullscreen-button'},{'name': 'LayerComponent', 'selector': 'mangol-layer'},{'name': 'LayerDetailsComponent', 'selector': 'mangol-layer-details'},{'name': 'LayerGroupComponent', 'selector': 'mangol-layer-group'},{'name': 'LayertreeComponent', 'selector': 'mangol-layertree'},{'name': 'LayertreeItemComponent', 'selector': 'mangol-layertree-item'},{'name': 'LegendComponent', 'selector': 'mangol-legend'},{'name': 'MangolComponent', 'selector': 'mangol'},{'name': 'MapComponent', 'selector': 'mangol-map'},{'name': 'MeasureComponent', 'selector': 'mangol-measure'},{'name': 'MeasureResultsComponent', 'selector': 'mangol-measure-results'},{'name': 'MeasureSelectComponent', 'selector': 'mangol-measure-select'},{'name': 'PositionComponent', 'selector': 'mangol-position'},{'name': 'PrintComponent', 'selector': 'mangol-print'},{'name': 'RotationButtonComponent', 'selector': 'mangol-rotation-button'},{'name': 'ScalebarComponent', 'selector': 'mangol-scalebar'},{'name': 'SidebarButtonComponent', 'selector': 'mangol-sidebar-button'},{'name': 'TabsComponent', 'selector': 'mangol-tabs'},{'name': 'TransparencyComponent', 'selector': 'mangol-transparency'},{'name': 'ZoomButtonsComponent', 'selector': 'mangol-zoom-buttons'}];
+    var COMPONENTS = [{'name': 'ControllersComponent', 'selector': 'mangol-controllers'},{'name': 'CursorComponent', 'selector': 'mangol-cursor'},{'name': 'DescriptionComponent', 'selector': 'mangol-description'},{'name': 'EditComponent', 'selector': 'mangol-edit'},{'name': 'FeatureinfoComponent', 'selector': 'mangol-featureinfo'},{'name': 'FeatureinfoResultsComponent', 'selector': 'mangol-featureinfo-results'},{'name': 'FeatureinfoSelectComponent', 'selector': 'mangol-featureinfo-select'},{'name': 'FeatureinfoTableComponent', 'selector': 'mangol-featureinfo-table'},{'name': 'FeatureinfoTableDialogComponent', 'selector': 'mangol-featureinfo-table-dialog'},{'name': 'FullscreenButtonComponent', 'selector': 'mangol-fullscreen-button'},{'name': 'LayerComponent', 'selector': 'mangol-layer'},{'name': 'LayerDetailsComponent', 'selector': 'mangol-layer-details'},{'name': 'LayerGroupComponent', 'selector': 'mangol-layer-group'},{'name': 'LayertreeComponent', 'selector': 'mangol-layertree'},{'name': 'LayertreeItemComponent', 'selector': 'mangol-layertree-item'},{'name': 'LegendComponent', 'selector': 'mangol-legend'},{'name': 'MangolComponent', 'selector': 'mangol'},{'name': 'MapComponent', 'selector': 'mangol-map'},{'name': 'MeasureComponent', 'selector': 'mangol-measure'},{'name': 'MeasureResultsComponent', 'selector': 'mangol-measure-results'},{'name': 'MeasureSelectComponent', 'selector': 'mangol-measure-select'},{'name': 'PositionComponent', 'selector': 'mangol-position'},{'name': 'PrintComponent', 'selector': 'mangol-print'},{'name': 'RotationButtonComponent', 'selector': 'mangol-rotation-button'},{'name': 'ScalebarComponent', 'selector': 'mangol-scalebar'},{'name': 'SidebarButtonComponent', 'selector': 'mangol-sidebar-button'},{'name': 'TabsComponent', 'selector': 'mangol-tabs'},{'name': 'TransparencyComponent', 'selector': 'mangol-transparency'},{'name': 'ZoomButtonsComponent', 'selector': 'mangol-zoom-buttons'}];
     var DIRECTIVES = [];
     var ACTUAL_COMPONENT = {'name': 'MeasureSelectComponent'};
 </script>
@@ -592,9 +590,9 @@ export class MeasureSelectComponent implements OnInit {
 
        <script src="../js/libs/custom-elements.min.js"></script>
        <script src="../js/libs/lit-html.js"></script>
-       <!-- Required to polyfill modern browsers as code is ES5 for IE... -->
-       <script src="../js/libs/custom-elements-es5-adapter.js" charset="utf-8" defer></script>
-       <script src="../js/menu-wc.js" defer></script>
+       
+       <script type="module" src="../js/menu-wc.js" defer></script>
+       <script nomodule src="../js/menu-wc_es5.js" defer></script>
 
        <script src="../js/libs/bootstrap-native.js"></script>
 

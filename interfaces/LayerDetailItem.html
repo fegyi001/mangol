@@ -8,7 +8,8 @@
         <meta name="viewport" content="width=device-width, initial-scale=1">
 
         <link rel="icon" type="image/x-icon" href="../images/favicon.ico">
-	      <link rel="stylesheet" href="../styles/style.css">
+	   <link rel="stylesheet" href="../styles/style.css">
+        <link rel="stylesheet" href="../styles/dark.css" media="(prefers-color-scheme: dark)">
         <link rel="stylesheet" href="../styles/material.css">
     </head>
     <body>
@@ -44,7 +45,9 @@
 
 <ol class="breadcrumb">
   <li>Interfaces</li>
-  <li>LayerDetailItem</li>
+  <li
+  >
+  LayerDetailItem</li>
 </ol>
 
 <ul class="nav nav-tabs" role="tablist">
@@ -67,6 +70,7 @@
 
 
 
+
         <section>
             <h3 id="index">Index</h3>
             <table class="table table-sm table-bordered index-table">
@@ -80,19 +84,34 @@
                         <td class="col-md-4">
                             <ul class="index-list">
                                 <li>
-                                        <a href="#disabled">disabled</a>
+                                        <a href="#disabled" 
+>
+                                            disabled
+                                        </a>
                                 </li>
                                 <li>
-                                        <a href="#fontIcon">fontIcon</a>
+                                        <a href="#fontIcon" 
+>
+                                            fontIcon
+                                        </a>
                                 </li>
                                 <li>
-                                        <a href="#fontSet">fontSet</a>
+                                        <a href="#fontSet" 
+>
+                                            fontSet
+                                        </a>
                                 </li>
                                 <li>
-                                        <a href="#text">text</a>
+                                        <a href="#text" 
+>
+                                            text
+                                        </a>
                                 </li>
                                 <li>
-                                        <a href="#type">type</a>
+                                        <a href="#type" 
+>
+                                            type
+                                        </a>
                                 </li>
                             </ul>
                         </td>
@@ -110,7 +129,11 @@
                                 <tr>
                                     <td class="col-md-4">
                                         <a name="disabled"></a>
-                                        <span class="name"><b>disabled</b><a href="#disabled"><span class="icon ion-ios-link"></span></a></span>
+                                        <span class="name "><b>disabled</b>
+                                            <a href="#disabled">
+                                                <span class="icon ion-ios-link"></span>
+                                            </a>
+                                        </span>
                                     </td>
                                 </tr>
                                 <tr>
@@ -139,7 +162,11 @@
                                 <tr>
                                     <td class="col-md-4">
                                         <a name="fontIcon"></a>
-                                        <span class="name"><b>fontIcon</b><a href="#fontIcon"><span class="icon ion-ios-link"></span></a></span>
+                                        <span class="name "><b>fontIcon</b>
+                                            <a href="#fontIcon">
+                                                <span class="icon ion-ios-link"></span>
+                                            </a>
+                                        </span>
                                     </td>
                                 </tr>
                                 <tr>
@@ -168,7 +195,11 @@
                                 <tr>
                                     <td class="col-md-4">
                                         <a name="fontSet"></a>
-                                        <span class="name"><b>fontSet</b><a href="#fontSet"><span class="icon ion-ios-link"></span></a></span>
+                                        <span class="name "><b>fontSet</b>
+                                            <a href="#fontSet">
+                                                <span class="icon ion-ios-link"></span>
+                                            </a>
+                                        </span>
                                     </td>
                                 </tr>
                                 <tr>
@@ -197,7 +228,11 @@
                                 <tr>
                                     <td class="col-md-4">
                                         <a name="text"></a>
-                                        <span class="name"><b>text</b><a href="#text"><span class="icon ion-ios-link"></span></a></span>
+                                        <span class="name "><b>text</b>
+                                            <a href="#text">
+                                                <span class="icon ion-ios-link"></span>
+                                            </a>
+                                        </span>
                                     </td>
                                 </tr>
                                 <tr>
@@ -226,7 +261,11 @@
                                 <tr>
                                     <td class="col-md-4">
                                         <a name="type"></a>
-                                        <span class="name"><b>type</b><a href="#type"><span class="icon ion-ios-link"></span></a></span>
+                                        <span class="name "><b>type</b>
+                                            <a href="#type">
+                                                <span class="icon ion-ios-link"></span>
+                                            </a>
+                                        </span>
                                     </td>
                                 </tr>
                                 <tr>
@@ -295,9 +334,9 @@
 
        <script src="../js/libs/custom-elements.min.js"></script>
        <script src="../js/libs/lit-html.js"></script>
-       <!-- Required to polyfill modern browsers as code is ES5 for IE... -->
-       <script src="../js/libs/custom-elements-es5-adapter.js" charset="utf-8" defer></script>
-       <script src="../js/menu-wc.js" defer></script>
+       
+       <script type="module" src="../js/menu-wc.js" defer></script>
+       <script nomodule src="../js/menu-wc_es5.js" defer></script>
 
        <script src="../js/libs/bootstrap-native.js"></script>
 

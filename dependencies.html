@@ -8,7 +8,8 @@
         <meta name="viewport" content="width=device-width, initial-scale=1">
 
         <link rel="icon" type="image/x-icon" href="./images/favicon.ico">
-	      <link rel="stylesheet" href="./styles/style.css">
+	   <link rel="stylesheet" href="./styles/style.css">
+        <link rel="stylesheet" href="./styles/dark.css" media="(prefers-color-scheme: dark)">
         <link rel="stylesheet" href="./styles/material.css">
     </head>
     <body>
@@ -49,51 +50,49 @@
     </ol>
     <ul class="dependencies-list">
         <li>
-            <b>@angular/animations</b> : ^9.1.10</li>
+            <b>@angular/animations</b> : ^12.2.1</li>
         <li>
-            <b>@angular/cdk</b> : ^9.2.4</li>
+            <b>@angular/cdk</b> : ^12.2.1</li>
         <li>
-            <b>@angular/common</b> : ^9.1.10</li>
+            <b>@angular/common</b> : ^12.2.1</li>
         <li>
-            <b>@angular/compiler</b> : ^9.1.10</li>
+            <b>@angular/compiler</b> : ^12.2.1</li>
         <li>
-            <b>@angular/core</b> : ^9.1.10</li>
+            <b>@angular/core</b> : ^12.2.1</li>
         <li>
-            <b>@angular/forms</b> : ^9.1.10</li>
+            <b>@angular/forms</b> : ^12.2.1</li>
         <li>
-            <b>@angular/material</b> : ^9.2.4</li>
+            <b>@angular/material</b> : ^12.2.1</li>
         <li>
-            <b>@angular/platform-browser</b> : ^9.1.10</li>
+            <b>@angular/platform-browser</b> : ^12.2.1</li>
         <li>
-            <b>@angular/platform-browser-dynamic</b> : ^9.1.10</li>
+            <b>@angular/platform-browser-dynamic</b> : ^12.2.1</li>
         <li>
-            <b>@angular/router</b> : ^9.1.10</li>
+            <b>@angular/router</b> : ^12.2.1</li>
         <li>
-            <b>@ngrx/effects</b> : ^9.2.0</li>
+            <b>@ngrx/effects</b> : ^12.4.0</li>
         <li>
-            <b>@ngrx/store</b> : ^9.2.0</li>
+            <b>@ngrx/store</b> : ^12.4.0</li>
         <li>
-            <b>@types/geojson</b> : ^7946.0.7</li>
+            <b>@types/geojson</b> : ^7946.0.8</li>
         <li>
-            <b>@types/ol</b> : ^6.3.1</li>
+            <b>@types/ol</b> : ^6.5.3</li>
         <li>
-            <b>core-js</b> : ^3.6.5</li>
+            <b>core-js</b> : ^3.16.1</li>
         <li>
-            <b>file-saver</b> : ^2.0.2</li>
+            <b>file-saver</b> : ^2.0.5</li>
         <li>
-            <b>hammerjs</b> : ^2.0.8</li>
-        <li>
-            <b>jspdf</b> : ^1.5.3</li>
+            <b>jspdf</b> : ^2.3.1</li>
         <li>
             <b>ngrx-store-logger</b> : ^0.2.4</li>
         <li>
-            <b>ol</b> : ^6.3.1</li>
+            <b>ol</b> : ^6.5.3</li>
         <li>
-            <b>proj4</b> : ^2.6.2</li>
+            <b>proj4</b> : ^2.7.5</li>
         <li>
-            <b>rxjs</b> : ^6.5.3</li>
+            <b>rxjs</b> : ^7.3.0</li>
         <li>
-            <b>zone.js</b> : ^0.10.3</li>
+            <b>zone.js</b> : ^0.11.4</li>
     </ul>
 
                    
@@ -124,9 +123,9 @@
 
        <script src="./js/libs/custom-elements.min.js"></script>
        <script src="./js/libs/lit-html.js"></script>
-       <!-- Required to polyfill modern browsers as code is ES5 for IE... -->
-       <script src="./js/libs/custom-elements-es5-adapter.js" charset="utf-8" defer></script>
-       <script src="./js/menu-wc.js" defer></script>
+       
+       <script type="module" src="./js/menu-wc.js" defer></script>
+       <script nomodule src="./js/menu-wc_es5.js" defer></script>
 
        <script src="./js/libs/bootstrap-native.js"></script>
 

@@ -8,7 +8,8 @@
         <meta name="viewport" content="width=device-width, initial-scale=1">
 
         <link rel="icon" type="image/x-icon" href="../images/favicon.ico">
-	      <link rel="stylesheet" href="../styles/style.css">
+	   <link rel="stylesheet" href="../styles/style.css">
+        <link rel="stylesheet" href="../styles/dark.css" media="(prefers-color-scheme: dark)">
         <link rel="stylesheet" href="../styles/material.css">
     </head>
     <body>
@@ -44,7 +45,9 @@
 
 <ol class="breadcrumb">
   <li>Interfaces</li>
-  <li>MangolConfigLayer2</li>
+  <li
+  >
+  MangolConfigLayer2</li>
 </ol>
 
 <ul class="nav nav-tabs" role="tablist">
@@ -64,6 +67,7 @@
         <p class="comment">
             <code>projects/mangol/src/lib/interfaces/config-map.interface.ts</code>
         </p>
+
 
 
             <p class="comment">
@@ -87,18 +91,30 @@
                             <ul class="index-list">
                                 <li>
                                             <span class="modifier">Optional</span>
-                                        <a href="#attrcolumns">attrcolumns</a>
+                                        <a href="#attrcolumns" 
+>
+                                            attrcolumns
+                                        </a>
                                 </li>
                                 <li>
                                             <span class="modifier">Optional</span>
-                                        <a href="#description">description</a>
+                                        <a href="#description" 
+>
+                                            description
+                                        </a>
                                 </li>
                                 <li>
-                                        <a href="#name">name</a>
+                                        <a href="#name" 
+>
+                                            name
+                                        </a>
                                 </li>
                                 <li>
                                             <span class="modifier">Optional</span>
-                                        <a href="#queryable">queryable</a>
+                                        <a href="#queryable" 
+>
+                                            queryable
+                                        </a>
                                 </li>
                             </ul>
                         </td>
@@ -116,7 +132,11 @@
                                 <tr>
                                     <td class="col-md-4">
                                         <a name="attrcolumns"></a>
-                                        <span class="name"><b>attrcolumns</b><a href="#attrcolumns"><span class="icon ion-ios-link"></span></a></span>
+                                        <span class="name "><b>attrcolumns</b>
+                                            <a href="#attrcolumns">
+                                                <span class="icon ion-ios-link"></span>
+                                            </a>
+                                        </span>
                                     </td>
                                 </tr>
                                 <tr>
@@ -150,7 +170,11 @@
                                 <tr>
                                     <td class="col-md-4">
                                         <a name="description"></a>
-                                        <span class="name"><b>description</b><a href="#description"><span class="icon ion-ios-link"></span></a></span>
+                                        <span class="name "><b>description</b>
+                                            <a href="#description">
+                                                <span class="icon ion-ios-link"></span>
+                                            </a>
+                                        </span>
                                     </td>
                                 </tr>
                                 <tr>
@@ -184,7 +208,11 @@
                                 <tr>
                                     <td class="col-md-4">
                                         <a name="name"></a>
-                                        <span class="name"><b>name</b><a href="#name"><span class="icon ion-ios-link"></span></a></span>
+                                        <span class="name "><b>name</b>
+                                            <a href="#name">
+                                                <span class="icon ion-ios-link"></span>
+                                            </a>
+                                        </span>
                                     </td>
                                 </tr>
                                 <tr>
@@ -213,7 +241,11 @@
                                 <tr>
                                     <td class="col-md-4">
                                         <a name="queryable"></a>
-                                        <span class="name"><b>queryable</b><a href="#queryable"><span class="icon ion-ios-link"></span></a></span>
+                                        <span class="name "><b>queryable</b>
+                                            <a href="#queryable">
+                                                <span class="icon ion-ios-link"></span>
+                                            </a>
+                                        </span>
                                     </td>
                                 </tr>
                                 <tr>
@@ -309,9 +341,9 @@ export interface MangolConfigMap {
 
        <script src="../js/libs/custom-elements.min.js"></script>
        <script src="../js/libs/lit-html.js"></script>
-       <!-- Required to polyfill modern browsers as code is ES5 for IE... -->
-       <script src="../js/libs/custom-elements-es5-adapter.js" charset="utf-8" defer></script>
-       <script src="../js/menu-wc.js" defer></script>
+       
+       <script type="module" src="../js/menu-wc.js" defer></script>
+       <script nomodule src="../js/menu-wc_es5.js" defer></script>
 
        <script src="../js/libs/bootstrap-native.js"></script>
 

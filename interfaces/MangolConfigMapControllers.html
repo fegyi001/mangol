@@ -8,7 +8,8 @@
         <meta name="viewport" content="width=device-width, initial-scale=1">
 
         <link rel="icon" type="image/x-icon" href="../images/favicon.ico">
-	      <link rel="stylesheet" href="../styles/style.css">
+	   <link rel="stylesheet" href="../styles/style.css">
+        <link rel="stylesheet" href="../styles/dark.css" media="(prefers-color-scheme: dark)">
         <link rel="stylesheet" href="../styles/material.css">
     </head>
     <body>
@@ -44,7 +45,9 @@
 
 <ol class="breadcrumb">
   <li>Interfaces</li>
-  <li>MangolConfigMapControllers</li>
+  <li
+  >
+  MangolConfigMapControllers</li>
 </ol>
 
 <ul class="nav nav-tabs" role="tablist">
@@ -67,6 +70,7 @@
 
 
 
+
         <section>
             <h3 id="index">Index</h3>
             <table class="table table-sm table-bordered index-table">
@@ -81,27 +85,45 @@
                             <ul class="index-list">
                                 <li>
                                             <span class="modifier">Optional</span>
-                                        <a href="#fullScreen">fullScreen</a>
+                                        <a href="#fullScreen" 
+>
+                                            fullScreen
+                                        </a>
                                 </li>
                                 <li>
                                             <span class="modifier">Optional</span>
-                                        <a href="#position">position</a>
+                                        <a href="#position" 
+>
+                                            position
+                                        </a>
                                 </li>
                                 <li>
                                             <span class="modifier">Optional</span>
-                                        <a href="#rotation">rotation</a>
+                                        <a href="#rotation" 
+>
+                                            rotation
+                                        </a>
                                 </li>
                                 <li>
                                             <span class="modifier">Optional</span>
-                                        <a href="#scalebar">scalebar</a>
+                                        <a href="#scalebar" 
+>
+                                            scalebar
+                                        </a>
                                 </li>
                                 <li>
                                             <span class="modifier">Optional</span>
-                                        <a href="#tileload">tileload</a>
+                                        <a href="#tileload" 
+>
+                                            tileload
+                                        </a>
                                 </li>
                                 <li>
                                             <span class="modifier">Optional</span>
-                                        <a href="#zoom">zoom</a>
+                                        <a href="#zoom" 
+>
+                                            zoom
+                                        </a>
                                 </li>
                             </ul>
                         </td>
@@ -119,7 +141,11 @@
                                 <tr>
                                     <td class="col-md-4">
                                         <a name="fullScreen"></a>
-                                        <span class="name"><b>fullScreen</b><a href="#fullScreen"><span class="icon ion-ios-link"></span></a></span>
+                                        <span class="name "><b>fullScreen</b>
+                                            <a href="#fullScreen">
+                                                <span class="icon ion-ios-link"></span>
+                                            </a>
+                                        </span>
                                     </td>
                                 </tr>
                                 <tr>
@@ -153,7 +179,11 @@
                                 <tr>
                                     <td class="col-md-4">
                                         <a name="position"></a>
-                                        <span class="name"><b>position</b><a href="#position"><span class="icon ion-ios-link"></span></a></span>
+                                        <span class="name "><b>position</b>
+                                            <a href="#position">
+                                                <span class="icon ion-ios-link"></span>
+                                            </a>
+                                        </span>
                                     </td>
                                 </tr>
                                 <tr>
@@ -187,7 +217,11 @@
                                 <tr>
                                     <td class="col-md-4">
                                         <a name="rotation"></a>
-                                        <span class="name"><b>rotation</b><a href="#rotation"><span class="icon ion-ios-link"></span></a></span>
+                                        <span class="name "><b>rotation</b>
+                                            <a href="#rotation">
+                                                <span class="icon ion-ios-link"></span>
+                                            </a>
+                                        </span>
                                     </td>
                                 </tr>
                                 <tr>
@@ -221,7 +255,11 @@
                                 <tr>
                                     <td class="col-md-4">
                                         <a name="scalebar"></a>
-                                        <span class="name"><b>scalebar</b><a href="#scalebar"><span class="icon ion-ios-link"></span></a></span>
+                                        <span class="name "><b>scalebar</b>
+                                            <a href="#scalebar">
+                                                <span class="icon ion-ios-link"></span>
+                                            </a>
+                                        </span>
                                     </td>
                                 </tr>
                                 <tr>
@@ -255,7 +293,11 @@
                                 <tr>
                                     <td class="col-md-4">
                                         <a name="tileload"></a>
-                                        <span class="name"><b>tileload</b><a href="#tileload"><span class="icon ion-ios-link"></span></a></span>
+                                        <span class="name "><b>tileload</b>
+                                            <a href="#tileload">
+                                                <span class="icon ion-ios-link"></span>
+                                            </a>
+                                        </span>
                                     </td>
                                 </tr>
                                 <tr>
@@ -289,7 +331,11 @@
                                 <tr>
                                     <td class="col-md-4">
                                         <a name="zoom"></a>
-                                        <span class="name"><b>zoom</b><a href="#zoom"><span class="icon ion-ios-link"></span></a></span>
+                                        <span class="name "><b>zoom</b>
+                                            <a href="#zoom">
+                                                <span class="icon ion-ios-link"></span>
+                                            </a>
+                                        </span>
                                     </td>
                                 </tr>
                                 <tr>
@@ -417,9 +463,9 @@ export interface MangolConfigMapControllers {
 
        <script src="../js/libs/custom-elements.min.js"></script>
        <script src="../js/libs/lit-html.js"></script>
-       <!-- Required to polyfill modern browsers as code is ES5 for IE... -->
-       <script src="../js/libs/custom-elements-es5-adapter.js" charset="utf-8" defer></script>
-       <script src="../js/menu-wc.js" defer></script>
+       
+       <script type="module" src="../js/menu-wc.js" defer></script>
+       <script nomodule src="../js/menu-wc_es5.js" defer></script>
 
        <script src="../js/libs/bootstrap-native.js"></script>
 
