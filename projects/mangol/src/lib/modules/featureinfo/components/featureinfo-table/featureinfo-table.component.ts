@@ -9,7 +9,7 @@ import { first } from 'rxjs/operators';
 import * as fromMangol from '../../../../store/mangol.reducers';
 
 @Component({
-  selector: 'mangol-featurienfo-table',
+  selector: 'mangol-featureinfo-table',
   templateUrl: './featureinfo-table.component.html',
   styleUrls: ['./featureinfo-table.component.scss'],
 })

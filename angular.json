@@ -10,27 +10,14 @@
       "prefix": "app",
       "schematics": {
         "@schematics/angular:component": {
-          "styleext": "scss",
-          "spec": false
+          "style": "scss"
         },
-        "@schematics/angular:class": {
-          "spec": false
-        },
-        "@schematics/angular:directive": {
-          "spec": false
-        },
-        "@schematics/angular:guard": {
-          "spec": false
-        },
-        "@schematics/angular:module": {
-          "spec": false
-        },
-        "@schematics/angular:pipe": {
-          "spec": false
-        },
-        "@schematics/angular:service": {
-          "spec": false
-        }
+        "@schematics/angular:class": {},
+        "@schematics/angular:directive": {},
+        "@schematics/angular:guard": {},
+        "@schematics/angular:module": {},
+        "@schematics/angular:pipe": {},
+        "@schematics/angular:service": {}
       },
       "architect": {
         "build": {
@@ -56,7 +43,6 @@
               "optimization": true,
               "outputHashing": "all",
               "sourceMap": false,
-              "extractCss": true,
               "namedChunks": false,
               "aot": true,
               "extractLicenses": true,
@@ -135,40 +121,30 @@
       "prefix": "mangol",
       "schematics": {
         "@schematics/angular:component": {
-          "styleext": "scss",
-          "spec": false
+          "style": "scss"
         },
-        "@schematics/angular:class": {
-          "spec": false
-        },
-        "@schematics/angular:directive": {
-          "spec": false
-        },
-        "@schematics/angular:guard": {
-          "spec": false
-        },
-        "@schematics/angular:module": {
-          "spec": false
-        },
-        "@schematics/angular:pipe": {
-          "spec": false
-        },
-        "@schematics/angular:service": {
-          "spec": false
-        }
+        "@schematics/angular:class": {},
+        "@schematics/angular:directive": {},
+        "@schematics/angular:guard": {},
+        "@schematics/angular:module": {},
+        "@schematics/angular:pipe": {},
+        "@schematics/angular:service": {}
       },
       "architect": {
         "build": {
-          "builder": "@angular-devkit/build-ng-packagr:build",
+          "builder": "@angular-devkit/build-angular:ng-packagr",
           "options": {
-            "tsConfig": "projects/mangol/tsconfig.lib.json",
             "project": "projects/mangol/ng-package.json"
           },
           "configurations": {
             "production": {
-              "project": "projects/mangol/ng-package.prod.json"
+              "tsConfig": "projects/mangol/tsconfig.lib.prod.json"
+            },
+            "development": {
+              "tsConfig": "projects/mangol/tsconfig.lib.json"
             }
-          }
+          },
+          "defaultConfiguration": "production"
         },
         "test": {
           "builder": "@angular-devkit/build-angular:karma",
