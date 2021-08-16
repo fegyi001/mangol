@@ -1,5 +1,9 @@
 import Feature from 'ol/Feature';
+import LineString from 'ol/geom/LineString';
+import Point from 'ol/geom/Point';
+import Polygon from 'ol/geom/Polygon';
 import VectorLayer from 'ol/layer/Vector';
+import VectorSource from 'ol/source/Vector';
 
 import { MangolLayer } from './../../classes/Layer';
 import * as FeatureinfoActions from './featureinfo.actions';
@@ -24,8 +28,8 @@ export interface State {
   maxFeatures: number;
   layers: MangolLayer[];
   selectedLayer: MangolLayer;
-  resultsLayer: VectorLayer;
-  resultsItems: Feature[];
+  resultsLayer: VectorLayer<VectorSource<LineString | Polygon | Point>>;
+  resultsItems: Feature<LineString | Polygon | Point>[];
   snackbarDuration: number;
   hoverColor: [number, number, number];
   dictionary: FeatureinfoDictionary;
@@ -52,8 +56,8 @@ const initialState: State = {
     zoomToFeature: 'Zoom to Feature',
     showAllResults: 'Open results dialog',
     feature: 'Feature',
-    exportToCsv: 'Export to CSV'
-  }
+    exportToCsv: 'Export to CSV',
+  },
 };
 
 export function featureinfoReducer(

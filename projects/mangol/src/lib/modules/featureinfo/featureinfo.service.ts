@@ -4,6 +4,9 @@ import { Store } from '@ngrx/store';
 import { FeatureCollection } from 'geojson';
 import Feature from 'ol/Feature';
 import GeoJSON from 'ol/format/GeoJSON';
+import LineString from 'ol/geom/LineString';
+import Point from 'ol/geom/Point';
+import Polygon from 'ol/geom/Polygon';
 import Map from 'ol/Map';
 import TileWMS from 'ol/source/TileWMS';
 import { Observable, throwError } from 'rxjs';
@@ -67,7 +70,7 @@ export class FeatureinfoService {
     url: string,
     dataProjection: string,
     featureProjection: string
-  ): Observable<Feature[]> {
+  ): Observable<Feature<Point | LineString | Polygon>[]> {
     return this.http
       .get(url, {
         observe: 'body',

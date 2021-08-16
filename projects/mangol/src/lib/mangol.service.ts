@@ -12,7 +12,7 @@ import {
   MangolControllersFullScreenDictionary,
   MangolControllersPositionDictionary,
   MangolControllersRotationDictionary,
-  MangolControllersZoomDictionary
+  MangolControllersZoomDictionary,
 } from './interfaces/config-map-controllers.interface';
 import { MangolConfig } from './interfaces/config.interface';
 import * as ConfigActions from './store/config/config.actions';
@@ -39,14 +39,19 @@ import * as fromMeasure from './store/measure/measure.reducers';
 import * as MeasureActions from './store/measure/measure.actions';
 import {
   MeasureDictionary,
-  MeasureMode
+  MeasureMode,
 } from './store/measure/measure.reducers';
 import { PrintLayout, PrintSize } from './store/print/print.reducers';
 import * as fromPrint from './store/print/print.reducers';
 import * as PrintActions from './store/print/print.actions';
+import VectorSource from 'ol/source/Vector';
+import LineString from 'ol/geom/LineString';
+import Polygon from 'ol/geom/Polygon';
+import Circle from 'ol/geom/Circle';
+import Point from 'ol/geom/Point';
 
 @Injectable({
-  providedIn: 'root'
+  providedIn: 'root',
 })
 export class MangolService {
   configState$: Observable<fromConfig.State>;
@@ -61,16 +66,16 @@ export class MangolService {
   printState$: Observable<fromPrint.State>;
 
   constructor(private store: Store<fromMangol.MangolState>) {
-    this.configState$ = this.store.select(state => state.config);
-    this.mapState$ = this.store.select(state => state.map);
-    this.sidebarState$ = this.store.select(state => state.sidebar);
-    this.controllersState$ = this.store.select(state => state.controllers);
-    this.cursorState$ = this.store.select(state => state.cursor);
-    this.featureinfoState$ = this.store.select(state => state.featureinfo);
-    this.layersState$ = this.store.select(state => state.layers);
-    this.layertreeState$ = this.store.select(state => state.layertree);
-    this.measureState$ = this.store.select(state => state.measure);
-    this.printState$ = this.store.select(state => state.print);
+    this.configState$ = this.store.select((state) => state.config);
+    this.mapState$ = this.store.select((state) => state.map);
+    this.sidebarState$ = this.store.select((state) => state.sidebar);
+    this.controllersState$ = this.store.select((state) => state.controllers);
+    this.cursorState$ = this.store.select((state) => state.cursor);
+    this.featureinfoState$ = this.store.select((state) => state.featureinfo);
+    this.layersState$ = this.store.select((state) => state.layers);
+    this.layertreeState$ = this.store.select((state) => state.layertree);
+    this.measureState$ = this.store.select((state) => state.measure);
+    this.printState$ = this.store.select((state) => state.print);
   }
 
   /**
@@ -201,7 +206,7 @@ export class MangolService {
   setCursorVisible(visible: boolean): void {
     this.store.dispatch(new CursorActions.SetVisible(visible));
   }
-  setCursorLayer(layer: VectorLayer): void {
+  setCursorLayer(layer: VectorLayer<VectorSource<Point>>): void {
     this.store.dispatch(new CursorActions.SetLayer(layer));
   }
 
@@ -227,10 +232,14 @@ export class MangolService {
   featureinfoSetSelectedLayer(layer: MangolLayer): void {
     this.store.dispatch(new FeatureinfoActions.SetSelectedLayer(layer));
   }
-  featureinfoSetResultsLayer(layer: VectorLayer): void {
+  featureinfoSetResultsLayer(
+    layer: VectorLayer<VectorSource<Point | LineString | Polygon>>
+  ): void {
     this.store.dispatch(new FeatureinfoActions.SetResultsLayer(layer));
   }
-  featureinfoSetResultsItems(features: Feature[]): void {
+  featureinfoSetResultsItems(
+    features: Feature<Point | LineString | Polygon>[]
+  ): void {
     this.store.dispatch(new FeatureinfoActions.SetResultsItems(features));
   }
   featureinfoSetDictionary(dictionary: FeatureinfoDictionary): void {
@@ -247,7 +256,9 @@ export class MangolService {
   layersSetLayers(layers: MangolLayer[]): void {
     this.store.dispatch(new LayersActions.SetLayers(layers));
   }
-  layersSetMeasureLayer(layer: VectorLayer): void {
+  layersSetMeasureLayer(
+    layer: VectorLayer<VectorSource<LineString | Polygon | Circle>>
+  ): void {
     this.store.dispatch(new LayersActions.SetMeasureLayer(layer));
   }
 

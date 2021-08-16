@@ -6,7 +6,8 @@ export interface MeasureMode {
   type: string;
   fontIcon: string;
   fontSet: string;
-  geometryName: GeometryType;
+  //TODO: GeometryType
+  geometryName: any;
 }
 
 export interface MeasureDictionary {
@@ -40,20 +41,20 @@ const initialState: State = {
       type: 'line',
       fontSet: 'ms',
       fontIcon: 'ms-measure-distance',
-      geometryName: GeometryType.LINE_STRING
+      geometryName: GeometryType.LINE_STRING,
     },
     {
       type: 'area',
       fontSet: 'ms',
       fontIcon: 'ms-measure-area',
-      geometryName: GeometryType.POLYGON
+      geometryName: GeometryType.POLYGON,
     },
     {
       type: 'radius',
       fontSet: 'ms',
       fontIcon: 'ms-geolocation',
-      geometryName: GeometryType.CIRCLE
-    }
+      geometryName: GeometryType.CIRCLE,
+    },
   ],
   mode: null,
   dictionary: {
@@ -68,8 +69,8 @@ const initialState: State = {
     angle: 'angle',
     drawStartText:
       'Insert new vertex with single click,\nfinish measurement with double click',
-    drawStartTextRadius: 'Finish measurement with single click'
-  }
+    drawStartTextRadius: 'Finish measurement with single click',
+  },
 };
 
 export function measureReducer(

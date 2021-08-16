@@ -1,6 +1,9 @@
 import { Component, OnDestroy, OnInit } from '@angular/core';
 import { Store } from '@ngrx/store';
 import Feature from 'ol/Feature';
+import LineString from 'ol/geom/LineString';
+import Point from 'ol/geom/Point';
+import Polygon from 'ol/geom/Polygon';
 import VectorLayer from 'ol/layer/Vector';
 import Map from 'ol/Map';
 import VectorSource from 'ol/source/Vector';
@@ -22,7 +25,9 @@ export class FeatureinfoComponent implements OnInit, OnDestroy {
   layers$: Observable<MangolLayer[]>;
   selectedLayer$: Observable<MangolLayer>;
   map$: Observable<Map>;
-  resultsLayer$: Observable<VectorLayer>;
+  resultsLayer$: Observable<
+    VectorLayer<VectorSource<LineString | Polygon | Point>>
+  >;
   dictionary$: Observable<FeatureinfoDictionary>;
 
   mapSubscription: Subscription;
@@ -49,11 +54,16 @@ export class FeatureinfoComponent implements OnInit, OnDestroy {
   }
 
   ngOnInit() {
-    const resultsLayer = new VectorLayer({
+    const resultsLayer: VectorLayer<
+      VectorSource<LineString | Polygon | Point>
+    > = new VectorLayer({
       source: new VectorSource({
         features: [],
       }),
-      style: (feat) => this.styleService.hoverStyle(<Feature>feat),
+      style: (feat) =>
+        this.styleService.hoverStyle(
+          <Feature<Point | LineString | Polygon>>feat
+        ),
     });
 
     // Add the resultsLayer to the map

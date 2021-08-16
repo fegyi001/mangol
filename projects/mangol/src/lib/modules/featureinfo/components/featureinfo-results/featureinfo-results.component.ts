@@ -3,9 +3,13 @@ import { MatDialog } from '@angular/material/dialog';
 import { MatSnackBar } from '@angular/material/snack-bar';
 import { Store } from '@ngrx/store';
 import Feature from 'ol/Feature';
+import LineString from 'ol/geom/LineString';
+import Point from 'ol/geom/Point';
+import Polygon from 'ol/geom/Polygon';
 import TileLayer from 'ol/layer/Tile';
 import VectorLayer from 'ol/layer/Vector';
 import Map from 'ol/Map';
+import VectorSource from 'ol/source/Vector';
 import { combineLatest, Observable, Subscription } from 'rxjs';
 import { filter, map, take } from 'rxjs/operators';
 
@@ -27,8 +31,10 @@ export class FeatureinfoResultsComponent implements OnInit, OnDestroy {
   dictionary: FeatureinfoDictionary;
 
   layer$: Observable<MangolLayer>;
-  resultsLayer$: Observable<VectorLayer>;
-  resultsFeatures$: Observable<Feature[]>;
+  resultsLayer$: Observable<
+    VectorLayer<VectorSource<LineString | Polygon | Point>>
+  >;
+  resultsFeatures$: Observable<Feature<LineString | Polygon | Point>[]>;
   tab$: Observable<string>;
 
   combinedSubscription: Subscription;
@@ -163,13 +169,16 @@ export class FeatureinfoResultsComponent implements OnInit, OnDestroy {
                 );
             });
         } else if (layer.layer instanceof VectorLayer) {
-          const vectorFeatures: Feature[] = <Feature[]>m.getFeaturesAtPixel(
-            evt.pixel,
-            {
-              layerFilter: (lay) => lay === <VectorLayer>layer.layer,
-              hitTolerance: 5,
-            }
-          );
+          const vectorFeatures: Feature<LineString | Polygon | Point>[] = <
+            Feature<LineString | Polygon | Point>[]
+          >m.getFeaturesAtPixel(evt.pixel, {
+            layerFilter: (lay) =>
+              lay ===
+              <VectorLayer<VectorSource<LineString | Polygon | Point>>>(
+                layer.layer
+              ),
+            hitTolerance: 5,
+          });
           this.store.dispatch(
             new FeatureinfoActions.SetResultsItems(vectorFeatures)
           );
@@ -204,7 +213,9 @@ export class FeatureinfoResultsComponent implements OnInit, OnDestroy {
    * Retrieves the title for the individual feature
    * @param feature
    */
-  getExpansionPanelTitle$(feature: Feature): Observable<string> {
+  getExpansionPanelTitle$(
+    feature: Feature<LineString | Polygon | Point>
+  ): Observable<string> {
     return this.store
       .select((state) => state.featureinfo.selectedLayer)
       .pipe(
@@ -252,7 +263,7 @@ export class FeatureinfoResultsComponent implements OnInit, OnDestroy {
    * Shows the feature on the map with a hover style
    * @param feature
    */
-  showFeatureOnMap(feature: Feature) {
+  showFeatureOnMap(feature: Feature<LineString | Polygon | Point>) {
     this.resultsLayer$.pipe(take(1)).subscribe((layer) => {
       layer.getSource().addFeature(feature);
     });
@@ -262,7 +273,7 @@ export class FeatureinfoResultsComponent implements OnInit, OnDestroy {
    * Hides the hovered feature on the map
    * @param feature
    */
-  hideFeatureOnMap(feature: Feature) {
+  hideFeatureOnMap(feature: Feature<LineString | Polygon | Point>) {
     this.resultsLayer$.pipe(take(1)).subscribe((layer) => {
       layer.getSource().removeFeature(feature);
     });
@@ -272,7 +283,7 @@ export class FeatureinfoResultsComponent implements OnInit, OnDestroy {
    * Sets the view extent to a feature
    * @param feature
    */
-  zoomToFeature(feature: Feature) {
+  zoomToFeature(feature: Feature<LineString | Polygon | Point>) {
     this.store
       .select((state) => state.map.map)
       .pipe(take(1))

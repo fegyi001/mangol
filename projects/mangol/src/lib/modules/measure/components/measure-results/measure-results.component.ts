@@ -5,11 +5,13 @@ import Feature from 'ol/Feature';
 import Circle from 'ol/geom/Circle';
 import Geometry from 'ol/geom/Geometry';
 import LineString from 'ol/geom/LineString';
+import Point from 'ol/geom/Point';
 import Polygon from 'ol/geom/Polygon';
 import Draw, { DrawEvent } from 'ol/interaction/Draw';
 import VectorLayer from 'ol/layer/Vector';
 import Map from 'ol/Map';
 import { unByKey } from 'ol/Observable';
+import VectorSource from 'ol/source/Vector';
 import { getArea, getLength } from 'ol/sphere';
 import { combineLatest, Observable, Subscription } from 'rxjs';
 import { filter, take } from 'rxjs/operators';
@@ -29,7 +31,7 @@ export class MeasureResultsComponent implements OnInit, OnDestroy {
   @Input()
   dictionary: MeasureDictionary;
   map$: Observable<Map>;
-  layer$: Observable<VectorLayer>;
+  layer$: Observable<VectorLayer<VectorSource<Point | LineString | Polygon>>>;
   measureMode$: Observable<MeasureMode>;
   cursorText$: Observable<string>;
 
@@ -88,12 +90,17 @@ export class MeasureResultsComponent implements OnInit, OnDestroy {
     }
   }
 
-  private _activateDraw(map: Map, layer: VectorLayer, mode: MeasureMode) {
+  private _activateDraw(
+    map: Map,
+    layer: VectorLayer<VectorSource<Point | LineString | Polygon>>,
+    mode: MeasureMode
+  ) {
     this._deactivateDraw(map, layer);
     map.addLayer(layer);
     this.draw = new Draw({
       source: layer.getSource(),
-      style: (feature: Feature) => this.measureService.getStyle(feature),
+      style: (feature: Feature<Point | LineString | Polygon>) =>
+        this.measureService.getStyle(feature),
       type: mode.geometryName,
     });
     this.initialText =
@@ -119,7 +126,7 @@ export class MeasureResultsComponent implements OnInit, OnDestroy {
       this.displayValue = null;
       const feature = e.feature;
       listener = feature.getGeometry().on('change', (evt: BaseEvent) => {
-        const geom: Geometry = evt.target;
+        const geom: Geometry = evt.target as Geometry;
         let displayValue: string = null;
         switch (mode.type) {
           case 'line':
@@ -202,7 +209,10 @@ export class MeasureResultsComponent implements OnInit, OnDestroy {
     this.displayValue = this.dictionary.clickOnMap;
   }
 
-  private _deactivateDraw(map: Map, layer: VectorLayer) {
+  private _deactivateDraw(
+    map: Map,
+    layer: VectorLayer<VectorSource<Point | LineString | Polygon>>
+  ) {
     this.displayValue = null;
     try {
       map.removeLayer(layer);

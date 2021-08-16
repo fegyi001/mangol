@@ -1,6 +1,10 @@
 import { Action } from '@ngrx/store';
 import Feature from 'ol/Feature';
+import LineString from 'ol/geom/LineString';
+import Point from 'ol/geom/Point';
+import Polygon from 'ol/geom/Polygon';
 import VectorLayer from 'ol/layer/Vector';
+import VectorSource from 'ol/source/Vector';
 
 import { MangolLayer } from './../../classes/Layer';
 import { FeatureinfoDictionary } from './featureinfo.reducers';
@@ -42,11 +46,13 @@ export class SetSelectedLayer implements Action {
 }
 export class SetResultsLayer implements Action {
   readonly type = SET_RESULTS_LAYER;
-  constructor(public payload: VectorLayer) {}
+  constructor(
+    public payload: VectorLayer<VectorSource<LineString | Polygon | Point>>
+  ) {}
 }
 export class SetResultsItems implements Action {
   readonly type = SET_RESULTS_ITEMS;
-  constructor(public payload: Feature[]) {}
+  constructor(public payload: Feature<LineString | Polygon | Point>[]) {}
 }
 export class SetDictionary implements Action {
   readonly type = SET_DICTIONARY;

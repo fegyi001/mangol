@@ -1,4 +1,6 @@
+import Point from 'ol/geom/Point';
 import VectorLayer from 'ol/layer/Vector';
+import VectorSource from 'ol/source/Vector';
 
 import { CursorMode } from './../../interfaces/cursor-mode';
 import * as CursorActions from './cursor.actions';
@@ -6,13 +8,13 @@ import * as CursorActions from './cursor.actions';
 export interface State {
   mode: CursorMode;
   visible: boolean;
-  layer: VectorLayer;
+  layer: VectorLayer<VectorSource<Point>>;
 }
 
 const initialState: State = {
   mode: { text: null, cursor: 'default' },
   visible: false,
-  layer: null
+  layer: null,
 };
 
 export function cursorReducer(

@@ -1,18 +1,21 @@
 import { Component, Input, OnInit } from '@angular/core';
 import { Store } from '@ngrx/store';
 import Feature from 'ol/Feature';
-import { take } from 'rxjs/operators';
+import LineString from 'ol/geom/LineString';
+import Point from 'ol/geom/Point';
+import Polygon from 'ol/geom/Polygon';
+import { first } from 'rxjs/operators';
 
-import * as fromMangol from './../../../../store/mangol.reducers';
+import * as fromMangol from '../../../../store/mangol.reducers';
 
 @Component({
-  selector: 'mangol-featurenfo-table',
-  templateUrl: './featurenfo-table.component.html',
-  styleUrls: ['./featurenfo-table.component.scss']
+  selector: 'mangol-featurienfo-table',
+  templateUrl: './featureinfo-table.component.html',
+  styleUrls: ['./featureinfo-table.component.scss'],
 })
-export class FeaturenfoTableComponent implements OnInit {
+export class FeatureinfoTableComponent implements OnInit {
   @Input()
-  feature: Feature;
+  feature: Feature<Polygon | LineString | Point>;
 
   dataSource: any[] = [];
   columns: string[] = ['property', 'value'];
@@ -21,9 +24,9 @@ export class FeaturenfoTableComponent implements OnInit {
 
   ngOnInit() {
     this.store
-      .select(state => state.featureinfo.selectedLayer)
-      .pipe(take(1))
-      .subscribe(layer => {
+      .select((state) => state.featureinfo.selectedLayer)
+      .pipe(first())
+      .subscribe((layer) => {
         const hasQueryColumns =
           !!layer.queryColumns && layer.queryColumns.length > 0;
         const props = { ...this.feature.getProperties() };

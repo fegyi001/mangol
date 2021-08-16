@@ -1,13 +1,15 @@
 import { Injectable } from '@angular/core';
 import Feature from 'ol/Feature';
+import LineString from 'ol/geom/LineString';
+import Point from 'ol/geom/Point';
+import Polygon from 'ol/geom/Polygon';
 import Fill from 'ol/style/Fill';
 import Stroke from 'ol/style/Stroke';
 import Style from 'ol/style/Style';
 import Text from 'ol/style/Text';
-import CircleStyle from 'ol/style/Circle';
 
 @Injectable({
-  providedIn: 'root'
+  providedIn: 'root',
 })
 export class MeasureService {
   constructor() {}
@@ -24,18 +26,18 @@ export class MeasureService {
       : parseFloat((value / 1000000).toString()).toFixed(2) + ' km\u00B2';
   }
 
-  getStyle(feature: Feature): Style[] {
+  getStyle(feature: Feature<Polygon | LineString | Point>): Style[] {
     return [
       new Style({
         fill: new Fill({
-          color: [0, 0, 0, 0]
-        })
+          color: [0, 0, 0, 0],
+        }),
       }),
       new Style({
         stroke: new Stroke({
           color: [28, 28, 28, 1],
           width: 2,
-          lineDash: [5, 5]
+          lineDash: [5, 5],
         }),
         text: new Text({
           textAlign: 'center',
@@ -45,18 +47,18 @@ export class MeasureService {
             : '',
           font: 'normal 12px Roboto',
           fill: new Fill({
-            color: 'white'
+            color: 'white',
           }),
           backgroundFill: new Fill({
-            color: [0, 0, 0, 0.6]
+            color: [0, 0, 0, 0.6],
           }),
           overflow: true,
           offsetX: 0,
           offsetY: 0,
           rotation: 0,
-          padding: [5, 8, 5, 8]
-        })
-      })
+          padding: [5, 8, 5, 8],
+        }),
+      }),
     ];
   }
 }

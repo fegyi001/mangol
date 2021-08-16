@@ -2,6 +2,7 @@ import { Component, OnDestroy, OnInit } from '@angular/core';
 import { FormBuilder, FormGroup, Validators } from '@angular/forms';
 import { MatSelectChange } from '@angular/material/select';
 import { Store } from '@ngrx/store';
+import { jsPDF } from 'jspdf';
 import { combineLatest, Observable, Subscription } from 'rxjs';
 import { filter, take } from 'rxjs/operators';
 
@@ -13,7 +14,6 @@ import {
 import * as fromMangol from './../../store/mangol.reducers';
 import * as PrintActions from './../../store/print/print.actions';
 
-declare var jsPDF: any;
 export interface Layout {
   name: string;
   value: string;

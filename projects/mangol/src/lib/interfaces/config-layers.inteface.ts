@@ -1,5 +1,15 @@
-import Layer from 'ol/layer/Layer';
+import LineString from 'ol/geom/LineString';
+import MultiLineString from 'ol/geom/MultiLineString';
+import MultiPoint from 'ol/geom/MultiPoint';
+import MultiPolygon from 'ol/geom/MultiPolygon';
+import Point from 'ol/geom/Point';
+import Polygon from 'ol/geom/Polygon';
+import TileLayer from 'ol/layer/Tile';
+import VectorLayer from 'ol/layer/Vector';
 import Source from 'ol/source/Source';
+import TileImage from 'ol/source/TileImage';
+import TileWMS from 'ol/source/TileWMS';
+import VectorSource from 'ol/source/Vector';
 
 import { MangolLayer } from '../classes/Layer';
 import { MangolLayerGroup } from './../classes/LayerGroup';
@@ -42,7 +52,18 @@ export interface OlxLayerLayerOptions {
 
 export interface MangolLayerOptions extends OlxLayerLayerOptions {
   name: string;
-  layer: Layer;
+  layer:
+    | VectorLayer<
+        VectorSource<
+          | Point
+          | LineString
+          | Polygon
+          | MultiLineString
+          | MultiPoint
+          | MultiPolygon
+        >
+      >
+    | TileLayer<TileWMS | TileImage>;
   details?: string;
   queryable?: boolean;
   querySrs?: string;

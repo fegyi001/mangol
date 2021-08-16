@@ -24,7 +24,7 @@ export class CursorComponent implements OnInit, OnDestroy {
   map$: Observable<Map>;
 
   mode: CursorMode = null;
-  layer: VectorLayer = null;
+  layer: VectorLayer<VectorSource<Point>> = null;
 
   combinedSubscription: Subscription;
   modeSubscription: Subscription;
@@ -43,10 +43,10 @@ export class CursorComponent implements OnInit, OnDestroy {
 
   ngOnInit() {
     this.map$.pipe(filter((m) => m !== null)).subscribe((m) => {
-      const layer = new VectorLayer({
+      const layer: VectorLayer<VectorSource<Point>> = new VectorLayer({
         source: new VectorSource(),
         zIndex: 1000,
-        style: (feat) => this.setStyle(<Feature>feat),
+        style: (feat) => this.setStyle(<Feature<Point>>feat),
       });
       this.store.dispatch(new CursorActions.SetLayer(layer));
       m.addLayer(layer);
@@ -75,7 +75,7 @@ export class CursorComponent implements OnInit, OnDestroy {
     }
   }
 
-  private setStyle(feature: Feature): Style {
+  private setStyle(feature: Feature<Point>): Style {
     return new Style({
       text: new Text({
         font: '12px Roboto, sans-serif',
@@ -102,9 +102,9 @@ export class CursorComponent implements OnInit, OnDestroy {
   }
 
   private onMouseMove(evt: any) {
-    const feat = new Feature({
+    const feat: Feature<Point> = new Feature({
       geometry: new Point(evt.coordinate),
-    });
+    }) as Feature<Point>;
     this.layer.getSource().clear();
     this.layer.getSource().addFeature(feat);
   }

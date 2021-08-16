@@ -1,5 +1,7 @@
 import { Action } from '@ngrx/store';
+import Point from 'ol/geom/Point';
 import VectorLayer from 'ol/layer/Vector';
+import VectorSource from 'ol/source/Vector';
 
 import { CursorMode } from './../../interfaces/cursor-mode';
 
@@ -22,7 +24,7 @@ export class SetVisible implements Action {
 }
 export class SetLayer implements Action {
   readonly type = SET_LAYER;
-  constructor(public payload: VectorLayer) {}
+  constructor(public payload: VectorLayer<VectorSource<Point>>) {}
 }
 
 export type CursorActions = SetMode | ResetMode | SetVisible | SetLayer;

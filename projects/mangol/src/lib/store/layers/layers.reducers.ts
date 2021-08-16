@@ -1,15 +1,20 @@
+import Circle from 'ol/geom/Circle';
+import LineString from 'ol/geom/LineString';
+import Polygon from 'ol/geom/Polygon';
+import VectorLayer from 'ol/layer/Vector';
+import VectorSource from 'ol/source/Vector';
+
 import { MangolLayer } from './../../classes/Layer';
 import * as LayersActions from './layers.actions';
-import VectorLayer from 'ol/layer/Vector';
 
 export interface State {
   layers: MangolLayer[];
-  measureLayer: VectorLayer;
+  measureLayer: VectorLayer<VectorSource<LineString | Polygon | Circle>>;
 }
 
 const initialState: State = {
   layers: [],
-  measureLayer: null
+  measureLayer: null,
 };
 
 export function layersReducer(

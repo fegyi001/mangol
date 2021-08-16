@@ -1,6 +1,10 @@
 import { Component, OnDestroy, OnInit } from '@angular/core';
 import { Store } from '@ngrx/store';
 import Feature from 'ol/Feature';
+import Circle from 'ol/geom/Circle';
+import LineString from 'ol/geom/LineString';
+import Point from 'ol/geom/Point';
+import Polygon from 'ol/geom/Polygon';
 import VectorLayer from 'ol/layer/Vector';
 import Map from 'ol/Map';
 import VectorSource from 'ol/source/Vector';
@@ -27,7 +31,9 @@ export class MeasureComponent implements OnInit, OnDestroy {
   dictionary$: Observable<MeasureDictionary>;
   measureConfig$: Observable<MangolConfigMeasureItem>;
   map$: Observable<Map>;
-  measureLayer$: Observable<VectorLayer>;
+  measureLayer$: Observable<
+    VectorLayer<VectorSource<Polygon | LineString | Point>>
+  >;
   measureMode$: Observable<MeasureMode>;
 
   measureConfigSubscription: Subscription;
@@ -59,10 +65,12 @@ export class MeasureComponent implements OnInit, OnDestroy {
 
   ngOnInit() {
     this.map$.pipe(take(1)).subscribe((m) => {
-      const layer = new VectorLayer({
-        source: new VectorSource(),
-        style: (feature: Feature) => this.measureService.getStyle(feature),
-      });
+      const layer: VectorLayer<VectorSource<LineString | Polygon | Circle>> =
+        new VectorLayer({
+          source: new VectorSource(),
+          style: (feature: Feature<Polygon | LineString | Point>) =>
+            this.measureService.getStyle(feature),
+        });
       m.addLayer(layer);
       this.store.dispatch(new LayerActions.SetMeasureLayer(layer));
     });

@@ -17,7 +17,7 @@ import { SharedModule } from './../_shared/shared/shared.module';
 import { FeatureinfoResultsComponent } from './components/featureinfo-results/featureinfo-results.component';
 import { FeatureinfoSelectComponent } from './components/featureinfo-select/featureinfo-select.component';
 import { FeatureinfoTableDialogComponent } from './components/featureinfo-table-dialog/featureinfo-table-dialog.component';
-import { FeaturenfoTableComponent } from './components/featurenfo-table/featurenfo-table.component';
+import { FeatureinfoTableComponent } from './components/featureinfo-table/featureinfo-table.component';
 import { FeatureinfoComponent } from './featureinfo.component';
 import { FeatureinfoService } from './featureinfo.service';
 
@@ -42,7 +42,7 @@ import { FeatureinfoService } from './featureinfo.service';
     FeatureinfoComponent,
     FeatureinfoSelectComponent,
     FeatureinfoResultsComponent,
-    FeaturenfoTableComponent,
+    FeatureinfoTableComponent,
     FeatureinfoTableDialogComponent,
   ],
   entryComponents: [FeatureinfoTableDialogComponent],
