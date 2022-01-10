@@ -6,9 +6,6 @@
 
 [![Join the chat at https://gitter.im/mangol_official/Lobby](https://badges.gitter.im/mangol_official/Lobby.svg)](https://gitter.im/mangol_official/Lobby?utm_source=badge&utm_medium=badge&utm_campaign=pr-badge&utm_content=badge)
 
-[![Dependency Status](https://david-dm.org/fegyi001/mangol.svg)](https://david-dm.org/fegyi001/mangol)
-[![devDependency Status](https://david-dm.org/fegyi001/mangol/dev-status.svg)](https://david-dm.org/fegyi001/mangol#info=devDependencies)
-
 ## About Mangol
 
 Mangol is an open source web mapping library for combining [Angular](https://angular.io/), [Angular Material](https://material.angular.io/) and [OpenLayers](https://openlayers.org/) to create a modern, responsive interactive GUI for web maps (_M_ stands for _Material_, _ang_ for _Angular_ and _ol_ for _OpenLayers_). The project is written in TypeScript and uses SCSS for styling. Mangol uses [@ngrx/store](https://github.com/ngrx/platform) under the hood for state management.

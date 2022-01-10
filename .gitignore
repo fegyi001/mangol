@@ -14,7 +14,6 @@ yarn.lock
 /projects/mangol/doc
 
 # IDEs and editors
-/.idea
 .project
 .classpath
 .c9/
