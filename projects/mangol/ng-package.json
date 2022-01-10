@@ -3,37 +3,7 @@
   "dest": "../../dist/mangol",
   "deleteDestPath": false,
   "lib": {
-    "entryFile": "src/public_api.ts",
-    "umdModuleIds": {
-      "ol/source/Vector": "OlVectorSource",
-      "ol/layer/Base": "OlBaseLayer",
-      "@ngrx/store": "NgrxStore",
-      "ol/proj.js": "OlProjJs",
-      "ol/proj/proj4.js": "OlProj4Js",
-      "proj4": "proj4",
-      "ngrx-store-logger": "ngrxStoreLogger",
-      "ol/Feature": "OlFeature",
-      "ol/geom/Point": "OlPoint",
-      "ol/layer/Vector": "OlVectorLayer",
-      "ol/style/Fill": "OlFillStyle",
-      "ol/style/Style": "OlStyle",
-      "ol/style/Text": "OlTextStyle",
-      "ol/control/ScaleLine": "OlScaleLine",
-      "ol/Map": "OlMap",
-      "ol/layer/Tile": "OlTileLayer",
-      "ol/source/OSM": "OlOSM",
-      "ol/View": "OlView",
-      "ol/style/Stroke": "OlStrokeStyle",
-      "ol/style/Circle": "OlCircleStyle",
-      "ol/geom/LineString": "OlLineString",
-      "ol/interaction/Draw": "OlDraw",
-      "ol/Observable": "OlObservable",
-      "ol/sphere": "OlSphere",
-      "jspdf": "JsPDF",
-      "file-saver": "FileSaver",
-      "ol/format/GeoJSON": "OlGeoJSON",
-      "ol/geom/GeometryType": "OlGeometryType"
-    }
+    "entryFile": "src/public_api.ts"
   },
   "allowedNonPeerDependencies": [
     "tslib",

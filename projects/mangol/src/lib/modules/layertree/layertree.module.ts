@@ -24,33 +24,32 @@ import { LayertreeComponent } from './layertree.component';
 import { DescriptionComponent } from './components/layer-details/description/description.component';
 
 @NgModule({
-  imports: [
-    CommonModule,
-    MatTreeModule,
-    MatIconModule,
-    MatButtonModule,
-    MatExpansionModule,
-    MatTooltipModule,
-    MatListModule,
-    MatBadgeModule,
-    MatSliderModule,
-    MatToolbarModule,
-    MatMenuModule,
-    MatDividerModule,
-    MatDialogModule,
-    SharedModule
-  ],
-  declarations: [
-    LayertreeComponent,
-    LayerGroupComponent,
-    LayertreeItemComponent,
-    LayerComponent,
-    LayerDetailsComponent,
-    TransparencyComponent,
-    LegendComponent,
-    DescriptionComponent
-  ],
-  entryComponents: [LayerDetailsComponent],
-  exports: [LayertreeComponent]
+    imports: [
+        CommonModule,
+        MatTreeModule,
+        MatIconModule,
+        MatButtonModule,
+        MatExpansionModule,
+        MatTooltipModule,
+        MatListModule,
+        MatBadgeModule,
+        MatSliderModule,
+        MatToolbarModule,
+        MatMenuModule,
+        MatDividerModule,
+        MatDialogModule,
+        SharedModule
+    ],
+    declarations: [
+        LayertreeComponent,
+        LayerGroupComponent,
+        LayertreeItemComponent,
+        LayerComponent,
+        LayerDetailsComponent,
+        TransparencyComponent,
+        LegendComponent,
+        DescriptionComponent
+    ],
+    exports: [LayertreeComponent]
 })
 export class LayertreeModule {}

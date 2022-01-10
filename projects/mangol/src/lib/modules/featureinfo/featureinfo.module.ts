@@ -22,31 +22,30 @@ import { FeatureinfoComponent } from './featureinfo.component';
 import { FeatureinfoService } from './featureinfo.service';
 
 @NgModule({
-  imports: [
-    CommonModule,
-    MatSelectModule,
-    MatIconModule,
-    MatFormFieldModule,
-    MatSnackBarModule,
-    MatDividerModule,
-    HttpClientModule,
-    MatExpansionModule,
-    MatTableModule,
-    MatButtonModule,
-    MatSortModule,
-    MatToolbarModule,
-    MatTooltipModule,
-    SharedModule,
-  ],
-  declarations: [
-    FeatureinfoComponent,
-    FeatureinfoSelectComponent,
-    FeatureinfoResultsComponent,
-    FeatureinfoTableComponent,
-    FeatureinfoTableDialogComponent,
-  ],
-  entryComponents: [FeatureinfoTableDialogComponent],
-  exports: [FeatureinfoComponent],
-  providers: [FeatureinfoService],
+    imports: [
+        CommonModule,
+        MatSelectModule,
+        MatIconModule,
+        MatFormFieldModule,
+        MatSnackBarModule,
+        MatDividerModule,
+        HttpClientModule,
+        MatExpansionModule,
+        MatTableModule,
+        MatButtonModule,
+        MatSortModule,
+        MatToolbarModule,
+        MatTooltipModule,
+        SharedModule,
+    ],
+    declarations: [
+        FeatureinfoComponent,
+        FeatureinfoSelectComponent,
+        FeatureinfoResultsComponent,
+        FeatureinfoTableComponent,
+        FeatureinfoTableDialogComponent,
+    ],
+    exports: [FeatureinfoComponent],
+    providers: [FeatureinfoService]
 })
 export class FeatureinfoModule {}

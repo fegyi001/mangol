@@ -79,13 +79,6 @@
             "scripts": [],
             "assets": ["src/favicon.ico", "src/assets"]
           }
-        },
-        "lint": {
-          "builder": "@angular-devkit/build-angular:tslint",
-          "options": {
-            "tsConfig": ["tsconfig.app.json", "tsconfig.spec.json"],
-            "exclude": ["**/node_modules/**"]
-          }
         }
       }
     },
@@ -103,13 +96,6 @@
             "production": {
               "devServerTarget": "mangol-app:serve:production"
             }
-          }
-        },
-        "lint": {
-          "builder": "@angular-devkit/build-angular:tslint",
-          "options": {
-            "tsConfig": "e2e/tsconfig.e2e.json",
-            "exclude": ["**/node_modules/**"]
           }
         }
       }
@@ -152,16 +138,6 @@
             "main": "projects/mangol/src/test.ts",
             "tsConfig": "projects/mangol/tsconfig.spec.json",
             "karmaConfig": "projects/mangol/karma.conf.js"
-          }
-        },
-        "lint": {
-          "builder": "@angular-devkit/build-angular:tslint",
-          "options": {
-            "tsConfig": [
-              "projects/mangol/tsconfig.lib.json",
-              "projects/mangol/tsconfig.spec.json"
-            ],
-            "exclude": ["**/node_modules/**"]
           }
         }
       }
