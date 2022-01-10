@@ -5,13 +5,12 @@ import {
   style,
   transition,
   trigger
-} from '@angular/animations';
+} from '@angular/animations'
 
-const duration = 350;
+const duration = 350
 
-export const layertreeVisibilityIconStateTrigger: AnimationTriggerMetadata = trigger(
-  'layertreeVisibilityIconState',
-  [
+export const layertreeVisibilityIconStateTrigger: AnimationTriggerMetadata =
+  trigger('layertreeVisibilityIconState', [
     state(
       'unchecked',
       style({
@@ -26,8 +25,7 @@ export const layertreeVisibilityIconStateTrigger: AnimationTriggerMetadata = tri
     ),
     transition('unchecked => checked', [animate(duration + 'ms ease-out')]),
     transition('checked => unchecked', [animate(duration + 'ms ease-out')])
-  ]
-);
+  ])
 
 export const slideStateTrigger: AnimationTriggerMetadata = trigger(
   'slideState',
@@ -49,4 +47,4 @@ export const slideStateTrigger: AnimationTriggerMetadata = trigger(
     transition('up => down', [animate(duration + 'ms ease-out')]),
     transition('down => up', [animate(duration + 'ms ease-out')])
   ]
-);
+)

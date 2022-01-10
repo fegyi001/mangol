@@ -150,4 +150,4 @@ import { MangolLayer, MangolLayerGroup, MangolConfig } from 'mangol';
       }
     };
    }
- }`;
+ }`

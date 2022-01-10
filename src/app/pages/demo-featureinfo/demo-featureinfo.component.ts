@@ -1,20 +1,20 @@
-import { Component, OnDestroy, OnInit } from '@angular/core';
-import GeoJSON from 'ol/format/GeoJSON';
-import TileLayer from 'ol/layer/Tile';
-import VectorLayer from 'ol/layer/Vector';
-import { fromLonLat } from 'ol/proj.js';
-import OSM from 'ol/source/OSM';
-import TileWMS from 'ol/source/TileWMS';
-import VectorSource from 'ol/source/Vector';
-import View from 'ol/View';
-import { Subscription } from 'rxjs';
-import { filter, map } from 'rxjs/operators';
+import { Component, OnDestroy, OnInit } from '@angular/core'
+import GeoJSON from 'ol/format/GeoJSON'
+import TileLayer from 'ol/layer/Tile'
+import VectorLayer from 'ol/layer/Vector'
+import { fromLonLat } from 'ol/proj.js'
+import OSM from 'ol/source/OSM'
+import TileWMS from 'ol/source/TileWMS'
+import VectorSource from 'ol/source/Vector'
+import View from 'ol/View'
+import { Subscription } from 'rxjs'
+import { filter, map } from 'rxjs/operators'
 
-import { MangolLayer } from '../../../../projects/mangol/src/lib/classes/Layer';
-import { AppService } from '../../app.service';
-import { MangolConfig } from './../../../../projects/mangol/src/lib/interfaces/config.interface';
-import { MangolService } from './../../../../projects/mangol/src/lib/mangol.service';
-import { code } from './code';
+import { MangolLayer } from '../../../../projects/mangol/src/lib/classes/Layer'
+import { AppService } from '../../app.service'
+import { MangolConfig } from './../../../../projects/mangol/src/lib/interfaces/config.interface'
+import { MangolService } from './../../../../projects/mangol/src/lib/mangol.service'
+import { code } from './code'
 
 @Component({
   selector: 'app-demo-featureinfo',
@@ -22,35 +22,34 @@ import { code } from './code';
   styleUrls: ['./demo-featureinfo.component.scss']
 })
 export class DemoFeatureinfoComponent implements OnInit, OnDestroy {
-  mangolConfig: MangolConfig;
-  sidebarOpenedSubscription: Subscription;
+  mangolConfig: MangolConfig
+  sidebarOpenedSubscription: Subscription
 
-  code = code;
+  code = code
 
   constructor(
     private appService: AppService,
     private mangolService: MangolService
   ) {
-    this.sidebarOpenedSubscription = this.appService.sidebarOpenedSubject.subscribe(
-      opened => {
+    this.sidebarOpenedSubscription =
+      this.appService.sidebarOpenedSubject.subscribe((opened) => {
         if (opened !== null) {
           this.mangolService.mapState$
             .pipe(
-              map(m => m.map),
-              filter(m => m !== null)
+              map((m) => m.map),
+              filter((m) => m !== null)
             )
-            .subscribe(m => {
+            .subscribe((m) => {
               setTimeout(() => {
-                m.updateSize();
-              }, 500);
-            });
+                m.updateSize()
+              }, 500)
+            })
         }
-      }
-    );
+      })
   }
 
   ngOnInit() {
-    const pseudoGeoJSONFormat = <any>GeoJSON;
+    const pseudoGeoJSONFormat = <any>GeoJSON
     this.mangolConfig = {
       map: {
         target: 'mangol-demo-featureinfo',
@@ -122,13 +121,13 @@ export class DemoFeatureinfoComponent implements OnInit, OnDestroy {
           featureinfo: {}
         }
       }
-    };
+    }
   }
 
   ngOnDestroy() {
     if (this.sidebarOpenedSubscription) {
-      this.sidebarOpenedSubscription.unsubscribe();
+      this.sidebarOpenedSubscription.unsubscribe()
     }
-    this.mangolService.resetMangolState();
+    this.mangolService.resetMangolState()
   }
 }

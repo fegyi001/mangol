@@ -51,4 +51,4 @@ export class DemoLayertreeComponent implements OnInit {
     } as MangolConfig;
   }
 }
-`;
+`

@@ -1,6 +1,6 @@
 // import { MangolMapService } from '../services/map.service';
-import { MangolConfig } from './config.interface';
+import { MangolConfig } from './config.interface'
 export interface MangolReady {
-  config: MangolConfig;
+  config: MangolConfig
   // mapService: MangolMapService;
 }

@@ -3,7 +3,6 @@ import { Component, OnInit } from '@angular/core';
 import TileLayer from 'ol/layer/Tile';
 import { fromLonLat } from 'ol/proj.js';
 import OSM from 'ol/source/OSM';
-import TileJSON from 'ol/source/TileJSON';
 import View from 'ol/View';
 
 import { MangolLayer, MangolLayerGroup, MangolConfig } from 'mangol';
@@ -125,4 +124,4 @@ export class DemoLayertreeComponent implements OnInit {
     };
   }
 }
-`;
+`

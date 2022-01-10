@@ -37,4 +37,4 @@ export class DemoLayertreeComponent implements OnInit {
     };
   }
 }
-`;
+`

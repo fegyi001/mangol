@@ -6,12 +6,12 @@ import {
   style,
   transition,
   trigger
-} from '@angular/animations';
+} from '@angular/animations'
 
 export const routeStateTrigger: AnimationTriggerMetadata = trigger(
   'routeState',
   [transition('* => *', [])]
-);
+)
 
 export const sidebarButtonStateTrigger: AnimationTriggerMetadata = trigger(
   'sidebarButtonState',
@@ -31,7 +31,7 @@ export const sidebarButtonStateTrigger: AnimationTriggerMetadata = trigger(
     transition('opened => closed', [animate('200ms ease-out')]),
     transition('closed => opened', [animate('200ms ease-out')])
   ]
-);
+)
 
 export const homeButtonStateTrigger: AnimationTriggerMetadata = trigger(
   'homeButtonState',
@@ -77,4 +77,4 @@ export const homeButtonStateTrigger: AnimationTriggerMetadata = trigger(
       )
     ])
   ]
-);
+)

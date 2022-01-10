@@ -1,20 +1,20 @@
-import { Component, Inject, OnInit, ViewChild } from '@angular/core';
-import { MAT_DIALOG_DATA, MatDialogRef } from '@angular/material/dialog';
-import { MatSort } from '@angular/material/sort';
-import { MatTableDataSource } from '@angular/material/table';
-import { saveAs } from 'file-saver';
+import { Component, Inject, OnInit, ViewChild } from '@angular/core'
+import { MAT_DIALOG_DATA, MatDialogRef } from '@angular/material/dialog'
+import { MatSort } from '@angular/material/sort'
+import { MatTableDataSource } from '@angular/material/table'
+import { saveAs } from 'file-saver'
 
 @Component({
   selector: 'mangol-featureinfo-table-dialog',
   templateUrl: './featureinfo-table-dialog.component.html',
-  styleUrls: ['./featureinfo-table-dialog.component.scss'],
+  styleUrls: ['./featureinfo-table-dialog.component.scss']
 })
 export class FeatureinfoTableDialogComponent implements OnInit {
-  dataSource: MatTableDataSource<any>;
-  columns: string[] = [];
+  dataSource: MatTableDataSource<any>
+  columns: string[] = []
 
   @ViewChild(MatSort, { static: false })
-  sort: MatSort;
+  sort: MatSort
 
   constructor(
     public dialogRef: MatDialogRef<FeatureinfoTableDialogComponent>,
@@ -22,11 +22,11 @@ export class FeatureinfoTableDialogComponent implements OnInit {
   ) {}
 
   ngOnInit() {
-    const source: any[] = [];
+    const source: any[] = []
     const hasQueryColumns =
-      !!this.data.layer.queryColumns && this.data.layer.queryColumns.length > 0;
+      !!this.data.layer.queryColumns && this.data.layer.queryColumns.length > 0
     this.data.features.forEach((feature) => {
-      const props = { ...feature.getProperties() };
+      const props = { ...feature.getProperties() }
       for (const key in props) {
         if (props.hasOwnProperty(key)) {
           // Don't show objects or functions in the table or the property is not in the layers' queryColumns attribute
@@ -36,46 +36,46 @@ export class FeatureinfoTableDialogComponent implements OnInit {
             (hasQueryColumns &&
               this.data.layer.queryColumns.indexOf(key) === -1)
           ) {
-            delete props[key];
+            delete props[key]
           } else {
             // Add the property name to the columns if not already added
             if (this.columns.indexOf(key) === -1) {
-              this.columns.push(key);
+              this.columns.push(key)
             }
           }
         }
       }
-      source.push(props);
-    });
-    this.dataSource = new MatTableDataSource(source);
-    this.dataSource.sort = this.sort;
+      source.push(props)
+    })
+    this.dataSource = new MatTableDataSource(source)
+    this.dataSource.sort = this.sort
   }
 
   exportCsv() {
-    const data: any[] = this.dataSource.data;
-    let csvContent = '';
-    const separator = ';';
+    const data: any[] = this.dataSource.data
+    let csvContent = ''
+    const separator = ';'
     this.columns.forEach((column) => {
-      csvContent += column + separator;
-    });
+      csvContent += column + separator
+    })
     data.forEach((d) => {
-      csvContent += '\n';
+      csvContent += '\n'
       this.columns.forEach((c) => {
-        csvContent += (d.hasOwnProperty(c) ? d[c] : '') + separator;
-      });
-    });
+        csvContent += (d.hasOwnProperty(c) ? d[c] : '') + separator
+      })
+    })
     const blob = new Blob([csvContent], {
-      type: 'text-csv;charset=utf-8;',
-    });
+      type: 'text-csv;charset=utf-8;'
+    })
     try {
       saveAs(
         blob,
         `${this.data.layer.name
           .toLowerCase()
           .replace(/ /g, '_')}_${new Date().getTime()}.csv`
-      );
+      )
     } catch (error) {
-      console.log(error);
+      console.log(error)
     }
   }
 }

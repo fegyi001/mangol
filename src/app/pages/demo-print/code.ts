@@ -4,7 +4,7 @@ import { Component, OnInit } from '@angular/core';
 import { fromLonLat } from 'ol/proj.js';
 import View from 'ol/View';
 
-import { MangolLayer, MangolLayerGroup, MangolConfig } from 'mangol';
+import { MangolConfig } from 'mangol';
 
  @Component({
    selector: 'app-demo-print',
@@ -61,4 +61,4 @@ import { MangolLayer, MangolLayerGroup, MangolConfig } from 'mangol';
       }
     };
    }
- }`;
+ }`

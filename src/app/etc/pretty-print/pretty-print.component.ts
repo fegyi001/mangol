@@ -1,31 +1,16 @@
-import {
-  Component,
-  OnInit,
-  Input,
-  AfterViewInit,
-  AfterViewChecked
-} from '@angular/core';
+import { AfterViewChecked, Component, Input } from '@angular/core'
 
-declare var PR: any;
+declare let PR: any
 
 @Component({
   selector: 'app-pretty-print',
   templateUrl: './pretty-print.component.html',
   styleUrls: ['./pretty-print.component.scss']
 })
-export class PrettyPrintComponent
-  implements OnInit, AfterViewInit, AfterViewChecked {
-  @Input() code: string;
-
-  constructor() {}
-
-  ngOnInit() {}
+export class PrettyPrintComponent implements AfterViewChecked {
+  @Input() code: string
 
   ngAfterViewChecked() {
-    PR.prettyPrint();
-  }
-
-  ngAfterViewInit() {
-    // PR.prettyPrint();
+    PR.prettyPrint()
   }
 }

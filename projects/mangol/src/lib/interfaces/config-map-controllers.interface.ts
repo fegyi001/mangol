@@ -1,61 +1,59 @@
 export interface MangolControllersOptions {
-  show: boolean;
+  show: boolean
 }
 
 export interface MangolControllersZoomDictionary {
-  zoomIn?: string;
-  zoomOut?: string;
+  zoomIn?: string
+  zoomOut?: string
 }
 
 export interface MangolControllersZoomOptions extends MangolControllersOptions {
-  dictionary?: MangolControllersZoomDictionary;
-  showTooltip?: boolean;
+  dictionary?: MangolControllersZoomDictionary
+  showTooltip?: boolean
 }
 
-export interface MangolControllersScalebarOptions
-  extends MangolControllersOptions {}
+export type MangolControllersScalebarOptions = MangolControllersOptions
 
 export interface MangolControllersFullScreenDictionary {
-  maximize?: string;
-  minimize?: string;
+  maximize?: string
+  minimize?: string
 }
 
 export interface MangolControllersFullScreenOptions
   extends MangolControllersOptions {
-  dictionary?: MangolControllersFullScreenDictionary;
-  showTooltip?: boolean;
+  dictionary?: MangolControllersFullScreenDictionary
+  showTooltip?: boolean
 }
 
 export interface MangolControllersPositionDictionary {
-  textCopied?: string;
-  copyCoordinates?: string;
-  closeSnackbar?: string;
+  textCopied?: string
+  copyCoordinates?: string
+  closeSnackbar?: string
 }
 
 export interface MangolControllersPositionOptions
   extends MangolControllersOptions {
-  precision?: number;
-  dictionary?: MangolControllersPositionDictionary;
+  precision?: number
+  dictionary?: MangolControllersPositionDictionary
 }
 
-export interface MangolControllersTileloadOptions
-  extends MangolControllersOptions {}
+export type MangolControllersTileloadOptions = MangolControllersOptions
 
 export interface MangolControllersRotationDictionary {
-  rotateToNorth?: string;
+  rotateToNorth?: string
 }
 
 export interface MangolControllersRotationOptions
   extends MangolControllersOptions {
-  dictionary?: MangolControllersRotationDictionary;
-  showTooltip?: boolean;
+  dictionary?: MangolControllersRotationDictionary
+  showTooltip?: boolean
 }
 
 export interface MangolConfigMapControllers {
-  zoom?: MangolControllersZoomOptions;
-  scalebar?: MangolControllersScalebarOptions;
-  position?: MangolControllersPositionOptions;
-  tileload?: MangolControllersTileloadOptions;
-  rotation?: MangolControllersRotationOptions;
-  fullScreen?: MangolControllersFullScreenOptions;
+  zoom?: MangolControllersZoomOptions
+  scalebar?: MangolControllersScalebarOptions
+  position?: MangolControllersPositionOptions
+  tileload?: MangolControllersTileloadOptions
+  rotation?: MangolControllersRotationOptions
+  fullScreen?: MangolControllersFullScreenOptions
 }

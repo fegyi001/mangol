@@ -1,8 +1,8 @@
-import { MangolLayer } from '../../../classes/Layer';
+import { MangolLayer } from '../../../classes/Layer'
 
 export class LayertreeItemNode {
-  name: string;
-  checked?: boolean;
-  children?: LayertreeItemNode[];
-  layer?: MangolLayer;
+  name: string
+  checked?: boolean
+  children?: LayertreeItemNode[]
+  layer?: MangolLayer
 }

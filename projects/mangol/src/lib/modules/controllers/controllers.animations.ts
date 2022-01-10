@@ -1,12 +1,11 @@
 import {
   animate,
   AnimationTriggerMetadata,
-  keyframes,
   state,
   style,
   transition,
   trigger
-} from '@angular/animations';
+} from '@angular/animations'
 
 export const sidebarButtonStateTrigger: AnimationTriggerMetadata = trigger(
   'sidebarButtonState',
@@ -26,7 +25,7 @@ export const sidebarButtonStateTrigger: AnimationTriggerMetadata = trigger(
     transition('opened => closed', [animate('300ms ease-out')]),
     transition('closed => opened', [animate('300ms ease-out')])
   ]
-);
+)
 
 export const shownStateTrigger: AnimationTriggerMetadata = trigger(
   'shownState',
@@ -51,4 +50,4 @@ export const shownStateTrigger: AnimationTriggerMetadata = trigger(
       )
     ])
   ]
-);
+)

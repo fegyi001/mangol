@@ -1,4 +1,4 @@
-import { Component, OnInit, Input } from '@angular/core';
+import { Component, Input, OnInit } from '@angular/core'
 
 @Component({
   selector: 'app-api',
@@ -7,18 +7,14 @@ import { Component, OnInit, Input } from '@angular/core';
 })
 export class ApiComponent implements OnInit {
   @Input()
-  apiUrl: string;
-  apiFullUrl: string;
-
-  constructor() {}
+  apiUrl: string
+  apiFullUrl: string
 
   ngOnInit() {
-    this.apiFullUrl = `https://fegyi001.github.io/mangol/modules/${
-      this.apiUrl
-    }.html`;
+    this.apiFullUrl = `https://fegyi001.github.io/mangol/modules/${this.apiUrl}.html`
   }
 
   openAPIPage() {
-    window.open(this.apiFullUrl);
+    window.open(this.apiFullUrl)
   }
 }

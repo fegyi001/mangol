@@ -1,13 +1,13 @@
-import { MangolConfig } from '../../interfaces/config.interface';
-import * as ConfigActions from './config.actions';
+import { MangolConfig } from '../../interfaces/config.interface'
+import * as ConfigActions from './config.actions'
 
 export interface State {
-  config: MangolConfig;
+  config: MangolConfig
 }
 
 const initialState: State = {
   config: null
-};
+}
 
 export function configReducer(
   state = initialState,
@@ -15,8 +15,8 @@ export function configReducer(
 ) {
   switch (action.type) {
     case ConfigActions.SET_CONFIG:
-      return { ...state, config: action.payload };
+      return { ...state, config: action.payload }
     default:
-      return state;
+      return state
   }
 }

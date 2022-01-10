@@ -1,12 +1,12 @@
-import { take } from 'rxjs/operators';
-import { Component, OnInit } from '@angular/core';
-import { Store } from '@ngrx/store';
-import * as fromMangol from './../../../store/mangol.reducers';
-import Map from 'ol/Map';
-import { Observable } from 'rxjs';
+import { Component } from '@angular/core'
+import { Store } from '@ngrx/store'
+import Map from 'ol/Map'
+import { Observable } from 'rxjs'
+import { take } from 'rxjs/operators'
 
-import { shownStateTrigger } from '../controllers.animations';
-import { MangolControllersZoomOptions } from './../../../interfaces/config-map-controllers.interface';
+import { shownStateTrigger } from '../controllers.animations'
+import { MangolControllersZoomOptions } from './../../../interfaces/config-map-controllers.interface'
+import * as fromMangol from './../../../store/mangol.reducers'
 
 @Component({
   selector: 'mangol-zoom-buttons',
@@ -14,37 +14,35 @@ import { MangolControllersZoomOptions } from './../../../interfaces/config-map-c
   styleUrls: ['./zoom-buttons.component.scss'],
   animations: [shownStateTrigger]
 })
-export class ZoomButtonsComponent implements OnInit {
-  animationDuration = 500;
-  zoom$: Observable<MangolControllersZoomOptions>;
+export class ZoomButtonsComponent {
+  animationDuration = 500
+  zoom$: Observable<MangolControllersZoomOptions>
 
   constructor(private store: Store<fromMangol.MangolState>) {
-    this.zoom$ = this.store.select(state => state.controllers.zoom);
+    this.zoom$ = this.store.select((state) => state.controllers.zoom)
   }
-
-  ngOnInit() {}
 
   zoomIn() {
     this.store
-      .select(state => state.map.map)
+      .select((state) => state.map.map)
       .pipe(take(1))
       .subscribe((m: Map) => {
         m.getView().animate({
           zoom: m.getView().getZoom() + 1,
           duration: this.animationDuration
-        });
-      });
+        })
+      })
   }
 
   zoomOut() {
     this.store
-      .select(state => state.map.map)
+      .select((state) => state.map.map)
       .pipe(take(1))
       .subscribe((m: Map) => {
         m.getView().animate({
           zoom: m.getView().getZoom() - 1,
           duration: this.animationDuration
-        });
-      });
+        })
+      })
   }
 }

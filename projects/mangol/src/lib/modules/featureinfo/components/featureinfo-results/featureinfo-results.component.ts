@@ -1,45 +1,45 @@
-import { Component, Input, OnDestroy, OnInit } from '@angular/core';
-import { MatDialog } from '@angular/material/dialog';
-import { MatSnackBar } from '@angular/material/snack-bar';
-import { Store } from '@ngrx/store';
-import Feature from 'ol/Feature';
-import LineString from 'ol/geom/LineString';
-import Point from 'ol/geom/Point';
-import Polygon from 'ol/geom/Polygon';
-import TileLayer from 'ol/layer/Tile';
-import VectorLayer from 'ol/layer/Vector';
-import Map from 'ol/Map';
-import VectorSource from 'ol/source/Vector';
-import { combineLatest, Observable, Subscription } from 'rxjs';
-import { filter, map, take } from 'rxjs/operators';
+import { Component, Input, OnDestroy, OnInit } from '@angular/core'
+import { MatDialog } from '@angular/material/dialog'
+import { MatSnackBar } from '@angular/material/snack-bar'
+import { Store } from '@ngrx/store'
+import Feature from 'ol/Feature'
+import LineString from 'ol/geom/LineString'
+import Point from 'ol/geom/Point'
+import Polygon from 'ol/geom/Polygon'
+import TileLayer from 'ol/layer/Tile'
+import VectorLayer from 'ol/layer/Vector'
+import Map from 'ol/Map'
+import VectorSource from 'ol/source/Vector'
+import { combineLatest, Observable, Subscription } from 'rxjs'
+import { filter, map, take } from 'rxjs/operators'
 
-import { MangolLayer } from '../../../../classes/Layer';
-import { FeatureinfoTableDialogComponent } from '../featureinfo-table-dialog/featureinfo-table-dialog.component';
-import * as CursorActions from './../../../../store/cursor/cursor.actions';
-import * as FeatureinfoActions from './../../../../store/featureinfo/featureinfo.actions';
-import { FeatureinfoDictionary } from './../../../../store/featureinfo/featureinfo.reducers';
-import * as fromMangol from './../../../../store/mangol.reducers';
-import { FeatureinfoService } from './../../featureinfo.service';
+import { MangolLayer } from '../../../../classes/Layer'
+import { FeatureinfoDictionary } from '../../../../store/featureinfo/featureinfo.reducers'
+import { FeatureinfoService } from '../../featureinfo.service'
+import { FeatureinfoTableDialogComponent } from '../featureinfo-table-dialog/featureinfo-table-dialog.component'
+import * as CursorActions from './../../../../store/cursor/cursor.actions'
+import * as FeatureinfoActions from './../../../../store/featureinfo/featureinfo.actions'
+import * as fromMangol from './../../../../store/mangol.reducers'
 
 @Component({
   selector: 'mangol-featureinfo-results',
   templateUrl: './featureinfo-results.component.html',
-  styleUrls: ['./featureinfo-results.component.scss'],
+  styleUrls: ['./featureinfo-results.component.scss']
 })
 export class FeatureinfoResultsComponent implements OnInit, OnDestroy {
   @Input()
-  dictionary: FeatureinfoDictionary;
+  dictionary: FeatureinfoDictionary
 
-  layer$: Observable<MangolLayer>;
+  layer$: Observable<MangolLayer>
   resultsLayer$: Observable<
     VectorLayer<VectorSource<LineString | Polygon | Point>>
-  >;
-  resultsFeatures$: Observable<Feature<LineString | Polygon | Point>[]>;
-  tab$: Observable<string>;
+  >
+  resultsFeatures$: Observable<Feature<LineString | Polygon | Point>[]>
+  tab$: Observable<string>
 
-  combinedSubscription: Subscription;
+  combinedSubscription: Subscription
 
-  clickFunction: any = null;
+  clickFunction: any = null
 
   constructor(
     private store: Store<fromMangol.MangolState>,
@@ -51,21 +51,21 @@ export class FeatureinfoResultsComponent implements OnInit, OnDestroy {
   ngOnInit() {
     this.resultsLayer$ = this.store.select(
       (state) => state.featureinfo.resultsLayer
-    );
+    )
 
     this.resultsFeatures$ = this.store.select(
       (state) => state.featureinfo.resultsItems
-    );
+    )
 
-    this.layer$ = this.store.select((state) => state.featureinfo.selectedLayer);
+    this.layer$ = this.store.select((state) => state.featureinfo.selectedLayer)
 
-    this.tab$ = this.store.select((state) => state.sidebar.selectedModule);
+    this.tab$ = this.store.select((state) => state.sidebar.selectedModule)
 
     this.combinedSubscription = combineLatest([
       this.tab$,
-      this.layer$,
+      this.layer$
     ]).subscribe(([selectedModule, layer]) => {
-      this.store.dispatch(new FeatureinfoActions.SetResultsItems([]));
+      this.store.dispatch(new FeatureinfoActions.SetResultsItems([]))
       if (selectedModule === 'featureinfo') {
         if (layer !== null) {
           this.store
@@ -75,39 +75,39 @@ export class FeatureinfoResultsComponent implements OnInit, OnDestroy {
               this.store.dispatch(
                 new CursorActions.SetMode({
                   text: this.dictionary.clickOnMap,
-                  cursor: 'crosshair',
+                  cursor: 'crosshair'
                 })
-              );
-              this.store.dispatch(new CursorActions.SetVisible(true));
+              )
+              this.store.dispatch(new CursorActions.SetVisible(true))
               if (this.clickFunction !== null) {
-                m.un('singleclick', this.clickFunction);
+                m.un('singleclick', this.clickFunction)
               }
               this.clickFunction = (evt: any) =>
-                this._createClickFunction(evt, layer, m);
-              m.on('singleclick', this.clickFunction);
-            });
+                this._createClickFunction(evt, layer, m)
+              m.on('singleclick', this.clickFunction)
+            })
         } else {
-          this._removeClickFunction();
+          this._removeClickFunction()
         }
       } else {
-        this._removeClickFunction();
+        this._removeClickFunction()
       }
-    });
+    })
   }
 
   ngOnDestroy() {
-    this.store.dispatch(new CursorActions.ResetMode());
+    this.store.dispatch(new CursorActions.ResetMode())
     this.resultsLayer$
       .pipe(
         filter((r) => r !== null),
         take(1)
       )
       .subscribe((r) => {
-        this.store.dispatch(new FeatureinfoActions.SetResultsItems([]));
-        r.getSource().clear();
-      });
+        this.store.dispatch(new FeatureinfoActions.SetResultsItems([]))
+        r.getSource().clear()
+      })
     if (this.combinedSubscription) {
-      this.combinedSubscription.unsubscribe();
+      this.combinedSubscription.unsubscribe()
     }
   }
 
@@ -120,11 +120,11 @@ export class FeatureinfoResultsComponent implements OnInit, OnDestroy {
         .select((state) => state.map.map)
         .pipe(take(1))
         .subscribe((m) => {
-          m.un('singleclick', this.clickFunction);
-          this.clickFunction = null;
-        });
+          m.un('singleclick', this.clickFunction)
+          this.clickFunction = null
+        })
     }
-    this.store.dispatch(new CursorActions.ResetMode());
+    this.store.dispatch(new CursorActions.ResetMode())
   }
 
   /**
@@ -139,12 +139,12 @@ export class FeatureinfoResultsComponent implements OnInit, OnDestroy {
       .pipe(take(1))
       .subscribe((resultsLayer) => {
         try {
-          m.removeLayer(resultsLayer);
+          m.removeLayer(resultsLayer)
         } catch (error) {}
-        resultsLayer.getSource().clear();
-        this.store.dispatch(new FeatureinfoActions.SetResultsItems([]));
-        m.addLayer(resultsLayer);
-        const coords = <[number, number]>evt.coordinate;
+        resultsLayer.getSource().clear()
+        this.store.dispatch(new FeatureinfoActions.SetResultsItems([]))
+        m.addLayer(resultsLayer)
+        const coords = <[number, number]>evt.coordinate
         if (layer.layer instanceof TileLayer) {
           this.featureinfoService
             .getFeatureinfoUrl$(layer, m, coords)
@@ -160,14 +160,14 @@ export class FeatureinfoResultsComponent implements OnInit, OnDestroy {
                   (features) => {
                     this.store.dispatch(
                       new FeatureinfoActions.SetResultsItems(features)
-                    );
-                    this._openSnackBar(features.length);
+                    )
+                    this._openSnackBar(features.length)
                   },
                   (error) => {
-                    console.log(error);
+                    console.log(error)
                   }
-                );
-            });
+                )
+            })
         } else if (layer.layer instanceof VectorLayer) {
           const vectorFeatures: Feature<LineString | Polygon | Point>[] = <
             Feature<LineString | Polygon | Point>[]
@@ -177,16 +177,16 @@ export class FeatureinfoResultsComponent implements OnInit, OnDestroy {
               <VectorLayer<VectorSource<LineString | Polygon | Point>>>(
                 layer.layer
               ),
-            hitTolerance: 5,
-          });
+            hitTolerance: 5
+          })
           this.store.dispatch(
             new FeatureinfoActions.SetResultsItems(vectorFeatures)
-          );
-          this._openSnackBar(vectorFeatures.length);
+          )
+          this._openSnackBar(vectorFeatures.length)
         } else {
-          alert(`Feature info for layer is not yet supported`);
+          alert(`Feature info for layer is not yet supported`)
         }
-      });
+      })
   }
 
   /**
@@ -203,10 +203,10 @@ export class FeatureinfoResultsComponent implements OnInit, OnDestroy {
           `${this.dictionary.closeSnackbar}`,
           {
             duration: snackbarDuration,
-            panelClass: 'mangol-snackbar',
+            panelClass: 'mangol-snackbar'
           }
-        );
-      });
+        )
+      })
   }
 
   /**
@@ -221,21 +221,21 @@ export class FeatureinfoResultsComponent implements OnInit, OnDestroy {
       .pipe(
         take(1),
         map((selectedLayer) => {
-          const noPropTitle = this.dictionary.feature;
+          const noPropTitle = this.dictionary.feature
           if (!!selectedLayer.queryIdProperty) {
-            const props = feature.getProperties();
+            const props = feature.getProperties()
             if (props.hasOwnProperty(selectedLayer.queryIdProperty)) {
               return props[selectedLayer.queryIdProperty].toString().length > 0
                 ? props[selectedLayer.queryIdProperty]
-                : noPropTitle;
+                : noPropTitle
             } else {
-              return noPropTitle;
+              return noPropTitle
             }
           } else {
-            return noPropTitle;
+            return noPropTitle
           }
         })
-      );
+      )
   }
 
   /**
@@ -253,10 +253,10 @@ export class FeatureinfoResultsComponent implements OnInit, OnDestroy {
           data: {
             layer: layer,
             features: resultsFeatures,
-            dictionary: this.dictionary,
-          },
-        });
-      });
+            dictionary: this.dictionary
+          }
+        })
+      })
   }
 
   /**
@@ -265,8 +265,8 @@ export class FeatureinfoResultsComponent implements OnInit, OnDestroy {
    */
   showFeatureOnMap(feature: Feature<LineString | Polygon | Point>) {
     this.resultsLayer$.pipe(take(1)).subscribe((layer) => {
-      layer.getSource().addFeature(feature);
-    });
+      layer.getSource().addFeature(feature)
+    })
   }
 
   /**
@@ -275,8 +275,8 @@ export class FeatureinfoResultsComponent implements OnInit, OnDestroy {
    */
   hideFeatureOnMap(feature: Feature<LineString | Polygon | Point>) {
     this.resultsLayer$.pipe(take(1)).subscribe((layer) => {
-      layer.getSource().removeFeature(feature);
-    });
+      layer.getSource().removeFeature(feature)
+    })
   }
 
   /**
@@ -289,8 +289,8 @@ export class FeatureinfoResultsComponent implements OnInit, OnDestroy {
       .pipe(take(1))
       .subscribe((m) => {
         m.getView().fit(feature.getGeometry().getExtent(), {
-          duration: 500,
-        });
-      });
+          duration: 500
+        })
+      })
   }
 }

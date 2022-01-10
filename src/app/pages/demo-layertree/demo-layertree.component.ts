@@ -1,19 +1,18 @@
-import { Component, OnDestroy, OnInit } from '@angular/core';
-import TileLayer from 'ol/layer/Tile';
-import { fromLonLat } from 'ol/proj.js';
-import OSM from 'ol/source/OSM';
-import TileJSON from 'ol/source/TileJSON';
-import TileWMS from 'ol/source/TileWMS';
-import View from 'ol/View';
-import { Subscription } from 'rxjs';
-import { filter, map } from 'rxjs/operators';
+import { Component, OnDestroy, OnInit } from '@angular/core'
+import TileLayer from 'ol/layer/Tile'
+import { fromLonLat } from 'ol/proj.js'
+import OSM from 'ol/source/OSM'
+import TileWMS from 'ol/source/TileWMS'
+import View from 'ol/View'
+import { Subscription } from 'rxjs'
+import { filter, map } from 'rxjs/operators'
 
-import { MangolLayer } from '../../../../projects/mangol/src/lib/classes/Layer';
-import { AppService } from '../../app.service';
-import { MangolLayerGroup } from './../../../../projects/mangol/src/lib/classes/LayerGroup';
-import { MangolConfig } from './../../../../projects/mangol/src/lib/interfaces/config.interface';
-import { MangolService } from './../../../../projects/mangol/src/lib/mangol.service';
-import { code } from './code';
+import { MangolLayer } from '../../../../projects/mangol/src/lib/classes/Layer'
+import { AppService } from '../../app.service'
+import { MangolLayerGroup } from './../../../../projects/mangol/src/lib/classes/LayerGroup'
+import { MangolConfig } from './../../../../projects/mangol/src/lib/interfaces/config.interface'
+import { MangolService } from './../../../../projects/mangol/src/lib/mangol.service'
+import { code } from './code'
 
 @Component({
   selector: 'app-demo-layertree',
@@ -21,31 +20,30 @@ import { code } from './code';
   styleUrls: ['./demo-layertree.component.scss']
 })
 export class DemoLayertreeComponent implements OnInit, OnDestroy {
-  mangolConfig: MangolConfig;
-  sidebarOpenedSubscription: Subscription;
+  mangolConfig: MangolConfig
+  sidebarOpenedSubscription: Subscription
 
-  code = code;
+  code = code
 
   constructor(
     private appService: AppService,
     private mangolService: MangolService
   ) {
-    this.sidebarOpenedSubscription = this.appService.sidebarOpenedSubject.subscribe(
-      opened => {
+    this.sidebarOpenedSubscription =
+      this.appService.sidebarOpenedSubject.subscribe((opened) => {
         if (opened !== null) {
           this.mangolService.mapState$
             .pipe(
-              map(m => m.map),
-              filter(m => m !== null)
+              map((m) => m.map),
+              filter((m) => m !== null)
             )
-            .subscribe(m => {
+            .subscribe((m) => {
               setTimeout(() => {
-                m.updateSize();
-              }, 500);
-            });
+                m.updateSize()
+              }, 500)
+            })
         }
-      }
-    );
+      })
   }
 
   ngOnInit() {
@@ -76,8 +74,7 @@ export class DemoLayertreeComponent implements OnInit, OnDestroy {
                 name: 'Roads',
                 layer: new TileLayer({
                   source: new TileWMS({
-                    url:
-                      'http://188.166.116.137:8080/geoserver/gwc/service/wms',
+                    url: 'http://188.166.116.137:8080/geoserver/gwc/service/wms',
                     crossOrigin: 'anonymous',
                     params: {
                       LAYERS: ['naturalearth:roads'],
@@ -98,8 +95,7 @@ export class DemoLayertreeComponent implements OnInit, OnDestroy {
                       'Lorem ipsum dolor sit amet consectetur adipisicing elit.',
                     layer: new TileLayer({
                       source: new TileWMS({
-                        url:
-                          'http://188.166.116.137:8080/geoserver/gwc/service/wms',
+                        url: 'http://188.166.116.137:8080/geoserver/gwc/service/wms',
                         crossOrigin: 'anonymous',
                         params: {
                           LAYERS: ['naturalearth:countries'],
@@ -115,8 +111,7 @@ export class DemoLayertreeComponent implements OnInit, OnDestroy {
                     name: 'Populated places',
                     layer: new TileLayer({
                       source: new TileWMS({
-                        url:
-                          'http://188.166.116.137:8080/geoserver/gwc/service/wms',
+                        url: 'http://188.166.116.137:8080/geoserver/gwc/service/wms',
                         crossOrigin: 'anonymous',
                         params: {
                           LAYERS: ['naturalearth:populated_places'],
@@ -152,13 +147,13 @@ export class DemoLayertreeComponent implements OnInit, OnDestroy {
           }
         }
       }
-    };
+    }
   }
 
   ngOnDestroy() {
     if (this.sidebarOpenedSubscription) {
-      this.sidebarOpenedSubscription.unsubscribe();
+      this.sidebarOpenedSubscription.unsubscribe()
     }
-    this.mangolService.resetMangolState();
+    this.mangolService.resetMangolState()
   }
 }

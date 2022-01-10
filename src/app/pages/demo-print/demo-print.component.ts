@@ -1,13 +1,13 @@
-import { Component, OnDestroy, OnInit } from '@angular/core';
-import { fromLonLat } from 'ol/proj.js';
-import View from 'ol/View';
-import { Subscription } from 'rxjs';
-import { filter, map } from 'rxjs/operators';
+import { Component, OnDestroy, OnInit } from '@angular/core'
+import { fromLonLat } from 'ol/proj.js'
+import View from 'ol/View'
+import { Subscription } from 'rxjs'
+import { filter, map } from 'rxjs/operators'
 
-import { AppService } from '../../app.service';
-import { MangolConfig } from './../../../../projects/mangol/src/lib/interfaces/config.interface';
-import { MangolService } from './../../../../projects/mangol/src/lib/mangol.service';
-import { code } from './code';
+import { AppService } from '../../app.service'
+import { MangolConfig } from './../../../../projects/mangol/src/lib/interfaces/config.interface'
+import { MangolService } from './../../../../projects/mangol/src/lib/mangol.service'
+import { code } from './code'
 
 @Component({
   selector: 'app-demo-print',
@@ -15,31 +15,30 @@ import { code } from './code';
   styleUrls: ['./demo-print.component.scss']
 })
 export class DemoPrintComponent implements OnInit, OnDestroy {
-  mangolConfig: MangolConfig;
-  sidebarOpenedSubscription: Subscription;
+  mangolConfig: MangolConfig
+  sidebarOpenedSubscription: Subscription
 
-  code = code;
+  code = code
 
   constructor(
     private appService: AppService,
     private mangolService: MangolService
   ) {
-    this.sidebarOpenedSubscription = this.appService.sidebarOpenedSubject.subscribe(
-      opened => {
+    this.sidebarOpenedSubscription =
+      this.appService.sidebarOpenedSubject.subscribe((opened) => {
         if (opened !== null) {
           this.mangolService.mapState$
             .pipe(
-              map(m => m.map),
-              filter(m => m !== null)
+              map((m) => m.map),
+              filter((m) => m !== null)
             )
-            .subscribe(m => {
+            .subscribe((m) => {
               setTimeout(() => {
-                m.updateSize();
-              }, 500);
-            });
+                m.updateSize()
+              }, 500)
+            })
         }
-      }
-    );
+      })
   }
 
   ngOnInit() {
@@ -86,13 +85,13 @@ export class DemoPrintComponent implements OnInit, OnDestroy {
           }
         }
       }
-    };
+    }
   }
 
   ngOnDestroy() {
     if (this.sidebarOpenedSubscription) {
-      this.sidebarOpenedSubscription.unsubscribe();
+      this.sidebarOpenedSubscription.unsubscribe()
     }
-    this.mangolService.resetMangolState();
+    this.mangolService.resetMangolState()
   }
 }

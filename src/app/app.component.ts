@@ -5,23 +5,23 @@ import {
   DoCheck,
   OnDestroy,
   OnInit
-} from '@angular/core';
-import { Router, RouterOutlet } from '@angular/router';
-import { Subscription } from 'rxjs';
+} from '@angular/core'
+import { Router, RouterOutlet } from '@angular/router'
+import { Subscription } from 'rxjs'
 
 import {
   homeButtonStateTrigger,
   routeStateTrigger,
   sidebarButtonStateTrigger
-} from './app.animations';
-import { AppService } from './app.service';
+} from './app.animations'
+import { AppService } from './app.service'
 
 export interface MangolDemoItem {
-  link: string;
-  title: string;
+  link: string
+  title: string
 }
 
-declare var window: any;
+declare let window: any
 
 @Component({
   selector: 'app-root',
@@ -35,29 +35,28 @@ declare var window: any;
   changeDetection: ChangeDetectionStrategy.OnPush
 })
 export class AppComponent implements OnInit, DoCheck, OnDestroy {
-  items: MangolDemoItem[];
-  logo: string;
-  sidebarOpened: boolean;
-  sidebarOpenedSubscription: Subscription;
-  activeRouteData = '/demo-home';
+  items: MangolDemoItem[]
+  logo: string
+  sidebarOpened: boolean
+  sidebarOpenedSubscription: Subscription
+  activeRouteData = '/demo-home'
 
   constructor(
     private cdr: ChangeDetectorRef,
     private appService: AppService,
     private router: Router
   ) {
-    this.sidebarOpenedSubscription = this.appService.sidebarOpenedSubject.subscribe(
-      opened => {
+    this.sidebarOpenedSubscription =
+      this.appService.sidebarOpenedSubject.subscribe((opened) => {
         if (opened !== null) {
-          this.sidebarOpened = opened;
+          this.sidebarOpened = opened
         }
-      }
-    );
+      })
     // this.appService.sidebarOpenedSubject.next(window.innerWidth > 500);
   }
 
   ngOnInit() {
-    this.logo = 'assets/img/logo/mangol_logo.png';
+    this.logo = 'assets/img/logo/mangol_logo.png'
     this.items = [
       {
         link: '/demo-map',
@@ -91,46 +90,46 @@ export class AppComponent implements OnInit, DoCheck, OnDestroy {
         link: '/demo-full',
         title: 'Full functionality'
       }
-    ];
+    ]
   }
 
   ngDoCheck() {
-    this.cdr.detectChanges();
+    this.cdr.detectChanges()
   }
 
   ngOnDestroy() {
     if (this.sidebarOpenedSubscription) {
-      this.sidebarOpenedSubscription.unsubscribe();
+      this.sidebarOpenedSubscription.unsubscribe()
     }
   }
 
   toggleSidebar() {
-    this.appService.sidebarOpenedSubject.next(!this.sidebarOpened);
+    this.appService.sidebarOpenedSubject.next(!this.sidebarOpened)
   }
 
   getAnimationData(outlet: RouterOutlet) {
-    let activeRouteData: string = null;
-    const routeData = outlet.activatedRouteData['animation'];
+    let activeRouteData: string = null
+    const routeData = outlet.activatedRouteData['animation']
     if (!routeData) {
-      activeRouteData = '/demo-home';
+      activeRouteData = '/demo-home'
     } else {
-      activeRouteData = '/' + routeData['page'];
+      activeRouteData = '/' + routeData['page']
     }
-    this.activeRouteData = activeRouteData;
-    return this.activeRouteData;
+    this.activeRouteData = activeRouteData
+    return this.activeRouteData
   }
 
   navigate(item: MangolDemoItem) {
     if (window.innerWidth <= 1000) {
-      this.appService.sidebarOpenedSubject.next(false);
+      this.appService.sidebarOpenedSubject.next(false)
     }
-    this.router.navigate([item.link]);
+    this.router.navigate([item.link])
   }
 
   navigateHome() {
     if (window.innerWidth <= 1000) {
-      this.appService.sidebarOpenedSubject.next(false);
+      this.appService.sidebarOpenedSubject.next(false)
     }
-    this.router.navigate(['/demo-home']);
+    this.router.navigate(['/demo-home'])
   }
 }

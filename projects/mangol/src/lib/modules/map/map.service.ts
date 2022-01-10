@@ -1,21 +1,19 @@
-import { Injectable } from '@angular/core';
-import TileLayer from 'ol/layer/Tile';
-import { fromLonLat } from 'ol/proj.js';
-import OSM from 'ol/source/OSM';
-import View from 'ol/View';
+import { Injectable } from '@angular/core'
+import TileLayer from 'ol/layer/Tile'
+import { fromLonLat } from 'ol/proj.js'
+import OSM from 'ol/source/OSM'
+import View from 'ol/View'
 
-import { MangolLayer } from '../../classes/Layer';
+import { MangolLayer } from '../../classes/Layer'
 
 @Injectable({
   providedIn: 'root'
 })
 export class MapService {
-  constructor() {}
-
   getDefaultMap(): {
-    target: string;
-    layers: MangolLayer[];
-    view: View;
+    target: string
+    layers: MangolLayer[]
+    view: View
   } {
     return {
       target: 'my-map',
@@ -33,6 +31,6 @@ export class MapService {
         zoom: 4,
         enableRotation: true
       })
-    };
+    }
   }
 }
