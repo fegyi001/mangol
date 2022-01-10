@@ -11,6 +11,8 @@ import VectorSource from 'ol/source/Vector'
 import { combineLatest, Observable, Subscription } from 'rxjs'
 import { filter, take } from 'rxjs/operators'
 
+import { MangolConfigMeasureItem } from '../../interfaces/config-toolbar.interface'
+import * as CursorActions from '../../store/cursor/cursor.actions'
 import * as LayerActions from '../../store/layers/layers.actions'
 import * as fromMangol from '../../store/mangol.reducers'
 import * as MeasureActions from '../../store/measure/measure.actions'
@@ -18,8 +20,6 @@ import {
   MeasureDictionary,
   MeasureMode
 } from '../../store/measure/measure.reducers'
-import { MangolConfigMeasureItem } from './../../interfaces/config-toolbar.interface'
-import * as CursorActions from './../../store/cursor/cursor.actions'
 import { MeasureService } from './measure.service'
 
 @Component({

@@ -3,9 +3,9 @@ import { MatSnackBar } from '@angular/material/snack-bar'
 import { Store } from '@ngrx/store'
 import { Subscription } from 'rxjs'
 
+import { MangolControllersPositionStateModel } from '../../../store/controllers/controllers.reducers'
+import * as fromMangol from '../../../store/mangol.reducers'
 import { shownStateTrigger } from '../controllers.animations'
-import { MangolControllersPositionStateModel } from './../../../store/controllers/controllers.reducers'
-import * as fromMangol from './../../../store/mangol.reducers'
 
 @Component({
   selector: 'mangol-position',

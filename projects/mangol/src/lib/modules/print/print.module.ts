@@ -7,7 +7,7 @@ import { MatFormFieldModule } from '@angular/material/form-field'
 import { MatIconModule } from '@angular/material/icon'
 import { MatSelectModule } from '@angular/material/select'
 
-import { SharedModule } from './../_shared/shared/shared.module'
+import { SharedModule } from '../_shared/shared/shared.module'
 import { PrintComponent } from './print.component'
 
 @NgModule({

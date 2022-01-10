@@ -13,7 +13,7 @@ import { MatTableModule } from '@angular/material/table'
 import { MatToolbarModule } from '@angular/material/toolbar'
 import { MatTooltipModule } from '@angular/material/tooltip'
 
-import { SharedModule } from './../_shared/shared/shared.module'
+import { SharedModule } from '../_shared/shared/shared.module'
 import { FeatureinfoResultsComponent } from './components/featureinfo-results/featureinfo-results.component'
 import { FeatureinfoSelectComponent } from './components/featureinfo-select/featureinfo-select.component'
 import { FeatureinfoTableComponent } from './components/featureinfo-table/featureinfo-table.component'

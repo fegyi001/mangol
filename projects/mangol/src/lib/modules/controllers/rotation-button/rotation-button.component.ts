@@ -4,10 +4,10 @@ import View from 'ol/View'
 import { Observable, Subscription } from 'rxjs'
 import { filter, take } from 'rxjs/operators'
 
+import * as ControllersActions from '../../../store/controllers/controllers.actions'
+import { MangolControllersRotationStateModel } from '../../../store/controllers/controllers.reducers'
+import * as fromMangol from '../../../store/mangol.reducers'
 import { shownStateTrigger } from '../controllers.animations'
-import * as ControllersActions from './../../../store/controllers/controllers.actions'
-import { MangolControllersRotationStateModel } from './../../../store/controllers/controllers.reducers'
-import * as fromMangol from './../../../store/mangol.reducers'
 
 @Component({
   selector: 'mangol-rotation-button',

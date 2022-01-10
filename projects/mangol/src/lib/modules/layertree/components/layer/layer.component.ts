@@ -5,11 +5,11 @@ import { Observable, Subscription } from 'rxjs'
 
 import { MangolLayer } from '../../../../classes/Layer'
 import { LayertreeDictionary } from '../../../../store/layertree/layertree.reducers'
+import * as fromMangol from '../../../../store/mangol.reducers'
 import { LayertreeItemNode } from '../../classes/layertree-item-node.class'
 import { LayerDetailItem } from '../../interfaces/layer-detail-item.interface'
 import { layertreeVisibilityIconStateTrigger } from '../../layertree.animations'
 import { LayerDetailsComponent } from '../layer-details/layer-details.component'
-import * as fromMangol from './../../../../store/mangol.reducers'
 
 @Component({
   selector: 'mangol-layer',

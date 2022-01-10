@@ -11,10 +11,10 @@ import { combineLatest, Observable, Subscription } from 'rxjs'
 import { filter, take } from 'rxjs/operators'
 
 import { MangolLayer } from '../../classes/Layer'
+import * as FeatureinfoActions from '../../store/featureinfo/featureinfo.actions'
+import { FeatureinfoDictionary } from '../../store/featureinfo/featureinfo.reducers'
+import * as fromMangol from '../../store/mangol.reducers'
 import { StyleService } from '../_shared/shared/services/style.service'
-import * as FeatureinfoActions from './../../store/featureinfo/featureinfo.actions'
-import { FeatureinfoDictionary } from './../../store/featureinfo/featureinfo.reducers'
-import * as fromMangol from './../../store/mangol.reducers'
 
 @Component({
   selector: 'mangol-featureinfo',

@@ -9,7 +9,7 @@ import Fill from 'ol/style/Fill'
 import Stroke from 'ol/style/Stroke'
 import Style from 'ol/style/Style'
 
-import * as fromMangol from './../../../../store/mangol.reducers'
+import * as fromMangol from '../../../../store/mangol.reducers'
 
 @Injectable({
   providedIn: 'root'

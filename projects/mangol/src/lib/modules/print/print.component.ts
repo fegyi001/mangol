@@ -10,9 +10,9 @@ import {
   MangolConfigPrintItem,
   PrintDictionary
 } from '../../interfaces/config-toolbar.interface'
+import * as fromMangol from '../../store/mangol.reducers'
+import * as PrintActions from '../../store/print/print.actions'
 import { PrintLayout, PrintSize } from '../../store/print/print.reducers'
-import * as fromMangol from './../../store/mangol.reducers'
-import * as PrintActions from './../../store/print/print.actions'
 
 export interface Layout {
   name: string

@@ -11,7 +11,7 @@ import TileImage from 'ol/source/TileImage'
 import TileWMS from 'ol/source/TileWMS'
 import VectorSource from 'ol/source/Vector'
 
-import { MangolLayerOptions } from './../interfaces/config-layers.inteface'
+import { MangolLayerOptions } from '../interfaces/config-layers.inteface'
 
 export class MangolLayer extends BaseLayer {
   public name: string

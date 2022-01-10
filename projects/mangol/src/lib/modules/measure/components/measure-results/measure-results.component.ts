@@ -19,8 +19,8 @@ import { filter, take } from 'rxjs/operators'
 import * as CursorActions from '../../../../store/cursor/cursor.actions'
 import * as fromMangol from '../../../../store/mangol.reducers'
 import { MeasureMode } from '../../../../store/measure/measure.reducers'
+import { MeasureDictionary } from '../../../../store/measure/measure.reducers'
 import { MeasureService } from '../../measure.service'
-import { MeasureDictionary } from './../../../../store/measure/measure.reducers'
 
 @Component({
   selector: 'mangol-measure-results',

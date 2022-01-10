@@ -2,11 +2,11 @@ import { Component, Input, OnDestroy, OnInit } from '@angular/core'
 import { Store } from '@ngrx/store'
 import { Observable, Subscription } from 'rxjs'
 
+import { LayertreeDictionary } from '../../../../store/layertree/layertree.reducers'
+import * as fromMangol from '../../../../store/mangol.reducers'
 import { LayertreeItemNode } from '../../classes/layertree-item-node.class'
+import { LayerGroupDetailItem } from '../../interfaces/layergroup-detail-item.interface'
 import { slideStateTrigger } from '../../layertree.animations'
-import { LayertreeDictionary } from './../../../../store/layertree/layertree.reducers'
-import * as fromMangol from './../../../../store/mangol.reducers'
-import { LayerGroupDetailItem } from './../../interfaces/layergroup-detail-item.interface'
 
 @Component({
   selector: 'mangol-layer-group',

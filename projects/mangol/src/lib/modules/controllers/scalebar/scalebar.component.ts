@@ -5,7 +5,7 @@ import Map from 'ol/Map'
 import { Subscription } from 'rxjs'
 import { filter, take } from 'rxjs/operators'
 
-import * as fromMangol from './../../../store/mangol.reducers'
+import * as fromMangol from '../../../store/mangol.reducers'
 
 @Component({
   selector: 'mangol-scalebar',

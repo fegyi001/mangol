@@ -12,7 +12,7 @@ import TileWMS from 'ol/source/TileWMS'
 import VectorSource from 'ol/source/Vector'
 
 import { MangolLayer } from '../classes/Layer'
-import { MangolLayerGroup } from './../classes/LayerGroup'
+import { MangolLayerGroup } from '../classes/LayerGroup'
 
 export interface MangolConfigLayerColumn {
   name: string

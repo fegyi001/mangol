@@ -12,8 +12,8 @@ import { combineLatest, Observable, Subscription } from 'rxjs'
 import { filter } from 'rxjs/operators'
 
 import { CursorMode } from '../../../interfaces/cursor-mode'
-import * as CursorActions from './../../../store/cursor/cursor.actions'
-import * as fromMangol from './../../../store/mangol.reducers'
+import * as CursorActions from '../../../store/cursor/cursor.actions'
+import * as fromMangol from '../../../store/mangol.reducers'
 
 @Component({
   selector: 'mangol-cursor',

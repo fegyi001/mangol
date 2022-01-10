@@ -4,9 +4,9 @@ import { Store } from '@ngrx/store'
 import { Observable } from 'rxjs'
 
 import { MangolLayer } from '../../../../classes/Layer'
+import * as FeatureinfoActions from '../../../../store/featureinfo/featureinfo.actions'
 import { FeatureinfoDictionary } from '../../../../store/featureinfo/featureinfo.reducers'
-import * as FeatureinfoActions from './../../../../store/featureinfo/featureinfo.actions'
-import * as fromMangol from './../../../../store/mangol.reducers'
+import * as fromMangol from '../../../../store/mangol.reducers'
 
 @Component({
   selector: 'mangol-featureinfo-select',

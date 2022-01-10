@@ -5,7 +5,7 @@ import Polygon from 'ol/geom/Polygon'
 import VectorLayer from 'ol/layer/Vector'
 import VectorSource from 'ol/source/Vector'
 
-import { MangolLayer } from './../../classes/Layer'
+import { MangolLayer } from '../../classes/Layer'
 
 export const SET_LAYERS = '[Layers] Set Layers'
 export const SET_MEASURE_LAYER = '[Layers] Set Measure Layer'

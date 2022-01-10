@@ -3,7 +3,7 @@ import { Store } from '@ngrx/store'
 import { Observable } from 'rxjs'
 
 import { MangolControllersFullScreenOptions } from '../../../interfaces/config-map-controllers.interface'
-import * as fromMangol from './../../../store/mangol.reducers'
+import * as fromMangol from '../../../store/mangol.reducers'
 
 interface FsDocument extends HTMLDocument {
   mozFullScreenElement?: Element

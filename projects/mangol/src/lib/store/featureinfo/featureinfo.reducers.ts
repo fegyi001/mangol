@@ -5,7 +5,7 @@ import Polygon from 'ol/geom/Polygon'
 import VectorLayer from 'ol/layer/Vector'
 import VectorSource from 'ol/source/Vector'
 
-import { MangolLayer } from './../../classes/Layer'
+import { MangolLayer } from '../../classes/Layer'
 import * as FeatureinfoActions from './featureinfo.actions'
 
 export interface FeatureinfoDictionary {

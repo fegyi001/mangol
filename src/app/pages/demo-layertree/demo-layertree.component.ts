@@ -8,10 +8,10 @@ import { Subscription } from 'rxjs'
 import { filter, map } from 'rxjs/operators'
 
 import { MangolLayer } from '../../../../projects/mangol/src/lib/classes/Layer'
+import { MangolLayerGroup } from '../../../../projects/mangol/src/lib/classes/LayerGroup'
+import { MangolConfig } from '../../../../projects/mangol/src/lib/interfaces/config.interface'
+import { MangolService } from '../../../../projects/mangol/src/lib/mangol.service'
 import { AppService } from '../../app.service'
-import { MangolLayerGroup } from './../../../../projects/mangol/src/lib/classes/LayerGroup'
-import { MangolConfig } from './../../../../projects/mangol/src/lib/interfaces/config.interface'
-import { MangolService } from './../../../../projects/mangol/src/lib/mangol.service'
 import { code } from './code'
 
 @Component({

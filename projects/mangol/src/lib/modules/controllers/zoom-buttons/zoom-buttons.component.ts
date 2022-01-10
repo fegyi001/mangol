@@ -4,9 +4,9 @@ import Map from 'ol/Map'
 import { Observable } from 'rxjs'
 import { take } from 'rxjs/operators'
 
+import { MangolControllersZoomOptions } from '../../../interfaces/config-map-controllers.interface'
+import * as fromMangol from '../../../store/mangol.reducers'
 import { shownStateTrigger } from '../controllers.animations'
-import { MangolControllersZoomOptions } from './../../../interfaces/config-map-controllers.interface'
-import * as fromMangol from './../../../store/mangol.reducers'
 
 @Component({
   selector: 'mangol-zoom-buttons',

@@ -5,7 +5,7 @@ import { Subscription } from 'rxjs'
 
 import { MangolLayer } from '../../../../../classes/Layer'
 import { MangolConfig } from '../../../../../interfaces/config.interface'
-import * as fromMangol from './../../../../../store/mangol.reducers'
+import * as fromMangol from '../../../../../store/mangol.reducers'
 
 @Component({
   selector: 'mangol-transparency',

@@ -6,7 +6,7 @@ import Polygon from 'ol/geom/Polygon'
 import VectorLayer from 'ol/layer/Vector'
 import VectorSource from 'ol/source/Vector'
 
-import { MangolLayer } from './../../classes/Layer'
+import { MangolLayer } from '../../classes/Layer'
 import { FeatureinfoDictionary } from './featureinfo.reducers'
 
 export const HAS_FEATUREINFO = '[Featureinfo] Has Featureinfo'

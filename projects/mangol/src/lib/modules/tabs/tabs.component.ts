@@ -9,13 +9,13 @@ import {
   MangolConfigLayertreeItem,
   MangolConfigMeasureItem
 } from '../../interfaces/config-toolbar.interface'
-import { MangolConfigPrintItem } from './../../interfaces/config-toolbar.interface'
-import * as FeatureinfoActions from './../../store/featureinfo/featureinfo.actions'
-import * as LayertreeActions from './../../store/layertree/layertree.actions'
-import * as fromMangol from './../../store/mangol.reducers'
-import * as MeasureActions from './../../store/measure/measure.actions'
-import * as PrintActions from './../../store/print/print.actions'
-import * as SidebarActions from './../../store/sidebar/sidebar.actions'
+import { MangolConfigPrintItem } from '../../interfaces/config-toolbar.interface'
+import * as FeatureinfoActions from '../../store/featureinfo/featureinfo.actions'
+import * as LayertreeActions from '../../store/layertree/layertree.actions'
+import * as fromMangol from '../../store/mangol.reducers'
+import * as MeasureActions from '../../store/measure/measure.actions'
+import * as PrintActions from '../../store/print/print.actions'
+import * as SidebarActions from '../../store/sidebar/sidebar.actions'
 @Component({
   selector: 'mangol-tabs',
   templateUrl: './tabs.component.html',

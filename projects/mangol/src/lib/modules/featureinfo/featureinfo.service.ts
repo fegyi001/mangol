@@ -12,8 +12,8 @@ import TileWMS from 'ol/source/TileWMS'
 import { Observable, throwError } from 'rxjs'
 import { catchError, map, take } from 'rxjs/operators'
 
-import { MangolLayer } from './../../classes/Layer'
-import * as fromMangol from './../../store/mangol.reducers'
+import { MangolLayer } from '../../classes/Layer'
+import * as fromMangol from '../../store/mangol.reducers'
 
 @Injectable({
   providedIn: 'root'

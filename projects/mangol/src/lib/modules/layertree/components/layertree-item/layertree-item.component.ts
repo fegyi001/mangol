@@ -3,8 +3,8 @@ import { Store } from '@ngrx/store'
 import { Observable } from 'rxjs'
 
 import { LayertreeDictionary } from '../../../../store/layertree/layertree.reducers'
+import * as fromMangol from '../../../../store/mangol.reducers'
 import { LayertreeItemNode } from '../../classes/layertree-item-node.class'
-import * as fromMangol from './../../../../store/mangol.reducers'
 
 @Component({
   selector: 'mangol-layertree-item',

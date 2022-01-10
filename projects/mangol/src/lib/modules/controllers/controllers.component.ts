@@ -2,17 +2,17 @@ import { Component, OnDestroy, OnInit } from '@angular/core'
 import { Store } from '@ngrx/store'
 import { Observable, Subscription } from 'rxjs'
 
+import { MangolConfig } from '../../interfaces/config.interface'
 import {
   MangolControllersFullScreenOptions,
   MangolControllersZoomOptions
 } from '../../interfaces/config-map-controllers.interface'
-import { MangolConfig } from './../../interfaces/config.interface'
-import * as ControllersActions from './../../store/controllers/controllers.actions'
+import * as ControllersActions from '../../store/controllers/controllers.actions'
 import {
   MangolControllersPositionStateModel,
   MangolControllersRotationStateModel
-} from './../../store/controllers/controllers.reducers'
-import * as fromMangol from './../../store/mangol.reducers'
+} from '../../store/controllers/controllers.reducers'
+import * as fromMangol from '../../store/mangol.reducers'
 
 @Component({
   selector: 'mangol-controllers',

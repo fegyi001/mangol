@@ -14,12 +14,12 @@ import { combineLatest, Observable, Subscription } from 'rxjs'
 import { filter, map, take } from 'rxjs/operators'
 
 import { MangolLayer } from '../../../../classes/Layer'
+import * as CursorActions from '../../../../store/cursor/cursor.actions'
+import * as FeatureinfoActions from '../../../../store/featureinfo/featureinfo.actions'
 import { FeatureinfoDictionary } from '../../../../store/featureinfo/featureinfo.reducers'
+import * as fromMangol from '../../../../store/mangol.reducers'
 import { FeatureinfoService } from '../../featureinfo.service'
 import { FeatureinfoTableDialogComponent } from '../featureinfo-table-dialog/featureinfo-table-dialog.component'
-import * as CursorActions from './../../../../store/cursor/cursor.actions'
-import * as FeatureinfoActions from './../../../../store/featureinfo/featureinfo.actions'
-import * as fromMangol from './../../../../store/mangol.reducers'
 
 @Component({
   selector: 'mangol-featureinfo-results',
