@@ -5,7 +5,6 @@ import { NgModule } from '@angular/core';
 import { MatButtonModule } from '@angular/material/button';
 import { MatSidenavModule } from '@angular/material/sidenav';
 import { Action, ActionReducer, MetaReducer, StoreModule } from '@ngrx/store';
-import { storeLogger } from 'ngrx-store-logger';
 
 import { MangolComponent } from './mangol.component';
 import { ControllersModule } from './modules/controllers/controllers.module';
@@ -18,25 +17,10 @@ import {
   MangolState,
 } from './store/mangol.reducers';
 
-export function logger(reducer: ActionReducer<MangolState, Action>): any {
-  return storeLogger({
-    collapsed: true,
-    filter: {
-      // whitelist: ['']
-      blacklist: [
-        '[Controllers] Set Position Coordinates',
-        '[Controllers] Set Rotation Value',
-        '[Cursor] Set Mode',
-        '[Cursor] Set Visible',
-      ],
-    },
-  })(reducer);
-}
 
 const mangolMetaReducers: MetaReducer<MangolState>[] = [clearState];
 
 export const metaReducers = [
-  // logger,
   ...mangolMetaReducers,
 ];
 
