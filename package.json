@@ -12,7 +12,9 @@
     "compodoc": "./node_modules/.bin/compodoc projects/mangol -p projects/mangol/tsconfig.lib.json -d ./doc --theme material",
     "copy-readme": "cp README.md projects/mangol",
     "build-lib": "ng build mangol --configuration production && cp -r projects/mangol/src/lib/assets/scss dist/mangol",
-    "build-mangol": "npm run copy-readme && npm run compodoc && npm run build-lib"
+    "build-mangol": "npm run copy-readme && npm run compodoc && npm run build-lib",
+    "prepare": "husky install",
+    "test-headless": "ng test --watch=false --browsers=ChromeHeadless"
   },
   "license": "MIT",
   "private": false,
@@ -89,5 +91,13 @@
     "tsickle": ">=0.43.0",
     "tslib": "^2.3.1",
     "typescript": "~4.4.3"
+  },
+  "lint-staged": {
+    "src/**/*.ts": [
+      "eslint . --fix"
+    ],
+    "src/**/*.scss": [
+      "stylelint --fix"
+    ]
   }
 }

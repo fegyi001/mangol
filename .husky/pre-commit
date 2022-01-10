@@ -1,0 +1,7 @@
+#!/bin/sh
+. "$(dirname "$0")/_/husky.sh"
+
+# Run linters (ts and scss)
+yarn lint-staged
+# Run tests
+# yarn test-headless
