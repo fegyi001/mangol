@@ -1,23 +1,25 @@
-@import "../../../../assets/scss/mangol";
+@import '../../../../assets/scss/mangol';
+
 :host {
-    display: block;
-    padding: 0; // margin-left: 55px;
-    background-color: rgba(0, 0, 0, 0); // border: 1px solid rgba(0, 0, 0, 0.12);
+  background-color: rgba(0, 0, 0, 0); // border: 1px solid rgba(0, 0, 0, 0.12);
+  display: block;
+  padding: 0; // margin-left: 55px;
 }
 
 .mat-toolbar {
-    // background-color: rgba(0, 0, 0, 0.);
-    min-height: 40px;
-    .mat-toolbar-row {
-        height: 40px;
-        padding-right: 0; // padding-left: 0;
-        white-space: initial;
-        font-weight: initial; // font-size: 14px;
-        line-height: initial;
-        font-size: smaller;
-    }
+  // background-color: rgba(0, 0, 0, 0.);
+  min-height: 40px;
+
+  .mat-toolbar-row {
+    font-size: smaller;
+    font-weight: initial; // font-size: 14px;
+    height: 40px;
+    line-height: initial;
+    padding-right: 0; // padding-left: 0;
+    white-space: initial;
+  }
 }
 
 .details-content {
-    padding: 16px;
+  padding: 16px;
 }

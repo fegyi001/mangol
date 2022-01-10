@@ -1,55 +1,58 @@
 :host {
-    display: block;
-    padding: 50px;
-    margin-left: auto;
-    margin-right: auto;
-    text-align: center;
-    @media screen and (max-width: 800px) {
-        padding-top: 40px;
-        padding-bottom: 40px;
-        padding-left: 20px;
-        padding-right: 20px;
-    }
+  display: block;
+  margin-left: auto;
+  margin-right: auto;
+  padding: 50px;
+  text-align: center;
+  @media screen and (max-width: 800px) {
+    padding-bottom: 40px;
+    padding-left: 20px;
+    padding-right: 20px;
+    padding-top: 40px;
+  }
 }
 
 .logo {
-    width: 30%;
-    min-width: 200px;
-    max-width: 300px;
+  max-width: 300px;
+  min-width: 200px;
+  width: 30%;
 }
 
 .title {
-    margin-bottom: 10px;
-    .title-main {
-        font-size: 30px;
-        font-weight: 600;
-    }
-    .title-sub {
-        font-style: italic;
-    }
+  margin-bottom: 10px;
+
+  .title-main {
+    font-size: 30px;
+    font-weight: 600;
+  }
+
+  .title-sub {
+    font-style: italic;
+  }
 }
 
 .badges {
-    a {
-        padding: 5px;
-    }
+  a {
+    padding: 5px;
+  }
 }
 
 .description {
-    margin-top: 3vh;
-    margin-left: auto;
-    margin-right: auto;
-    text-align: justify;
-    width: 70%;
-    @media screen and (max-width: 1000px) {
-        width: 80%;
-    }
-    @media screen and (max-width: 800px) {
-        width: 100%;
-    }
-    min-width: 200px;
-    .center {
-        margin-top: 40px;
-        text-align: center;
-    }
+  margin-left: auto;
+  margin-right: auto;
+  margin-top: 3vh;
+  min-width: 200px;
+  text-align: justify;
+  width: 70%;
+  @media screen and (max-width: 1000px) {
+    width: 80%;
+  }
+  @media screen and (max-width: 800px) {
+    width: 100%;
+  }
+
+  .center {
+    margin-top: 40px;
+    text-align: center;
+  }
 }

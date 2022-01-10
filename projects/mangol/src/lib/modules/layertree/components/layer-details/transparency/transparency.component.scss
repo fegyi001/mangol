@@ -1,9 +1,10 @@
-@import "../../../../../assets/scss/mangol";
+@import '../../../../../assets/scss/mangol';
+
 :host {
-    display: block;
-    font-family: $mangol-font-family;
+  display: block;
+  font-family: $mangol-font-family;
 }
 
 .mat-slider {
-    width: 100%;
+  width: 100%;
 }

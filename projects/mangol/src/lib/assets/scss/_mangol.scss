@@ -1,31 +1,32 @@
-@import "fonts";
-@import "theming";
-@import "variables";
-@import "mixins";
-@import "material";
-@import "ol";
+@import 'fonts';
+@import 'theming';
+@import 'variables';
+@import 'mixins';
+@import 'material';
+@import 'ol';
+
 .spacer {
-    flex: 1 1 auto;
+  flex: 1 1 auto;
 }
 
 .mangol-pointer {
-    cursor: pointer;
+  cursor: pointer;
 }
 
 .only-small-screen {
-    display: none;
-    @media screen and (max-width: 500px) {
-        display: initial;
-    }
+  display: none;
+  @media screen and (max-width: 500px) {
+    display: initial;
+  }
 }
 
 .mangol {
-    .module-container {
-        padding: 20px;
-    }
+  .module-container {
+    padding: 20px;
+  }
 }
 
 .mangol-snackbar {
-    border-bottom-left-radius: 0 !important;
-    border-bottom-right-radius: 0 !important;
+  border-bottom-left-radius: 0 !important;
+  border-bottom-right-radius: 0 !important;
 }

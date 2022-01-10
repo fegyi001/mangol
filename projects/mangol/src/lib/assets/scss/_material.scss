@@ -1,52 +1,60 @@
-@import "theming";
+@import 'theming';
 $grey: rgba(0, 0, 0, 0.2);
 $transition-time: 0.2s;
 $transition: padding-left $transition-time,
-border-left $transition-time,
-color $transition-time;
+  border-left $transition-time,
+  color $transition-time;
+
 .mangol {
-    .mat-tree-node {
-        .mat-expansion-panel {
-            .mat-expansion-panel-header {
-                &.mat-expanded {
-                    color: mat-color($mangol-primary);
-                    font-size: larger;
-                    border-left: 5px solid $grey !important;
-                }
-                transition :$transition;
-            }
-            .mat-expansion-panel-content {
-                border-left: 1px solid $grey !important;
-            }
+  .mat-tree-node {
+    .mat-expansion-panel {
+      .mat-expansion-panel-header {
+        transition: $transition;
+
+        &.mat-expanded {
+          border-left: 5px solid $grey !important;
+          color: mat-color($mangol-primary);
+          font-size: larger;
         }
-        &:hover {
-            .mat-expansion-panel-header {
-                &.mat-expanded {
-                    border-left: 5px solid mat-color($mangol-primary) !important;
-                }
-            }
-            .mat-expansion-panel-content {
-                border-left: 1px solid mat-color($mangol-primary) !important;
-            }
+      }
+
+      .mat-expansion-panel-content {
+        border-left: 1px solid $grey !important;
+      }
+    }
+
+    &:hover {
+      .mat-expansion-panel-header {
+        &.mat-expanded {
+          border-left: 5px solid mat-color($mangol-primary) !important;
         }
+      }
+
+      .mat-expansion-panel-content {
+        border-left: 1px solid mat-color($mangol-primary) !important;
+      }
     }
-    .mat-list-item-content {
-        padding-right: 0 !important;
+  }
+
+  .mat-list-item-content {
+    padding-right: 0 !important;
+  }
+
+  .mangol-tabs {
+    .mat-tab-label {
+      min-width: 100px;
+      padding: 0;
+
+      .mat-tab-label-content {
+        height: 100%;
+        width: 100%;
+      }
     }
-    .mangol-tabs {
-        .mat-tab-label {
-            min-width: 100px;
-            padding: 0;
-            .mat-tab-label-content {
-                width: 100%;
-                height: 100%;
-            }
-        }
-    }
+  }
 }
 
 .mangol-dialog {
-    .mat-dialog-container {
-        padding: 0;
-    }
+  .mat-dialog-container {
+    padding: 0;
+  }
 }

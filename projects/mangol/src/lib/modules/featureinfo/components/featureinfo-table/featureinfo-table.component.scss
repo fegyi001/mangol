@@ -1,13 +1,14 @@
 :host {
-    display: block;
+  display: block;
 }
 
 table {
-    width: 100%;
-    td.mat-cell:last-child,
-    td.mat-footer-cell:last-child,
-    th.mat-header-cell:last-child {
-        display: table-cell;
-        word-break: break-word;
-    }
+  width: 100%;
+
+  td.mat-cell:last-child,
+  td.mat-footer-cell:last-child,
+  th.mat-header-cell:last-child {
+    display: table-cell;
+    word-break: break-word;
+  }
 }

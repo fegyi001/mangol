@@ -1,18 +1,19 @@
-@import "../../assets/scss/mangol";
+@import '../../assets/scss/mangol';
+
 :host {
-    display: block;
+  display: block;
 }
 
 .elements-left {
-    left: 20px;
-    top: 20px;
-    position: absolute;
-    z-index: 10;
+  left: 20px;
+  position: absolute;
+  top: 20px;
+  z-index: 10;
 }
 
 .elements-right {
-    position: absolute;
-    z-index: 10;
-    bottom: 20px;
-    right: 20px;
+  bottom: 20px;
+  position: absolute;
+  right: 20px;
+  z-index: 10;
 }

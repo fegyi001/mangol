@@ -6,7 +6,7 @@ $mangol-sidebar-width: 450px;
 $mangol-font-family: Roboto;
 
 @if not variable-exists(mangol-theme) {
-    $mangol-theme: mat-light-theme(mat-palette($mat-blue), mat-palette($mat-red), mat-palette($mat-deep-orange));
+  $mangol-theme: mat-light-theme(mat-palette($mat-blue), mat-palette($mat-red), mat-palette($mat-deep-orange));
 }
 
 @include angular-material-theme($mangol-theme);
@@ -16,10 +16,10 @@ $mangol-warn: map-get($mangol-theme, warn);
 
 // Sidebar width
 @if not variable-exists(mangol-sidebar-width) {
-    $mangol-sidebar-width: 450px;
+  $mangol-sidebar-width: 450px;
 }
 
 // Font family
 @if not variable-exists(mangol-font-family) {
-    $mangol-font-family: Roboto;
+  $mangol-font-family: Roboto;
 }

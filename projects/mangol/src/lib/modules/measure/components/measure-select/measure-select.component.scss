@@ -1,17 +1,17 @@
-@import "../../../../assets/scss/mangol";
+@import '../../../../assets/scss/mangol';
 
 :host {
-    display: block;
+  display: block;
 }
 
 .mat-select {
-    padding: 20px;
-    width: calc(100% - 40px);
+  padding: 20px;
+  width: calc(100% - 40px);
 }
 
 .ms {
-    &.mat-icon {
-        @include mat-icon-size(18px);
-        margin-left: 5px;
-    }
+  &.mat-icon {
+    @include mat-icon-size(18px);
+    margin-left: 5px;
+  }
 }

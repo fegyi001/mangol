@@ -1,32 +1,31 @@
 :host {
-    display: block;
+  display: block;
 }
 
 .mat-select {
-    padding: 20px;
-    width: calc(100% - 40px);
-    margin-bottom: 20px;
+  margin-bottom: 20px;
+  padding: 20px;
+  width: calc(100% - 40px);
 }
 
-
 button {
-    margin-top: 10px;
-    width: 100%;
+  margin-top: 10px;
+  width: 100%;
 }
 
 .rotate-infinite {
-    animation-name: rotate;
-    animation-duration: 1.5s;
-    animation-iteration-count: infinite;
-    animation-timing-function: linear;
+  animation-duration: 1.5s;
+  animation-iteration-count: infinite;
+  animation-name: rotate;
+  animation-timing-function: linear;
 }
 
 @keyframes rotate {
-    from {
-        transform: rotate(0deg);
-    }
+  from {
+    transform: rotate(0deg);
+  }
 
-    to {
-        transform: rotate(360deg);
-    }
+  to {
+    transform: rotate(360deg);
+  }
 }

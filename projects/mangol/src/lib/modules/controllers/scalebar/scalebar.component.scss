@@ -1,23 +1,24 @@
 :host {
-    display: block;
-    position: relative;
+  display: block;
+  position: relative;
 }
 
 .ol-scale-line {
-    position: relative;
-    background-color: rgba(0, 0, 0, 0);
-    bottom: initial;
-    left: initial;
-    padding: initial;
-    .ol-scale-line-inner {
-        font-family: 'Roboto Mono', monospace;
-        font-weight: 300;
-        font-size: 13px;
-        border: 1px solid white;
-        border-top: none;
-        border-left: none;
-        border-right: none;
-        color: white;
-        margin: initial;
-    }
+  background-color: rgba(0, 0, 0, 0);
+  bottom: initial;
+  left: initial;
+  padding: initial;
+  position: relative;
+
+  .ol-scale-line-inner {
+    border: 1px solid #fff;
+    border-left: 0;
+    border-right: 0;
+    border-top: 0;
+    color: #fff;
+    font-family: 'Roboto Mono', monospace;
+    font-size: 13px;
+    font-weight: 300;
+    margin: initial;
+  }
 }

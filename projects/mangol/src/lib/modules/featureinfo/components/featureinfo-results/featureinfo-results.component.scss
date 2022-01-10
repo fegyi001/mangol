@@ -1,23 +1,23 @@
 :host {
-    display: block;
-    margin-top: 40px;
+  display: block;
+  margin-top: 40px;
 }
 
 .mat-accordion {
-    display: block;
-    margin-bottom: 20px;
+  display: block;
+  margin-bottom: 20px;
 }
 
 button {
-    width: 100%;
+  width: 100%;
 }
 
 .mat-expansion-panel-header-title,
 .mat-expansion-panel-header-description {
-    flex-basis: 0;
+  flex-basis: 0;
 }
 
 .mat-expansion-panel-header-description {
-    justify-content: space-between;
-    align-items: center;
+  align-items: center;
+  justify-content: space-between;
 }
